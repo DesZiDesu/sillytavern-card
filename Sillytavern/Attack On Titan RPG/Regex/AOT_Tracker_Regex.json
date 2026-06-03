@@ -1,0 +1,18 @@
+{
+    "id": "e5c9f8a3-7b2d-4e91-a6c8-9f1b3d4e8c52",
+    "scriptName": "AOT Tracker",
+    "findRegex": "/\\[TRACK\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\]/g",
+    "replaceString": "<div style=\"max-width:520px;margin:0 auto 16px auto;background:#000000;border:1px solid #262626;color:#e8e8e8;font-family:'Inter','Helvetica Neue',Arial,sans-serif;line-height:1.5;\">\n\n  <div style=\"padding:12px 18px;border-bottom:1px solid #1f1f1f;display:flex;justify-content:space-between;align-items:center;\">\n    <span style=\"font-size:10px;letter-spacing:2.5px;color:#8a8a8a;text-transform:uppercase;font-weight:600;\">Field Log</span>\n    <span style=\"font-size:12px;color:#ffffff;font-weight:500;letter-spacing:1px;\">$5</span>\n  </div>\n\n  <div style=\"padding:14px 18px;display:grid;grid-template-columns:78px 1fr;gap:10px 16px;font-size:12.5px;align-items:baseline;\">\n    <span style=\"color:#8a8a8a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;\">Date</span>\n    <span style=\"color:#ffffff;\">$1 &middot; $2</span>\n\n    <span style=\"color:#8a8a8a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;\">Arc</span>\n    <span style=\"color:#ffffff;\">$6</span>\n\n    <span style=\"color:#8a8a8a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;\">Weather</span>\n    <span style=\"color:#ffffff;\">$3 &middot; $4</span>\n  </div>\n\n  <div style=\"padding:14px 18px;border-top:1px solid #1f1f1f;\">\n    <div style=\"color:#8a8a8a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:6px;\">Position</div>\n    <div style=\"color:#e8e8e8;font-size:13px;line-height:1.55;\">$7</div>\n  </div>\n\n  <div style=\"padding:14px 18px;border-top:1px solid #1f1f1f;\">\n    <div style=\"color:#8a8a8a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:6px;\">Situation</div>\n    <div style=\"color:#e8e8e8;font-size:13px;line-height:1.55;\">$8</div>\n  </div>\n\n</div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
