@@ -168,7 +168,17 @@
                 "whisper",
                 "murmur",
                 "reply",
-                "answer"
+                "answer",
+                "พูด",
+                "คุย",
+                "บอก",
+                "กล่าว",
+                "ตอบ",
+                "ตะโกน",
+                "กระซิบ",
+                "สนทนา",
+                "บทสนทนา",
+                "พูดว่า"
             ],
             "keysecondary": [],
             "comment": "Dialogues",
@@ -224,7 +234,12 @@
                 "the world",
                 "world map",
                 "cube world",
-                "shape of the world"
+                "shape of the world",
+                "โลกหกด้าน",
+                "โลกหกหน้า",
+                "แผนที่โลก",
+                "โลกใบนี้",
+                "ร็อคุเม็น"
             ],
             "keysecondary": [],
             "comment": "World — The Six-Faced World",
@@ -274,7 +289,9 @@
         "5": {
             "uid": 5,
             "key": [
-                "central continent"
+                "central continent",
+                "ทวีปกลาง",
+                "ทวีปเซ็นทรัล"
             ],
             "keysecondary": [],
             "comment": "Continent — Central Continent",
@@ -324,7 +341,10 @@
         "6": {
             "uid": 6,
             "key": [
-                "demon continent"
+                "demon continent",
+                "ทวีปปีศาจ",
+                "ทวีปมาร",
+                "ทวีปอสูร"
             ],
             "keysecondary": [],
             "comment": "Continent — Demon Continent",
@@ -374,7 +394,8 @@
         "7": {
             "uid": 7,
             "key": [
-                "millis continent"
+                "millis continent",
+                "ทวีปมิลลิส"
             ],
             "keysecondary": [],
             "comment": "Continent — Millis Continent",
@@ -425,7 +446,10 @@
             "uid": 8,
             "key": [
                 "begaritt",
-                "begarit"
+                "begarit",
+                "ทวีปเบกาลิต",
+                "เบกาลิต",
+                "เบการิต"
             ],
             "keysecondary": [],
             "comment": "Continent — Begaritt Continent",
@@ -480,7 +504,11 @@
                 "floating fortress",
                 "floating castle",
                 "perugius castle",
-                "armored dragon castle"
+                "armored dragon castle",
+                "ปราสาทลอยฟ้า",
+                "ปราสาทบนฟ้า",
+                "ป้อมลอยฟ้า",
+                "ปราสาทเปรูกิอุส"
             ],
             "keysecondary": [],
             "comment": "Place — Sky Castle (Chaos Breaker)",
@@ -533,7 +561,10 @@
                 "asura",
                 "asura kingdom",
                 "kingdom of asura",
-                "asuran"
+                "asuran",
+                "อาสุระ",
+                "อาณาจักรอาสุระ",
+                "ราชอาณาจักรอาสุระ"
             ],
             "keysecondary": [],
             "comment": "Nation — Kingdom of Asura",
@@ -585,7 +616,10 @@
             "key": [
                 "fittoa",
                 "fittoa region",
-                "fedoa"
+                "fedoa",
+                "ฟิตโตอา",
+                "เขตฟิตโตอา",
+                "แคว้นฟิตโตอา"
             ],
             "keysecondary": [],
             "comment": "Region — Fittoa Region",
@@ -638,7 +672,11 @@
                 "shirone",
                 "shirone kingdom",
                 "north shirone",
-                "south shirone"
+                "south shirone",
+                "ชิโรเน",
+                "อาณาจักรชิโรเน",
+                "ชิโรเนเหนือ",
+                "ชิโรเนใต้"
             ],
             "keysecondary": [],
             "comment": "Nation — Kingdom of Shirone",
@@ -692,7 +730,11 @@
                 "magic triumvirate",
                 "triumvirate",
                 "ranoa kingdom",
-                "magic kingdom"
+                "magic kingdom",
+                "รานัว",
+                "รานอา",
+                "สามอาณาจักรเวทมนตร์",
+                "อาณาจักรเวทมนตร์"
             ],
             "keysecondary": [],
             "comment": "Nation — Magic Triumvirate & Ranoa",
@@ -745,7 +787,10 @@
                 "holy country of millis",
                 "millis kingdom",
                 "kingdom of millis",
-                "millis country"
+                "millis country",
+                "ดินแดนศักดิ์สิทธิ์มิลลิส",
+                "ประเทศมิลลิส",
+                "อาณาจักรมิลลิส"
             ],
             "keysecondary": [],
             "comment": "Nation — Holy Country of Millis",
@@ -797,7 +842,9 @@
             "key": [
                 "biheiril",
                 "biheiril kingdom",
-                "biheril"
+                "biheril",
+                "บิเฮริล",
+                "อาณาจักรบิเฮริล"
             ],
             "keysecondary": [],
             "comment": "Nation — Biheiril Kingdom",
@@ -851,7 +898,10 @@
                 "sword sanctuary",
                 "sword holy land",
                 "holy land of the sword",
-                "sword god temple"
+                "sword god temple",
+                "ดินแดนศักดิ์สิทธิ์แห่งดาบ",
+                "แดนศักดิ์สิทธิ์ดาบ",
+                "สถานศักดิ์สิทธิ์ดาบ"
             ],
             "keysecondary": [],
             "comment": "Place — Holy Land of the Sword",
@@ -902,7 +952,9 @@
             "uid": 17,
             "key": [
                 "roa",
-                "city of roa"
+                "city of roa",
+                "โรอา",
+                "เมืองโรอา"
             ],
             "keysecondary": [],
             "comment": "City — Roa (Fittoa)",
@@ -955,7 +1007,9 @@
                 "buena village",
                 "buena",
                 "buina village",
-                "buina"
+                "buina",
+                "หมู่บ้านบูเอนา",
+                "บูเอนา"
             ],
             "keysecondary": [],
             "comment": "Village — Buena Village",
@@ -1007,7 +1061,10 @@
             "key": [
                 "sharia",
                 "magic city",
-                "magic city of sharia"
+                "magic city of sharia",
+                "ชาเรีย",
+                "เมืองเวทมนตร์",
+                "นครเวทมนตร์"
             ],
             "keysecondary": [],
             "comment": "City — Magic City of Sharia",
@@ -1062,7 +1119,11 @@
                 "magic academy",
                 "university of magic",
                 "magic school",
-                "the academy"
+                "the academy",
+                "มหาวิทยาลัยรานัว",
+                "มหาวิทยาลัยเวทมนตร์",
+                "โรงเรียนเวทมนตร์",
+                "สถาบันเวทมนตร์"
             ],
             "keysecondary": [],
             "comment": "Institution — Ranoa University of Magic",
@@ -1113,7 +1174,8 @@
             "uid": 21,
             "key": [
                 "rikarisu",
-                "rikaris"
+                "rikaris",
+                "ริคาริสุ"
             ],
             "keysecondary": [],
             "comment": "Town — Rikarisu",
@@ -1164,7 +1226,10 @@
             "uid": 22,
             "key": [
                 "wind port",
-                "windport"
+                "windport",
+                "ท่าเรือลม",
+                "วินด์พอร์ต",
+                "เมืองท่าลม"
             ],
             "keysecondary": [],
             "comment": "Town — Wind Port",
@@ -1215,7 +1280,9 @@
             "uid": 23,
             "key": [
                 "westport",
-                "west port"
+                "west port",
+                "เวสต์พอร์ต",
+                "ท่าเรือตะวันตก"
             ],
             "keysecondary": [],
             "comment": "City — Westport",
@@ -1267,7 +1334,9 @@
             "key": [
                 "millishion",
                 "holy capital",
-                "milishion"
+                "milishion",
+                "มิลลิชิออน",
+                "เมืองหลวงศักดิ์สิทธิ์"
             ],
             "keysecondary": [],
             "comment": "City — Millishion",
@@ -1317,7 +1386,10 @@
         "25": {
             "uid": 25,
             "key": [
-                "great forest"
+                "great forest",
+                "ป่าใหญ่",
+                "มหาป่า",
+                "ป่าศักดิ์สิทธิ์"
             ],
             "keysecondary": [],
             "comment": "Place — The Great Forest",
@@ -1369,7 +1441,10 @@
             "key": [
                 "doldia",
                 "doldia village",
-                "dedoldia village"
+                "dedoldia village",
+                "หมู่บ้านโดลเดีย",
+                "โดลเดีย",
+                "เดดอลเดีย"
             ],
             "keysecondary": [],
             "comment": "Village — Doldia Village",
@@ -1419,7 +1494,8 @@
         "27": {
             "uid": 27,
             "key": [
-                "migurd village"
+                "migurd village",
+                "หมู่บ้านมิเกิร์ด"
             ],
             "keysecondary": [],
             "comment": "Village — Migurd Village",
@@ -1472,7 +1548,10 @@
                 "royal capital",
                 "capital of asura",
                 "asura capital",
-                "asuran capital"
+                "asuran capital",
+                "เมืองหลวงอาสุระ",
+                "ราชธานี",
+                "เมืองหลวง"
             ],
             "keysecondary": [],
             "comment": "City — Royal Capital of Asura",
@@ -1526,7 +1605,11 @@
                 "great labyrinth",
                 "the labyrinth",
                 "labyrinth",
-                "dungeon"
+                "dungeon",
+                "เขาวงกต",
+                "ดันเจี้ยน",
+                "เขาวงกตวาร์ป",
+                "เขาวงกตใหญ่"
             ],
             "keysecondary": [],
             "comment": "Place — The Great Labyrinth (Begaritt)",
@@ -1581,7 +1664,11 @@
                 "magic capacity",
                 "mana pool",
                 "magic system",
-                "how magic works"
+                "how magic works",
+                "มานา",
+                "พลังเวท",
+                "พลังเวทมนตร์",
+                "ระบบเวทมนตร์"
             ],
             "keysecondary": [],
             "comment": "Magic — Mana & Magic Power",
@@ -1637,7 +1724,13 @@
                 "fire magic",
                 "wind magic",
                 "earth magic",
-                "offensive magic"
+                "offensive magic",
+                "เวทโจมตี",
+                "เวทธาตุ",
+                "เวทน้ำ",
+                "เวทไฟ",
+                "เวทลม",
+                "เวทดิน"
             ],
             "keysecondary": [],
             "comment": "Magic — Attack (Elemental) Magic",
@@ -1690,7 +1783,11 @@
                 "healing magic",
                 "heal magic",
                 "healer",
-                "restoration magic"
+                "restoration magic",
+                "เวทรักษา",
+                "เวทเยียวยา",
+                "ฮีล",
+                "นักรักษา"
             ],
             "keysecondary": [],
             "comment": "Magic — Healing Magic",
@@ -1744,7 +1841,10 @@
                 "detox magic",
                 "poison cure",
                 "antidote magic",
-                "cure poison"
+                "cure poison",
+                "เวทถอนพิษ",
+                "ถอนพิษ",
+                "แก้พิษ"
             ],
             "keysecondary": [],
             "comment": "Magic — Detoxification Magic",
@@ -1797,7 +1897,10 @@
                 "summoning magic",
                 "summon magic",
                 "summoner",
-                "conjuration"
+                "conjuration",
+                "เวทอัญเชิญ",
+                "อัญเชิญ",
+                "เรียกภูต"
             ],
             "keysecondary": [],
             "comment": "Magic — Summoning Magic",
@@ -1850,7 +1953,10 @@
                 "cursed magic",
                 "curse magic",
                 "curses",
-                "hex magic"
+                "hex magic",
+                "เวทคำสาป",
+                "คำสาป",
+                "สาป"
             ],
             "keysecondary": [],
             "comment": "Magic — Cursed Magic",
@@ -1901,7 +2007,9 @@
             "uid": 36,
             "key": [
                 "formless magic",
-                "formless"
+                "formless",
+                "เวทไร้รูป",
+                "เวทไร้รูปแบบ"
             ],
             "keysecondary": [],
             "comment": "Magic — Formless Magic",
@@ -1960,7 +2068,14 @@
                 "intermediate magic",
                 "advanced magic",
                 "novice magic",
-                "mage rank"
+                "mage rank",
+                "ระดับเวทมนตร์",
+                "ขั้นเวทมนตร์",
+                "เวทระดับเซนต์",
+                "เวทระดับราชา",
+                "เวทระดับจักรพรรดิ",
+                "เวทระดับเทพ",
+                "ระดับนักเวท"
             ],
             "keysecondary": [],
             "comment": "Magic — Tiers & Ranks",
@@ -2016,7 +2131,11 @@
                 "silent casting",
                 "no incantation",
                 "incantationless",
-                "without chant"
+                "without chant",
+                "ไร้คาถา",
+                "ไม่ร่ายคาถา",
+                "เวทไร้คาถา",
+                "ร่ายเงียบ"
             ],
             "keysecondary": [],
             "comment": "Magic — Chant-less Casting",
@@ -2070,7 +2189,12 @@
                 "magic circle",
                 "teleportation",
                 "teleport magic",
-                "transport circle"
+                "transport circle",
+                "วงเวทเทเลพอร์ต",
+                "วงเวท",
+                "เทเลพอร์ต",
+                "วาร์ป",
+                "การวาร์ป"
             ],
             "keysecondary": [],
             "comment": "Magic — Teleport & Magic Circles",
@@ -2126,7 +2250,12 @@
                 "magic armor",
                 "magic armour",
                 "enchanted item",
-                "magic device"
+                "magic device",
+                "ไอเทมเวท",
+                "เครื่องมือเวท",
+                "อาวุธเวท",
+                "สิ่งประดิษฐ์เวท",
+                "เกราะเวท"
             ],
             "keysecondary": [],
             "comment": "Magic — Magic Items & Artifacts",
@@ -2179,7 +2308,10 @@
                 "sword god style",
                 "kenshin",
                 "kenshin-ryu",
-                "sword god school"
+                "sword god school",
+                "สำนักเทพดาบ",
+                "วิชาเทพดาบ",
+                "ดาบเทพ"
             ],
             "keysecondary": [],
             "comment": "Technique — Sword God Style",
@@ -2232,7 +2364,9 @@
                 "water god style",
                 "suijin",
                 "suijin-ryu",
-                "water god school"
+                "water god school",
+                "สำนักเทพน้ำ",
+                "วิชาเทพน้ำ"
             ],
             "keysecondary": [],
             "comment": "Technique — Water God Style",
@@ -2285,7 +2419,9 @@
                 "north god style",
                 "hokushin",
                 "hokushin-ryu",
-                "north god school"
+                "north god school",
+                "สำนักเทพเหนือ",
+                "วิชาเทพเหนือ"
             ],
             "keysecondary": [],
             "comment": "Technique — North God Style",
@@ -2342,7 +2478,12 @@
                 "north king",
                 "water emperor",
                 "warrior rank",
-                "martial rank"
+                "martial rank",
+                "ราชาดาบ",
+                "จักรพรรดิดาบ",
+                "เทพดาบ",
+                "ระดับนักดาบ",
+                "ขั้นนักรบ"
             ],
             "keysecondary": [],
             "comment": "Technique — Combat Ranks",
@@ -2396,7 +2537,10 @@
                 "adventurers guild",
                 "adventurer's guild",
                 "the guild",
-                "guild hall"
+                "guild hall",
+                "สมาคมนักผจญภัย",
+                "กิลด์",
+                "กิลด์นักผจญภัย"
             ],
             "keysecondary": [],
             "comment": "Org — Adventurer's Guild",
@@ -2453,7 +2597,11 @@
                 "a-rank",
                 "b-rank",
                 "rank up",
-                "s rank adventurer"
+                "s rank adventurer",
+                "ระดับนักผจญภัย",
+                "แรงค์",
+                "การ์ดนักผจญภัย",
+                "แรงค์เอส"
             ],
             "keysecondary": [],
             "comment": "Org — Adventurer Ranks",
@@ -2508,7 +2656,11 @@
                 "millis faith",
                 "the pope",
                 "millis religion",
-                "millis god"
+                "millis god",
+                "โบสถ์มิลลิส",
+                "ศาสนจักรมิลลิส",
+                "สันตะปาปา",
+                "ศาสนามิลลิส"
             ],
             "keysecondary": [],
             "comment": "Org — The Millis Church",
@@ -2563,7 +2715,11 @@
                 "world powers",
                 "great powers",
                 "seven powers",
-                "strongest beings"
+                "strongest beings",
+                "เจ็ดมหาอำนาจ",
+                "เจ็ดมหาอำนาจโลก",
+                "มหาอำนาจโลก",
+                "ผู้แข็งแกร่งที่สุด"
             ],
             "keysecondary": [],
             "comment": "Lore — The Seven Great World Powers",
@@ -2617,7 +2773,10 @@
                 "apostles",
                 "hitogami's apostle",
                 "man-god's apostle",
-                "chosen of hitogami"
+                "chosen of hitogami",
+                "สาวก",
+                "สาวกของฮิโตกามิ",
+                "ผู้ถูกเลือก"
             ],
             "keysecondary": [],
             "comment": "Lore — Hitogami's Apostles",
@@ -2669,7 +2828,9 @@
             "key": [
                 "human race",
                 "humans",
-                "human kingdoms"
+                "human kingdoms",
+                "เผ่ามนุษย์",
+                "มนุษย์"
             ],
             "keysecondary": [],
             "comment": "Race — Human Race",
@@ -2722,7 +2883,10 @@
                 "demon race",
                 "demons",
                 "demonkind",
-                "demon folk"
+                "demon folk",
+                "เผ่าปีศาจ",
+                "เผ่ามาร",
+                "เผ่าอสูร"
             ],
             "keysecondary": [],
             "comment": "Race — Demon Race",
@@ -2777,7 +2941,11 @@
                 "beastman",
                 "beastmen",
                 "beast people",
-                "beastkin"
+                "beastkin",
+                "เผ่าสัตว์",
+                "มนุษย์สัตว์",
+                "เผ่าบีสต์",
+                "คนเผ่าสัตว์"
             ],
             "keysecondary": [],
             "comment": "Race — Beast Race",
@@ -2829,7 +2997,9 @@
             "key": [
                 "migurd race",
                 "migurd",
-                "migurds"
+                "migurds",
+                "เผ่ามิเกิร์ด",
+                "มิเกิร์ด"
             ],
             "keysecondary": [],
             "comment": "Race — Migurd",
@@ -2883,7 +3053,10 @@
                 "superdia",
                 "dead end race",
                 "green-haired demon",
-                "superd race"
+                "superd race",
+                "เผ่าซูเปอร์ด",
+                "ซูเปอร์ด",
+                "เดดเอนด์"
             ],
             "keysecondary": [],
             "comment": "Race — Superd (Superdia)",
@@ -2939,7 +3112,11 @@
                 "dwarves",
                 "hobbit",
                 "halfling",
-                "long-eared"
+                "long-eared",
+                "เอลฟ์",
+                "คนแคระ",
+                "ดวอร์ฟ",
+                "ฮอบบิท"
             ],
             "keysecondary": [],
             "comment": "Race — Elf, Dwarf & Hobbit",
@@ -2992,7 +3169,10 @@
                 "immortal demon",
                 "immortal demon king",
                 "deathless demon",
-                "immortal race"
+                "immortal race",
+                "ปีศาจอมตะ",
+                "ราชาปีศาจอมตะ",
+                "เผ่าอมตะ"
             ],
             "keysecondary": [],
             "comment": "Race — Immortal Demon Race",
@@ -3045,7 +3225,10 @@
                 "dragon race",
                 "dragon clan",
                 "dragons",
-                "dragon god race"
+                "dragon god race",
+                "เผ่ามังกร",
+                "มังกร",
+                "เทพมังกร"
             ],
             "keysecondary": [],
             "comment": "Race — Dragon Race",
@@ -3098,7 +3281,10 @@
                 "laplace factor",
                 "green hair",
                 "laplace blood",
-                "green-haired"
+                "green-haired",
+                "ปัจจัยลาปลาส",
+                "ผมเขียว",
+                "ผมสีเขียว"
             ],
             "keysecondary": [],
             "comment": "Lore — The Laplace Factor",
@@ -3152,7 +3338,10 @@
                 "laplace war",
                 "great war",
                 "laplace's war",
-                "four hundred years ago"
+                "four hundred years ago",
+                "สงครามลาปลาส",
+                "มหาสงคราม",
+                "สงครามครั้งใหญ่"
             ],
             "keysecondary": [],
             "comment": "History — The Laplace Campaign",
@@ -3207,7 +3396,11 @@
                 "fittoa disaster",
                 "teleportation incident",
                 "mana storm",
-                "the calamity"
+                "the calamity",
+                "เหตุการณ์วาร์ป",
+                "ภัยพิบัติมานา",
+                "หายนะมานา",
+                "เหตุการณ์เทเลพอร์ต"
             ],
             "keysecondary": [],
             "comment": "History — The Teleport Incident",
@@ -3262,7 +3455,11 @@
                 "calendar",
                 "what year",
                 "current year",
-                "dating system"
+                "dating system",
+                "ศักราชมังกรเกราะ",
+                "ปฏิทินมังกรเกราะ",
+                "ปีปัจจุบัน",
+                "ตอนนี้ปีอะไร"
             ],
             "keysecondary": [],
             "comment": "Lore — Armored Dragon Calendar",
@@ -3316,7 +3513,10 @@
                 "man-god",
                 "man god",
                 "the man-god",
-                "white-robed god"
+                "white-robed god",
+                "ฮิโตกามิ",
+                "มนุษย์เทพ",
+                "เทพมนุษย์"
             ],
             "keysecondary": [],
             "comment": "Lore — Hitogami, the Man-God",
@@ -3368,7 +3568,9 @@
             "key": [
                 "orsted",
                 "dragon god",
-                "the dragon god"
+                "the dragon god",
+                "ออร์สเตด",
+                "เทพมังกร"
             ],
             "keysecondary": [],
             "comment": "Lore — Orsted, the Dragon God",
@@ -3420,7 +3622,10 @@
             "key": [
                 "demon god",
                 "laplace",
-                "demon god laplace"
+                "demon god laplace",
+                "เทพปีศาจ",
+                "ลาปลาส",
+                "จอมมารลาปลาส"
             ],
             "keysecondary": [],
             "comment": "Lore — Demon God Laplace",
@@ -3477,7 +3682,13 @@
                 "another world",
                 "isekai",
                 "reborn",
-                "earth"
+                "earth",
+                "กลับชาติมาเกิด",
+                "การเกิดใหม่",
+                "ผู้มาจากต่างโลก",
+                "ถูกอัญเชิญ",
+                "ต่างโลก",
+                "โลกเดิม"
             ],
             "keysecondary": [],
             "comment": "Lore — Reincarnation & Otherworlders",
@@ -3533,7 +3744,12 @@
                 "foresight",
                 "magic eye",
                 "cursed eye",
-                "special eye"
+                "special eye",
+                "ดวงตาปีศาจ",
+                "ตาปีศาจ",
+                "ดวงตาแห่งการหยั่งรู้",
+                "ตาหยั่งรู้",
+                "ตาเวท"
             ],
             "keysecondary": [],
             "comment": "Lore — Demon Eyes",
@@ -3590,7 +3806,13 @@
                 "gold coin",
                 "silver coin",
                 "payment",
-                "cost"
+                "cost",
+                "เงินตรา",
+                "เหรียญ",
+                "เหรียญทอง",
+                "เหรียญเงิน",
+                "ค่าใช้จ่าย",
+                "ราคา"
             ],
             "keysecondary": [],
             "comment": "Lore — Currency & Trade",
@@ -3643,7 +3865,10 @@
                 "holy beast",
                 "sacred beast",
                 "great holy beast",
-                "guardian beast"
+                "guardian beast",
+                "สัตว์ศักดิ์สิทธิ์",
+                "อสูรศักดิ์สิทธิ์",
+                "สัตว์เทพ"
             ],
             "keysecondary": [],
             "comment": "Lore — The Great Holy Beast",
