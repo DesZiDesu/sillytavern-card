@@ -1,0 +1,18 @@
+{
+    "id": "a1c4e8b2-6d3f-4a72-9b1e-5c8d2f7a4e90",
+    "scriptName": "AOT Kill Count",
+    "findRegex": "/\\[KILLS\\|(.*?)\\|(.*?)\\]/g",
+    "replaceString": "<div style=\"max-width:520px;margin:0 auto 16px auto;background:#000000;border:1px solid #262626;color:#e8e8e8;font-family:'Inter','Helvetica Neue',Arial,sans-serif;line-height:1.5;\">\n  <div style=\"height:2px;background:linear-gradient(90deg,#c9a961,#6e5a2e 55%,transparent);\"></div>\n  <div style=\"padding:11px 18px;border-bottom:1px solid #1a1a1a;\">\n    <span style=\"font-size:9px;letter-spacing:3px;color:#c9a961;text-transform:uppercase;font-weight:700;\">Combat Record</span>\n  </div>\n  <div style=\"display:grid;grid-template-columns:1fr 1fr;\">\n    <div style=\"padding:18px 12px;text-align:center;border-right:1px solid #1a1a1a;\">\n      <div style=\"font-size:30px;color:#ffffff;font-weight:700;font-variant-numeric:tabular-nums;line-height:1;\">$1</div>\n      <div style=\"font-size:9px;letter-spacing:2px;color:#6e6e6e;text-transform:uppercase;font-weight:600;margin-top:9px;\">Titans Slain</div>\n    </div>\n    <div style=\"padding:18px 12px;text-align:center;\">\n      <div style=\"font-size:30px;color:#ffffff;font-weight:700;font-variant-numeric:tabular-nums;line-height:1;\">$2</div>\n      <div style=\"font-size:9px;letter-spacing:2px;color:#6e6e6e;text-transform:uppercase;font-weight:600;margin-top:9px;\">Lives Taken</div>\n    </div>\n  </div>\n</div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
