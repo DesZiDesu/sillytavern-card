@@ -1,0 +1,18 @@
+{
+    "id": "f1c8a4d7-2e93-4b56-8a1f-9d3c7e2b5a18",
+    "scriptName": "MT Skill Header",
+    "findRegex": "/\\[SKILL\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\]/g",
+    "replaceString": "<div style=\"max-width:482px;margin:10px auto;display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#16140f,#0f0e0c);border:1px solid #3b372a;border-left:3px solid $4;border-radius:6px;padding:10px 14px;font-family:'Cinzel',serif;box-shadow:0 3px 14px rgba(0,0,0,.4);\"><img src=\"https://files.catbox.moe/$1\" alt=\"\" onerror=\"this.style.display='none'\" style=\"width:48px;height:48px;object-fit:cover;border:1px solid $4;border-radius:4px;flex-shrink:0;\"/><div style=\"min-width:0;flex:1;\"><div style=\"font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#8a6f33;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$3</div><div style=\"font-size:16px;font-weight:600;color:#efe7d2;letter-spacing:1px;line-height:1.1;\">$2</div></div><div style=\"flex-shrink:0;color:$4;\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z\"/></svg></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
