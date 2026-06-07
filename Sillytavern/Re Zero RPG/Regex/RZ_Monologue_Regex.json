@@ -1,0 +1,18 @@
+{
+    "id": "f4c8d5a0-7e6b-4d4b-af99-5baf1e4c8d63",
+    "scriptName": "RZ Monologue",
+    "findRegex": "/\\[THINK\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<div style=\"max-width:480px;margin:10px auto 4px;font-family:'Inter',sans-serif;\"><div style=\"font-family:'Marcellus','Georgia',serif;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:$2;margin:0 0 6px 12px;\">$1</div><div style=\"position:relative;margin-left:8px;background:#11151c;color:#cdd8e4;border:1.5px solid $2;border-radius:16px;padding:12px 17px;font-style:italic;font-size:13.5px;line-height:1.6;box-shadow:0 4px 14px rgba(0,0,0,.45);display:inline-block;max-width:calc(100% - 8px);\">$3<span style=\"position:absolute;left:16px;bottom:-9px;width:11px;height:11px;background:#11151c;border:1.5px solid $2;border-radius:50%;\"></span><span style=\"position:absolute;left:7px;bottom:-17px;width:6px;height:6px;background:#11151c;border:1.5px solid $2;border-radius:50%;\"></span></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
