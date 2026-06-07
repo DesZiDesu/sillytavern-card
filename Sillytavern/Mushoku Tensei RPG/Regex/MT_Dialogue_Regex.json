@@ -1,0 +1,18 @@
+{
+    "id": "a4c81e7f-2b56-4d39-9e1a-6f3c8b2d5a07",
+    "scriptName": "MT Dialogue",
+    "findRegex": "/\\[SAY\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<div style=\"max-width:520px;margin:2px auto 12px;font-family:'Spectral','Georgia',serif;\"><div style=\"position:relative;background:linear-gradient(180deg,#17150f,#100f0c);color:#efe7d2;border:1px solid $1;border-left:3px solid $1;border-radius:3px;padding:12px 16px 12px 17px;font-size:14px;line-height:1.62;box-shadow:0 4px 14px rgba(0,0,0,.5);margin-top:11px;\"><span style=\"position:absolute;top:-7px;left:28px;width:13px;height:13px;background:#17150f;border-left:1px solid $1;border-top:1px solid $1;transform:rotate(45deg);\"></span>$2</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
