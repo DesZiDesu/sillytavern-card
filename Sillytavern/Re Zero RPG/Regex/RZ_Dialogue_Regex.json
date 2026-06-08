@@ -2,7 +2,7 @@
     "id": "c6e0f7d2-9a8b-4f6d-c1bb-7dca3a6e0f85",
     "scriptName": "RZ Dialogue",
     "findRegex": "/\\[SAY\\|(.*?)\\|([\\s\\S]*?)\\]/g",
-    "replaceString": "<div style=\"max-width:476px;margin:2px auto 12px;font-family:'Spectral','Georgia',serif;\"><div style=\"position:relative;background:#f4efe0;color:#2c2418;border:2px solid $1;border-radius:20px;padding:14px 20px;font-size:14px;line-height:1.6;box-shadow:0 4px 14px rgba(0,0,0,.4);margin-top:12px;\"><span style=\"position:absolute;top:-8px;left:36px;width:16px;height:16px;background:#f4efe0;border-left:2px solid $1;border-top:2px solid $1;border-top-left-radius:13px;transform:rotate(45deg);\"></span>$2</div></div>",
+    "replaceString": "<div style=\"max-width:480px;margin:6px auto 18px;font-family:'Inter',sans-serif;\"><div style=\"position:relative;background:linear-gradient(180deg,rgba(247,250,255,.94),rgba(226,236,250,.92));color:#26324a;border:1.5px solid $1;border-radius:26px;padding:14px 22px;font-size:13.5px;line-height:1.6;box-shadow:0 6px 20px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.85),0 0 14px -4px $1;\"><span style=\"position:absolute;top:-8px;left:34px;width:16px;height:16px;background:rgba(247,250,255,.96);border-left:1.5px solid $1;border-top:1.5px solid $1;border-top-left-radius:6px;transform:rotate(45deg);\"></span>$2</div></div>",
     "trimStrings": [],
     "placement": [
         1,
