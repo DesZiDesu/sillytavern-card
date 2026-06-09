@@ -1,0 +1,18 @@
+{
+    "id": "ac477135-1e8c-4eb8-a5a1-9401cc2acade",
+    "scriptName": "TR Skill Header",
+    "findRegex": "/\\[TR_SKILL\\|(.*?)\\|(.*?)\\|(.*?)(?:\\|(#[0-9A-Fa-f]{3,8}))?\\]/g",
+    "replaceString": "<div style=\"position:relative;margin:11px 0;font-family:'Chakra Petch',sans-serif;\"><div style=\"position:relative;display:flex;align-items:center;gap:12px;padding:11px 13px;background:#0b0a07;border:1px solid #d6b458;border-color:$4;border-radius:7px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.55);\"><div style=\"position:absolute;inset:0;background:$4;opacity:.08;pointer-events:none;\"></div><div style=\"position:relative;width:56px;height:56px;flex-shrink:0;border:2px solid #d6b458;border-color:$4;border-radius:8px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle,rgba(214,180,88,.14),#050505);box-shadow:0 0 13px rgba(214,180,88,.4);\"><span style=\"font-family:'Orbitron',sans-serif;font-size:24px;font-weight:700;color:#d6b458;color:$4;\">&#9670;</span><img src=\"$1\" onload=\"if(this.naturalWidth>1)this.style.display='block'\" onerror=\"this.style.display='none'\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;\"/></div><div style=\"position:relative;min-width:0;flex:1;display:flex;flex-direction:column;gap:3px;\"><div style=\"display:flex;align-items:center;gap:7px;\"><span style=\"width:6px;height:6px;flex-shrink:0;transform:rotate(45deg);background:#d6b458;background:$4;box-shadow:0 0 6px rgba(214,180,88,.6);\"></span><span style=\"font-family:'Orbitron',sans-serif;font-weight:800;font-size:15px;letter-spacing:1px;line-height:1.15;color:#f4dc93;color:$4;word-break:break-word;\">$2</span></div><div style=\"font-size:11px;color:#bcb29a;line-height:1.45;word-break:break-word;\">$3</div></div></div><div style=\"height:2px;margin:0 2px;background:linear-gradient(90deg,#d6b458,transparent);background:linear-gradient(90deg,$4,transparent);\"></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
