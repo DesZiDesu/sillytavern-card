@@ -1,0 +1,18 @@
+{
+    "id": "e8fedfef-45d0-4a69-8830-a5a4134772d6",
+    "scriptName": "TR Dialogue",
+    "findRegex": "/\\[TR_SAY\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<div style=\"margin:0 0 15px;position:relative;padding-top:9px;font-family:'Chakra Petch',sans-serif;\"><span style=\"position:absolute;top:0;left:18px;font-family:'Orbitron',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:#1a1407;background:linear-gradient(180deg,#f4dc93,#c9a24a);padding:3px 11px;z-index:2;\">$1</span><div style=\"background:linear-gradient(180deg,rgba(214,180,88,.10),rgba(255,255,255,.03));border:1px solid rgba(214,180,88,.5);border-radius:3px;padding:16px 17px 13px;font-size:14px;line-height:1.55;color:#ece7da;box-shadow:0 4px 16px rgba(0,0,0,.5);\">$2</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
