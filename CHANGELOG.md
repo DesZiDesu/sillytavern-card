@@ -2,6 +2,24 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-11 — TR [LB]: new NPC format + new High Elf character
+
+Synced `Sillytavern/TRETARESIA RPG/Lorebook/TR [LB].json` to the latest working
+state and reworked the NPC roster:
+
+- **Adopted a new detailed NPC entry format** (Setting / Genres / Role Context →
+  Core Details → Backstory → Relationships → Personality & Behavior → Dialogue
+  Style → Behavioral & Verbal Examples → During Sex Examples → Intimacy Profile
+  → Core Appearance → Outfits). All five existing NPCs — Eswyn Marrowen,
+  Lureleth, Kessa Drailen, Meilin, Roun Caelis — were rewritten into this format,
+  preserving their established lore, powers, hex colours and hooks.
+- **New character: Liriael "Liri" Vaethorn (High Elf)** — a runaway crown-heir of
+  the Verdant Court at the World Tree, reincarnated from Earth with fragmentary
+  past-life memories, who fled the duty of queenship to live as a free commoner.
+  Added as her own entry (uid 57) and as line 6 of the NPC LIST (hex #7FC25A).
+
+All characters are written as adults (18+), consistent with the card's mandate.
+
 ## 2026-06-09 — Global Tags & Fetish Lorebook [18+]
 
 Added a new standalone global lorebook: **`Sillytavern/Global Lorebook/Global Tags & Fetish [LB].json`**
