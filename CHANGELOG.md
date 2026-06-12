@@ -17,8 +17,15 @@ Added a starter kit that reproduces Subaru's **Return by Death** in SillyTavern:
   wiring guide. Core idea: the loop memory survives chat deletion because it lives
   in a chat variable + a persistent prompt injection, not in the deleted messages.
 
-The kit is additive (no card behavior change). STScript flags may need minor
-per-version tweaks; the regex panel is version-independent.
+**Native memory capture (no extension):** the ☠ button keeps a confirm popup, then
+auto-extracts the loop's memory straight from the AI's `[RZMEM|…]` marker via the
+in-app `/regex` command (helper script
+`Sillytavern/Re Zero RPG/Regex/RZ_ExtractMemory_Regex.json`) — no typing, no
+add-ons. A `[Return by Death Marker]` rule was added to the card's
+`post_history_instructions` so the engine emits that marker on every death.
+
+STScript flags may need minor per-version tweaks; the regex panels are
+version-independent.
 
 ## 2026-06-12 — Re Zero RPG: synced to latest + player-agency rule
 

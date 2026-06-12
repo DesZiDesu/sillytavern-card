@@ -7,17 +7,30 @@ loop that just ended.
 ## Files
 - `RZ_ReturnByDeath_QR.json` — Quick Reply set (4 buttons).
 - `../Regex/RZ_Memory_Regex.json` — renders the `[RZMEM|…]` Loop Memory panel.
+- `../Regex/RZ_ExtractMemory_Regex.json` — a **callable** regex (no auto
+  placement) used by the QR via `/regex` to pull the carried-over memory out of
+  the `[RZMEM|…]` marker. Import it but leave it as-is — it only runs when called.
 
 ## Install
-1. **Regex:** Extensions → Regex → Import → `RZ_Memory_Regex.json`.
+1. **Regex:** Extensions → Regex → Import **both** `RZ_Memory_Regex.json` and
+   `RZ_ExtractMemory_Regex.json`.
 2. **Quick Replies:** Quick Reply settings → Import → `RZ_ReturnByDeath_QR.json`,
    then enable the set in the active QR slots so the buttons show under the chat bar.
+
+## Confirm-on-death + native memory capture
+- **Trigger:** manual. You press ☠ **Return by Death** when {{user}} dies; a
+  confirm popup guards against misfires.
+- **Memory:** captured **natively, no typing, no extension.** The card is
+  instructed to end every death scene with an `[RZMEM|loop|save|cause|carried]`
+  marker. On confirm, the QR runs `/regex name="RZ Extract Memory" {{lastMessage}}`
+  to lift the `cause` + `carried` text straight out of that marker into
+  `rbd_memory`, then injects it and rewinds.
 
 ## The 4 buttons
 | Button | What it does |
 |---|---|
 | 🔖 **Set Save Point** | Stores the current message id in `rbd_save`. This is the point you rewind to. Set it at each milestone (a new "checkpoint"). |
-| ☠ **Return by Death** | Confirms → bumps the death counter → asks what {{user}} carries over → `/inject`s that memory into the prompt (id `rbd`) → `/cut`s every message after the Save Point. The world resets; the injected memory survives because it is **not** part of the deletable chat log. |
+| ☠ **Return by Death** | Confirms → bumps the death counter → auto-extracts this loop's memory from the `[RZMEM]` marker via `/regex` → `/inject`s it into the prompt (id `rbd`) → `/cut`s every message after the Save Point. The world resets; the injected memory survives because it is **not** part of the deletable chat log. |
 | 📖 **Loop Memory** | Shows the current carried-over memory + loop number. |
 | 🧹 **Clear Memory** | Wipes `rbd` injection, `rbd_memory`, `rbd_deaths`, `rbd_save`. |
 
@@ -44,13 +57,14 @@ Example:
 [RZMEM|3|Morning in the Royal Capital slums|Elsa slaughtered everyone in the loot house at dusk|Don't enter the loot house after dark / Reinhard is nearby and can be pulled in / Felt is not an enemy]
 ```
 
-You can ask the card to append this block automatically by adding a line to the
-card's output rules (post_history_instructions), e.g. *"On {{user}}'s death,
-end the death scene with a single `[RZMEM|loop|save|cause|carried]` marker."*
+The card already emits this marker automatically — a `[Return by Death Marker]`
+rule was added to its `post_history_instructions`, telling it to end every death
+scene with a single `[RZMEM|loop|save|cause|carried]` line.
 
 ## Note on STScript
 These scripts use core commands (`/setvar`, `/getvar`, `/addvar`, `/add`,
-`/buttons`, `/input`, `/inject`, `/flushinject`, `/cut`, `/sys`, `/popup`).
+`/buttons`, `/if`, `/regex`, `/inject`, `/flushinject`, `/cut`, `/sys`, `/popup`).
 Command flags drift slightly between SillyTavern versions — if a button errors,
-open it in the QR editor and adjust that one line (most often `/add` arithmetic
-or the `/cut` range). The Loop Memory panel (regex) is version-independent.
+open it in the QR editor and adjust that one line (most often `/add` arithmetic,
+the `/cut` range, or the `/regex name=…` syntax). The Loop Memory panel (regex)
+is version-independent.
