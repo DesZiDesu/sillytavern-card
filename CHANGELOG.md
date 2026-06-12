@@ -2,6 +2,20 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-12 — Re Zero RPG: synced to latest + player-agency rule
+
+- **Synced to the latest working state:** updated both
+  `Sillytavern/Re Zero RPG/Card/Re Zero RPG.json` and
+  `Sillytavern/Re Zero RPG/Lorebook/Re Zero [LB].json` to the newest versions.
+- **New `[Player Agency — ABSOLUTE]` rule** added to the card. The narrator and
+  every NPC are now strictly forbidden from writing, speaking, narrating, or
+  implying {{user}}'s dialogue, actions, gestures, inner thoughts, feelings, or
+  decisions, and from leading or deciding what {{user}} says/thinks/does. The
+  engine renders only the world, NPCs, and consequences, then yields the turn
+  and waits for {{user}}'s own input. The rule lives in the card `description`
+  (the active system prompt) and is reinforced in `post_history_instructions`
+  so it is enforced every turn, in any mode.
+
 ## 2026-06-11 — TR [LB]: new NPC format + new High Elf character
 
 Synced `Sillytavern/TRETARESIA RPG/Lorebook/TR [LB].json` to the latest working
