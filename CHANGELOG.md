@@ -2,6 +2,24 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-12 — Re Zero RPG: Return by Death kit (Quick Replies + regex)
+
+Added a starter kit that reproduces Subaru's **Return by Death** in SillyTavern:
+
+- **`Sillytavern/Re Zero RPG/Quick Replies/RZ_ReturnByDeath_QR.json`** — a 4-button
+  Quick Reply set: 🔖 *Set Save Point*, ☠ *Return by Death* (confirm → bump death
+  counter → capture carried-over memory → `/inject` it → `/cut` back to the save
+  point), 📖 *Loop Memory*, 🧹 *Clear Memory*.
+- **`Sillytavern/Re Zero RPG/Regex/RZ_Memory_Regex.json`** — renders a `[RZMEM|loop|
+  save|cause|carried]` marker into a styled "Retained Memory" panel matching the
+  card's dark/blood-red aesthetic.
+- **`Sillytavern/Re Zero RPG/Quick Replies/Return-by-Death Setup.md`** — install +
+  wiring guide. Core idea: the loop memory survives chat deletion because it lives
+  in a chat variable + a persistent prompt injection, not in the deleted messages.
+
+The kit is additive (no card behavior change). STScript flags may need minor
+per-version tweaks; the regex panel is version-independent.
+
 ## 2026-06-12 — Re Zero RPG: synced to latest + player-agency rule
 
 - **Synced to the latest working state:** updated both
