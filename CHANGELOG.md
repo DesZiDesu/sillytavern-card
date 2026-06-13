@@ -2,6 +2,18 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-13 — Re Zero RPG: monologue spacing fix + Return by Death v2
+
+- **RZ Monologue regex:** increased the bubble's vertical margin
+  (`12px auto 6px` → `22px auto 36px`) so the THINK bubble's downward tail dots no
+  longer collide with the character header below it.
+- **Return by Death v2:** loop memory is now **cumulative** (`rbd_log`, one line per
+  loop) and the whole log is injected each rewind; after the `/cut` the kit
+  re-posts a **persistent Loop Memory panel** (so there is on-screen UI showing
+  what happened and which loop you are on); all player-facing button/popup text is
+  now Thai. Requires the updated card so the engine emits the `[RZMEM|…]` marker on
+  death — without it there is nothing to remember.
+
 ## 2026-06-12 — Re Zero RPG: Return by Death kit (Quick Replies + regex)
 
 Added a starter kit that reproduces Subaru's **Return by Death** in SillyTavern:

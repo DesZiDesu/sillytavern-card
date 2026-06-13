@@ -30,7 +30,7 @@ loop that just ended.
 | Button | What it does |
 |---|---|
 | 🔖 **Set Save Point** | Stores the current message id in `rbd_save`. This is the point you rewind to. Set it at each milestone (a new "checkpoint"). |
-| ☠ **Return by Death** | Confirms → bumps the death counter → auto-extracts this loop's memory from the `[RZMEM]` marker via `/regex` → `/inject`s it into the prompt (id `rbd`) → `/cut`s every message after the Save Point. The world resets; the injected memory survives because it is **not** part of the deletable chat log. |
+| ☠ **Return by Death** | Confirms → bumps the death counter → auto-extracts this loop's memory from the `[RZMEM]` marker via `/regex` → appends it to a **cumulative log** (`rbd_log`) → `/inject`s the whole log into the prompt (id `rbd`) → `/cut`s every message after the Save Point → re-posts a **persistent Loop Memory panel** so you can see what happened and which loop you're on. The injected memory survives because it is **not** part of the deletable chat log. |
 | 📖 **Loop Memory** | Shows the current carried-over memory + loop number. |
 | 🧹 **Clear Memory** | Wipes `rbd` injection, `rbd_memory`, `rbd_deaths`, `rbd_save`. |
 
