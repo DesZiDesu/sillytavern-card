@@ -2,6 +2,15 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-13 — Re Zero RPG: remove Return by Death / Quick Reply system
+
+Removed the experimental Return by Death kit at the user's request:
+- Deleted `Quick Replies/RZ_ReturnByDeath_QR.json`, `Quick Replies/Return-by-Death
+  Setup.md`, `Regex/RZ_Memory_Regex.json`, and `Regex/RZ_ExtractMemory_Regex.json`.
+- Reverted the card: dropped the embedded `RZ Loop Memory` / `RZ Extract Memory`
+  regex and the `[Return by Death Marker]` output rule. The monologue-spacing fix
+  and the `[Player Agency — ABSOLUTE]` rule are kept.
+
 ## 2026-06-13 — Re Zero RPG: monologue spacing fix + Return by Death v2
 
 - **RZ Monologue regex:** increased the bubble's vertical margin

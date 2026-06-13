@@ -21,7 +21,7 @@
         "mes_example": "",
         "creator_notes": "",
         "system_prompt": "",
-        "post_history_instructions": "[Output Format — MANDATORY]\r\nAll spoken dialogue MUST be rendered as a speech bubble: [SAY|#HEXCOLOR|the spoken words], placed directly UNDER the speaking character's header [CHAR|imagecode.png|Name|#HEXCOLOR]. The speech bubble shows no name; the header identifies the speaker. Use the character's signature Hex Color.\r\nInner thoughts use a monologue bubble: [THINK|Name|#HEXCOLOR|the private thought].\r\nNEVER write character speech as plain quoted \"text\" again. Narration and description outside of speech remain normal prose.\r\nALWAYS end EVERY response with the player's status panel as the VERY LAST element of the message: a single <RZ_STATUS>{...}</RZ_STATUS> block whose values reflect the current state (name, rank, has_rbd/death_count, currency, authorities, attributes, skills, party, objective). Keep it accurate and up to date each turn. Nothing comes after this block.\r\n\r\n[Player Agency — ABSOLUTE]\r\nNEVER write, speak, narrate, or imply {{user}}'s dialogue, actions, thoughts, feelings, or decisions. Never lead or decide what {{user}} does or says. Render only the world and NPCs, then stop and wait for {{user}}'s own input.\r\n\r\n[Return by Death Marker]\r\nWhenever {{user}} dies, end the death scene with EXACTLY ONE marker on its own line, then nothing after it:\r\n[RZMEM|loop number|the current save point|what killed {{user}}|the key lessons/knowledge to carry into the next loop]\r\nUse ' / ' to separate multiple lessons. Do not use the ']' character inside any field.",
+        "post_history_instructions": "[Output Format — MANDATORY]\r\nAll spoken dialogue MUST be rendered as a speech bubble: [SAY|#HEXCOLOR|the spoken words], placed directly UNDER the speaking character's header [CHAR|imagecode.png|Name|#HEXCOLOR]. The speech bubble shows no name; the header identifies the speaker. Use the character's signature Hex Color.\r\nInner thoughts use a monologue bubble: [THINK|Name|#HEXCOLOR|the private thought].\r\nNEVER write character speech as plain quoted \"text\" again. Narration and description outside of speech remain normal prose.\r\nALWAYS end EVERY response with the player's status panel as the VERY LAST element of the message: a single <RZ_STATUS>{...}</RZ_STATUS> block whose values reflect the current state (name, rank, has_rbd/death_count, currency, authorities, attributes, skills, party, objective). Keep it accurate and up to date each turn. Nothing comes after this block.\r\n\r\n[Player Agency — ABSOLUTE]\r\nNEVER write, speak, narrate, or imply {{user}}'s dialogue, actions, thoughts, feelings, or decisions. Never lead or decide what {{user}} does or says. Render only the world and NPCs, then stop and wait for {{user}}'s own input.",
         "tags": [],
         "creator": "",
         "character_version": "",
@@ -158,39 +158,6 @@
                     "markdownOnly": true,
                     "promptOnly": false,
                     "runOnEdit": true,
-                    "substituteRegex": 0,
-                    "minDepth": null,
-                    "maxDepth": null
-                },
-                {
-                    "id": "b7f1c2d4-3a9e-4c61-8d22-5e0a7b9c14f3",
-                    "scriptName": "RZ Loop Memory",
-                    "findRegex": "/\\[RZMEM\\|([^|]*)\\|([^|]*)\\|([^|]*)\\|([\\s\\S]*?)\\]/g",
-                    "replaceString": "<div style=\"width:100%;max-width:520px;margin:10px auto;background:linear-gradient(180deg,#161616,#0e0e0e);border:1px solid rgba(209,69,59,.4);border-radius:14px;overflow:hidden;color:#f2f2f2;font-family:'Inter','Helvetica Neue',Arial,sans-serif;line-height:1.5;box-shadow:0 8px 30px rgba(0,0,0,.55);position:relative;\"><div style=\"position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#d1453b,#6e211c);\"></div><div style=\"display:flex;align-items:center;gap:11px;padding:13px 15px 11px;border-bottom:1px solid #272727;\"><div style=\"width:30px;height:30px;border-radius:8px;background:rgba(209,69,59,.12);border:1px solid rgba(209,69,59,.4);display:flex;align-items:center;justify-content:center;font-size:15px;color:#d1453b;flex-shrink:0;\">&#10226;</div><div style=\"flex:1;\"><div style=\"font-family:'Cinzel',serif;font-size:14px;letter-spacing:1px;color:#f3d6d3;\">RETURN BY DEATH</div><div style=\"font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:#707070;margin-top:3px;font-weight:600;\">Retained Memory</div></div><div style=\"font-family:'Cinzel',serif;font-size:13px;color:#d1453b;background:rgba(209,69,59,.12);border:1px solid rgba(209,69,59,.4);padding:4px 11px;border-radius:20px;font-weight:700;\">LOOP #$1</div></div><div style=\"padding:6px 15px 14px;\"><div style=\"padding:11px 0;border-bottom:1px dashed #272727;\"><div style=\"font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#707070;font-weight:700;margin-bottom:5px;\">Save Point</div><div style=\"font-size:13px;line-height:1.55;color:#b6b6b6;\">$2</div></div><div style=\"padding:11px 0;border-bottom:1px dashed #272727;\"><div style=\"font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#707070;font-weight:700;margin-bottom:5px;\">Cause of Death</div><div style=\"font-size:13px;line-height:1.55;color:#f2f2f2;\">$3</div></div><div style=\"padding:11px 0;\"><div style=\"font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#707070;font-weight:700;margin-bottom:5px;\">Carried Over</div><div style=\"font-size:13px;line-height:1.55;color:#f2f2f2;\">$4</div></div></div><div style=\"padding:10px 15px;background:rgba(255,255,255,.02);border-top:1px solid #272727;font-size:11px;color:#707070;font-style:italic;line-height:1.5;\">The world and all NPCs have reset to the Save Point and remember nothing &mdash; only you still recall this loop.</div></div>",
-                    "trimStrings": [],
-                    "placement": [
-                        1,
-                        2
-                    ],
-                    "disabled": false,
-                    "markdownOnly": true,
-                    "promptOnly": false,
-                    "runOnEdit": true,
-                    "substituteRegex": 0,
-                    "minDepth": null,
-                    "maxDepth": null
-                },
-                {
-                    "id": "c4a8e2f1-7b36-4d92-a015-9f3c6e8b2d77",
-                    "scriptName": "RZ Extract Memory",
-                    "findRegex": "/[\\s\\S]*?\\[RZMEM\\|([^|]*)\\|([^|]*)\\|([^|]*)\\|([\\s\\S]*?)\\][\\s\\S]*/",
-                    "replaceString": "Cause of death: $3 — Carried over: $4",
-                    "trimStrings": [],
-                    "placement": [],
-                    "disabled": false,
-                    "markdownOnly": false,
-                    "promptOnly": false,
-                    "runOnEdit": false,
                     "substituteRegex": 0,
                     "minDepth": null,
                     "maxDepth": null
@@ -6280,5 +6247,5 @@
         }
     },
     "create_date": "2026-06-07T04:42:56.180Z",
-    "post_history_instructions": "[Output Format — MANDATORY]\nAll spoken dialogue MUST be rendered as a speech bubble: [SAY|#HEXCOLOR|the spoken words], placed directly UNDER the speaking character's header [CHAR|imagecode.png|Name|#HEXCOLOR]. The speech bubble shows no name; the header identifies the speaker. Use the character's signature Hex Color.\nInner thoughts use a monologue bubble: [THINK|Name|#HEXCOLOR|the private thought].\nNEVER write character speech as plain quoted \"text\" again. Narration and description outside of speech remain normal prose.\nALWAYS end EVERY response with the player's status panel as the VERY LAST element of the message: a single <RZ_STATUS>{...}</RZ_STATUS> block whose values reflect the current state (name, rank, has_rbd/death_count, currency, authorities, attributes, skills, party, objective). Keep it accurate and up to date each turn. Nothing comes after this block.\n\n[Player Agency — ABSOLUTE]\nNEVER write, speak, narrate, or imply {{user}}'s dialogue, actions, thoughts, feelings, or decisions. Never lead or decide what {{user}} does or says. Render only the world and NPCs, then stop and wait for {{user}}'s own input.\n\n[Return by Death Marker]\nWhenever {{user}} dies, end the death scene with EXACTLY ONE marker on its own line, then nothing after it:\n[RZMEM|loop number|the current save point|what killed {{user}}|the key lessons/knowledge to carry into the next loop]\nUse ' / ' to separate multiple lessons. Do not use the ']' character inside any field."
+    "post_history_instructions": "[Output Format — MANDATORY]\nAll spoken dialogue MUST be rendered as a speech bubble: [SAY|#HEXCOLOR|the spoken words], placed directly UNDER the speaking character's header [CHAR|imagecode.png|Name|#HEXCOLOR]. The speech bubble shows no name; the header identifies the speaker. Use the character's signature Hex Color.\nInner thoughts use a monologue bubble: [THINK|Name|#HEXCOLOR|the private thought].\nNEVER write character speech as plain quoted \"text\" again. Narration and description outside of speech remain normal prose.\nALWAYS end EVERY response with the player's status panel as the VERY LAST element of the message: a single <RZ_STATUS>{...}</RZ_STATUS> block whose values reflect the current state (name, rank, has_rbd/death_count, currency, authorities, attributes, skills, party, objective). Keep it accurate and up to date each turn. Nothing comes after this block.\n\n[Player Agency — ABSOLUTE]\nNEVER write, speak, narrate, or imply {{user}}'s dialogue, actions, thoughts, feelings, or decisions. Never lead or decide what {{user}} does or says. Render only the world and NPCs, then stop and wait for {{user}}'s own input."
 }
