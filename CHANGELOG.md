@@ -2,6 +2,36 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-15 — Wistoria: Wand and Sword RPG — Season 2 overhaul (v2.0)
+
+Major expansion of `Sillytavern/Wistoria Wand and Sword RPG/` (both the Card and the
+companion `[LB]` lorebook, kept fully in sync across all three content stores).
+
+- **Season 2 content added.** New lore covering the Bloom & Tower-ascent arcs: the
+  antagonist organization **the Goetia** (authors of the *Doomsday*), **Baal / the Key
+  to the Heavens**, **the Doomsday**, the **eight factions & Tower strata / Guards**, and
+  updated entries for the False Sky/Baal, the Magia Vander roster, the Bloom ceremony,
+  the Tower, the dungeon/bestiary, organizations (Watchers + **Arbiters**), and the
+  arc/publication timeline.
+- **Full NPC roster (S1 → present).** The NPC LIST now spans 30 canon characters,
+  including the new Season-2 figures **Clairie Serah** (Arbiter High Mage) and **Sarissa
+  Alfeld** (Ice-Faction adjutant), plus the Goetia — **Walther Lyndon, Arvin Olus, Shade,
+  Marze, Headless, Morta Lattar** — each with a knowledge gate and signature hex colour.
+  New per-character lorebook entries were added for all of them.
+- **Denser lorebook entries.** Every world/character entry was rewritten longer and
+  clearer (no more thin one-liners). **Keywords are now bilingual (TH + EN)**; constant
+  entries carry no keywords, as requested.
+- **Custom Wistoria-aesthetic UI.** The Tracker, Character Header, Dialogue and Monologue
+  regex were redesigned into a cohesive "arcane academy grimoire" look — obsidian-blue
+  base, gold + ice-blue accents, ornate gold corner brackets, Cinzel/Spectral serif type
+  — matching the existing gold Status panel.
+- **No-puppeteering rule.** Added a strict Player-Agency protocol (EN + TH) as a constant
+  lorebook entry, in the card's `agency` description block, and in
+  `post_history_instructions`: the model must never speak, think, or narrate actions for
+  `{{user}}` (ห้ามพูดแทน ห้ามคิดแทน ห้ามบรรยายการกระทำแทน user).
+
+All content remains adult-safe and knowledge-gated to avoid spoiling late reveals.
+
 ## 2026-06-11 — TR [LB]: new NPC format + new High Elf character
 
 Synced `Sillytavern/TRETARESIA RPG/Lorebook/TR [LB].json` to the latest working
