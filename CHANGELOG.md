@@ -2,6 +2,14 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-18 — KonoSuba RPG (collapsible Skill Tree)
+
+- **Status widget** `Regex/KS_Status_Regex.json` — the always-visible Skill Tree at the
+  bottom of the Adventurer Card is now **collapsible**. It starts **collapsed** when the
+  card is opened (showing just the "Skill Tree" header + unspent-SP balance + a chevron),
+  so the card stays short; tapping the header expands/collapses the category tabs and the
+  learnable-skill list. The SP balance stays visible in both states.
+
 ## 2026-06-18 — KonoSuba RPG (card cleanup + lorebook speech/header split)
 
 - **Card** `Card/Konosuba RPG.json` — stripped the embedded regex (`extensions.regex_scripts`
