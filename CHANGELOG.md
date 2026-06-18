@@ -14,7 +14,7 @@ blue/aqua-and-gold "Adventurer's Card".
   message renders the `<KS_CREATE>` registration screen; references the lorebook
   `Konosuba [LB]`.
 
-**Regex (8 scoped scripts)** — `Regex/`
+**Regex (10 scoped scripts)** — `Regex/`
 - **Header** `[CHAR|img|Name|#hex]` (framed avatar; image-less NPCs get a tinted
   silhouette) and **Header (no border)** `[NPC|Name|#hex]` (a clean borderless
   nameplate), **Monologue** `[THINK|Name|#hex|thought]`,
@@ -26,7 +26,12 @@ blue/aqua-and-gold "Adventurer's Card".
   the new **Skill Points** system, Guild rank, attributes (STR/VIT/AGI/DEX/INT/MGC/LUK),
   HP/MP vitals, learned skills (grouped, with SP cost), party, an **Intimacy** tab
   (18+: per-partner relationship stage, affection meter, intimacy level, likes/kinks,
-  limits, notes & history), quests, and an Eris/debt wallet.
+  limits, notes & history), quests, an Eris/debt wallet, and an always-visible
+  interactive **Skill Tree** (category tabs + Learn buttons that show Learned /
+  Learn·cost / Need-cost states and auto-send a `[LEARN|…]` request to spend points).
+- **Learn request** `[LEARN|Skill|Category|cost]` — renders the Skill Tree's auto-sent
+  "learn this skill" message as a card; the lorebook tells the model to verify the
+  points + a teacher, deduct the cost, add the skill, and re-render the card.
 - **Confirm** `<KS_CONFIRM>{json}</KS_CONFIRM>` — the sealed registration card.
 - **Creation** `<KS_CREATE>` — a 5-step wizard with **fully free customisation**
   (custom toggle on every field), a **freely adjustable Level** (number + slider) so a
