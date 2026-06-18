@@ -1,0 +1,18 @@
+{
+    "id": "8a5d2c3f-b07e-4c4a-9d12-6f8e0b5c7da4",
+    "scriptName": "KS Header (No Border)",
+    "findRegex": "/\\[NPC\\|(.*?)\\|(.*?)\\]/g",
+    "replaceString": "<div style=\"max-width:520px;margin:12px auto 6px auto;display:flex;align-items:center;gap:11px;font-family:'Cinzel','Times New Roman',serif;\"><span style=\"width:4px;height:22px;flex-shrink:0;background:$2;border-radius:2px;box-shadow:0 0 8px -1px $2;\"></span><span style=\"font-size:13px;font-weight:600;color:#ffffff;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 10px -2px $2;\">$1</span><span style=\"flex:1;height:1px;min-width:14px;background:linear-gradient(90deg,$2,transparent);opacity:.6;\"></span></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": 2
+}
