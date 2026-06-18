@@ -1,0 +1,18 @@
+{
+    "id": "9e6d3c40-b18f-4c5d-ae34-708f1c6d8ea3",
+    "scriptName": "KS Dialogue",
+    "findRegex": "/\\[SAY\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<div style=\"max-width:482px;margin:6px auto 18px;font-family:'Inter','Helvetica Neue',sans-serif;\"><div style=\"position:relative;background:linear-gradient(180deg,rgba(245,250,255,.96),rgba(223,238,250,.93));color:#1f2c44;border:1.5px solid $1;border-radius:24px;padding:14px 22px;font-size:13.5px;line-height:1.6;box-shadow:0 6px 20px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.85),0 0 14px -4px $1;\"><span style=\"position:absolute;top:-8px;left:34px;width:16px;height:16px;background:rgba(245,250,255,.96);border-left:1.5px solid $1;border-top:1.5px solid $1;border-top-left-radius:6px;transform:rotate(45deg);\"></span>$2</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
