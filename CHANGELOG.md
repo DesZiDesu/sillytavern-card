@@ -2,6 +2,51 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-18 — KonoSuba RPG (card + lorebook + regex suite)
+
+Added a complete new series under `Sillytavern/Konosuba RPG/` — a comedic KonoSuba
+isekai RPG built on the same widget architecture as the other RPG cards, themed as a
+blue/aqua-and-gold "Adventurer's Card".
+
+**Card** — `Card/Konosuba RPG.json`
+- V3 card; narrative-engine prompt (premise, comedic-but-dangerous tone, agency,
+  18+ maturity, a mechanics summary, and the full interface-tag contract). First
+  message renders the `<KS_CREATE>` registration screen; references the lorebook
+  `Konosuba [LB]`.
+
+**Regex (8 scoped scripts)** — `Regex/`
+- **Header** `[CHAR|img|Name|#hex]`, **Monologue** `[THINK|Name|#hex|thought]`,
+  **Dialogue** `[SAY|#hex|words]` — the contiguous speech block.
+- **Skill Label** `[SKILL|Skill|Category|SP cost|#hex]` — a skill/spell activation banner.
+- **Tracker** `[TRACK|…]` — day, date **with year**, time, arc, region, locale,
+  position, weather, temperature, your-position, situation.
+- **Status** `<KS_STATUS>{json}</KS_STATUS>` — the Adventurer Card: Level + EXP bar,
+  the new **Skill Points** system, Guild rank, attributes (STR/VIT/AGI/DEX/INT/MGC/LUK),
+  HP/MP vitals, learned skills (grouped, with SP cost), party, quests, and an Eris/debt wallet.
+- **Confirm** `<KS_CONFIRM>{json}</KS_CONFIRM>` — the sealed registration card.
+- **Creation** `<KS_CREATE>` — a 5-step wizard with **fully free customisation**
+  (custom toggle on every field), a **freely adjustable Level** (number + slider) so a
+  long-settled local can start high-level and a fresh arrival low, a **Skill-Point budget**
+  that derives from level and is spent on a canonical skill/spell catalogue to learn
+  starting skills, editable attributes/HP/MP/Eris, a party builder, an isekai
+  "blessing/cheat" field, EN/TH language and dark/light theme toggles. On submit it emits
+  a `<KS_CONFIRM>` card and auto-sends.
+
+**Lorebook** — `Lorebook/Konosuba [LB].json` (38 entries)
+- **Constant system entries (no keywords):** the tag-format instructions (Tracker,
+  Header, Speech block, Skill label, Status, Creation flow), core directives, and the
+  detailed **game systems** — Adventurers & the Guild, Levels/EXP/**Skill Points**,
+  Classes & advancement, Attributes/HP/MP, and the Magic system — plus the NPC LIST with
+  fixed hex colours.
+- **Keyword entries (Thai + English keys):** world overview; places (Axel, Belzerg
+  Capital, Crimson Demon Village, Alcanretia, Elroad, Wiz's shop); factions (Axis Church,
+  Eris Church, Demon King's Army); economy (Eris/debt); the Crimson Demon race; a monster
+  bestiary; a skills/spells catalogue; and detailed profiles of the cast — Kazuma, Aqua,
+  Megumin, Darkness, Wiz, Vanir, Yunyun, Eris/Chris, the supporting cast, Chomusuke/Wolbach,
+  and the Demon King & his Generals (Beldia, Hans, Sylvia).
+
+All character content is written for adults (18+). Lore researched against the KonoSuba wiki.
+
 ## 2026-06-11 — TR [LB]: new NPC format + new High Elf character
 
 Synced `Sillytavern/TRETARESIA RPG/Lorebook/TR [LB].json` to the latest working

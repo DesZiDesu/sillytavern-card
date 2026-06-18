@@ -1,0 +1,18 @@
+{
+    "id": "8d5c2b3f-a07e-4b4c-9d23-6f8e0b5c7d92",
+    "scriptName": "KS Monologue",
+    "findRegex": "/\\[THINK\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<div style=\"max-width:478px;margin:10px auto 2px auto;font-family:'Spectral',Georgia,serif;\"><div style=\"font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:1px;color:$2;margin:0 0 6px 10px;\">$1</div><div style=\"position:relative;margin-left:6px;background:#eef4fb;color:#1d2b40;border:2px solid $2;border-radius:24px;padding:13px 19px;font-style:italic;font-size:13.5px;line-height:1.6;box-shadow:0 4px 14px rgba(0,0,0,.45);display:inline-block;max-width:calc(100% - 6px);\">$3<span style=\"position:absolute;left:18px;bottom:-10px;width:12px;height:12px;background:#eef4fb;border:2px solid $2;border-radius:50%;\"></span><span style=\"position:absolute;left:8px;bottom:-19px;width:7px;height:7px;background:#eef4fb;border:2px solid $2;border-radius:50%;\"></span></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
