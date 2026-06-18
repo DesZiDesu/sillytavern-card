@@ -31,6 +31,79 @@ companion `[LB]` lorebook, kept fully in sync across all three content stores).
   `{{user}}` (ห้ามพูดแทน ห้ามคิดแทน ห้ามบรรยายการกระทำแทน user).
 
 All content remains adult-safe and knowledge-gated to avoid spoiling late reveals.
+## 2026-06-18 — KonoSuba RPG (collapsible Skill Tree)
+
+- **Status widget** `Regex/KS_Status_Regex.json` — the always-visible Skill Tree at the
+  bottom of the Adventurer Card is now **collapsible**. It starts **collapsed** when the
+  card is opened (showing just the "Skill Tree" header + unspent-SP balance + a chevron),
+  so the card stays short; tapping the header expands/collapses the category tabs and the
+  learnable-skill list. The SP balance stays visible in both states.
+
+## 2026-06-18 — KonoSuba RPG (card cleanup + lorebook speech/header split)
+
+- **Card** `Card/Konosuba RPG.json` — stripped the embedded regex (`extensions.regex_scripts`
+  emptied) and removed the embedded lorebook (`character_book`). The card now stays clean
+  and relies on the separately-imported regex suite and the standalone `Konosuba [LB]`
+  lorebook (the `world` link is retained).
+- **Lorebook** `Lorebook/Konosuba [LB].json` — split the two combined interface entries into
+  four single-purpose entries so each tag stands alone: **Monologue** `[THINK]`,
+  **Dialogue** `[SAY]`, **Header — Framed Avatar** `[CHAR]`, and **Header — Borderless
+  Nameplate** `[NPC]`. Each header entry now spells out *when* to use it (`[CHAR]` for
+  named/recurring/focal characters, `[NPC]` for minor/one-off/background speakers).
+
+## 2026-06-18 — KonoSuba RPG (card + lorebook + regex suite)
+
+Added a complete new series under `Sillytavern/Konosuba RPG/` — a comedic KonoSuba
+isekai RPG built on the same widget architecture as the other RPG cards, themed as a
+blue/aqua-and-gold "Adventurer's Card".
+
+**Card** — `Card/Konosuba RPG.json`
+- V3 card; narrative-engine prompt (premise, comedic-but-dangerous tone, agency,
+  18+ maturity, a mechanics summary, and the full interface-tag contract). First
+  message renders the `<KS_CREATE>` registration screen; references the lorebook
+  `Konosuba [LB]`.
+
+**Regex (10 scoped scripts)** — `Regex/`
+- **Header** `[CHAR|img|Name|#hex]` (framed avatar; image-less NPCs get a tinted
+  silhouette) and **Header (no border)** `[NPC|Name|#hex]` (a clean borderless
+  nameplate), **Monologue** `[THINK|Name|#hex|thought]`,
+  **Dialogue** `[SAY|#hex|words]` — the contiguous speech block.
+- **Skill Label** `[SKILL|Skill|Category|SP cost|#hex]` — a skill/spell activation banner.
+- **Tracker** `[TRACK|…]` — day, date **with year**, time, arc, region, locale,
+  position, weather, temperature, your-position, situation.
+- **Status** `<KS_STATUS>{json}</KS_STATUS>` — the Adventurer Card: Level + EXP bar,
+  the new **Skill Points** system, Guild rank, attributes (STR/VIT/AGI/DEX/INT/MGC/LUK),
+  HP/MP vitals, learned skills (grouped, with SP cost), party, an **Intimacy** tab
+  (18+: per-partner relationship stage, affection meter, intimacy level, likes/kinks,
+  limits, notes & history), quests, an Eris/debt wallet, and an always-visible
+  interactive **Skill Tree** (category tabs + Learn buttons that show Learned /
+  Learn·cost / Need-cost states and auto-send a `[LEARN|…]` request to spend points).
+- **Learn request** `[LEARN|Skill|Category|cost]` — renders the Skill Tree's auto-sent
+  "learn this skill" message as a card; the lorebook tells the model to verify the
+  points + a teacher, deduct the cost, add the skill, and re-render the card.
+- **Confirm** `<KS_CONFIRM>{json}</KS_CONFIRM>` — the sealed registration card.
+- **Creation** `<KS_CREATE>` — a 5-step wizard with **fully free customisation**
+  (custom toggle on every field), a **freely adjustable Level** (number + slider) so a
+  long-settled local can start high-level and a fresh arrival low, a **Skill-Point budget**
+  that derives from level and is spent on a canonical skill/spell catalogue to learn
+  starting skills, editable attributes/HP/MP/Eris, a party builder, an isekai
+  "blessing/cheat" field, EN/TH language and dark/light theme toggles. On submit it emits
+  a `<KS_CONFIRM>` card and auto-sends.
+
+**Lorebook** — `Lorebook/Konosuba [LB].json` (38 entries)
+- **Constant system entries (no keywords):** the tag-format instructions (Tracker,
+  Header, Speech block, Skill label, Status, Creation flow), core directives, and the
+  detailed **game systems** — Adventurers & the Guild, Levels/EXP/**Skill Points**,
+  Classes & advancement, Attributes/HP/MP, and the Magic system — plus the NPC LIST with
+  fixed hex colours.
+- **Keyword entries (Thai + English keys):** world overview; places (Axel, Belzerg
+  Capital, Crimson Demon Village, Alcanretia, Elroad, Wiz's shop); factions (Axis Church,
+  Eris Church, Demon King's Army); economy (Eris/debt); the Crimson Demon race; a monster
+  bestiary; a skills/spells catalogue; and detailed profiles of the cast — Kazuma, Aqua,
+  Megumin, Darkness, Wiz, Vanir, Yunyun, Eris/Chris, the supporting cast, Chomusuke/Wolbach,
+  and the Demon King & his Generals (Beldia, Hans, Sylvia).
+
+All character content is written for adults (18+). Lore researched against the KonoSuba wiki.
 
 ## 2026-06-11 — TR [LB]: new NPC format + new High Elf character
 
