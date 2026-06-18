@@ -24,7 +24,9 @@ blue/aqua-and-gold "Adventurer's Card".
   position, weather, temperature, your-position, situation.
 - **Status** `<KS_STATUS>{json}</KS_STATUS>` — the Adventurer Card: Level + EXP bar,
   the new **Skill Points** system, Guild rank, attributes (STR/VIT/AGI/DEX/INT/MGC/LUK),
-  HP/MP vitals, learned skills (grouped, with SP cost), party, quests, and an Eris/debt wallet.
+  HP/MP vitals, learned skills (grouped, with SP cost), party, an **Intimacy** tab
+  (18+: per-partner relationship stage, affection meter, intimacy level, likes/kinks,
+  limits, notes & history), quests, and an Eris/debt wallet.
 - **Confirm** `<KS_CONFIRM>{json}</KS_CONFIRM>` — the sealed registration card.
 - **Creation** `<KS_CREATE>` — a 5-step wizard with **fully free customisation**
   (custom toggle on every field), a **freely adjustable Level** (number + slider) so a
