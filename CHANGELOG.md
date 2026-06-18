@@ -15,7 +15,9 @@ blue/aqua-and-gold "Adventurer's Card".
   `Konosuba [LB]`.
 
 **Regex (8 scoped scripts)** — `Regex/`
-- **Header** `[CHAR|img|Name|#hex]`, **Monologue** `[THINK|Name|#hex|thought]`,
+- **Header** `[CHAR|img|Name|#hex]` (framed avatar; image-less NPCs get a tinted
+  silhouette) and **Header (no border)** `[NPC|Name|#hex]` (a clean borderless
+  nameplate), **Monologue** `[THINK|Name|#hex|thought]`,
   **Dialogue** `[SAY|#hex|words]` — the contiguous speech block.
 - **Skill Label** `[SKILL|Skill|Category|SP cost|#hex]` — a skill/spell activation banner.
 - **Tracker** `[TRACK|…]` — day, date **with year**, time, arc, region, locale,
