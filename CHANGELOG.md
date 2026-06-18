@@ -2,6 +2,18 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-18 — KonoSuba RPG (card cleanup + lorebook speech/header split)
+
+- **Card** `Card/Konosuba RPG.json` — stripped the embedded regex (`extensions.regex_scripts`
+  emptied) and removed the embedded lorebook (`character_book`). The card now stays clean
+  and relies on the separately-imported regex suite and the standalone `Konosuba [LB]`
+  lorebook (the `world` link is retained).
+- **Lorebook** `Lorebook/Konosuba [LB].json` — split the two combined interface entries into
+  four single-purpose entries so each tag stands alone: **Monologue** `[THINK]`,
+  **Dialogue** `[SAY]`, **Header — Framed Avatar** `[CHAR]`, and **Header — Borderless
+  Nameplate** `[NPC]`. Each header entry now spells out *when* to use it (`[CHAR]` for
+  named/recurring/focal characters, `[NPC]` for minor/one-off/background speakers).
+
 ## 2026-06-18 — KonoSuba RPG (card + lorebook + regex suite)
 
 Added a complete new series under `Sillytavern/Konosuba RPG/` — a comedic KonoSuba
