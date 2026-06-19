@@ -2,6 +2,25 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-16 — Wistoria RPG: brand-new interactive Character Forge
+
+Replaced the simple creation/confirm widgets with a fresh, **interactive, deeply
+detailed** character-creation system for `Sillytavern/Wistoria Wand and Sword RPG/`.
+
+- **`WS Creation` (`<WS_CREATE>`)** — the *Character Forge*: a 7-tab interactive form
+  (Identity · Appearance · Origin · Arts & Arms · Persona · Bonds · Scene) with text
+  inputs, single/multi-select chips, 8 attribute sliders (0–10), toggles, a live
+  **completeness meter**, and a **Seal & Copy** button that compiles every field into a
+  `<WS_CONFIRM>` block to paste into chat.
+- **`WS Confirm` (`<WS_CONFIRM>`)** — a redesigned read-only *sealed registration* sheet,
+  sectioned to match the Forge, with attribute bars and a Wis badge.
+- **Bilingual EN/TH** with a live language toggle and proper **Thai webfonts**
+  (Bai Jamjuree, Kanit, Mitr) alongside Cinzel/Spectral; dark/light theme toggle.
+- **Mobile-first / iPhone-13 compatible** (≤390px), 16px inputs (no iOS zoom),
+  scrollable tab bar, ≥38px tap targets.
+- ~50 fields covering every detail; the creation lorebook entry documents the full schema.
+  Designed fresh — not ported from other cards.
+
 ## 2026-06-15 — Wistoria: Wand and Sword RPG — Season 2 overhaul (v2.0)
 
 Major expansion of `Sillytavern/Wistoria Wand and Sword RPG/` (both the Card and the
