@@ -1,0 +1,18 @@
+{
+    "id": "35be99bd-7d10-4f4a-8a9a-d35d53c9c266",
+    "scriptName": "JJK Domain Clash",
+    "findRegex": "/\\[CLASH\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho:wght@500;600;700&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;600&display=swap\" rel=\"stylesheet\"/><style>@keyframes jjkclcw{to{transform:rotate(360deg)}}@keyframes jjkclccw{to{transform:rotate(-360deg)}}@keyframes jjkclp{0%,100%{opacity:.4;transform:scale(.9)}50%{opacity:1;transform:scale(1.18)}}</style><div style=\"max-width:520px;margin:12px auto;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai','Times New Roman',serif;background:radial-gradient(circle at 50% 50%,rgba(124,47,247,.12),#070409 75%);border:1px solid #2a2238;border-radius:13px;padding:14px 16px 13px;box-shadow:0 0 32px -12px #7c2ff7;color:#fff;overflow:hidden;\"><div style=\"text-align:center;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:4px;color:#e9e4f2;\">DOMAIN CLASH</div><div style=\"text-align:center;font-size:8.5px;letter-spacing:5px;color:#9d8fb8;margin:2px 0 13px;\">領 域 相 殺</div><div style=\"display:flex;align-items:center;gap:8px;\"><div style=\"flex:1;min-width:0;text-align:center;\"><svg viewBox=\"0 0 100 100\" style=\"width:46px;height:46px;animation:jjkclcw 8s linear infinite;\" fill=\"none\" stroke=\"$2\"><circle cx=\"50\" cy=\"50\" r=\"46\" stroke-width=\"3\"/><g stroke-width=\"2\"><line x1=\"4\" y1=\"50\" x2=\"96\" y2=\"50\"/><line x1=\"50\" y1=\"4\" x2=\"50\" y2=\"96\"/><line x1=\"18\" y1=\"18\" x2=\"82\" y2=\"82\"/><line x1=\"82\" y1=\"18\" x2=\"18\" y2=\"82\"/></g><circle cx=\"50\" cy=\"50\" r=\"7\" fill=\"$2\"/></svg><div style=\"font-size:12px;font-weight:700;color:$2;text-shadow:0 0 10px $2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:5px;\">$1</div></div><div style=\"flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:2px;\"><span style=\"font-size:21px;color:#fff;animation:jjkclp 1.4s ease-in-out infinite;filter:drop-shadow(0 0 8px #b07bff);\">✸</span><span style=\"font-size:8px;letter-spacing:1px;color:#9d8fb8;\">VS</span></div><div style=\"flex:1;min-width:0;text-align:center;\"><svg viewBox=\"0 0 100 100\" style=\"width:46px;height:46px;animation:jjkclccw 8s linear infinite;\" fill=\"none\" stroke=\"$4\"><circle cx=\"50\" cy=\"50\" r=\"46\" stroke-width=\"3\"/><g stroke-width=\"2\"><line x1=\"4\" y1=\"50\" x2=\"96\" y2=\"50\"/><line x1=\"50\" y1=\"4\" x2=\"50\" y2=\"96\"/><line x1=\"18\" y1=\"18\" x2=\"82\" y2=\"82\"/><line x1=\"82\" y1=\"18\" x2=\"18\" y2=\"82\"/></g><circle cx=\"50\" cy=\"50\" r=\"7\" fill=\"$4\"/></svg><div style=\"font-size:12px;font-weight:700;color:$4;text-shadow:0 0 10px $4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:5px;\">$3</div></div></div><div style=\"text-align:center;font-size:11px;color:#cdc3e3;line-height:1.5;margin-top:13px;border-top:1px dashed #2a2238;padding-top:10px;white-space:pre-wrap;\">$5</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
