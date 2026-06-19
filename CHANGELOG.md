@@ -16,6 +16,95 @@ All notable additions to this repository's cards, lorebooks, and regex are liste
   and Rika (Shikigami / Cursed Spirit). Added **Kurourushi** as a new entry.
 - List now totals **90 entries/forms** (was 74 placeholders).
 
+## 2026-06-13 — Re Zero RPG: remove Return by Death / Quick Reply system
+
+Removed the experimental Return by Death kit at the user's request:
+- Deleted `Quick Replies/RZ_ReturnByDeath_QR.json`, `Quick Replies/Return-by-Death
+  Setup.md`, `Regex/RZ_Memory_Regex.json`, and `Regex/RZ_ExtractMemory_Regex.json`.
+- Reverted the card: dropped the embedded `RZ Loop Memory` / `RZ Extract Memory`
+  regex and the `[Return by Death Marker]` output rule. The monologue-spacing fix
+  and the `[Player Agency — ABSOLUTE]` rule are kept.
+
+## 2026-06-13 — Re Zero RPG: monologue spacing fix + Return by Death v2
+
+- **RZ Monologue regex:** increased the bubble's vertical margin
+  (`12px auto 6px` → `22px auto 36px`) so the THINK bubble's downward tail dots no
+  longer collide with the character header below it.
+- **Return by Death v2:** loop memory is now **cumulative** (`rbd_log`, one line per
+  loop) and the whole log is injected each rewind; after the `/cut` the kit
+  re-posts a **persistent Loop Memory panel** (so there is on-screen UI showing
+  what happened and which loop you are on); all player-facing button/popup text is
+  now Thai. Requires the updated card so the engine emits the `[RZMEM|…]` marker on
+  death — without it there is nothing to remember.
+
+## 2026-06-12 — Re Zero RPG: Return by Death kit (Quick Replies + regex)
+
+Added a starter kit that reproduces Subaru's **Return by Death** in SillyTavern:
+
+- **`Sillytavern/Re Zero RPG/Quick Replies/RZ_ReturnByDeath_QR.json`** — a 4-button
+  Quick Reply set: 🔖 *Set Save Point*, ☠ *Return by Death* (confirm → bump death
+  counter → capture carried-over memory → `/inject` it → `/cut` back to the save
+  point), 📖 *Loop Memory*, 🧹 *Clear Memory*.
+- **`Sillytavern/Re Zero RPG/Regex/RZ_Memory_Regex.json`** — renders a `[RZMEM|loop|
+  save|cause|carried]` marker into a styled "Retained Memory" panel matching the
+  card's dark/blood-red aesthetic.
+- **`Sillytavern/Re Zero RPG/Quick Replies/Return-by-Death Setup.md`** — install +
+  wiring guide. Core idea: the loop memory survives chat deletion because it lives
+  in a chat variable + a persistent prompt injection, not in the deleted messages.
+
+**Native memory capture (no extension):** the ☠ button keeps a confirm popup, then
+auto-extracts the loop's memory straight from the AI's `[RZMEM|…]` marker via the
+in-app `/regex` command (helper script
+`Sillytavern/Re Zero RPG/Regex/RZ_ExtractMemory_Regex.json`) — no typing, no
+add-ons. A `[Return by Death Marker]` rule was added to the card's
+`post_history_instructions` so the engine emits that marker on every death.
+
+STScript flags may need minor per-version tweaks; the regex panels are
+version-independent.
+
+## 2026-06-12 — Re Zero RPG: synced to latest + player-agency rule
+
+- **Synced to the latest working state:** updated both
+  `Sillytavern/Re Zero RPG/Card/Re Zero RPG.json` and
+  `Sillytavern/Re Zero RPG/Lorebook/Re Zero [LB].json` to the newest versions.
+- **New `[Player Agency — ABSOLUTE]` rule** added to the card. The narrator and
+  every NPC are now strictly forbidden from writing, speaking, narrating, or
+  implying {{user}}'s dialogue, actions, gestures, inner thoughts, feelings, or
+  decisions, and from leading or deciding what {{user}} says/thinks/does. The
+  engine renders only the world, NPCs, and consequences, then yields the turn
+  and waits for {{user}}'s own input. The rule lives in the card `description`
+  (the active system prompt) and is reinforced in `post_history_instructions`
+  so it is enforced every turn, in any mode.
+## 2026-06-15 — Wistoria: Wand and Sword RPG — Season 2 overhaul (v2.0)
+
+Major expansion of `Sillytavern/Wistoria Wand and Sword RPG/` (both the Card and the
+companion `[LB]` lorebook, kept fully in sync across all three content stores).
+
+- **Season 2 content added.** New lore covering the Bloom & Tower-ascent arcs: the
+  antagonist organization **the Goetia** (authors of the *Doomsday*), **Baal / the Key
+  to the Heavens**, **the Doomsday**, the **eight factions & Tower strata / Guards**, and
+  updated entries for the False Sky/Baal, the Magia Vander roster, the Bloom ceremony,
+  the Tower, the dungeon/bestiary, organizations (Watchers + **Arbiters**), and the
+  arc/publication timeline.
+- **Full NPC roster (S1 → present).** The NPC LIST now spans 30 canon characters,
+  including the new Season-2 figures **Clairie Serah** (Arbiter High Mage) and **Sarissa
+  Alfeld** (Ice-Faction adjutant), plus the Goetia — **Walther Lyndon, Arvin Olus, Shade,
+  Marze, Headless, Morta Lattar** — each with a knowledge gate and signature hex colour.
+  New per-character lorebook entries were added for all of them.
+- **Denser lorebook entries.** Every world/character entry was rewritten longer and
+  clearer (no more thin one-liners). **Keywords are now bilingual (TH + EN)**; constant
+  entries carry no keywords, as requested.
+- **Custom Wistoria-aesthetic UI.** The Tracker, Character Header, Dialogue and Monologue
+  regex were redesigned into a cohesive "arcane academy grimoire" look — obsidian-blue
+  base, gold + ice-blue accents, ornate gold corner brackets, Cinzel/Spectral serif type
+  — matching the existing gold Status panel.
+- **No-puppeteering rule.** Added a strict Player-Agency protocol (EN + TH) as a constant
+  lorebook entry, in the card's `agency` description block, and in
+  `post_history_instructions`: the model must never speak, think, or narrate actions for
+  `{{user}}` (ห้ามพูดแทน ห้ามคิดแทน ห้ามบรรยายการกระทำแทน user).
+
+All content remains adult-safe and knowledge-gated to avoid spoiling late reveals.
+
 ## 2026-06-18 — KonoSuba RPG (collapsible Skill Tree)
 
 - **Status widget** `Regex/KS_Status_Regex.json` — the always-visible Skill Tree at the
