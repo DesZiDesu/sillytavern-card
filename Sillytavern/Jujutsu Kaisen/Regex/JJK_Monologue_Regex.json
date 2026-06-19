@@ -2,7 +2,7 @@
     "id": "cb93f8fd-5b31-45b3-bf65-b5503e607099",
     "scriptName": "JJK Monologue",
     "findRegex": "/\\[THINK\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g",
-    "replaceString": "<div style=\"max-width:494px;margin:9px auto 12px;font-family:'Shippori Mincho','Noto Serif JP','Times New Roman',serif;\"><div style=\"font:600 10px 'Shippori Mincho','Noto Serif JP','Times New Roman',serif;letter-spacing:2px;color:$2;margin:0 0 5px 4px;\">$1 · 心の声</div><div style=\"background:rgba(255,255,255,.02);border-radius:12px;padding:12px 17px;font-style:italic;color:#b8c2d2;font-size:13.5px;line-height:1.6;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10),inset 0 2px 18px -8px $2;\">$3</div></div>",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho:wght@500;600&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;600&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:494px;margin:9px auto 12px;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai','Times New Roman',serif;\"><div style=\"font:600 10px 'Shippori Mincho','Noto Serif JP','Noto Serif Thai','Times New Roman',serif;letter-spacing:2px;color:$2;margin:0 0 5px 4px;\">$1 · 心の声</div><div style=\"background:rgba(255,255,255,.02);border-radius:12px;padding:12px 17px;font-style:italic;color:#b8c2d2;font-size:13.5px;line-height:1.6;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10),inset 0 2px 18px -8px $2;\">$3</div></div>",
     "trimStrings": [],
     "placement": [
         1,

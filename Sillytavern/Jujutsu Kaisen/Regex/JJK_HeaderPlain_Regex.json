@@ -2,7 +2,7 @@
     "id": "5b64a272-7add-444d-9107-a95187e35cf0",
     "scriptName": "JJK Header (No Border)",
     "findRegex": "/\\[NPC\\|(.*?)\\|(.*?)\\]/g",
-    "replaceString": "<div style=\"max-width:540px;margin:13px auto 6px auto;background:transparent;font-family:'Shippori Mincho','Noto Serif JP','Times New Roman',serif;\"><div style=\"display:flex;align-items:center;gap:10px;\"><span style=\"font-size:14px;font-weight:600;color:#ffffff;letter-spacing:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 12px -2px $2;\">$1</span><span style=\"font-size:8px;letter-spacing:2px;color:#8b7fa3;flex-shrink:0;\">呪 霊 / 人</span></div><div style=\"height:1px;margin-top:9px;background:linear-gradient(90deg,$2,rgba(124,47,247,.18) 65%,transparent);opacity:.6;\"></div></div>",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho:wght@500;600&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;600&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:540px;margin:13px auto 6px auto;background:transparent;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai','Times New Roman',serif;\"><div style=\"display:flex;align-items:center;gap:10px;\"><span style=\"font-size:14px;font-weight:600;color:#ffffff;letter-spacing:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 12px -2px $2;\">$1</span><span style=\"font-size:8px;letter-spacing:2px;color:#8b7fa3;flex-shrink:0;\">呪 霊 / 人</span></div><div style=\"height:1px;margin-top:9px;background:linear-gradient(90deg,$2,rgba(124,47,247,.18) 65%,transparent);opacity:.6;\"></div></div>",
     "trimStrings": [],
     "placement": [
         1,
