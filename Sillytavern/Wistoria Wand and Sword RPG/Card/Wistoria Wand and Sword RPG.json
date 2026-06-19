@@ -2882,6 +2882,43 @@
                         "cooldown": 0,
                         "delay": 0
                     }
+                },
+                {
+                    "id": 62,
+                    "keys": [],
+                    "secondary_keys": [],
+                    "comment": "System — Interface / UI Tag Index [WS]",
+                    "content": "<interface_systems_index>\nMASTER INDEX of the card's on-screen UI. Every visual element is produced by a TAG the narrator writes; the attached WS regex scripts turn each tag into a rendered widget. NEVER print a raw tag, bracket, or JSON as visible text — always emit it so it renders. Full rules for each system live in its own worldbook entry (named below); change a system's LOOK by editing its worldbook entry / its WS regex, not the prose.\n\nEVERY REPLY IS FRAMED BY TWO TAGS\n- OPEN with the scene tracker on its own FIRST line — see entry \"Tracker\":\n  [TRACK|day|date|term|arc|region|locale|position|weather|temp|user_position|situation]\n- CLOSE with the living status sheet as the LAST thing — see entry \"Status System\":\n  <WS_STATUS>{ ...json... }</WS_STATUS>\n\nTHE SPEECH BLOCK (whenever a character speaks/acts) — consecutive lines, NOTHING between them\n  [THINK|Name|#hex|inner thought]               (optional inner voice — entry \"Monologue System\")\n  [CHAR|image|Name|#hex]  OR  [NPC|Name|#hex]    (the header — entry \"Header\")\n  [SAY|#hex|spoken words]                        (the speech bubble — entry \"Dialogue / Speech Bubble\")\n  Header choice: [CHAR] = framed portrait for NAMED / recurring / focal characters (anyone in the NPC LIST); [NPC] = borderless nameplate for MINOR / one-off / background speakers.\n\nON A NOTABLE CAST — entry \"Skill / Spell Label\"\n  [SKILL|Name|Element/Type|Tier/Note|#hex]       (own line; the icon auto-matches the element)\n\nCHARACTER CREATION — entry \"Character Creation System\"\n  <WS_CREATE>{ ...json... }</WS_CREATE>           (interactive forge, shown in the first message)\n  <WS_CONFIRM>{ ...json... }</WS_CONFIRM>          (sealed character sheet)\n\nCONSISTENCY\n- Each character's #hex is the SAME across their [CHAR]/[NPC], [SAY], [THINK], and [SKILL].\n- Canonical names never translate; only spoken/narrated text follows {{user}}'s language.\n- Pass \"ui_lang\":\"th\" / \"ui_theme\" in the JSON widgets to localise/theme them.\n</interface_systems_index>",
+                    "constant": true,
+                    "selective": true,
+                    "insertion_order": 999000,
+                    "enabled": true,
+                    "position": "after_char",
+                    "use_regex": true,
+                    "extensions": {
+                        "position": 4,
+                        "exclude_recursion": false,
+                        "display_index": 62,
+                        "probability": 100,
+                        "useProbability": true,
+                        "depth": 4,
+                        "selectiveLogic": 0,
+                        "group": "",
+                        "group_override": false,
+                        "group_weight": 100,
+                        "prevent_recursion": false,
+                        "delay_until_recursion": false,
+                        "scan_depth": null,
+                        "match_whole_words": null,
+                        "use_group_scoring": false,
+                        "case_sensitive": null,
+                        "automation_id": "",
+                        "role": 0,
+                        "vectorized": false,
+                        "sticky": 0,
+                        "cooldown": 0,
+                        "delay": 0
+                    }
                 }
             ]
         }
