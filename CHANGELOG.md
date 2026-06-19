@@ -2,6 +2,20 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-19 — Jujutsu Kaisen: fill NPC header image list
+
+- **Lorebook** `Lorebook/Jujutsu Kaisen [LB].json` (`NPC LIST [JJK]`) — replaced every
+  `[xxxxxx.png]` placeholder in the `<npc_header_list>` with its real catbox image code
+  so the JJK Character Header regex renders each NPC's portrait. Existing entry text and
+  hex colours were preserved.
+- **Added the extra forms/images** supplied alongside the list, each sharing its base
+  character's hex colour: Nobara (Shinjuku, eye patch), Gojo (Student Awakened; Teacher
+  Unmasked), Maki (First-Year), Toge (First-Year — and the existing entry relabelled
+  Second-Year), Yuta (Restored), Nanami (Student), Shoko (Student), Yaga (Teacher),
+  Mei Mei (Student), Sukuna (Yuji's Vessel), Toji (Revived), Naoya (Vengeful Spirit),
+  and Rika (Shikigami / Cursed Spirit). Added **Kurourushi** as a new entry.
+- List now totals **90 entries/forms** (was 74 placeholders).
+
 ## 2026-06-13 — Re Zero RPG: remove Return by Death / Quick Reply system
 
 Removed the experimental Return by Death kit at the user's request:
@@ -90,6 +104,7 @@ companion `[LB]` lorebook, kept fully in sync across all three content stores).
   `{{user}}` (ห้ามพูดแทน ห้ามคิดแทน ห้ามบรรยายการกระทำแทน user).
 
 All content remains adult-safe and knowledge-gated to avoid spoiling late reveals.
+
 ## 2026-06-18 — KonoSuba RPG (collapsible Skill Tree)
 
 - **Status widget** `Regex/KS_Status_Regex.json` — the always-visible Skill Tree at the
