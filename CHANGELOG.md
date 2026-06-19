@@ -2,6 +2,23 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-19 — Jujutsu Kaisen: fill NPC header image list
+
+- **`Sillytavern/Jujutsu Kaisen/Lorebook/Jujutsu Kaisen [LB].json` (`NPC LIST [JJK]`):**
+  replaced every `[xxxxxx.png]` placeholder in the `<npc_header_list>` with the real
+  catbox image codes so the JJK Character Header regex renders each NPC's portrait.
+- **Expanded forms:** broke single entries into the per-arc / life-stage forms that
+  have distinct art — e.g. Yuji (First-Year / Shibuya / Culling Game / Shinjuku /
+  Modulo), Gojo (Child / Student / Student Awakened / Teacher / Teacher Unmasked /
+  Shinjuku), Geto (Student / Defector), Maki (First-Year / Pre-Awakening / Awakened),
+  Toge (First-Year / Second-Year), Yuta (Cursed Child / Special Grade / Gojo's Body /
+  Restored), Nanami, Shoko, Yaga, Mei Mei (Student forms), Panda (Gorilla Mode),
+  Sukuna (Heian / King of Curses / Vessel / Yuji's Vessel), Mahito (final form),
+  Toji (Revived), Naoya (Vengeful Spirit), Rika (Human / Shikigami / Cursed Spirit),
+  Hana Kurusu (Angel manifested), and Nobara (Shinjuku eye-patch). Each form shares
+  its base character's hex color.
+- **Added** Kurourushi as a new NPC entry. List now totals 88 entries/forms.
+
 ## 2026-06-13 — Re Zero RPG: remove Return by Death / Quick Reply system
 
 Removed the experimental Return by Death kit at the user's request:
