@@ -2,6 +2,17 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-19 — Wistoria RPG: Skill / Spell Label with element icons
+
+- New **`WS Skill Label`** regex: `[SKILL|Name|Element/Type|Tier/Note|#hex]` renders a glowing
+  "Incantation Banner" (Design A) at the moment of a cast — diamond glyph + gold corner
+  brackets + vertical CAST + hex glow.
+- The **icon auto-matches the element** (Fire→flame, Ice/Water→crystal, Wind→swirl,
+  Lightning/Thunder→bolt, Earth→peak, Light→sun, Darkness→moon, Fantasy→eye, Wis/Sword→blade;
+  EN + TH keywords), via a small script; colour follows the caster's hex.
+- Added a constant lorebook entry documenting the tag, the element→icon map, and usage;
+  exported `Regex/WS_Skill_Regex.json`. Synced across all stores.
+
 ## 2026-06-19 — Wistoria RPG: redesigned headers + speech, new [NPC] nameplate
 
 - **Two header styles.** `[CHAR|img|Name|#hex]` = framed **ID-Plaque** header (portrait,
