@@ -2,6 +2,18 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-19 — Wistoria RPG: redesigned headers + speech, new [NPC] nameplate
+
+- **Two header styles.** `[CHAR|img|Name|#hex]` = framed **ID-Plaque** header (portrait,
+  serif caps, element diamond, hex double-rule) for named/focal characters; new
+  `[NPC|Name|#hex]` = borderless **Nameplate Bar** (no image) for minor/one-off speakers.
+- **Dialogue** `[SAY]` set to the **Parchment Scroll** bubble; **Monologue** `[THINK]` set to
+  the **Torn Reverie** note. All chosen from a 3-option-per-component design round.
+- Added the `WS NPC Header` regex; exported the speech set as standalone regex files
+  (`WS_Header_CHAR_Regex.json`, `WS_Header_NPC_Regex.json`, `WS_Dialogue_Regex.json`,
+  `WS_Monologue_Regex.json`). Rewrote the Header lorebook entry to document both styles
+  and when to use each; synced across all stores.
+
 ## 2026-06-19 — Wistoria RPG: Character Forge v3 (auto-send + preset/custom everywhere)
 
 Rebuilt the interactive creation system for `Sillytavern/Wistoria Wand and Sword RPG/`.
