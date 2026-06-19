@@ -2,6 +2,20 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-19 — Wistoria RPG: Character Forge v3 (auto-send + preset/custom everywhere)
+
+Rebuilt the interactive creation system for `Sillytavern/Wistoria Wand and Sword RPG/`.
+- **Auto-send**: "Forge & Send" now writes the `<WS_CONFIRM>` block straight into the chat
+  input and submits it (native value-setter + input event, then clicks send) — no manual
+  copy-paste. A copy/show-block fallback remains if the host blocks scripted send.
+- **Preset + Custom on every field**: each field shows localized preset chips plus a
+  ✎ Custom option; option labels switch with the EN/ไทย toggle. Far more options per field.
+- **Add Abilities/Skills** (name · type · effect) and **Add Relationships** (name · relation ·
+  note) as repeatable lists; **add custom attributes** alongside the 0–10 sliders.
+- Still mobile-first (iPhone 13 ≤390px), Thai fonts (Bai Jamjuree/Kanit/Mitr), dark/light.
+- Updated the embedded card regex, the standalone `Regex/WS_Creation_Regex.json` &
+  `WS_Confirm_Regex.json`, and the creation lorebook entry's field schema.
+
 ## 2026-06-16 — Wistoria RPG: brand-new interactive Character Forge
 
 Replaced the simple creation/confirm widgets with a fresh, **interactive, deeply
