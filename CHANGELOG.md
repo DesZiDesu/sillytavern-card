@@ -2,6 +2,18 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-20 — Wistoria RPG: Status restyle — pure black, element-coloured, magic-circle crest
+
+- **Pure-black** Status base; the entire accent colour is now **driven by the character's
+  magic** — auto-derived from their element (Fire→red, Ice→blue, Wind→green, Lightning→gold,
+  Earth→amber, Light→pale, Darkness→violet, Fantasy→teal…), or set explicitly via a new
+  `ui_hex` field. (Replaces the fixed gold.)
+- **Crest → Magic Circle**: 18 hand-built arcane-sigil designs; the AI picks ONE per
+  character via a new `sigil` (1–18) field after creation (auto-assigned from the name if
+  omitted). Rendered in the accent colour.
+- Updated the Status lorebook schema (`ui_hex`, `sigil`) + a panel-appearance note; synced
+  the card, embedded book, and `Regex/WS_Status_Regex.json`.
+
 ## 2026-06-20 — Wistoria RPG: new Fantasy Status (build-adaptive) + Learn flow
 
 Replaced the Status window with a brand-new **Fantasy** design (dark arcane tome, gold
