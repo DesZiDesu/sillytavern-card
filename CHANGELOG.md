@@ -2,6 +2,30 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-20 — Jujutsu Kaisen: Ten Shadows Totality & Multi-Domain Clash
+
+Three new gimmicks added to the JJK status/regex system:
+
+### Ten Shadows — Shikigami Death & Totality (渾) Merge System
+- **Status Regex** (`JJK_Status_Regex.json`) now tracks `shikigami_destroyed` and
+  `shikigami_merged` arrays in the status JSON.
+- Destroyed shikigami display a red "Destroyed" badge; absorbed ones show "Absorbed".
+- When a shikigami is destroyed and unmerged, a **Forge Totality** UI appears in the
+  Shikigami tab — pick a destroyed source and a living target, then send a
+  `<JJK_MERGE>` request to the AI.
+- Existing totality forms (set by the AI in `shikigami_merged`) render at the top with
+  a purple "TOTALITY" badge, kanji 渾, and the absorbed source listed.
+- The base shikigami that received a merge shows "Evolved (渾)" status.
+- **New Regex** `JJK_Merge_Regex.json` — renders the `<JJK_MERGE>` payload as a
+  styled merge-request card (source → target, with totality kanji).
+
+### Multi-Domain Clash
+- **New Regex** `JJK_MultiClash_Regex.json` — handles `<JJK_DOMAIN_CLASH>` with a
+  JSON payload supporting **any number** of simultaneous domain expansions.
+- Renders a segmented power bar, per-domain cards with sure-hit effects, percentage
+  breakdown, and optional winner highlight.
+- Existing 2-domain `[CLASH|...]` regex is preserved for backward compatibility.
+
 ## 2026-06-19 — Jujutsu Kaisen: fill NPC header image list
 
 - **Lorebook** `Lorebook/Jujutsu Kaisen [LB].json` (`NPC LIST [JJK]`) — replaced every
