@@ -2,6 +2,24 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-20 — Wistoria RPG: new Fantasy Status (build-adaptive) + Learn flow
+
+Replaced the Status window with a brand-new **Fantasy** design (dark arcane tome, gold
+filigree, element-tinted), collapsible, EN/TH (Trirong/Cinzel fonts), iPhone-friendly.
+- **Build-adaptive Combat Core**: auto-picks **Mageblade · Wis** (magicless/sword, loaded
+  element + ~50min hold + reload charges), **Arcane Channel** (mage: mana + element + tier +
+  Supreme charge), or **Forge · Artifice** (dwarf/artificer) — and tints to the element.
+- **8 tabs**: Overview · Arts · Gear · Bonds · Vitals · Attributes · Quests · Profile,
+  covering every build (magicless/mage/multos/elf/dwarf/nightwalker/faculty/graduate).
+- **Progression/points**: Academy Credits → Ascent Rank ladder, Aptitude Points, deepest
+  floor, Tower stratum.
+- **Interactive Arts**: learned arts (mastery bars + element icons) + a **Learnable** list
+  whose Learn buttons spend Aptitude Points and **auto-send `[LEARN|name|element|cost]`**;
+  added the **WS Learn** banner regex to render that request.
+- Gear/Artifices/Items + Familiar, Vitals + Conditions, Bonds/Intimacy, full Profile + Wallet.
+- Rewrote the Status lorebook entry with the full schema + adaptive-core + learn-flow rules.
+- Exported `Regex/WS_Status_Regex.json` and `Regex/WS_Learn_Regex.json`. Card now ships 10 regex.
+
 ## 2026-06-19 — Wistoria RPG: Skill / Spell Label with element icons
 
 - New **`WS Skill Label`** regex: `[SKILL|Name|Element/Type|Tier/Note|#hex]` renders a glowing
