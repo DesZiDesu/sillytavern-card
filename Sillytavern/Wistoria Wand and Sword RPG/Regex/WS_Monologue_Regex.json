@@ -1,0 +1,18 @@
+{
+    "id": "ws-monologue",
+    "scriptName": "WS Monologue",
+    "findRegex": "/\\[THINK\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<div style=\"max-width:440px;margin:9px auto;font-family:'Spectral','Bai Jamjuree',serif;\"><div style=\"position:relative;background:linear-gradient(180deg,#1a1d26,#15171e);border:1px solid #2a2a20;padding:11px 17px;box-shadow:0 4px 12px rgba(0,0,0,.45);\"><span style=\"position:absolute;top:-8px;left:14px;font-family:'Cinzel','Kanit',serif;font-size:8.5px;font-weight:600;letter-spacing:1.3px;color:#0c0a06;background:$2;padding:2px 8px;text-transform:uppercase;\">$1</span><div style=\"font-style:italic;font-size:13.5px;line-height:1.6;color:#c8ced8;padding-top:3px;border-bottom:1px dashed $2;padding-bottom:9px;display:inline;\">$3</div></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

@@ -2,6 +2,92 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-20 — Wistoria RPG: Status restyle — pure black, element-coloured, magic-circle crest
+
+- **Pure-black** Status base; the entire accent colour is now **driven by the character's
+  magic** — auto-derived from their element (Fire→red, Ice→blue, Wind→green, Lightning→gold,
+  Earth→amber, Light→pale, Darkness→violet, Fantasy→teal…), or set explicitly via a new
+  `ui_hex` field. (Replaces the fixed gold.)
+- **Crest → Magic Circle**: 18 hand-built arcane-sigil designs; the AI picks ONE per
+  character via a new `sigil` (1–18) field after creation (auto-assigned from the name if
+  omitted). Rendered in the accent colour.
+- Updated the Status lorebook schema (`ui_hex`, `sigil`) + a panel-appearance note; synced
+  the card, embedded book, and `Regex/WS_Status_Regex.json`.
+
+## 2026-06-20 — Wistoria RPG: new Fantasy Status (build-adaptive) + Learn flow
+
+Replaced the Status window with a brand-new **Fantasy** design (dark arcane tome, gold
+filigree, element-tinted), collapsible, EN/TH (Trirong/Cinzel fonts), iPhone-friendly.
+- **Build-adaptive Combat Core**: auto-picks **Mageblade · Wis** (magicless/sword, loaded
+  element + ~50min hold + reload charges), **Arcane Channel** (mage: mana + element + tier +
+  Supreme charge), or **Forge · Artifice** (dwarf/artificer) — and tints to the element.
+- **8 tabs**: Overview · Arts · Gear · Bonds · Vitals · Attributes · Quests · Profile,
+  covering every build (magicless/mage/multos/elf/dwarf/nightwalker/faculty/graduate).
+- **Progression/points**: Academy Credits → Ascent Rank ladder, Aptitude Points, deepest
+  floor, Tower stratum.
+- **Interactive Arts**: learned arts (mastery bars + element icons) + a **Learnable** list
+  whose Learn buttons spend Aptitude Points and **auto-send `[LEARN|name|element|cost]`**;
+  added the **WS Learn** banner regex to render that request.
+- Gear/Artifices/Items + Familiar, Vitals + Conditions, Bonds/Intimacy, full Profile + Wallet.
+- Rewrote the Status lorebook entry with the full schema + adaptive-core + learn-flow rules.
+- Exported `Regex/WS_Status_Regex.json` and `Regex/WS_Learn_Regex.json`. Card now ships 10 regex.
+
+## 2026-06-19 — Wistoria RPG: Skill / Spell Label with element icons
+
+- New **`WS Skill Label`** regex: `[SKILL|Name|Element/Type|Tier/Note|#hex]` renders a glowing
+  "Incantation Banner" (Design A) at the moment of a cast — diamond glyph + gold corner
+  brackets + vertical CAST + hex glow.
+- The **icon auto-matches the element** (Fire→flame, Ice/Water→crystal, Wind→swirl,
+  Lightning/Thunder→bolt, Earth→peak, Light→sun, Darkness→moon, Fantasy→eye, Wis/Sword→blade;
+  EN + TH keywords), via a small script; colour follows the caster's hex.
+- Added a constant lorebook entry documenting the tag, the element→icon map, and usage;
+  exported `Regex/WS_Skill_Regex.json`. Synced across all stores.
+
+## 2026-06-19 — Wistoria RPG: redesigned headers + speech, new [NPC] nameplate
+
+- **Two header styles.** `[CHAR|img|Name|#hex]` = framed **ID-Plaque** header (portrait,
+  serif caps, element diamond, hex double-rule) for named/focal characters; new
+  `[NPC|Name|#hex]` = borderless **Nameplate Bar** (no image) for minor/one-off speakers.
+- **Dialogue** `[SAY]` set to the **Parchment Scroll** bubble; **Monologue** `[THINK]` set to
+  the **Torn Reverie** note. All chosen from a 3-option-per-component design round.
+- Added the `WS NPC Header` regex; exported the speech set as standalone regex files
+  (`WS_Header_CHAR_Regex.json`, `WS_Header_NPC_Regex.json`, `WS_Dialogue_Regex.json`,
+  `WS_Monologue_Regex.json`). Rewrote the Header lorebook entry to document both styles
+  and when to use each; synced across all stores.
+
+## 2026-06-19 — Wistoria RPG: Character Forge v3 (auto-send + preset/custom everywhere)
+
+Rebuilt the interactive creation system for `Sillytavern/Wistoria Wand and Sword RPG/`.
+- **Auto-send**: "Forge & Send" now writes the `<WS_CONFIRM>` block straight into the chat
+  input and submits it (native value-setter + input event, then clicks send) — no manual
+  copy-paste. A copy/show-block fallback remains if the host blocks scripted send.
+- **Preset + Custom on every field**: each field shows localized preset chips plus a
+  ✎ Custom option; option labels switch with the EN/ไทย toggle. Far more options per field.
+- **Add Abilities/Skills** (name · type · effect) and **Add Relationships** (name · relation ·
+  note) as repeatable lists; **add custom attributes** alongside the 0–10 sliders.
+- Still mobile-first (iPhone 13 ≤390px), Thai fonts (Bai Jamjuree/Kanit/Mitr), dark/light.
+- Updated the embedded card regex, the standalone `Regex/WS_Creation_Regex.json` &
+  `WS_Confirm_Regex.json`, and the creation lorebook entry's field schema.
+
+## 2026-06-16 — Wistoria RPG: brand-new interactive Character Forge
+
+Replaced the simple creation/confirm widgets with a fresh, **interactive, deeply
+detailed** character-creation system for `Sillytavern/Wistoria Wand and Sword RPG/`.
+
+- **`WS Creation` (`<WS_CREATE>`)** — the *Character Forge*: a 7-tab interactive form
+  (Identity · Appearance · Origin · Arts & Arms · Persona · Bonds · Scene) with text
+  inputs, single/multi-select chips, 8 attribute sliders (0–10), toggles, a live
+  **completeness meter**, and a **Seal & Copy** button that compiles every field into a
+  `<WS_CONFIRM>` block to paste into chat.
+- **`WS Confirm` (`<WS_CONFIRM>`)** — a redesigned read-only *sealed registration* sheet,
+  sectioned to match the Forge, with attribute bars and a Wis badge.
+- **Bilingual EN/TH** with a live language toggle and proper **Thai webfonts**
+  (Bai Jamjuree, Kanit, Mitr) alongside Cinzel/Spectral; dark/light theme toggle.
+- **Mobile-first / iPhone-13 compatible** (≤390px), 16px inputs (no iOS zoom),
+  scrollable tab bar, ≥38px tap targets.
+- ~50 fields covering every detail; the creation lorebook entry documents the full schema.
+  Designed fresh — not ported from other cards.
+
 ## 2026-06-19 — Jujutsu Kaisen: fill NPC header image list
 
 - **Lorebook** `Lorebook/Jujutsu Kaisen [LB].json` (`NPC LIST [JJK]`) — replaced every
