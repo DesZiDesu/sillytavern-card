@@ -88,6 +88,79 @@ detailed** character-creation system for `Sillytavern/Wistoria Wand and Sword RP
 - ~50 fields covering every detail; the creation lorebook entry documents the full schema.
   Designed fresh — not ported from other cards.
 
+## 2026-06-19 — Jujutsu Kaisen: fill NPC header image list
+
+- **Lorebook** `Lorebook/Jujutsu Kaisen [LB].json` (`NPC LIST [JJK]`) — replaced every
+  `[xxxxxx.png]` placeholder in the `<npc_header_list>` with its real catbox image code
+  so the JJK Character Header regex renders each NPC's portrait. Existing entry text and
+  hex colours were preserved.
+- **Added the extra forms/images** supplied alongside the list, each sharing its base
+  character's hex colour: Nobara (Shinjuku, eye patch), Gojo (Student Awakened; Teacher
+  Unmasked), Maki (First-Year), Toge (First-Year — and the existing entry relabelled
+  Second-Year), Yuta (Restored), Nanami (Student), Shoko (Student), Yaga (Teacher),
+  Mei Mei (Student), Sukuna (Yuji's Vessel), Toji (Revived), Naoya (Vengeful Spirit),
+  and Rika (Shikigami / Cursed Spirit). Added **Kurourushi** as a new entry.
+- List now totals **90 entries/forms** (was 74 placeholders).
+
+## 2026-06-13 — Re Zero RPG: remove Return by Death / Quick Reply system
+
+Removed the experimental Return by Death kit at the user's request:
+- Deleted `Quick Replies/RZ_ReturnByDeath_QR.json`, `Quick Replies/Return-by-Death
+  Setup.md`, `Regex/RZ_Memory_Regex.json`, and `Regex/RZ_ExtractMemory_Regex.json`.
+- Reverted the card: dropped the embedded `RZ Loop Memory` / `RZ Extract Memory`
+  regex and the `[Return by Death Marker]` output rule. The monologue-spacing fix
+  and the `[Player Agency — ABSOLUTE]` rule are kept.
+
+## 2026-06-13 — Re Zero RPG: monologue spacing fix + Return by Death v2
+
+- **RZ Monologue regex:** increased the bubble's vertical margin
+  (`12px auto 6px` → `22px auto 36px`) so the THINK bubble's downward tail dots no
+  longer collide with the character header below it.
+- **Return by Death v2:** loop memory is now **cumulative** (`rbd_log`, one line per
+  loop) and the whole log is injected each rewind; after the `/cut` the kit
+  re-posts a **persistent Loop Memory panel** (so there is on-screen UI showing
+  what happened and which loop you are on); all player-facing button/popup text is
+  now Thai. Requires the updated card so the engine emits the `[RZMEM|…]` marker on
+  death — without it there is nothing to remember.
+
+## 2026-06-12 — Re Zero RPG: Return by Death kit (Quick Replies + regex)
+
+Added a starter kit that reproduces Subaru's **Return by Death** in SillyTavern:
+
+- **`Sillytavern/Re Zero RPG/Quick Replies/RZ_ReturnByDeath_QR.json`** — a 4-button
+  Quick Reply set: 🔖 *Set Save Point*, ☠ *Return by Death* (confirm → bump death
+  counter → capture carried-over memory → `/inject` it → `/cut` back to the save
+  point), 📖 *Loop Memory*, 🧹 *Clear Memory*.
+- **`Sillytavern/Re Zero RPG/Regex/RZ_Memory_Regex.json`** — renders a `[RZMEM|loop|
+  save|cause|carried]` marker into a styled "Retained Memory" panel matching the
+  card's dark/blood-red aesthetic.
+- **`Sillytavern/Re Zero RPG/Quick Replies/Return-by-Death Setup.md`** — install +
+  wiring guide. Core idea: the loop memory survives chat deletion because it lives
+  in a chat variable + a persistent prompt injection, not in the deleted messages.
+
+**Native memory capture (no extension):** the ☠ button keeps a confirm popup, then
+auto-extracts the loop's memory straight from the AI's `[RZMEM|…]` marker via the
+in-app `/regex` command (helper script
+`Sillytavern/Re Zero RPG/Regex/RZ_ExtractMemory_Regex.json`) — no typing, no
+add-ons. A `[Return by Death Marker]` rule was added to the card's
+`post_history_instructions` so the engine emits that marker on every death.
+
+STScript flags may need minor per-version tweaks; the regex panels are
+version-independent.
+
+## 2026-06-12 — Re Zero RPG: synced to latest + player-agency rule
+
+- **Synced to the latest working state:** updated both
+  `Sillytavern/Re Zero RPG/Card/Re Zero RPG.json` and
+  `Sillytavern/Re Zero RPG/Lorebook/Re Zero [LB].json` to the newest versions.
+- **New `[Player Agency — ABSOLUTE]` rule** added to the card. The narrator and
+  every NPC are now strictly forbidden from writing, speaking, narrating, or
+  implying {{user}}'s dialogue, actions, gestures, inner thoughts, feelings, or
+  decisions, and from leading or deciding what {{user}} says/thinks/does. The
+  engine renders only the world, NPCs, and consequences, then yields the turn
+  and waits for {{user}}'s own input. The rule lives in the card `description`
+  (the active system prompt) and is reinforced in `post_history_instructions`
+  so it is enforced every turn, in any mode.
 ## 2026-06-15 — Wistoria: Wand and Sword RPG — Season 2 overhaul (v2.0)
 
 Major expansion of `Sillytavern/Wistoria Wand and Sword RPG/` (both the Card and the
@@ -117,6 +190,7 @@ companion `[LB]` lorebook, kept fully in sync across all three content stores).
   `{{user}}` (ห้ามพูดแทน ห้ามคิดแทน ห้ามบรรยายการกระทำแทน user).
 
 All content remains adult-safe and knowledge-gated to avoid spoiling late reveals.
+
 ## 2026-06-18 — KonoSuba RPG (collapsible Skill Tree)
 
 - **Status widget** `Regex/KS_Status_Regex.json` — the always-visible Skill Tree at the
