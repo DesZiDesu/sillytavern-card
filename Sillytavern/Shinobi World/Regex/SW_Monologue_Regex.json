@@ -1,0 +1,18 @@
+{
+    "id": "sw-monologue",
+    "scriptName": "SW Monologue",
+    "findRegex": "/\\[THINK\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:470px;margin:9px auto 12px;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif;\"><div style=\"font-family:'M PLUS 1',sans-serif;font-size:9px;font-weight:600;letter-spacing:2px;color:$2;margin:0 0 5px 2px;\">$1 · 内心</div><div style=\"padding:12px 18px;font-style:italic;color:#8a90a0;font-size:13px;line-height:1.65;background:rgba(16,18,24,.45);border:1px dashed rgba(255,255,255,.06);border-radius:12px;border-left:1.5px solid $2;box-shadow:inset 0 0 20px -8px $2;\">$3</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
