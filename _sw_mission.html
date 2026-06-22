@@ -1,0 +1,272 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Serif+JP:wght@500;700;900&family=M+PLUS+1:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#1a1410;font-family:'M PLUS 1','Shippori Mincho',sans-serif}
+.mc{--rc:#cc3333;width:100%;max-width:420px;margin:0 auto;position:relative;padding:8px 0}
+
+/* board header */
+.board-hdr{text-align:center;padding:10px 0 6px;position:relative}
+.board-hdr .bh-kanji{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:900;color:#c4a882;letter-spacing:6px;text-shadow:0 2px 4px rgba(0,0,0,.5)}
+.board-hdr .bh-sub{font-family:'M PLUS 1',sans-serif;font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#8a7050;margin-top:2px}
+.board-hdr .bh-line{height:2px;background:linear-gradient(90deg,transparent,#6a5030 20%,#c4a882 50%,#6a5030 80%,transparent);margin:8px 20px 0}
+
+/* nav area */
+.nav-area{display:flex;align-items:center;gap:0;padding:0 4px;position:relative;min-height:520px}
+.nav-btn{width:32px;height:32px;flex-shrink:0;border:none;border-radius:50%;background:rgba(196,168,130,.15);color:#c4a882;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:5;font-family:'M PLUS 1',sans-serif}
+.nav-btn:hover{background:rgba(196,168,130,.3)}
+.nav-btn:active{transform:scale(.9);background:rgba(196,168,130,.4)}
+.nav-btn:disabled{opacity:.2;cursor:default;transform:none}
+
+/* paper stack viewport */
+.paper-viewport{flex:1;position:relative;overflow:hidden;min-height:520px}
+.paper-track{display:flex;transition:transform .35s cubic-bezier(.4,0,.2,1);will-change:transform}
+
+/* individual paper */
+.paper{width:100%;flex-shrink:0;padding:6px 4px}
+.sheet{background:linear-gradient(180deg,#fafaf6,#f5f3ee 3%,#faf8f4 50%,#f3f0ea 97%,#eae6dc);border-radius:3px;box-shadow:2px 3px 12px rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.3) inset;position:relative;overflow:hidden;padding:20px 18px 16px;min-height:500px}
+.sheet::before{content:'';position:absolute;left:42px;top:0;bottom:0;width:1px;background:rgba(200,60,60,.12)}
+.sheet::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent,transparent 27px,rgba(100,140,180,.06) 27px,rgba(100,140,180,.06) 28px);pointer-events:none}
+
+/* confidential stamp */
+.stamp{position:absolute;top:12px;right:14px;width:52px;height:52px;border:3px solid var(--rc);border-radius:50%;display:flex;align-items:center;justify-content:center;transform:rotate(-12deg);opacity:.7}
+.stamp-inner{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:var(--rc);line-height:1}
+
+/* rank badge */
+.rank-strip{display:inline-flex;align-items:center;gap:5px;background:var(--rc);color:#fff;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:3px 12px 3px 8px;border-radius:2px;margin-bottom:10px}
+.rank-strip .rk{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900}
+
+/* mission title */
+.m-title{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:16px;font-weight:800;color:#1a1410;line-height:1.3;margin-bottom:3px;padding-right:50px}
+.m-title-jp{font-family:'Noto Serif JP',serif;font-size:10px;color:#8a7a6a;margin-bottom:12px}
+
+/* divider */
+.m-div{height:1px;background:linear-gradient(90deg,#c4a882,rgba(196,168,130,.2));margin:10px 0}
+
+/* field rows */
+.m-row{display:flex;gap:12px;margin-bottom:8px}
+.m-field{flex:1}
+.m-lbl{font-size:7px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9a8a70;margin-bottom:1px}
+.m-val{font-size:11px;color:#2a2018;line-height:1.4}
+.m-val.mono{font-family:'M PLUS 1',sans-serif;font-weight:600}
+
+/* description */
+.m-desc{font-size:10.5px;color:#3a3020;line-height:1.6;margin:8px 0;text-align:justify}
+
+/* objectives */
+.m-obj-title{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9a8a70;margin:10px 0 6px}
+.m-obj{display:flex;align-items:flex-start;gap:6px;margin-bottom:5px}
+.m-obj .ob{width:12px;height:12px;flex-shrink:0;border:1.5px solid #baa88a;border-radius:2px;margin-top:1px}
+.m-obj .ot{font-size:10px;color:#2a2018;line-height:1.4}
+.m-obj.opt .ot{color:#8a7a6a;font-style:italic}
+.m-obj.opt .ot::before{content:'[Optional] ';font-style:normal;font-weight:600;font-size:8px;text-transform:uppercase;letter-spacing:.5px}
+
+/* rewards */
+.m-rewards{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.m-rwd{font-size:8.5px;padding:3px 8px;border-radius:10px;border:1px solid #cbb088;color:#5a4a30;background:rgba(255,251,242,.6)}
+.m-rwd.money{color:#2a6a28;border-color:rgba(42,106,40,.3);background:rgba(42,106,40,.06)}
+.m-rwd.xp{color:#2a5a8b;border-color:rgba(42,90,139,.3);background:rgba(42,90,139,.06)}
+
+/* warnings */
+.m-warn{margin-top:10px;padding:6px 8px;border-left:3px solid var(--rc);background:rgba(204,51,51,.04);border-radius:0 4px 4px 0}
+.m-warn .wl{font-size:7px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rc);margin-bottom:2px}
+.m-warn .wt{font-size:9.5px;color:#5a3a2a;line-height:1.4}
+
+/* footer stamps */
+.m-footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:12px;padding-top:8px;border-top:1px solid rgba(196,168,130,.3)}
+.m-issuer{font-size:8px;color:#9a8a70;line-height:1.4}
+.m-issuer b{color:#5a4a30;font-weight:700}
+.m-seal{width:36px;height:36px;border:2px solid rgba(204,51,51,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;transform:rotate(8deg)}
+.m-seal span{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:rgba(204,51,51,.5)}
+
+/* page dots */
+.dots{display:flex;justify-content:center;gap:6px;padding:10px 0}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(196,168,130,.2);transition:all .25s;cursor:pointer}
+.dot.on{background:#c4a882;box-shadow:0 0 6px rgba(196,168,130,.5)}
+
+/* page counter */
+.pg-count{text-align:center;font-size:8px;font-weight:600;letter-spacing:2px;color:#6a5030;margin-bottom:4px}
+
+/* rank colors */
+.rank-d{--rc:#5a8a3a}.rank-c{--rc:#2a6aaa}.rank-b{--rc:#c4881a}.rank-a{--rc:#cc3333}.rank-s{--rc:#8b2080}
+
+@media(max-width:360px){.sheet{padding:16px 14px 12px}.m-title{font-size:14px}}
+@media(min-width:500px){.mc{max-width:480px}.sheet{padding:24px 22px 18px}}
+</style></head><body>
+
+<div class="mc" id="mapp">
+  <div class="board-hdr">
+    <div class="bh-kanji">任務掲示板</div>
+    <div class="bh-sub">Mission Assignment Board</div>
+    <div class="bh-line"></div>
+  </div>
+
+  <div class="pg-count" id="pgcount">1 / 3</div>
+
+  <div class="nav-area">
+    <button class="nav-btn" id="prev" disabled>◂</button>
+    <div class="paper-viewport">
+      <div class="paper-track" id="track">
+
+        <!-- PAPER 1: B-Rank -->
+        <div class="paper">
+          <div class="sheet rank-b">
+            <div class="stamp"><div class="stamp-inner">任</div></div>
+            <div class="rank-strip"><span class="rk">B</span> RANK MISSION</div>
+            <div class="m-title">Retrieve the Forbidden Scroll</div>
+            <div class="m-title-jp">禁断の巻物を取り戻せ</div>
+            <div class="m-div"></div>
+            <div class="m-row">
+              <div class="m-field"><div class="m-lbl">Client</div><div class="m-val">Konoha Intelligence Division</div></div>
+              <div class="m-field"><div class="m-lbl">Location</div><div class="m-val">Land of Rivers — Border Region</div></div>
+            </div>
+            <div class="m-row">
+              <div class="m-field"><div class="m-lbl">Time Limit</div><div class="m-val mono">72 Hours</div></div>
+              <div class="m-field"><div class="m-lbl">Team Size</div><div class="m-val mono">3–4 Shinobi</div></div>
+            </div>
+            <div class="m-div"></div>
+            <div class="m-desc">Intel reports a missing-nin has stolen a forbidden scroll from the village archive containing kinjutsu research. The target was last seen heading toward the Land of Rivers border. Track, intercept, and retrieve the scroll. Engage with caution — the target may have accomplices.</div>
+            <div class="m-obj-title">Objectives</div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Locate the missing-nin's hideout using tracking jutsu</div></div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Retrieve the Forbidden Scroll intact</div></div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Neutralize or capture the target alive</div></div>
+            <div class="m-obj opt"><div class="ob"></div><div class="ot">Discover who aided the theft from inside the village</div></div>
+            <div class="m-div"></div>
+            <div class="m-rewards">
+              <span class="m-rwd money">+5,000 Ryō</span>
+              <span class="m-rwd xp">+50 Reputation</span>
+              <span class="m-rwd">Scroll Technique Unlock</span>
+            </div>
+            <div class="m-warn">
+              <div class="wl">⚠ Intelligence Warning</div>
+              <div class="wt">Target is a former Chūnin specializing in Earth Release. Possible traps around hideout. Do not underestimate.</div>
+            </div>
+            <div class="m-footer">
+              <div class="m-issuer"><b>Issued by:</b> Hokage Office<br/>Mission Desk — File #B-0472</div>
+              <div class="m-seal"><span>火</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAPER 2: A-Rank -->
+        <div class="paper">
+          <div class="sheet rank-a">
+            <div class="stamp"><div class="stamp-inner">任</div></div>
+            <div class="rank-strip"><span class="rk">A</span> RANK MISSION</div>
+            <div class="m-title">Escort the Daimyō's Envoy</div>
+            <div class="m-title-jp">大名の使者を護衛せよ</div>
+            <div class="m-div"></div>
+            <div class="m-row">
+              <div class="m-field"><div class="m-lbl">Client</div><div class="m-val">Fire Country Daimyō Office</div></div>
+              <div class="m-field"><div class="m-lbl">Location</div><div class="m-val">Capital → Sunagakure Route</div></div>
+            </div>
+            <div class="m-row">
+              <div class="m-field"><div class="m-lbl">Time Limit</div><div class="m-val mono">7 Days</div></div>
+              <div class="m-field"><div class="m-lbl">Team Size</div><div class="m-val mono">4–5 Shinobi</div></div>
+            </div>
+            <div class="m-div"></div>
+            <div class="m-desc">The Daimyō's personal envoy carries a peace treaty to Sunagakure. Multiple assassination attempts have been reported by ANBU reconnaissance. Escort the envoy safely through hostile territory while maintaining absolute secrecy about the treaty's contents.</div>
+            <div class="m-obj-title">Objectives</div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Escort the envoy safely to Sunagakure gates</div></div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Eliminate or repel any assassination attempts</div></div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Ensure the treaty document remains sealed and intact</div></div>
+            <div class="m-obj opt"><div class="ob"></div><div class="ot">Identify the organization behind the assassination orders</div></div>
+            <div class="m-div"></div>
+            <div class="m-rewards">
+              <span class="m-rwd money">+15,000 Ryō</span>
+              <span class="m-rwd xp">+120 Reputation</span>
+              <span class="m-rwd">Diplomatic Immunity Pass</span>
+            </div>
+            <div class="m-warn">
+              <div class="wl">⚠ ANBU Intelligence</div>
+              <div class="wt">At least two S-class missing-nin have been hired as interceptors. Expect ambush at the Wind Country border crossing. Backup squad is 4 hours away.</div>
+            </div>
+            <div class="m-footer">
+              <div class="m-issuer"><b>Issued by:</b> Hokage Office — ANBU Liaison<br/>Mission Desk — File #A-0108</div>
+              <div class="m-seal"><span>火</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAPER 3: D-Rank -->
+        <div class="paper">
+          <div class="sheet rank-d">
+            <div class="stamp"><div class="stamp-inner">任</div></div>
+            <div class="rank-strip"><span class="rk">D</span> RANK MISSION</div>
+            <div class="m-title">Lost Cat in the Market District</div>
+            <div class="m-title-jp">商店街の迷い猫を探せ</div>
+            <div class="m-div"></div>
+            <div class="m-row">
+              <div class="m-field"><div class="m-lbl">Client</div><div class="m-val">Madam Shijimi</div></div>
+              <div class="m-field"><div class="m-lbl">Location</div><div class="m-val">Konoha — Market District</div></div>
+            </div>
+            <div class="m-row">
+              <div class="m-field"><div class="m-lbl">Time Limit</div><div class="m-val mono">24 Hours</div></div>
+              <div class="m-field"><div class="m-lbl">Team Size</div><div class="m-val mono">1–3 Genin</div></div>
+            </div>
+            <div class="m-div"></div>
+            <div class="m-desc">Tora the cat has escaped again. The client's pet was last seen near the fish market. Capture and return the cat unharmed. Warning: Tora is hostile to capture attempts and has scratched every team assigned so far.</div>
+            <div class="m-obj-title">Objectives</div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Locate Tora in the market district</div></div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Capture Tora without injury to the cat</div></div>
+            <div class="m-obj"><div class="ob"></div><div class="ot">Return Tora to Madam Shijimi</div></div>
+            <div class="m-obj opt"><div class="ob"></div><div class="ot">Find out how Tora keeps escaping</div></div>
+            <div class="m-div"></div>
+            <div class="m-rewards">
+              <span class="m-rwd money">+500 Ryō</span>
+              <span class="m-rwd xp">+5 Reputation</span>
+            </div>
+            <div class="m-footer">
+              <div class="m-issuer"><b>Issued by:</b> Mission Assignment Desk<br/>Mission Desk — File #D-1337</div>
+              <div class="m-seal"><span>火</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="nav-btn" id="next">▸</button>
+  </div>
+
+  <div class="dots" id="dots">
+    <div class="dot on" data-i="0"></div>
+    <div class="dot" data-i="1"></div>
+    <div class="dot" data-i="2"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var cur=0,total=3;
+  var track=document.getElementById('track');
+  var prevBtn=document.getElementById('prev');
+  var nextBtn=document.getElementById('next');
+  var dots=document.querySelectorAll('.dot');
+  var pgcount=document.getElementById('pgcount');
+
+  function go(i){
+    if(i<0||i>=total)return;
+    cur=i;
+    track.style.transform='translateX(-'+cur*100+'%)';
+    prevBtn.disabled=cur===0;
+    nextBtn.disabled=cur===total-1;
+    dots.forEach(function(d,idx){d.classList.toggle('on',idx===cur);});
+    pgcount.textContent=(cur+1)+' / '+total;
+  }
+
+  prevBtn.addEventListener('click',function(){go(cur-1);});
+  nextBtn.addEventListener('click',function(){go(cur+1);});
+  dots.forEach(function(d){d.addEventListener('click',function(){go(parseInt(d.getAttribute('data-i')));});});
+
+  // touch swipe
+  var sx=0,moving=false;
+  var vp=document.querySelector('.paper-viewport');
+  vp.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;moving=true;},{passive:true});
+  vp.addEventListener('touchend',function(e){
+    if(!moving)return;moving=false;
+    var dx=e.changedTouches[0].clientX-sx;
+    if(Math.abs(dx)>40){dx<0?go(cur+1):go(cur-1);}
+  },{passive:true});
+})();
+</script>
+</body></html>
