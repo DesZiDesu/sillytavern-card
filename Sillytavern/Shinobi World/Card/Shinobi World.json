@@ -29,7 +29,7 @@
         "extensions": {
             "talkativeness": "0.5",
             "fav": false,
-            "world": "Shinobi World [LB]",
+            "world": "",
             "depth_prompt": {
                 "prompt": "",
                 "depth": 4,
