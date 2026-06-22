@@ -1,0 +1,18 @@
+{
+    "id": "sw-clash",
+    "scriptName": "SW Jutsu Clash",
+    "findRegex": "/\\[CLASH\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:520px;margin:12px auto;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif;background:transparent;padding:2px 2px;color:#fff;\"><div style=\"display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font-size:12.5px;font-weight:700;margin-bottom:7px;\"><span style=\"color:$2;text-shadow:0 0 8px $2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:46%;\">$1</span><span style=\"color:$4;text-shadow:0 0 8px $4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:46%;text-align:right;\">$3</span></div><div style=\"position:relative;display:flex;height:17px;border-radius:9px;overflow:hidden;border:1px solid #1a1e28;background:#0c0e14;\"><div style=\"width:$5%;background:$2;box-shadow:0 0 16px -2px $2;transition:width .4s ease;\"></div><div style=\"flex:1;background:$4;box-shadow:0 0 16px -2px $4;\"></div><span style=\"position:absolute;left:$5%;top:50%;transform:translate(-50%,-50%);color:#fff;font-size:12px;text-shadow:0 0 5px #000,0 0 4px #000;\">◆</span></div><div style=\"display:flex;justify-content:space-between;font-size:9px;margin-top:5px;\"><span style=\"color:$2;\">◀ $5%</span><span style=\"color:$4;\">▶</span></div><div style=\"text-align:center;font-size:11px;color:#b0b8c8;line-height:1.5;margin-top:10px;border-top:1px dashed #1a1e28;padding-top:9px;white-space:pre-wrap;\">$6</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

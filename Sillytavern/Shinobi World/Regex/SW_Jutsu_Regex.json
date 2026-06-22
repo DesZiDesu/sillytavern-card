@@ -1,0 +1,18 @@
+{
+    "id": "sw-jutsu",
+    "scriptName": "SW Jutsu Activation",
+    "findRegex": "/\\[JUTSU\\|(.*?)\\|(.*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"margin:9px auto;text-align:center;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif;\"><div style=\"display:inline-flex;align-items:center;gap:12px;color:#fff;max-width:100%;\"><span style=\"color:$2;font-size:20px;flex-shrink:0;line-height:1;\">『</span><div style=\"min-width:0;\"><div style=\"font-size:7.5px;letter-spacing:4px;color:#8a90a0;margin-bottom:2px;\">忍 術 発 動</div><div style=\"font-size:15px;font-weight:700;letter-spacing:1px;text-shadow:0 0 12px $2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$1</div></div><span style=\"color:$2;font-size:20px;flex-shrink:0;line-height:1;\">』</span></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

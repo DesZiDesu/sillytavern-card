@@ -1,0 +1,18 @@
+{
+    "id": "sw-ougi",
+    "scriptName": "SW Secret Technique",
+    "findRegex": "/\\[OUGI\\|(.*?)\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"margin:11px auto;text-align:center;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif;\"><div style=\"font-size:8px;letter-spacing:5px;color:$3;text-shadow:0 0 10px $3;margin-bottom:6px;font-family:'M PLUS 1',sans-serif;font-weight:700;\">SECRET TECHNIQUE · 奥義</div><div style=\"display:inline-flex;align-items:center;gap:13px;color:#fff;max-width:100%;\"><span style=\"color:$3;font-size:25px;flex-shrink:0;line-height:1;\">『</span><div style=\"min-width:0;\"><div style=\"font-size:18px;font-weight:700;letter-spacing:1px;text-shadow:0 0 14px $3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</div><div style=\"font-size:11px;color:#cdc8d8;font-family:'M PLUS 1',sans-serif;letter-spacing:2px;margin-top:2px;\">$1</div></div><span style=\"color:$3;font-size:25px;flex-shrink:0;line-height:1;\">』</span></div><div style=\"display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:1px;color:$3;border:1px solid $3;border-radius:11px;padding:2px 11px;margin-top:9px;box-shadow:0 0 12px -3px $3;\">必殺 · CERTAIN KILL</div><div style=\"font-size:10.5px;color:#b0a8c0;line-height:1.5;margin-top:9px;max-width:430px;margin-left:auto;margin-right:auto;white-space:pre-wrap;\">$4</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
