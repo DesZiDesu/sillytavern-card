@@ -1,0 +1,669 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#15110c;padding:14px 6px;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif}
+.scroll{width:100%;max-width:420px;margin:0 auto;position:relative}
+.roller{height:18px;background:linear-gradient(180deg,#4a3424,#7a5838 28%,#a07850 50%,#7a5838 72%,#4a3424);border-radius:9px;box-shadow:0 3px 9px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,220,180,.25);position:relative;z-index:3}
+.roller::before,.roller::after{content:'';position:absolute;top:50%;transform:translateY(-50%);width:9px;height:26px;background:radial-gradient(ellipse at center,#5a4030,#2e2014);border-radius:3px;box-shadow:0 2px 5px rgba(0,0,0,.6)}
+.roller::before{left:-5px}.roller::after{right:-5px}
+.paper{background:linear-gradient(180deg,#e6d2b4,#f2e6d0 3%,#f5ecd8 50%,#f0e2cb 97%,#dcc8aa);margin:0 7px;box-shadow:inset 5px 0 14px rgba(90,60,30,.10),inset -5px 0 14px rgba(90,60,30,.10),0 5px 22px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.wm{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.wm span{position:absolute;font-family:'Noto Serif JP',serif;font-weight:900;color:#8b5a2b;opacity:.05;line-height:1}
+.inner{position:relative;z-index:1}
+.title{text-align:center;padding:14px 12px 11px;border-bottom:2px solid #c4a882;position:relative}
+.title .lang{position:absolute;top:10px;left:10px;display:flex;gap:3px;background:rgba(255,250,240,.4);border:1px solid #cbb088;border-radius:13px;padding:2px}
+.title .lang b{cursor:pointer;font-family:'M PLUS 1',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:1px;color:#9a7848;padding:3px 8px;border-radius:11px;user-select:none}
+.title .lang b.on{color:#f5ecd8;background:linear-gradient(135deg,#8b4513,#6a3410)}
+.title .crest{width:42px;height:42px;margin:0 auto 6px;border:2px solid #8b4513;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#f5ecd8,#e6d2b4);box-shadow:0 0 0 3px rgba(139,69,19,.12)}
+.title .crest span{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:#8b4513}
+.title h1{font-size:14px;font-weight:800;letter-spacing:6px;color:#7a3d10;text-indent:6px}
+.title .en{font-family:'M PLUS 1',sans-serif;font-size:7px;letter-spacing:2.5px;color:#a8865c;margin-top:3px;text-indent:2px}
+.title .vstamp{position:absolute;top:10px;right:10px;width:32px;height:32px;border:2px solid #cc3333;border-radius:4px;display:flex;align-items:center;justify-content:center;transform:rotate(-11deg);opacity:.5}
+.title .vstamp span{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:900;color:#cc3333}
+
+/* TABS */
+.tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;border-bottom:2px solid #c4a882;background:rgba(180,140,90,.12)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;cursor:pointer;text-align:center;padding:9px 6px 7px;min-width:0;flex:1 1 0;user-select:none;position:relative;transition:background .15s}
+.tab .tk{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#b89464;line-height:1.1;transition:color .15s}
+.tab .tl{font-family:'M PLUS 1',sans-serif;font-size:6px;letter-spacing:1px;color:#a8865c;margin-top:2px;white-space:nowrap;transition:color .15s}
+.tab.on{background:rgba(139,69,19,.1)}
+.tab.on .tk{color:#8b4513}
+.tab.on .tl{color:#6a3410}
+.tab.on::after{content:'';position:absolute;bottom:-2px;left:15%;right:15%;height:2px;background:#8b4513}
+.tab:active{background:rgba(139,69,19,.08)}
+
+/* TAB CONTENT */
+.tpane{display:none;padding:14px 14px 8px;min-height:200px}
+.tpane.on{display:block}
+
+/* SECTION HEADER */
+.shead{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.shead .k{width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-size:15px;font-weight:900;color:#f5ecd8;background:linear-gradient(135deg,#8b4513,#6a3410);border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.shead .tt{font-size:12px;font-weight:800;letter-spacing:3px;color:#5a3818}
+.shead .ts{font-family:'M PLUS 1',sans-serif;font-size:6px;letter-spacing:2px;color:#a8865c;margin-top:2px}
+.shead .line{flex:1;height:1px;background:linear-gradient(90deg,#c4a882,transparent)}
+
+/* FORM ELEMENTS */
+.fld{margin-bottom:12px}
+.fl{font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:1.3px;color:#9a7848;text-transform:uppercase;margin-bottom:5px;display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.fl .lb{display:flex;align-items:baseline;gap:5px}
+.fl b{color:#8b4513;font-weight:700}
+.fl .jp{font-family:'Shippori Mincho',serif;font-size:9px;color:#b08a5c;letter-spacing:1px}
+.inp,select,textarea{width:100%;background:rgba(255,251,242,.62);border:1px solid #cbb088;border-radius:4px;padding:8px 10px;font-family:'Shippori Mincho','Noto Serif Thai',serif;font-size:12.5px;color:#3a2a1a;box-shadow:inset 0 1px 3px rgba(120,90,50,.12);outline:none}
+select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%23a8865c' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 10px center;padding-right:26px}
+textarea{resize:vertical;min-height:48px;line-height:1.55}
+input:focus,select:focus,textarea:focus{border-color:#8b4513;box-shadow:inset 0 1px 3px rgba(120,90,50,.12),0 0 0 2px rgba(139,69,19,.16)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.pc{display:flex;gap:2px;background:rgba(180,140,90,.18);border:1px solid #cbb088;border-radius:11px;padding:2px}
+.pcb{cursor:pointer;font-family:'M PLUS 1',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.5px;color:#9a7848;padding:2px 8px;border-radius:9px;user-select:none}
+.pcb.on{color:#f5ecd8;background:linear-gradient(135deg,#8b4513,#6a3410)}
+.hide{display:none!important}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{cursor:pointer;font-family:'M PLUS 1','Noto Serif Thai',sans-serif;font-size:10px;font-weight:600;color:#6a4a28;background:rgba(255,251,242,.5);border:1px solid #cbb088;border-radius:13px;padding:5px 10px;transition:all .12s;user-select:none}
+.chip.on{color:#f5ecd8;background:linear-gradient(135deg,#8b4513,#6a3410);border-color:#6a3410;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.sws{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.sw{width:24px;height:24px;border-radius:50%;cursor:pointer;border:2px solid rgba(255,250,240,.6);box-shadow:0 0 0 1px #cbb088;transition:all .1s}
+.sw.on{border-color:#f5ecd8;box-shadow:0 0 0 2px #5a3818}
+.hexbox{display:flex;align-items:center;gap:8px;margin-top:7px}
+input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:pointer;flex-shrink:0}
+#f_aura_hex{width:96px;font-family:'M PLUS 1',sans-serif;text-transform:uppercase;font-size:11px}
+.note{font-family:'M PLUS 1','Noto Serif Thai',sans-serif;font-size:8.5px;color:#a8865c;line-height:1.5;margin:-2px 0 9px;font-style:italic}
+.snum{text-align:center;color:#8b4513;font-weight:700;font-family:'M PLUS 1',sans-serif}
+.statg{margin-bottom:9px}
+.statr{display:flex;align-items:center;gap:9px}
+.statr .sl{flex:1;font-family:'M PLUS 1',sans-serif;font-size:9.5px;color:#6a4a28;display:flex;align-items:center;gap:6px}
+.statr .sl .jp{font-family:'Noto Serif JP',serif;font-size:13px;color:#8b4513;font-weight:700}
+.statr input{width:74px;flex-shrink:0}
+
+/* JUTSU CARD SYSTEM */
+.item{background:rgba(255,251,242,.4);border:1px solid #cbb088;border-radius:6px;padding:9px;margin-bottom:7px;position:relative}
+.item input,.item select,.item textarea{margin-bottom:6px}.item *:last-child{margin-bottom:0}
+.item .rm{position:absolute;top:6px;right:6px;width:19px;height:19px;border-radius:4px;border:1px solid #c99;background:rgba(204,51,51,.12);color:#a33;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center}
+.item.confirmed{border-color:#5a8a3a;background:rgba(90,138,58,.08)}
+.item.confirmed .conf-badge{display:block}
+.conf-badge{display:none;position:absolute;top:6px;right:28px;font-family:'M PLUS 1',sans-serif;font-size:7px;font-weight:700;letter-spacing:1px;color:#5a8a3a;border:1px solid #5a8a3a;border-radius:8px;padding:1px 6px}
+.add{width:100%;border:1px dashed #b89464;background:rgba(180,140,90,.1);color:#8b4513;cursor:pointer;font-family:'M PLUS 1','Noto Serif Thai',sans-serif;font-size:11px;font-weight:600;padding:8px;border-radius:6px;letter-spacing:.5px}
+.add:active{transform:translateY(1px)}
+.confbtn{width:100%;border:none;cursor:pointer;font-family:'M PLUS 1',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;color:#f5ecd8;background:linear-gradient(135deg,#5a8a3a,#3d6a28);padding:6px;border-radius:4px;margin-top:4px}
+.confbtn:active{transform:translateY(1px)}
+.editbtn{width:100%;border:none;cursor:pointer;font-family:'M PLUS 1',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;color:#8b4513;background:rgba(180,140,90,.18);border:1px solid #cbb088;padding:5px;border-radius:4px;margin-top:4px}
+
+/* GEAR ITEMS */
+.gear-item{background:rgba(255,251,242,.4);border:1px solid #cbb088;border-radius:6px;padding:9px;margin-bottom:7px;position:relative;display:flex;gap:8px;align-items:center}
+.gear-item input{flex:1;margin:0}
+.gear-item .rm{position:static;flex-shrink:0}
+
+/* DOJUTSU STAGE SELECTOR */
+.eye-box{margin-top:8px;margin-bottom:12px}
+.eye-box .eye-label{font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:1.3px;color:#9a7848;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;justify-content:space-between}
+.eye-box .eye-label b{color:#8b4513;font-weight:700}
+.eye-stages{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:7px}
+.eye-card{cursor:pointer;border:2px solid #cbb088;border-radius:8px;overflow:hidden;background:rgba(255,251,242,.5);transition:all .15s;user-select:none;position:relative}
+.eye-card.on{border-color:#8b4513;box-shadow:0 0 0 2px rgba(139,69,19,.25),0 4px 12px rgba(139,69,19,.2)}
+.eye-card .eye-img{width:100%;aspect-ratio:1;background:#e0d3bd;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.eye-card .eye-img img{width:100%;height:100%;object-fit:cover}
+.eye-card .eye-img .eye-ph{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:900;color:#c4a882;opacity:.5}
+.eye-card .eye-name{font-family:'M PLUS 1',sans-serif;font-size:8.5px;font-weight:600;color:#5a3818;padding:5px 6px;text-align:center;line-height:1.3;letter-spacing:.3px}
+.eye-card.on .eye-name{color:#8b4513;font-weight:700}
+.eye-card.on::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#8b4513}
+.eye-custom{margin-top:8px;background:rgba(255,251,242,.4);border:1px solid #cbb088;border-radius:6px;padding:9px}
+.eye-custom .fl{margin-bottom:5px}
+.eye-custom input,.eye-custom textarea{margin-bottom:6px}
+.eye-custom textarea{min-height:40px}
+.eye-custom .rm{position:absolute;top:6px;right:6px}
+
+/* SECTION DIVIDER */
+.sdiv{border:none;border-top:1px dashed #cdb491;margin:14px 0}
+
+/* FOOTER */
+.foot{padding:14px 14px 16px;text-align:center}
+.go{width:100%;border:none;cursor:pointer;font-family:'Shippori Mincho',serif;font-size:13.5px;font-weight:800;letter-spacing:5px;text-indent:5px;color:#f5ecd8;background:linear-gradient(135deg,#9a4d16,#6a3410);padding:13px;border-radius:6px;box-shadow:0 5px 14px rgba(106,52,16,.5),inset 0 1px 0 rgba(255,220,180,.3)}
+.go:active{transform:translateY(1px)}
+.gosub{font-family:'M PLUS 1','Noto Serif Thai',sans-serif;font-size:8px;letter-spacing:1.5px;color:#a8865c;margin-top:9px;line-height:1.55}
+.btag{display:inline-block;font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:1px;color:#b33;border:1px solid rgba(187,51,51,.4);border-radius:10px;padding:2px 9px;margin-top:7px}
+.over{position:fixed;inset:0;background:rgba(21,17,12,.92);display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:99}
+.over.on{display:flex}
+.over .k{font-family:'Noto Serif JP',serif;font-size:46px;color:#cc3333;text-shadow:0 0 24px rgba(204,51,51,.7)}
+.over .m{font-family:'M PLUS 1','Noto Serif Thai',sans-serif;letter-spacing:2px;color:#e6d2b4;font-size:11px}
+
+/* NAV ARROWS */
+.nav{display:flex;gap:8px;margin-top:6px;padding:0 14px 10px}
+.nav-btn{flex:1;border:none;cursor:pointer;font-family:'M PLUS 1',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;padding:9px 10px;border-radius:5px;display:flex;align-items:center;justify-content:center;gap:5px}
+.nav-prev{color:#8b4513;background:rgba(180,140,90,.15);border:1px solid #cbb088}
+.nav-next{color:#f5ecd8;background:linear-gradient(135deg,#8b4513,#6a3410)}
+.nav-prev:active,.nav-next:active{transform:translateY(1px)}
+.nav-btn:disabled{opacity:.35;cursor:default;transform:none!important}
+
+/* RESPONSIVE */
+@media(max-width:360px){
+  .tab .tk{font-size:14px}
+  .tab .tl{font-size:5.5px}
+  .row3{grid-template-columns:1fr 1fr}
+  .statr{flex-wrap:wrap;gap:4px}
+  .statr input{width:60px}
+}
+@media(min-width:500px){
+  .scroll{max-width:480px}
+  .tpane{padding:18px 20px 10px}
+  .row3{gap:12px}
+}
+@media(min-width:700px){
+  .scroll{max-width:600px}
+  .tab .tk{font-size:18px}
+  .tab .tl{font-size:7px}
+  .tpane{padding:22px 28px 14px}
+  .statr input{width:90px}
+}
+</style></head><body>
+<div class="scroll">
+  <div class="roller"></div>
+  <div class="paper"><div class="wm">
+    <span style="top:5%;left:-2%;font-size:120px;transform:rotate(-8deg)">忍</span>
+    <span style="top:30%;right:-4%;font-size:140px;transform:rotate(6deg)">術</span>
+    <span style="top:55%;left:-3%;font-size:130px">火</span>
+    <span style="top:80%;right:-3%;font-size:120px;transform:rotate(-5deg)">風</span>
+  </div><div class="inner" id="app">
+
+    <!-- HEADER -->
+    <div class="title">
+      <div class="lang"><b id="lg_en" class="on">EN</b><b id="lg_th">ไทย</b></div>
+      <div class="vstamp"><span>登</span></div>
+      <div class="crest"><span>忍</span></div>
+      <h1>忍 録 登 録</h1>
+      <div class="en" data-en="SHINOBI REGISTRATION · WRITE YOUR NAME INTO THE WORLD" data-th="การลงทะเบียนชิโนบิ · จารึกชื่อของเจ้าลงในโลกใบนี้">SHINOBI REGISTRATION · WRITE YOUR NAME INTO THE WORLD</div>
+    </div>
+
+    <!-- TAB BAR -->
+    <div class="tabs" id="tabbar">
+      <div class="tab on" data-t="0"><div class="tk">識</div><div class="tl" data-en="IDENTITY" data-th="อัตลักษณ์">IDENTITY</div></div>
+      <div class="tab" data-t="1"><div class="tk">里</div><div class="tl" data-en="WORLD" data-th="โลก">WORLD</div></div>
+      <div class="tab" data-t="2"><div class="tk">血</div><div class="tl" data-en="BLOOD" data-th="สายเลือด">BLOOD</div></div>
+      <div class="tab" data-t="3"><div class="tk">術</div><div class="tl" data-en="JUTSU" data-th="วิชา">JUTSU</div></div>
+      <div class="tab" data-t="4"><div class="tk">力</div><div class="tl" data-en="STATS" data-th="ค่าพลัง">STATS</div></div>
+      <div class="tab" data-t="5"><div class="tk">絆</div><div class="tl" data-en="BONDS" data-th="สายสัมพันธ์">BONDS</div></div>
+      <div class="tab" data-t="6"><div class="tk">己</div><div class="tl" data-en="PROFILE" data-th="ประวัติ">PROFILE</div></div>
+      <div class="tab" data-t="7"><div class="tk">開</div><div class="tl" data-en="START" data-th="เริ่มต้น">START</div></div>
+    </div>
+
+    <!-- TAB 0 · IDENTITY 識 -->
+    <div class="tpane on" data-p="0">
+      <div class="shead"><div class="k">識</div><div><div class="tt" data-en="IDENTITY" data-th="อัตลักษณ์">IDENTITY</div><div class="ts">識 別</div></div><div class="line"></div></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="NAME" data-th="ชื่อ">NAME</b><span class="jp">名前</span></span></div><input class="inp" id="f_name" data-pen="The name the shinobi world will remember" data-pth="ชื่อที่โลกชิโนบิจะจดจำ"/></div>
+      <div class="row3">
+        <div class="fld"><div class="fl"><span class="lb"><b data-en="AGE" data-th="อายุ">AGE</b></span></div><input class="inp" id="f_age" type="number" min="18" value="18"/></div>
+        <div class="fld"><div class="fl"><span class="lb"><b data-en="SEX" data-th="เพศ">SEX</b></span></div><input class="inp" id="f_sex" data-pen="—" data-pth="—"/></div>
+        <div class="fld"><div class="fl"><span class="lb"><b data-en="PRON." data-th="สรรพนาม">PRON.</b></span></div><input class="inp" id="f_pron" data-pen="they/them" data-pth="—"/></div>
+      </div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="BLOOD TYPE" data-th="กรุ๊ปเลือด">BLOOD TYPE</b><span class="jp">血液型</span></span></div><input class="inp" id="f_blood" data-pen="A / B / O / AB / unknown" data-pth="A / B / O / AB / ไม่ทราบ"/></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="CHAKRA AURA" data-th="สีออร่าชาคระ">CHAKRA AURA</b><span class="jp">査克拉の色</span></span></div>
+        <div class="sws" id="f_sws"></div>
+        <div class="hexbox"><input type="color" id="f_aura" value="#4a9ead"/><input class="inp" id="f_aura_hex" value="#4A9EAD" spellcheck="false"/></div>
+        <div class="note" data-en="This colour themes your Status window in play." data-th="สีนี้จะกำหนดธีมหน้าต่างสถานะของเจ้าตอนเล่น">This colour themes your Status window in play.</div>
+      </div>
+    </div>
+
+    <!-- TAB 1 · WORLD 里 -->
+    <div class="tpane" data-p="1">
+      <div class="shead"><div class="k">里</div><div><div class="tt" data-en="WORLD & RANK" data-th="โลก & ยศ">WORLD & RANK</div><div class="ts">里 と 階 級</div></div><div class="line"></div></div>
+      <div class="fld" data-field="era"><div class="fl"><span class="lb"><b data-en="ERA" data-th="ยุคสมัย">ERA</b><span class="jp">時代</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="era_sel"></select><input class="inp hide" id="era_cus" data-pen="Describe your own era…" data-pth="อธิบายยุคของเจ้าเอง…"/></div>
+      <div class="fld" data-field="village"><div class="fl"><span class="lb"><b data-en="HIDDEN VILLAGE" data-th="หมู่บ้านซ่อนเร้น">HIDDEN VILLAGE</b><span class="jp">隠れ里</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="village_sel"></select><input class="inp hide" id="village_cus" data-pen="Type your own village…" data-pth="พิมพ์หมู่บ้านของเจ้าเอง…"/></div>
+      <div class="fld" data-field="rank"><div class="fl"><span class="lb"><b data-en="NINJA RANK" data-th="ยศนินจา">NINJA RANK</b><span class="jp">忍階</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="rank_sel"></select><input class="inp hide" id="rank_cus" data-pen="Type your own rank…" data-pth="พิมพ์ยศของเจ้าเอง…"/></div>
+      <div class="fld" data-field="affil"><div class="fl"><span class="lb"><b data-en="ALLEGIANCE" data-th="ความจงรักภักดี">ALLEGIANCE</b><span class="jp">所属</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="affil_sel"></select><input class="inp hide" id="affil_cus" data-pen="Type your own allegiance…" data-pth="พิมพ์สังกัดของเจ้าเอง…"/></div>
+    </div>
+
+    <!-- TAB 2 · BLOODLINE 血 -->
+    <div class="tpane" data-p="2">
+      <div class="shead"><div class="k">血</div><div><div class="tt" data-en="BLOODLINE & BEING" data-th="สายเลือด & ตัวตน">BLOODLINE & BEING</div><div class="ts">血 統 と 存 在</div></div><div class="line"></div></div>
+      <div class="fld" data-field="clan"><div class="fl"><span class="lb"><b data-en="CLAN" data-th="ตระกูล">CLAN</b><span class="jp">一族</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="clan_sel"></select><input class="inp hide" id="clan_cus" data-pen="Type your own clan / heritage…" data-pth="พิมพ์ตระกูล / สายเลือดของเจ้าเอง…"/></div>
+      <div class="fld" data-field="dojutsu"><div class="fl"><span class="lb"><b data-en="DŌJUTSU (EYE)" data-th="ดวงตาวิเศษ">DŌJUTSU (EYE)</b><span class="jp">瞳術</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="dojutsu_sel"></select><input class="inp hide" id="dojutsu_cus" data-pen="Type your own dōjutsu…" data-pth="พิมพ์ดวงตาวิเศษของเจ้าเอง…"/></div>
+      <div class="eye-box hide" id="eye_box">
+        <div class="eye-label"><span><b data-en="DŌJUTSU STAGE" data-th="ขั้นของดวงตา">DŌJUTSU STAGE</b> <span class="jp">瞳術段階</span></span></div>
+        <div class="note" data-en="Select the stage of your eye power. Images are placeholders — you can provide your own below." data-th="เลือกขั้นของดวงตาวิเศษ ภาพเป็นตัวยึดตำแหน่ง — สามารถใส่ภาพของเจ้าเองด้านล่าง">Select the stage of your eye power. Images are placeholders — you can provide your own below.</div>
+        <div class="eye-stages" id="eye_stages"></div>
+        <button class="add" id="eye_custom_add" style="margin-top:8px" data-en="+ Add custom dōjutsu stage" data-th="+ เพิ่มขั้นดวงตากำหนดเอง">+ Add custom dōjutsu stage</button>
+        <div id="eye_custom_list"></div>
+      </div>
+      <div class="fld" data-field="kkg"><div class="fl"><span class="lb"><b data-en="KEKKEI GENKAI / TŌTA" data-th="เค็กเค เก็นไค / โทตะ">KEKKEI GENKAI / TŌTA</b><span class="jp">血継限界</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="kkg_sel"></select><input class="inp hide" id="kkg_cus" data-pen="Type your own bloodline limit…" data-pth="พิมพ์ขีดจำกัดสายเลือดของเจ้าเอง…"/></div>
+      <hr class="sdiv"/>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="CHAKRA NATURE" data-th="ธาตุชาคระ">CHAKRA NATURE</b><span class="jp">性質変化</span></span></div>
+        <div class="note" data-en="Tap every nature you have mastered." data-th="แตะทุกธาตุที่เจ้าฝึกสำเร็จ">Tap every nature you have mastered.</div>
+        <div class="chips" id="nature_chips"></div>
+      </div>
+      <hr class="sdiv"/>
+      <div class="fld" data-field="being"><div class="fl"><span class="lb"><b data-en="WHAT YOU ARE" data-th="เจ้าคืออะไร">WHAT YOU ARE</b><span class="jp">存在</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="being_sel"></select><input class="inp hide" id="being_cus" data-pen="Type what you are…" data-pth="พิมพ์ว่าเจ้าเป็นอะไร…"/></div>
+      <div class="fld" data-field="beast"><div class="fl"><span class="lb"><b data-en="TAILED BEAST" data-th="จักรจักร">TAILED BEAST</b><span class="jp">尾獣</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="beast_sel"></select><input class="inp hide" id="beast_cus" data-pen="Type your own beast…" data-pth="พิมพ์จักรจักรของเจ้าเอง…"/></div>
+      <div class="eye-box hide" id="beast_box">
+        <div class="eye-label"><span><b data-en="JINCHŪRIKI FORM" data-th="ร่างจินจูริกิ">JINCHŪRIKI FORM</b> <span class="jp">人柱力形態</span></span></div>
+        <div class="note" data-en="Select the transformation stage you can access." data-th="เลือกขั้นร่างแปลงที่เจ้าเข้าถึงได้">Select the transformation stage you can access.</div>
+        <div class="eye-stages" id="beast_stages"></div>
+        <button class="add" id="beast_custom_add" style="margin-top:8px" data-en="+ Add custom beast form" data-th="+ เพิ่มร่างจักรจักรกำหนดเอง">+ Add custom beast form</button>
+        <div id="beast_custom_list"></div>
+      </div>
+      <div class="row2">
+        <div class="fld" data-field="sage"><div class="fl"><span class="lb"><b data-en="SAGE MODE" data-th="โหมดเซนนิน">SAGE MODE</b></span></div><select id="sage_sel"></select><input class="inp hide" id="sage_cus" data-pen="Custom sage art…" data-pth="ศิลปะเซนนินกำหนดเอง…"/></div>
+        <div class="fld" data-field="summon"><div class="fl"><span class="lb"><b data-en="SUMMONING" data-th="อัญเชิญ">SUMMONING</b></span></div><select id="summon_sel"></select><input class="inp hide" id="summon_cus" data-pen="Custom contract…" data-pth="สัญญากำหนดเอง…"/></div>
+      </div>
+      <div class="eye-box hide" id="sage_box">
+        <div class="eye-label"><span><b data-en="SAGE TRANSFORMATION" data-th="ขั้นเซนนิน">SAGE TRANSFORMATION</b> <span class="jp">仙術段階</span></span></div>
+        <div class="note" data-en="Select your level of sage mastery." data-th="เลือกระดับการฝึกเซนนินของเจ้า">Select your level of sage mastery.</div>
+        <div class="eye-stages" id="sage_stages"></div>
+        <button class="add" id="sage_custom_add" style="margin-top:8px" data-en="+ Add custom sage form" data-th="+ เพิ่มร่างเซนนินกำหนดเอง">+ Add custom sage form</button>
+        <div id="sage_custom_list"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3 · JUTSU 術 -->
+    <div class="tpane" data-p="3">
+      <div class="shead"><div class="k">術</div><div><div class="tt" data-en="TECHNIQUES & GEAR" data-th="วิชา & อุปกรณ์">TECHNIQUES & GEAR</div><div class="ts">忍 術 と 装 備</div></div><div class="line"></div></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="COMBAT SPECIALTIES" data-th="ความถนัดในการรบ">COMBAT SPECIALTIES</b><span class="jp">得意</span></span></div><div class="chips" id="spec_chips"></div></div>
+      <hr class="sdiv"/>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="SIGNATURE JUTSU" data-th="จุตสึประจำตัว">SIGNATURE JUTSU</b><span class="jp">術式</span></span></div>
+        <div class="note" data-en="Add a jutsu → fill in details → press CONFIRM to lock it → add another." data-th="เพิ่มจุตสึ → กรอกรายละเอียด → กด ยืนยัน เพื่อล็อค → เพิ่มอีกได้">Add a jutsu → fill in details → press CONFIRM to lock it → add another.</div>
+        <div id="jutsu_list"></div>
+        <button class="add" id="jutsu_add" data-en="+ Add a signature jutsu" data-th="+ เพิ่มจุตสึประจำตัว">+ Add a signature jutsu</button>
+      </div>
+      <hr class="sdiv"/>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="STARTING GEAR & TOOLS" data-th="อุปกรณ์ & เครื่องมือเริ่มต้น">STARTING GEAR & TOOLS</b><span class="jp">装備</span></span></div>
+        <div class="note" data-en="Kunai, shuriken, scrolls, special weapons, scientific ninja tools…" data-th="คุนัย ชูริเค็น ม้วนคัมภีร์ อาวุธพิเศษ เครื่องมือนินจาวิทยาศาสตร์…">Kunai, shuriken, scrolls, special weapons, scientific ninja tools…</div>
+        <div id="gear_list"></div>
+        <button class="add" id="gear_add" data-en="+ Add gear / tool" data-th="+ เพิ่มอุปกรณ์ / เครื่องมือ">+ Add gear / tool</button>
+      </div>
+    </div>
+
+    <!-- TAB 4 · STATS 力 -->
+    <div class="tpane" data-p="4">
+      <div class="shead"><div class="k">力</div><div><div class="tt" data-en="ATTRIBUTES" data-th="ค่าพลัง">ATTRIBUTES</div><div class="ts">能 力</div></div><div class="line"></div></div>
+      <div class="note" data-en="Databook scale. Blank = ordinary (10). Max 1,000,000." data-th="มาตราสมุดข้อมูล เว้นว่าง = สามัญ (10) สูงสุด 1,000,000">Databook scale. Blank = ordinary (10). Max 1,000,000.</div>
+      <div id="stats"></div>
+    </div>
+
+    <!-- TAB 5 · BONDS 絆 -->
+    <div class="tpane" data-p="5">
+      <div class="shead"><div class="k">絆</div><div><div class="tt" data-en="BONDS & NINDŌ" data-th="สายสัมพันธ์ & นินโด">BONDS & NINDŌ</div><div class="ts">絆 と 忍 道</div></div><div class="line"></div></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="TEAM / SQUAD" data-th="ทีม / หมู่">TEAM / SQUAD</b><span class="jp">班</span></span></div><input class="inp" id="f_team" data-pen="e.g. Team 7, Cell Ino–Shika–Chō" data-pth="เช่น ทีม 7, ทีมอิโนะ-ชิกะ-โจ"/></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="SENSEI / MENTOR" data-th="อาจารย์ / ผู้สอน">SENSEI / MENTOR</b><span class="jp">師匠</span></span></div><input class="inp" id="f_sensei" data-pen="Who trained you — or train yourself" data-pth="ใครฝึกเจ้า — หรือฝึกด้วยตัวเอง"/></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="RIVALS / ENEMIES" data-th="คู่แข่ง / ศัตรู">RIVALS / ENEMIES</b><span class="jp">宿敵</span></span></div><input class="inp" id="f_rivals" data-pen="The names that push you forward" data-pth="ชื่อที่ขับเคลื่อนเจ้าไปข้างหน้า"/></div>
+      <hr class="sdiv"/>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="NINDŌ — NINJA WAY" data-th="นินโด — วิถีนินจา">NINDŌ — NINJA WAY</b><span class="jp">忍道</span></span></div><textarea id="f_nindo" data-pen="The oath that defines your path (e.g. 'I never go back on my word')" data-pth="คำสาบานที่กำหนดเส้นทาง (เช่น 'ข้าจะไม่กลับคำ')"></textarea></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="DREAM / AMBITION" data-th="ความฝัน / ความทะเยอทะยาน">DREAM / AMBITION</b><span class="jp">夢</span></span></div><input class="inp" id="f_dream" data-pen="What drives you — become Hokage? find the truth?" data-pth="อะไรขับเคลื่อนเจ้า — เป็นโฮคาเงะ? หาความจริง?"/></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="CATCHPHRASE" data-th="คำพูดติดปาก">CATCHPHRASE</b><span class="jp">口癖</span></span></div><input class="inp" id="f_catch" data-pen="Signature line, verbal tic, or battle cry (e.g. 'Dattebayo!')" data-pth="คำพูดประจำ (เช่น 'ดัตเตบาโย!')"/></div>
+    </div>
+
+    <!-- TAB 6 · PROFILE 己 -->
+    <div class="tpane" data-p="6">
+      <div class="shead"><div class="k">己</div><div><div class="tt" data-en="PROFILE" data-th="ประวัติ">PROFILE</div><div class="ts">人 物</div></div><div class="line"></div></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="APPEARANCE" data-th="รูปลักษณ์">APPEARANCE</b><span class="jp">容姿</span></span></div><textarea id="f_app" data-pen="What walks into the room — height, hair, eyes, outfit, distinguishing marks…" data-pth="สิ่งที่ก้าวเข้ามาในห้อง — ส่วนสูง ผม ตา ชุด สัญลักษณ์เฉพาะ…"></textarea></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="NATURE / PERSONALITY" data-th="นิสัย / บุคลิก">NATURE / PERSONALITY</b><span class="jp">性格</span></span></div><textarea id="f_nat" data-pen="Temperament, quirks, how they act in battle vs at rest" data-pth="อุปนิสัย นิสัยแปลก พฤติกรรมในการรบ vs ตอนพัก"></textarea></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="TIES & HISTORY" data-th="ความสัมพันธ์ & ภูมิหลัง">TIES & HISTORY</b><span class="jp">経歴</span></span></div><textarea id="f_hist" data-pen="Threads to canon, or a clean original past" data-pth="เส้นเรื่องโยงกับต้นฉบับ หรือภูมิหลังออริจินอล"></textarea></div>
+      <div class="fld"><div class="fl"><span class="lb"><b data-en="WEAKNESSES" data-th="จุดอ่อน">WEAKNESSES</b><span class="jp">弱点</span></span></div>
+        <div id="weak_list"></div>
+        <button class="add" id="weak_add" data-en="+ Add a weakness" data-th="+ เพิ่มจุดอ่อน">+ Add a weakness</button>
+      </div>
+    </div>
+
+    <!-- TAB 7 · OPENING 開 -->
+    <div class="tpane" data-p="7">
+      <div class="shead"><div class="k">開</div><div><div class="tt" data-en="OPENING SCENE" data-th="ฉากเริ่มต้น">OPENING SCENE</div><div class="ts">開 幕</div></div><div class="line"></div></div>
+      <div class="fld" data-field="scene"><div class="fl"><span class="lb"><b data-en="WHERE YOU BEGIN" data-th="จุดที่เจ้าเริ่มต้น">WHERE YOU BEGIN</b><span class="jp">開幕</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="scene_sel"></select><textarea id="scene_cus" class="hide" data-pen="Describe where and how your story opens…" data-pth="บรรยายว่าเรื่องของเจ้าเริ่มที่ไหน อย่างไร…"></textarea></div>
+
+      <div class="foot">
+        <button class="go" id="f_go" data-en="血 判 を 押 す" data-th="血 判 を 押 す">血 判 を 押 す</button>
+        <div class="gosub" data-en="PRESS YOUR BLOOD-SEAL · leave anything blank and the world will forge it · all characters are adults (18+)" data-th="ประทับตราเลือดของเจ้า · เว้นว่างช่องไหนไว้ โลกจะสร้างให้เอง · ตัวละครทุกตัวเป็นผู้ใหญ่ (18+)">PRESS YOUR BLOOD-SEAL · leave anything blank and the world will forge it · all characters are adults (18+)</div>
+        <div class="btag" data-en="忍 ALL FIELDS OPTIONAL" data-th="忍 ทุกช่องไม่บังคับ">忍 ALL FIELDS OPTIONAL</div>
+      </div>
+    </div>
+
+    <!-- NAV ARROWS -->
+    <div class="nav" id="navbox">
+      <button class="nav-btn nav-prev" id="nav_prev" disabled><span>◁</span> <span data-en="PREV" data-th="ก่อน">PREV</span></button>
+      <button class="nav-btn nav-next" id="nav_next"><span data-en="NEXT" data-th="ถัดไป">NEXT</span> <span>▷</span></button>
+    </div>
+
+  </div></div>
+  <div class="roller"></div>
+</div>
+<div class="over" id="f_over"><div class="k">血</div><div class="m" data-en="PRESSING YOUR BLOOD-SEAL…" data-th="กำลังประทับตราเลือด…">PRESSING YOUR BLOOD-SEAL…</div></div>
+<script>
+(function(){
+ var L='en',curTab=0,TABS=8;
+ function el(id){return document.getElementById(id);}
+ function qa(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+
+ var O={
+  era:[{en:'Warring States Period (before villages)',th:'ยุคสงครามรัฐ (ก่อนมีหมู่บ้าน)'},{en:'Founding of Konoha (First Hokage)',th:'ก่อตั้งโคโนฮะ (โฮคาเงะที่ 1)'},{en:'First Great Ninja War',th:'มหาสงครามนินจาครั้งที่ 1'},{en:'Second Great Ninja War (the Sannin)',th:'มหาสงครามนินจาครั้งที่ 2 (สามนินจา)'},{en:'Third Great Ninja War (Minato era)',th:'มหาสงครามนินจาครั้งที่ 3 (ยุคมินาโตะ)'},{en:'Nine-Tails Attack on Konoha',th:'คืนจักรจักรเก้าหางถล่มโคโนฮะ'},{en:'Naruto Era — Pre-Shippūden',th:'ยุคนารูโตะ — ก่อนชิปปูเด็น'},{en:'Shippūden — Akatsuki & Fourth War',th:'ชิปปูเด็น — อาคาสึกิ & สงครามครั้งที่ 4'},{en:'Blank Period (post-war)',th:'ช่วงสงบ (หลังสงคราม)'},{en:'Boruto Era — New Generation & Kara',th:'ยุคโบรูโตะ — รุ่นใหม่ & คาระ'},{en:'Two Blue Vortex (latest timeskip)',th:'ทูบลูวอร์เท็กซ์ (ไทม์สกิปล่าสุด)'}],
+  village:[{en:'Konohagakure — Hidden Leaf (Fire)',th:'โคโนฮะงาคุเระ — ใบไม้ (ไฟ)'},{en:'Sunagakure — Hidden Sand (Wind)',th:'ซุนะงาคุเระ — ทราย (ลม)'},{en:'Kirigakure — Hidden Mist (Water)',th:'คิริงาคุเระ — หมอก (น้ำ)'},{en:'Kumogakure — Hidden Cloud (Lightning)',th:'คุโมงาคุเระ — เมฆ (สายฟ้า)'},{en:'Iwagakure — Hidden Stone (Earth)',th:'อิวะงาคุเระ — หิน (ดิน)'},{en:'Amegakure — Hidden Rain',th:'อาเมะงาคุเระ — ฝน'},{en:'Otogakure — Hidden Sound',th:'โอโตะงาคุเระ — เสียง'},{en:'Takigakure — Hidden Waterfall',th:'ทากิงาคุเระ — น้ำตก'},{en:'Kusagakure — Hidden Grass',th:'คุซะงาคุเระ — หญ้า'},{en:'Yugakure — Hidden Hot Water',th:'ยุงาคุเระ — น้ำพุร้อน'},{en:'Hoshigakure — Hidden Star',th:'โฮชิงาคุเระ — ดาว'},{en:'Land of Iron (Samurai)',th:'ดินแดนเหล็ก (ซามูไร)'},{en:'No Village / Wanderer',th:'ไร้หมู่บ้าน / พเนจร'}],
+  rank:[{en:'Civilian',th:'พลเรือน'},{en:'Academy Student',th:'นักเรียนวิชาการ'},{en:'Genin',th:'เก็นนิน'},{en:'Chūnin',th:'ชูนิน'},{en:'Special Jōnin',th:'โจนินพิเศษ'},{en:'Jōnin',th:'โจนิน'},{en:'ANBU',th:'อันบุ'},{en:'ANBU Captain',th:'หัวหน้าอันบุ'},{en:'Sannin-class',th:'ระดับซันนิน'},{en:'Kage',th:'คาเงะ'},{en:'Missing-nin (S-rank)',th:'นินจาหนีทัพ (ระดับ S)'}],
+  affil:[{en:'Loyal to my Village',th:'ภักดีต่อหมู่บ้าน'},{en:'ANBU / Black Ops',th:'อันบุ / หน่วยลับ'},{en:'ROOT (Foundation)',th:'รากฐาน (ROOT)'},{en:'Akatsuki',th:'อาคาสึกิ'},{en:'Kara (Boruto era)',th:'คาระ (ยุคโบรูโตะ)'},{en:'Taka / Hebi',th:'ทากะ / เฮบิ'},{en:'Independent / Freelance',th:'อิสระ / รับจ้าง'},{en:'Rogue — my own agenda',th:'ผู้ทรยศ — เป้าหมายของข้า'},{en:'Civilian / No Allegiance',th:'พลเรือน / ไม่สังกัด'}],
+  clan:[{en:'No notable lineage (civilian-born)',th:'ไร้สายเลือดเด่น (เกิดสามัญชน)'},{en:'Uchiha — 写輪',th:'อุจิฮะ'},{en:'Hyūga — 日向',th:'ฮิวงะ'},{en:'Uzumaki — 渦巻',th:'อุซึมากิ'},{en:'Senju — 千手',th:'เซนจู'},{en:'Nara — 奈良',th:'นาระ'},{en:'Yamanaka — 山中',th:'ยามานากะ'},{en:'Akimichi — 秋道',th:'อากิมิจิ'},{en:'Aburame — 油女',th:'อาบุราเมะ'},{en:'Inuzuka — 犬塚',th:'อินุซึกะ'},{en:'Sarutobi — 猿飛',th:'ซารุโทบิ'},{en:'Hatake — はたけ',th:'ฮาตาเกะ'},{en:'Kaguya — 輝夜',th:'คางุยะ'},{en:'Hōzuki — 鬼灯',th:'โฮซึกิ'},{en:'Yuki — 雪',th:'ยูกิ'},{en:'Kurama — 鞍馬',th:'คุรามะ (ตระกูล)'},{en:'Fūma — 風魔',th:'ฟูมะ'},{en:'Shimura — 志村',th:'ชิมุระ'},{en:'Chinoike — 血祭',th:'ชิโนะอิเกะ'},{en:'Ōtsutsuki — 大筒木',th:'โอสึสึกิ'},{en:'Minor / Original Clan',th:'ตระกูลเล็ก / ออริจินอล'}],
+  dojutsu:[{en:'None',th:'ไม่มี'},{en:'Sharingan',th:'ชาริงกัน'},{en:'Mangekyō Sharingan',th:'มังเงเคียวชาริงกัน'},{en:'Eternal Mangekyō Sharingan',th:'มังเงเคียวนิรันดร์'},{en:'Rinnegan',th:'รินเนกัน'},{en:'Rinne Sharingan',th:'รินเนชาริงกัน'},{en:'Byakugan',th:'เบียคุกัน'},{en:'Tenseigan',th:'เทนเซย์กัน'},{en:'Jōgan',th:'โจกัน'},{en:'Ketsuryūgan',th:'เคตสึริวกัน'}],
+  kkg:[{en:'None',th:'ไม่มี'},{en:'Wood Style — 木遁 (Mokuton)',th:'โมคุตง (ไม้)'},{en:'Ice Style — 氷遁 (Hyōton)',th:'เฮียวตง (น้ำแข็ง)'},{en:'Lava Style — 溶遁 (Yōton)',th:'โยตง (ลาวา)'},{en:'Boil Style — 沸遁 (Futton)',th:'ฟุตตง (ไอเดือด)'},{en:'Storm Style — 嵐遁 (Ranton)',th:'รันตง (พายุ)'},{en:'Magnet Style — 磁遁 (Jiton)',th:'จิตง (แม่เหล็ก)'},{en:'Explosion Style — 爆遁 (Bakuton)',th:'บาคุตง (ระเบิด)'},{en:'Scorch Style — 灼遁 (Shakuton)',th:'ชาคุตง (แผดเผา)'},{en:'Dark Style — 冥遁 (Meiton)',th:'เมตง (มืด)'},{en:'Steel Style — 鋼 (Kōton)',th:'โคตง (เหล็กกล้า)'},{en:'Crystal Style — 晶遁 (Shōton)',th:'โชตง (คริสตัล)'},{en:'Dead Bone Pulse — 屍骨脈 (Shikotsumyaku)',th:'ชิโคสึเมียคุ (กระดูก)'},{en:'Swift Release — 迅遁 (Jinton)',th:'จินตง (ความเร็ว)'},{en:'Dust Style — 塵遁 (Kekkei Tōta)',th:'จินตง-ฝุ่น (เค็กเค โทตะ)'}],
+  being:[{en:'Standard Shinobi',th:'ชิโนบิทั่วไป'},{en:'Jinchūriki (tailed-beast host)',th:'จินจูริกิ (ผู้แบกจักรจักร)'},{en:'Sage (natural energy)',th:'เซนนิน (พลังธรรมชาติ)'},{en:'Medical-nin (Iryō)',th:'นินจาแพทย์ (อิเรียว)'},{en:'Sensor-type',th:'ประเภทเซ็นเซอร์'},{en:'Puppeteer',th:'นักเชิดหุ่น'},{en:'Sealing Master (Fūinjutsu)',th:'ปรมาจารย์การผนึก'},{en:'Taijutsu Specialist',th:'ผู้เชี่ยวชาญไทจุตสึ'},{en:'Swordsman (Kenjutsu)',th:'นักดาบ (เคนจุตสึ)'},{en:'Samurai (Land of Iron)',th:'ซามูไร (ดินแดนเหล็ก)'},{en:'Cursed Seal Bearer',th:'ผู้แบกตราต้องสาป'},{en:'Reanimated (Edo Tensei)',th:'ศพคืนชีพ (เอโดเทนเซย์)'},{en:'Ōtsutsuki / Vessel',th:'โอสึสึกิ / ภาชนะ'},{en:'Scientific Ninja Tool User',th:'ผู้ใช้เครื่องมือนินจาวิทยาศาสตร์'}],
+  beast:[{en:'None — not a Jinchūriki',th:'ไม่มี — ไม่ใช่จินจูริกิ'},{en:'Shukaku — One-Tail (一尾)',th:'ชุคาคุ — หางเดียว'},{en:'Matatabi — Two-Tails (二尾)',th:'มาตาตาบิ — สองหาง'},{en:'Isobu — Three-Tails (三尾)',th:'อิโซบุ — สามหาง'},{en:'Son Gokū — Four-Tails (四尾)',th:'ซงโกคู — สี่หาง'},{en:'Kokuō — Five-Tails (五尾)',th:'โคคุโอ — ห้าหาง'},{en:'Saiken — Six-Tails (六尾)',th:'ไซเคน — หกหาง'},{en:'Chōmei — Seven-Tails (七尾)',th:'โชเมย์ — เจ็ดหาง'},{en:'Gyūki — Eight-Tails (八尾)',th:'กิวกิ — แปดหาง'},{en:'Kurama — Nine-Tails (九尾)',th:'คุรามะ — เก้าหาง'},{en:'Ten-Tails (十尾)',th:'จูบิ — สิบหาง'}],
+  sage:[{en:'None',th:'ไม่มี'},{en:'Toad Sage (Mt. Myōboku)',th:'เซนนินคางคก (เขาเมียวโบคุ)'},{en:'Snake Sage (Ryūchi Cave)',th:'เซนนินงู (ถ้ำริวจิ)'},{en:'Slug Sage (Shikkotsu)',th:'เซนนินทาก (ชิกโคสึ)'},{en:'Six Paths Sage Mode',th:'เซนนินหกวิถี'},{en:'Perfect Sage Mode',th:'เซนนินสมบูรณ์'}],
+  summon:[{en:'None',th:'ไม่มี'},{en:'Toads (蝦蟇)',th:'คางคก'},{en:'Snakes (蛇)',th:'งู'},{en:'Slugs (蛞蝓)',th:'ทาก'},{en:'Ninken — Dogs (忍犬)',th:'สุนัขนินจา'},{en:'Monkeys (猿)',th:'ลิง'},{en:'Hawks / Birds (鷹)',th:'เหยี่ยว / นก'},{en:'Salamanders (山椒魚)',th:'ซาลาแมนเดอร์'},{en:'Insects (蟲)',th:'แมลง'},{en:'Cats (猫)',th:'แมว'}],
+  scene:[{en:'The Academy graduation exam — a forehead protector still unearned',th:'การสอบจบวิชาการ — ผ้าคาดหน้าผากที่ยังไม่ได้มา'},{en:'A C-rank mission already gone wrong',th:'ภารกิจระดับ C ที่พลาดไปแล้ว'},{en:'The village gates at dawn, a fresh mission scroll in hand',th:'ประตูหมู่บ้านยามรุ่งสาง ม้วนภารกิจใหม่ในมือ'},{en:'Alone in a forest clearing, a summoning scroll and blood on your thumb',th:'ลำพังกลางป่าโล่ง ม้วนอัญเชิญและเลือดบนนิ้วโป้ง'},{en:'Waking to chakra you cannot yet control',th:'ตื่นมาพร้อมชาคระที่ยังคุมไม่ได้'},{en:'The Chūnin Exams arena, the crowd roaring',th:'สนามสอบชูนิน เสียงฝูงชนกึกก้อง'},{en:'The front line of a shinobi war',th:'แนวหน้าของสงครามชิโนบิ'}],
+  jutsu_rank:[{en:'E-rank (Academy)',th:'ระดับ E (วิชาการ)'},{en:'D-rank',th:'ระดับ D'},{en:'C-rank',th:'ระดับ C'},{en:'B-rank',th:'ระดับ B'},{en:'A-rank',th:'ระดับ A'},{en:'S-rank',th:'ระดับ S'},{en:'Kinjutsu (Forbidden)',th:'คินจุตสึ (วิชาต้องห้าม)'}]
+ };
+ var NATURE=[{en:'Fire',th:'ไฟ',k:'火'},{en:'Wind',th:'ลม',k:'風'},{en:'Lightning',th:'สายฟ้า',k:'雷'},{en:'Earth',th:'ดิน',k:'土'},{en:'Water',th:'น้ำ',k:'水'},{en:'Yin',th:'หยิน',k:'陰'},{en:'Yang',th:'หยาง',k:'陽'},{en:'Yin-Yang',th:'หยินหยาง',k:'陰陽'}];
+ var SPEC=[{en:'Ninjutsu',th:'นินจุตสึ'},{en:'Taijutsu',th:'ไทจุตสึ'},{en:'Genjutsu',th:'เก็นจุตสึ'},{en:'Fūinjutsu (Sealing)',th:'ฟูอินจุตสึ'},{en:'Iryō (Medical)',th:'อิเรียว (แพทย์)'},{en:'Senjutsu (Sage)',th:'เซนจุตสึ'},{en:'Kenjutsu (Sword)',th:'เคนจุตสึ'},{en:'Bukijutsu (Weapons)',th:'บุคิจุตสึ'},{en:'Kinjutsu (Forbidden)',th:'คินจุตสึ'},{en:'Barrier Ninjutsu',th:'นินจุตสึบาเรีย'},{en:'Puppetry',th:'วิชาหุ่นเชิด'},{en:'Collaboration Jutsu',th:'จุตสึผสาน'}];
+ var STAT=[['ninjutsu','Ninjutsu','忍術','นินจุตสึ'],['taijutsu','Taijutsu','体術','ไทจุตสึ'],['genjutsu','Genjutsu','幻術','เก็นจุตสึ'],['intelligence','Intelligence','知力','สติปัญญา'],['strength','Strength','体力','พละกำลัง'],['speed','Speed','速さ','ความเร็ว'],['stamina','Stamina','精力','ความอึด'],['hand_seals','Hand Seals','印','การประทับ']];
+ var SW=['#4a9ead','#e23636','#4fae6d','#e2b341','#7c5cff','#ff7bd5','#d97a2b','#cfd6e6'];
+
+ function T(o){return L==='th'?(o.th||o.en):o.en;}
+ function fillSel(id,arr){var s=el(id);if(!s)return;var i=s.selectedIndex<0?0:s.selectedIndex;s.innerHTML='';arr.forEach(function(o){var op=document.createElement('option');op.textContent=T(o);s.appendChild(op);});s.selectedIndex=i;}
+ function applyText(){qa('[data-en]').forEach(function(e){var v=(L==='th'?(e.getAttribute('data-th')||e.getAttribute('data-en')):e.getAttribute('data-en'));if(v!=null)e.textContent=v;});}
+ function applyPlace(){qa('[data-pen]').forEach(function(e){var v=(L==='th'?(e.getAttribute('data-pth')||e.getAttribute('data-pen')):e.getAttribute('data-pen'));if(v!=null)e.setAttribute('placeholder',v);});}
+
+ // TABS
+ function goTab(n){
+   if(n<0||n>=TABS)return;
+   curTab=n;
+   qa('.tab').forEach(function(t){t.classList.toggle('on',parseInt(t.getAttribute('data-t'))===n);});
+   qa('.tpane').forEach(function(p){p.classList.toggle('on',parseInt(p.getAttribute('data-p'))===n);});
+   el('nav_prev').disabled=(n===0);
+   el('nav_next').disabled=(n===TABS-1);
+   var tb=qa('.tab')[n];if(tb)tb.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+   document.querySelector('.paper').scrollIntoView({behavior:'smooth',block:'start'});
+ }
+ qa('.tab').forEach(function(t){t.addEventListener('click',function(){goTab(parseInt(t.getAttribute('data-t')));});});
+ el('nav_prev').addEventListener('click',function(){goTab(curTab-1);});
+ el('nav_next').addEventListener('click',function(){goTab(curTab+1);});
+
+ function setLang(l){L=l;el('lg_en').classList.toggle('on',l==='en');el('lg_th').classList.toggle('on',l==='th');applyText();applyPlace();for(var k in O){if(k!=='jutsu_rank')fillSel(k+'_sel',O[k]);}buildNature();buildSpec();buildEyeStages();buildBeastStages();buildSageStages();}
+ el('lg_en').addEventListener('click',function(){setLang('en');});el('lg_th').addEventListener('click',function(){setLang('th');});
+
+ // preset/custom toggles
+ qa('.fld[data-field]').forEach(function(f){var t=f.getAttribute('data-field');qa('.pcb',f).forEach(function(b){b.addEventListener('click',function(){qa('.pcb',f).forEach(function(x){x.classList.remove('on')});b.classList.add('on');var m=b.getAttribute('data-m');var sel=el(t+'_sel');var cus=el(t+'_cus');if(sel)sel.classList.toggle('hide',m!=='p');if(cus)cus.classList.toggle('hide',m!=='c');if(t==='clan')buildEyeStages();if(t==='beast')buildBeastStages();if(t==='sage')buildSageStages();});});});
+ function getField(t){var f=document.querySelector('.fld[data-field="'+t+'"]');if(!f)return(el(t+'_sel')?el(t+'_sel').value:'');var on=f.querySelector('.pcb.on');var m=on?on.getAttribute('data-m'):'p';return m==='p'?(el(t+'_sel')?el(t+'_sel').value:''):(el(t+'_cus')?(el(t+'_cus').value||'').trim():'');}
+
+ // aura colour
+ (function(){var box=el('f_sws');SW.forEach(function(hx){var s=document.createElement('div');s.className='sw';s.style.background=hx;s.setAttribute('data-c',hx);s.addEventListener('click',function(){setAura(hx);});box.appendChild(s);});})();
+ function isHex(v){v=v.replace('#','');if(v.length!==6)return false;for(var i=0;i<6;i++){if('0123456789abcdef'.indexOf(v.charAt(i).toLowerCase())<0)return false;}return true;}
+ function setAura(hx){el('f_aura').value=hx;el('f_aura_hex').value=hx.toUpperCase();qa('.sw').forEach(function(s){s.classList.toggle('on',s.getAttribute('data-c').toLowerCase()===hx.toLowerCase());});}
+ el('f_aura').addEventListener('input',function(){setAura(this.value);});
+ el('f_aura_hex').addEventListener('input',function(){var v=this.value.trim();if(v.charAt(0)!=='#')v='#'+v;if(isHex(v)){el('f_aura').value=v;qa('.sw').forEach(function(s){s.classList.toggle('on',s.getAttribute('data-c').toLowerCase()===v.toLowerCase());});}});
+ setAura('#4a9ead');
+
+ // dojutsu stage system
+ var CLAN_DOJUTSU={
+  'Uchiha':{eye:'Sharingan',stages:[
+    {id:'shar1',en:'Sharingan (1 Tomoe)',th:'เนตรวงล้อ (1 ลูกดำ)',k:'一'},
+    {id:'shar2',en:'Sharingan (2 Tomoe)',th:'เนตรวงล้อ (2 ลูกดำ)',k:'二'},
+    {id:'shar3',en:'Sharingan (3 Tomoe)',th:'เนตรวงล้อ (3 ลูกดำ)',k:'三'},
+    {id:'ms',en:'Mangekyō Sharingan',th:'เนตรกล้องหมื่นดอก',k:'万'},
+    {id:'ems',en:'Eternal Mangekyō',th:'เนตรกล้องหมื่นดอกนิรันดร์',k:'永'},
+    {id:'rin',en:'Rinnegan',th:'เนตรวงแหวน',k:'輪'},
+    {id:'trin',en:'Tomoe Rinnegan',th:'เนตรวงแหวนลูกดำ',k:'輪'},
+    {id:'rshar',en:'Rinne Sharingan',th:'เนตรสังสาระ',k:'臨'}
+  ]},
+  'Hyūga':{eye:'Byakugan',stages:[
+    {id:'byak',en:'Byakugan',th:'เนตรขาว',k:'白'},
+    {id:'gbyak',en:'Golden Byakugan',th:'เนตรทอง',k:'金'},
+    {id:'tens',en:'Tenseigan',th:'เนตรกระจกเงาหมื่นบุบผา',k:'転'}
+  ]},
+  'Ōtsutsuki':{eye:'Divine Eye',stages:[
+    {id:'byak',en:'Byakugan',th:'เนตรขาว',k:'白'},
+    {id:'gbyak',en:'Golden Byakugan',th:'เนตรทอง',k:'金'},
+    {id:'tens',en:'Tenseigan',th:'เนตรกระจกเงาหมื่นบุบผา',k:'転'},
+    {id:'rin',en:'Rinnegan',th:'เนตรวงแหวน',k:'輪'},
+    {id:'rshar',en:'Rinne Sharingan',th:'เนตรสังสาระ',k:'臨'},
+    {id:'jog',en:'Jōgan',th:'เนตรบริสุทธิ์',k:'淨'}
+  ]},
+  'Chinoike':{eye:'Ketsuryūgan',stages:[
+    {id:'kets',en:'Ketsuryūgan',th:'เนตรมังกรเลือด',k:'血'},
+    {id:'kets2',en:'Ketsuryūgan (Awakened)',th:'เนตรมังกรเลือด (ตื่น)',k:'覚'}
+  ]},
+  'Kurama':{eye:'Kurama Clan Genjutsu Eye',stages:[
+    {id:'kge',en:'Genjutsu Eye (Dormant)',th:'เนตรภาพมายา (หลับ)',k:'幻'},
+    {id:'kge2',en:'Genjutsu Eye (Awakened)',th:'เนตรภาพมายา (ตื่น)',k:'覚'}
+  ]}
+ };
+ var eyeSel=null;var eyeCustoms=[];
+ function getSelEN(t){var sel=el(t+'_sel');if(!sel||sel.selectedIndex<0||!O[t])return '';return O[t][sel.selectedIndex].en;}
+ function getFieldEN(t){var f=document.querySelector('.fld[data-field="'+t+'"]');if(!f)return getSelEN(t);var on=f.querySelector('.pcb.on');var m=on?on.getAttribute('data-m'):'p';return m==='p'?getSelEN(t):(el(t+'_cus')?(el(t+'_cus').value||'').trim():'');}
+ function getClanKey(){
+  var v=getFieldEN('clan');
+  for(var k in CLAN_DOJUTSU){if(v.indexOf(k)>=0)return k;}
+  return null;
+ }
+ function buildEyeStages(){
+  var ck=getClanKey();var box=el('eye_box');var cont=el('eye_stages');
+  if(!ck){box.classList.add('hide');eyeSel=null;return;}
+  box.classList.remove('hide');
+  var dat=CLAN_DOJUTSU[ck];cont.innerHTML='';eyeSel=null;
+  dat.stages.forEach(function(st){
+   var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.addEventListener('click',function(){
+    qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
+    card.classList.add('on');eyeSel=st.id;
+   });
+   cont.appendChild(card);
+  });
+ }
+ function addEyeCustom(){
+  var it=document.createElement('div');it.className='eye-custom item';
+  it.innerHTML='<button class="rm">×</button>'+
+    '<input class="inp ec_name" data-pen="Custom dōjutsu name" data-pth="ชื่อดวงตากำหนดเอง"/>'+
+    '<input class="inp ec_img" data-pen="Image URL (paste link to eye image)" data-pth="URL รูปภาพ (วางลิงก์รูปดวงตา)"/>'+
+    '<textarea class="ec_desc" data-pen="What does this eye do? Abilities, cost, drawbacks…" data-pth="ดวงตานี้ทำอะไรได้? ความสามารถ ค่าใช้จ่าย ข้อเสีย…"></textarea>';
+  el('eye_custom_list').appendChild(it);
+  it.querySelector('.rm').addEventListener('click',function(){it.parentNode.removeChild(it);});
+  applyPlace();
+ }
+ el('eye_custom_add').addEventListener('click',addEyeCustom);
+ el('clan_sel').addEventListener('change',buildEyeStages);
+
+ // tailed beast stage system
+ var BEAST_STAGES={
+  '_universal':[
+    {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
+    {id:'v1',en:'Version 1 Cloak',th:'อาภรณ์สัตว์หางขั้น 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak',th:'อาภรณ์สัตว์หางขั้น 2',k:'弐'},
+    {id:'partial',en:'Partial Transformation',th:'แปลงร่างบางส่วน',k:'半'},
+    {id:'full',en:'Full Beast Mode',th:'ร่างสัตว์หางเต็มตัว',k:'獣'},
+    {id:'biju',en:'Bijū Mode (cooperative)',th:'โหมดบิจู (ร่วมมือ)',k:'協'}
+  ],
+  'Kurama':[
+    {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
+    {id:'v1',en:'Version 1 Cloak',th:'อาภรณ์สัตว์หางขั้น 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak',th:'อาภรณ์สัตว์หางขั้น 2',k:'弐'},
+    {id:'kcm1',en:'KCM — Kurama Chakra Mode',th:'โหมดชาคระคุรามะ',k:'狐'},
+    {id:'kcm2',en:'KCM2 — Bijū Mode',th:'โหมดบิจูคุรามะ',k:'協'},
+    {id:'full',en:'Full Kurama Avatar',th:'อวตารคุรามะเต็มตัว',k:'獣'},
+    {id:'baryon',en:'Baryon Mode',th:'โหมดแบริออน',k:'核'}
+  ],
+  'Gyūki':[
+    {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
+    {id:'v1',en:'Version 1 Cloak',th:'อาภรณ์สัตว์หางขั้น 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak (tentacles)',th:'อาภรณ์สัตว์หางขั้น 2 (หนวด)',k:'弐'},
+    {id:'partial',en:'Partial Transform (horns & tails)',th:'แปลงร่างบางส่วน (เขาและหาง)',k:'半'},
+    {id:'full',en:'Full Eight-Tails',th:'แปดหางเต็มตัว',k:'獣'},
+    {id:'biju',en:'Bijū Mode (cooperative)',th:'โหมดบิจู (ร่วมมือ)',k:'協'}
+  ],
+  'Shukaku':[
+    {id:'init',en:'Sand Armor (partial)',th:'เกราะทราย (บางส่วน)',k:'砂'},
+    {id:'partial',en:'Partial Shukaku Form',th:'ร่างชุคาคุบางส่วน',k:'半'},
+    {id:'full',en:'Full Shukaku',th:'ชุคาคุเต็มตัว',k:'獣'},
+    {id:'biju',en:'Bijū Mode (cooperative)',th:'โหมดบิจู (ร่วมมือ)',k:'協'}
+  ]
+ };
+ var beastSel=null;
+ function getBeastKey(){
+  var v=getFieldEN('beast');
+  if(!v||v.indexOf('None')>=0)return null;
+  for(var k in BEAST_STAGES){if(k!=='_universal'&&v.indexOf(k)>=0)return k;}
+  return '_universal';
+ }
+ function buildBeastStages(){
+  var bk=getBeastKey();var box=el('beast_box');var cont=el('beast_stages');
+  if(!bk){box.classList.add('hide');beastSel=null;return;}
+  box.classList.remove('hide');
+  var stages=BEAST_STAGES[bk];cont.innerHTML='';beastSel=null;
+  stages.forEach(function(st){
+   var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.addEventListener('click',function(){
+    qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
+    card.classList.add('on');beastSel=st.id;
+   });
+   cont.appendChild(card);
+  });
+ }
+ function addBeastCustom(){
+  var it=document.createElement('div');it.className='eye-custom item';
+  it.innerHTML='<button class="rm">×</button>'+
+    '<input class="inp bc_name" data-pen="Custom beast form name" data-pth="ชื่อร่างจักรจักรกำหนดเอง"/>'+
+    '<input class="inp bc_img" data-pen="Image URL (paste link)" data-pth="URL รูปภาพ (วางลิงก์)"/>'+
+    '<textarea class="bc_desc" data-pen="What does this form do? Power, drawbacks…" data-pth="ร่างนี้ทำอะไรได้? พลัง ข้อเสีย…"></textarea>';
+  el('beast_custom_list').appendChild(it);
+  it.querySelector('.rm').addEventListener('click',function(){it.parentNode.removeChild(it);});
+  applyPlace();
+ }
+ el('beast_custom_add').addEventListener('click',addBeastCustom);
+ el('beast_sel').addEventListener('change',buildBeastStages);
+
+ // sage mode stage system
+ var SAGE_STAGES={
+  'Toad':[
+    {id:'imp_toad',en:'Imperfect Toad Sage',th:'เซียนกบไม่สมบูรณ์',k:'蛙'},
+    {id:'toad',en:'Perfect Toad Sage Mode',th:'โหมดเซียนกบสมบูรณ์',k:'仙'},
+    {id:'toad_deep',en:'Deep Sage Art — Frog Kata',th:'วิชาเซียนลึก — กบกะตะ',k:'深'}
+  ],
+  'Snake':[
+    {id:'snake',en:'Snake Sage Mode',th:'โหมดเซียนงู',k:'蛇'},
+    {id:'dragon',en:'Dragon Sage Transformation',th:'แปลงร่างเซียนมังกร',k:'龍'}
+  ],
+  'Slug':[
+    {id:'slug',en:'Slug Sage Mode',th:'โหมดเซียนทาก',k:'蛞'},
+    {id:'byaku',en:'Byakugō — Strength of a Hundred',th:'เบียคุโก — พลังแห่งร้อย',k:'百'}
+  ],
+  'Six Paths':[
+    {id:'six',en:'Six Paths Sage Mode',th:'โหมดเซียนหกวิถี',k:'六'},
+    {id:'six_biju',en:'Six Paths + Bijū Sage',th:'หกวิถี + เซียนบิจู',k:'全'},
+    {id:'six_truth',en:'Truth-Seeking Orbs',th:'ลูกกลมแสวงหาสัจธรรม',k:'求'}
+  ],
+  'Perfect':[
+    {id:'imp',en:'Imperfect Sage Mode',th:'โหมดเซียนไม่สมบูรณ์',k:'未'},
+    {id:'perf',en:'Perfect Sage Mode',th:'โหมดเซียนสมบูรณ์',k:'仙'}
+  ]
+ };
+ var sageStageSel=null;
+ function getSageKey(){
+  var v=getFieldEN('sage');
+  if(!v||v.indexOf('None')>=0)return null;
+  for(var k in SAGE_STAGES){if(v.indexOf(k)>=0)return k;}
+  return null;
+ }
+ function buildSageStages(){
+  var sk=getSageKey();var box=el('sage_box');var cont=el('sage_stages');
+  if(!sk){box.classList.add('hide');sageStageSel=null;return;}
+  box.classList.remove('hide');
+  var stages=SAGE_STAGES[sk];cont.innerHTML='';sageStageSel=null;
+  stages.forEach(function(st){
+   var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.addEventListener('click',function(){
+    qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
+    card.classList.add('on');sageStageSel=st.id;
+   });
+   cont.appendChild(card);
+  });
+ }
+ function addSageCustom(){
+  var it=document.createElement('div');it.className='eye-custom item';
+  it.innerHTML='<button class="rm">×</button>'+
+    '<input class="inp sc_name" data-pen="Custom sage form name" data-pth="ชื่อร่างเซนนินกำหนดเอง"/>'+
+    '<input class="inp sc_img" data-pen="Image URL (paste link)" data-pth="URL รูปภาพ (วางลิงก์)"/>'+
+    '<textarea class="sc_desc" data-pen="What does this form do? Power, drawbacks…" data-pth="ร่างนี้ทำอะไรได้? พลัง ข้อเสีย…"></textarea>';
+  el('sage_custom_list').appendChild(it);
+  it.querySelector('.rm').addEventListener('click',function(){it.parentNode.removeChild(it);});
+  applyPlace();
+ }
+ el('sage_custom_add').addEventListener('click',addSageCustom);
+ el('sage_sel').addEventListener('change',buildSageStages);
+
+ // nature + spec multi
+ var natSel={},specSel={};
+ function buildNature(){var box=el('nature_chips');box.innerHTML='';NATURE.forEach(function(n,i){var c=document.createElement('span');c.className='chip'+(natSel[i]?' on':'');c.innerHTML='<span style="font-family:\'Noto Serif JP\',serif">'+n.k+'</span> '+T(n);c.addEventListener('click',function(){natSel[i]=!natSel[i];c.classList.toggle('on');});box.appendChild(c);});}
+ function buildSpec(){var box=el('spec_chips');box.innerHTML='';SPEC.forEach(function(s,i){var c=document.createElement('span');c.className='chip'+(specSel[i]?' on':'');c.textContent=T(s);c.addEventListener('click',function(){specSel[i]=!specSel[i];c.classList.toggle('on');});box.appendChild(c);});}
+
+ // stats
+ (function(){var box=el('stats');STAT.forEach(function(s){var d=document.createElement('div');d.className='statg';d.innerHTML='<div class="statr"><span class="sl"><span class="jp">'+s[2]+'</span><span data-en="'+s[1]+'" data-th="'+s[3]+'">'+s[1]+'</span></span><input class="inp snum" id="st_'+s[0]+'" type="number" min="0" max="1000000" value="10"/></div>';box.appendChild(d);});})();
+
+ // jutsu system with confirm/edit
+ function rm(b){var it=b.closest('.item')||b.closest('.gear-item');if(it)it.parentNode.removeChild(it);}
+
+ function addJutsu(){
+   var it=document.createElement('div');it.className='item';
+   var rankOpts='';O.jutsu_rank.forEach(function(r){rankOpts+='<option>'+T(r)+'</option>';});
+   it.innerHTML='<button class="rm">×</button><span class="conf-badge" data-en="CONFIRMED" data-th="ยืนยันแล้ว">CONFIRMED</span>'+
+     '<input class="inp j_n" data-pen="Jutsu name (e.g. Chidori)" data-pth="ชื่อจุตสึ (เช่น ชิโดริ)"/>'+
+     '<select class="j_r">'+rankOpts+'</select>'+
+     '<textarea class="j_d" data-pen="What it does, hand seals, chakra cost, drawbacks…" data-pth="ทำอะไรได้ อินมือ ค่าชาคระ ข้อเสีย…"></textarea>'+
+     '<button class="confbtn" data-en="✓ CONFIRM THIS JUTSU" data-th="✓ ยืนยันจุตสึนี้">✓ CONFIRM THIS JUTSU</button>';
+   el('jutsu_list').appendChild(it);
+   it.querySelector('.rm').addEventListener('click',function(){rm(this);});
+   it.querySelector('.confbtn').addEventListener('click',function(){
+     var card=this.closest('.item');
+     if(card.classList.contains('confirmed')){return;}
+     card.classList.add('confirmed');
+     qa('input,select,textarea',card).forEach(function(inp){inp.disabled=true;});
+     this.textContent=L==='th'?'แก้ไข':'EDIT';
+     this.className='editbtn';
+     this.addEventListener('click',function editHandler(){
+       card.classList.remove('confirmed');
+       qa('input,select,textarea',card).forEach(function(inp){inp.disabled=false;});
+       var btn=document.createElement('button');btn.className='confbtn';btn.setAttribute('data-en','✓ CONFIRM THIS JUTSU');btn.setAttribute('data-th','✓ ยืนยันจุตสึนี้');btn.textContent=L==='th'?'✓ ยืนยันจุตสึนี้':'✓ CONFIRM THIS JUTSU';
+       card.replaceChild(btn,card.querySelector('.editbtn'));
+       btn.addEventListener('click',function(){
+         card.classList.add('confirmed');
+         qa('input,select,textarea',card).forEach(function(inp){inp.disabled=true;});
+         btn.textContent=L==='th'?'แก้ไข':'EDIT';btn.className='editbtn';
+         btn.addEventListener('click',editHandler);
+       });
+     });
+   });
+   applyText();applyPlace();
+ }
+
+ function addWeak(){var it=document.createElement('div');it.className='item';it.innerHTML='<button class="rm">×</button><input class="inp w_t" data-pen="A weakness, limit, or vulnerability" data-pth="จุดอ่อน ข้อจำกัด หรือจุดเปราะบาง"/>';el('weak_list').appendChild(it);it.querySelector('.rm').addEventListener('click',function(){rm(this);});applyPlace();}
+
+ function addGear(){var it=document.createElement('div');it.className='gear-item';it.innerHTML='<input class="inp g_t" data-pen="e.g. Custom katana, explosive tags ×20, chakra blade…" data-pth="เช่น คาตานะพิเศษ ป้ายระเบิด ×20 ดาบชาคระ…"/><button class="rm">×</button>';el('gear_list').appendChild(it);it.querySelector('.rm').addEventListener('click',function(){rm(this);});applyPlace();}
+
+ el('jutsu_add').addEventListener('click',addJutsu);
+ el('weak_add').addEventListener('click',addWeak);
+ el('gear_add').addEventListener('click',addGear);
+
+ setLang('en');addJutsu();addWeak();
+
+ // SUBMIT
+ el('f_go').addEventListener('click',function(){
+  function v(id){var e=el(id);return e?(e.value||'').trim():'';}
+  var natures=[];NATURE.forEach(function(n,i){if(natSel[i])natures.push(n.en);});
+  var specs=[];SPEC.forEach(function(s,i){if(specSel[i])specs.push(s.en);});
+  var jutsu=[];qa('#jutsu_list .item').forEach(function(it){var n=(it.querySelector('.j_n').value||'').trim(),r=(it.querySelector('.j_r')?it.querySelector('.j_r').value:'').trim(),dd=(it.querySelector('.j_d').value||'').trim();if(n||dd)jutsu.push({name:n,rank:r,detail:dd});});
+  var weak=[];qa('#weak_list .item').forEach(function(it){var t=(it.querySelector('.w_t').value||'').trim();if(t)weak.push(t);});
+  var gear=[];qa('#gear_list .gear-item').forEach(function(it){var t=(it.querySelector('.g_t').value||'').trim();if(t)gear.push(t);});
+  var st={};STAT.forEach(function(s){var n=parseInt(el('st_'+s[0]).value,10);if(isNaN(n))n=10;st[s[0]]=n;});
+  var eyeCustomData=[];qa('#eye_custom_list .eye-custom').forEach(function(it){var n=(it.querySelector('.ec_name').value||'').trim(),im=(it.querySelector('.ec_img').value||'').trim(),ds=(it.querySelector('.ec_desc').value||'').trim();if(n||ds)eyeCustomData.push({name:n,image:im,detail:ds});});
+  var beastCustomData=[];qa('#beast_custom_list .eye-custom').forEach(function(it){var n=(it.querySelector('.bc_name').value||'').trim(),im=(it.querySelector('.bc_img').value||'').trim(),ds=(it.querySelector('.bc_desc').value||'').trim();if(n||ds)beastCustomData.push({name:n,image:im,detail:ds});});
+  var sageCustomData=[];qa('#sage_custom_list .eye-custom').forEach(function(it){var n=(it.querySelector('.sc_name').value||'').trim(),im=(it.querySelector('.sc_img').value||'').trim(),ds=(it.querySelector('.sc_desc').value||'').trim();if(n||ds)sageCustomData.push({name:n,image:im,detail:ds});});
+  var data={lang:L,theme:el('f_aura_hex').value,name:v('f_name'),age:v('f_age'),sex:v('f_sex'),pronouns:v('f_pron'),blood_type:v('f_blood'),
+   era:getField('era'),village:getField('village'),rank:getField('rank'),affiliation:getField('affil'),
+   clan:getField('clan'),dojutsu:getField('dojutsu'),dojutsu_stage:eyeSel||'',dojutsu_custom:eyeCustomData,kekkei_genkai:getField('kkg'),
+   chakra_natures:natures,being:getField('being'),tailed_beast:getField('beast'),beast_stage:beastSel||'',beast_custom:beastCustomData,sage_mode:getField('sage'),sage_stage:sageStageSel||'',sage_custom:sageCustomData,summoning:getField('summon'),
+   specialties:specs,signature_jutsu:jutsu,starting_gear:gear,stats:st,
+   team:v('f_team'),sensei:v('f_sensei'),rivals:v('f_rivals'),nindo:v('f_nindo'),dream:v('f_dream'),catchphrase:v('f_catch'),
+   appearance:v('f_app'),nature:v('f_nat'),history:v('f_hist'),weaknesses:weak,opening_scene:getField('scene')};
+  el('f_over').classList.add('on');
+  var payload='<'+'SHINOBI_CONFIRM'+'>\n'+JSON.stringify(data,null,2)+'\n<'+'/SHINOBI_CONFIRM'+'>';
+  window.__SW_PAYLOAD=payload;
+  setTimeout(function(){try{var w=window.parent||window;var ta=w.document.getElementById('send_textarea')||w.document.querySelector('textarea.chat-input,#textareaAutosize,textarea');if(ta){var dd=Object.getOwnPropertyDescriptor(w.HTMLTextAreaElement.prototype,'value');if(dd&&dd.set)dd.set.call(ta,payload);else ta.value=payload;ta.dispatchEvent(new Event('input',{bubbles:true}));setTimeout(function(){try{var sb=w.document.getElementById('send_but');if(sb)sb.click();else ta.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',keyCode:13,bubbles:true}));}catch(e){}},150);return;}}catch(e){}try{navigator.clipboard.writeText(payload);}catch(e){}},450);
+ });
+})();
+</script>
+</body></html>

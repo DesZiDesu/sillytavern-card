@@ -1,0 +1,18 @@
+{
+    "id": "sw-dialogue",
+    "scriptName": "SW Dialogue",
+    "findRegex": "/\\[SAY\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:470px;margin:6px auto 14px;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif;\"><div style=\"position:relative;padding:14px 18px;background:rgba(14,14,20,.5);color:#dcd8d0;font-size:13.5px;line-height:1.65;border-left:2.5px solid $1;border-radius:3px 14px 14px 14px;box-shadow:0 4px 14px rgba(0,0,0,.35);\"><div style=\"position:absolute;top:-6px;left:18px;width:12px;height:12px;background:rgba(14,14,20,.5);border-left:1px solid $1;border-top:1px solid $1;transform:rotate(45deg);\"></div><div style=\"position:absolute;top:0;left:-1px;right:0;height:1px;background:linear-gradient(90deg,$1 0%,transparent 70%);\"></div><div style=\"position:absolute;bottom:0;left:-1px;right:0;height:1px;background:linear-gradient(90deg,$1 0%,transparent 40%);\"></div>$2</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
