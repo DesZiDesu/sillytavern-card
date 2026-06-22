@@ -390,40 +390,42 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  // dojutsu stage system
  var CLAN_DOJUTSU={
   'Uchiha':{eye:'Sharingan',stages:[
-    {id:'shar1',en:'Sharingan (1 Tomoe)',th:'ชาริงกัน (1 ลูกดำ)',k:'一',img:'https://files.catbox.moe/1l3to2.png'},
-    {id:'shar2',en:'Sharingan (2 Tomoe)',th:'ชาริงกัน (2 ลูกดำ)',k:'二',img:'https://files.catbox.moe/82gbvm.png'},
-    {id:'shar3',en:'Sharingan (3 Tomoe)',th:'ชาริงกัน (3 ลูกดำ)',k:'三',img:'https://files.catbox.moe/vcbqrp.png'},
-    {id:'ms',en:'Mangekyō Sharingan',th:'มังเงเคียวชาริงกัน',k:'万',img:'https://files.catbox.moe/ezttdw.png'},
-    {id:'ems',en:'Eternal Mangekyō',th:'มังเงเคียวนิรันดร์',k:'永',img:'https://files.catbox.moe/k0ig70.png'},
-    {id:'rin',en:'Rinnegan',th:'รินเนกัน',k:'輪',img:'https://files.catbox.moe/8owp0n.png'},
-    {id:'trin',en:'Tomoe Rinnegan',th:'รินเนกันโทโมเอะ',k:'輪',img:'https://files.catbox.moe/tq50yx.webp'},
-    {id:'rshar',en:'Rinne Sharingan',th:'รินเนชาริงกัน',k:'臨',img:'https://files.catbox.moe/qspvn9.png'}
+    {id:'shar1',en:'Sharingan (1 Tomoe)',th:'เนตรวงล้อ (1 ลูกดำ)',k:'一'},
+    {id:'shar2',en:'Sharingan (2 Tomoe)',th:'เนตรวงล้อ (2 ลูกดำ)',k:'二'},
+    {id:'shar3',en:'Sharingan (3 Tomoe)',th:'เนตรวงล้อ (3 ลูกดำ)',k:'三'},
+    {id:'ms',en:'Mangekyō Sharingan',th:'เนตรกล้องหมื่นดอก',k:'万'},
+    {id:'ems',en:'Eternal Mangekyō',th:'เนตรกล้องหมื่นดอกนิรันดร์',k:'永'},
+    {id:'rin',en:'Rinnegan',th:'เนตรวงแหวน',k:'輪'},
+    {id:'trin',en:'Tomoe Rinnegan',th:'เนตรวงแหวนลูกดำ',k:'輪'},
+    {id:'rshar',en:'Rinne Sharingan',th:'เนตรสังสาระ',k:'臨'}
   ]},
   'Hyūga':{eye:'Byakugan',stages:[
-    {id:'byak',en:'Byakugan',th:'เบียคุกัน',k:'白',img:'https://files.catbox.moe/ioxbtt.png'},
-    {id:'gbyak',en:'Golden Byakugan',th:'เบียคุกันทอง',k:'金',img:'https://files.catbox.moe/mn9r5h.webp'},
-    {id:'tens',en:'Tenseigan',th:'เทนเซย์กัน',k:'転',img:'https://files.catbox.moe/b63krv.png'}
+    {id:'byak',en:'Byakugan',th:'เนตรขาว',k:'白'},
+    {id:'gbyak',en:'Golden Byakugan',th:'เนตรทอง',k:'金'},
+    {id:'tens',en:'Tenseigan',th:'เนตรกระจกเงาหมื่นบุบผา',k:'転'}
   ]},
   'Ōtsutsuki':{eye:'Divine Eye',stages:[
-    {id:'byak',en:'Byakugan',th:'เบียคุกัน',k:'白',img:'https://files.catbox.moe/ioxbtt.png'},
-    {id:'gbyak',en:'Golden Byakugan',th:'เบียคุกันทอง',k:'金',img:'https://files.catbox.moe/mn9r5h.webp'},
-    {id:'tens',en:'Tenseigan',th:'เทนเซย์กัน',k:'転',img:'https://files.catbox.moe/b63krv.png'},
-    {id:'rin',en:'Rinnegan',th:'รินเนกัน',k:'輪',img:'https://files.catbox.moe/8owp0n.png'},
-    {id:'rshar',en:'Rinne Sharingan',th:'รินเนชาริงกัน',k:'臨',img:'https://files.catbox.moe/qspvn9.png'},
-    {id:'jog',en:'Jōgan',th:'โจกัน',k:'淨'}
+    {id:'byak',en:'Byakugan',th:'เนตรขาว',k:'白'},
+    {id:'gbyak',en:'Golden Byakugan',th:'เนตรทอง',k:'金'},
+    {id:'tens',en:'Tenseigan',th:'เนตรกระจกเงาหมื่นบุบผา',k:'転'},
+    {id:'rin',en:'Rinnegan',th:'เนตรวงแหวน',k:'輪'},
+    {id:'rshar',en:'Rinne Sharingan',th:'เนตรสังสาระ',k:'臨'},
+    {id:'jog',en:'Jōgan',th:'เนตรบริสุทธิ์',k:'淨'}
   ]},
   'Chinoike':{eye:'Ketsuryūgan',stages:[
-    {id:'kets',en:'Ketsuryūgan',th:'เคตสึริวกัน',k:'血'},
-    {id:'kets2',en:'Ketsuryūgan (Awakened)',th:'เคตสึริวกัน (ตื่น)',k:'覚'}
+    {id:'kets',en:'Ketsuryūgan',th:'เนตรมังกรเลือด',k:'血'},
+    {id:'kets2',en:'Ketsuryūgan (Awakened)',th:'เนตรมังกรเลือด (ตื่น)',k:'覚'}
   ]},
   'Kurama':{eye:'Kurama Clan Genjutsu Eye',stages:[
-    {id:'kge',en:'Genjutsu Eye (Dormant)',th:'ตาเก็นจุตสึ (หลับ)',k:'幻'},
-    {id:'kge2',en:'Genjutsu Eye (Awakened)',th:'ตาเก็นจุตสึ (ตื่น)',k:'覚'}
+    {id:'kge',en:'Genjutsu Eye (Dormant)',th:'เนตรภาพมายา (หลับ)',k:'幻'},
+    {id:'kge2',en:'Genjutsu Eye (Awakened)',th:'เนตรภาพมายา (ตื่น)',k:'覚'}
   ]}
  };
  var eyeSel=null;var eyeCustoms=[];
+ function getSelEN(t){var sel=el(t+'_sel');if(!sel||sel.selectedIndex<0||!O[t])return '';return O[t][sel.selectedIndex].en;}
+ function getFieldEN(t){var f=document.querySelector('.fld[data-field="'+t+'"]');if(!f)return getSelEN(t);var on=f.querySelector('.pcb.on');var m=on?on.getAttribute('data-m'):'p';return m==='p'?getSelEN(t):(el(t+'_cus')?(el(t+'_cus').value||'').trim():'');}
  function getClanKey(){
-  var v=getField('clan');
+  var v=getFieldEN('clan');
   for(var k in CLAN_DOJUTSU){if(v.indexOf(k)>=0)return k;}
   return null;
  }
@@ -434,8 +436,7 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
   var dat=CLAN_DOJUTSU[ck];cont.innerHTML='';eyeSel=null;
   dat.stages.forEach(function(st){
    var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
-   var imgHtml=st.img?'<img src="'+st.img+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'\'"/><span class="eye-ph" style="display:none">'+st.k+'</span>':'<span class="eye-ph">'+st.k+'</span>';
-   card.innerHTML='<div class="eye-img">'+imgHtml+'</div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
    card.addEventListener('click',function(){
     qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
     card.classList.add('on');eyeSel=st.id;
@@ -460,26 +461,26 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  var BEAST_STAGES={
   '_universal':[
     {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
-    {id:'v1',en:'Version 1 Cloak',th:'เสื้อคลุมเวอร์ชัน 1',k:'壱'},
-    {id:'v2',en:'Version 2 Cloak',th:'เสื้อคลุมเวอร์ชัน 2',k:'弐'},
+    {id:'v1',en:'Version 1 Cloak',th:'อาภรณ์สัตว์หางขั้น 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak',th:'อาภรณ์สัตว์หางขั้น 2',k:'弐'},
     {id:'partial',en:'Partial Transformation',th:'แปลงร่างบางส่วน',k:'半'},
-    {id:'full',en:'Full Beast Mode',th:'ร่างจักรจักรเต็มตัว',k:'獣'},
+    {id:'full',en:'Full Beast Mode',th:'ร่างสัตว์หางเต็มตัว',k:'獣'},
     {id:'biju',en:'Bijū Mode (cooperative)',th:'โหมดบิจู (ร่วมมือ)',k:'協'}
   ],
   'Kurama':[
     {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
-    {id:'v1',en:'Version 1 Cloak',th:'เสื้อคลุมเวอร์ชัน 1',k:'壱'},
-    {id:'v2',en:'Version 2 Cloak',th:'เสื้อคลุมเวอร์ชัน 2',k:'弐'},
-    {id:'kcm1',en:'KCM — Kurama Chakra Mode',th:'KCM — โหมดชาคระคุรามะ',k:'狐'},
-    {id:'kcm2',en:'KCM2 — Bijū Mode',th:'KCM2 — โหมดบิจู',k:'協'},
+    {id:'v1',en:'Version 1 Cloak',th:'อาภรณ์สัตว์หางขั้น 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak',th:'อาภรณ์สัตว์หางขั้น 2',k:'弐'},
+    {id:'kcm1',en:'KCM — Kurama Chakra Mode',th:'โหมดชาคระคุรามะ',k:'狐'},
+    {id:'kcm2',en:'KCM2 — Bijū Mode',th:'โหมดบิจูคุรามะ',k:'協'},
     {id:'full',en:'Full Kurama Avatar',th:'อวตารคุรามะเต็มตัว',k:'獣'},
     {id:'baryon',en:'Baryon Mode',th:'โหมดแบริออน',k:'核'}
   ],
   'Gyūki':[
     {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
-    {id:'v1',en:'Version 1 Cloak',th:'เสื้อคลุมเวอร์ชัน 1',k:'壱'},
-    {id:'v2',en:'Version 2 Cloak (tentacles)',th:'เสื้อคลุมเวอร์ชัน 2 (หนวด)',k:'弐'},
-    {id:'partial',en:'Partial Transform (horns & tails)',th:'แปลงร่างบางส่วน (เขา & หาง)',k:'半'},
+    {id:'v1',en:'Version 1 Cloak',th:'อาภรณ์สัตว์หางขั้น 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak (tentacles)',th:'อาภรณ์สัตว์หางขั้น 2 (หนวด)',k:'弐'},
+    {id:'partial',en:'Partial Transform (horns & tails)',th:'แปลงร่างบางส่วน (เขาและหาง)',k:'半'},
     {id:'full',en:'Full Eight-Tails',th:'แปดหางเต็มตัว',k:'獣'},
     {id:'biju',en:'Bijū Mode (cooperative)',th:'โหมดบิจู (ร่วมมือ)',k:'協'}
   ],
@@ -492,7 +493,7 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  };
  var beastSel=null;
  function getBeastKey(){
-  var v=getField('beast');
+  var v=getFieldEN('beast');
   if(!v||v.indexOf('None')>=0)return null;
   for(var k in BEAST_STAGES){if(k!=='_universal'&&v.indexOf(k)>=0)return k;}
   return '_universal';
@@ -504,8 +505,7 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
   var stages=BEAST_STAGES[bk];cont.innerHTML='';beastSel=null;
   stages.forEach(function(st){
    var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
-   var imgHtml=st.img?'<img src="'+st.img+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'\'"/><span class="eye-ph" style="display:none">'+st.k+'</span>':'<span class="eye-ph">'+st.k+'</span>';
-   card.innerHTML='<div class="eye-img">'+imgHtml+'</div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
    card.addEventListener('click',function(){
     qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
     card.classList.add('on');beastSel=st.id;
@@ -529,31 +529,31 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  // sage mode stage system
  var SAGE_STAGES={
   'Toad':[
-    {id:'imp_toad',en:'Imperfect Toad Sage',th:'เซนนินคางคกไม่สมบูรณ์',k:'蛙'},
-    {id:'toad',en:'Perfect Toad Sage Mode',th:'โหมดเซนนินคางคกสมบูรณ์',k:'仙'},
-    {id:'toad_deep',en:'Deep Sage Art — Frog Kata',th:'ศิลปะเซนนินลึก — คางคกกะตะ',k:'深'}
+    {id:'imp_toad',en:'Imperfect Toad Sage',th:'ฤๅษีคางคกไม่สมบูรณ์',k:'蛙'},
+    {id:'toad',en:'Perfect Toad Sage Mode',th:'โหมดฤๅษีคางคกสมบูรณ์',k:'仙'},
+    {id:'toad_deep',en:'Deep Sage Art — Frog Kata',th:'ศิลปะฤๅษีลึก — คางคกกะตะ',k:'深'}
   ],
   'Snake':[
-    {id:'snake',en:'Snake Sage Mode',th:'โหมดเซนนินงู',k:'蛇'},
-    {id:'dragon',en:'Dragon Sage Transformation',th:'แปลงร่างเซนนินมังกร',k:'龍'}
+    {id:'snake',en:'Snake Sage Mode',th:'โหมดฤๅษีงู',k:'蛇'},
+    {id:'dragon',en:'Dragon Sage Transformation',th:'แปลงร่างฤๅษีมังกร',k:'龍'}
   ],
   'Slug':[
-    {id:'slug',en:'Slug Sage Mode',th:'โหมดเซนนินทาก',k:'蛞'},
-    {id:'byaku',en:'Byakugō — Strength of a Hundred',th:'เบียคุโก — พลังร้อย',k:'百'}
+    {id:'slug',en:'Slug Sage Mode',th:'โหมดฤๅษีทาก',k:'蛞'},
+    {id:'byaku',en:'Byakugō — Strength of a Hundred',th:'เบียคุโก — พลังแห่งร้อย',k:'百'}
   ],
   'Six Paths':[
-    {id:'six',en:'Six Paths Sage Mode',th:'โหมดเซนนินหกวิถี',k:'六'},
-    {id:'six_biju',en:'Six Paths + Bijū Sage',th:'หกวิถี + เซนนินบิจู',k:'全'},
+    {id:'six',en:'Six Paths Sage Mode',th:'โหมดฤๅษีหกวิถี',k:'六'},
+    {id:'six_biju',en:'Six Paths + Bijū Sage',th:'หกวิถี + ฤๅษีบิจู',k:'全'},
     {id:'six_truth',en:'Truth-Seeking Orbs',th:'ลูกกลมแสวงหาสัจธรรม',k:'求'}
   ],
   'Perfect':[
-    {id:'imp',en:'Imperfect Sage Mode',th:'โหมดเซนนินไม่สมบูรณ์',k:'未'},
-    {id:'perf',en:'Perfect Sage Mode',th:'โหมดเซนนินสมบูรณ์',k:'仙'}
+    {id:'imp',en:'Imperfect Sage Mode',th:'โหมดฤๅษีไม่สมบูรณ์',k:'未'},
+    {id:'perf',en:'Perfect Sage Mode',th:'โหมดฤๅษีสมบูรณ์',k:'仙'}
   ]
  };
  var sageStageSel=null;
  function getSageKey(){
-  var v=getField('sage');
+  var v=getFieldEN('sage');
   if(!v||v.indexOf('None')>=0)return null;
   for(var k in SAGE_STAGES){if(v.indexOf(k)>=0)return k;}
   return null;
@@ -565,8 +565,7 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
   var stages=SAGE_STAGES[sk];cont.innerHTML='';sageStageSel=null;
   stages.forEach(function(st){
    var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
-   var imgHtml=st.img?'<img src="'+st.img+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'\'"/><span class="eye-ph" style="display:none">'+st.k+'</span>':'<span class="eye-ph">'+st.k+'</span>';
-   card.innerHTML='<div class="eye-img">'+imgHtml+'</div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
    card.addEventListener('click',function(){
     qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
     card.classList.add('on');sageStageSel=st.id;
