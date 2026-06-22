@@ -235,9 +235,23 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
       <hr class="sdiv"/>
       <div class="fld" data-field="being"><div class="fl"><span class="lb"><b data-en="WHAT YOU ARE" data-th="เจ้าคืออะไร">WHAT YOU ARE</b><span class="jp">存在</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="being_sel"></select><input class="inp hide" id="being_cus" data-pen="Type what you are…" data-pth="พิมพ์ว่าเจ้าเป็นอะไร…"/></div>
       <div class="fld" data-field="beast"><div class="fl"><span class="lb"><b data-en="TAILED BEAST" data-th="จักรจักร">TAILED BEAST</b><span class="jp">尾獣</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="beast_sel"></select><input class="inp hide" id="beast_cus" data-pen="Type your own beast…" data-pth="พิมพ์จักรจักรของเจ้าเอง…"/></div>
+      <div class="eye-box hide" id="beast_box">
+        <div class="eye-label"><span><b data-en="JINCHŪRIKI FORM" data-th="ร่างจินจูริกิ">JINCHŪRIKI FORM</b> <span class="jp">人柱力形態</span></span></div>
+        <div class="note" data-en="Select the transformation stage you can access." data-th="เลือกขั้นร่างแปลงที่เจ้าเข้าถึงได้">Select the transformation stage you can access.</div>
+        <div class="eye-stages" id="beast_stages"></div>
+        <button class="add" id="beast_custom_add" style="margin-top:8px" data-en="+ Add custom beast form" data-th="+ เพิ่มร่างจักรจักรกำหนดเอง">+ Add custom beast form</button>
+        <div id="beast_custom_list"></div>
+      </div>
       <div class="row2">
         <div class="fld" data-field="sage"><div class="fl"><span class="lb"><b data-en="SAGE MODE" data-th="โหมดเซนนิน">SAGE MODE</b></span></div><select id="sage_sel"></select><input class="inp hide" id="sage_cus" data-pen="Custom sage art…" data-pth="ศิลปะเซนนินกำหนดเอง…"/></div>
         <div class="fld" data-field="summon"><div class="fl"><span class="lb"><b data-en="SUMMONING" data-th="อัญเชิญ">SUMMONING</b></span></div><select id="summon_sel"></select><input class="inp hide" id="summon_cus" data-pen="Custom contract…" data-pth="สัญญากำหนดเอง…"/></div>
+      </div>
+      <div class="eye-box hide" id="sage_box">
+        <div class="eye-label"><span><b data-en="SAGE TRANSFORMATION" data-th="ขั้นเซนนิน">SAGE TRANSFORMATION</b> <span class="jp">仙術段階</span></span></div>
+        <div class="note" data-en="Select your level of sage mastery." data-th="เลือกระดับการฝึกเซนนินของเจ้า">Select your level of sage mastery.</div>
+        <div class="eye-stages" id="sage_stages"></div>
+        <button class="add" id="sage_custom_add" style="margin-top:8px" data-en="+ Add custom sage form" data-th="+ เพิ่มร่างเซนนินกำหนดเอง">+ Add custom sage form</button>
+        <div id="sage_custom_list"></div>
       </div>
     </div>
 
@@ -358,11 +372,11 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  el('nav_prev').addEventListener('click',function(){goTab(curTab-1);});
  el('nav_next').addEventListener('click',function(){goTab(curTab+1);});
 
- function setLang(l){L=l;el('lg_en').classList.toggle('on',l==='en');el('lg_th').classList.toggle('on',l==='th');applyText();applyPlace();for(var k in O){if(k!=='jutsu_rank')fillSel(k+'_sel',O[k]);}buildNature();buildSpec();buildEyeStages();}
+ function setLang(l){L=l;el('lg_en').classList.toggle('on',l==='en');el('lg_th').classList.toggle('on',l==='th');applyText();applyPlace();for(var k in O){if(k!=='jutsu_rank')fillSel(k+'_sel',O[k]);}buildNature();buildSpec();buildEyeStages();buildBeastStages();buildSageStages();}
  el('lg_en').addEventListener('click',function(){setLang('en');});el('lg_th').addEventListener('click',function(){setLang('th');});
 
  // preset/custom toggles
- qa('.fld[data-field]').forEach(function(f){var t=f.getAttribute('data-field');qa('.pcb',f).forEach(function(b){b.addEventListener('click',function(){qa('.pcb',f).forEach(function(x){x.classList.remove('on')});b.classList.add('on');var m=b.getAttribute('data-m');var sel=el(t+'_sel');var cus=el(t+'_cus');if(sel)sel.classList.toggle('hide',m!=='p');if(cus)cus.classList.toggle('hide',m!=='c');if(t==='clan')buildEyeStages();});});});
+ qa('.fld[data-field]').forEach(function(f){var t=f.getAttribute('data-field');qa('.pcb',f).forEach(function(b){b.addEventListener('click',function(){qa('.pcb',f).forEach(function(x){x.classList.remove('on')});b.classList.add('on');var m=b.getAttribute('data-m');var sel=el(t+'_sel');var cus=el(t+'_cus');if(sel)sel.classList.toggle('hide',m!=='p');if(cus)cus.classList.toggle('hide',m!=='c');if(t==='clan')buildEyeStages();if(t==='beast')buildBeastStages();if(t==='sage')buildSageStages();});});});
  function getField(t){var f=document.querySelector('.fld[data-field="'+t+'"]');if(!f)return(el(t+'_sel')?el(t+'_sel').value:'');var on=f.querySelector('.pcb.on');var m=on?on.getAttribute('data-m'):'p';return m==='p'?(el(t+'_sel')?el(t+'_sel').value:''):(el(t+'_cus')?(el(t+'_cus').value||'').trim():'');}
 
  // aura colour
@@ -437,6 +451,135 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  el('eye_custom_add').addEventListener('click',addEyeCustom);
  el('clan_sel').addEventListener('change',buildEyeStages);
 
+ // tailed beast stage system
+ var BEAST_STAGES={
+  '_universal':[
+    {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
+    {id:'v1',en:'Version 1 Cloak',th:'เสื้อคลุมเวอร์ชัน 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak',th:'เสื้อคลุมเวอร์ชัน 2',k:'弐'},
+    {id:'partial',en:'Partial Transformation',th:'แปลงร่างบางส่วน',k:'半'},
+    {id:'full',en:'Full Beast Mode',th:'ร่างจักรจักรเต็มตัว',k:'獣'},
+    {id:'biju',en:'Bijū Mode (cooperative)',th:'โหมดบิจู (ร่วมมือ)',k:'協'}
+  ],
+  'Kurama':[
+    {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
+    {id:'v1',en:'Version 1 Cloak',th:'เสื้อคลุมเวอร์ชัน 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak',th:'เสื้อคลุมเวอร์ชัน 2',k:'弐'},
+    {id:'kcm1',en:'KCM — Kurama Chakra Mode',th:'KCM — โหมดชาคระคุรามะ',k:'狐'},
+    {id:'kcm2',en:'KCM2 — Bijū Mode',th:'KCM2 — โหมดบิจู',k:'協'},
+    {id:'full',en:'Full Kurama Avatar',th:'อวตารคุรามะเต็มตัว',k:'獣'},
+    {id:'baryon',en:'Baryon Mode',th:'โหมดแบริออน',k:'核'}
+  ],
+  'Gyūki':[
+    {id:'init',en:'Initial Form (chakra leak)',th:'ร่างเริ่มต้น (ชาคระรั่ว)',k:'初'},
+    {id:'v1',en:'Version 1 Cloak',th:'เสื้อคลุมเวอร์ชัน 1',k:'壱'},
+    {id:'v2',en:'Version 2 Cloak (tentacles)',th:'เสื้อคลุมเวอร์ชัน 2 (หนวด)',k:'弐'},
+    {id:'partial',en:'Partial Transform (horns & tails)',th:'แปลงร่างบางส่วน (เขา & หาง)',k:'半'},
+    {id:'full',en:'Full Eight-Tails',th:'แปดหางเต็มตัว',k:'獣'},
+    {id:'biju',en:'Bijū Mode (cooperative)',th:'โหมดบิจู (ร่วมมือ)',k:'協'}
+  ],
+  'Shukaku':[
+    {id:'init',en:'Sand Armor (partial)',th:'เกราะทราย (บางส่วน)',k:'砂'},
+    {id:'partial',en:'Partial Shukaku Form',th:'ร่างชุคาคุบางส่วน',k:'半'},
+    {id:'full',en:'Full Shukaku',th:'ชุคาคุเต็มตัว',k:'獣'},
+    {id:'biju',en:'Bijū Mode (cooperative)',th:'โหมดบิจู (ร่วมมือ)',k:'協'}
+  ]
+ };
+ var beastSel=null;
+ function getBeastKey(){
+  var v=getField('beast');
+  if(!v||v.indexOf('None')>=0)return null;
+  for(var k in BEAST_STAGES){if(k!=='_universal'&&v.indexOf(k)>=0)return k;}
+  return '_universal';
+ }
+ function buildBeastStages(){
+  var bk=getBeastKey();var box=el('beast_box');var cont=el('beast_stages');
+  if(!bk){box.classList.add('hide');beastSel=null;return;}
+  box.classList.remove('hide');
+  var stages=BEAST_STAGES[bk];cont.innerHTML='';beastSel=null;
+  stages.forEach(function(st){
+   var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.addEventListener('click',function(){
+    qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
+    card.classList.add('on');beastSel=st.id;
+   });
+   cont.appendChild(card);
+  });
+ }
+ function addBeastCustom(){
+  var it=document.createElement('div');it.className='eye-custom item';
+  it.innerHTML='<button class="rm">×</button>'+
+    '<input class="inp bc_name" data-pen="Custom beast form name" data-pth="ชื่อร่างจักรจักรกำหนดเอง"/>'+
+    '<input class="inp bc_img" data-pen="Image URL (paste link)" data-pth="URL รูปภาพ (วางลิงก์)"/>'+
+    '<textarea class="bc_desc" data-pen="What does this form do? Power, drawbacks…" data-pth="ร่างนี้ทำอะไรได้? พลัง ข้อเสีย…"></textarea>';
+  el('beast_custom_list').appendChild(it);
+  it.querySelector('.rm').addEventListener('click',function(){it.parentNode.removeChild(it);});
+  applyPlace();
+ }
+ el('beast_custom_add').addEventListener('click',addBeastCustom);
+ el('beast_sel').addEventListener('change',buildBeastStages);
+
+ // sage mode stage system
+ var SAGE_STAGES={
+  'Toad':[
+    {id:'imp_toad',en:'Imperfect Toad Sage',th:'เซนนินคางคกไม่สมบูรณ์',k:'蛙'},
+    {id:'toad',en:'Perfect Toad Sage Mode',th:'โหมดเซนนินคางคกสมบูรณ์',k:'仙'},
+    {id:'toad_deep',en:'Deep Sage Art — Frog Kata',th:'ศิลปะเซนนินลึก — คางคกกะตะ',k:'深'}
+  ],
+  'Snake':[
+    {id:'snake',en:'Snake Sage Mode',th:'โหมดเซนนินงู',k:'蛇'},
+    {id:'dragon',en:'Dragon Sage Transformation',th:'แปลงร่างเซนนินมังกร',k:'龍'}
+  ],
+  'Slug':[
+    {id:'slug',en:'Slug Sage Mode',th:'โหมดเซนนินทาก',k:'蛞'},
+    {id:'byaku',en:'Byakugō — Strength of a Hundred',th:'เบียคุโก — พลังร้อย',k:'百'}
+  ],
+  'Six Paths':[
+    {id:'six',en:'Six Paths Sage Mode',th:'โหมดเซนนินหกวิถี',k:'六'},
+    {id:'six_biju',en:'Six Paths + Bijū Sage',th:'หกวิถี + เซนนินบิจู',k:'全'},
+    {id:'six_truth',en:'Truth-Seeking Orbs',th:'ลูกกลมแสวงหาสัจธรรม',k:'求'}
+  ],
+  'Perfect':[
+    {id:'imp',en:'Imperfect Sage Mode',th:'โหมดเซนนินไม่สมบูรณ์',k:'未'},
+    {id:'perf',en:'Perfect Sage Mode',th:'โหมดเซนนินสมบูรณ์',k:'仙'}
+  ]
+ };
+ var sageStageSel=null;
+ function getSageKey(){
+  var v=getField('sage');
+  if(!v||v.indexOf('None')>=0)return null;
+  for(var k in SAGE_STAGES){if(v.indexOf(k)>=0)return k;}
+  return null;
+ }
+ function buildSageStages(){
+  var sk=getSageKey();var box=el('sage_box');var cont=el('sage_stages');
+  if(!sk){box.classList.add('hide');sageStageSel=null;return;}
+  box.classList.remove('hide');
+  var stages=SAGE_STAGES[sk];cont.innerHTML='';sageStageSel=null;
+  stages.forEach(function(st){
+   var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.addEventListener('click',function(){
+    qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
+    card.classList.add('on');sageStageSel=st.id;
+   });
+   cont.appendChild(card);
+  });
+ }
+ function addSageCustom(){
+  var it=document.createElement('div');it.className='eye-custom item';
+  it.innerHTML='<button class="rm">×</button>'+
+    '<input class="inp sc_name" data-pen="Custom sage form name" data-pth="ชื่อร่างเซนนินกำหนดเอง"/>'+
+    '<input class="inp sc_img" data-pen="Image URL (paste link)" data-pth="URL รูปภาพ (วางลิงก์)"/>'+
+    '<textarea class="sc_desc" data-pen="What does this form do? Power, drawbacks…" data-pth="ร่างนี้ทำอะไรได้? พลัง ข้อเสีย…"></textarea>';
+  el('sage_custom_list').appendChild(it);
+  it.querySelector('.rm').addEventListener('click',function(){it.parentNode.removeChild(it);});
+  applyPlace();
+ }
+ el('sage_custom_add').addEventListener('click',addSageCustom);
+ el('sage_sel').addEventListener('change',buildSageStages);
+
  // nature + spec multi
  var natSel={},specSel={};
  function buildNature(){var box=el('nature_chips');box.innerHTML='';NATURE.forEach(function(n,i){var c=document.createElement('span');c.className='chip'+(natSel[i]?' on':'');c.innerHTML='<span style="font-family:\'Noto Serif JP\',serif">'+n.k+'</span> '+T(n);c.addEventListener('click',function(){natSel[i]=!natSel[i];c.classList.toggle('on');});box.appendChild(c);});}
@@ -501,10 +644,12 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
   var gear=[];qa('#gear_list .gear-item').forEach(function(it){var t=(it.querySelector('.g_t').value||'').trim();if(t)gear.push(t);});
   var st={};STAT.forEach(function(s){var n=parseInt(el('st_'+s[0]).value,10);if(isNaN(n))n=10;st[s[0]]=n;});
   var eyeCustomData=[];qa('#eye_custom_list .eye-custom').forEach(function(it){var n=(it.querySelector('.ec_name').value||'').trim(),im=(it.querySelector('.ec_img').value||'').trim(),ds=(it.querySelector('.ec_desc').value||'').trim();if(n||ds)eyeCustomData.push({name:n,image:im,detail:ds});});
+  var beastCustomData=[];qa('#beast_custom_list .eye-custom').forEach(function(it){var n=(it.querySelector('.bc_name').value||'').trim(),im=(it.querySelector('.bc_img').value||'').trim(),ds=(it.querySelector('.bc_desc').value||'').trim();if(n||ds)beastCustomData.push({name:n,image:im,detail:ds});});
+  var sageCustomData=[];qa('#sage_custom_list .eye-custom').forEach(function(it){var n=(it.querySelector('.sc_name').value||'').trim(),im=(it.querySelector('.sc_img').value||'').trim(),ds=(it.querySelector('.sc_desc').value||'').trim();if(n||ds)sageCustomData.push({name:n,image:im,detail:ds});});
   var data={lang:L,theme:el('f_aura_hex').value,name:v('f_name'),age:v('f_age'),sex:v('f_sex'),pronouns:v('f_pron'),blood_type:v('f_blood'),
    era:getField('era'),village:getField('village'),rank:getField('rank'),affiliation:getField('affil'),
    clan:getField('clan'),dojutsu:getField('dojutsu'),dojutsu_stage:eyeSel||'',dojutsu_custom:eyeCustomData,kekkei_genkai:getField('kkg'),
-   chakra_natures:natures,being:getField('being'),tailed_beast:getField('beast'),sage_mode:getField('sage'),summoning:getField('summon'),
+   chakra_natures:natures,being:getField('being'),tailed_beast:getField('beast'),beast_stage:beastSel||'',beast_custom:beastCustomData,sage_mode:getField('sage'),sage_stage:sageStageSel||'',sage_custom:sageCustomData,summoning:getField('summon'),
    specialties:specs,signature_jutsu:jutsu,starting_gear:gear,stats:st,
    team:v('f_team'),sensei:v('f_sensei'),rivals:v('f_rivals'),nindo:v('f_nindo'),dream:v('f_dream'),catchphrase:v('f_catch'),
    appearance:v('f_app'),nature:v('f_nat'),history:v('f_hist'),weaknesses:weak,opening_scene:getField('scene')};
