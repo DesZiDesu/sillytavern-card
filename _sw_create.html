@@ -96,6 +96,25 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
 .gear-item input{flex:1;margin:0}
 .gear-item .rm{position:static;flex-shrink:0}
 
+/* DOJUTSU STAGE SELECTOR */
+.eye-box{margin-top:8px;margin-bottom:12px}
+.eye-box .eye-label{font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:1.3px;color:#9a7848;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;justify-content:space-between}
+.eye-box .eye-label b{color:#8b4513;font-weight:700}
+.eye-stages{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:7px}
+.eye-card{cursor:pointer;border:2px solid #cbb088;border-radius:8px;overflow:hidden;background:rgba(255,251,242,.5);transition:all .15s;user-select:none;position:relative}
+.eye-card.on{border-color:#8b4513;box-shadow:0 0 0 2px rgba(139,69,19,.25),0 4px 12px rgba(139,69,19,.2)}
+.eye-card .eye-img{width:100%;aspect-ratio:1;background:#e0d3bd;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.eye-card .eye-img img{width:100%;height:100%;object-fit:cover}
+.eye-card .eye-img .eye-ph{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:900;color:#c4a882;opacity:.5}
+.eye-card .eye-name{font-family:'M PLUS 1',sans-serif;font-size:8.5px;font-weight:600;color:#5a3818;padding:5px 6px;text-align:center;line-height:1.3;letter-spacing:.3px}
+.eye-card.on .eye-name{color:#8b4513;font-weight:700}
+.eye-card.on::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#8b4513}
+.eye-custom{margin-top:8px;background:rgba(255,251,242,.4);border:1px solid #cbb088;border-radius:6px;padding:9px}
+.eye-custom .fl{margin-bottom:5px}
+.eye-custom input,.eye-custom textarea{margin-bottom:6px}
+.eye-custom textarea{min-height:40px}
+.eye-custom .rm{position:absolute;top:6px;right:6px}
+
 /* SECTION DIVIDER */
 .sdiv{border:none;border-top:1px dashed #cdb491;margin:14px 0}
 
@@ -200,6 +219,13 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
       <div class="shead"><div class="k">血</div><div><div class="tt" data-en="BLOODLINE & BEING" data-th="สายเลือด & ตัวตน">BLOODLINE & BEING</div><div class="ts">血 統 と 存 在</div></div><div class="line"></div></div>
       <div class="fld" data-field="clan"><div class="fl"><span class="lb"><b data-en="CLAN" data-th="ตระกูล">CLAN</b><span class="jp">一族</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="clan_sel"></select><input class="inp hide" id="clan_cus" data-pen="Type your own clan / heritage…" data-pth="พิมพ์ตระกูล / สายเลือดของเจ้าเอง…"/></div>
       <div class="fld" data-field="dojutsu"><div class="fl"><span class="lb"><b data-en="DŌJUTSU (EYE)" data-th="ดวงตาวิเศษ">DŌJUTSU (EYE)</b><span class="jp">瞳術</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="dojutsu_sel"></select><input class="inp hide" id="dojutsu_cus" data-pen="Type your own dōjutsu…" data-pth="พิมพ์ดวงตาวิเศษของเจ้าเอง…"/></div>
+      <div class="eye-box hide" id="eye_box">
+        <div class="eye-label"><span><b data-en="DŌJUTSU STAGE" data-th="ขั้นของดวงตา">DŌJUTSU STAGE</b> <span class="jp">瞳術段階</span></span></div>
+        <div class="note" data-en="Select the stage of your eye power. Images are placeholders — you can provide your own below." data-th="เลือกขั้นของดวงตาวิเศษ ภาพเป็นตัวยึดตำแหน่ง — สามารถใส่ภาพของเจ้าเองด้านล่าง">Select the stage of your eye power. Images are placeholders — you can provide your own below.</div>
+        <div class="eye-stages" id="eye_stages"></div>
+        <button class="add" id="eye_custom_add" style="margin-top:8px" data-en="+ Add custom dōjutsu stage" data-th="+ เพิ่มขั้นดวงตากำหนดเอง">+ Add custom dōjutsu stage</button>
+        <div id="eye_custom_list"></div>
+      </div>
       <div class="fld" data-field="kkg"><div class="fl"><span class="lb"><b data-en="KEKKEI GENKAI / TŌTA" data-th="เค็กเค เก็นไค / โทตะ">KEKKEI GENKAI / TŌTA</b><span class="jp">血継限界</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="kkg_sel"></select><input class="inp hide" id="kkg_cus" data-pen="Type your own bloodline limit…" data-pth="พิมพ์ขีดจำกัดสายเลือดของเจ้าเอง…"/></div>
       <hr class="sdiv"/>
       <div class="fld"><div class="fl"><span class="lb"><b data-en="CHAKRA NATURE" data-th="ธาตุชาคระ">CHAKRA NATURE</b><span class="jp">性質変化</span></span></div>
@@ -332,11 +358,11 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  el('nav_prev').addEventListener('click',function(){goTab(curTab-1);});
  el('nav_next').addEventListener('click',function(){goTab(curTab+1);});
 
- function setLang(l){L=l;el('lg_en').classList.toggle('on',l==='en');el('lg_th').classList.toggle('on',l==='th');applyText();applyPlace();for(var k in O){if(k!=='jutsu_rank')fillSel(k+'_sel',O[k]);}buildNature();buildSpec();}
+ function setLang(l){L=l;el('lg_en').classList.toggle('on',l==='en');el('lg_th').classList.toggle('on',l==='th');applyText();applyPlace();for(var k in O){if(k!=='jutsu_rank')fillSel(k+'_sel',O[k]);}buildNature();buildSpec();buildEyeStages();}
  el('lg_en').addEventListener('click',function(){setLang('en');});el('lg_th').addEventListener('click',function(){setLang('th');});
 
  // preset/custom toggles
- qa('.fld[data-field]').forEach(function(f){var t=f.getAttribute('data-field');qa('.pcb',f).forEach(function(b){b.addEventListener('click',function(){qa('.pcb',f).forEach(function(x){x.classList.remove('on')});b.classList.add('on');var m=b.getAttribute('data-m');var sel=el(t+'_sel');var cus=el(t+'_cus');if(sel)sel.classList.toggle('hide',m!=='p');if(cus)cus.classList.toggle('hide',m!=='c');});});});
+ qa('.fld[data-field]').forEach(function(f){var t=f.getAttribute('data-field');qa('.pcb',f).forEach(function(b){b.addEventListener('click',function(){qa('.pcb',f).forEach(function(x){x.classList.remove('on')});b.classList.add('on');var m=b.getAttribute('data-m');var sel=el(t+'_sel');var cus=el(t+'_cus');if(sel)sel.classList.toggle('hide',m!=='p');if(cus)cus.classList.toggle('hide',m!=='c');if(t==='clan')buildEyeStages();});});});
  function getField(t){var f=document.querySelector('.fld[data-field="'+t+'"]');if(!f)return(el(t+'_sel')?el(t+'_sel').value:'');var on=f.querySelector('.pcb.on');var m=on?on.getAttribute('data-m'):'p';return m==='p'?(el(t+'_sel')?el(t+'_sel').value:''):(el(t+'_cus')?(el(t+'_cus').value||'').trim():'');}
 
  // aura colour
@@ -346,6 +372,70 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  el('f_aura').addEventListener('input',function(){setAura(this.value);});
  el('f_aura_hex').addEventListener('input',function(){var v=this.value.trim();if(v.charAt(0)!=='#')v='#'+v;if(isHex(v)){el('f_aura').value=v;qa('.sw').forEach(function(s){s.classList.toggle('on',s.getAttribute('data-c').toLowerCase()===v.toLowerCase());});}});
  setAura('#4a9ead');
+
+ // dojutsu stage system
+ var CLAN_DOJUTSU={
+  'Uchiha':{eye:'Sharingan',stages:[
+    {id:'shar1',en:'Sharingan (1 Tomoe)',th:'ชาริงกัน (1 ลูกดำ)',k:'一'},
+    {id:'shar2',en:'Sharingan (2 Tomoe)',th:'ชาริงกัน (2 ลูกดำ)',k:'二'},
+    {id:'shar3',en:'Sharingan (3 Tomoe)',th:'ชาริงกัน (3 ลูกดำ)',k:'三'},
+    {id:'ms',en:'Mangekyō Sharingan',th:'มังเงเคียวชาริงกัน',k:'万'},
+    {id:'ems',en:'Eternal Mangekyō',th:'มังเงเคียวนิรันดร์',k:'永'},
+    {id:'rin',en:'Rinnegan',th:'รินเนกัน',k:'輪'}
+  ]},
+  'Hyūga':{eye:'Byakugan',stages:[
+    {id:'byak',en:'Byakugan',th:'เบียคุกัน',k:'白'},
+    {id:'tens',en:'Tenseigan',th:'เทนเซย์กัน',k:'転'}
+  ]},
+  'Ōtsutsuki':{eye:'Divine Eye',stages:[
+    {id:'byak',en:'Byakugan',th:'เบียคุกัน',k:'白'},
+    {id:'tens',en:'Tenseigan',th:'เทนเซย์กัน',k:'転'},
+    {id:'rin',en:'Rinnegan',th:'รินเนกัน',k:'輪'},
+    {id:'rshar',en:'Rinne Sharingan',th:'รินเนชาริงกัน',k:'臨'},
+    {id:'jog',en:'Jōgan',th:'โจกัน',k:'淨'}
+  ]},
+  'Chinoike':{eye:'Ketsuryūgan',stages:[
+    {id:'kets',en:'Ketsuryūgan',th:'เคตสึริวกัน',k:'血'},
+    {id:'kets2',en:'Ketsuryūgan (Awakened)',th:'เคตสึริวกัน (ตื่น)',k:'覚'}
+  ]},
+  'Kurama':{eye:'Kurama Clan Genjutsu Eye',stages:[
+    {id:'kge',en:'Genjutsu Eye (Dormant)',th:'ตาเก็นจุตสึ (หลับ)',k:'幻'},
+    {id:'kge2',en:'Genjutsu Eye (Awakened)',th:'ตาเก็นจุตสึ (ตื่น)',k:'覚'}
+  ]}
+ };
+ var eyeSel=null;var eyeCustoms=[];
+ function getClanKey(){
+  var v=getField('clan');
+  for(var k in CLAN_DOJUTSU){if(v.indexOf(k)>=0)return k;}
+  return null;
+ }
+ function buildEyeStages(){
+  var ck=getClanKey();var box=el('eye_box');var cont=el('eye_stages');
+  if(!ck){box.classList.add('hide');eyeSel=null;return;}
+  box.classList.remove('hide');
+  var dat=CLAN_DOJUTSU[ck];cont.innerHTML='';eyeSel=null;
+  dat.stages.forEach(function(st){
+   var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
+   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+   card.addEventListener('click',function(){
+    qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
+    card.classList.add('on');eyeSel=st.id;
+   });
+   cont.appendChild(card);
+  });
+ }
+ function addEyeCustom(){
+  var it=document.createElement('div');it.className='eye-custom item';
+  it.innerHTML='<button class="rm">×</button>'+
+    '<input class="inp ec_name" data-pen="Custom dōjutsu name" data-pth="ชื่อดวงตากำหนดเอง"/>'+
+    '<input class="inp ec_img" data-pen="Image URL (paste link to eye image)" data-pth="URL รูปภาพ (วางลิงก์รูปดวงตา)"/>'+
+    '<textarea class="ec_desc" data-pen="What does this eye do? Abilities, cost, drawbacks…" data-pth="ดวงตานี้ทำอะไรได้? ความสามารถ ค่าใช้จ่าย ข้อเสีย…"></textarea>';
+  el('eye_custom_list').appendChild(it);
+  it.querySelector('.rm').addEventListener('click',function(){it.parentNode.removeChild(it);});
+  applyPlace();
+ }
+ el('eye_custom_add').addEventListener('click',addEyeCustom);
+ el('clan_sel').addEventListener('change',buildEyeStages);
 
  // nature + spec multi
  var natSel={},specSel={};
@@ -410,9 +500,10 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
   var weak=[];qa('#weak_list .item').forEach(function(it){var t=(it.querySelector('.w_t').value||'').trim();if(t)weak.push(t);});
   var gear=[];qa('#gear_list .gear-item').forEach(function(it){var t=(it.querySelector('.g_t').value||'').trim();if(t)gear.push(t);});
   var st={};STAT.forEach(function(s){var n=parseInt(el('st_'+s[0]).value,10);if(isNaN(n))n=10;st[s[0]]=n;});
+  var eyeCustomData=[];qa('#eye_custom_list .eye-custom').forEach(function(it){var n=(it.querySelector('.ec_name').value||'').trim(),im=(it.querySelector('.ec_img').value||'').trim(),ds=(it.querySelector('.ec_desc').value||'').trim();if(n||ds)eyeCustomData.push({name:n,image:im,detail:ds});});
   var data={lang:L,theme:el('f_aura_hex').value,name:v('f_name'),age:v('f_age'),sex:v('f_sex'),pronouns:v('f_pron'),blood_type:v('f_blood'),
    era:getField('era'),village:getField('village'),rank:getField('rank'),affiliation:getField('affil'),
-   clan:getField('clan'),dojutsu:getField('dojutsu'),kekkei_genkai:getField('kkg'),
+   clan:getField('clan'),dojutsu:getField('dojutsu'),dojutsu_stage:eyeSel||'',dojutsu_custom:eyeCustomData,kekkei_genkai:getField('kkg'),
    chakra_natures:natures,being:getField('being'),tailed_beast:getField('beast'),sage_mode:getField('sage'),summoning:getField('summon'),
    specialties:specs,signature_jutsu:jutsu,starting_gear:gear,stats:st,
    team:v('f_team'),sensei:v('f_sensei'),rivals:v('f_rivals'),nindo:v('f_nindo'),dream:v('f_dream'),catchphrase:v('f_catch'),
