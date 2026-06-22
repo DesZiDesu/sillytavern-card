@@ -1,8 +1,8 @@
 {
     "id": "sw-header-npc",
     "scriptName": "SW NPC Header",
-    "findRegex": "/\\[NPC\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\]/g",
-    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:480px;margin:13px auto 6px;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif;\"><div style=\"display:flex;align-items:baseline;gap:8px;\"><span style=\"font-size:14px;font-weight:700;color:#e8e4dc;letter-spacing:1px;\">$1</span><span style=\"font-family:'M PLUS 1',sans-serif;font-size:6.5px;letter-spacing:1.5px;color:$2;text-transform:uppercase;\">$3 · $4</span></div><div style=\"height:1px;margin-top:6px;background:$2;opacity:.5;\"></div></div>",
+    "findRegex": "/\\[NPC\\|(.*?)\\|(.*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:480px;margin:13px auto 6px;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif;\"><div style=\"display:flex;align-items:center;gap:8px;\"><span style=\"font-size:14px;font-weight:700;color:#e8e4dc;letter-spacing:1px;text-shadow:0 0 10px $2;\">$1</span></div><div style=\"height:1px;margin-top:6px;background:linear-gradient(90deg,$2,transparent 70%);opacity:.5;\"></div></div>",
     "trimStrings": [],
     "placement": [
         1,

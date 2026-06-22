@@ -107,10 +107,18 @@ body{background:transparent;font-family:'Shippori Mincho','Noto Serif JP','Noto 
 @media(max-width:360px){.inn{padding:10px 8px 6px}.hdr .nm{font-size:13px}.eye-slot .ek{font-size:22px}}
 @media(min-width:500px){.sc{max-width:480px}.inn{padding:14px 16px 10px}}
 @media(min-width:700px){.sc{max-width:600px}.inn{padding:18px 22px 12px}}
+.tgl-bar{cursor:pointer;user-select:none;-webkit-user-select:none}
+.tgl-bar:active{opacity:.8}
+.tgl-lbl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;z-index:5;white-space:nowrap}
+.tgl-k{font-family:'Noto Serif JP',serif;font-size:10px;font-weight:900;color:#dcc8aa;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.tgl-nm{font-family:'M PLUS 1',sans-serif;font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#dcc8aa;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.tgl-arr{font-family:'M PLUS 1',sans-serif;font-size:9px;color:#b89464;transition:transform .2s;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.sc:not(.collapsed) .tgl-arr{transform:rotate(180deg)}
+.sc.collapsed .pp,.sc.collapsed .rl:last-child{display:none}
 </style></head><body>
 <textarea id="sraw" style="display:none;position:absolute;left:-9999px">$1</textarea>
-<div class="sc" id="sapp">
-<div class="rl"></div>
+<div class="sc collapsed" id="sapp">
+<div class="rl tgl-bar" id="stgl"><div class="tgl-lbl"><span class="tgl-k">忍</span><span class="tgl-nm" id="stgl-nm">Status</span><span class="tgl-arr">▾</span></div></div>
 <div class="pp"><div class="wm"><span style="top:3%;left:-2%;font-size:100px;transform:rotate(-8deg)">忍</span><span style="top:25%;right:-3%;font-size:110px;transform:rotate(6deg)">術</span><span style="top:50%;left:-2%;font-size:100px">火</span><span style="top:75%;right:-3%;font-size:90px;transform:rotate(-5deg)">風</span></div>
 <div class="inn" id="sbody"></div></div>
 <div class="rl"></div>
@@ -125,6 +133,8 @@ var sc=document.getElementById('sapp');
 function hr(hex,a){hex=String(hex||'#4a9ead').replace('#','');if(hex.length===3)hex=hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];var n=parseInt(hex,16);if(isNaN(n))n=0x4a9ead;return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';}
 sc.style.setProperty('--acc',acc);sc.style.setProperty('--abg',hr(acc,.08));sc.style.setProperty('--abd',hr(acc,.3));
 var p=d.profile||{};var af=d.affiliation||{};var en=d.energy||{};
+var tnm=document.getElementById('stgl-nm');if(tnm)tnm.textContent=p.name||'Status';
+document.getElementById('stgl').addEventListener('click',function(){sc.classList.toggle('collapsed');});
 var body=document.getElementById('sbody');var h='';
 var money=p.money!=null?Number(p.money).toLocaleString():'0';
 var meta=[];if(af.rank)meta.push(E(af.rank));if(af.village)meta.push(E(af.village));if(p.age)meta.push(E(p.age));
