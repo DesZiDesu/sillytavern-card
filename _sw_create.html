@@ -219,9 +219,9 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
       <div class="shead"><div class="k">血</div><div><div class="tt" data-en="BLOODLINE & BEING" data-th="สายเลือด & ตัวตน">BLOODLINE & BEING</div><div class="ts">血 統 と 存 在</div></div><div class="line"></div></div>
       <div class="fld" data-field="clan"><div class="fl"><span class="lb"><b data-en="CLAN" data-th="ตระกูล">CLAN</b><span class="jp">一族</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="clan_sel"></select><input class="inp hide" id="clan_cus" data-pen="Type your own clan / heritage…" data-pth="พิมพ์ตระกูล / สายเลือดของเจ้าเอง…"/></div>
       <div class="fld" data-field="dojutsu"><div class="fl"><span class="lb"><b data-en="DŌJUTSU (EYE)" data-th="ดวงตาวิเศษ">DŌJUTSU (EYE)</b><span class="jp">瞳術</span></span><span class="pc"><span class="pcb on" data-m="p" data-en="LIST" data-th="รายการ">LIST</span><span class="pcb" data-m="c" data-en="OWN" data-th="กำหนดเอง">OWN</span></span></div><select id="dojutsu_sel"></select><input class="inp hide" id="dojutsu_cus" data-pen="Type your own dōjutsu…" data-pth="พิมพ์ดวงตาวิเศษของเจ้าเอง…"/></div>
-      <div class="eye-box hide" id="eye_box">
+      <div class="eye-box" id="eye_box">
         <div class="eye-label"><span><b data-en="DŌJUTSU STAGE" data-th="ขั้นของดวงตา">DŌJUTSU STAGE</b> <span class="jp">瞳術段階</span></span></div>
-        <div class="note" data-en="Select the stage of your eye power. Images are placeholders — you can provide your own below." data-th="เลือกขั้นของดวงตาวิเศษ ภาพเป็นตัวยึดตำแหน่ง — สามารถใส่ภาพของเจ้าเองด้านล่าง">Select the stage of your eye power. Images are placeholders — you can provide your own below.</div>
+        <div class="note" data-en="Select the stage of your eye power or add a custom dōjutsu below." data-th="เลือกขั้นของดวงตาวิเศษ หรือเพิ่มดวงตากำหนดเองด้านล่าง">Select the stage of your eye power or add a custom dōjutsu below.</div>
         <div class="eye-stages" id="eye_stages"></div>
         <button class="add" id="eye_custom_add" style="margin-top:8px" data-en="+ Add custom dōjutsu stage" data-th="+ เพิ่มขั้นดวงตากำหนดเอง">+ Add custom dōjutsu stage</button>
         <div id="eye_custom_list"></div>
@@ -390,26 +390,26 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  // dojutsu stage system
  var CLAN_DOJUTSU={
   'Uchiha':{eye:'Sharingan',stages:[
-    {id:'shar1',en:'Sharingan (1 Tomoe)',th:'เนตรวงล้อ (1 ลูกดำ)',k:'一'},
-    {id:'shar2',en:'Sharingan (2 Tomoe)',th:'เนตรวงล้อ (2 ลูกดำ)',k:'二'},
-    {id:'shar3',en:'Sharingan (3 Tomoe)',th:'เนตรวงล้อ (3 ลูกดำ)',k:'三'},
-    {id:'ms',en:'Mangekyō Sharingan',th:'เนตรกล้องหมื่นดอก',k:'万'},
-    {id:'ems',en:'Eternal Mangekyō',th:'เนตรกล้องหมื่นดอกนิรันดร์',k:'永'},
-    {id:'rin',en:'Rinnegan',th:'เนตรวงแหวน',k:'輪'},
-    {id:'trin',en:'Tomoe Rinnegan',th:'เนตรวงแหวนลูกดำ',k:'輪'},
-    {id:'rshar',en:'Rinne Sharingan',th:'เนตรสังสาระ',k:'臨'}
+    {id:'shar1',en:'Sharingan (1 Tomoe)',th:'เนตรวงแหวน (1 ลูกน้ำ)',k:'一'},
+    {id:'shar2',en:'Sharingan (2 Tomoe)',th:'เนตรวงแหวน (2 ลูกน้ำ)',k:'二'},
+    {id:'shar3',en:'Sharingan (3 Tomoe)',th:'เนตรวงแหวน (3 ลูกน้ำ)',k:'三'},
+    {id:'ms',en:'Mangekyō Sharingan',th:'กระจกเงาหมื่นบุบผา',k:'万'},
+    {id:'ems',en:'Eternal Mangekyō',th:'กระจกเงาหมื่นบุบผานิรันดร์',k:'永'},
+    {id:'rin',en:'Rinnegan',th:'เนตรสังสาระ',k:'輪'},
+    {id:'trin',en:'Tomoe Rinnegan',th:'เนตรสังสาระ (ลูกน้ำ)',k:'輪'},
+    {id:'rshar',en:'Rinne Sharingan',th:'เนตรสังสาระวงแหวน',k:'臨'}
   ]},
   'Hyūga':{eye:'Byakugan',stages:[
     {id:'byak',en:'Byakugan',th:'เนตรขาว',k:'白'},
     {id:'gbyak',en:'Golden Byakugan',th:'เนตรทอง',k:'金'},
-    {id:'tens',en:'Tenseigan',th:'เนตรกระจกเงาหมื่นบุบผา',k:'転'}
+    {id:'tens',en:'Tenseigan',th:'เนตรเท็นเซย์กัน',k:'転'}
   ]},
   'Ōtsutsuki':{eye:'Divine Eye',stages:[
     {id:'byak',en:'Byakugan',th:'เนตรขาว',k:'白'},
     {id:'gbyak',en:'Golden Byakugan',th:'เนตรทอง',k:'金'},
-    {id:'tens',en:'Tenseigan',th:'เนตรกระจกเงาหมื่นบุบผา',k:'転'},
-    {id:'rin',en:'Rinnegan',th:'เนตรวงแหวน',k:'輪'},
-    {id:'rshar',en:'Rinne Sharingan',th:'เนตรสังสาระ',k:'臨'},
+    {id:'tens',en:'Tenseigan',th:'เนตรเท็นเซย์กัน',k:'転'},
+    {id:'rin',en:'Rinnegan',th:'เนตรสังสาระ',k:'輪'},
+    {id:'rshar',en:'Rinne Sharingan',th:'เนตรสังสาระวงแหวน',k:'臨'},
     {id:'jog',en:'Jōgan',th:'เนตรบริสุทธิ์',k:'淨'}
   ]},
   'Chinoike':{eye:'Ketsuryūgan',stages:[
@@ -431,18 +431,19 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  }
  function buildEyeStages(){
   var ck=getClanKey();var box=el('eye_box');var cont=el('eye_stages');
-  if(!ck){box.classList.add('hide');eyeSel=null;return;}
-  box.classList.remove('hide');
-  var dat=CLAN_DOJUTSU[ck];cont.innerHTML='';eyeSel=null;
-  dat.stages.forEach(function(st){
-   var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
-   card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
-   card.addEventListener('click',function(){
-    qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
-    card.classList.add('on');eyeSel=st.id;
+  box.classList.remove('hide');cont.innerHTML='';eyeSel=null;
+  if(ck){
+   var dat=CLAN_DOJUTSU[ck];
+   dat.stages.forEach(function(st){
+    var card=document.createElement('div');card.className='eye-card';card.setAttribute('data-sid',st.id);
+    card.innerHTML='<div class="eye-img"><span class="eye-ph">'+st.k+'</span></div><div class="eye-name" data-en="'+st.en+'" data-th="'+st.th+'">'+T(st)+'</div>';
+    card.addEventListener('click',function(){
+     qa('.eye-card',cont).forEach(function(c){c.classList.remove('on');});
+     card.classList.add('on');eyeSel=st.id;
+    });
+    cont.appendChild(card);
    });
-   cont.appendChild(card);
-  });
+  }
  }
  function addEyeCustom(){
   var it=document.createElement('div');it.className='eye-custom item';
@@ -516,7 +517,7 @@ input[type=color]{width:34px;height:30px;padding:2px;border-radius:5px;cursor:po
  function addBeastCustom(){
   var it=document.createElement('div');it.className='eye-custom item';
   it.innerHTML='<button class="rm">×</button>'+
-    '<input class="inp bc_name" data-pen="Custom beast form name" data-pth="ชื่อร่างจักรจักรกำหนดเอง"/>'+
+    '<input class="inp bc_name" data-pen="Custom beast form name" data-pth="ชื่อร่างสถิตย์สัตว์หางกำหนดเอง"/>'+
     '<input class="inp bc_img" data-pen="Image URL (paste link)" data-pth="URL รูปภาพ (วางลิงก์)"/>'+
     '<textarea class="bc_desc" data-pen="What does this form do? Power, drawbacks…" data-pth="ร่างนี้ทำอะไรได้? พลัง ข้อเสีย…"></textarea>';
   el('beast_custom_list').appendChild(it);
