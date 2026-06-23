@@ -2,6 +2,23 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-23 — Global: AI / System character block (Jarvis-style, "Neural Mesh")
+
+New global UI for an **artificial-intelligence / system** character the user talks to directly
+(a Jarvis / FRIDAY-style assistant) — kept separate from normal NPCs.
+- Three new global regex (`Global Regex/`): **`Global • AI Header`** `[AICHAR|Name|#hex]`,
+  **`Global • AI Dialogue`** `[AISAY|#hex|text]`, **`Global • AI Monologue`** `[AITHINK|#hex|text]`
+  — the same THINK→CHAR→SAY placement law as the normal block.
+- **No avatar image**: the header renders an **animated custom SVG "neural mesh" sigil**
+  (rotating node-network, pulsing nodes, breathing glow, blinking status, a scan-line sweep),
+  a thin wide-spaced name with a glow pulse, dialogue with a fill-in edge + typing caret, and a
+  monologue "processing" line with blip dots. Accent colour is driven by the `#hex` (default
+  ice-blue `#8fe9ff`), so each AI can have its own colour; same hex across all three tags.
+- **Lorebook** (`Global Lorebook/Global System [LB].json`): new constant entry describing the
+  AI block with a STRICT "use only for the AI/System being spoken to — never normal NPCs or the
+  main character" rule, placement law, and a self-check. (Also synced the file to the latest
+  export, which adds the Tracker entry.)
+
 ## 2026-06-23 — TRETARESIA RPG: Skill System + tabbed Creation + interactive Mission Board
 
 - **Skill System lorebook entry** (`Lorebook/TR [LB].json`, non-constant, keyed): defines

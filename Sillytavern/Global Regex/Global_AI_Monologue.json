@@ -1,0 +1,18 @@
+{
+    "id": "Global_AI_Monologue",
+    "scriptName": "Global • AI Monologue",
+    "findRegex": "/\\[AITHINK\\|(.*?)\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "```\n<!DOCTYPE html><html><head><meta charset=\"utf-8\">\n<link href=\"https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500&display=swap\" rel=\"stylesheet\">\n<style>\n*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}\nhtml,body{background:transparent}\n#ait{--c:#8fe9ff;max-width:520px;margin:12px auto 0;font-family:'Exo 2',sans-serif}\n#ait .think{font-size:13px;font-style:italic;color:#9ccada;letter-spacing:.3px;display:flex;align-items:center;gap:9px;\n  opacity:0;animation:aitIn .7s ease .05s forwards}\n#ait .ln{flex:0 0 26px;height:1px;background:linear-gradient(90deg,var(--c),transparent);transform-origin:left;animation:aitLn 3.2s ease-in-out infinite}\n#ait .out{flex:1;min-width:0}\n#ait .cue{flex:0 0 auto;display:inline-flex;gap:3px;margin-left:2px}\n#ait .cue b{width:4px;height:4px;border-radius:50%;background:var(--c);box-shadow:0 0 7px var(--c);animation:aitBlip 1.4s ease-in-out infinite}\n#ait .cue b:nth-child(2){animation-delay:.22s}#ait .cue b:nth-child(3){animation-delay:.44s}\n@keyframes aitIn{to{opacity:1}}\n@keyframes aitLn{0%,100%{opacity:.4;transform:scaleX(.7)}50%{opacity:1;transform:scaleX(1)}}\n@keyframes aitBlip{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}\n</style></head>\n<body>\n<span id=\"hx\" style=\"display:none\">$1</span><span id=\"tx\" style=\"display:none\">$2</span>\n<div id=\"ait\"><div class=\"think\"><span class=\"ln\"></span><span class=\"out\" id=\"out\"></span><span class=\"cue\"><b></b><b></b><b></b></span></div></div>\n<script>\n(function(){\n  function txt(id){var e=document.getElementById(id);return e?(e.textContent||'').replace(/^\\s+/,'').replace(/\\s+$/,''):'';}\n  var hex=txt('hx'), body=txt('tx');\n  document.getElementById('out').textContent=body;\n  var h=hex.replace(/[^#0-9a-fA-F]/g,'');\n  if(h&&h.charAt(0)!=='#')h='#'+h;\n  if(/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(h))document.getElementById('ait').style.setProperty('--c',h);\n})();\n</script>\n</body></html>\n```",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
