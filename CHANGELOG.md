@@ -5,11 +5,12 @@ All notable additions to this repository's cards, lorebooks, and regex are liste
 ## 2026-06-23 — Global: imageless NPC header ([NPC])
 
 - New regex **`Global • NPC Header (no image)`** (`Global Regex/Global_NPC_Header.json`):
-  `[NPC|Name|#hex|role]` renders a clean, **imageless** character header — a glowing
-  signature-colour accent bar + uppercase name + an optional role line (no avatar, no border
-  box). A drop-in replacement for `[CHAR]` in the speech block (same THINK→header→SAY law) for
-  NPCs without art. `role` is optional (`[NPC|Name|#hex]` works and collapses with no gap).
-  Inline-HTML like the other normal-character globals (no iframe).
+  `[NPC|Name|#hex|role]` renders a clean, **imageless** character header — the name in the
+  character's signature colour followed by a trailing colour hairline (section-header style),
+  with an optional role line beneath (no avatar, no border box, no leading marker). A drop-in
+  replacement for `[CHAR]` in the speech block (same THINK→header→SAY law) for NPCs without
+  art. `role` is optional (`[NPC|Name|#hex]` works and collapses with no gap). Inline-HTML like
+  the other normal-character globals (no iframe).
 - **Lorebook** (`Global Lorebook/Global System [LB].json`): new constant entry documenting the
   tag, the "use instead of [CHAR] when there's no image; not for the AI/System" rule, and an
   example.
