@@ -2,6 +2,26 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-23 — TRETARESIA RPG: Skill System + tabbed Creation + interactive Mission Board
+
+- **Skill System lorebook entry** (`Lorebook/TR [LB].json`, non-constant, keyed): defines
+  Skills as a *blessing* the world mistakes for ordinary magic, sorted by **category, not
+  rank** — **Intrinsic · Common · Extra · Unique · Ultimate · Resistance** (Tensura-style).
+  Includes how each rank of society misreads them and how to record them (`type` = category in
+  the Status `skills` array, Skill Header on use, `<TR_DEV>` on change).
+- **Character Forge (`Regex/TR_Creation_Regex.json`) → tabbed**: the long single-scroll form
+  is split into **5 tappable tabs** — Identity · Looks · Power · Path · Story — so it no longer
+  runs off the screen. BEGIN/RANDOMIZE stay pinned; submitting with no name jumps back to the
+  Identity tab. Added **Skill-category presets** to power/skill creation: an Origin-Skill
+  category select (defaults Intrinsic) and a category dropdown in the ability adder
+  (the six categories + Custom…), stored on each ability (`cat`/`tier`).
+- **Mission Board (`Regex/TR_Missions_Regex.json`) → interactive**: postings are now
+  **tappable** — tap a paper and it **pulls out** into a full-detail view (full description,
+  rank, reward, poster, board, status) with **Accept Mission** and **Exit** buttons. Exit
+  returns to the board to browse others. **Accepting** sends a user-side message that renders
+  as a personal **"Mission Accepted" contract slip** (new `view:"accepted"` mode in the same
+  regex). Taken/closed postings show their stamp and disable Accept.
+
 ## 2026-06-20 — Wistoria RPG: Status restyle — pure black, element-coloured, magic-circle crest
 
 - **Pure-black** Status base; the entire accent colour is now **driven by the character's
