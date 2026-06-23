@@ -2,7 +2,7 @@
     "id": "ws-npc-header",
     "scriptName": "WS NPC Header",
     "findRegex": "/\\[NPC\\|(.*?)\\|(.*?)\\]/g",
-    "replaceString": "<div style=\"max-width:480px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:5px 2px;border-bottom:1px solid #2c2a1f;font-family:'Cinzel','Kanit',serif;\"><span style=\"width:3px;height:20px;background:$2;flex-shrink:0;box-shadow:0 0 6px $2;\"></span><span style=\"font-size:12.5px;font-weight:600;color:#ece3cf;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;\">$1</span><span style=\"flex:1;height:1px;background:linear-gradient(90deg,rgba(205,166,78,.4),transparent);\"></span></div>",
+    "replaceString": "<div style=\"box-sizing:border-box;width:100%;max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:5px 2px;border-bottom:1px solid #2c2a1f;font-family:'Cinzel','Kanit',serif;\"><span style=\"width:3px;height:20px;background:$2;flex-shrink:0;box-shadow:0 0 6px $2;\"></span><span style=\"font-size:12.5px;font-weight:600;color:#ece3cf;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;\">$1</span><span style=\"flex:1;height:1px;background:linear-gradient(90deg,rgba(205,166,78,.4),transparent);\"></span></div>",
     "trimStrings": [],
     "placement": [
         1,
