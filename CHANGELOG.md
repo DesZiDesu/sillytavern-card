@@ -2,6 +2,11 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-23 — Global: nudge the dialogue bubble down
+
+- **`Global • Dialogue`** (`Global Regex/Global_Dialogue.json`): increased the `[SAY]` bubble's
+  top margin (8px → 16px) so it sits a little lower beneath the header. Visual-only tweak.
+
 ## 2026-06-23 — Global: AI / System character block (Jarvis-style, "Neural Mesh")
 
 New global UI for an **artificial-intelligence / system** character the user talks to directly
