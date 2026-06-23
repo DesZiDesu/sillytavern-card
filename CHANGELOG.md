@@ -19,6 +19,14 @@ New global UI for an **artificial-intelligence / system** character the user tal
   main character" rule, placement law, and a self-check. (Also synced the file to the latest
   export, which adds the Tracker entry.)
 
+## 2026-06-22 — Wistoria RPG: responsive widgets + Monologue fix
+
+- **All regex widgets are now responsive**: outer containers use width:100% + box-sizing
+  with a 720px cap, so they fill the chat column on phones and scale up on wide screens
+  (no more fixed-narrow boxes / overflow).
+- **Fixed the Monologue** ([THINK]): the old "Torn Reverie" drew a dashed underline under
+  every wrapped line (looked broken). Redesigned to a clean note — name + a single dashed
+  flourish, then plain italic thought text. Applied to the card + WS_Monologue_Regex.json.
 ## 2026-06-23 — TRETARESIA RPG: Skill System + tabbed Creation + interactive Mission Board
 
 - **Skill System lorebook entry** (`Lorebook/TR [LB].json`, non-constant, keyed): defines
