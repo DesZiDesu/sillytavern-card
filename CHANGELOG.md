@@ -2,6 +2,18 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-23 — Global: imageless NPC header ([NPC])
+
+- New regex **`Global • NPC Header (no image)`** (`Global Regex/Global_NPC_Header.json`):
+  `[NPC|Name|#hex|role]` renders a clean, **imageless** character header — a glowing
+  signature-colour accent bar + uppercase name + an optional role line (no avatar, no border
+  box). A drop-in replacement for `[CHAR]` in the speech block (same THINK→header→SAY law) for
+  NPCs without art. `role` is optional (`[NPC|Name|#hex]` works and collapses with no gap).
+  Inline-HTML like the other normal-character globals (no iframe).
+- **Lorebook** (`Global Lorebook/Global System [LB].json`): new constant entry documenting the
+  tag, the "use instead of [CHAR] when there's no image; not for the AI/System" rule, and an
+  example.
+
 ## 2026-06-23 — Global: AI Alert / Notification system (<AI_ALERT>, "Transmission Stack")
 
 A JSON-driven notification feed for the AI/System character (modelled on TRETARESIA's
