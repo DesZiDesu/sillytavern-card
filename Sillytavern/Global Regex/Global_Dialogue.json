@@ -2,7 +2,7 @@
     "id": "Global_Dialogue",
     "scriptName": "Global • Dialogue",
     "findRegex": "/\\[SAY\\|(.*?)\\|([\\s\\S]*?)\\]/g",
-    "replaceString": "<div style=\"max-width:480px;margin:8px auto 20px;font-family:'Trebuchet MS','Inter',sans-serif;\"><div style=\"position:relative;background:#ffffff;color:#1a1208;border:2.5px solid $1;border-radius:30px;padding:14px 23px;font-size:14px;font-weight:500;line-height:1.55;box-shadow:0 5px 16px rgba(0,0,0,.45);\"><span style=\"position:absolute;top:-10px;left:36px;width:18px;height:18px;background:#fff;border-left:2.5px solid $1;border-top:2.5px solid $1;border-top-left-radius:8px;transform:rotate(45deg);\"></span>$2</div></div>",
+    "replaceString": "<div style=\"max-width:480px;margin:16px auto 20px;font-family:'Trebuchet MS','Inter',sans-serif;\"><div style=\"position:relative;background:#ffffff;color:#1a1208;border:2.5px solid $1;border-radius:30px;padding:14px 23px;font-size:14px;font-weight:500;line-height:1.55;box-shadow:0 5px 16px rgba(0,0,0,.45);\"><span style=\"position:absolute;top:-10px;left:36px;width:18px;height:18px;background:#fff;border-left:2.5px solid $1;border-top:2.5px solid $1;border-top-left-radius:8px;transform:rotate(45deg);\"></span>$2</div></div>",
     "trimStrings": [],
     "placement": [
         1,

@@ -18,6 +18,10 @@ A JSON-driven notification feed for the AI/System character (modelled on TRETARE
 - **Lorebook** (`Global Lorebook/Global System [LB].json`): new constant entry documenting the
   full schema, categories, priorities, the "use only for the AI/System being spoken to" rule,
   and an example.
+## 2026-06-23 — Global: nudge the dialogue bubble down
+
+- **`Global • Dialogue`** (`Global Regex/Global_Dialogue.json`): increased the `[SAY]` bubble's
+  top margin (8px → 16px) so it sits a little lower beneath the header. Visual-only tweak.
 
 ## 2026-06-23 — Global: AI / System character block (Jarvis-style, "Neural Mesh")
 
@@ -36,6 +40,14 @@ New global UI for an **artificial-intelligence / system** character the user tal
   main character" rule, placement law, and a self-check. (Also synced the file to the latest
   export, which adds the Tracker entry.)
 
+## 2026-06-22 — Wistoria RPG: responsive widgets + Monologue fix
+
+- **All regex widgets are now responsive**: outer containers use width:100% + box-sizing
+  with a 720px cap, so they fill the chat column on phones and scale up on wide screens
+  (no more fixed-narrow boxes / overflow).
+- **Fixed the Monologue** ([THINK]): the old "Torn Reverie" drew a dashed underline under
+  every wrapped line (looked broken). Redesigned to a clean note — name + a single dashed
+  flourish, then plain italic thought text. Applied to the card + WS_Monologue_Regex.json.
 ## 2026-06-23 — TRETARESIA RPG: Skill System + tabbed Creation + interactive Mission Board
 
 - **Skill System lorebook entry** (`Lorebook/TR [LB].json`, non-constant, keyed): defines

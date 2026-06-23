@@ -1,0 +1,496 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#15110c;padding:14px 6px;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif}
+.sc{--acc:#e23636;--abg:rgba(226,54,54,.08);--abd:rgba(226,54,54,.3);width:100%;max-width:420px;margin:0 auto;position:relative}
+.rl{height:16px;background:linear-gradient(180deg,#4a3424,#7a5838 28%,#a07850 50%,#7a5838 72%,#4a3424);border-radius:8px;box-shadow:0 3px 9px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,220,180,.25);position:relative;z-index:3}
+.rl::before,.rl::after{content:'';position:absolute;top:50%;transform:translateY(-50%);width:8px;height:22px;background:radial-gradient(ellipse at center,#5a4030,#2e2014);border-radius:3px;box-shadow:0 2px 5px rgba(0,0,0,.6)}
+.rl::before{left:-4px}.rl::after{right:-4px}
+.pp{background:linear-gradient(180deg,#e6d2b4,#f2e6d0 3%,#f5ecd8 50%,#f0e2cb 97%,#dcc8aa);margin:0 6px;box-shadow:inset 4px 0 12px rgba(90,60,30,.10),inset -4px 0 12px rgba(90,60,30,.10),0 4px 18px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.wm{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.wm span{position:absolute;font-family:'Noto Serif JP',serif;font-weight:900;color:#8b5a2b;opacity:.04;line-height:1}
+.inn{position:relative;z-index:1;padding:12px 12px 8px}
+
+/* HEADER */
+.hdr{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:2px solid #c4a882;margin-bottom:2px}
+.hdr .av{width:44px;height:44px;flex-shrink:0;border-radius:50%;border:2px solid var(--acc);display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#f5ecd8,#e6d2b4);box-shadow:0 0 0 3px var(--abg)}
+.hdr .av span{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;color:var(--acc)}
+.hdr .info{flex:1;min-width:0}
+.hdr .nm{font-size:15px;font-weight:800;color:#5a3818;letter-spacing:1px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr .sub{font-family:'M PLUS 1',sans-serif;font-size:8.5px;color:#a8865c;letter-spacing:.5px;margin-top:2px}
+.hdr .sub .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acc);vertical-align:middle;margin-right:3px;box-shadow:0 0 5px var(--abd)}
+.hdr .money{text-align:right;flex-shrink:0}
+.hdr .money .amt{font-family:'M PLUS 1',sans-serif;font-size:14px;font-weight:700;color:#5a3818;letter-spacing:.5px}
+.hdr .money .cur{font-family:'M PLUS 1',sans-serif;font-size:7px;letter-spacing:1px;color:#a8865c;text-transform:uppercase}
+
+/* ACCORDION SECTION */
+.sec{border-top:1px solid rgba(196,168,130,.6)}
+.sec:first-child{border-top:none}
+.sec-h{display:flex;align-items:center;gap:8px;padding:10px 4px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.sec-h:active{opacity:.7}
+.sec-h .sk{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#f5ecd8;background:linear-gradient(135deg,#8b4513,#6a3410);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.sec-h .st{flex:1;font-family:'M PLUS 1',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5a3818}
+.sec-h .badge{font-family:'M PLUS 1',sans-serif;font-size:8px;font-weight:700;letter-spacing:.5px;color:var(--acc);border:1px solid var(--abd);border-radius:8px;padding:2px 7px;background:var(--abg)}
+.sec-h .arr{font-family:'M PLUS 1',sans-serif;font-size:11px;color:#b89464;transition:transform .2s;flex-shrink:0}
+.sec.open .sec-h .arr{transform:rotate(90deg)}
+.sec-b{display:none;padding:0 4px 12px}
+.sec.open .sec-b{display:block}
+
+/* SHARED */
+.fm{font-family:'M PLUS 1',sans-serif}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.kv{margin-bottom:6px}
+.kl{font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px}
+.vl{font-size:11.5px;color:#3a2a1a;line-height:1.4}
+.card{background:rgba(255,251,242,.45);border:1px solid #cbb088;border-radius:6px;padding:8px 10px;margin-bottom:6px}
+.card .cn{font-size:11.5px;font-weight:700;color:#5a3818}
+.card .cd{font-size:10px;color:#6a4a28;line-height:1.45;margin-top:3px}
+.card .cm{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848;margin-top:3px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{display:inline-block;font-family:'M PLUS 1',sans-serif;font-size:8.5px;border-radius:10px;padding:3px 8px;border:1px solid #cbb088;color:#6a4a28;background:rgba(255,251,242,.5)}
+.tag.r{color:#cc3333;border-color:rgba(204,51,51,.3);background:rgba(204,51,51,.06)}
+.tag.g{color:#3d6a28;border-color:rgba(90,138,58,.3);background:rgba(90,138,58,.06)}
+.tag.b{color:#2a5a8b;border-color:rgba(42,90,139,.3);background:rgba(42,90,139,.06)}
+.tag.a{color:var(--acc);border-color:var(--abd);background:var(--abg)}
+.sep{border:none;border-top:1px dashed #cdb491;margin:8px 0}
+
+/* BARS */
+.bar-wrap{margin-bottom:8px}
+.bar-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.bar-lbl{font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#9a7848}
+.bar-val{font-family:'M PLUS 1',sans-serif;font-size:9px;font-weight:700;color:#5a3818}
+.bar{height:6px;background:rgba(180,140,90,.18);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:6px;transition:width .4s}
+.bar-hp i{background:linear-gradient(90deg,#5a8a3a,#7ab84a)}
+.bar-hp.low i{background:linear-gradient(90deg,#cc3333,#e65555)}
+.bar-ck i{background:linear-gradient(90deg,#2a6aaa,#4a9ead)}
+.bar-ne i{background:linear-gradient(90deg,#d98a2b,#e6b341)}
+.bar-rep i{background:linear-gradient(90deg,var(--acc),#d9a654)}
+
+/* DOJUTSU STATUS */
+.eye-row{display:flex;gap:8px;margin-bottom:6px}
+.eye-slot{flex:1;background:rgba(255,251,242,.45);border:1px solid #cbb088;border-radius:6px;padding:8px;text-align:center;position:relative}
+.eye-slot.blind{opacity:.45;border-style:dashed}
+.eye-slot .el{font-family:'M PLUS 1',sans-serif;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:4px}
+.eye-slot .ek{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:900;color:#8b4513;line-height:1}
+.eye-slot .en{font-size:10px;color:#5a3818;font-weight:700;margin-top:4px}
+.eye-slot .es{font-family:'M PLUS 1',sans-serif;font-size:8px;margin-top:2px}
+.eye-slot .es.active{color:#3d6a28}
+.eye-slot .es.sealed{color:#cc3333}
+.eye-slot .es.blind-t{color:#999}
+.eye-slot .blind-x{font-family:'M PLUS 1',sans-serif;font-size:22px;color:#cc3333;line-height:1;margin:4px 0}
+
+/* JINCHURIKI */
+.beast-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.beast-icon{width:38px;height:38px;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg,var(--acc),#d97a2b);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.beast-icon span{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#f5ecd8}
+.beast-info .bn{font-size:13px;font-weight:800;color:#5a3818}
+.beast-info .bt{font-family:'M PLUS 1',sans-serif;font-size:8.5px;color:#a8865c;letter-spacing:.5px}
+.prog-stages{display:flex;gap:3px;margin:8px 0}
+.prog-stage{flex:1;height:6px;border-radius:3px;background:rgba(180,140,90,.18);position:relative;overflow:hidden}
+.prog-stage.done{background:var(--acc);box-shadow:0 0 4px var(--abd)}
+.prog-stage.current{background:rgba(180,140,90,.18)}
+.prog-stage.current::after{content:'';position:absolute;left:0;top:0;height:100%;width:60%;border-radius:3px;background:var(--acc);animation:pulse 1.5s infinite alternate}
+@keyframes pulse{from{opacity:.6}to{opacity:1}}
+.seal-box{background:rgba(204,51,51,.06);border:1px solid rgba(204,51,51,.25);border-radius:6px;padding:8px 10px;margin-bottom:6px}
+.seal-box .sl{font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#cc3333;margin-bottom:3px}
+.seal-box .sd{font-size:10.5px;color:#6a4a28;line-height:1.45}
+
+/* MISSION */
+.mission-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.mission-name{font-size:13px;font-weight:800;color:#5a3818}
+.mission-rank{font-family:'M PLUS 1',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#f5ecd8;background:linear-gradient(135deg,#cc3333,#a32828);border-radius:4px;padding:2px 8px}
+.obj{display:flex;align-items:flex-start;gap:6px;margin-bottom:5px}
+.obj .oc{width:14px;height:14px;flex-shrink:0;border:1.5px solid #cbb088;border-radius:3px;margin-top:1px;display:flex;align-items:center;justify-content:center}
+.obj.done .oc{border-color:#5a8a3a;background:rgba(90,138,58,.15)}
+.obj.done .oc::after{content:'✓';font-size:9px;color:#5a8a3a;font-weight:700}
+.obj .ot{font-size:10.5px;color:#5a3818;line-height:1.4}
+.obj.opt .ot{color:#9a7848;font-style:italic}
+
+/* ABILITY LIST */
+.abi{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}
+.abi .ai{width:28px;height:28px;flex-shrink:0;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#f5ecd8;background:linear-gradient(135deg,#8b4513,#6a3410);box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.abi .abi-info{flex:1}
+.abi .an{font-size:11.5px;font-weight:700;color:#5a3818}
+.abi .ad{font-size:10px;color:#6a4a28;line-height:1.4;margin-top:2px}
+.abi .at{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.cd-pill{font-family:'M PLUS 1',sans-serif;font-size:7.5px;font-weight:600;letter-spacing:.5px;padding:2px 6px;border-radius:8px}
+.cd-ready{color:#3d6a28;background:rgba(90,138,58,.12);border:1px solid rgba(90,138,58,.3)}
+.cd-cool{color:#cc3333;background:rgba(204,51,51,.08);border:1px solid rgba(204,51,51,.25)}
+.cd-info{color:#2a5a8b;background:rgba(42,90,139,.08);border:1px solid rgba(42,90,139,.25)}
+
+/* COOLDOWN RING (for jutsu) */
+.cd-ring{width:18px;height:18px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'M PLUS 1',sans-serif;font-size:7px;font-weight:700}
+.cd-ring.ready{color:#3d6a28;border:2px solid #5a8a3a;background:rgba(90,138,58,.08)}
+.cd-ring.wait{color:#cc3333;border:2px solid #cc3333;background:rgba(204,51,51,.06)}
+
+/* RESPONSIVE */
+@media(max-width:360px){
+  .inn{padding:10px 8px 6px}
+  .hdr .nm{font-size:13px}
+  .eye-slot .ek{font-size:22px}
+}
+@media(min-width:500px){
+  .sc{max-width:480px}
+  .inn{padding:14px 16px 10px}
+}
+@media(min-width:700px){
+  .sc{max-width:600px}
+  .inn{padding:18px 22px 12px}
+}
+</style></head><body>
+
+<div class="sc" id="app">
+  <div class="rl"></div>
+  <div class="pp"><div class="wm">
+    <span style="top:3%;left:-2%;font-size:100px;transform:rotate(-8deg)">忍</span>
+    <span style="top:25%;right:-3%;font-size:110px;transform:rotate(6deg)">術</span>
+    <span style="top:50%;left:-2%;font-size:100px">火</span>
+    <span style="top:75%;right:-3%;font-size:90px;transform:rotate(-5deg)">風</span>
+  </div><div class="inn">
+
+    <!-- HEADER: always visible -->
+    <div class="hdr">
+      <div class="av"><span>忍</span></div>
+      <div class="info">
+        <div class="nm" id="h_name">Uchiha Kaito</div>
+        <div class="sub"><span class="dot"></span><span id="h_meta">Jōnin · Konohagakure · 21</span></div>
+      </div>
+      <div class="money">
+        <div class="amt" id="h_money">48,500</div>
+        <div class="cur">Ryō 両</div>
+      </div>
+    </div>
+
+    <!-- SECTIONS (accordion) -->
+    <div id="sections">
+
+      <!-- 1. PROFILE -->
+      <div class="sec open" data-sec="profile">
+        <div class="sec-h"><span class="sk">己</span><span class="st">Profile</span><span class="arr">▸</span></div>
+        <div class="sec-b">
+          <div class="grid2">
+            <div class="kv"><div class="kl">Name</div><div class="vl">Uchiha Kaito</div></div>
+            <div class="kv"><div class="kl">Age</div><div class="vl">21</div></div>
+            <div class="kv"><div class="kl">Sex</div><div class="vl">Male</div></div>
+            <div class="kv"><div class="kl">Blood Type</div><div class="vl">AB</div></div>
+            <div class="kv"><div class="kl">Clan</div><div class="vl">Uchiha</div></div>
+            <div class="kv"><div class="kl">Being</div><div class="vl">Jinchūriki</div></div>
+          </div>
+          <hr class="sep"/>
+          <div class="kv"><div class="kl">Nindō</div><div class="vl">「I will surpass every Uchiha who came before me — not through hatred, but will.」</div></div>
+          <div class="grid2">
+            <div class="kv"><div class="kl">Team</div><div class="vl">Team 3</div></div>
+            <div class="kv"><div class="kl">Sensei</div><div class="vl">Sarutobi Koha</div></div>
+          </div>
+          <div class="kv"><div class="kl">Personality</div><div class="vl">Calm under fire, relentlessly analytical. Masks insecurity with stoic composure.</div></div>
+        </div>
+      </div>
+
+      <!-- 2. JUTSU / TECHNIQUES -->
+      <div class="sec" data-sec="jutsu">
+        <div class="sec-h"><span class="sk">術</span><span class="st">Jutsu</span><span class="badge">7 known</span><span class="arr">▸</span></div>
+        <div class="sec-b">
+          <div class="kl" style="margin-bottom:6px">Signature Jutsu</div>
+          <div class="card">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div class="cn">Chidori — 千鳥</div>
+              <div class="cd-ring ready">✓</div>
+            </div>
+            <div class="cm"><span class="tag b">A-rank</span><span class="tag">Lightning</span></div>
+            <div class="cd" style="font-size:10px;color:#6a4a28;line-height:1.4;margin-top:4px">Concentrated lightning chakra in the palm. Piercing thrust at high speed. Requires Sharingan to offset tunnel vision.</div>
+          </div>
+          <div class="card">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div class="cn">Fire Style: Great Fireball — 火遁・豪火球</div>
+              <div class="cd-ring ready">✓</div>
+            </div>
+            <div class="cm"><span class="tag b">C-rank</span><span class="tag">Fire</span></div>
+            <div class="cd" style="font-size:10px;color:#6a4a28;line-height:1.4;margin-top:4px">Uchiha rite-of-passage technique. Massive fireball expelled from the mouth.</div>
+          </div>
+
+          <hr class="sep"/>
+          <div class="kl" style="margin-bottom:6px">Recent Jutsu Used</div>
+
+          <div class="card" style="padding:6px 10px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div class="cn" style="font-size:10.5px">Chidori Sharp Spear</div>
+              <div class="cd-ring wait">2</div>
+            </div>
+            <div class="cm"><span class="cd-pill cd-cool">2 TURNS LEFT</span><span class="tag b" style="font-size:7.5px;padding:2px 6px">A-rank</span></div>
+          </div>
+          <div class="card" style="padding:6px 10px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div class="cn" style="font-size:10.5px">Body Flicker</div>
+              <div class="cd-ring ready">✓</div>
+            </div>
+            <div class="cm"><span class="cd-pill cd-ready">READY</span><span class="tag b" style="font-size:7.5px;padding:2px 6px">D-rank</span></div>
+          </div>
+          <div class="card" style="padding:6px 10px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div class="cn" style="font-size:10.5px">Fire Style: Phoenix Flower</div>
+              <div class="cd-ring wait">1</div>
+            </div>
+            <div class="cm"><span class="cd-pill cd-cool">1 TURN LEFT</span><span class="tag b" style="font-size:7.5px;padding:2px 6px">C-rank</span></div>
+          </div>
+          <div class="card" style="padding:6px 10px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div class="cn" style="font-size:10.5px">Lightning Clone</div>
+              <div class="cd-ring ready">✓</div>
+            </div>
+            <div class="cm"><span class="cd-pill cd-ready">READY</span><span class="tag b" style="font-size:7.5px;padding:2px 6px">B-rank</span></div>
+          </div>
+          <div class="card" style="padding:6px 10px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div class="cn" style="font-size:10.5px">Genjutsu: Sharingan</div>
+              <div class="cd-ring wait">4</div>
+            </div>
+            <div class="cm"><span class="cd-pill cd-cool">4 TURNS LEFT</span><span class="tag b" style="font-size:7.5px;padding:2px 6px">B-rank</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. AFFILIATION -->
+      <div class="sec" data-sec="affil">
+        <div class="sec-h"><span class="sk">里</span><span class="st">Affiliation</span><span class="badge">Jōnin</span><span class="arr">▸</span></div>
+        <div class="sec-b">
+          <div class="grid2">
+            <div class="kv"><div class="kl">Village</div><div class="vl">Konohagakure</div></div>
+            <div class="kv"><div class="kl">Rank</div><div class="vl">Jōnin</div></div>
+            <div class="kv"><div class="kl">Allegiance</div><div class="vl">Loyal to Village</div></div>
+            <div class="kv"><div class="kl">Missions Done</div><div class="vl">47</div></div>
+          </div>
+          <div class="bar-wrap">
+            <div class="bar-head"><span class="bar-lbl">Village Reputation</span><span class="bar-val">78 / 100</span></div>
+            <div class="bar bar-rep"><i style="width:78%"></i></div>
+          </div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap">
+            <span class="tag g">Trusted</span>
+            <span class="tag">Hokage's Eye</span>
+            <span class="tag">Uchiha Representative</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. JINCHŪRIKI (conditional) -->
+      <div class="sec" data-sec="jinchuriki">
+        <div class="sec-h"><span class="sk" style="background:linear-gradient(135deg,#cc3333,#8b2020)">獣</span><span class="st">Jinchūriki</span><span class="badge">Kurama</span><span class="arr">▸</span></div>
+        <div class="sec-b">
+          <div class="beast-header">
+            <div class="beast-icon"><span>九</span></div>
+            <div class="beast-info">
+              <div class="bn">Kurama — Nine-Tails</div>
+              <div class="bt">Bijū · Chakra entity · Fire & Wind natures</div>
+            </div>
+          </div>
+          <div class="kl" style="margin-bottom:4px">Jinchūriki Progression</div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:2px">
+            <span class="fm" style="font-size:8px;color:#9a7848">INITIAL</span>
+            <span class="fm" style="font-size:8px;color:#9a7848">V1</span>
+            <span class="fm" style="font-size:8px;color:#9a7848">V2</span>
+            <span class="fm" style="font-size:8px;color:var(--acc);font-weight:700">KCM</span>
+            <span class="fm" style="font-size:8px;color:#9a7848">KCM2</span>
+            <span class="fm" style="font-size:8px;color:#9a7848">FULL</span>
+            <span class="fm" style="font-size:8px;color:#9a7848">BARYON</span>
+          </div>
+          <div class="prog-stages">
+            <div class="prog-stage done"></div>
+            <div class="prog-stage done"></div>
+            <div class="prog-stage done"></div>
+            <div class="prog-stage current"></div>
+            <div class="prog-stage"></div>
+            <div class="prog-stage"></div>
+            <div class="prog-stage"></div>
+          </div>
+          <div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:var(--acc);font-weight:700;margin:4px 0 8px">Current: KCM — Kurama Chakra Mode</div>
+
+          <hr class="sep"/>
+          <div class="seal-box">
+            <div class="sl">⚠ Seal Active — Eight Trigrams Seal</div>
+            <div class="sd">Minato's seal restricts full bijū chakra flow. Connection to Kurama weakened — V2 and above drains HP. Breaking the seal risks losing control.</div>
+          </div>
+
+          <hr class="sep"/>
+          <div class="kl" style="margin-bottom:6px">Inherited Beast Jutsu</div>
+          <div class="card">
+            <div class="cn">Tailed Beast Bomb — 尾獣玉</div>
+            <div class="cm"><span class="tag r">S-rank</span><span class="cd-pill cd-info">KCM+ ONLY</span></div>
+            <div class="cd" style="font-size:10px;color:#6a4a28;line-height:1.4;margin-top:3px">Compressed chakra sphere. Devastating blast. Requires Kurama cooperation at KCM stage or higher.</div>
+          </div>
+          <div class="card">
+            <div class="cn">Chakra Arms — チャクラの腕</div>
+            <div class="cm"><span class="tag b">B-rank</span><span class="cd-pill cd-info">V1+ ONLY</span></div>
+            <div class="cd" style="font-size:10px;color:#6a4a28;line-height:1.4;margin-top:3px">Extend bijū chakra as arms. Range and power scale with transformation stage.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. MISSION (conditional) -->
+      <div class="sec" data-sec="mission">
+        <div class="sec-h"><span class="sk" style="background:linear-gradient(135deg,#8b6914,#6a5210)">任</span><span class="st">Active Mission</span><span class="badge" style="color:#cc3333;border-color:rgba(204,51,51,.3);background:rgba(204,51,51,.06)">B-Rank</span><span class="arr">▸</span></div>
+        <div class="sec-b">
+          <div class="mission-head">
+            <div class="mission-name">Escort to the Land of Waves</div>
+            <div class="mission-rank">B</div>
+          </div>
+          <div class="kv"><div class="kl">Description</div><div class="vl">Escort the bridge builder Tazuna safely to the Land of Waves. Intelligence suggests possible rogue-nin interference along the route.</div></div>
+          <hr class="sep"/>
+          <div class="kl" style="margin-bottom:6px">Objectives</div>
+          <div class="obj done"><div class="oc"></div><div class="ot">Depart from Konoha's main gate</div></div>
+          <div class="obj done"><div class="oc"></div><div class="ot">Neutralize ambush at the river crossing</div></div>
+          <div class="obj"><div class="oc"></div><div class="ot">Escort Tazuna to the Great Naruto Bridge</div></div>
+          <div class="obj"><div class="oc"></div><div class="ot">Ensure bridge completion is uninterrupted</div></div>
+          <div class="obj opt"><div class="oc"></div><div class="ot">Optional: Identify the contractor behind the attacks</div></div>
+          <hr class="sep"/>
+          <div class="kl" style="margin-bottom:4px">Rewards</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap">
+            <span class="tag g">12,000 Ryō</span>
+            <span class="tag b">+5 Village Rep</span>
+            <span class="tag">B-rank completion credit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. ENERGY / VITALS -->
+      <div class="sec" data-sec="energy">
+        <div class="sec-h"><span class="sk" style="background:linear-gradient(135deg,#2a6aaa,#1a4a7a)">命</span><span class="st">Energy</span><span class="badge" style="color:#3d6a28;border-color:rgba(90,138,58,.3);background:rgba(90,138,58,.06)">Stable</span><span class="arr">▸</span></div>
+        <div class="sec-b">
+          <div class="bar-wrap">
+            <div class="bar-head"><span class="bar-lbl">Health</span><span class="bar-val">72 / 100</span></div>
+            <div class="bar bar-hp"><i style="width:72%"></i></div>
+          </div>
+          <div class="bar-wrap">
+            <div class="bar-head"><span class="bar-lbl">Chakra</span><span class="bar-val">45 / 100</span></div>
+            <div class="bar bar-ck"><i style="width:45%"></i></div>
+          </div>
+          <div class="bar-wrap">
+            <div class="bar-head"><span class="bar-lbl">Nature Energy</span><span class="bar-val">0 / 100</span></div>
+            <div class="bar bar-ne"><i style="width:0%"></i></div>
+          </div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px">
+            <span class="tag r">Left arm: minor wound</span>
+            <span class="tag g">Legs: healthy</span>
+          </div>
+
+          <hr class="sep"/>
+          <div class="kl" style="margin-bottom:6px">Dōjutsu Status</div>
+          <div class="eye-row">
+            <div class="eye-slot">
+              <div class="el">Left Eye 左眼</div>
+              <div class="ek">万</div>
+              <div class="en">Mangekyō</div>
+              <div class="es active">● Active</div>
+            </div>
+            <div class="eye-slot">
+              <div class="el">Right Eye 右眼</div>
+              <div class="ek">万</div>
+              <div class="en">Mangekyō</div>
+              <div class="es active">● Active</div>
+            </div>
+          </div>
+          <div class="card" style="border-color:rgba(204,51,51,.25);background:rgba(204,51,51,.04)">
+            <div class="cn" style="font-size:10px;color:#cc3333">⚠ Mangekyō Strain</div>
+            <div class="cd" style="font-size:9.5px;color:#6a4a28;line-height:1.4;margin-top:2px">Overuse causes progressive blindness. Vision clarity: 68%. Switch to Eternal Mangekyō or limit usage to slow deterioration.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6b. ENERGY - BLIND EYE EXAMPLE (hidden, just for design reference) -->
+      <!--
+      <div class="eye-row">
+        <div class="eye-slot">
+          <div class="el">Left Eye 左眼</div>
+          <div class="ek">輪</div>
+          <div class="en">Rinnegan</div>
+          <div class="es active">● Active</div>
+        </div>
+        <div class="eye-slot blind">
+          <div class="el">Right Eye 右眼</div>
+          <div class="blind-x">✕</div>
+          <div class="en" style="color:#999">Stolen</div>
+          <div class="es blind-t">● Blind</div>
+        </div>
+      </div>
+      -->
+
+      <!-- 7. DŌJUTSU ABILITIES -->
+      <div class="sec" data-sec="dojutsu">
+        <div class="sec-h"><span class="sk" style="background:linear-gradient(135deg,#6a2080,#4a1060)">瞳</span><span class="st">Dōjutsu</span><span class="badge" style="color:#6a2080;border-color:rgba(106,32,128,.3);background:rgba(106,32,128,.06)">Mangekyō</span><span class="arr">▸</span></div>
+        <div class="sec-b">
+          <div class="kv"><div class="kl">Current Stage</div><div class="vl">Mangekyō Sharingan — 万華鏡写輪眼</div></div>
+          <hr class="sep"/>
+          <div class="kl" style="margin-bottom:8px">Unlocked Abilities</div>
+
+          <div class="abi">
+            <div class="ai">天</div>
+            <div class="abi-info">
+              <div class="an">Amaterasu — 天照</div>
+              <div class="ad">Inextinguishable black flames manifest at the focal point. Cannot be doused by water or wind — burns until the target is consumed or the caster dispels it.</div>
+              <div class="at">
+                <span class="cd-pill cd-info">LEFT EYE</span>
+                <span class="cd-pill cd-cool">HIGH CHAKRA COST</span>
+                <span class="cd-pill cd-cool">STRAIN: SEVERE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="abi">
+            <div class="ai">炎</div>
+            <div class="abi-info">
+              <div class="an">Kagutsuchi — 加具土命</div>
+              <div class="ad">Shape-manipulation of Amaterasu flames. Form shields, spikes, or projectiles from existing black fire.</div>
+              <div class="at">
+                <span class="cd-pill cd-info">RIGHT EYE</span>
+                <span class="cd-pill cd-cool">REQUIRES AMATERASU</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="abi">
+            <div class="ai">骨</div>
+            <div class="abi-info">
+              <div class="an">Susanoo — 須佐能乎</div>
+              <div class="ad">Spectral warrior avatar formed from chakra. Currently at ribcage stage — can manifest skeletal arms and shield.</div>
+              <div class="at">
+                <span class="cd-pill cd-info">BOTH EYES</span>
+                <span class="cd-pill cd-cool">MASSIVE DRAIN</span>
+                <span class="cd-pill cd-ready">STAGE: RIBCAGE</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="sep"/>
+          <div class="kl" style="margin-bottom:4px">Locked — Requires Higher Stage</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;opacity:.5">
+            <span class="tag">Izanagi (requires sacrifice)</span>
+            <span class="tag">Izanami (requires sacrifice)</span>
+            <span class="tag">Perfect Susanoo (EMS)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div></div>
+  <div class="rl"></div>
+</div>
+
+<script>
+(function(){
+  // Accordion toggle
+  var secs = document.querySelectorAll('.sec');
+  secs.forEach(function(s){
+    s.querySelector('.sec-h').addEventListener('click', function(){
+      s.classList.toggle('open');
+    });
+  });
+
+  // Theme color from data (would come from JSON in real usage)
+  var acc = '#e23636';
+  var root = document.querySelector('.sc');
+  function hexRgba(hex,a){hex=String(hex).replace('#','');if(hex.length===3){hex=hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];}var n=parseInt(hex,16);if(isNaN(n))n=0xe23636;var r=(n>>16)&255,g=(n>>8)&255,b=n&255;return 'rgba('+r+','+g+','+b+','+a+')';}
+  root.style.setProperty('--acc', acc);
+  root.style.setProperty('--abg', hexRgba(acc, .08));
+  root.style.setProperty('--abd', hexRgba(acc, .3));
+})();
+</script>
+</body></html>
