@@ -2,6 +2,23 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-06-23 — Global: AI Alert / Notification system (<AI_ALERT>, "Transmission Stack")
+
+A JSON-driven notification feed for the AI/System character (modelled on TRETARESIA's
+`<TR_DEV>` card), letting the AI surface essentially anything to the user.
+- New regex **`Global • AI Alert`** (`Global Regex/Global_AI_Alert.json`):
+  `<AI_ALERT>{json}</AI_ALERT>` renders the **interactive "Transmission Stack"** — one
+  focused holographic card at a time with a peeking stack, dot pager and ‹ › counter to
+  browse. **Tap-to-open**: each card opens its detail, and a **message / comms** card opens
+  into a readable **chat-bubble reader** (sender avatar + full text + Reply / Mark read).
+- 11 alert **categories** (message · comms · detection · intel · system · warning · reminder ·
+  transaction · social · task · location) each with its own SVG icon, and 5 **priorities**
+  (info/normal/high/critical/success) driving the accent colour. Header colour follows the
+  AI's `hex` (matches its `[AICHAR]`). EN/TH labels via `ui_lang`; empty-feed state handled.
+- **Lorebook** (`Global Lorebook/Global System [LB].json`): new constant entry documenting the
+  full schema, categories, priorities, the "use only for the AI/System being spoken to" rule,
+  and an example.
+
 ## 2026-06-23 — Global: AI / System character block (Jarvis-style, "Neural Mesh")
 
 New global UI for an **artificial-intelligence / system** character the user talks to directly
