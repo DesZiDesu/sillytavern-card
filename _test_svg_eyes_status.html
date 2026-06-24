@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SVG Eye Renderer Test — Status Panel</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;font-family:'Segoe UI',sans-serif;padding:20px;color:#e8d5b0}
+h1{text-align:center;color:#e8d5b0;margin-bottom:10px;font-size:20px}
+.subtitle{text-align:center;color:#999;font-size:12px;margin-bottom:30px}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;max-width:1400px;margin:0 auto}
+.status-card{background:linear-gradient(180deg,#faf3e6,#f5ead4);border-radius:12px;padding:16px;border:1px solid #d4c4a0;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.card-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8a7a5a;margin-bottom:12px;border-bottom:1px solid #d4c4a0;padding-bottom:6px}
+.char-name{font-size:16px;font-weight:bold;color:#4a3a20;margin-bottom:4px}
+.char-info{font-size:11px;color:#8a7a5a;margin-bottom:12px}
+.eye-row{display:flex;gap:12px;justify-content:center}
+.eye-slot{text-align:center;flex:1;padding:8px;background:rgba(139,119,80,.06);border-radius:8px;border:1px solid rgba(139,119,80,.12)}
+.eye-slot.blind{opacity:.5}
+.el{font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:#8a7a5a;margin-bottom:4px}
+.ek{font-size:32px;color:#6a4a28;margin:4px 0}
+.ek svg{display:block;margin:0 auto}
+.en{font-size:11px;color:#6a4a28;font-weight:500;margin-top:4px}
+.es{font-size:9px;margin-top:2px}
+.es.active{color:#2a8a2a}
+.es.sealed{color:#cc8800}
+.es.blind-t{color:#cc3333}
+.blind-x{font-size:28px;color:#cc3333;margin:4px 0}
+.section-title{font-size:14px;color:#ffd700;margin:30px 0 15px;text-align:center;border-top:1px solid #333;padding-top:15px}
+</style>
+</head>
+<body>
+<h1>SVG Eye Renderer — Status Panel Test</h1>
+<div class="subtitle">All dōjutsu types rendered via eyeSvg() as they appear in the status panel</div>
+<div id="root"></div>
+<script>
+function E(s){if(s==null)return '';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function eyeSvg(t){if(!t)return'';var w='<svg width=\"44\" height=\"44\" viewBox=\"0 0 56 56\" style=\"display:block;margin:0 auto\">';var x='</svg>';var S='<circle cx=\"28\" cy=\"28\" r=\"26\" fill=\"#1a1a1a\" stroke=\"#333\" stroke-width=\"1\"/>';var P='<circle cx=\"28\" cy=\"28\" r=\"5\" fill=\"#111\"/>';function R(n,s,o){var r='';for(var i=0;i<n;i++)r+='<g transform=\"rotate('+((o||0)+360/n*i)+',28,28)\">'+s+'</g>';return r;}var TM='<circle cx=\"28\" cy=\"14\" r=\"4.2\" fill=\"#111\"/><path d=\"M32,12 C37,12.5 42,17 42,23 C41,20 38,16 34,14 C32,13 30.5,13 29.5,14Z\" fill=\"#111\"/>';var nc={eye_brown:'#3a2518',eye_black:'#111',eye_green:'#4a7a3a',eye_blue:'#3a6a9a',eye_amber:'#8a6030',eye_gray:'#6a6a6a'};if(nc[t])return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#f5f0e8\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"'+nc[t]+'\"/><circle cx=\"28\" cy=\"28\" r=\"7\" fill=\"#111\"/><ellipse cx=\"24\" cy=\"23\" rx=\"3\" ry=\"2.5\" fill=\"#fff\" opacity=\".55\"/>'+x;if(t==='blind')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#d8d0c8\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"#bab2a8\" opacity=\".7\"/><circle cx=\"28\" cy=\"28\" r=\"7\" fill=\"#a8a098\" opacity=\".5\"/><line x1=\"16\" y1=\"16\" x2=\"40\" y2=\"40\" stroke=\"#cc3333\" stroke-width=\"3\" stroke-linecap=\"round\" opacity=\".7\"/><line x1=\"40\" y1=\"16\" x2=\"16\" y2=\"40\" stroke=\"#cc3333\" stroke-width=\"3\" stroke-linecap=\"round\" opacity=\".7\"/>'+x;if(t==='blind_cloud')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#c8c0b8\"/><circle cx=\"28\" cy=\"28\" r=\"16\" fill=\"#b0a898\" opacity=\".6\"/><circle cx=\"28\" cy=\"28\" r=\"10\" fill=\"#a09890\" opacity=\".4\"/><circle cx=\"28\" cy=\"28\" r=\"5\" fill=\"#989088\" opacity=\".3\"/>'+x;if(t==='blind_scar')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#d8d0c8\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"#bab2a8\" opacity=\".5\"/><line x1=\"12\" y1=\"22\" x2=\"44\" y2=\"34\" stroke=\"#8a3030\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>'+x;if(t==='blind_seal')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#d8d0c8\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"#bab2a8\" opacity=\".6\"/><path d=\"M16,28 Q22,18 28,28 Q34,38 40,28\" stroke=\"#8a4040\" stroke-width=\"2\" fill=\"none\" opacity=\".5\"/>'+x;if(t==='stolen')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#2a2028\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"#1a1418\" stroke=\"#3a2030\" stroke-width=\"1\" stroke-dasharray=\"3,3\"/><line x1=\"20\" y1=\"20\" x2=\"36\" y2=\"36\" stroke=\"#4a2030\" stroke-width=\"2\" stroke-linecap=\"round\"/><line x1=\"36\" y1=\"20\" x2=\"20\" y2=\"36\" stroke=\"#4a2030\" stroke-width=\"2\" stroke-linecap=\"round\"/>'+x;if(t==='blind_fading')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#cc2020\" opacity=\".3\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"#bab2a8\" opacity=\".5\"/><line x1=\"14\" y1=\"14\" x2=\"42\" y2=\"42\" stroke=\"#cc3333\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\".6\"/>'+x;if(t==='shar1')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#cc2020\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"none\" stroke=\"#111\" stroke-width=\"1.2\"/>'+R(1,TM,0)+P+x;if(t==='shar2')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#cc2020\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"none\" stroke=\"#111\" stroke-width=\"1.2\"/>'+R(2,TM,0)+P+x;if(t==='shar3')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#cc2020\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"none\" stroke=\"#111\" stroke-width=\"1.2\"/>'+R(3,TM,0)+P+x;if(t.indexOf('ms_')===0)return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#cc2020\"/>'+R(3,'<path d=\"M28 24 C20 14 14 18 10 26 C14 16 22 14 28 24Z\" fill=\"#111\"/>',0)+'<circle cx=\"28\" cy=\"28\" r=\"4\" fill=\"#111\"/>'+x;if(t.indexOf('ems_')===0)return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#cc2020\"/><circle cx=\"28\" cy=\"28\" r=\"20\" fill=\"none\" stroke=\"#111\" stroke-width=\"1.5\"/>'+R(3,'<path d=\"M28 24 C20 14 14 18 10 26 C14 16 22 14 28 24Z\" fill=\"#111\"/>',0)+'<circle cx=\"28\" cy=\"28\" r=\"4\" fill=\"#111\"/>'+x;var _rc={'rinne_pur':'#7B5EA7','rinne_blue':'#4a7aaa','rinne_red':'#aa3030','rinne_yellow':'#aa8a30','rinne':'#7B5EA7'};var _rs={'rinne_pur':'#3a2a50','rinne_blue':'#2a3a50','rinne_red':'#3a1515','rinne_yellow':'#3a3015','rinne':'#3a2a50'};if(_rc[t])return w+S+'<circle cx="28" cy="28" r="22" fill="'+_rc[t]+'"/><circle cx="28" cy="28" r="18" fill="none" stroke="'+_rs[t]+'" stroke-width="1.8"/><circle cx="28" cy="28" r="14" fill="none" stroke="'+_rs[t]+'" stroke-width="1.8"/><circle cx="28" cy="28" r="10" fill="none" stroke="'+_rs[t]+'" stroke-width="1.5"/><circle cx="28" cy="28" r="6" fill="none" stroke="'+_rs[t]+'" stroke-width="1.2"/><circle cx="28" cy="28" r="3" fill="#111"/>'+x;if(t==='rinne_six')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#7B5EA7\"/><circle cx=\"28\" cy=\"28\" r=\"18\" fill=\"none\" stroke=\"#3a2a50\" stroke-width=\"1.8\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"none\" stroke=\"#3a2a50\" stroke-width=\"1.8\"/><circle cx=\"28\" cy=\"28\" r=\"10\" fill=\"none\" stroke=\"#3a2a50\" stroke-width=\"1.5\"/><circle cx=\"28\" cy=\"28\" r=\"3\" fill=\"#2a1a3a\"/>'+R(6,'<circle cx=\"28\" cy=\"14\" r=\"2\" fill=\"#111\"/>',0)+x;if(t==='sharinnegan')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#7B5EA7\"/><circle cx=\"28\" cy=\"28\" r=\"18\" fill=\"none\" stroke=\"#3a2a50\" stroke-width=\"1.8\"/><circle cx=\"28\" cy=\"28\" r=\"12\" fill=\"none\" stroke=\"#3a2a50\" stroke-width=\"1.8\"/><circle cx=\"28\" cy=\"28\" r=\"3.5\" fill=\"#2a1a3a\"/>'+R(3,'<circle cx=\"28\" cy=\"10\" r=\"2.8\" fill=\"#111\"/><path d=\"M30.8,8.5 C34,10.5 36,15 35,18 C34,15 32.5,12 30,9.8Z\" fill=\"#111\"/>',0)+R(3,'<circle cx=\"28\" cy=\"16\" r=\"2.2\" fill=\"#111\"/><path d=\"M30,16.5 C31.8,17.8 32.8,20 32.5,21.5 C32,20 31,18.2 29.5,17Z\" fill=\"#111\"/>',60)+x;if(t==='rinneshar')return w+'<circle cx=\"28\" cy=\"28\" r=\"26\" fill=\"#111\" stroke=\"#333\" stroke-width=\"1\"/><circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#AA2020\"/><circle cx=\"28\" cy=\"28\" r=\"20\" fill=\"none\" stroke=\"#3a0808\" stroke-width=\"1.5\"/><circle cx=\"28\" cy=\"28\" r=\"16\" fill=\"none\" stroke=\"#3a0808\" stroke-width=\"1.5\"/><circle cx=\"28\" cy=\"28\" r=\"12\" fill=\"none\" stroke=\"#3a0808\" stroke-width=\"1.5\"/><circle cx=\"28\" cy=\"28\" r=\"8\" fill=\"none\" stroke=\"#3a0808\" stroke-width=\"1.2\"/><circle cx=\"28\" cy=\"28\" r=\"3\" fill=\"#111\"/>'+R(3,'<circle cx=\"28\" cy=\"8\" r=\"2.8\" fill=\"#111\"/><path d=\"M30.8,8.5 C34,10.5 36,15 35,18 C34,15 32.5,12 30,9.8Z\" fill=\"#111\"/>',30)+R(3,'<circle cx=\"28\" cy=\"12\" r=\"2.5\" fill=\"#111\"/><path d=\"M30.3,12.5 C32.8,14 34,17 33.5,19 C33,17 31.8,14.5 29.8,13Z\" fill=\"#111\"/>',90)+R(3,'<circle cx=\"28\" cy=\"16\" r=\"2.2\" fill=\"#111\"/><path d=\"M30,16.5 C31.8,17.8 32.8,20 32.5,21.5 C32,20 31,18.2 29.5,17Z\" fill=\"#111\"/>',0)+x;if(t==='byaku_gold')return w+S+'<circle cx="28" cy="28" r="22" fill="#f5f0f5"/><circle cx="28" cy="28" r="14" fill="#d4aa40"/><circle cx="28" cy="28" r="14" fill="none" stroke="#b89430" stroke-width="0.8"/><circle cx="28" cy="28" r="5" fill="#d4aa40" stroke="#b89430" stroke-width="0.3"/><circle cx="28" cy="28" r="3" fill="#c09830"/>'+x;if(t==='byaku')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#E8E0F0\"/><circle cx=\"28\" cy=\"28\" r=\"16\" fill=\"#D8D0E8\" stroke=\"#C0B8D0\" stroke-width=\"0.5\"/><circle cx=\"28\" cy=\"28\" r=\"10\" fill=\"#C8C0D8\"/><circle cx=\"28\" cy=\"28\" r=\"5\" fill=\"#B0A8C8\"/>'+x;if(t==='tensei'||t==='tenseigan')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#4a8aaa\"/><circle cx=\"28\" cy=\"28\" r=\"16\" fill=\"#5a9aba\" stroke=\"#3a7a9a\" stroke-width=\"1\"/><circle cx=\"28\" cy=\"28\" r=\"10\" fill=\"#6aaacc\"/><circle cx=\"28\" cy=\"28\" r=\"5\" fill=\"#f0f0f0\"/>'+x;if(t==='jougan')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#1a1a2e\"/><circle cx=\"28\" cy=\"28\" r=\"16\" fill=\"#2a2a4e\"/><circle cx=\"28\" cy=\"28\" r=\"10\" fill=\"#4a6a9a\"/><circle cx=\"28\" cy=\"28\" r=\"5\" fill=\"#8ab0d0\"/>'+x;if(t==='jinchuriki')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#cc1818\"/><g opacity=\".2\" stroke=\"#220000\" stroke-width=\".5\" fill=\"none\"><line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"20\"/><line x1=\"28\" y1=\"36\" x2=\"28\" y2=\"48\"/><line x1=\"14\" y1=\"14\" x2=\"22\" y2=\"22\"/><line x1=\"34\" y1=\"34\" x2=\"42\" y2=\"42\"/><line x1=\"8\" y1=\"28\" x2=\"20\" y2=\"28\"/><line x1=\"36\" y1=\"28\" x2=\"48\" y2=\"28\"/></g><ellipse cx=\"28\" cy=\"28\" rx=\"3\" ry=\"14\" fill=\"#111\"/>'+x;if(t==='sage_toad_inc')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#d4a030\"/><rect x=\"16\" y=\"24\" width=\"24\" height=\"8\" rx=\"4\" fill=\"#111\"/>'+x;if(t==='sage_toad')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#e8e0d4\"/><rect x=\"16\" y=\"24\" width=\"24\" height=\"8\" rx=\"4\" fill=\"#111\"/>'+x;if(t==='sage_snake')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#f5f0e8\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"#c08820\"/><ellipse cx=\"28\" cy=\"28\" rx=\"2.5\" ry=\"12\" fill=\"#111\"/>'+x;if(t==='sage_snake_dark')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#3a2850\"/><circle cx=\"28\" cy=\"28\" r=\"14\" fill=\"#c08820\"/><ellipse cx=\"28\" cy=\"28\" rx=\"2.5\" ry=\"12\" fill=\"#111\"/>'+x;if(t==='jinchuriki_sage')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#e6a020\"/><rect x=\"16\" y=\"24\" width=\"24\" height=\"8\" rx=\"4\" fill=\"#111\"/><ellipse cx=\"28\" cy=\"28\" rx=\"3\" ry=\"14\" fill=\"#111\"/>'+x;if(t==='sage_six_paths')return w+S+'<circle cx=\"28\" cy=\"28\" r=\"22\" fill=\"#f5c840\"/><rect x=\"14\" y=\"24\" width=\"28\" height=\"8\" rx=\"4\" fill=\"#111\"/><ellipse cx=\"28\" cy=\"28\" rx=\"3.5\" ry=\"16\" fill=\"#111\"/>'+x;return'';}
+
+function renderEyeSlot(label, kanji_label, eye) {
+    var h = '';
+    if (!eye) return '<div class="eye-slot blind"><div class="el">'+E(label)+'</div><div class="ek" style="color:#cbb088">—</div><div class="en" style="color:#999">None</div></div>';
+    var bl = eye.state === 'blind' || eye.state === 'stolen';
+    h += '<div class="eye-slot'+(bl?' blind':'')+'"><div class="el">'+E(label)+' '+E(kanji_label)+'</div>';
+    if (bl) {
+        h += '<div class="blind-x">✕</div><div class="en" style="color:#999">'+E(eye.state==='stolen'?'Stolen':'Blind')+'</div><div class="es blind-t">● '+E(eye.state==='stolen'?'Stolen':'Blind')+'</div>';
+    } else {
+        var _sv = eyeSvg(eye.type);
+        if (_sv) { h += '<div class="ek" style="line-height:0">' + _sv + '</div>'; }
+        else { h += '<div class="ek">' + E(eye.kanji || '◉') + '</div>'; }
+        h += '<div class="en">'+E(eye.name||'—')+'</div><div class="es '+(eye.state==='sealed'?'sealed':'active')+'">● '+E(eye.state==='sealed'?'Sealed':'Active')+'</div>';
+    }
+    h += '</div>';
+    return h;
+}
+
+function renderCard(title, info, leftEye, rightEye) {
+    return '<div class="status-card"><div class="char-name">' + E(title) + '</div><div class="char-info">' + E(info) + '</div><div class="card-title">Dōjutsu Status</div><div class="eye-row">' +
+        renderEyeSlot('Left Eye', '左眼', leftEye) + renderEyeSlot('Right Eye', '右眼', rightEye) + '</div></div>';
+}
+
+var characters = [
+    {section: "Normal Eyes"},
+    {title:"Brown Eyes", info:"Most common", left:{name:"Normal",kanji:"目",type:"eye_brown",state:"active"}, right:{name:"Normal",kanji:"目",type:"eye_brown",state:"active"}},
+    {title:"Black Eyes", info:"Uchiha default", left:{name:"Normal",kanji:"目",type:"eye_black",state:"active"}, right:{name:"Normal",kanji:"目",type:"eye_black",state:"active"}},
+    {title:"Blue Eyes", info:"Yamanaka/Uzumaki", left:{name:"Normal",kanji:"目",type:"eye_blue",state:"active"}, right:{name:"Normal",kanji:"目",type:"eye_blue",state:"active"}},
+    {title:"Green Eyes", info:"Sakura", left:{name:"Normal",kanji:"目",type:"eye_green",state:"active"}, right:{name:"Normal",kanji:"目",type:"eye_green",state:"active"}},
+    {title:"Amber Eyes", info:"Rare", left:{name:"Normal",kanji:"目",type:"eye_amber",state:"active"}, right:{name:"Normal",kanji:"目",type:"eye_amber",state:"active"}},
+    {title:"Gray Eyes", info:"Civilian", left:{name:"Normal",kanji:"目",type:"eye_gray",state:"active"}, right:{name:"Normal",kanji:"目",type:"eye_gray",state:"active"}},
+
+    {section: "Blind & Damaged"},
+    {title:"Blind (Damaged)", info:"Red X marks", left:{name:"Blind",kanji:"盲",type:"blind",state:"blind"}, right:{name:"Blind",kanji:"盲",type:"blind",state:"blind"}},
+    {title:"Blind (Clouded)", info:"White/gray", left:{name:"Blind",kanji:"盲",type:"blind_cloud",state:"blind"}, right:{name:"Blind",kanji:"盲",type:"blind_cloud",state:"blind"}},
+    {title:"Blind (Scarred)", info:"Physical scars", left:{name:"Blind",kanji:"盲",type:"blind_scar",state:"blind"}, right:{name:"Blind",kanji:"盲",type:"blind_scar",state:"blind"}},
+    {title:"Blind (Sealed)", info:"Sealed shut", left:{name:"Blind",kanji:"盲",type:"blind_seal",state:"blind"}, right:{name:"Blind",kanji:"盲",type:"blind_seal",state:"blind"}},
+    {title:"Fading Dōjutsu", info:"Going blind", left:{name:"Fading",kanji:"盲",type:"blind_fading",state:"blind"}, right:{name:"Fading",kanji:"盲",type:"blind_fading",state:"blind"}},
+    {title:"Stolen / Empty", info:"Socket empty", left:{name:"Empty",kanji:"空",type:"stolen",state:"stolen"}, right:{name:"Empty",kanji:"空",type:"stolen",state:"stolen"}},
+    {title:"No Eyes", info:"Null slots", left:null, right:null},
+
+    {section: "Sharingan Line"},
+    {title:"1 Tomoe", info:"First awakening", left:{name:"Sharingan 1T",kanji:"写輪眼",type:"shar1",state:"active"}, right:{name:"Sharingan 1T",kanji:"写輪眼",type:"shar1",state:"active"}},
+    {title:"2 Tomoe", info:"Intermediate", left:{name:"Sharingan 2T",kanji:"写輪眼",type:"shar2",state:"active"}, right:{name:"Sharingan 2T",kanji:"写輪眼",type:"shar2",state:"active"}},
+    {title:"3 Tomoe", info:"Complete", left:{name:"Sharingan 3T",kanji:"写輪眼",type:"shar3",state:"active"}, right:{name:"Sharingan 3T",kanji:"写輪眼",type:"shar3",state:"active"}},
+    {title:"Mangekyō", info:"ms_M01 pattern", left:{name:"Mangekyō",kanji:"万華鏡",type:"ms_M01",state:"active"}, right:{name:"Mangekyō",kanji:"万華鏡",type:"ms_M01",state:"active"}},
+    {title:"Eternal Mangekyō", info:"ems_M01 pattern", left:{name:"EMS",kanji:"永遠",type:"ems_M01",state:"active"}, right:{name:"EMS",kanji:"永遠",type:"ems_M01",state:"active"}},
+
+    {section: "Rinnegan Line"},
+    {title:"Rinnegan (Purple)", info:"Standard — Nagato", left:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_pur",state:"active"}, right:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_pur",state:"active"}},
+    {title:"Rinnegan (Blue)", info:"Urashiki variant", left:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_blue",state:"active"}, right:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_blue",state:"active"}},
+    {title:"Rinnegan (Red)", info:"Momoshiki variant", left:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_red",state:"active"}, right:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_red",state:"active"}},
+    {title:"Rinnegan (Yellow)", info:"Rare variant", left:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_yellow",state:"active"}, right:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_yellow",state:"active"}},
+    {title:"Six Paths Rinnegan", info:"Hagoromo's gift", left:{name:"Six Paths Rinne",kanji:"輪廻眼",type:"rinne_six",state:"active"}, right:{name:"Six Paths Rinne",kanji:"輪廻眼",type:"rinne_six",state:"active"}},
+    {title:"Sharinnegan", info:"Sasuke-style", left:{name:"Sharinnegan",kanji:"写輪廻眼",type:"sharinnegan",state:"active"}, right:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_pur",state:"active"}},
+    {title:"Rinnesharingan", info:"Kaguya — 9 tomoe", left:{name:"Rinnesharingan",kanji:"輪廻写輪眼",type:"rinneshar",state:"active"}, right:{name:"Byakugan",kanji:"白眼",type:"byaku",state:"active"}},
+
+    {section: "Byakugan & Unique"},
+    {title:"Byakugan", info:"Standard — Hyūga", left:{name:"Byakugan",kanji:"白眼",type:"byaku",state:"active"}, right:{name:"Byakugan",kanji:"白眼",type:"byaku",state:"active"}},
+    {title:"Byakugan (Gold)", info:"Ōtsutsuki variant", left:{name:"Byakugan",kanji:"白眼",type:"byaku_gold",state:"active"}, right:{name:"Byakugan",kanji:"白眼",type:"byaku_gold",state:"active"}},
+    {title:"Tenseigan", info:"Evolved Byakugan", left:{name:"Tenseigan",kanji:"転生眼",type:"tensei",state:"active"}, right:{name:"Tenseigan",kanji:"転生眼",type:"tensei",state:"active"}},
+    {title:"Jōgan", info:"Boruto's pure eye", left:{name:"Jōgan",kanji:"浄眼",type:"jougan",state:"active"}, right:{name:"Normal",kanji:"目",type:"eye_blue",state:"active"}},
+
+    {section: "Sage & Jinchūriki Eyes"},
+    {title:"Jinchūriki", info:"Tailed beast chakra", left:{name:"Jinchūriki",kanji:"獣",type:"jinchuriki",state:"active"}, right:{name:"Jinchūriki",kanji:"獣",type:"jinchuriki",state:"active"}},
+    {title:"Incomplete Toad Sage", info:"Imperfect sage mode", left:{name:"Sage (Inc)",kanji:"仙",type:"sage_toad_inc",state:"active"}, right:{name:"Sage (Inc)",kanji:"仙",type:"sage_toad_inc",state:"active"}},
+    {title:"Toad Sage", info:"Perfect sage mode", left:{name:"Toad Sage",kanji:"仙",type:"sage_toad",state:"active"}, right:{name:"Toad Sage",kanji:"仙",type:"sage_toad",state:"active"}},
+    {title:"Jinchūriki + Sage", info:"KCM + Sage combo", left:{name:"J-Sage",kanji:"獣",type:"jinchuriki_sage",state:"active"}, right:{name:"J-Sage",kanji:"獣",type:"jinchuriki_sage",state:"active"}},
+    {title:"Six Paths Sage", info:"Hagoromo's power", left:{name:"SPSM",kanji:"六",type:"sage_six_paths",state:"active"}, right:{name:"SPSM",kanji:"六",type:"sage_six_paths",state:"active"}},
+    {title:"Snake Sage (Light)", info:"White sclera", left:{name:"Snake Sage",kanji:"蛇",type:"sage_snake",state:"active"}, right:{name:"Snake Sage",kanji:"蛇",type:"sage_snake",state:"active"}},
+    {title:"Snake Sage (Dark)", info:"Dark purple sclera", left:{name:"Snake Sage",kanji:"蛇",type:"sage_snake_dark",state:"active"}, right:{name:"Snake Sage",kanji:"蛇",type:"sage_snake_dark",state:"active"}},
+
+    {section: "Special / Mixed Cases"},
+    {title:"Kakashi", info:"One transplant + null", left:{name:"Sharingan 3T",kanji:"写輪眼",type:"shar3",state:"active"}, right:null},
+    {title:"Danzō", info:"Sealed Sharingan", left:{name:"Sharingan 3T",kanji:"写輪眼",type:"shar3",state:"sealed"}, right:{name:"Normal",kanji:"目",type:"eye_black",state:"active"}},
+    {title:"Mixed Pair", info:"MS left + Rinne right", left:{name:"Mangekyō",kanji:"万華鏡",type:"ms_M01",state:"active"}, right:{name:"Rinnegan",kanji:"輪廻眼",type:"rinne_pur",state:"active"}},
+    
+    {section: "Fallback — No Type Field"},
+    {title:"Kanji Only", info:"Missing type → text fallback", left:{name:"Rinnegan",kanji:"輪廻眼",state:"active"}, right:{name:"Sharingan",kanji:"写輪眼",state:"active"}},
+];
+
+var html = '<div class="test-grid">';
+for (var i = 0; i < characters.length; i++) {
+    var c = characters[i];
+    if (c.section) { html += '</div><div class="section-title">' + c.section + '</div><div class="test-grid">'; continue; }
+    html += renderCard(c.title, c.info, c.left, c.right);
+}
+html += '</div>';
+document.getElementById('root').innerHTML = html;
+</script>
+</body>
+</html>
