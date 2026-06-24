@@ -3,121 +3,142 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jutsu Label Header — 3 Designs</title>
+<title>Jutsu Label — All Elements Preview</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#1a1a2e;font-family:serif;padding:20px 12px;color:#e8d5b0}
-h1{text-align:center;font-size:18px;margin-bottom:30px}
-.sec{text-align:center;color:#ffd700;font-size:13px;letter-spacing:2px;margin:30px 0 14px;border-top:1px solid #333;padding-top:14px}
-.nar{padding:6px 14px;font-size:11px;color:#a09878;line-height:1.5;margin-bottom:10px}
-.sp{height:8px}
+h1{text-align:center;font-size:18px;margin-bottom:4px}
+.sub{text-align:center;color:#888;font-size:10px;margin-bottom:25px}
+.sec{color:#ffd700;font-size:12px;letter-spacing:2px;margin:24px 0 10px;border-top:1px solid #333;padding-top:12px;text-align:center}
+.sp{height:6px}
 
 .oct{width:28px;height:28px;clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;vertical-align:middle}
 .oct-in{width:24px;height:24px;clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);display:flex;align-items:center;justify-content:center}
 .oct-in span{font-size:14px;font-weight:900;color:#111;line-height:1}
 
 .o-fi{background:#8b1a1a}.o-fi .oct-in{background:#e04040}
-.o-ln{background:#5a5a10}.o-ln .oct-in{background:#c8c830}
 .o-wi{background:#1a5a2a}.o-wi .oct-in{background:#40b060}
-.o-gn{background:#2a1a3a}.o-gn .oct-in{background:#8060a0}
-.o-wa{background:#1a3a5a}.o-wa .oct-in{background:#4090c0}
+.o-ln{background:#5a5a10}.o-ln .oct-in{background:#c8c830}
 .o-ea{background:#4a2a10}.o-ea .oct-in{background:#b08040}
+.o-wa{background:#1a3a5a}.o-wa .oct-in{background:#4090c0}
+.o-yi{background:#2a1a3a}.o-yi .oct-in{background:#7060a0}
+.o-ya{background:#5a3a10}.o-ya .oct-in{background:#d0a030}
+.o-yy{background:#3a2a3a}.o-yy .oct-in{background:linear-gradient(135deg,#7060a0,#d0a030)}
+.o-wo{background:#1a3a1a}.o-wo .oct-in{background:#4a8a40}
+.o-ic{background:#1a3a4a}.o-ic .oct-in{background:#70c0d0}
+.o-la{background:#5a1a0a}.o-la .oct-in{background:#d06020}
+.o-st{background:#1a2a4a}.o-st .oct-in{background:#5080b0}
+.o-bo{background:#4a1a2a}.o-bo .oct-in{background:#c05060}
+.o-du{background:#3a3a3a}.o-du .oct-in{background:#c0c0c0}
+.o-mg{background:#2a2a3a}.o-mg .oct-in{background:#6080a0}
+.o-sc{background:#5a2a0a}.o-sc .oct-in{background:#e08030}
+.o-ex{background:#4a3a10}.o-ex .oct-in{background:#c0a030}
+.o-bl{background:#3a0a0a}.o-bl .oct-in{background:#1a1a1a}.o-bl .oct-in span{color:#e04040}
+.o-sw{background:#2a3a2a}.o-sw .oct-in{background:#80c080}
+.o-cr{background:#2a1a3a}.o-cr .oct-in{background:#a060c0}
 .o-ta{background:#2a2a2a}.o-ta .oct-in{background:#808080}
-.o-me{background:#1a4a2a}.o-me .oct-in{background:#40a060}
-.o-se{background:#3a1a10}.o-se .oct-in{background:#a06040}
+.o-gn{background:#2a1a3a}.o-gn .oct-in{background:#8060a0}
+.o-md{background:#1a4a2a}.o-md .oct-in{background:#40a060}
+.o-sl{background:#3a1a10}.o-sl .oct-in{background:#a06040}
+.o-sg{background:#4a3a10}.o-sg .oct-in{background:#e0a020}
+.o-kn{background:#3a0a0a}.o-kn .oct-in{background:#a02020}
+.o-sp{background:#1a1a3a}.o-sp .oct-in{background:#5050a0}
+.o-bk{background:#3a2a2a}.o-bk .oct-in{background:#907060}
+.o-kj{background:#2a2a3a}.o-kj .oct-in{background:#7080a0}
+.o-pp{background:#2a1a2a}.o-pp .oct-in{background:#8050a0}
+.o-br{background:#1a2a3a}.o-br .oct-in{background:#4070a0}
+.o-cu{background:#2a1a1a}.o-cu .oct-in{background:#804040}
 
-/* A — Parchment Bar */
-.jA{display:flex;align-items:center;max-width:480px;margin:8px auto;border-radius:6px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.jA .ob{display:flex;align-items:center;justify-content:center;padding:4px 8px;background:rgba(0,0,0,.4);flex-shrink:0}
-.jA .bd{flex:1;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#f5ead5,#f0e0c8);padding:6px 12px;gap:8px;min-width:0}
-.jA .nm{font-size:12.5px;color:#2a1e14;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.jA .nm i{font-style:normal;font-weight:500;color:#6a5a3a;font-size:11px}
-.jA .rk{font-size:8px;font-weight:700;color:#cc3333;letter-spacing:1px;white-space:nowrap;border-left:1.5px solid #d4bc9a;padding-left:8px}
-
-/* B — Dark Inline */
-.jB{display:flex;align-items:center;gap:8px;max-width:480px;margin:8px auto;padding:4px 12px 4px 4px;border-bottom:1px solid rgba(200,180,140,.12)}
-.jB .nm{flex:1;font-size:12.5px;color:#e8d5b0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.jB{display:flex;align-items:center;gap:8px;max-width:480px;margin:6px auto;padding:4px 12px 4px 4px;border-bottom:1px solid rgba(200,180,140,.12)}
+.jB .nm{flex:1;font-size:12px;color:#e8d5b0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .jB .nm i{font-style:normal;color:#a09070;font-weight:400;font-size:11px}
-.jB .sp2{color:rgba(200,180,140,.25);font-size:14px;margin:0 2px}
+.jB .vl{color:rgba(200,180,140,.25);font-size:14px;margin:0 2px}
 .jB .rk{font-size:8px;font-weight:700;color:#cc6633;letter-spacing:1px;white-space:nowrap}
-
-/* C — Color Accent */
-.jC{display:flex;align-items:center;gap:8px;max-width:480px;margin:8px auto;padding:5px 12px 5px 0;overflow:hidden}
-.jC .ac{width:3px;align-self:stretch;flex-shrink:0;border-radius:2px}
-.jC .nm{flex:1;font-size:12.5px;color:#e8d5b0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.jC .nm i{font-style:normal;color:#a09070;font-weight:400;font-size:11px}
-.jC .rk{font-size:9px;font-weight:700;letter-spacing:1px;white-space:nowrap;padding:1px 6px;border-radius:3px}
-.rs{color:#cc3333;background:rgba(204,51,51,.1);border:1px solid rgba(204,51,51,.3)}
-.ra{color:#cc6633;background:rgba(204,102,51,.1);border:1px solid rgba(204,102,51,.3)}
-.rb{color:#8a8a2a;background:rgba(138,138,42,.1);border:1px solid rgba(138,138,42,.3)}
 </style>
 </head>
 <body>
 
-<h1>Jutsu Label — 3 Designs</h1>
+<h1>Jutsu Label — All Elements</h1>
+<div class="sub">Design B — Dark Inline with CSS octagon badges</div>
 
-<!-- ═══════ OPTION A — Parchment Bar ═══════ -->
-<div class="sec">OPTION A — Parchment Bar</div>
+<!-- ═══════ FIVE BASIC NATURES ═══════ -->
+<div class="sec">FIVE BASIC NATURES</div>
 
-<div class="jA"><div class="ob"><div class="oct o-fi"><div class="oct-in"><span>火</span></div></div></div><div class="bd"><div class="nm">豪火球の術 — <i>Great Fireball</i></div><div class="rk">A-RANK</div></div></div>
-<div class="nar">Sasuke weaves Tiger, Ram, Monkey, Boar, Horse, Tiger — inhaling deeply before exhaling a massive sphere of flame...</div>
-<div class="jA"><div class="ob"><div class="oct o-ln"><div class="oct-in"><span>雷</span></div></div></div><div class="bd"><div class="nm">千鳥 — <i>Chidori</i></div><div class="rk">A-RANK</div></div></div>
+<div class="jB"><div class="oct o-fi"><div class="oct-in"><span>火</span></div></div><div class="nm">火遁・豪火球の術 — <i>Great Fireball</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 <div class="sp"></div>
-<div class="jA"><div class="ob"><div class="oct o-wi"><div class="oct-in"><span>風</span></div></div></div><div class="bd"><div class="nm">螺旋手裏剣 — <i>Rasenshuriken</i></div><div class="rk">S-RANK</div></div></div>
+<div class="jB"><div class="oct o-wi"><div class="oct-in"><span>風</span></div></div><div class="nm">風遁・螺旋手裏剣 — <i>Rasenshuriken</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
 <div class="sp"></div>
-<div class="jA"><div class="ob"><div class="oct o-gn"><div class="oct-in"><span>幻</span></div></div></div><div class="bd"><div class="nm">月読 — <i>Tsukuyomi</i></div><div class="rk">S-RANK</div></div></div>
+<div class="jB"><div class="oct o-ln"><div class="oct-in"><span>雷</span></div></div><div class="nm">雷遁・千鳥 — <i>Chidori</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 <div class="sp"></div>
-<div class="jA"><div class="ob"><div class="oct o-wa"><div class="oct-in"><span>水</span></div></div></div><div class="bd"><div class="nm">水龍弾の術 — <i>Water Dragon</i></div><div class="rk">B-RANK</div></div></div>
+<div class="jB"><div class="oct o-ea"><div class="oct-in"><span>土</span></div></div><div class="nm">土遁・土流壁 — <i>Earth-Style Wall</i></div><div class="vl">│</div><div class="rk">B-RANK</div></div>
 <div class="sp"></div>
-<div class="jA"><div class="ob"><div class="oct o-ea"><div class="oct-in"><span>土</span></div></div></div><div class="bd"><div class="nm">土流壁 — <i>Earth Wall</i></div><div class="rk">B-RANK</div></div></div>
-<div class="sp"></div>
-<div class="jA"><div class="ob"><div class="oct o-ta"><div class="oct-in"><span>体</span></div></div></div><div class="bd"><div class="nm">蓮華 — <i>Primary Lotus</i></div><div class="rk">B-RANK</div></div></div>
-<div class="sp"></div>
-<div class="jA"><div class="ob"><div class="oct o-me"><div class="oct-in"><span>医</span></div></div></div><div class="bd"><div class="nm">創造再生 — <i>Creation Rebirth</i></div><div class="rk">S-RANK</div></div></div>
-<div class="sp"></div>
-<div class="jA"><div class="ob"><div class="oct o-se"><div class="oct-in"><span>封</span></div></div></div><div class="bd"><div class="nm">屍鬼封尽 — <i>Reaper Death Seal</i></div><div class="rk">S-RANK</div></div></div>
+<div class="jB"><div class="oct o-wa"><div class="oct-in"><span>水</span></div></div><div class="nm">水遁・水龍弾の術 — <i>Water Dragon</i></div><div class="vl">│</div><div class="rk">B-RANK</div></div>
 
-<!-- ═══════ OPTION B — Dark Inline ═══════ -->
-<div class="sec">OPTION B — Dark Inline</div>
+<!-- ═══════ COMBINED NATURES (KEKKEI GENKAI) ═══════ -->
+<div class="sec">COMBINED NATURES (KEKKEI GENKAI)</div>
 
-<div class="jB"><div class="oct o-fi"><div class="oct-in"><span>火</span></div></div><div class="nm">豪火球の術 — <i>Great Fireball</i></div><div class="sp2">│</div><div class="rk">A-RANK</div></div>
-<div class="nar">Sasuke weaves Tiger, Ram, Monkey, Boar, Horse, Tiger — inhaling deeply before exhaling a massive sphere of flame...</div>
-<div class="jB"><div class="oct o-ln"><div class="oct-in"><span>雷</span></div></div><div class="nm">千鳥 — <i>Chidori</i></div><div class="sp2">│</div><div class="rk">A-RANK</div></div>
+<div class="jB"><div class="oct o-wo"><div class="oct-in"><span>木</span></div></div><div class="nm">木遁・樹界降誕 — <i>Deep Forest Emergence</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
 <div class="sp"></div>
-<div class="jB"><div class="oct o-wi"><div class="oct-in"><span>風</span></div></div><div class="nm">螺旋手裏剣 — <i>Rasenshuriken</i></div><div class="sp2">│</div><div class="rk">S-RANK</div></div>
+<div class="jB"><div class="oct o-ic"><div class="oct-in"><span>氷</span></div></div><div class="nm">氷遁・魔鏡氷晶 — <i>Demonic Ice Mirrors</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 <div class="sp"></div>
-<div class="jB"><div class="oct o-gn"><div class="oct-in"><span>幻</span></div></div><div class="nm">月読 — <i>Tsukuyomi</i></div><div class="sp2">│</div><div class="rk">S-RANK</div></div>
+<div class="jB"><div class="oct o-la"><div class="oct-in"><span>熔</span></div></div><div class="nm">熔遁・溶解酸 — <i>Lava Release: Dissolving</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 <div class="sp"></div>
-<div class="jB"><div class="oct o-wa"><div class="oct-in"><span>水</span></div></div><div class="nm">水龍弾の術 — <i>Water Dragon</i></div><div class="sp2">│</div><div class="rk">B-RANK</div></div>
+<div class="jB"><div class="oct o-st"><div class="oct-in"><span>嵐</span></div></div><div class="nm">嵐遁・励挺功 — <i>Storm: Laser Circus</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 <div class="sp"></div>
-<div class="jB"><div class="oct o-ea"><div class="oct-in"><span>土</span></div></div><div class="nm">土流壁 — <i>Earth Wall</i></div><div class="sp2">│</div><div class="rk">B-RANK</div></div>
+<div class="jB"><div class="oct o-bo"><div class="oct-in"><span>沸</span></div></div><div class="nm">沸遁・巧霧の術 — <i>Boil: Skilled Mist</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 <div class="sp"></div>
-<div class="jB"><div class="oct o-ta"><div class="oct-in"><span>体</span></div></div><div class="nm">蓮華 — <i>Primary Lotus</i></div><div class="sp2">│</div><div class="rk">B-RANK</div></div>
+<div class="jB"><div class="oct o-mg"><div class="oct-in"><span>磁</span></div></div><div class="nm">磁遁・砂鉄界法 — <i>Magnet: Iron Sand</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 <div class="sp"></div>
-<div class="jB"><div class="oct o-me"><div class="oct-in"><span>医</span></div></div><div class="nm">創造再生 — <i>Creation Rebirth</i></div><div class="sp2">│</div><div class="rk">S-RANK</div></div>
+<div class="jB"><div class="oct o-sc"><div class="oct-in"><span>灼</span></div></div><div class="nm">灼遁・過蒸気 — <i>Scorch: Halo</i></div><div class="vl">│</div><div class="rk">B-RANK</div></div>
 <div class="sp"></div>
-<div class="jB"><div class="oct o-se"><div class="oct-in"><span>封</span></div></div><div class="nm">屍鬼封尽 — <i>Reaper Death Seal</i></div><div class="sp2">│</div><div class="rk">S-RANK</div></div>
+<div class="jB"><div class="oct o-ex"><div class="oct-in"><span>爆</span></div></div><div class="nm">爆遁・地雷拳 — <i>Explosion: Landmine Fist</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-bl"><div class="oct-in"><span>炎</span></div></div><div class="nm">炎遁・加具土命 — <i>Blaze: Kagutsuchi</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-sw"><div class="oct-in"><span>迅</span></div></div><div class="nm">迅遁・残光 — <i>Swift: Afterimage</i></div><div class="vl">│</div><div class="rk">B-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-cr"><div class="oct-in"><span>晶</span></div></div><div class="nm">晶遁・翠晶の鎧 — <i>Crystal Armor</i></div><div class="vl">│</div><div class="rk">B-RANK</div></div>
 
-<!-- ═══════ OPTION C — Color Accent ═══════ -->
-<div class="sec">OPTION C — Color Accent</div>
+<!-- ═══════ KEKKEI TOTA ═══════ -->
+<div class="sec">KEKKEI TOTA (THREE NATURES)</div>
 
-<div class="jC"><div class="ac" style="background:#e04040"></div><div class="oct o-fi"><div class="oct-in"><span>火</span></div></div><div class="nm">豪火球の術 — <i>Great Fireball</i></div><div class="rk ra">A</div></div>
-<div class="nar">Sasuke weaves Tiger, Ram, Monkey, Boar, Horse, Tiger — inhaling deeply before exhaling a massive sphere of flame...</div>
-<div class="jC"><div class="ac" style="background:#c8c830"></div><div class="oct o-ln"><div class="oct-in"><span>雷</span></div></div><div class="nm">千鳥 — <i>Chidori</i></div><div class="rk ra">A</div></div>
+<div class="jB"><div class="oct o-du"><div class="oct-in"><span>塵</span></div></div><div class="nm">塵遁・原界剥離の術 — <i>Dust: Detachment</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
+
+<!-- ═══════ YIN / YANG / YIN-YANG ═══════ -->
+<div class="sec">YIN / YANG / YIN-YANG</div>
+
+<div class="jB"><div class="oct o-yi"><div class="oct-in"><span>陰</span></div></div><div class="nm">陰遁・影真似の術 — <i>Yin: Shadow Imitation</i></div><div class="vl">│</div><div class="rk">B-RANK</div></div>
 <div class="sp"></div>
-<div class="jC"><div class="ac" style="background:#40b060"></div><div class="oct o-wi"><div class="oct-in"><span>風</span></div></div><div class="nm">螺旋手裏剣 — <i>Rasenshuriken</i></div><div class="rk rs">S</div></div>
+<div class="jB"><div class="oct o-ya"><div class="oct-in"><span>陽</span></div></div><div class="nm">陽遁・生命活性 — <i>Yang: Life Force</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 <div class="sp"></div>
-<div class="jC"><div class="ac" style="background:#8060a0"></div><div class="oct o-gn"><div class="oct-in"><span>幻</span></div></div><div class="nm">月読 — <i>Tsukuyomi</i></div><div class="rk rs">S</div></div>
+<div class="jB"><div class="oct o-yy"><div class="oct-in"><span>陰陽</span></div></div><div class="nm">陰陽遁・六道万象 — <i>Yin-Yang: All Creation</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
+
+<!-- ═══════ NON-ELEMENTAL JUTSU TYPES ═══════ -->
+<div class="sec">NON-ELEMENTAL JUTSU TYPES</div>
+
+<div class="jB"><div class="oct o-ta"><div class="oct-in"><span>体</span></div></div><div class="nm">蓮華 — <i>Primary Lotus</i></div><div class="vl">│</div><div class="rk">B-RANK</div></div>
 <div class="sp"></div>
-<div class="jC"><div class="ac" style="background:#4090c0"></div><div class="oct o-wa"><div class="oct-in"><span>水</span></div></div><div class="nm">水龍弾の術 — <i>Water Dragon</i></div><div class="rk rb">B</div></div>
+<div class="jB"><div class="oct o-gn"><div class="oct-in"><span>幻</span></div></div><div class="nm">月読 — <i>Tsukuyomi</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
 <div class="sp"></div>
-<div class="jC"><div class="ac" style="background:#b08040"></div><div class="oct o-ea"><div class="oct-in"><span>土</span></div></div><div class="nm">土流壁 — <i>Earth Wall</i></div><div class="rk rb">B</div></div>
+<div class="jB"><div class="oct o-md"><div class="oct-in"><span>医</span></div></div><div class="nm">創造再生 — <i>Creation Rebirth</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
 <div class="sp"></div>
-<div class="jC"><div class="ac" style="background:#808080"></div><div class="oct o-ta"><div class="oct-in"><span>体</span></div></div><div class="nm">蓮華 — <i>Primary Lotus</i></div><div class="rk rb">B</div></div>
+<div class="jB"><div class="oct o-sl"><div class="oct-in"><span>封</span></div></div><div class="nm">屍鬼封尽 — <i>Reaper Death Seal</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
 <div class="sp"></div>
-<div class="jC"><div class="ac" style="background:#40a060"></div><div class="oct o-me"><div class="oct-in"><span>医</span></div></div><div class="nm">創造再生 — <i>Creation Rebirth</i></div><div class="rk rs">S</div></div>
+<div class="jB"><div class="oct o-sg"><div class="oct-in"><span>仙</span></div></div><div class="nm">仙法・五右衛門 — <i>Sage Art: Goemon</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
 <div class="sp"></div>
-<div class="jC"><div class="ac" style="background:#a06040"></div><div class="oct o-se"><div class="oct-in"><span>封</span></div></div><div class="nm">屍鬼封尽 — <i>Reaper Death Seal</i></div><div class="rk rs">S</div></div>
+<div class="jB"><div class="oct o-kn"><div class="oct-in"><span>禁</span></div></div><div class="nm">穢土転生 — <i>Reanimation Jutsu</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-sp"><div class="oct-in"><span>時</span></div></div><div class="nm">飛雷神の術 — <i>Flying Thunder God</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-bk"><div class="oct-in"><span>武</span></div></div><div class="nm">飛刃雷連弾 — <i>Flying Blade Storm</i></div><div class="vl">│</div><div class="rk">B-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-kj"><div class="oct-in"><span>剣</span></div></div><div class="nm">三日月の舞 — <i>Dance of the Crescent</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-pp"><div class="oct-in"><span>傀</span></div></div><div class="nm">赤秘技・百機の操演 — <i>Red Secret: 100 Puppets</i></div><div class="vl">│</div><div class="rk">S-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-br"><div class="oct-in"><span>結</span></div></div><div class="nm">四紫炎陣 — <i>Four Violet Flames</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-cu"><div class="oct-in"><span>呪</span></div></div><div class="nm">双蛇相殺の術 — <i>Twin Snakes Mutual Death</i></div><div class="vl">│</div><div class="rk">A-RANK</div></div>
 
 </body>
 </html>
