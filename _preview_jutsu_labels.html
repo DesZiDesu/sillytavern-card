@@ -2,195 +2,122 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Jutsu Label Header V4 — CSS Octagon</title>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Noto+Serif+Thai:wght@500;700&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jutsu Label Header — 3 Designs</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#1a1a2e;font-family:'Shippori Mincho','Noto Serif JP','Noto Serif Thai',serif;padding:30px 16px;color:#e8d5b0}
-h1{text-align:center;font-size:18px;margin-bottom:6px}
-.subtitle{text-align:center;color:#888;font-size:10px;margin-bottom:35px}
-.option-title{text-align:center;color:#ffd700;font-size:13px;letter-spacing:2px;margin:35px 0 16px;border-top:1px solid #333;padding-top:16px}
-.demo{max-width:480px;margin:0 auto}
-.narration{padding:8px 14px;font-size:11px;color:#a09878;line-height:1.5;margin-bottom:14px}
-.spacer{height:10px}
+body{background:#1a1a2e;font-family:serif;padding:20px 12px;color:#e8d5b0}
+h1{text-align:center;font-size:18px;margin-bottom:30px}
+.sec{text-align:center;color:#ffd700;font-size:13px;letter-spacing:2px;margin:30px 0 14px;border-top:1px solid #333;padding-top:14px}
+.nar{padding:6px 14px;font-size:11px;color:#a09878;line-height:1.5;margin-bottom:10px}
+.sp{height:8px}
 
-/* ═══════ CSS Octagon badge ═══════ */
-.oct{
-  width:28px;height:28px;
-  clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;position:relative;
-}
-.oct-inner{
-  width:24px;height:24px;
-  clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);
-  display:flex;align-items:center;justify-content:center;
-}
-.oct-inner span{
-  font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;
-  color:#111;line-height:1;
-}
+.oct{width:28px;height:28px;clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;vertical-align:middle}
+.oct-in{width:24px;height:24px;clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);display:flex;align-items:center;justify-content:center}
+.oct-in span{font-size:14px;font-weight:900;color:#111;line-height:1}
 
-/* Element colors */
-.oct-fire{background:#8b1a1a}.oct-fire .oct-inner{background:#e04040}
-.oct-wind{background:#1a5a2a}.oct-wind .oct-inner{background:#40b060}
-.oct-ltn{background:#5a5a10}.oct-ltn .oct-inner{background:#c8c830}
-.oct-earth{background:#4a2a10}.oct-earth .oct-inner{background:#b08040}
-.oct-water{background:#1a3a5a}.oct-water .oct-inner{background:#4090c0}
-.oct-yin{background:#2a1a3a}.oct-yin .oct-inner{background:#7060a0}
-.oct-yang{background:#5a3a10}.oct-yang .oct-inner{background:#d0a030}
-.oct-tai{background:#2a2a2a}.oct-tai .oct-inner{background:#808080}
-.oct-gen{background:#2a1a3a}.oct-gen .oct-inner{background:#8060a0}
-.oct-med{background:#1a4a2a}.oct-med .oct-inner{background:#40a060}
-.oct-seal{background:#3a1a10}.oct-seal .oct-inner{background:#a06040}
-.oct-sage{background:#5a3a10}.oct-sage .oct-inner{background:#e0a020}
+.o-fi{background:#8b1a1a}.o-fi .oct-in{background:#e04040}
+.o-ln{background:#5a5a10}.o-ln .oct-in{background:#c8c830}
+.o-wi{background:#1a5a2a}.o-wi .oct-in{background:#40b060}
+.o-gn{background:#2a1a3a}.o-gn .oct-in{background:#8060a0}
+.o-wa{background:#1a3a5a}.o-wa .oct-in{background:#4090c0}
+.o-ea{background:#4a2a10}.o-ea .oct-in{background:#b08040}
+.o-ta{background:#2a2a2a}.o-ta .oct-in{background:#808080}
+.o-me{background:#1a4a2a}.o-me .oct-in{background:#40a060}
+.o-se{background:#3a1a10}.o-se .oct-in{background:#a06040}
 
-/* ═══════════════════════════════════════════
-   OPTION A — Parchment Bar
-   ═══════════════════════════════════════════ */
-.jA{
-  display:flex;align-items:center;gap:0;
-  max-width:480px;margin:8px auto;
-  border-radius:6px;overflow:hidden;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-}
-.jA .oct-box{
-  display:flex;align-items:center;justify-content:center;
-  padding:4px 8px;flex-shrink:0;
-  background:rgba(0,0,0,.4);
-}
-.jA .jA-body{
-  flex:1;display:flex;align-items:center;justify-content:space-between;
-  background:linear-gradient(180deg,#f5ead5,#f0e0c8);
-  padding:6px 12px;gap:8px;min-width:0;
-}
-.jA .jA-name{
-  font-size:12.5px;color:#2a1e14;font-weight:700;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.jA .jA-name span{font-weight:500;color:#6a5a3a;font-size:11px}
-.jA .jA-rank{
-  font-family:'M PLUS 1',sans-serif;font-size:8px;font-weight:700;
-  color:#cc3333;letter-spacing:1px;white-space:nowrap;
-  border-left:1.5px solid #d4bc9a;padding-left:8px;
-}
+/* A — Parchment Bar */
+.jA{display:flex;align-items:center;max-width:480px;margin:8px auto;border-radius:6px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.jA .ob{display:flex;align-items:center;justify-content:center;padding:4px 8px;background:rgba(0,0,0,.4);flex-shrink:0}
+.jA .bd{flex:1;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#f5ead5,#f0e0c8);padding:6px 12px;gap:8px;min-width:0}
+.jA .nm{font-size:12.5px;color:#2a1e14;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.jA .nm i{font-style:normal;font-weight:500;color:#6a5a3a;font-size:11px}
+.jA .rk{font-size:8px;font-weight:700;color:#cc3333;letter-spacing:1px;white-space:nowrap;border-left:1.5px solid #d4bc9a;padding-left:8px}
 
-/* ═══════════════════════════════════════════
-   OPTION B — Dark Inline
-   ═══════════════════════════════════════════ */
-.jB{
-  display:flex;align-items:center;gap:8px;
-  max-width:480px;margin:8px auto;
-  padding:4px 12px 4px 4px;
-  border-bottom:1px solid rgba(200,180,140,.12);
-}
-.jB .jB-name{
-  flex:1;font-size:12.5px;color:#e8d5b0;font-weight:700;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;
-}
-.jB .jB-name span{color:#a09070;font-weight:400;font-size:11px}
-.jB .jB-sep{color:rgba(200,180,140,.25);font-size:14px;margin:0 2px}
-.jB .jB-rank{
-  font-family:'M PLUS 1',sans-serif;font-size:8px;font-weight:700;
-  color:#cc6633;letter-spacing:1px;white-space:nowrap;
-}
+/* B — Dark Inline */
+.jB{display:flex;align-items:center;gap:8px;max-width:480px;margin:8px auto;padding:4px 12px 4px 4px;border-bottom:1px solid rgba(200,180,140,.12)}
+.jB .nm{flex:1;font-size:12.5px;color:#e8d5b0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.jB .nm i{font-style:normal;color:#a09070;font-weight:400;font-size:11px}
+.jB .sp2{color:rgba(200,180,140,.25);font-size:14px;margin:0 2px}
+.jB .rk{font-size:8px;font-weight:700;color:#cc6633;letter-spacing:1px;white-space:nowrap}
 
-/* ═══════════════════════════════════════════
-   OPTION C — Color Accent
-   ═══════════════════════════════════════════ */
-.jC{
-  display:flex;align-items:center;gap:8px;
-  max-width:480px;margin:8px auto;
-  padding:5px 12px 5px 0;
-  position:relative;overflow:hidden;
-}
-.jC .jC-accent{
-  width:3px;align-self:stretch;flex-shrink:0;border-radius:2px;
-}
-.jC .jC-name{
-  flex:1;font-size:12.5px;color:#e8d5b0;font-weight:700;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;
-}
-.jC .jC-name span{color:#a09070;font-weight:400;font-size:11px}
-.jC .jC-rank{
-  font-family:'M PLUS 1',sans-serif;font-size:9px;font-weight:700;
-  letter-spacing:1px;white-space:nowrap;
-  padding:1px 6px;border-radius:3px;
-}
-.rk-s{color:#cc3333;background:rgba(204,51,51,.1);border:1px solid rgba(204,51,51,.3)}
-.rk-a{color:#cc6633;background:rgba(204,102,51,.1);border:1px solid rgba(204,102,51,.3)}
-.rk-b{color:#8a8a2a;background:rgba(138,138,42,.1);border:1px solid rgba(138,138,42,.3)}
-.rk-c{color:#3a8a3a;background:rgba(58,138,58,.1);border:1px solid rgba(58,138,58,.3)}
+/* C — Color Accent */
+.jC{display:flex;align-items:center;gap:8px;max-width:480px;margin:8px auto;padding:5px 12px 5px 0;overflow:hidden}
+.jC .ac{width:3px;align-self:stretch;flex-shrink:0;border-radius:2px}
+.jC .nm{flex:1;font-size:12.5px;color:#e8d5b0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.jC .nm i{font-style:normal;color:#a09070;font-weight:400;font-size:11px}
+.jC .rk{font-size:9px;font-weight:700;letter-spacing:1px;white-space:nowrap;padding:1px 6px;border-radius:3px}
+.rs{color:#cc3333;background:rgba(204,51,51,.1);border:1px solid rgba(204,51,51,.3)}
+.ra{color:#cc6633;background:rgba(204,102,51,.1);border:1px solid rgba(204,102,51,.3)}
+.rb{color:#8a8a2a;background:rgba(138,138,42,.1);border:1px solid rgba(138,138,42,.3)}
 </style>
 </head>
 <body>
 
-<h1>Jutsu Label Header V4</h1>
-<div class="subtitle">CSS octagon element badges — no emoji, no SVG</div>
+<h1>Jutsu Label — 3 Designs</h1>
 
-<script>
-var elements = {
-  fire:    ['火','oct-fire','#e04040'],
-  wind:    ['風','oct-wind','#40b060'],
-  lightning:['雷','oct-ltn','#c8c830'],
-  earth:   ['土','oct-earth','#b08040'],
-  water:   ['水','oct-water','#4090c0'],
-  yin:     ['陰','oct-yin','#7060a0'],
-  taijutsu:['体','oct-tai','#808080'],
-  genjutsu:['幻','oct-gen','#8060a0'],
-  medical: ['医','oct-med','#40a060'],
-  seal:    ['封','oct-seal','#a06040'],
-  sage:    ['仙','oct-sage','#e0a020'],
-};
+<!-- ═══════ OPTION A — Parchment Bar ═══════ -->
+<div class="sec">OPTION A — Parchment Bar</div>
 
-var jutsu = [
-  {el:'fire',   kanji:'豪火球の術', name:'Great Fireball', rank:'A'},
-  {el:'lightning',kanji:'千鳥', name:'Chidori', rank:'A'},
-  {el:'wind',   kanji:'螺旋手裏剣', name:'Rasenshuriken', rank:'S'},
-  {el:'genjutsu',kanji:'月読', name:'Tsukuyomi', rank:'S'},
-  {el:'water',  kanji:'水龍弾の術', name:'Water Dragon Bullet', rank:'B'},
-  {el:'earth',  kanji:'土流壁', name:'Earth-Style Wall', rank:'B'},
-  {el:'taijutsu',kanji:'蓮華', name:'Primary Lotus', rank:'B'},
-  {el:'medical',kanji:'創造再生', name:'Creation Rebirth', rank:'S'},
-  {el:'seal',   kanji:'屍鬼封尽', name:'Reaper Death Seal', rank:'S'},
-];
+<div class="jA"><div class="ob"><div class="oct o-fi"><div class="oct-in"><span>火</span></div></div></div><div class="bd"><div class="nm">豪火球の術 — <i>Great Fireball</i></div><div class="rk">A-RANK</div></div></div>
+<div class="nar">Sasuke weaves Tiger, Ram, Monkey, Boar, Horse, Tiger — inhaling deeply before exhaling a massive sphere of flame...</div>
+<div class="jA"><div class="ob"><div class="oct o-ln"><div class="oct-in"><span>雷</span></div></div></div><div class="bd"><div class="nm">千鳥 — <i>Chidori</i></div><div class="rk">A-RANK</div></div></div>
+<div class="sp"></div>
+<div class="jA"><div class="ob"><div class="oct o-wi"><div class="oct-in"><span>風</span></div></div></div><div class="bd"><div class="nm">螺旋手裏剣 — <i>Rasenshuriken</i></div><div class="rk">S-RANK</div></div></div>
+<div class="sp"></div>
+<div class="jA"><div class="ob"><div class="oct o-gn"><div class="oct-in"><span>幻</span></div></div></div><div class="bd"><div class="nm">月読 — <i>Tsukuyomi</i></div><div class="rk">S-RANK</div></div></div>
+<div class="sp"></div>
+<div class="jA"><div class="ob"><div class="oct o-wa"><div class="oct-in"><span>水</span></div></div></div><div class="bd"><div class="nm">水龍弾の術 — <i>Water Dragon</i></div><div class="rk">B-RANK</div></div></div>
+<div class="sp"></div>
+<div class="jA"><div class="ob"><div class="oct o-ea"><div class="oct-in"><span>土</span></div></div></div><div class="bd"><div class="nm">土流壁 — <i>Earth Wall</i></div><div class="rk">B-RANK</div></div></div>
+<div class="sp"></div>
+<div class="jA"><div class="ob"><div class="oct o-ta"><div class="oct-in"><span>体</span></div></div></div><div class="bd"><div class="nm">蓮華 — <i>Primary Lotus</i></div><div class="rk">B-RANK</div></div></div>
+<div class="sp"></div>
+<div class="jA"><div class="ob"><div class="oct o-me"><div class="oct-in"><span>医</span></div></div></div><div class="bd"><div class="nm">創造再生 — <i>Creation Rebirth</i></div><div class="rk">S-RANK</div></div></div>
+<div class="sp"></div>
+<div class="jA"><div class="ob"><div class="oct o-se"><div class="oct-in"><span>封</span></div></div></div><div class="bd"><div class="nm">屍鬼封尽 — <i>Reaper Death Seal</i></div><div class="rk">S-RANK</div></div></div>
 
-function octHTML(el) {
-  var e = elements[el];
-  return '<div class="oct '+e[1]+'"><div class="oct-inner"><span>'+e[0]+'</span></div></div>';
-}
+<!-- ═══════ OPTION B — Dark Inline ═══════ -->
+<div class="sec">OPTION B — Dark Inline</div>
 
-function rkClass(r){ return r==='S'?'rk-s':r==='A'?'rk-a':r==='B'?'rk-b':'rk-c'; }
+<div class="jB"><div class="oct o-fi"><div class="oct-in"><span>火</span></div></div><div class="nm">豪火球の術 — <i>Great Fireball</i></div><div class="sp2">│</div><div class="rk">A-RANK</div></div>
+<div class="nar">Sasuke weaves Tiger, Ram, Monkey, Boar, Horse, Tiger — inhaling deeply before exhaling a massive sphere of flame...</div>
+<div class="jB"><div class="oct o-ln"><div class="oct-in"><span>雷</span></div></div><div class="nm">千鳥 — <i>Chidori</i></div><div class="sp2">│</div><div class="rk">A-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-wi"><div class="oct-in"><span>風</span></div></div><div class="nm">螺旋手裏剣 — <i>Rasenshuriken</i></div><div class="sp2">│</div><div class="rk">S-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-gn"><div class="oct-in"><span>幻</span></div></div><div class="nm">月読 — <i>Tsukuyomi</i></div><div class="sp2">│</div><div class="rk">S-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-wa"><div class="oct-in"><span>水</span></div></div><div class="nm">水龍弾の術 — <i>Water Dragon</i></div><div class="sp2">│</div><div class="rk">B-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-ea"><div class="oct-in"><span>土</span></div></div><div class="nm">土流壁 — <i>Earth Wall</i></div><div class="sp2">│</div><div class="rk">B-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-ta"><div class="oct-in"><span>体</span></div></div><div class="nm">蓮華 — <i>Primary Lotus</i></div><div class="sp2">│</div><div class="rk">B-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-me"><div class="oct-in"><span>医</span></div></div><div class="nm">創造再生 — <i>Creation Rebirth</i></div><div class="sp2">│</div><div class="rk">S-RANK</div></div>
+<div class="sp"></div>
+<div class="jB"><div class="oct o-se"><div class="oct-in"><span>封</span></div></div><div class="nm">屍鬼封尽 — <i>Reaper Death Seal</i></div><div class="sp2">│</div><div class="rk">S-RANK</div></div>
 
-// ═══════ OPTION A ═══════
-var hA = '';
-jutsu.forEach(function(j,i){
-  hA += '<div class="jA"><div class="oct-box">'+octHTML(j.el)+'</div><div class="jA-body"><div class="jA-name">'+j.kanji+' — <span>'+j.name+'</span></div><div class="jA-rank">'+j.rank+'-RANK</div></div></div>';
-  if(i===0) hA += '<div class="narration">Sasuke weaves Tiger → Ram → Monkey → Boar → Horse → Tiger, inhaling deeply before exhaling a massive sphere of flame that engulfs the clearing...</div>';
-  else hA += '<div class="spacer"></div>';
-});
+<!-- ═══════ OPTION C — Color Accent ═══════ -->
+<div class="sec">OPTION C — Color Accent</div>
 
-// ═══════ OPTION B ═══════
-var hB = '';
-jutsu.forEach(function(j,i){
-  hB += '<div class="jB">'+octHTML(j.el)+'<div class="jB-name">'+j.kanji+' — <span>'+j.name+'</span></div><div class="jB-sep">│</div><div class="jB-rank">'+j.rank+'-RANK</div></div>';
-  if(i===0) hB += '<div class="narration">Sasuke weaves Tiger → Ram → Monkey → Boar → Horse → Tiger, inhaling deeply before exhaling a massive sphere of flame that engulfs the clearing...</div>';
-  else hB += '<div class="spacer"></div>';
-});
-
-// ═══════ OPTION C ═══════
-var hC = '';
-jutsu.forEach(function(j,i){
-  var e = elements[j.el];
-  hC += '<div class="jC"><div class="jC-accent" style="background:'+e[2]+'"></div>'+octHTML(j.el)+'<div class="jC-name">'+j.kanji+' — <span>'+j.name+'</span></div><div class="jC-rank '+rkClass(j.rank)+'">'+j.rank+'</div></div>';
-  if(i===0) hC += '<div class="narration">Sasuke weaves Tiger → Ram → Monkey → Boar → Horse → Tiger, inhaling deeply before exhaling a massive sphere of flame that engulfs the clearing...</div>';
-  else hC += '<div class="spacer"></div>';
-});
-
-document.write('<div class="option-title">OPTION A — Parchment Bar</div><div class="demo">'+hA+'</div>');
-document.write('<div class="option-title">OPTION B — Dark Inline</div><div class="demo">'+hB+'</div>');
-document.write('<div class="option-title">OPTION C — Color Accent</div><div class="demo">'+hC+'</div>');
-</script>
+<div class="jC"><div class="ac" style="background:#e04040"></div><div class="oct o-fi"><div class="oct-in"><span>火</span></div></div><div class="nm">豪火球の術 — <i>Great Fireball</i></div><div class="rk ra">A</div></div>
+<div class="nar">Sasuke weaves Tiger, Ram, Monkey, Boar, Horse, Tiger — inhaling deeply before exhaling a massive sphere of flame...</div>
+<div class="jC"><div class="ac" style="background:#c8c830"></div><div class="oct o-ln"><div class="oct-in"><span>雷</span></div></div><div class="nm">千鳥 — <i>Chidori</i></div><div class="rk ra">A</div></div>
+<div class="sp"></div>
+<div class="jC"><div class="ac" style="background:#40b060"></div><div class="oct o-wi"><div class="oct-in"><span>風</span></div></div><div class="nm">螺旋手裏剣 — <i>Rasenshuriken</i></div><div class="rk rs">S</div></div>
+<div class="sp"></div>
+<div class="jC"><div class="ac" style="background:#8060a0"></div><div class="oct o-gn"><div class="oct-in"><span>幻</span></div></div><div class="nm">月読 — <i>Tsukuyomi</i></div><div class="rk rs">S</div></div>
+<div class="sp"></div>
+<div class="jC"><div class="ac" style="background:#4090c0"></div><div class="oct o-wa"><div class="oct-in"><span>水</span></div></div><div class="nm">水龍弾の術 — <i>Water Dragon</i></div><div class="rk rb">B</div></div>
+<div class="sp"></div>
+<div class="jC"><div class="ac" style="background:#b08040"></div><div class="oct o-ea"><div class="oct-in"><span>土</span></div></div><div class="nm">土流壁 — <i>Earth Wall</i></div><div class="rk rb">B</div></div>
+<div class="sp"></div>
+<div class="jC"><div class="ac" style="background:#808080"></div><div class="oct o-ta"><div class="oct-in"><span>体</span></div></div><div class="nm">蓮華 — <i>Primary Lotus</i></div><div class="rk rb">B</div></div>
+<div class="sp"></div>
+<div class="jC"><div class="ac" style="background:#40a060"></div><div class="oct o-me"><div class="oct-in"><span>医</span></div></div><div class="nm">創造再生 — <i>Creation Rebirth</i></div><div class="rk rs">S</div></div>
+<div class="sp"></div>
+<div class="jC"><div class="ac" style="background:#a06040"></div><div class="oct o-se"><div class="oct-in"><span>封</span></div></div><div class="nm">屍鬼封尽 — <i>Reaper Death Seal</i></div><div class="rk rs">S</div></div>
 
 </body>
 </html>
