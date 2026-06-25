@@ -7,62 +7,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 body{background:#0a0908;margin:0;padding:20px;font-family:'Shippori Mincho',serif;}
-h2{color:#7a7060;text-align:center;font-size:13px;margin:30px 0 8px;font-family:'M PLUS 1',sans-serif;letter-spacing:2px;}
-p.note{color:#5a5850;text-align:center;font-size:10px;font-family:'M PLUS 1',sans-serif;margin:0 0 18px;}
-.gedo-panel{max-width:400px;margin:0 auto 40px;background:linear-gradient(180deg,#14120e 0%,#1a1810 50%,#14120e 100%);border:1px solid rgba(100,90,70,.15);border-radius:10px;padding:16px;box-shadow:0 0 30px rgba(40,30,15,.2),inset 0 0 20px rgba(0,0,0,.3);}
-.gedo-panel.complete{border-color:rgba(130,90,180,.2);box-shadow:0 0 40px rgba(100,50,150,.15),inset 0 0 20px rgba(60,20,100,.08);}
-.gedo-statue-wrap{display:flex;justify-content:center;padding:10px 0 5px;}
-.gedo-statue-wrap svg{width:200px;height:auto;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5));}
-.gedo-title-area{text-align:center;margin-bottom:4px;}
-.gedo-title-area .name{font-size:15px;font-weight:800;color:#c8b898;letter-spacing:2px;}
-.gedo-title-area .sub{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#6a6050;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
-.gedo-count{text-align:center;margin:8px 0 12px;}
-.gedo-count span{font-family:'M PLUS 1',sans-serif;font-size:9px;letter-spacing:1px;color:#7a7060;}
-.gedo-count strong{color:#b8a888;font-size:11px;}
-.gedo-progress{margin:10px 0 4px;}
-.gedo-prog-head{display:flex;justify-content:space-between;margin-bottom:4px;}
-.gedo-prog-head span{font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#6a6050;}
-.gedo-prog-head strong{font-size:9px;color:#a89878;}
-.gedo-prog-bar{height:5px;background:rgba(40,35,25,.5);border-radius:4px;overflow:hidden;}
-.gedo-prog-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#5a4020,#8a6840);box-shadow:0 0 6px rgba(140,100,50,.25);}
-.gedo-prog-fill.full{background:linear-gradient(90deg,#6a3a8a,#9a5ac0);box-shadow:0 0 10px rgba(140,70,200,.3);}
-.gedo-divider{height:1px;background:rgba(100,90,70,.1);margin:12px 0;}
-.beast-grid{display:flex;flex-direction:column;gap:4px;}
-.beast-row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;background:rgba(25,22,18,.6);border:1px solid rgba(60,55,40,.1);}
-.beast-row.sealed{background:rgba(80,55,30,.08);border-color:rgba(120,90,50,.15);}
-.beast-tails{width:22px;height:22px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-size:11px;font-weight:900;}
-.beast-tails.free{background:rgba(35,32,25,.8);color:#4a4840;border:1px solid rgba(50,45,35,.3);}
-.beast-tails.sealed{background:linear-gradient(135deg,#5a4020,#4a3018);color:#d8c8a8;border:1px solid rgba(140,100,50,.25);box-shadow:0 0 6px rgba(120,80,30,.15);}
-.beast-info{flex:1;min-width:0;}
-.beast-name{font-size:11px;font-weight:700;letter-spacing:.5px;}
-.beast-name.free{color:#4a4840;}
-.beast-name.sealed{color:#c8b898;}
-.beast-detail{font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:.5px;margin-top:1px;}
-.beast-detail.free{color:#3a3830;}
-.beast-detail.sealed{color:#8a7a60;}
-.beast-jinch{font-family:'M PLUS 1',sans-serif;font-size:7px;color:#5a5848;margin-top:1px;}
-.beast-jinch.sealed{color:#6a5a48;}
-.beast-status{flex-shrink:0;font-family:'M PLUS 1',sans-serif;font-size:7px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px;}
-.beast-status.free{color:#4a6a4a;background:rgba(40,60,30,.12);border:1px solid rgba(50,70,40,.15);}
-.beast-status.sealed{color:#b88a50;background:rgba(140,90,30,.08);border:1px solid rgba(140,90,30,.15);}
-.gedo-access{margin-top:12px;padding:8px 10px;background:rgba(100,50,30,.06);border:1px solid rgba(100,50,30,.12);border-radius:6px;text-align:center;}
-.gedo-access span{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#8a6048;letter-spacing:.5px;}
-.gedo-warn{text-align:center;margin:10px 0 4px;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#b87ae0;letter-spacing:1px;}
+h2{color:#5a5448;text-align:center;font-size:11px;margin:40px 0 4px;font-family:'M PLUS 1',sans-serif;letter-spacing:2px;text-transform:uppercase;}
+p.note{color:#4a4840;text-align:center;font-size:9px;font-family:'M PLUS 1',sans-serif;margin:0 0 10px;}
+.gedo-wrap{text-align:center;margin:0 auto 50px;max-width:280px;}
+.gedo-wrap svg{width:220px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.6));}
+.gedo-wrap.complete svg{filter:drop-shadow(0 6px 18px rgba(0,0,0,.6)) drop-shadow(0 0 25px rgba(120,60,180,.12));}
+.gedo-name{font-size:13px;font-weight:800;color:#a89878;letter-spacing:2px;margin-bottom:8px;}
+.gedo-name small{display:block;font-family:'M PLUS 1',sans-serif;font-size:7px;color:#5a5448;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;margin-top:2px;}
+.gedo-count{margin-top:10px;font-family:'M PLUS 1',sans-serif;font-size:10px;color:#6a6058;letter-spacing:1px;}
+.gedo-count strong{color:#b8a888;font-size:12px;}
+.gedo-count.done{color:#9a7abc;}
+.gedo-count.done strong{color:#d0b0f0;}
+.gedo-revival{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a6ac0;letter-spacing:1.5px;margin-top:4px;}
 </style>
 </head>
 <body>
 
 <!-- ============== SCENARIO 1: 3/9 SEALED ============== -->
 <h2>SCENARIO 1 — 3 OF 9 SEALED</h2>
-<p class="note">Shukaku, Matatabi, and Isobu captured — early Shippuden</p>
+<p class="note">Shukaku, Matatabi, Isobu captured</p>
 
-<div class="gedo-panel">
-<div class="gedo-title-area">
-<div class="name">外道魔像 — Gedō Mazō</div>
-<div class="sub">Demonic Statue of the Outer Path</div>
-</div>
-
-<div class="gedo-statue-wrap">
+<div class="gedo-wrap">
+<div class="gedo-name">外道魔像<small>Demonic Statue of the Outer Path</small></div>
 <svg viewBox="0 0 240 310" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <filter id="sta" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="4" seed="3" result="n"/><feColorMatrix type="saturate" values="0" in="n" result="g"/><feBlend in="SourceGraphic" in2="g" mode="multiply" result="t"/><feComposite in="t" in2="SourceGraphic" operator="in"/></filter>
@@ -71,145 +37,53 @@ p.note{color:#5a5850;text-align:center;font-size:10px;font-family:'M PLUS 1',san
 <linearGradient id="sha" x1=".3" y1="0" x2=".7" y2="1"><stop offset="0%" stop-color="#555250"/><stop offset="100%" stop-color="#3a3735"/></linearGradient>
 <radialGradient id="rna"><stop offset="0%" stop-color="#c8b0e0"/><stop offset="35%" stop-color="#9370db"/><stop offset="70%" stop-color="#7b5ea7"/><stop offset="100%" stop-color="#4a2d6a"/></radialGradient>
 </defs>
-<!-- Shadow -->
 <ellipse cx="120" cy="302" rx="75" ry="5" fill="rgba(0,0,0,.25)"/>
-<!-- Back spikes -->
-<g opacity=".6">
-<polygon points="32,185 14,55 50,178" fill="#26241e"/>
-<polygon points="24,192 -2,95 42,187" fill="#1e1c16"/>
-<polygon points="208,185 226,55 190,178" fill="#26241e"/>
-<polygon points="216,192 242,95 198,187" fill="#1e1c16"/>
-</g>
-<!-- Body -->
+<g opacity=".6"><polygon points="32,185 14,55 50,178" fill="#26241e"/><polygon points="24,192 -2,95 42,187" fill="#1e1c16"/><polygon points="208,185 226,55 190,178" fill="#26241e"/><polygon points="216,192 242,95 198,187" fill="#1e1c16"/></g>
 <path d="M68,168 C50,174 38,198 42,228 L45,262 C46,278 58,288 70,282 L80,300 L160,300 L170,282 C182,288 194,278 195,262 L198,228 C202,198 190,174 172,168Z" fill="url(#sga)" filter="url(#sta)"/>
 <line x1="120" y1="172" x2="120" y2="290" stroke="#2a2820" stroke-width=".8" opacity=".25"/>
-<!-- Ribs -->
-<g stroke="#2c2a24" stroke-width="1.2" fill="none" opacity=".45">
-<path d="M82,198 Q120,189 158,198"/><path d="M78,214 Q120,205 162,214"/><path d="M76,230 Q120,221 164,230"/><path d="M76,246 Q120,237 164,246"/><path d="M78,262 Q120,253 162,262"/>
-</g>
-<!-- Left arm -->
-<path d="M68,168 C52,174 40,190 36,212 L32,242 C30,252 34,258 40,255" fill="#38352f" filter="url(#sta)" opacity=".9"/>
-<path d="M40,255 L36,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
+<g stroke="#2c2a24" stroke-width="1.2" fill="none" opacity=".45"><path d="M82,198 Q120,189 158,198"/><path d="M78,214 Q120,205 162,214"/><path d="M76,230 Q120,221 164,230"/><path d="M76,246 Q120,237 164,246"/><path d="M78,262 Q120,253 162,262"/></g>
+<path d="M68,168 C52,174 40,190 36,212 L32,242 C30,252 34,258 40,255" fill="#38352f" filter="url(#sta)" opacity=".9"/><path d="M40,255 L36,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
 <rect x="28" y="265" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
 <g fill="none" stroke="#44413d" stroke-width="2"><ellipse cx="36" cy="282" rx="3.5" ry="3"/><ellipse cx="36" cy="290" rx="3.5" ry="3"/><ellipse cx="36" cy="298" rx="3.5" ry="3"/></g>
-<!-- Right arm -->
-<path d="M172,168 C188,174 200,190 204,212 L208,242 C210,252 206,258 200,255" fill="#38352f" filter="url(#sta)" opacity=".9"/>
-<path d="M200,255 L204,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
+<path d="M172,168 C188,174 200,190 204,212 L208,242 C210,252 206,258 200,255" fill="#38352f" filter="url(#sta)" opacity=".9"/><path d="M200,255 L204,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
 <rect x="196" y="265" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
 <g fill="none" stroke="#44413d" stroke-width="2"><ellipse cx="204" cy="282" rx="3.5" ry="3"/><ellipse cx="204" cy="290" rx="3.5" ry="3"/><ellipse cx="204" cy="298" rx="3.5" ry="3"/></g>
-<!-- Shoulders -->
 <circle cx="72" cy="172" r="7" fill="#44413d"/><circle cx="168" cy="172" r="7" fill="#44413d"/>
-<!-- Neck -->
 <rect x="104" y="148" width="32" height="20" rx="4" fill="#3a3735"/>
 <g stroke="#4a4845" stroke-width="1.2" opacity=".35" fill="none"><line x1="106" y1="153" x2="134" y2="153"/><line x1="106" y1="158" x2="134" y2="158"/><line x1="106" y1="163" x2="134" y2="163"/></g>
-<!-- Head -->
 <path d="M120,30 C96,30 74,52 70,76 C67,92 68,110 74,124 L82,136 C90,144 104,150 120,150 C136,150 150,144 158,136 L166,124 C172,110 173,92 170,76 C166,52 144,30 120,30Z" fill="url(#sha)" filter="url(#sta)"/>
-<!-- Crown spikes -->
-<g fill="#3e3b36">
-<polygon points="86,35 76,0 94,32"/><polygon points="100,31 94,-8 106,-8"/><polygon points="120,28 115,-16 125,-16"/><polygon points="140,31 134,-8 146,-8"/><polygon points="154,35 164,0 146,32"/>
-</g>
-<!-- Brow ridge -->
+<g fill="#3e3b36"><polygon points="86,35 76,0 94,32"/><polygon points="100,31 94,-8 106,-8"/><polygon points="120,28 115,-16 125,-16"/><polygon points="140,31 134,-8 146,-8"/><polygon points="154,35 164,0 146,32"/></g>
 <path d="M78,60 Q120,53 162,60" stroke="#4a4845" stroke-width="2.5" fill="none" opacity=".45"/>
-<!-- Nose -->
 <path d="M120,72 L118,100 L120,110 L122,100Z" fill="#38352f" opacity=".35"/>
-<!-- Face wrappings -->
-<g stroke="#504d48" stroke-width="1.8" opacity=".3" fill="none">
-<path d="M72,50 Q120,46 168,50"/><path d="M70,66 Q120,62 170,66"/><path d="M74,130 Q120,126 166,130"/>
-</g>
-<!-- Mouth gag -->
+<g stroke="#504d48" stroke-width="1.8" opacity=".3" fill="none"><path d="M72,50 Q120,46 168,50"/><path d="M70,66 Q120,62 170,66"/><path d="M74,130 Q120,126 166,130"/></g>
 <rect x="84" y="128" width="72" height="10" rx="2" fill="#44413d"/>
 <g stroke="#33302c" stroke-width=".6"><line x1="94" y1="128" x2="94" y2="138"/><line x1="104" y1="128" x2="104" y2="138"/><line x1="114" y1="128" x2="114" y2="138"/><line x1="126" y1="128" x2="126" y2="138"/><line x1="136" y1="128" x2="136" y2="138"/><line x1="146" y1="128" x2="146" y2="138"/></g>
 <path d="M84,133 C70,131 66,126 64,118" stroke="#44413d" stroke-width="1.5" fill="none" opacity=".4"/>
 <path d="M156,133 C170,131 174,126 176,118" stroke="#44413d" stroke-width="1.5" fill="none" opacity=".4"/>
-<!-- Cracks -->
-<g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".35">
-<path d="M105,40 L100,56 L103,66"/><path d="M138,42 L142,58 L139,68"/><path d="M80,78 L84,90"/><path d="M160,80 L156,92"/><path d="M92,120 L95,128"/><path d="M148,118 L145,126"/><path d="M90,180 L94,198 L92,210"/><path d="M150,182 L146,200 L148,212"/>
-</g>
-<!-- EYES: E1-E3 open (sealed), E4-E9 closed -->
-<g filter="url(#ega)"><ellipse cx="120" cy="62" rx="9" ry="5.5" fill="url(#rna)"/><ellipse cx="120" cy="62" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="120" cy="62" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="120" cy="62" r="1.5" fill="#d8c8e8"/></g>
-<g filter="url(#ega)"><ellipse cx="100" cy="76" rx="9" ry="5.5" fill="url(#rna)"/><ellipse cx="100" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="100" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="100" cy="76" r="1.5" fill="#d8c8e8"/></g>
-<g filter="url(#ega)"><ellipse cx="140" cy="76" rx="9" ry="5.5" fill="url(#rna)"/><ellipse cx="140" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="140" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="140" cy="76" r="1.5" fill="#d8c8e8"/></g>
-<g><ellipse cx="86" cy="90" rx="9" ry="5.5" fill="#28261e"/><line x1="78" y1="90" x2="94" y2="90" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
-<g><ellipse cx="120" cy="90" rx="9" ry="5.5" fill="#28261e"/><line x1="112" y1="90" x2="128" y2="90" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
-<g><ellipse cx="154" cy="90" rx="9" ry="5.5" fill="#28261e"/><line x1="146" y1="90" x2="162" y2="90" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
-<g><ellipse cx="100" cy="104" rx="9" ry="5.5" fill="#28261e"/><line x1="92" y1="104" x2="108" y2="104" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
-<g><ellipse cx="140" cy="104" rx="9" ry="5.5" fill="#28261e"/><line x1="132" y1="104" x2="148" y2="104" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
-<g><ellipse cx="120" cy="118" rx="9" ry="5.5" fill="#28261e"/><line x1="112" y1="118" x2="128" y2="118" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
-<!-- Base -->
-<rect x="65" y="298" width="110" height="5" rx="2" fill="#2a2820"/>
-<rect x="55" y="302" width="130" height="4" rx="1" fill="#22201c"/>
+<g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".35"><path d="M105,40 L100,56 L103,66"/><path d="M138,42 L142,58 L139,68"/><path d="M80,78 L84,90"/><path d="M160,80 L156,92"/><path d="M92,120 L95,128"/><path d="M148,118 L145,126"/><path d="M90,180 L94,198 L92,210"/><path d="M150,182 L146,200 L148,212"/></g>
+<!-- E1 OPEN: 一 (Shukaku) -->
+<g filter="url(#ega)"><ellipse cx="120" cy="62" rx="9" ry="5.5" fill="url(#rna)"/><ellipse cx="120" cy="62" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="120" cy="62" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="120" y="62" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">一</text></g>
+<!-- E2 OPEN: 二 (Matatabi) -->
+<g filter="url(#ega)"><ellipse cx="100" cy="76" rx="9" ry="5.5" fill="url(#rna)"/><ellipse cx="100" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="100" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="100" y="76" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">二</text></g>
+<!-- E3 OPEN: 三 (Isobu) -->
+<g filter="url(#ega)"><ellipse cx="140" cy="76" rx="9" ry="5.5" fill="url(#rna)"/><ellipse cx="140" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="140" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="140" y="76" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">三</text></g>
+<!-- E4 CLOSED --><g><ellipse cx="86" cy="90" rx="9" ry="5.5" fill="#28261e"/><line x1="78" y1="90" x2="94" y2="90" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<!-- E5 CLOSED --><g><ellipse cx="120" cy="90" rx="9" ry="5.5" fill="#28261e"/><line x1="112" y1="90" x2="128" y2="90" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<!-- E6 CLOSED --><g><ellipse cx="154" cy="90" rx="9" ry="5.5" fill="#28261e"/><line x1="146" y1="90" x2="162" y2="90" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<!-- E7 CLOSED --><g><ellipse cx="100" cy="104" rx="9" ry="5.5" fill="#28261e"/><line x1="92" y1="104" x2="108" y2="104" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<!-- E8 CLOSED --><g><ellipse cx="140" cy="104" rx="9" ry="5.5" fill="#28261e"/><line x1="132" y1="104" x2="148" y2="104" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<!-- E9 CLOSED --><g><ellipse cx="120" cy="118" rx="9" ry="5.5" fill="#28261e"/><line x1="112" y1="118" x2="128" y2="118" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<rect x="65" y="298" width="110" height="5" rx="2" fill="#2a2820"/><rect x="55" y="302" width="130" height="4" rx="1" fill="#22201c"/>
 </svg>
-</div>
-
-<div class="gedo-count"><span><strong>3</strong> / 9 Bijū Sealed</span></div>
-<div class="gedo-progress">
-<div class="gedo-prog-head"><span>Sealing Progress</span><strong>33%</strong></div>
-<div class="gedo-prog-bar"><div class="gedo-prog-fill" style="width:33%"></div></div>
-</div>
-<div class="gedo-divider"></div>
-
-<div class="beast-grid">
-<div class="beast-row sealed">
-<div class="beast-tails sealed">一</div>
-<div class="beast-info"><div class="beast-name sealed">Shukaku — 守鶴</div><div class="beast-detail sealed">One-Tail · Tanuki</div><div class="beast-jinch sealed">Extracted from: Gaara</div></div>
-<div class="beast-status sealed">Sealed</div>
-</div>
-<div class="beast-row sealed">
-<div class="beast-tails sealed">二</div>
-<div class="beast-info"><div class="beast-name sealed">Matatabi — 又旅</div><div class="beast-detail sealed">Two-Tails · Bakeneko</div><div class="beast-jinch sealed">Extracted from: Yugito Nii</div></div>
-<div class="beast-status sealed">Sealed</div>
-</div>
-<div class="beast-row sealed">
-<div class="beast-tails sealed">三</div>
-<div class="beast-info"><div class="beast-name sealed">Isobu — 磯撫</div><div class="beast-detail sealed">Three-Tails · Turtle</div><div class="beast-jinch sealed">Captured in the wild</div></div>
-<div class="beast-status sealed">Sealed</div>
-</div>
-<div class="beast-row">
-<div class="beast-tails free">四</div>
-<div class="beast-info"><div class="beast-name free">Son Gokū — 孫悟空</div><div class="beast-detail free">Four-Tails · Monkey</div><div class="beast-jinch">Jinchūriki: Rōshi</div></div>
-<div class="beast-status free">Free</div>
-</div>
-<div class="beast-row">
-<div class="beast-tails free">五</div>
-<div class="beast-info"><div class="beast-name free">Kokuō — 穆王</div><div class="beast-detail free">Five-Tails · Dolphin Horse</div><div class="beast-jinch">Jinchūriki: Han</div></div>
-<div class="beast-status free">Free</div>
-</div>
-<div class="beast-row">
-<div class="beast-tails free">六</div>
-<div class="beast-info"><div class="beast-name free">Saiken — 犀犬</div><div class="beast-detail free">Six-Tails · Slug</div><div class="beast-jinch">Jinchūriki: Utakata</div></div>
-<div class="beast-status free">Free</div>
-</div>
-<div class="beast-row">
-<div class="beast-tails free">七</div>
-<div class="beast-info"><div class="beast-name free">Chōmei — 重明</div><div class="beast-detail free">Seven-Tails · Beetle</div><div class="beast-jinch">Jinchūriki: Fū</div></div>
-<div class="beast-status free">Free</div>
-</div>
-<div class="beast-row">
-<div class="beast-tails free">八</div>
-<div class="beast-info"><div class="beast-name free">Gyūki — 牛鬼</div><div class="beast-detail free">Eight-Tails · Ox-Cephalopod</div><div class="beast-jinch">Jinchūriki: Killer Bee</div></div>
-<div class="beast-status free">Free</div>
-</div>
-<div class="beast-row">
-<div class="beast-tails free">九</div>
-<div class="beast-info"><div class="beast-name free">Kurama — 九喇嘛</div><div class="beast-detail free">Nine-Tails · Fox</div><div class="beast-jinch">Jinchūriki: Naruto Uzumaki</div></div>
-<div class="beast-status free">Free</div>
-</div>
-</div>
-
-<div class="gedo-access"><span>Visible only to Akatsuki members or Rinnegan wielders</span></div>
+<div class="gedo-count"><strong>3</strong> / 9 封印済</div>
 </div>
 
 <!-- ============== SCENARIO 2: 7/9 SEALED ============== -->
 <h2>SCENARIO 2 — 7 OF 9 SEALED</h2>
 <p class="note">Only Gyūki and Kurama remain</p>
 
-<div class="gedo-panel">
-<div class="gedo-title-area">
-<div class="name">外道魔像 — Gedō Mazō</div>
-<div class="sub">Demonic Statue of the Outer Path</div>
-</div>
-
-<div class="gedo-statue-wrap">
+<div class="gedo-wrap">
+<div class="gedo-name">外道魔像<small>Demonic Statue of the Outer Path</small></div>
 <svg viewBox="0 0 240 310" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <filter id="stb" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="4" seed="3" result="n"/><feColorMatrix type="saturate" values="0" in="n" result="g"/><feBlend in="SourceGraphic" in2="g" mode="multiply" result="t"/><feComposite in="t" in2="SourceGraphic" operator="in"/></filter>
@@ -223,12 +97,10 @@ p.note{color:#5a5850;text-align:center;font-size:10px;font-family:'M PLUS 1',san
 <path d="M68,168 C50,174 38,198 42,228 L45,262 C46,278 58,288 70,282 L80,300 L160,300 L170,282 C182,288 194,278 195,262 L198,228 C202,198 190,174 172,168Z" fill="url(#sgb)" filter="url(#stb)"/>
 <line x1="120" y1="172" x2="120" y2="290" stroke="#2a2820" stroke-width=".8" opacity=".25"/>
 <g stroke="#2c2a24" stroke-width="1.2" fill="none" opacity=".45"><path d="M82,198 Q120,189 158,198"/><path d="M78,214 Q120,205 162,214"/><path d="M76,230 Q120,221 164,230"/><path d="M76,246 Q120,237 164,246"/><path d="M78,262 Q120,253 162,262"/></g>
-<path d="M68,168 C52,174 40,190 36,212 L32,242 C30,252 34,258 40,255" fill="#38352f" filter="url(#stb)" opacity=".9"/>
-<path d="M40,255 L36,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
+<path d="M68,168 C52,174 40,190 36,212 L32,242 C30,252 34,258 40,255" fill="#38352f" filter="url(#stb)" opacity=".9"/><path d="M40,255 L36,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
 <rect x="28" y="265" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
 <g fill="none" stroke="#44413d" stroke-width="2"><ellipse cx="36" cy="282" rx="3.5" ry="3"/><ellipse cx="36" cy="290" rx="3.5" ry="3"/><ellipse cx="36" cy="298" rx="3.5" ry="3"/></g>
-<path d="M172,168 C188,174 200,190 204,212 L208,242 C210,252 206,258 200,255" fill="#38352f" filter="url(#stb)" opacity=".9"/>
-<path d="M200,255 L204,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
+<path d="M172,168 C188,174 200,190 204,212 L208,242 C210,252 206,258 200,255" fill="#38352f" filter="url(#stb)" opacity=".9"/><path d="M200,255 L204,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
 <rect x="196" y="265" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
 <g fill="none" stroke="#44413d" stroke-width="2"><ellipse cx="204" cy="282" rx="3.5" ry="3"/><ellipse cx="204" cy="290" rx="3.5" ry="3"/><ellipse cx="204" cy="298" rx="3.5" ry="3"/></g>
 <circle cx="72" cy="172" r="7" fill="#44413d"/><circle cx="168" cy="172" r="7" fill="#44413d"/>
@@ -244,82 +116,55 @@ p.note{color:#5a5850;text-align:center;font-size:10px;font-family:'M PLUS 1',san
 <path d="M84,133 C70,131 66,126 64,118" stroke="#44413d" stroke-width="1.5" fill="none" opacity=".4"/>
 <path d="M156,133 C170,131 174,126 176,118" stroke="#44413d" stroke-width="1.5" fill="none" opacity=".4"/>
 <g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".35"><path d="M105,40 L100,56 L103,66"/><path d="M138,42 L142,58 L139,68"/><path d="M80,78 L84,90"/><path d="M160,80 L156,92"/><path d="M92,120 L95,128"/><path d="M148,118 L145,126"/><path d="M90,180 L94,198 L92,210"/><path d="M150,182 L146,200 L148,212"/></g>
-<!-- EYES: E1-E7 open, E8-E9 closed -->
-<g filter="url(#egb)"><ellipse cx="120" cy="62" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="120" cy="62" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="120" cy="62" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="120" cy="62" r="1.5" fill="#d8c8e8"/></g>
-<g filter="url(#egb)"><ellipse cx="100" cy="76" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="100" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="100" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="100" cy="76" r="1.5" fill="#d8c8e8"/></g>
-<g filter="url(#egb)"><ellipse cx="140" cy="76" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="140" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="140" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="140" cy="76" r="1.5" fill="#d8c8e8"/></g>
-<g filter="url(#egb)"><ellipse cx="86" cy="90" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="86" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="86" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="86" cy="90" r="1.5" fill="#d8c8e8"/></g>
-<g filter="url(#egb)"><ellipse cx="120" cy="90" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="120" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="120" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="120" cy="90" r="1.5" fill="#d8c8e8"/></g>
-<g filter="url(#egb)"><ellipse cx="154" cy="90" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="154" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="154" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="154" cy="90" r="1.5" fill="#d8c8e8"/></g>
-<g filter="url(#egb)"><ellipse cx="100" cy="104" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="100" cy="104" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="100" cy="104" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><circle cx="100" cy="104" r="1.5" fill="#d8c8e8"/></g>
-<!-- E8 closed -->
-<g><ellipse cx="140" cy="104" rx="9" ry="5.5" fill="#28261e"/><line x1="132" y1="104" x2="148" y2="104" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
-<!-- E9 closed -->
-<g><ellipse cx="120" cy="118" rx="9" ry="5.5" fill="#28261e"/><line x1="112" y1="118" x2="128" y2="118" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
-<rect x="65" y="298" width="110" height="5" rx="2" fill="#2a2820"/>
-<rect x="55" y="302" width="130" height="4" rx="1" fill="#22201c"/>
+<!-- E1 OPEN: 一 -->
+<g filter="url(#egb)"><ellipse cx="120" cy="62" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="120" cy="62" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="120" cy="62" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="120" y="62" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">一</text></g>
+<!-- E2 OPEN: 二 -->
+<g filter="url(#egb)"><ellipse cx="100" cy="76" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="100" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="100" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="100" y="76" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">二</text></g>
+<!-- E3 OPEN: 三 -->
+<g filter="url(#egb)"><ellipse cx="140" cy="76" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="140" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="140" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="140" y="76" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">三</text></g>
+<!-- E4 OPEN: 四 -->
+<g filter="url(#egb)"><ellipse cx="86" cy="90" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="86" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="86" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="86" y="90" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">四</text></g>
+<!-- E5 OPEN: 五 -->
+<g filter="url(#egb)"><ellipse cx="120" cy="90" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="120" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="120" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="120" y="90" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">五</text></g>
+<!-- E6 OPEN: 六 -->
+<g filter="url(#egb)"><ellipse cx="154" cy="90" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="154" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="154" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="154" y="90" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">六</text></g>
+<!-- E7 OPEN: 七 -->
+<g filter="url(#egb)"><ellipse cx="100" cy="104" rx="9" ry="5.5" fill="url(#rnb)"/><ellipse cx="100" cy="104" rx="6.5" ry="4" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="100" cy="104" rx="4" ry="2.5" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="100" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#e8d8f8">七</text></g>
+<!-- E8 CLOSED --><g><ellipse cx="140" cy="104" rx="9" ry="5.5" fill="#28261e"/><line x1="132" y1="104" x2="148" y2="104" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<!-- E9 CLOSED --><g><ellipse cx="120" cy="118" rx="9" ry="5.5" fill="#28261e"/><line x1="112" y1="118" x2="128" y2="118" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<rect x="65" y="298" width="110" height="5" rx="2" fill="#2a2820"/><rect x="55" y="302" width="130" height="4" rx="1" fill="#22201c"/>
 </svg>
-</div>
-
-<div class="gedo-count"><span><strong>7</strong> / 9 Bijū Sealed</span></div>
-<div class="gedo-progress">
-<div class="gedo-prog-head"><span>Sealing Progress</span><strong>78%</strong></div>
-<div class="gedo-prog-bar"><div class="gedo-prog-fill" style="width:78%"></div></div>
-</div>
-<div class="gedo-divider"></div>
-
-<div class="beast-grid">
-<div class="beast-row sealed"><div class="beast-tails sealed">一</div><div class="beast-info"><div class="beast-name sealed">Shukaku — 守鶴</div><div class="beast-detail sealed">One-Tail · Tanuki</div></div><div class="beast-status sealed">Sealed</div></div>
-<div class="beast-row sealed"><div class="beast-tails sealed">二</div><div class="beast-info"><div class="beast-name sealed">Matatabi — 又旅</div><div class="beast-detail sealed">Two-Tails · Bakeneko</div></div><div class="beast-status sealed">Sealed</div></div>
-<div class="beast-row sealed"><div class="beast-tails sealed">三</div><div class="beast-info"><div class="beast-name sealed">Isobu — 磯撫</div><div class="beast-detail sealed">Three-Tails · Turtle</div></div><div class="beast-status sealed">Sealed</div></div>
-<div class="beast-row sealed"><div class="beast-tails sealed">四</div><div class="beast-info"><div class="beast-name sealed">Son Gokū — 孫悟空</div><div class="beast-detail sealed">Four-Tails · Monkey</div></div><div class="beast-status sealed">Sealed</div></div>
-<div class="beast-row sealed"><div class="beast-tails sealed">五</div><div class="beast-info"><div class="beast-name sealed">Kokuō — 穆王</div><div class="beast-detail sealed">Five-Tails · Dolphin Horse</div></div><div class="beast-status sealed">Sealed</div></div>
-<div class="beast-row sealed"><div class="beast-tails sealed">六</div><div class="beast-info"><div class="beast-name sealed">Saiken — 犀犬</div><div class="beast-detail sealed">Six-Tails · Slug</div></div><div class="beast-status sealed">Sealed</div></div>
-<div class="beast-row sealed"><div class="beast-tails sealed">七</div><div class="beast-info"><div class="beast-name sealed">Chōmei — 重明</div><div class="beast-detail sealed">Seven-Tails · Beetle</div></div><div class="beast-status sealed">Sealed</div></div>
-<div class="beast-row"><div class="beast-tails free">八</div><div class="beast-info"><div class="beast-name free">Gyūki — 牛鬼</div><div class="beast-detail free">Eight-Tails · Ox-Cephalopod</div><div class="beast-jinch">Jinchūriki: Killer Bee</div></div><div class="beast-status free">Free</div></div>
-<div class="beast-row"><div class="beast-tails free">九</div><div class="beast-info"><div class="beast-name free">Kurama — 九喇嘛</div><div class="beast-detail free">Nine-Tails · Fox</div><div class="beast-jinch">Jinchūriki: Naruto Uzumaki</div></div><div class="beast-status free">Free</div></div>
-</div>
-
-<div class="gedo-access"><span>Visible only to Akatsuki members or Rinnegan wielders</span></div>
+<div class="gedo-count"><strong>7</strong> / 9 封印済</div>
 </div>
 
 <!-- ============== SCENARIO 3: 9/9 COMPLETE ============== -->
-<h2>SCENARIO 3 — ALL 9 SEALED (COMPLETE)</h2>
+<h2>SCENARIO 3 — ALL 9 SEALED</h2>
 <p class="note">Ten-Tails revival imminent</p>
 
-<div class="gedo-panel complete">
-<div class="gedo-title-area">
-<div class="name" style="color:#d8b8f0;">外道魔像 — Gedō Mazō</div>
-<div class="sub" style="color:#9a7abc;">Ten-Tails Revival Ready</div>
-</div>
-
-<div class="gedo-statue-wrap">
+<div class="gedo-wrap complete">
+<div class="gedo-name" style="color:#c8a8e0;">外道魔像<small style="color:#8a6aaa;">Demonic Statue of the Outer Path</small></div>
 <svg viewBox="0 0 240 310" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <filter id="stc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="4" seed="3" result="n"/><feColorMatrix type="saturate" values="0" in="n" result="g"/><feBlend in="SourceGraphic" in2="g" mode="multiply" result="t"/><feComposite in="t" in2="SourceGraphic" operator="in"/></filter>
 <filter id="egc"><feGaussianBlur stdDeviation="3.5"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<filter id="aura"><feGaussianBlur stdDeviation="12"/></filter>
+<filter id="aura"><feGaussianBlur stdDeviation="14"/></filter>
 <linearGradient id="sgc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#504d48"/><stop offset="100%" stop-color="#36332e"/></linearGradient>
 <linearGradient id="shc" x1=".3" y1="0" x2=".7" y2="1"><stop offset="0%" stop-color="#555250"/><stop offset="100%" stop-color="#3a3735"/></linearGradient>
-<radialGradient id="rnc"><stop offset="0%" stop-color="#d8c0f0"/><stop offset="30%" stop-color="#a880d8"/><stop offset="65%" stop-color="#8060b8"/><stop offset="100%" stop-color="#5030800"/></radialGradient>
+<radialGradient id="rnc"><stop offset="0%" stop-color="#d8c0f0"/><stop offset="30%" stop-color="#a880d8"/><stop offset="65%" stop-color="#8060b8"/><stop offset="100%" stop-color="#503080"/></radialGradient>
 </defs>
 <!-- Purple aura -->
-<ellipse cx="120" cy="155" rx="95" ry="130" fill="rgba(120,60,180,.06)" filter="url(#aura)"/>
-<ellipse cx="120" cy="302" rx="75" ry="5" fill="rgba(80,30,120,.2)"/>
-<!-- Back spikes -->
+<ellipse cx="120" cy="155" rx="100" ry="140" fill="rgba(120,60,180,.06)" filter="url(#aura)"/>
+<ellipse cx="120" cy="302" rx="75" ry="5" fill="rgba(80,30,120,.18)"/>
 <g opacity=".6"><polygon points="32,185 14,55 50,178" fill="#26241e"/><polygon points="24,192 -2,95 42,187" fill="#1e1c16"/><polygon points="208,185 226,55 190,178" fill="#26241e"/><polygon points="216,192 242,95 198,187" fill="#1e1c16"/></g>
 <!-- Chakra lines between spikes -->
 <g stroke="rgba(147,112,219,.08)" stroke-width="1" fill="none"><path d="M14,55 Q120,30 226,55"/><path d="M-2,95 Q120,70 242,95"/></g>
-<!-- Body -->
 <path d="M68,168 C50,174 38,198 42,228 L45,262 C46,278 58,288 70,282 L80,300 L160,300 L170,282 C182,288 194,278 195,262 L198,228 C202,198 190,174 172,168Z" fill="url(#sgc)" filter="url(#stc)"/>
 <line x1="120" y1="172" x2="120" y2="290" stroke="#2a2820" stroke-width=".8" opacity=".25"/>
 <g stroke="#2c2a24" stroke-width="1.2" fill="none" opacity=".45"><path d="M82,198 Q120,189 158,198"/><path d="M78,214 Q120,205 162,214"/><path d="M76,230 Q120,221 164,230"/><path d="M76,246 Q120,237 164,246"/><path d="M78,262 Q120,253 162,262"/></g>
-<path d="M68,168 C52,174 40,190 36,212 L32,242 C30,252 34,258 40,255" fill="#38352f" filter="url(#stc)" opacity=".9"/>
-<path d="M40,255 L36,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
+<path d="M68,168 C52,174 40,190 36,212 L32,242 C30,252 34,258 40,255" fill="#38352f" filter="url(#stc)" opacity=".9"/><path d="M40,255 L36,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
 <rect x="28" y="265" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
 <g fill="none" stroke="#44413d" stroke-width="2"><ellipse cx="36" cy="282" rx="3.5" ry="3"/><ellipse cx="36" cy="290" rx="3.5" ry="3"/><ellipse cx="36" cy="298" rx="3.5" ry="3"/></g>
-<path d="M172,168 C188,174 200,190 204,212 L208,242 C210,252 206,258 200,255" fill="#38352f" filter="url(#stc)" opacity=".9"/>
-<path d="M200,255 L204,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
+<path d="M172,168 C188,174 200,190 204,212 L208,242 C210,252 206,258 200,255" fill="#38352f" filter="url(#stc)" opacity=".9"/><path d="M200,255 L204,272" stroke="#38352f" stroke-width="8" stroke-linecap="round"/>
 <rect x="196" y="265" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
 <g fill="none" stroke="#44413d" stroke-width="2"><ellipse cx="204" cy="282" rx="3.5" ry="3"/><ellipse cx="204" cy="290" rx="3.5" ry="3"/><ellipse cx="204" cy="298" rx="3.5" ry="3"/></g>
 <circle cx="72" cy="172" r="7" fill="#44413d"/><circle cx="168" cy="172" r="7" fill="#44413d"/>
@@ -335,36 +180,22 @@ p.note{color:#5a5850;text-align:center;font-size:10px;font-family:'M PLUS 1',san
 <path d="M84,133 C70,131 66,126 64,118" stroke="#44413d" stroke-width="1.5" fill="none" opacity=".4"/>
 <path d="M156,133 C170,131 174,126 176,118" stroke="#44413d" stroke-width="1.5" fill="none" opacity=".4"/>
 <g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".35"><path d="M105,40 L100,56 L103,66"/><path d="M138,42 L142,58 L139,68"/><path d="M80,78 L84,90"/><path d="M160,80 L156,92"/><path d="M92,120 L95,128"/><path d="M148,118 L145,126"/><path d="M90,180 L94,198 L92,210"/><path d="M150,182 L146,200 L148,212"/></g>
-<!-- Chakra network connecting all open eyes -->
-<g stroke="rgba(147,112,219,.12)" stroke-width=".6" fill="none">
-<line x1="120" y1="62" x2="100" y2="76"/><line x1="120" y1="62" x2="140" y2="76"/>
-<line x1="100" y1="76" x2="86" y2="90"/><line x1="100" y1="76" x2="120" y2="90"/>
-<line x1="140" y1="76" x2="120" y2="90"/><line x1="140" y1="76" x2="154" y2="90"/>
-<line x1="86" y1="90" x2="100" y2="104"/><line x1="120" y1="90" x2="100" y2="104"/>
-<line x1="120" y1="90" x2="140" y2="104"/><line x1="154" y1="90" x2="140" y2="104"/>
-<line x1="100" y1="104" x2="120" y2="118"/><line x1="140" y1="104" x2="120" y2="118"/>
-</g>
-<!-- ALL 9 EYES OPEN with enhanced glow -->
-<g filter="url(#egc)"><ellipse cx="120" cy="62" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="120" cy="62" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="120" cy="62" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="120" cy="62" r="1.5" fill="#e8d8f8"/></g>
-<g filter="url(#egc)"><ellipse cx="100" cy="76" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="100" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="100" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="100" cy="76" r="1.5" fill="#e8d8f8"/></g>
-<g filter="url(#egc)"><ellipse cx="140" cy="76" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="140" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="140" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="140" cy="76" r="1.5" fill="#e8d8f8"/></g>
-<g filter="url(#egc)"><ellipse cx="86" cy="90" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="86" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="86" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="86" cy="90" r="1.5" fill="#e8d8f8"/></g>
-<g filter="url(#egc)"><ellipse cx="120" cy="90" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="120" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="120" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="120" cy="90" r="1.5" fill="#e8d8f8"/></g>
-<g filter="url(#egc)"><ellipse cx="154" cy="90" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="154" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="154" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="154" cy="90" r="1.5" fill="#e8d8f8"/></g>
-<g filter="url(#egc)"><ellipse cx="100" cy="104" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="100" cy="104" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="100" cy="104" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="100" cy="104" r="1.5" fill="#e8d8f8"/></g>
-<g filter="url(#egc)"><ellipse cx="140" cy="104" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="140" cy="104" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="140" cy="104" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="140" cy="104" r="1.5" fill="#e8d8f8"/></g>
-<g filter="url(#egc)"><ellipse cx="120" cy="118" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="120" cy="118" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="120" cy="118" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><circle cx="120" cy="118" r="1.5" fill="#e8d8f8"/></g>
-<rect x="65" y="298" width="110" height="5" rx="2" fill="#2a2820"/>
-<rect x="55" y="302" width="130" height="4" rx="1" fill="#22201c"/>
+<!-- Chakra network -->
+<g stroke="rgba(147,112,219,.12)" stroke-width=".6" fill="none"><line x1="120" y1="62" x2="100" y2="76"/><line x1="120" y1="62" x2="140" y2="76"/><line x1="100" y1="76" x2="86" y2="90"/><line x1="100" y1="76" x2="120" y2="90"/><line x1="140" y1="76" x2="120" y2="90"/><line x1="140" y1="76" x2="154" y2="90"/><line x1="86" y1="90" x2="100" y2="104"/><line x1="120" y1="90" x2="100" y2="104"/><line x1="120" y1="90" x2="140" y2="104"/><line x1="154" y1="90" x2="140" y2="104"/><line x1="100" y1="104" x2="120" y2="118"/><line x1="140" y1="104" x2="120" y2="118"/></g>
+<!-- ALL 9 EYES OPEN with kanji -->
+<g filter="url(#egc)"><ellipse cx="120" cy="62" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="120" cy="62" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="120" cy="62" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="120" y="62" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">一</text></g>
+<g filter="url(#egc)"><ellipse cx="100" cy="76" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="100" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="100" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="100" y="76" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">二</text></g>
+<g filter="url(#egc)"><ellipse cx="140" cy="76" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="140" cy="76" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="140" cy="76" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="140" y="76" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">三</text></g>
+<g filter="url(#egc)"><ellipse cx="86" cy="90" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="86" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="86" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="86" y="90" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">四</text></g>
+<g filter="url(#egc)"><ellipse cx="120" cy="90" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="120" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="120" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="120" y="90" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">五</text></g>
+<g filter="url(#egc)"><ellipse cx="154" cy="90" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="154" cy="90" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="154" cy="90" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="154" y="90" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">六</text></g>
+<g filter="url(#egc)"><ellipse cx="100" cy="104" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="100" cy="104" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="100" cy="104" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="100" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">七</text></g>
+<g filter="url(#egc)"><ellipse cx="140" cy="104" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="140" cy="104" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="140" cy="104" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="140" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">八</text></g>
+<g filter="url(#egc)"><ellipse cx="120" cy="118" rx="9" ry="5.5" fill="url(#rnc)"/><ellipse cx="120" cy="118" rx="6.5" ry="4" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="120" cy="118" rx="4" ry="2.5" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="120" y="118" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6" font-weight="900" fill="#f0e8ff">九</text></g>
+<rect x="65" y="298" width="110" height="5" rx="2" fill="#2a2820"/><rect x="55" y="302" width="130" height="4" rx="1" fill="#22201c"/>
 </svg>
-</div>
-
-<div class="gedo-count"><span style="color:#d0b0f0;"><strong style="color:#e8d0ff;">9</strong> / 9 Bijū Sealed — <strong style="color:#e8d0ff;">COMPLETE</strong></span></div>
-<div class="gedo-progress">
-<div class="gedo-prog-head"><span>Sealing Progress</span><strong style="color:#d0a8f0;">100%</strong></div>
-<div class="gedo-prog-bar"><div class="gedo-prog-fill full" style="width:100%"></div></div>
-</div>
-<div class="gedo-warn">十尾復活準備完了 — Ten-Tails Revival Ready</div>
+<div class="gedo-count done"><strong>9</strong> / 9 封印済 — 完了</div>
+<div class="gedo-revival">十尾復活準備完了</div>
 </div>
 
 </body>
