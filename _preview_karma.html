@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karma Mark — Design Options</title>
+<title>Karma Mark — Option D Revised</title>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 body{background:#0a0908;margin:0;padding:20px;font-family:'Shippori Mincho',serif}
@@ -11,374 +11,348 @@ h2{color:#5a5448;text-align:center;font-size:11px;margin:40px 0 4px;font-family:
 p.note{color:#4a4840;text-align:center;font-size:9px;font-family:'M PLUS 1',sans-serif;margin:0 0 16px}
 .opt{max-width:380px;margin:0 auto 50px;background:linear-gradient(180deg,#f5ecd8 0%,#f0e2cb 100%);border-radius:8px;padding:16px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
 .opt-title{font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9a7848;margin-bottom:12px;text-align:center}
+.km-box{background:rgba(26,24,21,.04);border:1px solid rgba(26,24,21,.15);border-radius:6px;padding:10px 12px}
+.km-box.white-km{background:rgba(220,210,200,.06);border-color:rgba(200,190,180,.2)}
+.km-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.km-icon{width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.km-name{font-size:13px;font-weight:800;color:#5a3818}
+.km-sub{font-family:'M PLUS 1',sans-serif;font-size:8.5px;color:#9a7848;margin-top:1px}
+.kl{font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px}
+.kl.danger{color:#cc3333}
+.stage-bar{display:flex;gap:3px;margin-bottom:2px}
+.stage-bar .seg{flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)}
+.stage-bar .seg.on{background:#1a1815;box-shadow:0 0 4px rgba(0,0,0,.3)}
+.stage-bar .seg.on-white{background:#c4b8a8;box-shadow:0 0 4px rgba(196,184,168,.3)}
+.stage-bar .seg.on-blue{background:#4a8ecc;box-shadow:0 0 6px rgba(74,142,204,.4)}
+.stage-bar .seg.on-red{background:#cc4444;box-shadow:0 0 6px rgba(204,68,68,.4)}
+.stage-labels{display:flex;justify-content:space-between;margin-bottom:8px}
+.stage-labels span{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848}
+.km-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
+.km-grid .v{font-size:10px;color:#3a2a1a}
+.km-tags{display:flex;gap:4px;flex-wrap:wrap}
+.km-tag{font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)}
+.km-tag.danger{color:#cc3333;background:rgba(204,51,51,.06);border-color:rgba(204,51,51,.25)}
+.km-tag.blue{color:#3a7acc;background:rgba(58,122,204,.06);border-color:rgba(58,122,204,.25)}
+.km-tag.white-t{color:#8a7a68;background:rgba(180,160,130,.08);border-color:rgba(180,160,130,.25)}
+.km-tag.locked{color:#999;background:rgba(150,150,150,.06);border-color:rgba(150,150,150,.2);text-decoration:line-through}
+.overwrite-bar{height:6px;background:rgba(180,140,90,.18);border-radius:6px;overflow:hidden;margin-bottom:2px}
+.overwrite-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#1a1815,#444)}
+.overwrite-fill.blue-fill{background:linear-gradient(90deg,#2a5a8a,#4a8ecc)}
+.overwrite-fill.red-fill{background:linear-gradient(90deg,#8a2a2a,#cc4444)}
+/* Karma SVG animation — dormant pulse */
+@keyframes km-dormant{0%{opacity:.85}50%{opacity:1}100%{opacity:.85}}
+.km-svg-dormant{animation:km-dormant 3s ease-in-out infinite}
+/* Active blue shimmer */
+@keyframes km-blue{0%{fill:#4a8ecc}25%{fill:#6aaeee}50%{fill:#8ac8ff}75%{fill:#6aaeee}100%{fill:#4a8ecc}}
+.km-svg-blue path,.km-svg-blue polygon{animation:km-blue 2s ease-in-out infinite}
+/* Active red shimmer */
+@keyframes km-red{0%{fill:#cc3333}25%{fill:#ee5555}50%{fill:#ff7777}75%{fill:#ee5555}100%{fill:#cc3333}}
+.km-svg-red path,.km-svg-red polygon{animation:km-red 2s ease-in-out infinite}
+/* Active blue glow pulse */
+@keyframes km-glow-blue{0%{filter:drop-shadow(0 0 2px rgba(74,142,204,.3))}50%{filter:drop-shadow(0 0 8px rgba(74,142,204,.6))}100%{filter:drop-shadow(0 0 2px rgba(74,142,204,.3))}}
+.km-svg-blue{animation:km-glow-blue 2s ease-in-out infinite}
+/* Active red glow pulse */
+@keyframes km-glow-red{0%{filter:drop-shadow(0 0 2px rgba(204,51,51,.3))}50%{filter:drop-shadow(0 0 8px rgba(204,51,51,.6))}100%{filter:drop-shadow(0 0 2px rgba(204,51,51,.3))}}
+.km-svg-red{animation:km-glow-red 2s ease-in-out infinite}
+/* White karma shimmer */
+@keyframes km-white{0%{fill:#c4b8a8}25%{fill:#d8cebf}50%{fill:#ebe5da}75%{fill:#d8cebf}100%{fill:#c4b8a8}}
+.km-svg-white path,.km-svg-white polygon{animation:km-white 2.5s ease-in-out infinite}
+@keyframes km-glow-white{0%{filter:drop-shadow(0 0 2px rgba(200,190,170,.2))}50%{filter:drop-shadow(0 0 6px rgba(200,190,170,.5))}100%{filter:drop-shadow(0 0 2px rgba(200,190,170,.2))}}
+.km-svg-white{animation:km-glow-white 2.5s ease-in-out infinite}
+/* Spread stages — growing mark */
+.km-spread-1 .km-horns{opacity:0}
+.km-spread-1 .km-lower{opacity:0}
+.km-spread-2 .km-horns{opacity:.6}
+.km-spread-2 .km-lower{opacity:0}
+.km-spread-3 .km-horns{opacity:1}
+.km-spread-3 .km-lower{opacity:.7}
+.km-spread-4 .km-horns{opacity:1}
+.km-spread-4 .km-lower{opacity:1}
 </style>
 </head>
 <body>
 
-<!-- ====== OPTION A: Diamond + Spreading Pattern (Face Silhouette) ====== -->
-<h2>OPTION A — FACE SILHOUETTE WITH SPREADING PATTERN</h2>
-<p class="note">Karma mark spreads across a face silhouette — manga-style geometric lines</p>
-
-<div class="opt">
-<div class="opt-title">KĀMA — 楔 — STAGE 2 SPREADING</div>
-<div style="display:flex;align-items:flex-start;gap:14px">
-<!-- SVG Face with Karma -->
-<div style="flex-shrink:0">
-<svg width="100" height="130" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="ka-skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8d5c0"/><stop offset="100%" stop-color="#d4bfa8"/></linearGradient>
-<filter id="ka-glow"><feGaussianBlur stdDeviation="1.5"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<!-- Face shape -->
-<ellipse cx="50" cy="52" rx="34" ry="42" fill="url(#ka-skin)"/>
-<!-- Chin -->
-<ellipse cx="50" cy="88" rx="20" ry="12" fill="url(#ka-skin)"/>
-<!-- Hair suggestion -->
-<path d="M16,40 C16,15 84,15 84,40 L82,30 C80,18 20,18 18,30Z" fill="#1a1815"/>
-<!-- Eyes -->
-<ellipse cx="36" cy="50" rx="5" ry="3" fill="#fff"/>
-<circle cx="36" cy="50" r="2.5" fill="#2a4a6a"/>
-<circle cx="36" cy="50" r="1.2" fill="#111"/>
-<ellipse cx="64" cy="50" rx="5" ry="3" fill="#fff"/>
-<circle cx="64" cy="50" r="2.5" fill="#2a4a6a"/>
-<circle cx="64" cy="50" r="1.2" fill="#111"/>
-<!-- Nose/mouth hints -->
-<line x1="50" y1="58" x2="50" y2="66" stroke="#c4a888" stroke-width=".8"/>
-<path d="M44,74 Q50,78 56,74" stroke="#c4a888" stroke-width=".7" fill="none"/>
-<!-- KARMA PATTERN — right side of face -->
-<g filter="url(#ka-glow)">
-<!-- Diamond on right eye area -->
-<polygon points="68,38 72,42 68,46 64,42" fill="#111" stroke="#333" stroke-width=".3"/>
-<!-- Spreading lines from diamond -->
-<path d="M72,42 L82,38 L86,32" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-<path d="M72,42 L84,44 L88,48" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-<path d="M68,46 L74,54 L78,52 L84,56" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-<path d="M68,46 L70,56 L68,64 L72,70" stroke="#111" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-<path d="M64,42 L58,36 L56,30" stroke="#111" stroke-width="1" fill="none" stroke-linecap="round"/>
-<!-- Horn sprouting -->
-<path d="M70,34 L74,22 L72,14" stroke="#111" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-<path d="M70,34 L68,24 L70,16" stroke="#1a1815" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-</g>
-<!-- Neck -->
-<rect x="40" y="92" width="20" height="16" rx="4" fill="url(#ka-skin)"/>
-<!-- Karma on neck -->
-<path d="M56,94 L60,98 L58,104" stroke="#111" stroke-width="1.2" fill="none" stroke-linecap="round" filter="url(#ka-glow)"/>
-</svg>
-</div>
-<!-- Info panel -->
-<div style="flex:1;min-width:0">
-<div style="font-size:12px;font-weight:800;color:#5a3818;margin-bottom:4px">Momoshiki's Kāma</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848;letter-spacing:.5px;margin-bottom:8px">VESSEL: Boruto Uzumaki</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px">STAGE</div>
-<div style="display:flex;gap:3px;margin-bottom:8px">
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815;box-shadow:0 0 4px rgba(0,0,0,.3)"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815;box-shadow:0 0 4px rgba(0,0,0,.3)"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)"></div>
-</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#5a3818;font-weight:600;margin-bottom:8px">Stage 2 — Pattern Spreading</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">LOCATION</div>
-<div style="font-size:10px;color:#3a2a1a;margin-bottom:6px">Right eye → temple → neck</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">ABILITIES</div>
-<div style="display:flex;gap:4px;flex-wrap:wrap">
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Chakra Absorption</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Space-Time Portal</span>
-</div>
-</div>
-</div>
-</div>
-
-<!-- ====== OPTION B: Abstract Diamond with Radiating Geometry ====== -->
-<h2>OPTION B — ABSTRACT DIAMOND WITH RADIATING GEOMETRY</h2>
-<p class="note">Centered diamond mark with geometric pattern radiating outward — no face, pure pattern focus</p>
-
-<div class="opt">
-<div class="opt-title">KĀMA — 楔 — STAGE 3 HORN MANIFESTATION</div>
-<div style="text-align:center;margin-bottom:12px">
-<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="kb-glow"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<filter id="kb-pulse"><feGaussianBlur stdDeviation="4"/></filter>
-<radialGradient id="kb-aura"><stop offset="0%" stop-color="rgba(26,24,21,.15)"/><stop offset="100%" stop-color="rgba(26,24,21,0)"/></radialGradient>
-</defs>
-<!-- Background aura -->
-<circle cx="80" cy="80" r="70" fill="url(#kb-aura)"/>
-<!-- Outer geometric ring -->
-<g stroke="#2a2620" stroke-width=".5" fill="none" opacity=".3">
-<circle cx="80" cy="80" r="60"/>
-<polygon points="80,20 140,80 80,140 20,80"/>
-</g>
-<!-- Spreading pattern arms -->
-<g stroke="#1a1815" stroke-width="2" fill="none" stroke-linecap="round" filter="url(#kb-glow)">
-<!-- Up -->
-<path d="M80,68 L80,45 L76,30 L78,18"/>
-<path d="M80,45 L86,35 L84,22"/>
-<!-- Right -->
-<path d="M92,80 L110,78 L125,72 L135,68"/>
-<path d="M110,78 L120,84 L132,82"/>
-<path d="M92,80 L108,88 L118,92"/>
-<!-- Down-right -->
-<path d="M88,92 L96,108 L100,120"/>
-<path d="M88,92 L98,100 L108,110"/>
-<!-- Left -->
-<path d="M68,80 L50,78 L35,72 L25,68"/>
-<path d="M50,78 L40,84 L28,82"/>
-<path d="M68,80 L52,88 L42,92"/>
-<!-- Down-left -->
-<path d="M72,92 L64,108 L60,120"/>
-<path d="M72,92 L62,100 L52,110"/>
-</g>
-<!-- Branch detail lines -->
-<g stroke="#2a2620" stroke-width="1" fill="none" stroke-linecap="round" opacity=".5">
-<path d="M78,18 L74,10"/><path d="M84,22 L88,14"/>
-<path d="M135,68 L140,62"/><path d="M132,82 L138,86"/>
-<path d="M25,68 L20,62"/><path d="M28,82 L22,86"/>
-</g>
-<!-- Central diamond (Karma mark) -->
-<g filter="url(#kb-glow)">
-<polygon points="80,62 98,80 80,98 62,80" fill="#1a1815" stroke="#333" stroke-width=".5"/>
-<!-- Inner diamond detail -->
-<polygon points="80,68 92,80 80,92 68,80" fill="none" stroke="#444" stroke-width=".5"/>
-<polygon points="80,74 86,80 80,86 74,80" fill="#2a2620"/>
-</g>
-</svg>
-</div>
-<!-- Info below -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">ŌTSUTSUKI</div>
-<div style="font-size:11px;color:#3a2a1a;font-weight:700">Momoshiki</div>
-</div>
-<div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">VESSEL</div>
-<div style="font-size:11px;color:#3a2a1a;font-weight:700">Boruto Uzumaki</div>
-</div>
-<div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">LOCATION</div>
-<div style="font-size:10px;color:#3a2a1a">Right palm</div>
-</div>
-<div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">COLOR</div>
-<div style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#1a1815;border:1px solid #444"></span><span style="font-size:10px;color:#3a2a1a">Black</span></div>
-</div>
-</div>
-<div style="margin-top:10px">
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px">STAGE PROGRESSION</div>
-<div style="display:flex;gap:3px;margin-bottom:4px">
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)"></div>
-</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#5a3818;font-weight:600">Stage 3 — Horn Manifestation</div>
-</div>
-<div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap">
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Chakra Absorption</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Space-Time Portal</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Jutsu Amplification</span>
-</div>
-</div>
-
-<!-- ====== OPTION C: Hand/Palm with Diamond Mark ====== -->
-<h2>OPTION C — PALM MARK WITH ARM SPREAD</h2>
-<p class="note">Karma diamond on palm, pattern spreading up the arm — classic Boruto/Kawaki visual</p>
-
-<div class="opt">
-<div class="opt-title">KĀMA — 楔 — STAGE 2 SPREADING</div>
-<div style="display:flex;align-items:flex-start;gap:14px">
-<div style="flex-shrink:0">
-<svg width="70" height="160" viewBox="0 0 70 160" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="kc-skin" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#dcc4a8"/><stop offset="100%" stop-color="#e8d5c0"/></linearGradient>
-<filter id="kc-glow"><feGaussianBlur stdDeviation="1.2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<!-- Arm shape -->
-<path d="M20,0 L50,0 L52,40 L54,80 L56,120 L54,130 L20,140 L16,130 L14,120 L16,80 L18,40Z" fill="url(#kc-skin)" stroke="#c4a888" stroke-width=".5"/>
-<!-- Wrist line -->
-<line x1="16" y1="118" x2="54" y2="118" stroke="#c4a888" stroke-width=".6" opacity=".5"/>
-<line x1="16" y1="122" x2="54" y2="122" stroke="#c4a888" stroke-width=".4" opacity=".3"/>
-<!-- Palm area -->
-<path d="M14,120 C10,135 10,148 18,155 L22,158 L35,160 L48,158 L52,155 C60,148 60,135 56,120Z" fill="url(#kc-skin)" stroke="#c4a888" stroke-width=".5"/>
-<!-- Fingers suggestion -->
-<g fill="url(#kc-skin)" stroke="#c4a888" stroke-width=".4">
-<path d="M18,155 L14,148 L12,140 L10,148 L14,155"/>
-<path d="M22,158 L18,150 L16,142 L14,150 L18,157"/>
-<path d="M35,160 L33,152 L32,144 L30,152 L33,159"/>
-<path d="M48,158 L52,150 L54,142 L56,150 L52,157"/>
-<path d="M52,155 L56,148 L58,140 L60,148 L56,155"/>
-</g>
-<!-- KARMA DIAMOND on palm -->
-<g filter="url(#kc-glow)">
-<polygon points="35,132 43,140 35,148 27,140" fill="#1a1815" stroke="#333" stroke-width=".4"/>
-<polygon points="35,135 40,140 35,145 30,140" fill="none" stroke="#444" stroke-width=".4"/>
-</g>
-<!-- KARMA PATTERN spreading up arm -->
-<g stroke="#1a1815" stroke-width="1.8" fill="none" stroke-linecap="round" filter="url(#kc-glow)">
-<!-- Main trunk up -->
-<path d="M35,132 L35,118 L34,100 L35,80 L34,60"/>
-<!-- Right branches -->
-<path d="M35,118 L42,112 L48,108"/>
-<path d="M35,100 L44,96 L50,90"/>
-<path d="M35,80 L42,74 L46,68"/>
-<path d="M34,60 L40,54 L44,48"/>
-<!-- Left branches -->
-<path d="M35,118 L28,112 L22,108"/>
-<path d="M35,100 L26,96 L20,90"/>
-<path d="M35,80 L28,74 L24,68"/>
-<path d="M34,60 L28,54 L24,48"/>
-</g>
-<!-- Secondary detail lines -->
-<g stroke="#2a2620" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".5">
-<path d="M48,108 L52,104"/><path d="M50,90 L54,86"/>
-<path d="M22,108 L18,104"/><path d="M20,90 L16,86"/>
-</g>
-</svg>
-</div>
-<!-- Info -->
-<div style="flex:1;min-width:0">
-<div style="font-size:12px;font-weight:800;color:#5a3818;margin-bottom:4px">Isshiki's Kāma</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848;letter-spacing:.5px;margin-bottom:10px">VESSEL: Kawaki</div>
-
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">LOCATION</div>
-<div style="font-size:10px;color:#3a2a1a;margin-bottom:8px">Left palm → forearm</div>
-
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px">STAGE</div>
-<div style="display:flex;gap:3px;margin-bottom:4px">
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)"></div>
-</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#5a3818;font-weight:600;margin-bottom:10px">Stage 2 — Spreading</div>
-
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">COLOR / SHAPE</div>
-<div style="display:flex;align-items:center;gap:4px;margin-bottom:8px">
-<span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#1a1815;border:1px solid #444"></span>
-<span style="font-size:10px;color:#3a2a1a">Black diamond, angular branches</span>
-</div>
-
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">ABILITIES</div>
-<div style="display:flex;gap:4px;flex-wrap:wrap">
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Sukunahikona</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Daikokuten</span>
-</div>
-</div>
-</div>
-</div>
-
-<!-- ====== OPTION D: Compact Section (No SVG illustration) ====== -->
-<h2>OPTION D — COMPACT DATA SECTION (NO ILLUSTRATION)</h2>
-<p class="note">Text-only info card with diamond icon and color swatch — fits inside the status panel naturally</p>
+<!-- ====== STAGE 1: DORMANT (BLACK, DIAMOND ONLY) ====== -->
+<h2>STAGE 1 — DORMANT (BLACK, DIAMOND ONLY)</h2>
+<p class="note">Karma mark appears as just the diamond — horns haven't manifested yet</p>
 
 <div class="opt">
 <div class="opt-title">KĀMA — 楔</div>
-<div style="background:rgba(26,24,21,.04);border:1px solid rgba(26,24,21,.15);border-radius:6px;padding:10px 12px">
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-<div style="width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1815,#2a2620);border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,.3)">
-<span style="font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#e8d5c0">楔</span>
-</div>
-<div>
-<div style="font-size:13px;font-weight:800;color:#5a3818">Momoshiki's Kāma</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8.5px;color:#9a7848;margin-top:1px">Vessel: Boruto Uzumaki</div>
-</div>
-</div>
-<!-- Stage bar -->
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px">STAGE PROGRESSION</div>
-<div style="display:flex;gap:3px;margin-bottom:2px">
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:#1a1815"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)"></div>
-<div style="flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)"></div>
-</div>
-<div style="display:flex;justify-content:space-between;margin-bottom:8px">
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848">Dormant</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848">Spreading</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848">Horn</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848">Ōtsutsuki</span>
-</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#5a3818;font-weight:600;margin-bottom:10px">Current: Stage 2 — Pattern Spreading</div>
-<!-- Grid info -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
-<div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:1px">LOCATION</div>
-<div style="font-size:10px;color:#3a2a1a">Right palm</div>
-</div>
-<div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:1px">SPREAD</div>
-<div style="font-size:10px;color:#3a2a1a">Palm → eye → temple</div>
-</div>
-<div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:1px">COLOR</div>
-<div style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#1a1815;border:1px solid #444"></span><span style="font-size:10px;color:#3a2a1a">Black</span></div>
-</div>
-<div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:1px">SHAPE</div>
-<div style="font-size:10px;color:#3a2a1a">Diamond + angular horns</div>
-</div>
-</div>
-<!-- Overwrite progress -->
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#cc3333;margin-bottom:3px">ŌTSUTSUKI OVERWRITE</div>
-<div style="height:6px;background:rgba(180,140,90,.18);border-radius:6px;overflow:hidden;margin-bottom:2px">
-<div style="height:100%;width:45%;border-radius:6px;background:linear-gradient(90deg,#1a1815,#444)"></div>
-</div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#cc3333;font-weight:600;margin-bottom:8px">45% — Momoshiki extraction progressing</div>
-<!-- Abilities -->
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px">KĀMA ABILITIES</div>
-<div style="display:flex;gap:4px;flex-wrap:wrap">
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Chakra Absorption</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Space-Time Portal</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)">Jutsu Amplification</span>
-<span style="font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px;color:#cc3333;background:rgba(204,51,51,.06);border:1px solid rgba(204,51,51,.25)">Ōtsutsuki Transformation</span>
-</div>
-</div>
-</div>
-
-<!-- ====== COMPARISON: WHITE KARMA (Code) ====== -->
-<h2>BONUS — WHITE KĀMA VARIANT (CODE)</h2>
-<p class="note">Same Option B layout but with white/inverted color scheme for failed vessel</p>
-
-<div class="opt">
-<div class="opt-title">WHITE KĀMA — 白楔 — FAILED VESSEL</div>
-<div style="text-align:center;margin-bottom:12px">
-<svg width="120" height="120" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="kw-glow"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<radialGradient id="kw-aura"><stop offset="0%" stop-color="rgba(220,210,200,.12)"/><stop offset="100%" stop-color="rgba(220,210,200,0)"/></radialGradient>
-</defs>
-<circle cx="80" cy="80" r="70" fill="url(#kw-aura)"/>
-<g stroke="#c4b8a8" stroke-width=".5" fill="none" opacity=".3">
-<circle cx="80" cy="80" r="60"/>
-<polygon points="80,20 140,80 80,140 20,80"/>
+<div class="km-box">
+<div class="km-header">
+<div class="km-icon">
+<svg class="km-svg-dormant km-spread-1" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+<!-- Diamond -->
+<polygon points="30,2 38,14 30,26 22,14" fill="#1a1815"/>
+<!-- Upper horns/petals -->
+<g class="km-horns">
+<path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#1a1815"/>
+<path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#1a1815"/>
 </g>
-<g stroke="#d4c8b8" stroke-width="2" fill="none" stroke-linecap="round" filter="url(#kw-glow)">
-<path d="M80,68 L80,45 L76,30 L78,18"/>
-<path d="M80,45 L86,35 L84,22"/>
-<path d="M92,80 L110,78 L125,72 L135,68"/>
-<path d="M92,80 L108,88 L118,92"/>
-<path d="M68,80 L50,78 L35,72 L25,68"/>
-<path d="M68,80 L52,88 L42,92"/>
-<path d="M88,92 L96,108 L100,120"/>
-<path d="M72,92 L64,108 L60,120"/>
-</g>
-<g filter="url(#kw-glow)">
-<polygon points="80,62 98,80 80,98 62,80" fill="#e8ddd0" stroke="#c4b8a8" stroke-width=".5"/>
-<polygon points="80,68 92,80 80,92 68,80" fill="none" stroke="#d4c8b8" stroke-width=".5"/>
-<polygon points="80,74 86,80 80,86 74,80" fill="#d4c8b8"/>
+<!-- Lower extensions -->
+<g class="km-lower">
+<path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#1a1815"/>
+<path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#1a1815"/>
 </g>
 </svg>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
 <div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">ŌTSUTSUKI</div>
-<div style="font-size:11px;color:#3a2a1a;font-weight:700">Isshiki (Failed)</div>
+<div class="km-name">Momoshiki's Kāma</div>
+<div class="km-sub">VESSEL: Boruto Uzumaki</div>
+</div>
+</div>
+<div class="kl">STAGE PROGRESSION</div>
+<div class="stage-bar"><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+<div class="stage-labels"><span>Dormant</span><span>Spreading</span><span>Horn</span><span>Ōtsutsuki</span></div>
+<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#5a3818;font-weight:600;margin-bottom:10px">Current: Stage 1 — Dormant Diamond</div>
+<div class="km-grid">
+<div><div class="kl">LOCATION</div><div class="v">Right palm</div></div>
+<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#1a1815;border:1px solid #444"></span>Black</div></div>
+<div><div class="kl">SHAPE</div><div class="v">Diamond only</div></div>
+<div><div class="kl">SPREAD</div><div class="v">Palm (localized)</div></div>
+</div>
+<div class="kl">KĀMA ABILITIES</div>
+<div class="km-tags">
+<span class="km-tag">Chakra Absorption</span>
+<span class="km-tag locked">Space-Time Portal</span>
+<span class="km-tag locked">Jutsu Amplification</span>
+</div>
+</div>
+</div>
+
+<!-- ====== STAGE 2: SPREADING (BLACK → BLUE ACTIVATE) ====== -->
+<h2>STAGE 2 — SPREADING (ACTIVATED, BLUE RESONANCE)</h2>
+<p class="note">Karma resonates — color shifts from black to blue with animated shimmer</p>
+
+<div class="opt">
+<div class="opt-title">KĀMA — 楔 — RESONATING</div>
+<div class="km-box">
+<div class="km-header">
+<div class="km-icon">
+<svg class="km-svg-blue km-spread-2" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 38,14 30,26 22,14" fill="#4a8ecc"/>
+<g class="km-horns">
+<path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#4a8ecc"/>
+<path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#4a8ecc"/>
+</g>
+<g class="km-lower">
+<path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#4a8ecc"/>
+<path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#4a8ecc"/>
+</g>
+</svg>
 </div>
 <div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:2px">VESSEL</div>
-<div style="font-size:11px;color:#3a2a1a;font-weight:700">Code</div>
+<div class="km-name">Momoshiki's Kāma</div>
+<div class="km-sub">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
 </div>
 </div>
-<div style="margin-top:8px;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#9a7848">
-<span style="display:inline-block;padding:2px 8px;border-radius:8px;background:rgba(180,140,90,.12);border:1px solid rgba(180,140,90,.3);font-weight:600">FAILED VESSEL — No Ōtsutsuki overwrite</span>
+<div class="kl">STAGE PROGRESSION</div>
+<div class="stage-bar"><div class="seg on-blue"></div><div class="seg on-blue"></div><div class="seg"></div><div class="seg"></div></div>
+<div class="stage-labels"><span>Dormant</span><span>Spreading</span><span>Horn</span><span>Ōtsutsuki</span></div>
+<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#4a8ecc;font-weight:600;margin-bottom:10px">Current: Stage 2 — Pattern Spreading (Resonance)</div>
+<div class="km-grid">
+<div><div class="kl">LOCATION</div><div class="v">Right palm</div></div>
+<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Active)</div></div>
+<div><div class="kl">SHAPE</div><div class="v">Diamond + horns emerging</div></div>
+<div><div class="kl">SPREAD</div><div class="v">Palm → arm → face</div></div>
+</div>
+<div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE</div>
+<div class="overwrite-bar"><div class="overwrite-fill blue-fill" style="width:35%"></div></div>
+<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#4a8ecc;font-weight:600;margin-bottom:8px">35% — Momoshiki extraction progressing</div>
+<div class="kl">KĀMA ABILITIES</div>
+<div class="km-tags">
+<span class="km-tag blue">Chakra Absorption</span>
+<span class="km-tag blue">Space-Time Portal</span>
+<span class="km-tag locked">Jutsu Amplification</span>
+<span class="km-tag locked">Ōtsutsuki Transformation</span>
+</div>
+</div>
+</div>
+
+<!-- ====== STAGE 3: HORN MANIFESTATION (RED RESONANCE) ====== -->
+<h2>STAGE 3 — HORN MANIFESTATION (RED COMBAT RESONANCE)</h2>
+<p class="note">Full pattern spread with horn — aggressive red color during combat activation</p>
+
+<div class="opt">
+<div class="opt-title">KĀMA — 楔 — COMBAT ACTIVE</div>
+<div class="km-box">
+<div class="km-header">
+<div class="km-icon">
+<svg class="km-svg-red km-spread-3" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 38,14 30,26 22,14" fill="#cc3333"/>
+<g class="km-horns">
+<path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#cc3333"/>
+<path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#cc3333"/>
+</g>
+<g class="km-lower">
+<path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#cc3333"/>
+<path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#cc3333"/>
+</g>
+</svg>
+</div>
+<div>
+<div class="km-name">Isshiki's Kāma</div>
+<div class="km-sub">VESSEL: Kawaki — <span style="color:#cc3333;font-weight:700">COMBAT ACTIVE</span></div>
+</div>
+</div>
+<div class="kl">STAGE PROGRESSION</div>
+<div class="stage-bar"><div class="seg on-red"></div><div class="seg on-red"></div><div class="seg on-red"></div><div class="seg"></div></div>
+<div class="stage-labels"><span>Dormant</span><span>Spreading</span><span>Horn</span><span>Ōtsutsuki</span></div>
+<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#cc3333;font-weight:600;margin-bottom:10px">Current: Stage 3 — Horn Manifestation</div>
+<div class="km-grid">
+<div><div class="kl">LOCATION</div><div class="v">Left palm</div></div>
+<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#cc3333,#ff7777);border:1px solid #ee5555"></span>Red (Combat)</div></div>
+<div><div class="kl">SHAPE</div><div class="v">Full symbol + horn</div></div>
+<div><div class="kl">SPREAD</div><div class="v">Palm → full body right side</div></div>
+</div>
+<div class="kl danger">ŌTSUTSUKI OVERWRITE</div>
+<div class="overwrite-bar"><div class="overwrite-fill red-fill" style="width:72%"></div></div>
+<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#cc3333;font-weight:600;margin-bottom:8px">72% — Isshiki resurrection approaching</div>
+<div class="kl">KĀMA ABILITIES</div>
+<div class="km-tags">
+<span class="km-tag danger">Sukunahikona</span>
+<span class="km-tag danger">Daikokuten</span>
+<span class="km-tag danger">Chakra Absorption</span>
+<span class="km-tag danger">Space-Time Portal</span>
+</div>
+</div>
+</div>
+
+<!-- ====== STAGE 4: FULL ŌTSUTSUKI (BLUE MAXIMUM) ====== -->
+<h2>STAGE 4 — ŌTSUTSUKI TRANSFORMATION (FULL SYMBOL)</h2>
+<p class="note">Complete Karma — all elements visible, maximum glow, overwrite near completion</p>
+
+<div class="opt">
+<div class="opt-title">KĀMA — 楔 — ŌTSUTSUKI AWAKENING</div>
+<div class="km-box" style="border-color:rgba(74,142,204,.25);background:rgba(74,142,204,.04)">
+<div class="km-header">
+<div class="km-icon">
+<svg class="km-svg-blue km-spread-4" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 38,14 30,26 22,14" fill="#4a8ecc"/>
+<g class="km-horns">
+<path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#4a8ecc"/>
+<path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#4a8ecc"/>
+</g>
+<g class="km-lower">
+<path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#4a8ecc"/>
+<path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#4a8ecc"/>
+</g>
+</svg>
+</div>
+<div>
+<div class="km-name" style="color:#2a5a8a">Momoshiki's Kāma</div>
+<div class="km-sub">VESSEL: Boruto Uzumaki — <span style="color:#cc3333;font-weight:700">ŌTSUTSUKI AWAKENING</span></div>
+</div>
+</div>
+<div class="kl">STAGE PROGRESSION</div>
+<div class="stage-bar"><div class="seg on-blue"></div><div class="seg on-blue"></div><div class="seg on-blue"></div><div class="seg on-blue"></div></div>
+<div class="stage-labels"><span>Dormant</span><span>Spreading</span><span>Horn</span><span>Ōtsutsuki</span></div>
+<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#cc3333;font-weight:700;margin-bottom:10px">Current: Stage 4 — Ōtsutsuki Transformation</div>
+<div class="km-grid">
+<div><div class="kl">LOCATION</div><div class="v">Right palm (origin)</div></div>
+<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Maximum)</div></div>
+<div><div class="kl">SHAPE</div><div class="v">Full Ōtsutsuki crest</div></div>
+<div><div class="kl">SPREAD</div><div class="v">Entire body — horn + Byakugan</div></div>
+</div>
+<div class="kl danger">ŌTSUTSUKI OVERWRITE</div>
+<div class="overwrite-bar"><div class="overwrite-fill blue-fill" style="width:95%"></div></div>
+<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#cc3333;font-weight:700;margin-bottom:8px">95% — Momoshiki near full resurrection</div>
+<div class="kl">KĀMA ABILITIES</div>
+<div class="km-tags">
+<span class="km-tag blue">Chakra Absorption</span>
+<span class="km-tag blue">Space-Time Portal</span>
+<span class="km-tag blue">Jutsu Amplification</span>
+<span class="km-tag danger">Ōtsutsuki Transformation</span>
+<span class="km-tag danger">Momoshiki Takeover</span>
+</div>
+</div>
+</div>
+
+<!-- ====== WHITE KARMA (CODE) ====== -->
+<h2>WHITE KĀMA — CODE (FAILED VESSEL)</h2>
+<p class="note">Inverted colors — white/silver mark, no Ōtsutsuki overwrite, full power retained</p>
+
+<div class="opt">
+<div class="opt-title">WHITE KĀMA — 白楔 — FAILED VESSEL</div>
+<div class="km-box white-km">
+<div class="km-header">
+<div class="km-icon">
+<svg class="km-svg-white km-spread-4" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 38,14 30,26 22,14" fill="#c4b8a8"/>
+<g class="km-horns">
+<path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#c4b8a8"/>
+<path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#c4b8a8"/>
+</g>
+<g class="km-lower">
+<path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#c4b8a8"/>
+<path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#c4b8a8"/>
+</g>
+</svg>
+</div>
+<div>
+<div class="km-name">Isshiki's White Kāma</div>
+<div class="km-sub">FAILED VESSEL: Code — <span style="color:#8a7a68;font-weight:700">NO OVERWRITE</span></div>
+</div>
+</div>
+<div class="kl">VESSEL STATUS</div>
+<div style="margin-bottom:10px"><span class="km-tag white-t" style="font-weight:700">FAILED — Power retained, no Ōtsutsuki data transfer</span></div>
+<div class="km-grid">
+<div><div class="kl">LOCATION</div><div class="v">Under left eye</div></div>
+<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#c4b8a8,#ebe5da);border:1px solid #d4c8b8"></span>White</div></div>
+<div><div class="kl">SHAPE</div><div class="v">Full Kāma crest (white)</div></div>
+<div><div class="kl">LIMITER</div><div class="v" style="color:#cc3333;font-weight:700">Removed</div></div>
+</div>
+<div class="kl">KĀMA ABILITIES</div>
+<div class="km-tags">
+<span class="km-tag white-t">Claw Marks (Dimensional Portals)</span>
+<span class="km-tag white-t">Enhanced Strength</span>
+<span class="km-tag white-t">Regeneration</span>
+</div>
+</div>
+</div>
+
+<!-- ====== DORMANT BLACK (NO RESONANCE) for comparison ====== -->
+<h2>STAGE 2 — DORMANT BLACK (NO RESONANCE)</h2>
+<p class="note">Same stage 2 but without activation — mark stays black, no animation</p>
+
+<div class="opt">
+<div class="opt-title">KĀMA — 楔 — INACTIVE</div>
+<div class="km-box">
+<div class="km-header">
+<div class="km-icon">
+<svg class="km-svg-dormant km-spread-2" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 38,14 30,26 22,14" fill="#1a1815"/>
+<g class="km-horns">
+<path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#1a1815"/>
+<path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#1a1815"/>
+</g>
+<g class="km-lower">
+<path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#1a1815"/>
+<path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#1a1815"/>
+</g>
+</svg>
+</div>
+<div>
+<div class="km-name">Momoshiki's Kāma</div>
+<div class="km-sub">VESSEL: Boruto Uzumaki — INACTIVE</div>
+</div>
+</div>
+<div class="kl">STAGE PROGRESSION</div>
+<div class="stage-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+<div class="stage-labels"><span>Dormant</span><span>Spreading</span><span>Horn</span><span>Ōtsutsuki</span></div>
+<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#5a3818;font-weight:600;margin-bottom:10px">Current: Stage 2 — Pattern Spreading (Inactive)</div>
+<div class="km-grid">
+<div><div class="kl">LOCATION</div><div class="v">Right palm</div></div>
+<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#1a1815;border:1px solid #444"></span>Black (Dormant)</div></div>
+<div><div class="kl">SHAPE</div><div class="v">Diamond + horns emerging</div></div>
+<div><div class="kl">SPREAD</div><div class="v">Palm → arm</div></div>
+</div>
+<div class="kl">KĀMA ABILITIES</div>
+<div class="km-tags">
+<span class="km-tag">Chakra Absorption</span>
+<span class="km-tag">Space-Time Portal</span>
+<span class="km-tag locked">Jutsu Amplification</span>
+</div>
 </div>
 </div>
 
