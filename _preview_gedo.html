@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gedo Mazou Tracker — UI Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+body { background: #0d0d1a; margin: 0; padding: 20px; font-family: 'Shippori Mincho', serif; }
+h2 { color: #7a6a9a; text-align: center; font-size: 13px; margin: 30px 0 10px; font-family: 'M PLUS 1', sans-serif; letter-spacing: 2px; }
+p.note { color: #5a5a7a; text-align: center; font-size: 10px; font-family: 'M PLUS 1', sans-serif; margin: 0 0 20px; }
+
+.gedo-panel {
+  max-width: 400px;
+  margin: 0 auto 40px;
+  background: linear-gradient(180deg, #12101a 0%, #1a1520 50%, #12101a 100%);
+  border: 1px solid rgba(120,90,160,.2);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 0 30px rgba(80,50,120,.15), inset 0 0 20px rgba(0,0,0,.3);
+}
+
+.gedo-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(120,90,160,.15);
+}
+
+.gedo-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  clip-path: polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);
+  background: linear-gradient(135deg, #3a2050, #2a1040);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gedo-icon-inner {
+  width: 38px;
+  height: 38px;
+  clip-path: polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);
+  background: linear-gradient(135deg, #1a1028, #0d0a14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gedo-icon-inner span {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #8a6aaa;
+  text-shadow: 0 0 8px rgba(120,80,160,.4);
+}
+
+.gedo-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #c0a8d8;
+  letter-spacing: 1px;
+}
+.gedo-subtitle {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 8px;
+  color: #6a5a7a;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* 9 Eyes of Gedo */
+.gedo-eyes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.gedo-eye {
+  width: 28px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all .3s;
+}
+
+.gedo-eye.closed {
+  background: radial-gradient(ellipse, #1a1520 40%, #0d0a14 100%);
+  border: 1px solid rgba(80,60,100,.3);
+}
+.gedo-eye.closed::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  background: rgba(80,60,100,.4);
+}
+
+.gedo-eye.open {
+  background: radial-gradient(ellipse, #6a3a8a 0%, #3a1a5a 60%, #1a0a2a 100%);
+  border: 1px solid rgba(140,80,200,.5);
+  box-shadow: 0 0 8px rgba(120,60,180,.4), 0 0 2px rgba(140,80,200,.6);
+}
+.gedo-eye.open::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c090e0;
+  box-shadow: 0 0 4px #c090e0;
+}
+
+/* Sealed counter */
+.gedo-count {
+  text-align: center;
+  margin: 8px 0 14px;
+}
+.gedo-count span {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #8a6aaa;
+}
+.gedo-count strong {
+  color: #c090e0;
+  font-size: 11px;
+}
+
+/* Beast list */
+.beast-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.beast-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(20,15,30,.6);
+  border: 1px solid rgba(80,60,100,.1);
+}
+.beast-row.sealed {
+  background: rgba(100,60,140,.08);
+  border-color: rgba(120,80,160,.2);
+}
+
+.beast-tails {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11px;
+  font-weight: 900;
+}
+.beast-tails.free {
+  background: rgba(40,30,50,.8);
+  color: #4a3a5a;
+  border: 1px solid rgba(60,40,80,.3);
+}
+.beast-tails.sealed {
+  background: linear-gradient(135deg, #4a2a6a, #3a1a5a);
+  color: #d0b0e8;
+  border: 1px solid rgba(140,80,200,.3);
+  box-shadow: 0 0 6px rgba(120,60,180,.2);
+}
+
+.beast-info {
+  flex: 1;
+  min-width: 0;
+}
+.beast-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+.beast-name.free { color: #4a4a5a; }
+.beast-name.sealed { color: #c0a8d8; }
+
+.beast-detail {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 7.5px;
+  letter-spacing: .5px;
+  margin-top: 1px;
+}
+.beast-detail.free { color: #3a3a4a; }
+.beast-detail.sealed { color: #7a6a8a; }
+
+.beast-status {
+  flex-shrink: 0;
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.beast-status.free {
+  color: #3a5a3a;
+  background: rgba(40,80,40,.15);
+  border: 1px solid rgba(40,80,40,.2);
+}
+.beast-status.sealed {
+  color: #aa70cc;
+  background: rgba(120,60,180,.1);
+  border: 1px solid rgba(120,60,180,.2);
+}
+
+/* Jinchuriki info */
+.beast-jinch {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 7px;
+  color: #5a5a6a;
+  margin-top: 1px;
+}
+.beast-jinch.sealed { color: #6a5a7a; }
+
+/* Access restriction notice */
+.gedo-access {
+  margin-top: 12px;
+  padding: 8px 10px;
+  background: rgba(120,60,60,.06);
+  border: 1px solid rgba(120,60,60,.15);
+  border-radius: 6px;
+  text-align: center;
+}
+.gedo-access span {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 8px;
+  color: #8a5a5a;
+  letter-spacing: .5px;
+}
+
+/* Progress bar */
+.gedo-progress {
+  margin: 12px 0 4px;
+}
+.gedo-prog-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.gedo-prog-head span {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #6a5a7a;
+}
+.gedo-prog-head strong {
+  font-size: 9px;
+  color: #aa80cc;
+}
+.gedo-prog-bar {
+  height: 5px;
+  background: rgba(40,30,50,.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.gedo-prog-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #5a2a8a, #8a4ac0);
+  box-shadow: 0 0 6px rgba(120,60,180,.3);
+}
+</style>
+</head>
+<body>
+
+<h2>SCENARIO 1 — 3 OF 9 SEALED</h2>
+<p class="note">Early Shippuden — Akatsuki has captured Shukaku, Matatabi, and Isobu</p>
+
+<div class="gedo-panel">
+  <div class="gedo-header">
+    <div class="gedo-icon"><div class="gedo-icon-inner"><span>外</span></div></div>
+    <div>
+      <div class="gedo-title">外道魔像 — Gedō Mazō</div>
+      <div class="gedo-subtitle">Demonic Statue of the Outer Path</div>
+    </div>
+  </div>
+
+  <div class="gedo-eyes">
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+  </div>
+
+  <div class="gedo-count"><span><strong>3</strong> / 9 Bijū Sealed</span></div>
+
+  <div class="gedo-progress">
+    <div class="gedo-prog-head"><span>Sealing Progress</span><strong>33%</strong></div>
+    <div class="gedo-prog-bar"><div class="gedo-prog-fill" style="width:33%"></div></div>
+  </div>
+
+  <div style="height:1px;background:rgba(120,90,160,.1);margin:12px 0;"></div>
+
+  <div class="beast-grid">
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">一</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Shukaku — 守鶴</div>
+        <div class="beast-detail sealed">One-Tail · Tanuki</div>
+        <div class="beast-jinch sealed">Extracted from: Gaara</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">二</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Matatabi — 又旅</div>
+        <div class="beast-detail sealed">Two-Tails · Bakeneko</div>
+        <div class="beast-jinch sealed">Extracted from: Yugito Nii</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">三</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Isobu — 磯撫</div>
+        <div class="beast-detail sealed">Three-Tails · Turtle</div>
+        <div class="beast-jinch sealed">Captured in the wild</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">四</div>
+      <div class="beast-info">
+        <div class="beast-name free">Son Gokū — 孫悟空</div>
+        <div class="beast-detail free">Four-Tails · Monkey</div>
+        <div class="beast-jinch">Jinchūriki: Rōshi</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">五</div>
+      <div class="beast-info">
+        <div class="beast-name free">Kokuō — 穆王</div>
+        <div class="beast-detail free">Five-Tails · Dolphin Horse</div>
+        <div class="beast-jinch">Jinchūriki: Han</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">六</div>
+      <div class="beast-info">
+        <div class="beast-name free">Saiken — 犀犬</div>
+        <div class="beast-detail free">Six-Tails · Slug</div>
+        <div class="beast-jinch">Jinchūriki: Utakata</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">七</div>
+      <div class="beast-info">
+        <div class="beast-name free">Chōmei — 重明</div>
+        <div class="beast-detail free">Seven-Tails · Beetle</div>
+        <div class="beast-jinch">Jinchūriki: Fū</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">八</div>
+      <div class="beast-info">
+        <div class="beast-name free">Gyūki — 牛鬼</div>
+        <div class="beast-detail free">Eight-Tails · Ox-Cephalopod</div>
+        <div class="beast-jinch">Jinchūriki: Killer Bee</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">九</div>
+      <div class="beast-info">
+        <div class="beast-name free">Kurama — 九喇嘛</div>
+        <div class="beast-detail free">Nine-Tails · Fox</div>
+        <div class="beast-jinch">Jinchūriki: Naruto Uzumaki</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+  </div>
+
+  <div class="gedo-access">
+    <span>👁 Visible only to Akatsuki members or Rinnegan wielders</span>
+  </div>
+</div>
+
+<h2>SCENARIO 2 — 7 OF 9 SEALED</h2>
+<p class="note">Late Shippuden — Only Gyūki and Kurama remain</p>
+
+<div class="gedo-panel">
+  <div class="gedo-header">
+    <div class="gedo-icon"><div class="gedo-icon-inner"><span>外</span></div></div>
+    <div>
+      <div class="gedo-title">外道魔像 — Gedō Mazō</div>
+      <div class="gedo-subtitle">Demonic Statue of the Outer Path</div>
+    </div>
+  </div>
+
+  <div class="gedo-eyes">
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye open"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+  </div>
+
+  <div class="gedo-count"><span><strong>7</strong> / 9 Bijū Sealed</span></div>
+
+  <div class="gedo-progress">
+    <div class="gedo-prog-head"><span>Sealing Progress</span><strong>78%</strong></div>
+    <div class="gedo-prog-bar"><div class="gedo-prog-fill" style="width:78%"></div></div>
+  </div>
+
+  <div style="height:1px;background:rgba(120,90,160,.1);margin:12px 0;"></div>
+
+  <div class="beast-grid">
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">一</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Shukaku — 守鶴</div>
+        <div class="beast-detail sealed">One-Tail · Tanuki</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">二</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Matatabi — 又旅</div>
+        <div class="beast-detail sealed">Two-Tails · Bakeneko</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">三</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Isobu — 磯撫</div>
+        <div class="beast-detail sealed">Three-Tails · Turtle</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">四</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Son Gokū — 孫悟空</div>
+        <div class="beast-detail sealed">Four-Tails · Monkey</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">五</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Kokuō — 穆王</div>
+        <div class="beast-detail sealed">Five-Tails · Dolphin Horse</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">六</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Saiken — 犀犬</div>
+        <div class="beast-detail sealed">Six-Tails · Slug</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row sealed">
+      <div class="beast-tails sealed">七</div>
+      <div class="beast-info">
+        <div class="beast-name sealed">Chōmei — 重明</div>
+        <div class="beast-detail sealed">Seven-Tails · Beetle</div>
+      </div>
+      <div class="beast-status sealed">Sealed</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">八</div>
+      <div class="beast-info">
+        <div class="beast-name free">Gyūki — 牛鬼</div>
+        <div class="beast-detail free">Eight-Tails · Ox-Cephalopod</div>
+        <div class="beast-jinch">Jinchūriki: Killer Bee</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">九</div>
+      <div class="beast-info">
+        <div class="beast-name free">Kurama — 九喇嘛</div>
+        <div class="beast-detail free">Nine-Tails · Fox</div>
+        <div class="beast-jinch">Jinchūriki: Naruto Uzumaki</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+  </div>
+
+  <div class="gedo-access">
+    <span>👁 Visible only to Akatsuki members or Rinnegan wielders</span>
+  </div>
+</div>
+
+<h2>SCENARIO 3 — ALL 9 SEALED (COMPLETE)</h2>
+<p class="note">Ten-Tails revival imminent</p>
+
+<div class="gedo-panel" style="border-color:rgba(180,80,200,.3);box-shadow:0 0 40px rgba(120,40,180,.2),inset 0 0 20px rgba(80,20,120,.15);">
+  <div class="gedo-header">
+    <div class="gedo-icon"><div class="gedo-icon-inner"><span>十</span></div></div>
+    <div>
+      <div class="gedo-title" style="color:#e0a0f0;">外道魔像 — Gedō Mazō</div>
+      <div class="gedo-subtitle" style="color:#aa70cc;">⚠ TEN-TAILS REVIVAL READY</div>
+    </div>
+  </div>
+
+  <div class="gedo-eyes">
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+    <div class="gedo-eye open" style="box-shadow:0 0 10px rgba(180,60,220,.5),0 0 3px rgba(200,80,240,.7);"></div>
+  </div>
+
+  <div class="gedo-count"><span style="color:#e0a0f0;"><strong style="color:#f0c0ff;">9</strong> / 9 Bijū Sealed — <strong style="color:#f0c0ff;">COMPLETE</strong></span></div>
+
+  <div class="gedo-progress">
+    <div class="gedo-prog-head"><span>Sealing Progress</span><strong style="color:#e0a0f0;">100%</strong></div>
+    <div class="gedo-prog-bar"><div class="gedo-prog-fill" style="width:100%;background:linear-gradient(90deg,#8a3ac0,#c060e0);box-shadow:0 0 10px rgba(180,60,220,.4);"></div></div>
+  </div>
+</div>
+
+<h2>SCENARIO 4 — 0 SEALED (EMPTY)</h2>
+<p class="note">Gedo Mazou summoned but no beasts captured yet</p>
+
+<div class="gedo-panel">
+  <div class="gedo-header">
+    <div class="gedo-icon"><div class="gedo-icon-inner"><span>外</span></div></div>
+    <div>
+      <div class="gedo-title">外道魔像 — Gedō Mazō</div>
+      <div class="gedo-subtitle">Demonic Statue of the Outer Path</div>
+    </div>
+  </div>
+
+  <div class="gedo-eyes">
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+    <div class="gedo-eye closed"></div>
+  </div>
+
+  <div class="gedo-count"><span><strong>0</strong> / 9 Bijū Sealed</span></div>
+
+  <div class="gedo-progress">
+    <div class="gedo-prog-head"><span>Sealing Progress</span><strong>0%</strong></div>
+    <div class="gedo-prog-bar"><div class="gedo-prog-fill" style="width:0%"></div></div>
+  </div>
+
+  <div style="height:1px;background:rgba(120,90,160,.1);margin:12px 0;"></div>
+
+  <div class="beast-grid">
+    <div class="beast-row">
+      <div class="beast-tails free">一</div>
+      <div class="beast-info">
+        <div class="beast-name free">Shukaku — 守鶴</div>
+        <div class="beast-detail free">One-Tail · Tanuki</div>
+        <div class="beast-jinch">Jinchūriki: Gaara</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">二</div>
+      <div class="beast-info">
+        <div class="beast-name free">Matatabi — 又旅</div>
+        <div class="beast-detail free">Two-Tails · Bakeneko</div>
+        <div class="beast-jinch">Jinchūriki: Yugito Nii</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">三</div>
+      <div class="beast-info">
+        <div class="beast-name free">Isobu — 磯撫</div>
+        <div class="beast-detail free">Three-Tails · Turtle</div>
+        <div class="beast-jinch">Jinchūriki: Yagura</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">四</div>
+      <div class="beast-info">
+        <div class="beast-name free">Son Gokū — 孫悟空</div>
+        <div class="beast-detail free">Four-Tails · Monkey</div>
+        <div class="beast-jinch">Jinchūriki: Rōshi</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">五</div>
+      <div class="beast-info">
+        <div class="beast-name free">Kokuō — 穆王</div>
+        <div class="beast-detail free">Five-Tails · Dolphin Horse</div>
+        <div class="beast-jinch">Jinchūriki: Han</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">六</div>
+      <div class="beast-info">
+        <div class="beast-name free">Saiken — 犀犬</div>
+        <div class="beast-detail free">Six-Tails · Slug</div>
+        <div class="beast-jinch">Jinchūriki: Utakata</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">七</div>
+      <div class="beast-info">
+        <div class="beast-name free">Chōmei — 重明</div>
+        <div class="beast-detail free">Seven-Tails · Beetle</div>
+        <div class="beast-jinch">Jinchūriki: Fū</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">八</div>
+      <div class="beast-info">
+        <div class="beast-name free">Gyūki — 牛鬼</div>
+        <div class="beast-detail free">Eight-Tails · Ox-Cephalopod</div>
+        <div class="beast-jinch">Jinchūriki: Killer Bee</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+    <div class="beast-row">
+      <div class="beast-tails free">九</div>
+      <div class="beast-info">
+        <div class="beast-name free">Kurama — 九喇嘛</div>
+        <div class="beast-detail free">Nine-Tails · Fox</div>
+        <div class="beast-jinch">Jinchūriki: Naruto Uzumaki</div>
+      </div>
+      <div class="beast-status free">Free</div>
+    </div>
+  </div>
+
+  <div class="gedo-access">
+    <span>👁 Visible only to Akatsuki members or Rinnegan wielders</span>
+  </div>
+</div>
+
+</body>
+</html>
