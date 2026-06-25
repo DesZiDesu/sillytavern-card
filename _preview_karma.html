@@ -3,65 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karma Mark — 3 Layout Options</title>
+<title>Karma Mark — SVG Redesign Options (Option B Layout)</title>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 body{background:#0a0908;margin:0;padding:20px;font-family:'Shippori Mincho',serif}
 h2{color:#c4a872;text-align:center;font-size:14px;margin:50px 0 4px;font-family:'M PLUS 1',sans-serif;letter-spacing:3px;text-transform:uppercase}
-p.note{color:#6a6458;text-align:center;font-size:10px;font-family:'M PLUS 1',sans-serif;margin:0 0 20px}
+p.note{color:#6a6458;text-align:center;font-size:10px;font-family:'M PLUS 1',sans-serif;margin:0 0 20px;line-height:1.5}
 hr.sep{border:none;border-top:1px solid #2a2820;margin:60px auto;max-width:300px}
 
-/* ========== SHARED ANIMATIONS ========== */
+/* Shared animations */
 @keyframes km-dormant{0%{opacity:.85}50%{opacity:1}100%{opacity:.85}}
 .km-svg-dormant{animation:km-dormant 3s ease-in-out infinite}
 @keyframes km-blue{0%{fill:#4a8ecc}25%{fill:#6aaeee}50%{fill:#8ac8ff}75%{fill:#6aaeee}100%{fill:#4a8ecc}}
 .km-svg-blue path,.km-svg-blue polygon{animation:km-blue 2s ease-in-out infinite}
-@keyframes km-glow-blue{0%{filter:drop-shadow(0 0 2px rgba(74,142,204,.3))}50%{filter:drop-shadow(0 0 8px rgba(74,142,204,.6))}100%{filter:drop-shadow(0 0 2px rgba(74,142,204,.3))}}
+@keyframes km-glow-blue{0%{filter:drop-shadow(0 0 3px rgba(74,142,204,.3))}50%{filter:drop-shadow(0 0 10px rgba(74,142,204,.7))}100%{filter:drop-shadow(0 0 3px rgba(74,142,204,.3))}}
 .km-svg-blue{animation:km-glow-blue 2s ease-in-out infinite}
 @keyframes km-red{0%{fill:#cc3333}25%{fill:#ee5555}50%{fill:#ff7777}75%{fill:#ee5555}100%{fill:#cc3333}}
 .km-svg-red path,.km-svg-red polygon{animation:km-red 2s ease-in-out infinite}
-@keyframes km-glow-red{0%{filter:drop-shadow(0 0 2px rgba(204,51,51,.3))}50%{filter:drop-shadow(0 0 8px rgba(204,51,51,.6))}100%{filter:drop-shadow(0 0 2px rgba(204,51,51,.3))}}
+@keyframes km-glow-red{0%{filter:drop-shadow(0 0 3px rgba(204,51,51,.3))}50%{filter:drop-shadow(0 0 10px rgba(204,51,51,.7))}100%{filter:drop-shadow(0 0 3px rgba(204,51,51,.3))}}
 .km-svg-red{animation:km-glow-red 2s ease-in-out infinite}
 @keyframes km-white{0%{fill:#c4b8a8}25%{fill:#d8cebf}50%{fill:#ebe5da}75%{fill:#d8cebf}100%{fill:#c4b8a8}}
 .km-svg-white path,.km-svg-white polygon{animation:km-white 2.5s ease-in-out infinite}
-@keyframes km-glow-white{0%{filter:drop-shadow(0 0 2px rgba(200,190,170,.2))}50%{filter:drop-shadow(0 0 6px rgba(200,190,170,.5))}100%{filter:drop-shadow(0 0 2px rgba(200,190,170,.2))}}
+@keyframes km-glow-white{0%{filter:drop-shadow(0 0 2px rgba(200,190,170,.2))}50%{filter:drop-shadow(0 0 7px rgba(200,190,170,.5))}100%{filter:drop-shadow(0 0 2px rgba(200,190,170,.2))}}
 .km-svg-white{animation:km-glow-white 2.5s ease-in-out infinite}
 /* Spread stages */
-.km-spread-1 .km-horns{opacity:0}.km-spread-1 .km-lower{opacity:0}
-.km-spread-2 .km-horns{opacity:.6}.km-spread-2 .km-lower{opacity:0}
-.km-spread-3 .km-horns{opacity:1}.km-spread-3 .km-lower{opacity:.7}
-.km-spread-4 .km-horns{opacity:1}.km-spread-4 .km-lower{opacity:1}
+.km-spread-1 .km-petals{opacity:0}.km-spread-1 .km-body{opacity:0}.km-spread-1 .km-blades{opacity:0}
+.km-spread-2 .km-petals{opacity:.7}.km-spread-2 .km-body{opacity:0}.km-spread-2 .km-blades{opacity:0}
+.km-spread-3 .km-petals{opacity:1}.km-spread-3 .km-body{opacity:.8}.km-spread-3 .km-blades{opacity:.6}
+.km-spread-4 .km-petals{opacity:1}.km-spread-4 .km-body{opacity:1}.km-spread-4 .km-blades{opacity:1}
 
-/* ========== OPTION A — HORIZONTAL BANNER ========== */
-.ka{max-width:420px;margin:0 auto 20px}
-.ka-bar{background:linear-gradient(180deg,#f5ecd8,#f0e2cb);border:1px solid #c4a882;border-radius:8px;padding:8px 14px;box-shadow:0 2px 10px rgba(0,0,0,.2);display:flex;align-items:center;gap:12px}
-.ka-icon{flex-shrink:0}
-.ka-mid{flex:1;min-width:0}
-.ka-name{font-size:12px;font-weight:800;color:#5a3818;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ka-sub{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848;margin-top:1px}
-.ka-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
-.ka-stage-mini{display:flex;gap:2px}
-.ka-stage-mini .s{width:16px;height:4px;border-radius:2px;background:rgba(180,140,90,.2)}
-.ka-stage-mini .s.on{background:#4a8ecc;box-shadow:0 0 4px rgba(74,142,204,.4)}
-.ka-stage-mini .s.on-r{background:#cc4444;box-shadow:0 0 4px rgba(204,68,68,.4)}
-.ka-stage-mini .s.on-b{background:#1a1815}
-.ka-stage-mini .s.on-w{background:#c4b8a8}
-.ka-pct{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#4a8ecc;font-weight:600}
-.ka-pct.red{color:#cc3333}
-.ka-detail{background:linear-gradient(180deg,#f0e2cb,#ece0c5);border:1px solid #c4a882;border-top:none;border-radius:0 0 8px 8px;padding:10px 14px;margin-top:-1px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
-.ka-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px}
-.ka-grid .kl{font-family:'M PLUS 1',sans-serif;font-size:6.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848}
-.ka-grid .kv{font-size:9.5px;color:#3a2a1a;margin-top:1px}
-.ka-ow{margin-bottom:8px}
-.ka-ow-bar{height:4px;background:rgba(180,140,90,.18);border-radius:4px;overflow:hidden;margin-top:3px}
-.ka-ow-fill{height:100%;border-radius:4px}
-.ka-tags{display:flex;gap:3px;flex-wrap:wrap}
-.ka-tag{font-family:'M PLUS 1',sans-serif;font-size:7.5px;padding:2px 5px;border-radius:6px;background:rgba(74,142,204,.06);border:1px solid rgba(74,142,204,.2);color:#3a7acc}
-.ka-tag.locked{color:#aaa;background:rgba(150,150,150,.06);border-color:rgba(150,150,150,.15);text-decoration:line-through}
-.ka-tag.red{color:#cc3333;background:rgba(204,51,51,.06);border-color:rgba(204,51,51,.2)}
-.ka-tag.wh{color:#8a7a68;background:rgba(180,160,130,.08);border-color:rgba(180,160,130,.2)}
-
-/* ========== OPTION B — CENTERED EMBLEM ========== */
+/* Option B layout */
 .kb{max-width:380px;margin:0 auto 20px;background:linear-gradient(180deg,#f5ecd8,#f0e2cb);border-radius:8px;padding:16px;box-shadow:0 4px 18px rgba(0,0,0,.4)}
 .kb-center{display:flex;flex-direction:column;align-items:center;margin-bottom:10px}
 .kb-title{font-size:14px;font-weight:800;color:#5a3818;margin-top:8px}
@@ -79,6 +50,8 @@ hr.sep{border:none;border-top:1px solid #2a2820;margin:60px auto;max-width:300px
 .kb-info .kl{font-family:'M PLUS 1',sans-serif;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:#9a7848}
 .kb-info .kv{font-size:10px;color:#3a2a1a;margin-top:1px}
 .kb-ow{padding:0 8px;margin-bottom:10px}
+.kl{font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px}
+.kl.danger{color:#cc3333}
 .kb-ow-track{height:5px;background:rgba(180,140,90,.18);border-radius:4px;overflow:hidden;margin-top:3px}
 .kb-ow-fill{height:100%;border-radius:4px}
 .kb-abilities{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;padding:0 8px}
@@ -86,161 +59,67 @@ hr.sep{border:none;border-top:1px solid #2a2820;margin:60px auto;max-width:300px
 .kb-tag.locked{color:#aaa;background:rgba(150,150,150,.06);border-color:rgba(150,150,150,.15);text-decoration:line-through}
 .kb-tag.red{color:#cc3333;background:rgba(204,51,51,.06);border-color:rgba(204,51,51,.2)}
 .kb-tag.wh{color:#8a7a68;background:rgba(180,160,130,.08);border-color:rgba(180,160,130,.2)}
+.kb-tag.dark{color:#1a1815;background:rgba(26,24,21,.08);border-color:rgba(26,24,21,.2)}
 
-/* ========== OPTION C — COMPACT DATA CARD ========== */
-.kc{max-width:380px;margin:0 auto 20px;background:linear-gradient(180deg,#f5ecd8,#f0e2cb);border-radius:8px;padding:16px;box-shadow:0 4px 18px rgba(0,0,0,.4)}
-.kc-box{background:rgba(26,24,21,.04);border:1px solid rgba(26,24,21,.15);border-radius:6px;padding:10px 12px}
-.kc-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.kc-icon{width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.kc-name{font-size:13px;font-weight:800;color:#5a3818}
-.kc-sub{font-family:'M PLUS 1',sans-serif;font-size:8.5px;color:#9a7848;margin-top:1px}
-.kl{font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px}
-.kl.danger{color:#cc3333}
-.kc-stage-bar{display:flex;gap:3px;margin-bottom:2px}
-.kc-stage-bar .seg{flex:1;height:5px;border-radius:3px;background:rgba(180,140,90,.18)}
-.kc-stage-bar .seg.on{background:#1a1815;box-shadow:0 0 4px rgba(0,0,0,.3)}
-.kc-stage-bar .seg.on-blue{background:#4a8ecc;box-shadow:0 0 6px rgba(74,142,204,.4)}
-.kc-stage-bar .seg.on-red{background:#cc4444;box-shadow:0 0 6px rgba(204,68,68,.4)}
-.kc-stage-bar .seg.on-w{background:#c4b8a8;box-shadow:0 0 4px rgba(196,184,168,.3)}
-.kc-labels{display:flex;justify-content:space-between;margin-bottom:8px}
-.kc-labels span{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a7848}
-.kc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
-.kc-grid .v{font-size:10px;color:#3a2a1a}
-.kc-tags{display:flex;gap:4px;flex-wrap:wrap}
-.kc-tag{font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 6px;border-radius:8px}
-.kc-tag.blue{color:#3a7acc;background:rgba(58,122,204,.06);border:1px solid rgba(58,122,204,.25)}
-.kc-tag.red{color:#cc3333;background:rgba(204,51,51,.06);border:1px solid rgba(204,51,51,.25)}
-.kc-tag.wh{color:#8a7a68;background:rgba(180,160,130,.08);border:1px solid rgba(180,160,130,.25)}
-.kc-tag.locked{color:#999;background:rgba(150,150,150,.06);border:1px solid rgba(150,150,150,.2);text-decoration:line-through}
-.kc-tag.dark{color:#1a1815;background:rgba(26,24,21,.08);border:1px solid rgba(26,24,21,.2)}
-.kc-ow-bar{height:6px;background:rgba(180,140,90,.18);border-radius:6px;overflow:hidden;margin-bottom:2px}
-.kc-ow-fill{height:100%;border-radius:6px}
+/* SVG showcase row */
+.svg-row{display:flex;justify-content:center;gap:40px;margin:20px auto;max-width:500px;flex-wrap:wrap}
+.svg-show{display:flex;flex-direction:column;align-items:center;gap:6px}
+.svg-show-label{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#6a6458;letter-spacing:1px}
+.svg-bg{background:#1a1815;border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
 
 <!-- ============================================================ -->
-<!--                  OPTION A — HORIZONTAL BANNER                -->
+<!--                    SVG V1 — CLEAN CURVES                     -->
 <!-- ============================================================ -->
-<h2>OPTION A — HORIZONTAL BANNER</h2>
-<p class="note">Compact bar style (like Tracker) — collapsed by default, expandable for details</p>
+<h2>SVG V1 — CLEAN CURVES</h2>
+<p class="note">Smooth flowing petals, elegant blade curves, faithful proportions</p>
 
-<!-- A-1: Stage 2 Blue Resonance (expanded) -->
-<div class="ka">
-<div class="ka-bar">
-<div class="ka-icon">
-<svg class="km-svg-blue km-spread-2" width="28" height="34" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#4a8ecc"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#4a8ecc"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#4a8ecc"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#4a8ecc"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#4a8ecc"/></g>
+<!-- SVG showcase on dark bg -->
+<div class="svg-row">
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-dormant km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#c8c0b4"/>
+<g class="km-petals">
+<path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#c8c0b4"/>
+<path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#c8c0b4"/>
+</g>
+<g class="km-body">
+<path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#c8c0b4"/>
+</g>
+<g class="km-blades">
+<path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#c8c0b4"/>
+<path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#c8c0b4"/>
+</g>
 </svg>
-</div>
-<div class="ka-mid">
-<div class="ka-name">Momoshiki's Kāma</div>
-<div class="ka-sub">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
-</div>
-<div class="ka-right">
-<div class="ka-stage-mini"><div class="s on"></div><div class="s on"></div><div class="s"></div><div class="s"></div></div>
-<div class="ka-pct">Overwrite 35%</div>
-</div>
-</div>
-<div class="ka-detail">
-<div class="ka-grid">
-<div><div class="kl">LOCATION</div><div class="kv">Right palm</div></div>
-<div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue</div></div>
-<div><div class="kl">SPREAD</div><div class="kv">Palm → arm</div></div>
-</div>
-<div class="ka-ow">
-<div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE</div>
-<div class="ka-ow-bar"><div class="ka-ow-fill" style="width:35%;background:linear-gradient(90deg,#2a5a8a,#4a8ecc)"></div></div>
-</div>
-<div class="kl">ABILITIES</div>
-<div class="ka-tags">
-<span class="ka-tag">Chakra Absorption</span>
-<span class="ka-tag">Space-Time Portal</span>
-<span class="ka-tag locked">Jutsu Amplification</span>
-</div>
-</div>
-</div>
-
-<!-- A-2: Stage 3 Red Combat -->
-<div class="ka">
-<div class="ka-bar">
-<div class="ka-icon">
-<svg class="km-svg-red km-spread-3" width="28" height="34" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#cc3333"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#cc3333"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#cc3333"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#cc3333"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#cc3333"/></g>
+</div><span class="svg-show-label">FULL</span></div>
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-blue km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
+<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#4a8ecc"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#4a8ecc"/></g>
+<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#4a8ecc"/></g>
+<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#4a8ecc"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#4a8ecc"/></g>
 </svg>
-</div>
-<div class="ka-mid">
-<div class="ka-name">Isshiki's Kāma</div>
-<div class="ka-sub">VESSEL: Kawaki — <span style="color:#cc3333;font-weight:700">COMBAT ACTIVE</span></div>
-</div>
-<div class="ka-right">
-<div class="ka-stage-mini"><div class="s on-r"></div><div class="s on-r"></div><div class="s on-r"></div><div class="s"></div></div>
-<div class="ka-pct red">Overwrite 72%</div>
-</div>
-</div>
-</div>
-
-<!-- A-3: Stage 1 Dormant -->
-<div class="ka">
-<div class="ka-bar">
-<div class="ka-icon">
-<svg class="km-svg-dormant km-spread-1" width="28" height="34" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#1a1815"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#1a1815"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#1a1815"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#1a1815"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#1a1815"/></g>
+</div><span class="svg-show-label">BLUE</span></div>
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-red km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#cc3333"/>
+<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#cc3333"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#cc3333"/></g>
+<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#cc3333"/></g>
+<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#cc3333"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#cc3333"/></g>
 </svg>
-</div>
-<div class="ka-mid">
-<div class="ka-name">Momoshiki's Kāma</div>
-<div class="ka-sub">VESSEL: Boruto Uzumaki — DORMANT</div>
-</div>
-<div class="ka-right">
-<div class="ka-stage-mini"><div class="s on-b"></div><div class="s"></div><div class="s"></div><div class="s"></div></div>
-<div class="ka-pct" style="color:#9a7848">Overwrite 8%</div>
-</div>
-</div>
+</div><span class="svg-show-label">RED</span></div>
 </div>
 
-<!-- A-4: White Karma -->
-<div class="ka">
-<div class="ka-bar">
-<div class="ka-icon">
-<svg class="km-svg-white km-spread-4" width="28" height="34" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#c4b8a8"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#c4b8a8"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#c4b8a8"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#c4b8a8"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#c4b8a8"/></g>
-</svg>
-</div>
-<div class="ka-mid">
-<div class="ka-name">Isshiki's White Kāma</div>
-<div class="ka-sub">FAILED VESSEL: Code — <span style="color:#8a7a68;font-weight:700">NO OVERWRITE</span></div>
-</div>
-<div class="ka-right">
-<div class="ka-stage-mini"><div class="s on-w"></div><div class="s on-w"></div><div class="s on-w"></div><div class="s on-w"></div></div>
-<div class="ka-pct" style="color:#8a7a68">Failed</div>
-</div>
-</div>
-</div>
-
-<hr class="sep"/>
-
-<!-- ============================================================ -->
-<!--                OPTION B — CENTERED EMBLEM                    -->
-<!-- ============================================================ -->
-<h2>OPTION B — CENTERED EMBLEM</h2>
-<p class="note">Large SVG icon centered — dramatic/visual, stage bar below emblem, data underneath</p>
-
-<!-- B-1: Stage 2 Blue Resonance -->
+<!-- V1 in Option B layout -->
 <div class="kb">
 <div class="kb-center">
-<svg class="km-svg-blue km-spread-2" width="56" height="68" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#4a8ecc"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#4a8ecc"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#4a8ecc"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#4a8ecc"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#4a8ecc"/></g>
+<svg class="km-svg-blue km-spread-2" width="56" height="72" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
+<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#4a8ecc"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#4a8ecc"/></g>
+<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#4a8ecc"/></g>
+<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#4a8ecc"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#4a8ecc"/></g>
 </svg>
 <div class="kb-title">Momoshiki's Kāma</div>
 <div class="kb-subtitle">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
@@ -256,7 +135,7 @@ hr.sep{border:none;border-top:1px solid #2a2820;margin:60px auto;max-width:300px
 <div class="kb-info">
 <div><div class="kl">LOCATION</div><div class="kv">Right palm</div></div>
 <div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Active)</div></div>
-<div><div class="kl">SHAPE</div><div class="kv">Diamond + horns</div></div>
+<div><div class="kl">SHAPE</div><div class="kv">Diamond + petals</div></div>
 <div><div class="kl">SPREAD</div><div class="kv">Palm → arm → face</div></div>
 </div>
 <div class="kb-ow">
@@ -271,233 +150,216 @@ hr.sep{border:none;border-top:1px solid #2a2820;margin:60px auto;max-width:300px
 </div>
 </div>
 
-<!-- B-2: Stage 3 Red Combat -->
-<div class="kb">
-<div class="kb-center">
-<svg class="km-svg-red km-spread-3" width="56" height="68" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#cc3333"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#cc3333"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#cc3333"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#cc3333"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#cc3333"/></g>
+<hr class="sep"/>
+
+<!-- ============================================================ -->
+<!--                  SVG V2 — SHARP ANGULAR                      -->
+<!-- ============================================================ -->
+<h2>SVG V2 — SHARP ANGULAR</h2>
+<p class="note">More angular petals with sharper tips, tighter blade curves, geometric feel</p>
+
+<div class="svg-row">
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-dormant km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#c8c0b4"/>
+<g class="km-petals">
+<path d="M27,19 C22,13 13,15 16,24 C18,30 25,32 28,26Z" fill="#c8c0b4"/>
+<path d="M33,19 C38,13 47,15 44,24 C42,30 35,32 32,26Z" fill="#c8c0b4"/>
+</g>
+<g class="km-body">
+<path d="M28.5,28 C28.5,38 29,46 30,56 C31,46 31.5,38 31.5,28Z" fill="#c8c0b4"/>
+</g>
+<g class="km-blades">
+<path d="M29,50 C24,58 16,68 12,76 C10,82 14,84 19,80 C24,74 28,62 30,56Z" fill="#c8c0b4"/>
+<path d="M31,50 C36,58 44,68 48,76 C50,82 46,84 41,80 C36,74 32,62 30,56Z" fill="#c8c0b4"/>
+</g>
 </svg>
-<div class="kb-title">Isshiki's Kāma</div>
-<div class="kb-subtitle">VESSEL: Kawaki — <span style="color:#cc3333;font-weight:700">COMBAT ACTIVE</span></div>
-</div>
-<div class="kb-stage-ring">
-<div class="kb-seg"><div class="kb-seg-bar on-r"></div><div class="kb-seg-lbl">Dormant</div></div>
-<div class="kb-seg"><div class="kb-seg-bar on-r"></div><div class="kb-seg-lbl">Spreading</div></div>
-<div class="kb-seg"><div class="kb-seg-bar on-r"></div><div class="kb-seg-lbl">Horn</div></div>
-<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Ōtsutsuki</div></div>
-</div>
-<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#cc3333;font-weight:600;margin-bottom:6px">Stage 3 — Horn Manifestation</div>
-<hr class="kb-divider"/>
-<div class="kb-info">
-<div><div class="kl">LOCATION</div><div class="kv">Left palm</div></div>
-<div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#cc3333,#ff7777);border:1px solid #ee5555"></span>Red (Combat)</div></div>
-<div><div class="kl">SHAPE</div><div class="kv">Full symbol + horn</div></div>
-<div><div class="kl">SPREAD</div><div class="kv">Full body right side</div></div>
-</div>
-<div class="kb-ow">
-<div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE — 72%</div>
-<div class="kb-ow-track"><div class="kb-ow-fill" style="width:72%;background:linear-gradient(90deg,#8a2a2a,#cc4444)"></div></div>
-</div>
-<div class="kl" style="text-align:center;padding:0 8px">ABILITIES</div>
-<div class="kb-abilities">
-<span class="kb-tag red">Sukunahikona</span>
-<span class="kb-tag red">Daikokuten</span>
-<span class="kb-tag red">Chakra Absorption</span>
-<span class="kb-tag red">Space-Time Portal</span>
-</div>
+</div><span class="svg-show-label">FULL</span></div>
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-blue km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
+<g class="km-petals"><path d="M27,19 C22,13 13,15 16,24 C18,30 25,32 28,26Z" fill="#4a8ecc"/><path d="M33,19 C38,13 47,15 44,24 C42,30 35,32 32,26Z" fill="#4a8ecc"/></g>
+<g class="km-body"><path d="M28.5,28 C28.5,38 29,46 30,56 C31,46 31.5,38 31.5,28Z" fill="#4a8ecc"/></g>
+<g class="km-blades"><path d="M29,50 C24,58 16,68 12,76 C10,82 14,84 19,80 C24,74 28,62 30,56Z" fill="#4a8ecc"/><path d="M31,50 C36,58 44,68 48,76 C50,82 46,84 41,80 C36,74 32,62 30,56Z" fill="#4a8ecc"/></g>
+</svg>
+</div><span class="svg-show-label">BLUE</span></div>
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-red km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#cc3333"/>
+<g class="km-petals"><path d="M27,19 C22,13 13,15 16,24 C18,30 25,32 28,26Z" fill="#cc3333"/><path d="M33,19 C38,13 47,15 44,24 C42,30 35,32 32,26Z" fill="#cc3333"/></g>
+<g class="km-body"><path d="M28.5,28 C28.5,38 29,46 30,56 C31,46 31.5,38 31.5,28Z" fill="#cc3333"/></g>
+<g class="km-blades"><path d="M29,50 C24,58 16,68 12,76 C10,82 14,84 19,80 C24,74 28,62 30,56Z" fill="#cc3333"/><path d="M31,50 C36,58 44,68 48,76 C50,82 46,84 41,80 C36,74 32,62 30,56Z" fill="#cc3333"/></g>
+</svg>
+</div><span class="svg-show-label">RED</span></div>
 </div>
 
-<!-- B-3: White Karma -->
+<!-- V2 in Option B layout -->
 <div class="kb">
 <div class="kb-center">
-<svg class="km-svg-white km-spread-4" width="56" height="68" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#c4b8a8"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#c4b8a8"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#c4b8a8"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#c4b8a8"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#c4b8a8"/></g>
+<svg class="km-svg-blue km-spread-2" width="56" height="72" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
+<g class="km-petals"><path d="M27,19 C22,13 13,15 16,24 C18,30 25,32 28,26Z" fill="#4a8ecc"/><path d="M33,19 C38,13 47,15 44,24 C42,30 35,32 32,26Z" fill="#4a8ecc"/></g>
+<g class="km-body"><path d="M28.5,28 C28.5,38 29,46 30,56 C31,46 31.5,38 31.5,28Z" fill="#4a8ecc"/></g>
+<g class="km-blades"><path d="M29,50 C24,58 16,68 12,76 C10,82 14,84 19,80 C24,74 28,62 30,56Z" fill="#4a8ecc"/><path d="M31,50 C36,58 44,68 48,76 C50,82 46,84 41,80 C36,74 32,62 30,56Z" fill="#4a8ecc"/></g>
 </svg>
-<div class="kb-title">Isshiki's White Kāma</div>
-<div class="kb-subtitle">FAILED VESSEL: Code — <span style="color:#8a7a68;font-weight:700">NO OVERWRITE</span></div>
+<div class="kb-title">Momoshiki's Kāma</div>
+<div class="kb-subtitle">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
 </div>
 <div class="kb-stage-ring">
-<div class="kb-seg"><div class="kb-seg-bar on-w"></div><div class="kb-seg-lbl">Dormant</div></div>
-<div class="kb-seg"><div class="kb-seg-bar on-w"></div><div class="kb-seg-lbl">Spreading</div></div>
-<div class="kb-seg"><div class="kb-seg-bar on-w"></div><div class="kb-seg-lbl">Horn</div></div>
-<div class="kb-seg"><div class="kb-seg-bar on-w"></div><div class="kb-seg-lbl">Ōtsutsuki</div></div>
+<div class="kb-seg"><div class="kb-seg-bar on"></div><div class="kb-seg-lbl">Dormant</div></div>
+<div class="kb-seg"><div class="kb-seg-bar on"></div><div class="kb-seg-lbl">Spreading</div></div>
+<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Horn</div></div>
+<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Ōtsutsuki</div></div>
 </div>
-<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#8a7a68;font-weight:600;margin-bottom:6px">Failed Vessel — Power Retained, No Overwrite</div>
+<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#4a8ecc;font-weight:600;margin-bottom:6px">Stage 2 — Pattern Spreading (Resonance)</div>
 <hr class="kb-divider"/>
 <div class="kb-info">
-<div><div class="kl">LOCATION</div><div class="kv">Under left eye</div></div>
-<div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#c4b8a8,#ebe5da);border:1px solid #d4c8b8"></span>White</div></div>
-<div><div class="kl">SHAPE</div><div class="kv">Full Kāma crest</div></div>
-<div><div class="kl">LIMITER</div><div class="kv" style="color:#cc3333;font-weight:700">Removed</div></div>
+<div><div class="kl">LOCATION</div><div class="kv">Right palm</div></div>
+<div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Active)</div></div>
+<div><div class="kl">SHAPE</div><div class="kv">Diamond + petals</div></div>
+<div><div class="kl">SPREAD</div><div class="kv">Palm → arm → face</div></div>
+</div>
+<div class="kb-ow">
+<div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE — 35%</div>
+<div class="kb-ow-track"><div class="kb-ow-fill" style="width:35%;background:linear-gradient(90deg,#2a5a8a,#4a8ecc)"></div></div>
 </div>
 <div class="kl" style="text-align:center;padding:0 8px">ABILITIES</div>
 <div class="kb-abilities">
-<span class="kb-tag wh">Claw Marks</span>
-<span class="kb-tag wh">Enhanced Strength</span>
-<span class="kb-tag wh">Regeneration</span>
+<span class="kb-tag">Chakra Absorption</span>
+<span class="kb-tag">Space-Time Portal</span>
+<span class="kb-tag locked">Jutsu Amplification</span>
 </div>
 </div>
 
 <hr class="sep"/>
 
 <!-- ============================================================ -->
-<!--               OPTION C — COMPACT DATA CARD                  -->
+<!--                SVG V3 — BOLD DRAMATIC                        -->
 <!-- ============================================================ -->
-<h2>OPTION C — COMPACT DATA CARD</h2>
-<p class="note">Icon left, data right — detailed grid, progress bars, ability tags</p>
+<h2>SVG V3 — BOLD DRAMATIC</h2>
+<p class="note">Wider petals, thicker body, dramatic sweeping blades — bolder presence</p>
 
-<!-- C-1: Stage 2 Blue Resonance -->
-<div class="kc">
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9a7848;margin-bottom:10px;text-align:center">KĀMA — 楔</div>
-<div class="kc-box">
-<div class="kc-header">
-<div class="kc-icon">
-<svg class="km-svg-blue km-spread-2" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#4a8ecc"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#4a8ecc"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#4a8ecc"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#4a8ecc"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#4a8ecc"/></g>
+<div class="svg-row">
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-dormant km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 35,10 30,18 25,10" fill="#c8c0b4"/>
+<g class="km-petals">
+<path d="M26,20 C20,14 11,17 14,27 C16,34 25,34 28,27Z" fill="#c8c0b4"/>
+<path d="M34,20 C40,14 49,17 46,27 C44,34 35,34 32,27Z" fill="#c8c0b4"/>
+</g>
+<g class="km-body">
+<path d="M28,30 C27.5,40 28,48 30,58 C32,48 32.5,40 32,30Z" fill="#c8c0b4"/>
+</g>
+<g class="km-blades">
+<path d="M28,52 C22,60 14,70 10,78 C8,84 12,88 18,82 C24,76 28,64 30,58Z" fill="#c8c0b4"/>
+<path d="M32,52 C38,60 46,70 50,78 C52,84 48,88 42,82 C36,76 32,64 30,58Z" fill="#c8c0b4"/>
+</g>
 </svg>
-</div>
-<div>
-<div class="kc-name">Momoshiki's Kāma</div>
-<div class="kc-sub">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
-</div>
-</div>
-<div class="kl">STAGE PROGRESSION</div>
-<div class="kc-stage-bar"><div class="seg on-blue"></div><div class="seg on-blue"></div><div class="seg"></div><div class="seg"></div></div>
-<div class="kc-labels"><span>Dormant</span><span>Spreading</span><span>Horn</span><span>Ōtsutsuki</span></div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#4a8ecc;font-weight:600;margin-bottom:10px">Current: Stage 2 — Pattern Spreading (Resonance)</div>
-<div class="kc-grid">
-<div><div class="kl">LOCATION</div><div class="v">Right palm</div></div>
-<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Active)</div></div>
-<div><div class="kl">SHAPE</div><div class="v">Diamond + horns emerging</div></div>
-<div><div class="kl">SPREAD</div><div class="v">Palm → arm → face</div></div>
-</div>
-<div class="kl danger">ŌTSUTSUKI OVERWRITE</div>
-<div class="kc-ow-bar"><div class="kc-ow-fill" style="width:35%;background:linear-gradient(90deg,#2a5a8a,#4a8ecc)"></div></div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#4a8ecc;font-weight:600;margin-bottom:8px">35% — Momoshiki extraction progressing</div>
-<div class="kl">KĀMA ABILITIES</div>
-<div class="kc-tags">
-<span class="kc-tag blue">Chakra Absorption</span>
-<span class="kc-tag blue">Space-Time Portal</span>
-<span class="kc-tag locked">Jutsu Amplification</span>
-<span class="kc-tag locked">Ōtsutsuki Transformation</span>
-</div>
-</div>
+</div><span class="svg-show-label">FULL</span></div>
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-blue km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 35,10 30,18 25,10" fill="#4a8ecc"/>
+<g class="km-petals"><path d="M26,20 C20,14 11,17 14,27 C16,34 25,34 28,27Z" fill="#4a8ecc"/><path d="M34,20 C40,14 49,17 46,27 C44,34 35,34 32,27Z" fill="#4a8ecc"/></g>
+<g class="km-body"><path d="M28,30 C27.5,40 28,48 30,58 C32,48 32.5,40 32,30Z" fill="#4a8ecc"/></g>
+<g class="km-blades"><path d="M28,52 C22,60 14,70 10,78 C8,84 12,88 18,82 C24,76 28,64 30,58Z" fill="#4a8ecc"/><path d="M32,52 C38,60 46,70 50,78 C52,84 48,88 42,82 C36,76 32,64 30,58Z" fill="#4a8ecc"/></g>
+</svg>
+</div><span class="svg-show-label">BLUE</span></div>
+<div class="svg-show"><div class="svg-bg">
+<svg class="km-svg-red km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 35,10 30,18 25,10" fill="#cc3333"/>
+<g class="km-petals"><path d="M26,20 C20,14 11,17 14,27 C16,34 25,34 32,27Z" fill="#cc3333"/><path d="M34,20 C40,14 49,17 46,27 C44,34 35,34 32,27Z" fill="#cc3333"/></g>
+<g class="km-body"><path d="M28,30 C27.5,40 28,48 30,58 C32,48 32.5,40 32,30Z" fill="#cc3333"/></g>
+<g class="km-blades"><path d="M28,52 C22,60 14,70 10,78 C8,84 12,88 18,82 C24,76 28,64 30,58Z" fill="#cc3333"/><path d="M32,52 C38,60 46,70 50,78 C52,84 48,88 42,82 C36,76 32,64 30,58Z" fill="#cc3333"/></g>
+</svg>
+</div><span class="svg-show-label">RED</span></div>
 </div>
 
-<!-- C-2: Stage 3 Red Combat -->
-<div class="kc">
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9a7848;margin-bottom:10px;text-align:center">KĀMA — 楔 — COMBAT ACTIVE</div>
-<div class="kc-box">
-<div class="kc-header">
-<div class="kc-icon">
-<svg class="km-svg-red km-spread-3" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#cc3333"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#cc3333"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#cc3333"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#cc3333"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#cc3333"/></g>
+<!-- V3 in Option B layout -->
+<div class="kb">
+<div class="kb-center">
+<svg class="km-svg-blue km-spread-2" width="56" height="72" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 35,10 30,18 25,10" fill="#4a8ecc"/>
+<g class="km-petals"><path d="M26,20 C20,14 11,17 14,27 C16,34 25,34 28,27Z" fill="#4a8ecc"/><path d="M34,20 C40,14 49,17 46,27 C44,34 35,34 32,27Z" fill="#4a8ecc"/></g>
+<g class="km-body"><path d="M28,30 C27.5,40 28,48 30,58 C32,48 32.5,40 32,30Z" fill="#4a8ecc"/></g>
+<g class="km-blades"><path d="M28,52 C22,60 14,70 10,78 C8,84 12,88 18,82 C24,76 28,64 30,58Z" fill="#4a8ecc"/><path d="M32,52 C38,60 46,70 50,78 C52,84 48,88 42,82 C36,76 32,64 30,58Z" fill="#4a8ecc"/></g>
 </svg>
+<div class="kb-title">Momoshiki's Kāma</div>
+<div class="kb-subtitle">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
 </div>
-<div>
-<div class="kc-name">Isshiki's Kāma</div>
-<div class="kc-sub">VESSEL: Kawaki — <span style="color:#cc3333;font-weight:700">COMBAT ACTIVE</span></div>
+<div class="kb-stage-ring">
+<div class="kb-seg"><div class="kb-seg-bar on"></div><div class="kb-seg-lbl">Dormant</div></div>
+<div class="kb-seg"><div class="kb-seg-bar on"></div><div class="kb-seg-lbl">Spreading</div></div>
+<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Horn</div></div>
+<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Ōtsutsuki</div></div>
 </div>
+<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#4a8ecc;font-weight:600;margin-bottom:6px">Stage 2 — Pattern Spreading (Resonance)</div>
+<hr class="kb-divider"/>
+<div class="kb-info">
+<div><div class="kl">LOCATION</div><div class="kv">Right palm</div></div>
+<div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Active)</div></div>
+<div><div class="kl">SHAPE</div><div class="kv">Diamond + petals</div></div>
+<div><div class="kl">SPREAD</div><div class="kv">Palm → arm → face</div></div>
 </div>
-<div class="kl">STAGE PROGRESSION</div>
-<div class="kc-stage-bar"><div class="seg on-red"></div><div class="seg on-red"></div><div class="seg on-red"></div><div class="seg"></div></div>
-<div class="kc-labels"><span>Dormant</span><span>Spreading</span><span>Horn</span><span>Ōtsutsuki</span></div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#cc3333;font-weight:600;margin-bottom:10px">Current: Stage 3 — Horn Manifestation</div>
-<div class="kc-grid">
-<div><div class="kl">LOCATION</div><div class="v">Left palm</div></div>
-<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#cc3333,#ff7777);border:1px solid #ee5555"></span>Red (Combat)</div></div>
-<div><div class="kl">SHAPE</div><div class="v">Full symbol + horn</div></div>
-<div><div class="kl">SPREAD</div><div class="v">Full body right side</div></div>
+<div class="kb-ow">
+<div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE — 35%</div>
+<div class="kb-ow-track"><div class="kb-ow-fill" style="width:35%;background:linear-gradient(90deg,#2a5a8a,#4a8ecc)"></div></div>
 </div>
-<div class="kl danger">ŌTSUTSUKI OVERWRITE</div>
-<div class="kc-ow-bar"><div class="kc-ow-fill" style="width:72%;background:linear-gradient(90deg,#8a2a2a,#cc4444)"></div></div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;color:#cc3333;font-weight:600;margin-bottom:8px">72% — Isshiki resurrection approaching</div>
-<div class="kl">KĀMA ABILITIES</div>
-<div class="kc-tags">
-<span class="kc-tag red">Sukunahikona</span>
-<span class="kc-tag red">Daikokuten</span>
-<span class="kc-tag red">Chakra Absorption</span>
-<span class="kc-tag red">Space-Time Portal</span>
-</div>
+<div class="kl" style="text-align:center;padding:0 8px">ABILITIES</div>
+<div class="kb-abilities">
+<span class="kb-tag">Chakra Absorption</span>
+<span class="kb-tag">Space-Time Portal</span>
+<span class="kb-tag locked">Jutsu Amplification</span>
 </div>
 </div>
 
-<!-- C-3: Stage 1 Dormant -->
-<div class="kc">
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9a7848;margin-bottom:10px;text-align:center">KĀMA — 楔</div>
-<div class="kc-box">
-<div class="kc-header">
-<div class="kc-icon">
-<svg class="km-svg-dormant km-spread-1" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#1a1815"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#1a1815"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#1a1815"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#1a1815"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#1a1815"/></g>
-</svg>
-</div>
-<div>
-<div class="kc-name">Momoshiki's Kāma</div>
-<div class="kc-sub">VESSEL: Boruto Uzumaki — DORMANT</div>
-</div>
-</div>
-<div class="kl">STAGE PROGRESSION</div>
-<div class="kc-stage-bar"><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
-<div class="kc-labels"><span>Dormant</span><span>Spreading</span><span>Horn</span><span>Ōtsutsuki</span></div>
-<div style="font-family:'M PLUS 1',sans-serif;font-size:9px;color:#5a3818;font-weight:600;margin-bottom:10px">Current: Stage 1 — Dormant Diamond</div>
-<div class="kc-grid">
-<div><div class="kl">LOCATION</div><div class="v">Right palm</div></div>
-<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#1a1815;border:1px solid #444"></span>Black</div></div>
-<div><div class="kl">SHAPE</div><div class="v">Diamond only</div></div>
-<div><div class="kl">SPREAD</div><div class="v">Palm (localized)</div></div>
-</div>
-<div class="kl">KĀMA ABILITIES</div>
-<div class="kc-tags">
-<span class="kc-tag dark">Chakra Absorption</span>
-<span class="kc-tag locked">Space-Time Portal</span>
-<span class="kc-tag locked">Jutsu Amplification</span>
-</div>
-</div>
-</div>
+<hr class="sep"/>
 
-<!-- C-4: White Karma -->
-<div class="kc">
-<div style="font-family:'M PLUS 1',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9a7848;margin-bottom:10px;text-align:center">WHITE KĀMA — 白楔</div>
-<div class="kc-box" style="background:rgba(220,210,200,.06);border-color:rgba(200,190,180,.2)">
-<div class="kc-header">
-<div class="kc-icon">
-<svg class="km-svg-white km-spread-4" width="36" height="44" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 38,14 30,26 22,14" fill="#c4b8a8"/>
-<g class="km-horns"><path d="M26,20 C22,28 16,36 12,44 C10,48 12,50 16,48 C20,46 24,38 28,30Z" fill="#c4b8a8"/><path d="M34,20 C38,28 44,36 48,44 C50,48 48,50 44,48 C40,46 36,38 32,30Z" fill="#c4b8a8"/></g>
-<g class="km-lower"><path d="M16,48 C14,54 10,62 8,70 C7,74 9,76 12,73 C14,70 16,60 18,52Z" fill="#c4b8a8"/><path d="M44,48 C46,54 50,62 52,70 C53,74 51,76 48,73 C46,70 44,60 42,52Z" fill="#c4b8a8"/></g>
+<!-- ============================================================ -->
+<!--              SPREAD STAGE COMPARISON (using V1)              -->
+<!-- ============================================================ -->
+<h2>SPREAD STAGES — PROGRESSIVE EXPANSION</h2>
+<p class="note">How the mark grows from diamond-only to full symbol across all 3 SVG versions</p>
+
+<div style="max-width:500px;margin:0 auto 20px">
+<div style="display:flex;justify-content:center;gap:6px;margin-bottom:6px">
+<!-- V1 stages -->
+<div class="svg-show"><div class="svg-bg" style="padding:10px">
+<svg class="km-svg-dormant km-spread-1" width="36" height="48" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#1a1815"/>
+<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#1a1815"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#1a1815"/></g>
+<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#1a1815"/></g>
+<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#1a1815"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#1a1815"/></g>
 </svg>
+</div><span class="svg-show-label">STG 1</span></div>
+
+<div class="svg-show"><div class="svg-bg" style="padding:10px">
+<svg class="km-svg-blue km-spread-2" width="36" height="48" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
+<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#4a8ecc"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#4a8ecc"/></g>
+<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#4a8ecc"/></g>
+<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#4a8ecc"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#4a8ecc"/></g>
+</svg>
+</div><span class="svg-show-label">STG 2</span></div>
+
+<div class="svg-show"><div class="svg-bg" style="padding:10px">
+<svg class="km-svg-red km-spread-3" width="36" height="48" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#cc3333"/>
+<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#cc3333"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#cc3333"/></g>
+<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#cc3333"/></g>
+<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#cc3333"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#cc3333"/></g>
+</svg>
+</div><span class="svg-show-label">STG 3</span></div>
+
+<div class="svg-show"><div class="svg-bg" style="padding:10px">
+<svg class="km-svg-blue km-spread-4" width="36" height="48" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
+<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#4a8ecc"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#4a8ecc"/></g>
+<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#4a8ecc"/></g>
+<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#4a8ecc"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#4a8ecc"/></g>
+</svg>
+</div><span class="svg-show-label">STG 4</span></div>
 </div>
-<div>
-<div class="kc-name">Isshiki's White Kāma</div>
-<div class="kc-sub">FAILED VESSEL: Code — <span style="color:#8a7a68;font-weight:700">NO OVERWRITE</span></div>
-</div>
-</div>
-<div class="kl">VESSEL STATUS</div>
-<div style="margin-bottom:10px"><span class="kc-tag wh" style="font-weight:700">FAILED — Power retained, no Ōtsutsuki data transfer</span></div>
-<div class="kc-grid">
-<div><div class="kl">LOCATION</div><div class="v">Under left eye</div></div>
-<div><div class="kl">COLOR</div><div class="v" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#c4b8a8,#ebe5da);border:1px solid #d4c8b8"></span>White</div></div>
-<div><div class="kl">SHAPE</div><div class="v">Full Kāma crest</div></div>
-<div><div class="kl">LIMITER</div><div class="v" style="color:#cc3333;font-weight:700">Removed</div></div>
-</div>
-<div class="kl">KĀMA ABILITIES</div>
-<div class="kc-tags">
-<span class="kc-tag wh">Claw Marks</span>
-<span class="kc-tag wh">Enhanced Strength</span>
-<span class="kc-tag wh">Regeneration</span>
-</div>
-</div>
+<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:8px;color:#6a6458;letter-spacing:1px">V1 CLEAN CURVES — STAGE PROGRESSION</div>
 </div>
 
 </body>
