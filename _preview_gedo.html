@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gedo Mazou — UI Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+body{background:#0a0908;margin:0;padding:20px;font-family:'Shippori Mincho',serif;}
+h2{color:#5a5448;text-align:center;font-size:11px;margin:40px 0 4px;font-family:'M PLUS 1',sans-serif;letter-spacing:2px;text-transform:uppercase;}
+p.note{color:#4a4840;text-align:center;font-size:9px;font-family:'M PLUS 1',sans-serif;margin:0 0 10px;}
+.gedo-wrap{text-align:center;margin:0 auto 50px;max-width:300px;}
+.gedo-wrap svg{width:250px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.6));}
+.gedo-wrap.complete svg{filter:drop-shadow(0 6px 18px rgba(0,0,0,.6)) drop-shadow(0 0 25px rgba(120,60,180,.12));}
+.gedo-name{font-size:13px;font-weight:800;color:#a89878;letter-spacing:2px;margin-bottom:8px;}
+.gedo-name small{display:block;font-family:'M PLUS 1',sans-serif;font-size:7px;color:#5a5448;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;margin-top:2px;}
+.gedo-count{margin-top:10px;font-family:'M PLUS 1',sans-serif;font-size:10px;color:#6a6058;letter-spacing:1px;}
+.gedo-count strong{color:#b8a888;font-size:12px;}
+.gedo-count.done{color:#9a7abc;}
+.gedo-count.done strong{color:#d0b0f0;}
+.gedo-revival{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#9a6ac0;letter-spacing:1.5px;margin-top:4px;}
+</style>
+</head>
+<body>
+
+<!-- ============== SCENARIO 1: 3/9 SEALED ============== -->
+<h2>SCENARIO 1 — 3 OF 9 SEALED</h2>
+<p class="note">Shukaku, Matatabi, Isobu captured</p>
+
+<div class="gedo-wrap">
+<div class="gedo-name">外道魔像<small>Demonic Statue of the Outer Path</small></div>
+<svg viewBox="0 0 280 370" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="sta" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="5" seed="7" result="n"/><feColorMatrix type="saturate" values="0" in="n" result="g"/><feBlend in="SourceGraphic" in2="g" mode="multiply" result="t"/><feComposite in="t" in2="SourceGraphic" operator="in"/></filter>
+<filter id="ega"><feGaussianBlur stdDeviation="2.5"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<linearGradient id="sga" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#504d48"/><stop offset="100%" stop-color="#33302c"/></linearGradient>
+<linearGradient id="sha" x1=".2" y1="0" x2=".8" y2="1"><stop offset="0%" stop-color="#4e4c46"/><stop offset="100%" stop-color="#38352f"/></linearGradient>
+<radialGradient id="rna"><stop offset="0%" stop-color="#c8b0e0"/><stop offset="35%" stop-color="#9370db"/><stop offset="70%" stop-color="#7b5ea7"/><stop offset="100%" stop-color="#4a2d6a"/></radialGradient>
+</defs>
+<!-- Ground shadow -->
+<ellipse cx="140" cy="358" rx="90" ry="6" fill="rgba(0,0,0,.2)"/>
+<!-- === BACK SPIKES (tree-trunk style) === -->
+<g filter="url(#sta)">
+<!-- Left outer spike -->
+<path d="M52,152 L30,68 L27,45 L30,32 L27,22 L31,14 L35,20 L38,12 L42,8 L45,16 L48,25 L46,42 L44,62 L48,90 L58,152" fill="#26241e"/>
+<!-- Left inner spike -->
+<path d="M85,130 L72,55 L69,35 L72,22 L70,12 L74,5 L78,10 L81,3 L85,8 L88,18 L86,35 L84,55 L88,80 L95,130" fill="#2a2824"/>
+<!-- Center spike (tallest) -->
+<path d="M130,82 L128,45 L126,28 L129,18 L127,8 L131,1 L135,6 L139,-2 L143,4 L147,0 L150,8 L153,4 L155,14 L152,25 L154,40 L152,60 L150,82" fill="#2e2c26"/>
+<!-- Right inner spike -->
+<path d="M195,130 L208,55 L211,35 L208,22 L210,12 L206,5 L202,10 L199,3 L195,8 L192,18 L194,35 L196,55 L192,80 L185,130" fill="#2a2824"/>
+<!-- Right outer spike -->
+<path d="M228,152 L250,68 L253,45 L250,32 L253,22 L249,14 L245,20 L242,12 L238,8 L235,16 L232,25 L234,42 L236,62 L232,90 L222,152" fill="#26241e"/>
+</g>
+<!-- Bark texture on spikes -->
+<g stroke="#1a1815" stroke-width=".5" opacity=".3" fill="none">
+<line x1="32" y1="40" x2="46" y2="40"/><line x1="34" y1="60" x2="47" y2="60"/><line x1="36" y1="80" x2="50" y2="80"/><line x1="40" y1="100" x2="52" y2="100"/><line x1="44" y1="120" x2="55" y2="120"/>
+<line x1="72" y1="30" x2="87" y2="30"/><line x1="73" y1="50" x2="86" y2="50"/><line x1="75" y1="70" x2="88" y2="70"/><line x1="78" y1="90" x2="90" y2="90"/><line x1="80" y1="110" x2="92" y2="110"/>
+<line x1="129" y1="15" x2="153" y2="15"/><line x1="128" y1="30" x2="154" y2="30"/><line x1="129" y1="45" x2="152" y2="45"/><line x1="130" y1="60" x2="151" y2="60"/><line x1="131" y1="75" x2="150" y2="75"/>
+<line x1="193" y1="30" x2="210" y2="30"/><line x1="192" y1="50" x2="208" y2="50"/><line x1="192" y1="70" x2="206" y2="70"/><line x1="190" y1="90" x2="202" y2="90"/><line x1="188" y1="110" x2="198" y2="110"/>
+<line x1="234" y1="40" x2="250" y2="40"/><line x1="233" y1="60" x2="248" y2="60"/><line x1="232" y1="80" x2="245" y2="80"/><line x1="230" y1="100" x2="240" y2="100"/><line x1="228" y1="120" x2="236" y2="120"/>
+</g>
+<!-- === BODY === -->
+<path d="M80,185 C65,192 52,215 56,248 L58,272 C60,285 72,292 82,288 L90,305 L190,305 L198,288 C208,292 220,285 222,272 L224,248 C228,215 215,192 200,185Z" fill="url(#sga)" filter="url(#sta)"/>
+<!-- Sternum -->
+<line x1="140" y1="190" x2="140" y2="295" stroke="#28261e" stroke-width=".8" opacity=".25"/>
+<!-- Ribs -->
+<g stroke="#2a2820" stroke-width="1.2" fill="none" opacity=".4">
+<path d="M95,212 Q140,202 185,212"/><path d="M92,228 Q140,218 188,228"/><path d="M90,244 Q140,234 190,244"/><path d="M90,260 Q140,250 190,260"/><path d="M92,276 Q140,266 188,276"/>
+</g>
+<!-- === ARMS === -->
+<!-- Left arm -->
+<path d="M80,185 C60,194 45,218 40,248 L35,278 C33,290 32,300 35,308" fill="#38352f" filter="url(#sta)" opacity=".9"/>
+<!-- Right arm -->
+<path d="M200,185 C220,194 235,218 240,248 L245,278 C247,290 248,300 245,308" fill="#38352f" filter="url(#sta)" opacity=".9"/>
+<!-- Shackles -->
+<rect x="28" y="296" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
+<rect x="236" y="296" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
+<!-- === HANDS with FINGERS === -->
+<!-- Left hand -->
+<g fill="#3a3735" filter="url(#sta)">
+<path d="M38,306 L28,328 L30,326 L42,308"/>
+<path d="M35,310 L18,348 L21,350 L39,314"/>
+<path d="M32,314 L10,358 L13,360 L36,318"/>
+<path d="M28,316 L4,352 L7,354 L32,320"/>
+<path d="M25,318 L0,344 L3,346 L29,322"/>
+</g>
+<!-- Left finger joints -->
+<g fill="#48453f" opacity=".5"><circle cx="33" cy="318" r="1.5"/><circle cx="26" cy="330" r="1.5"/><circle cx="20" cy="338" r="1.5"/><circle cx="15" cy="335" r="1.5"/><circle cx="12" cy="332" r="1.5"/></g>
+<!-- Right hand -->
+<g fill="#3a3735" filter="url(#sta)">
+<path d="M242,306 L252,328 L250,326 L238,308"/>
+<path d="M245,310 L262,348 L259,350 L241,314"/>
+<path d="M248,314 L270,358 L267,360 L244,318"/>
+<path d="M252,316 L276,352 L273,354 L248,320"/>
+<path d="M255,318 L280,344 L277,346 L251,322"/>
+</g>
+<!-- Right finger joints -->
+<g fill="#48453f" opacity=".5"><circle cx="247" cy="318" r="1.5"/><circle cx="254" cy="330" r="1.5"/><circle cx="260" cy="338" r="1.5"/><circle cx="265" cy="335" r="1.5"/><circle cx="268" cy="332" r="1.5"/></g>
+<!-- Shoulder joints -->
+<circle cx="82" cy="188" r="8" fill="#44413d"/><circle cx="198" cy="188" r="8" fill="#44413d"/>
+<!-- === NECK === -->
+<rect x="120" y="168" width="40" height="18" rx="5" fill="#36332e"/>
+<g stroke="#44413d" stroke-width="1" opacity=".3" fill="none"><line x1="122" y1="173" x2="158" y2="173"/><line x1="122" y1="178" x2="158" y2="178"/></g>
+<!-- === HEAD (wide skull) === -->
+<path d="M140,72 C108,70 78,80 68,96 C60,108 58,124 62,138 L70,152 C78,162 100,170 140,170 C180,170 202,162 210,152 L218,138 C222,124 220,108 212,96 C202,80 172,70 140,72Z" fill="url(#sha)" filter="url(#sta)"/>
+<!-- === HEADBAND === -->
+<path d="M66,94 Q140,86 214,94" stroke="#4a4845" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M66,94 Q140,86 214,94" stroke="#3e3b36" stroke-width="5" fill="none" stroke-linecap="round"/>
+<g stroke="#33302c" stroke-width=".6" opacity=".4" fill="none"><path d="M68,91 Q140,83 212,91"/><path d="M68,97 Q140,89 212,97"/></g>
+<!-- Headband knot/tail (left side) -->
+<path d="M66,94 L56,100 L50,115 L48,130" stroke="#3e3b36" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M66,94 L58,102 L54,118 L52,132" stroke="#3e3b36" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<!-- === NOSE === -->
+<path d="M140,104 L137,130 L140,138 L143,130Z" fill="#36332e" opacity=".4"/>
+<!-- === OPEN MOUTH WITH FANGS === -->
+<!-- Mouth cavity -->
+<path d="M108,144 C108,140 120,136 140,136 C160,136 172,140 172,144 L172,162 C172,168 160,172 140,172 C120,172 108,168 108,162Z" fill="#080706"/>
+<!-- Upper fangs -->
+<g fill="#555250">
+<polygon points="112,144 114,153 116,144"/><polygon points="121,142 124,155 127,142"/><polygon points="131,141 134,157 137,141"/><polygon points="143,141 146,157 149,141"/><polygon points="153,142 156,155 159,142"/><polygon points="164,144 166,153 168,144"/>
+</g>
+<!-- Lower fangs -->
+<g fill="#4a4845">
+<polygon points="115,162 118,152 121,162"/><polygon points="127,163 130,150 133,163"/><polygon points="139,164 142,148 145,164"/><polygon points="151,163 154,150 157,163"/><polygon points="163,162 166,152 169,162"/>
+</g>
+<!-- Drool/saliva strings -->
+<g stroke="#3a3835" stroke-width=".4" opacity=".3" fill="none">
+<path d="M134,157 C133,162 134,168 133,175"/><path d="M146,157 C147,163 146,170 147,178"/>
+</g>
+<!-- Chains from mouth -->
+<g fill="none" stroke="#44413d" stroke-width="1.5">
+<path d="M120,164 C118,175 120,182 118,190"/>
+<path d="M160,164 C162,175 160,182 162,190"/>
+</g>
+<g fill="none" stroke="#3a3735" stroke-width="1.2">
+<ellipse cx="118" cy="195" rx="3" ry="2.5"/><ellipse cx="118" cy="202" rx="3" ry="2.5"/><ellipse cx="118" cy="209" rx="3" ry="2.5"/>
+<ellipse cx="162" cy="195" rx="3" ry="2.5"/><ellipse cx="162" cy="202" rx="3" ry="2.5"/><ellipse cx="162" cy="209" rx="3" ry="2.5"/>
+</g>
+<!-- Face wrinkles/texture -->
+<g stroke="#2a2820" stroke-width=".5" opacity=".3" fill="none">
+<path d="M105,138 Q108,142 108,146"/><path d="M175,138 Q172,142 172,146"/>
+<path d="M100,150 Q106,155 108,162"/><path d="M180,150 Q174,155 172,162"/>
+</g>
+<!-- Head cracks -->
+<g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".35">
+<path d="M110,78 L106,92"/><path d="M170,80 L174,92"/><path d="M95,110 L98,122"/><path d="M185,112 L182,124"/><path d="M120,165 L122,172"/><path d="M160,164 L158,170"/>
+</g>
+<!-- Body cracks -->
+<g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".3">
+<path d="M100,200 L104,218 L102,228"/><path d="M180,202 L176,220 L178,230"/><path d="M115,260 L118,278"/><path d="M165,262 L162,280"/>
+</g>
+<!-- === 9 EYES (3 rows of 3) === -->
+<!-- Row 1 (y=104): E1, E2, E3 -->
+<!-- E1 OPEN: 一 -->
+<g filter="url(#ega)"><ellipse cx="108" cy="104" rx="10" ry="6" fill="url(#rna)"/><ellipse cx="108" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="108" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="108" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">一</text></g>
+<!-- E2 OPEN: 二 -->
+<g filter="url(#ega)"><ellipse cx="140" cy="104" rx="10" ry="6" fill="url(#rna)"/><ellipse cx="140" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="140" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="140" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">二</text></g>
+<!-- E3 OPEN: 三 -->
+<g filter="url(#ega)"><ellipse cx="172" cy="104" rx="10" ry="6" fill="url(#rna)"/><ellipse cx="172" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="172" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="172" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">三</text></g>
+<!-- Row 2 (y=118): E4, E5, E6 — closed -->
+<g><ellipse cx="100" cy="118" rx="10" ry="6" fill="#28261e"/><line x1="91" y1="118" x2="109" y2="118" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<g><ellipse cx="140" cy="118" rx="10" ry="6" fill="#28261e"/><line x1="131" y1="118" x2="149" y2="118" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<g><ellipse cx="180" cy="118" rx="10" ry="6" fill="#28261e"/><line x1="171" y1="118" x2="189" y2="118" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<!-- Row 3 (y=132): E7, E8, E9 — closed -->
+<g><ellipse cx="112" cy="132" rx="10" ry="6" fill="#28261e"/><line x1="103" y1="132" x2="121" y2="132" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<g><ellipse cx="140" cy="132" rx="10" ry="6" fill="#28261e"/><line x1="131" y1="132" x2="149" y2="132" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<g><ellipse cx="168" cy="132" rx="10" ry="6" fill="#28261e"/><line x1="159" y1="132" x2="177" y2="132" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+</svg>
+<div class="gedo-count"><strong>3</strong> / 9 封印済</div>
+</div>
+
+<!-- ============== SCENARIO 2: 7/9 SEALED ============== -->
+<h2>SCENARIO 2 — 7 OF 9 SEALED</h2>
+<p class="note">Only Gyūki and Kurama remain</p>
+
+<div class="gedo-wrap">
+<div class="gedo-name">外道魔像<small>Demonic Statue of the Outer Path</small></div>
+<svg viewBox="0 0 280 370" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="stb" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="5" seed="7" result="n"/><feColorMatrix type="saturate" values="0" in="n" result="g"/><feBlend in="SourceGraphic" in2="g" mode="multiply" result="t"/><feComposite in="t" in2="SourceGraphic" operator="in"/></filter>
+<filter id="egb"><feGaussianBlur stdDeviation="2.5"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<linearGradient id="sgb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#504d48"/><stop offset="100%" stop-color="#33302c"/></linearGradient>
+<linearGradient id="shb" x1=".2" y1="0" x2=".8" y2="1"><stop offset="0%" stop-color="#4e4c46"/><stop offset="100%" stop-color="#38352f"/></linearGradient>
+<radialGradient id="rnb"><stop offset="0%" stop-color="#c8b0e0"/><stop offset="35%" stop-color="#9370db"/><stop offset="70%" stop-color="#7b5ea7"/><stop offset="100%" stop-color="#4a2d6a"/></radialGradient>
+</defs>
+<ellipse cx="140" cy="358" rx="90" ry="6" fill="rgba(0,0,0,.2)"/>
+<g filter="url(#stb)"><path d="M52,152 L30,68 L27,45 L30,32 L27,22 L31,14 L35,20 L38,12 L42,8 L45,16 L48,25 L46,42 L44,62 L48,90 L58,152" fill="#26241e"/><path d="M85,130 L72,55 L69,35 L72,22 L70,12 L74,5 L78,10 L81,3 L85,8 L88,18 L86,35 L84,55 L88,80 L95,130" fill="#2a2824"/><path d="M130,82 L128,45 L126,28 L129,18 L127,8 L131,1 L135,6 L139,-2 L143,4 L147,0 L150,8 L153,4 L155,14 L152,25 L154,40 L152,60 L150,82" fill="#2e2c26"/><path d="M195,130 L208,55 L211,35 L208,22 L210,12 L206,5 L202,10 L199,3 L195,8 L192,18 L194,35 L196,55 L192,80 L185,130" fill="#2a2824"/><path d="M228,152 L250,68 L253,45 L250,32 L253,22 L249,14 L245,20 L242,12 L238,8 L235,16 L232,25 L234,42 L236,62 L232,90 L222,152" fill="#26241e"/></g>
+<g stroke="#1a1815" stroke-width=".5" opacity=".3" fill="none"><line x1="32" y1="40" x2="46" y2="40"/><line x1="34" y1="60" x2="47" y2="60"/><line x1="36" y1="80" x2="50" y2="80"/><line x1="40" y1="100" x2="52" y2="100"/><line x1="44" y1="120" x2="55" y2="120"/><line x1="72" y1="30" x2="87" y2="30"/><line x1="73" y1="50" x2="86" y2="50"/><line x1="75" y1="70" x2="88" y2="70"/><line x1="78" y1="90" x2="90" y2="90"/><line x1="80" y1="110" x2="92" y2="110"/><line x1="129" y1="15" x2="153" y2="15"/><line x1="128" y1="30" x2="154" y2="30"/><line x1="129" y1="45" x2="152" y2="45"/><line x1="130" y1="60" x2="151" y2="60"/><line x1="131" y1="75" x2="150" y2="75"/><line x1="193" y1="30" x2="210" y2="30"/><line x1="192" y1="50" x2="208" y2="50"/><line x1="192" y1="70" x2="206" y2="70"/><line x1="190" y1="90" x2="202" y2="90"/><line x1="188" y1="110" x2="198" y2="110"/><line x1="234" y1="40" x2="250" y2="40"/><line x1="233" y1="60" x2="248" y2="60"/><line x1="232" y1="80" x2="245" y2="80"/><line x1="230" y1="100" x2="240" y2="100"/><line x1="228" y1="120" x2="236" y2="120"/></g>
+<path d="M80,185 C65,192 52,215 56,248 L58,272 C60,285 72,292 82,288 L90,305 L190,305 L198,288 C208,292 220,285 222,272 L224,248 C228,215 215,192 200,185Z" fill="url(#sgb)" filter="url(#stb)"/>
+<line x1="140" y1="190" x2="140" y2="295" stroke="#28261e" stroke-width=".8" opacity=".25"/>
+<g stroke="#2a2820" stroke-width="1.2" fill="none" opacity=".4"><path d="M95,212 Q140,202 185,212"/><path d="M92,228 Q140,218 188,228"/><path d="M90,244 Q140,234 190,244"/><path d="M90,260 Q140,250 190,260"/><path d="M92,276 Q140,266 188,276"/></g>
+<path d="M80,185 C60,194 45,218 40,248 L35,278 C33,290 32,300 35,308" fill="#38352f" filter="url(#stb)" opacity=".9"/>
+<path d="M200,185 C220,194 235,218 240,248 L245,278 C247,290 248,300 245,308" fill="#38352f" filter="url(#stb)" opacity=".9"/>
+<rect x="28" y="296" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
+<rect x="236" y="296" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
+<g fill="#3a3735" filter="url(#stb)"><path d="M38,306 L28,328 L30,326 L42,308"/><path d="M35,310 L18,348 L21,350 L39,314"/><path d="M32,314 L10,358 L13,360 L36,318"/><path d="M28,316 L4,352 L7,354 L32,320"/><path d="M25,318 L0,344 L3,346 L29,322"/></g>
+<g fill="#48453f" opacity=".5"><circle cx="33" cy="318" r="1.5"/><circle cx="26" cy="330" r="1.5"/><circle cx="20" cy="338" r="1.5"/><circle cx="15" cy="335" r="1.5"/><circle cx="12" cy="332" r="1.5"/></g>
+<g fill="#3a3735" filter="url(#stb)"><path d="M242,306 L252,328 L250,326 L238,308"/><path d="M245,310 L262,348 L259,350 L241,314"/><path d="M248,314 L270,358 L267,360 L244,318"/><path d="M252,316 L276,352 L273,354 L248,320"/><path d="M255,318 L280,344 L277,346 L251,322"/></g>
+<g fill="#48453f" opacity=".5"><circle cx="247" cy="318" r="1.5"/><circle cx="254" cy="330" r="1.5"/><circle cx="260" cy="338" r="1.5"/><circle cx="265" cy="335" r="1.5"/><circle cx="268" cy="332" r="1.5"/></g>
+<circle cx="82" cy="188" r="8" fill="#44413d"/><circle cx="198" cy="188" r="8" fill="#44413d"/>
+<rect x="120" y="168" width="40" height="18" rx="5" fill="#36332e"/>
+<g stroke="#44413d" stroke-width="1" opacity=".3" fill="none"><line x1="122" y1="173" x2="158" y2="173"/><line x1="122" y1="178" x2="158" y2="178"/></g>
+<path d="M140,72 C108,70 78,80 68,96 C60,108 58,124 62,138 L70,152 C78,162 100,170 140,170 C180,170 202,162 210,152 L218,138 C222,124 220,108 212,96 C202,80 172,70 140,72Z" fill="url(#shb)" filter="url(#stb)"/>
+<path d="M66,94 Q140,86 214,94" stroke="#4a4845" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M66,94 Q140,86 214,94" stroke="#3e3b36" stroke-width="5" fill="none" stroke-linecap="round"/>
+<g stroke="#33302c" stroke-width=".6" opacity=".4" fill="none"><path d="M68,91 Q140,83 212,91"/><path d="M68,97 Q140,89 212,97"/></g>
+<path d="M66,94 L56,100 L50,115 L48,130" stroke="#3e3b36" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M66,94 L58,102 L54,118 L52,132" stroke="#3e3b36" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M140,104 L137,130 L140,138 L143,130Z" fill="#36332e" opacity=".4"/>
+<path d="M108,144 C108,140 120,136 140,136 C160,136 172,140 172,144 L172,162 C172,168 160,172 140,172 C120,172 108,168 108,162Z" fill="#080706"/>
+<g fill="#555250"><polygon points="112,144 114,153 116,144"/><polygon points="121,142 124,155 127,142"/><polygon points="131,141 134,157 137,141"/><polygon points="143,141 146,157 149,141"/><polygon points="153,142 156,155 159,142"/><polygon points="164,144 166,153 168,144"/></g>
+<g fill="#4a4845"><polygon points="115,162 118,152 121,162"/><polygon points="127,163 130,150 133,163"/><polygon points="139,164 142,148 145,164"/><polygon points="151,163 154,150 157,163"/><polygon points="163,162 166,152 169,162"/></g>
+<g stroke="#3a3835" stroke-width=".4" opacity=".3" fill="none"><path d="M134,157 C133,162 134,168 133,175"/><path d="M146,157 C147,163 146,170 147,178"/></g>
+<g fill="none" stroke="#44413d" stroke-width="1.5"><path d="M120,164 C118,175 120,182 118,190"/><path d="M160,164 C162,175 160,182 162,190"/></g>
+<g fill="none" stroke="#3a3735" stroke-width="1.2"><ellipse cx="118" cy="195" rx="3" ry="2.5"/><ellipse cx="118" cy="202" rx="3" ry="2.5"/><ellipse cx="118" cy="209" rx="3" ry="2.5"/><ellipse cx="162" cy="195" rx="3" ry="2.5"/><ellipse cx="162" cy="202" rx="3" ry="2.5"/><ellipse cx="162" cy="209" rx="3" ry="2.5"/></g>
+<g stroke="#2a2820" stroke-width=".5" opacity=".3" fill="none"><path d="M105,138 Q108,142 108,146"/><path d="M175,138 Q172,142 172,146"/><path d="M100,150 Q106,155 108,162"/><path d="M180,150 Q174,155 172,162"/></g>
+<g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".35"><path d="M110,78 L106,92"/><path d="M170,80 L174,92"/><path d="M95,110 L98,122"/><path d="M185,112 L182,124"/><path d="M120,165 L122,172"/><path d="M160,164 L158,170"/></g>
+<g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".3"><path d="M100,200 L104,218 L102,228"/><path d="M180,202 L176,220 L178,230"/><path d="M115,260 L118,278"/><path d="M165,262 L162,280"/></g>
+<!-- Row 1: E1-E3 OPEN -->
+<g filter="url(#egb)"><ellipse cx="108" cy="104" rx="10" ry="6" fill="url(#rnb)"/><ellipse cx="108" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="108" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="108" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">一</text></g>
+<g filter="url(#egb)"><ellipse cx="140" cy="104" rx="10" ry="6" fill="url(#rnb)"/><ellipse cx="140" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="140" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="140" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">二</text></g>
+<g filter="url(#egb)"><ellipse cx="172" cy="104" rx="10" ry="6" fill="url(#rnb)"/><ellipse cx="172" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="172" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="172" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">三</text></g>
+<!-- Row 2: E4-E6 OPEN -->
+<g filter="url(#egb)"><ellipse cx="100" cy="118" rx="10" ry="6" fill="url(#rnb)"/><ellipse cx="100" cy="118" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="100" cy="118" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="100" y="118" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">四</text></g>
+<g filter="url(#egb)"><ellipse cx="140" cy="118" rx="10" ry="6" fill="url(#rnb)"/><ellipse cx="140" cy="118" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="140" cy="118" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="140" y="118" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">五</text></g>
+<g filter="url(#egb)"><ellipse cx="180" cy="118" rx="10" ry="6" fill="url(#rnb)"/><ellipse cx="180" cy="118" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="180" cy="118" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="180" y="118" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">六</text></g>
+<!-- Row 3: E7 OPEN, E8-E9 CLOSED -->
+<g filter="url(#egb)"><ellipse cx="112" cy="132" rx="10" ry="6" fill="url(#rnb)"/><ellipse cx="112" cy="132" rx="7" ry="4.2" fill="none" stroke="rgba(200,176,228,.5)" stroke-width=".6"/><ellipse cx="112" cy="132" rx="4.5" ry="2.8" fill="none" stroke="rgba(200,176,228,.4)" stroke-width=".5"/><text x="112" y="132" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#e8d8f8">七</text></g>
+<g><ellipse cx="140" cy="132" rx="10" ry="6" fill="#28261e"/><line x1="131" y1="132" x2="149" y2="132" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+<g><ellipse cx="168" cy="132" rx="10" ry="6" fill="#28261e"/><line x1="159" y1="132" x2="177" y2="132" stroke="#3a3835" stroke-width="1" stroke-linecap="round"/></g>
+</svg>
+<div class="gedo-count"><strong>7</strong> / 9 封印済</div>
+</div>
+
+<!-- ============== SCENARIO 3: 9/9 COMPLETE ============== -->
+<h2>SCENARIO 3 — ALL 9 SEALED</h2>
+<p class="note">Ten-Tails revival imminent</p>
+
+<div class="gedo-wrap complete">
+<div class="gedo-name" style="color:#c8a8e0;">外道魔像<small style="color:#8a6aaa;">Demonic Statue of the Outer Path</small></div>
+<svg viewBox="0 0 280 370" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="stc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="5" seed="7" result="n"/><feColorMatrix type="saturate" values="0" in="n" result="g"/><feBlend in="SourceGraphic" in2="g" mode="multiply" result="t"/><feComposite in="t" in2="SourceGraphic" operator="in"/></filter>
+<filter id="egc"><feGaussianBlur stdDeviation="3.5"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="aura"><feGaussianBlur stdDeviation="16"/></filter>
+<linearGradient id="sgc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#504d48"/><stop offset="100%" stop-color="#33302c"/></linearGradient>
+<linearGradient id="shc" x1=".2" y1="0" x2=".8" y2="1"><stop offset="0%" stop-color="#4e4c46"/><stop offset="100%" stop-color="#38352f"/></linearGradient>
+<radialGradient id="rnc"><stop offset="0%" stop-color="#d8c0f0"/><stop offset="30%" stop-color="#a880d8"/><stop offset="65%" stop-color="#8060b8"/><stop offset="100%" stop-color="#503080"/></radialGradient>
+</defs>
+<!-- Purple aura -->
+<ellipse cx="140" cy="180" rx="120" ry="160" fill="rgba(120,60,180,.05)" filter="url(#aura)"/>
+<ellipse cx="140" cy="358" rx="90" ry="6" fill="rgba(80,30,120,.15)"/>
+<g filter="url(#stc)"><path d="M52,152 L30,68 L27,45 L30,32 L27,22 L31,14 L35,20 L38,12 L42,8 L45,16 L48,25 L46,42 L44,62 L48,90 L58,152" fill="#26241e"/><path d="M85,130 L72,55 L69,35 L72,22 L70,12 L74,5 L78,10 L81,3 L85,8 L88,18 L86,35 L84,55 L88,80 L95,130" fill="#2a2824"/><path d="M130,82 L128,45 L126,28 L129,18 L127,8 L131,1 L135,6 L139,-2 L143,4 L147,0 L150,8 L153,4 L155,14 L152,25 L154,40 L152,60 L150,82" fill="#2e2c26"/><path d="M195,130 L208,55 L211,35 L208,22 L210,12 L206,5 L202,10 L199,3 L195,8 L192,18 L194,35 L196,55 L192,80 L185,130" fill="#2a2824"/><path d="M228,152 L250,68 L253,45 L250,32 L253,22 L249,14 L245,20 L242,12 L238,8 L235,16 L232,25 L234,42 L236,62 L232,90 L222,152" fill="#26241e"/></g>
+<!-- Chakra between spikes -->
+<g stroke="rgba(147,112,219,.08)" stroke-width="1" fill="none"><path d="M42,8 Q140,-15 238,8"/><path d="M27,45 Q140,20 253,45"/></g>
+<g stroke="#1a1815" stroke-width=".5" opacity=".3" fill="none"><line x1="32" y1="40" x2="46" y2="40"/><line x1="34" y1="60" x2="47" y2="60"/><line x1="36" y1="80" x2="50" y2="80"/><line x1="40" y1="100" x2="52" y2="100"/><line x1="44" y1="120" x2="55" y2="120"/><line x1="72" y1="30" x2="87" y2="30"/><line x1="73" y1="50" x2="86" y2="50"/><line x1="75" y1="70" x2="88" y2="70"/><line x1="78" y1="90" x2="90" y2="90"/><line x1="80" y1="110" x2="92" y2="110"/><line x1="129" y1="15" x2="153" y2="15"/><line x1="128" y1="30" x2="154" y2="30"/><line x1="129" y1="45" x2="152" y2="45"/><line x1="130" y1="60" x2="151" y2="60"/><line x1="131" y1="75" x2="150" y2="75"/><line x1="193" y1="30" x2="210" y2="30"/><line x1="192" y1="50" x2="208" y2="50"/><line x1="192" y1="70" x2="206" y2="70"/><line x1="190" y1="90" x2="202" y2="90"/><line x1="188" y1="110" x2="198" y2="110"/><line x1="234" y1="40" x2="250" y2="40"/><line x1="233" y1="60" x2="248" y2="60"/><line x1="232" y1="80" x2="245" y2="80"/><line x1="230" y1="100" x2="240" y2="100"/><line x1="228" y1="120" x2="236" y2="120"/></g>
+<path d="M80,185 C65,192 52,215 56,248 L58,272 C60,285 72,292 82,288 L90,305 L190,305 L198,288 C208,292 220,285 222,272 L224,248 C228,215 215,192 200,185Z" fill="url(#sgc)" filter="url(#stc)"/>
+<line x1="140" y1="190" x2="140" y2="295" stroke="#28261e" stroke-width=".8" opacity=".25"/>
+<g stroke="#2a2820" stroke-width="1.2" fill="none" opacity=".4"><path d="M95,212 Q140,202 185,212"/><path d="M92,228 Q140,218 188,228"/><path d="M90,244 Q140,234 190,244"/><path d="M90,260 Q140,250 190,260"/><path d="M92,276 Q140,266 188,276"/></g>
+<path d="M80,185 C60,194 45,218 40,248 L35,278 C33,290 32,300 35,308" fill="#38352f" filter="url(#stc)" opacity=".9"/>
+<path d="M200,185 C220,194 235,218 240,248 L245,278 C247,290 248,300 245,308" fill="#38352f" filter="url(#stc)" opacity=".9"/>
+<rect x="28" y="296" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
+<rect x="236" y="296" width="16" height="10" rx="2" fill="#44413d" stroke="#555250" stroke-width=".7"/>
+<g fill="#3a3735" filter="url(#stc)"><path d="M38,306 L28,328 L30,326 L42,308"/><path d="M35,310 L18,348 L21,350 L39,314"/><path d="M32,314 L10,358 L13,360 L36,318"/><path d="M28,316 L4,352 L7,354 L32,320"/><path d="M25,318 L0,344 L3,346 L29,322"/></g>
+<g fill="#48453f" opacity=".5"><circle cx="33" cy="318" r="1.5"/><circle cx="26" cy="330" r="1.5"/><circle cx="20" cy="338" r="1.5"/><circle cx="15" cy="335" r="1.5"/><circle cx="12" cy="332" r="1.5"/></g>
+<g fill="#3a3735" filter="url(#stc)"><path d="M242,306 L252,328 L250,326 L238,308"/><path d="M245,310 L262,348 L259,350 L241,314"/><path d="M248,314 L270,358 L267,360 L244,318"/><path d="M252,316 L276,352 L273,354 L248,320"/><path d="M255,318 L280,344 L277,346 L251,322"/></g>
+<g fill="#48453f" opacity=".5"><circle cx="247" cy="318" r="1.5"/><circle cx="254" cy="330" r="1.5"/><circle cx="260" cy="338" r="1.5"/><circle cx="265" cy="335" r="1.5"/><circle cx="268" cy="332" r="1.5"/></g>
+<circle cx="82" cy="188" r="8" fill="#44413d"/><circle cx="198" cy="188" r="8" fill="#44413d"/>
+<rect x="120" y="168" width="40" height="18" rx="5" fill="#36332e"/>
+<g stroke="#44413d" stroke-width="1" opacity=".3" fill="none"><line x1="122" y1="173" x2="158" y2="173"/><line x1="122" y1="178" x2="158" y2="178"/></g>
+<path d="M140,72 C108,70 78,80 68,96 C60,108 58,124 62,138 L70,152 C78,162 100,170 140,170 C180,170 202,162 210,152 L218,138 C222,124 220,108 212,96 C202,80 172,70 140,72Z" fill="url(#shc)" filter="url(#stc)"/>
+<path d="M66,94 Q140,86 214,94" stroke="#4a4845" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M66,94 Q140,86 214,94" stroke="#3e3b36" stroke-width="5" fill="none" stroke-linecap="round"/>
+<g stroke="#33302c" stroke-width=".6" opacity=".4" fill="none"><path d="M68,91 Q140,83 212,91"/><path d="M68,97 Q140,89 212,97"/></g>
+<path d="M66,94 L56,100 L50,115 L48,130" stroke="#3e3b36" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M66,94 L58,102 L54,118 L52,132" stroke="#3e3b36" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M140,104 L137,130 L140,138 L143,130Z" fill="#36332e" opacity=".4"/>
+<path d="M108,144 C108,140 120,136 140,136 C160,136 172,140 172,144 L172,162 C172,168 160,172 140,172 C120,172 108,168 108,162Z" fill="#080706"/>
+<g fill="#555250"><polygon points="112,144 114,153 116,144"/><polygon points="121,142 124,155 127,142"/><polygon points="131,141 134,157 137,141"/><polygon points="143,141 146,157 149,141"/><polygon points="153,142 156,155 159,142"/><polygon points="164,144 166,153 168,144"/></g>
+<g fill="#4a4845"><polygon points="115,162 118,152 121,162"/><polygon points="127,163 130,150 133,163"/><polygon points="139,164 142,148 145,164"/><polygon points="151,163 154,150 157,163"/><polygon points="163,162 166,152 169,162"/></g>
+<g stroke="#3a3835" stroke-width=".4" opacity=".3" fill="none"><path d="M134,157 C133,162 134,168 133,175"/><path d="M146,157 C147,163 146,170 147,178"/></g>
+<g fill="none" stroke="#44413d" stroke-width="1.5"><path d="M120,164 C118,175 120,182 118,190"/><path d="M160,164 C162,175 160,182 162,190"/></g>
+<g fill="none" stroke="#3a3735" stroke-width="1.2"><ellipse cx="118" cy="195" rx="3" ry="2.5"/><ellipse cx="118" cy="202" rx="3" ry="2.5"/><ellipse cx="118" cy="209" rx="3" ry="2.5"/><ellipse cx="162" cy="195" rx="3" ry="2.5"/><ellipse cx="162" cy="202" rx="3" ry="2.5"/><ellipse cx="162" cy="209" rx="3" ry="2.5"/></g>
+<g stroke="#2a2820" stroke-width=".5" opacity=".3" fill="none"><path d="M105,138 Q108,142 108,146"/><path d="M175,138 Q172,142 172,146"/><path d="M100,150 Q106,155 108,162"/><path d="M180,150 Q174,155 172,162"/></g>
+<g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".35"><path d="M110,78 L106,92"/><path d="M170,80 L174,92"/><path d="M95,110 L98,122"/><path d="M185,112 L182,124"/><path d="M120,165 L122,172"/><path d="M160,164 L158,170"/></g>
+<g stroke="#1a1815" stroke-width=".5" fill="none" opacity=".3"><path d="M100,200 L104,218 L102,228"/><path d="M180,202 L176,220 L178,230"/><path d="M115,260 L118,278"/><path d="M165,262 L162,280"/></g>
+<!-- Chakra network between all eyes -->
+<g stroke="rgba(147,112,219,.1)" stroke-width=".6" fill="none">
+<line x1="108" y1="104" x2="100" y2="118"/><line x1="140" y1="104" x2="140" y2="118"/><line x1="172" y1="104" x2="180" y2="118"/>
+<line x1="108" y1="104" x2="140" y2="104"/><line x1="140" y1="104" x2="172" y2="104"/>
+<line x1="100" y1="118" x2="140" y2="118"/><line x1="140" y1="118" x2="180" y2="118"/>
+<line x1="100" y1="118" x2="112" y2="132"/><line x1="140" y1="118" x2="140" y2="132"/><line x1="180" y1="118" x2="168" y2="132"/>
+<line x1="112" y1="132" x2="140" y2="132"/><line x1="140" y1="132" x2="168" y2="132"/>
+</g>
+<!-- ALL 9 EYES OPEN -->
+<g filter="url(#egc)"><ellipse cx="108" cy="104" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="108" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="108" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="108" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">一</text></g>
+<g filter="url(#egc)"><ellipse cx="140" cy="104" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="140" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="140" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="140" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">二</text></g>
+<g filter="url(#egc)"><ellipse cx="172" cy="104" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="172" cy="104" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="172" cy="104" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="172" y="104" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">三</text></g>
+<g filter="url(#egc)"><ellipse cx="100" cy="118" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="100" cy="118" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="100" cy="118" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="100" y="118" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">四</text></g>
+<g filter="url(#egc)"><ellipse cx="140" cy="118" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="140" cy="118" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="140" cy="118" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="140" y="118" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">五</text></g>
+<g filter="url(#egc)"><ellipse cx="180" cy="118" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="180" cy="118" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="180" cy="118" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="180" y="118" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">六</text></g>
+<g filter="url(#egc)"><ellipse cx="112" cy="132" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="112" cy="132" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="112" cy="132" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="112" y="132" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">七</text></g>
+<g filter="url(#egc)"><ellipse cx="140" cy="132" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="140" cy="132" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="140" cy="132" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="140" y="132" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">八</text></g>
+<g filter="url(#egc)"><ellipse cx="168" cy="132" rx="10" ry="6" fill="url(#rnc)"/><ellipse cx="168" cy="132" rx="7" ry="4.2" fill="none" stroke="rgba(210,186,238,.6)" stroke-width=".6"/><ellipse cx="168" cy="132" rx="4.5" ry="2.8" fill="none" stroke="rgba(210,186,238,.5)" stroke-width=".5"/><text x="168" y="132" text-anchor="middle" dominant-baseline="central" font-family="'Noto Serif JP',serif" font-size="6.5" font-weight="900" fill="#f0e8ff">九</text></g>
+</svg>
+<div class="gedo-count done"><strong>9</strong> / 9 封印済 — 完了</div>
+<div class="gedo-revival">十尾復活準備完了</div>
+</div>
+
+</body>
+</html>
