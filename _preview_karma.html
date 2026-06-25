@@ -3,123 +3,600 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karma Mark — SVG Redesign Options (Option B Layout)</title>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<title>Karma Mark — SVG Patterns (Stages + 15 Ōtsutsuki Designs)</title>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-body{background:#0a0908;margin:0;padding:20px;font-family:'Shippori Mincho',serif}
-h2{color:#c4a872;text-align:center;font-size:14px;margin:50px 0 4px;font-family:'M PLUS 1',sans-serif;letter-spacing:3px;text-transform:uppercase}
-p.note{color:#6a6458;text-align:center;font-size:10px;font-family:'M PLUS 1',sans-serif;margin:0 0 20px;line-height:1.5}
-hr.sep{border:none;border-top:1px solid #2a2820;margin:60px auto;max-width:300px}
+body{background:#0a0908;margin:0;padding:20px;font-family:'M PLUS 1',sans-serif;color:#c8c0b0}
+h1{text-align:center;font-size:16px;letter-spacing:3px;text-transform:uppercase;color:#c4a872;margin:30px 0 6px}
+h2{text-align:center;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#8a7a60;margin:40px 0 4px}
+p.note{text-align:center;font-size:10px;color:#5a5448;margin:0 0 20px;line-height:1.5}
+hr.sep{border:none;border-top:1px solid #2a2820;margin:50px auto;max-width:400px}
 
-/* Shared animations */
+/* Animations */
 @keyframes km-dormant{0%{opacity:.85}50%{opacity:1}100%{opacity:.85}}
-.km-svg-dormant{animation:km-dormant 3s ease-in-out infinite}
-@keyframes km-blue{0%{fill:#4a8ecc}25%{fill:#6aaeee}50%{fill:#8ac8ff}75%{fill:#6aaeee}100%{fill:#4a8ecc}}
-.km-svg-blue path,.km-svg-blue polygon{animation:km-blue 2s ease-in-out infinite}
-@keyframes km-glow-blue{0%{filter:drop-shadow(0 0 3px rgba(74,142,204,.3))}50%{filter:drop-shadow(0 0 10px rgba(74,142,204,.7))}100%{filter:drop-shadow(0 0 3px rgba(74,142,204,.3))}}
-.km-svg-blue{animation:km-glow-blue 2s ease-in-out infinite}
-@keyframes km-red{0%{fill:#cc3333}25%{fill:#ee5555}50%{fill:#ff7777}75%{fill:#ee5555}100%{fill:#cc3333}}
-.km-svg-red path,.km-svg-red polygon{animation:km-red 2s ease-in-out infinite}
-@keyframes km-glow-red{0%{filter:drop-shadow(0 0 3px rgba(204,51,51,.3))}50%{filter:drop-shadow(0 0 10px rgba(204,51,51,.7))}100%{filter:drop-shadow(0 0 3px rgba(204,51,51,.3))}}
-.km-svg-red{animation:km-glow-red 2s ease-in-out infinite}
-@keyframes km-white{0%{fill:#c4b8a8}25%{fill:#d8cebf}50%{fill:#ebe5da}75%{fill:#d8cebf}100%{fill:#c4b8a8}}
-.km-svg-white path,.km-svg-white polygon{animation:km-white 2.5s ease-in-out infinite}
-@keyframes km-glow-white{0%{filter:drop-shadow(0 0 2px rgba(200,190,170,.2))}50%{filter:drop-shadow(0 0 7px rgba(200,190,170,.5))}100%{filter:drop-shadow(0 0 2px rgba(200,190,170,.2))}}
-.km-svg-white{animation:km-glow-white 2.5s ease-in-out infinite}
-/* Spread stages */
-.km-spread-1 .km-petals{opacity:0}.km-spread-1 .km-body{opacity:0}.km-spread-1 .km-blades{opacity:0}
-.km-spread-2 .km-petals{opacity:.7}.km-spread-2 .km-body{opacity:0}.km-spread-2 .km-blades{opacity:0}
-.km-spread-3 .km-petals{opacity:1}.km-spread-3 .km-body{opacity:.8}.km-spread-3 .km-blades{opacity:.6}
-.km-spread-4 .km-petals{opacity:1}.km-spread-4 .km-body{opacity:1}.km-spread-4 .km-blades{opacity:1}
+.km-dormant{animation:km-dormant 3s ease-in-out infinite}
+@keyframes km-blue-f{0%{fill:#4a8ecc}25%{fill:#6aaeee}50%{fill:#8ac8ff}75%{fill:#6aaeee}100%{fill:#4a8ecc}}
+@keyframes km-glow-blue{0%{filter:drop-shadow(0 0 3px rgba(74,142,204,.3))}50%{filter:drop-shadow(0 0 12px rgba(74,142,204,.7))}100%{filter:drop-shadow(0 0 3px rgba(74,142,204,.3))}}
+.km-blue{animation:km-glow-blue 2s ease-in-out infinite}
+.km-blue path,.km-blue polygon,.km-blue circle,.km-blue rect{animation:km-blue-f 2s ease-in-out infinite}
+@keyframes km-red-f{0%{fill:#cc3333}25%{fill:#ee5555}50%{fill:#ff7777}75%{fill:#ee5555}100%{fill:#cc3333}}
+@keyframes km-glow-red{0%{filter:drop-shadow(0 0 3px rgba(204,51,51,.3))}50%{filter:drop-shadow(0 0 12px rgba(204,51,51,.7))}100%{filter:drop-shadow(0 0 3px rgba(204,51,51,.3))}}
+.km-red{animation:km-glow-red 2s ease-in-out infinite}
+.km-red path,.km-red polygon,.km-red circle,.km-red rect{animation:km-red-f 2s ease-in-out infinite}
 
-/* Option B layout */
+/* Spread stages */
+.km-s1 .km-inner,.km-s1 .km-mid,.km-s1 .km-outer{opacity:0}
+.km-s2 .km-inner{opacity:.7}.km-s2 .km-mid,.km-s2 .km-outer{opacity:0}
+.km-s3 .km-inner{opacity:1}.km-s3 .km-mid{opacity:.8}.km-s3 .km-outer{opacity:0}
+.km-s4 .km-inner,.km-s4 .km-mid,.km-s4 .km-outer{opacity:1}
+
+/* Grid for patterns */
+.pattern-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:600px;margin:0 auto 30px}
+@media(max-width:500px){.pattern-grid{grid-template-columns:repeat(3,1fr)}}
+.pattern-cell{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pattern-bg{background:#1a1815;border-radius:8px;padding:12px;display:flex;align-items:center;justify-content:center;border:1px solid #2a2820;width:80px;height:80px;box-sizing:border-box}
+.pattern-bg:hover{border-color:#4a4030;background:#1e1c18}
+.pattern-label{font-size:8px;color:#6a6458;letter-spacing:1px;text-align:center;line-height:1.3}
+.pattern-num{font-size:10px;color:#9a8a68;font-weight:700}
+
+/* Stage demo row */
+.stage-row{display:flex;justify-content:center;gap:20px;margin:20px auto;max-width:600px;flex-wrap:wrap}
+.stage-cell{display:flex;flex-direction:column;align-items:center;gap:8px}
+.stage-bg{background:#1a1815;border-radius:10px;padding:16px;display:flex;align-items:center;justify-content:center;border:1px solid #2a2820;width:90px;height:90px;box-sizing:border-box}
+.stage-label{font-size:9px;color:#8a7a60;letter-spacing:1px;text-align:center}
+.stage-sublabel{font-size:7px;color:#5a5448;text-align:center}
+
+/* Option B preview */
 .kb{max-width:380px;margin:0 auto 20px;background:linear-gradient(180deg,#f5ecd8,#f0e2cb);border-radius:8px;padding:16px;box-shadow:0 4px 18px rgba(0,0,0,.4)}
 .kb-center{display:flex;flex-direction:column;align-items:center;margin-bottom:10px}
-.kb-title{font-size:14px;font-weight:800;color:#5a3818;margin-top:8px}
-.kb-subtitle{font-family:'M PLUS 1',sans-serif;font-size:8.5px;color:#9a7848;margin-top:2px}
+.kb-title{font-size:14px;font-weight:800;color:#5a3818;margin-top:8px;font-family:'M PLUS 1',sans-serif}
+.kb-subtitle{font-size:8.5px;color:#9a7848;margin-top:2px}
 .kb-stage-ring{display:flex;justify-content:center;gap:6px;margin:10px 0}
 .kb-seg{width:50px;text-align:center}
 .kb-seg-bar{height:4px;border-radius:4px;background:rgba(180,140,90,.18);margin-bottom:2px}
 .kb-seg-bar.on{background:#4a8ecc;box-shadow:0 0 5px rgba(74,142,204,.3)}
-.kb-seg-bar.on-r{background:#cc4444;box-shadow:0 0 5px rgba(204,68,68,.3)}
 .kb-seg-bar.on-b{background:#1a1815;box-shadow:0 0 3px rgba(0,0,0,.2)}
-.kb-seg-bar.on-w{background:#c4b8a8;box-shadow:0 0 3px rgba(196,184,168,.3)}
-.kb-seg-lbl{font-family:'M PLUS 1',sans-serif;font-size:7px;color:#9a7848;letter-spacing:.5px}
+.kb-seg-lbl{font-size:7px;color:#9a7848;letter-spacing:.5px}
 .kb-divider{border:none;border-top:1px solid rgba(180,140,90,.25);margin:10px 0}
 .kb-info{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin-bottom:10px;padding:0 8px}
-.kb-info .kl{font-family:'M PLUS 1',sans-serif;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:#9a7848}
+.kb-info .kl{font-size:7px;letter-spacing:1px;text-transform:uppercase;color:#9a7848}
 .kb-info .kv{font-size:10px;color:#3a2a1a;margin-top:1px}
 .kb-ow{padding:0 8px;margin-bottom:10px}
-.kl{font-family:'M PLUS 1',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:#9a7848;margin-bottom:3px}
-.kl.danger{color:#cc3333}
 .kb-ow-track{height:5px;background:rgba(180,140,90,.18);border-radius:4px;overflow:hidden;margin-top:3px}
 .kb-ow-fill{height:100%;border-radius:4px}
 .kb-abilities{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;padding:0 8px}
-.kb-tag{font-family:'M PLUS 1',sans-serif;font-size:8px;padding:2px 8px;border-radius:10px;color:#3a7acc;background:rgba(74,142,204,.06);border:1px solid rgba(74,142,204,.2)}
+.kb-tag{font-size:8px;padding:2px 8px;border-radius:10px;color:#3a7acc;background:rgba(74,142,204,.06);border:1px solid rgba(74,142,204,.2)}
 .kb-tag.locked{color:#aaa;background:rgba(150,150,150,.06);border-color:rgba(150,150,150,.15);text-decoration:line-through}
-.kb-tag.red{color:#cc3333;background:rgba(204,51,51,.06);border-color:rgba(204,51,51,.2)}
-.kb-tag.wh{color:#8a7a68;background:rgba(180,160,130,.08);border-color:rgba(180,160,130,.2)}
-.kb-tag.dark{color:#1a1815;background:rgba(26,24,21,.08);border-color:rgba(26,24,21,.2)}
-
-/* SVG showcase row */
-.svg-row{display:flex;justify-content:center;gap:40px;margin:20px auto;max-width:500px;flex-wrap:wrap}
-.svg-show{display:flex;flex-direction:column;align-items:center;gap:6px}
-.svg-show-label{font-family:'M PLUS 1',sans-serif;font-size:8px;color:#6a6458;letter-spacing:1px}
-.svg-bg{background:#1a1815;border-radius:8px;padding:16px;display:flex;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
 
-<!-- ============================================================ -->
-<!--                    SVG V1 — CLEAN CURVES                     -->
-<!-- ============================================================ -->
-<h2>SVG V1 — CLEAN CURVES</h2>
-<p class="note">Smooth flowing petals, elegant blade curves, faithful proportions</p>
+<h1>KĀMA — KARMA MARK SYSTEM</h1>
 
-<!-- SVG showcase on dark bg -->
-<div class="svg-row">
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-dormant km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#c8c0b4"/>
-<g class="km-petals">
-<path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#c8c0b4"/>
-<path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#c8c0b4"/>
+<!-- ============================================================ -->
+<!--                    STAGE PROGRESSION DEMO                    -->
+<!-- ============================================================ -->
+<h2>STAGE PROGRESSION</h2>
+<p class="note">Stage 1: diamond only → Stage 2: inner pattern → Stage 3: mid expansion → Stage 4: full Ōtsutsuki pattern</p>
+
+<div class="stage-row">
+<!-- Stage 1 - just diamond -->
+<div class="stage-cell">
+<div class="stage-bg">
+<svg class="km-dormant km-s1" width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#1a1815"/>
+<g class="km-inner">
+<circle cx="22" cy="24" r="3.5" fill="#1a1815"/>
+<circle cx="38" cy="24" r="3.5" fill="#1a1815"/>
 </g>
-<g class="km-body">
-<path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#c8c0b4"/>
+<g class="km-mid">
+<path d="M24,20 C20,14 14,16 16,22 C17,26 22,26 24,22Z" fill="#1a1815"/>
+<path d="M36,20 C40,14 46,16 44,22 C43,26 38,26 36,22Z" fill="#1a1815"/>
 </g>
-<g class="km-blades">
-<path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#c8c0b4"/>
-<path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#c8c0b4"/>
+<g class="km-outer">
+<circle cx="18" cy="36" r="2.5" fill="#1a1815"/>
+<circle cx="42" cy="36" r="2.5" fill="#1a1815"/>
+<path d="M22,38 C18,42 16,48 20,48 C23,48 24,42 24,38Z" fill="#1a1815"/>
+<path d="M38,38 C42,42 44,48 40,48 C37,48 36,42 36,38Z" fill="#1a1815"/>
 </g>
 </svg>
-</div><span class="svg-show-label">FULL</span></div>
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-blue km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
-<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#4a8ecc"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#4a8ecc"/></g>
-<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#4a8ecc"/></g>
-<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#4a8ecc"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#4a8ecc"/></g>
-</svg>
-</div><span class="svg-show-label">BLUE</span></div>
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-red km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#cc3333"/>
-<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#cc3333"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#cc3333"/></g>
-<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#cc3333"/></g>
-<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#cc3333"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#cc3333"/></g>
-</svg>
-</div><span class="svg-show-label">RED</span></div>
+</div>
+<div class="stage-label">STAGE 1</div>
+<div class="stage-sublabel">Dormant Diamond</div>
 </div>
 
-<!-- V1 in Option B layout -->
+<!-- Stage 2 -->
+<div class="stage-cell">
+<div class="stage-bg">
+<svg class="km-blue km-s2" width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#4a8ecc"/>
+<g class="km-inner">
+<circle cx="22" cy="24" r="3.5" fill="#4a8ecc"/>
+<circle cx="38" cy="24" r="3.5" fill="#4a8ecc"/>
+</g>
+<g class="km-mid">
+<path d="M24,20 C20,14 14,16 16,22 C17,26 22,26 24,22Z" fill="#4a8ecc"/>
+<path d="M36,20 C40,14 46,16 44,22 C43,26 38,26 36,22Z" fill="#4a8ecc"/>
+</g>
+<g class="km-outer">
+<circle cx="18" cy="36" r="2.5" fill="#4a8ecc"/>
+<circle cx="42" cy="36" r="2.5" fill="#4a8ecc"/>
+<path d="M22,38 C18,42 16,48 20,48 C23,48 24,42 24,38Z" fill="#4a8ecc"/>
+<path d="M38,38 C42,42 44,48 40,48 C37,48 36,42 36,38Z" fill="#4a8ecc"/>
+</g>
+</svg>
+</div>
+<div class="stage-label">STAGE 2</div>
+<div class="stage-sublabel">Inner Circles</div>
+</div>
+
+<!-- Stage 3 -->
+<div class="stage-cell">
+<div class="stage-bg">
+<svg class="km-red km-s3" width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#cc3333"/>
+<g class="km-inner">
+<circle cx="22" cy="24" r="3.5" fill="#cc3333"/>
+<circle cx="38" cy="24" r="3.5" fill="#cc3333"/>
+</g>
+<g class="km-mid">
+<path d="M24,20 C20,14 14,16 16,22 C17,26 22,26 24,22Z" fill="#cc3333"/>
+<path d="M36,20 C40,14 46,16 44,22 C43,26 38,26 36,22Z" fill="#cc3333"/>
+</g>
+<g class="km-outer">
+<circle cx="18" cy="36" r="2.5" fill="#cc3333"/>
+<circle cx="42" cy="36" r="2.5" fill="#cc3333"/>
+<path d="M22,38 C18,42 16,48 20,48 C23,48 24,42 24,38Z" fill="#cc3333"/>
+<path d="M38,38 C42,42 44,48 40,48 C37,48 36,42 36,38Z" fill="#cc3333"/>
+</g>
+</svg>
+</div>
+<div class="stage-label">STAGE 3</div>
+<div class="stage-sublabel">Horn Spread</div>
+</div>
+
+<!-- Stage 4 -->
+<div class="stage-cell">
+<div class="stage-bg">
+<svg class="km-blue km-s4" width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#4a8ecc"/>
+<g class="km-inner">
+<circle cx="22" cy="24" r="3.5" fill="#4a8ecc"/>
+<circle cx="38" cy="24" r="3.5" fill="#4a8ecc"/>
+</g>
+<g class="km-mid">
+<path d="M24,20 C20,14 14,16 16,22 C17,26 22,26 24,22Z" fill="#4a8ecc"/>
+<path d="M36,20 C40,14 46,16 44,22 C43,26 38,26 36,22Z" fill="#4a8ecc"/>
+</g>
+<g class="km-outer">
+<circle cx="18" cy="36" r="2.5" fill="#4a8ecc"/>
+<circle cx="42" cy="36" r="2.5" fill="#4a8ecc"/>
+<path d="M22,38 C18,42 16,48 20,48 C23,48 24,42 24,38Z" fill="#4a8ecc"/>
+<path d="M38,38 C42,42 44,48 40,48 C37,48 36,42 36,38Z" fill="#4a8ecc"/>
+</g>
+</svg>
+</div>
+<div class="stage-label">STAGE 4</div>
+<div class="stage-sublabel">Full Ōtsutsuki</div>
+</div>
+</div>
+
+<hr class="sep"/>
+
+<!-- ============================================================ -->
+<!--                15 ŌTSUTSUKI KARMA PATTERNS                   -->
+<!-- ============================================================ -->
+<h2>15 ŌTSUTSUKI KARMA PATTERNS</h2>
+<p class="note">Each pattern shown at full Stage 4 expansion — all start as the same base diamond at Stage 1</p>
+
+<div class="pattern-grid">
+
+<!-- P1: Momoshiki — twin circles + curved horns up -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<circle cx="22" cy="24" r="3.5" fill="#c8c0b0"/>
+<circle cx="38" cy="24" r="3.5" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<path d="M24,20 C20,14 14,16 16,22 C17,26 22,26 24,22Z" fill="#c8c0b0"/>
+<path d="M36,20 C40,14 46,16 44,22 C43,26 38,26 36,22Z" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<circle cx="18" cy="36" r="2.5" fill="#c8c0b0"/>
+<circle cx="42" cy="36" r="2.5" fill="#c8c0b0"/>
+<path d="M22,38 C18,42 16,48 20,48 C23,48 24,42 24,38Z" fill="#c8c0b0"/>
+<path d="M38,38 C42,42 44,48 40,48 C37,48 36,42 36,38Z" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P1</div>
+<div class="pattern-label">Momoshiki</div>
+</div>
+
+<!-- P2: Isshiki — angular horns + offset circles -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<circle cx="20" cy="28" r="4" fill="#c8c0b0"/>
+<circle cx="40" cy="22" r="3" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<path d="M26,22 C24,16 18,12 16,18 C14,24 20,26 24,24Z" fill="#c8c0b0"/>
+<path d="M38,18 C42,12 48,14 46,20 C44,26 40,24 38,20Z" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<circle cx="14" cy="36" r="2" fill="#c8c0b0"/>
+<path d="M20,36 C16,40 12,46 16,48 C20,50 22,44 22,38Z" fill="#c8c0b0"/>
+<path d="M40,32 C44,36 48,44 44,46 C40,48 38,40 38,34Z" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P2</div>
+<div class="pattern-label">Isshiki</div>
+</div>
+
+<!-- P3: Kaguya — crescents + three dots -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,24 34,30 30,36 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M22,26 C18,22 16,18 20,16 C24,14 24,22 22,26Z" fill="#c8c0b0"/>
+<path d="M38,26 C42,22 44,18 40,16 C36,14 36,22 38,26Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<circle cx="30" cy="16" r="3" fill="#c8c0b0"/>
+<circle cx="20" cy="34" r="2.5" fill="#c8c0b0"/>
+<circle cx="40" cy="34" r="2.5" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<path d="M16,30 C12,34 10,42 14,44 C18,46 18,38 18,32Z" fill="#c8c0b0"/>
+<path d="M44,30 C48,34 50,42 46,44 C42,46 42,38 42,32Z" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P3</div>
+<div class="pattern-label">Kaguya</div>
+</div>
+
+<!-- P4: Shibai — radiating flames + large ring -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M30,22 C28,18 26,12 30,10 C34,12 32,18 30,22Z" fill="#c8c0b0"/>
+<path d="M24,28 C20,26 14,26 14,30 C14,34 20,32 24,30Z" fill="#c8c0b0"/>
+<path d="M36,28 C40,26 46,26 46,30 C46,34 40,32 36,30Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<path d="M30,38 C28,42 26,48 30,50 C34,48 32,42 30,38Z" fill="#c8c0b0"/>
+<circle cx="20" cy="18" r="2.5" fill="#c8c0b0"/>
+<circle cx="40" cy="18" r="2.5" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<circle cx="16" cy="40" r="2" fill="#c8c0b0"/>
+<circle cx="44" cy="40" r="2" fill="#c8c0b0"/>
+<circle cx="20" cy="46" r="1.5" fill="#c8c0b0"/>
+<circle cx="40" cy="46" r="1.5" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P4</div>
+<div class="pattern-label">Shibai</div>
+</div>
+
+<!-- P5: Urashiki — hooks + scattered dots -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M24,26 C20,22 16,24 18,28 C20,32 24,30 24,26Z" fill="#c8c0b0"/>
+<path d="M36,26 C40,22 44,24 42,28 C40,32 36,30 36,26Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<circle cx="16" cy="22" r="2.5" fill="#c8c0b0"/>
+<circle cx="44" cy="22" r="2.5" fill="#c8c0b0"/>
+<circle cx="30" cy="40" r="3" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<path d="M22,40 C18,44 14,50 18,50 C22,50 24,44 24,40Z" fill="#c8c0b0"/>
+<path d="M38,40 C42,44 46,50 42,50 C38,50 36,44 36,40Z" fill="#c8c0b0"/>
+<circle cx="12" cy="32" r="1.5" fill="#c8c0b0"/>
+<circle cx="48" cy="32" r="1.5" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P5</div>
+<div class="pattern-label">Urashiki</div>
+</div>
+
+<!-- P6: Kinshiki — wide horns + vertical dots -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M24,24 C18,18 10,20 14,26 C16,30 22,28 24,24Z" fill="#c8c0b0"/>
+<path d="M36,24 C42,18 50,20 46,26 C44,30 38,28 36,24Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<circle cx="30" cy="18" r="2" fill="#c8c0b0"/>
+<circle cx="30" cy="40" r="2" fill="#c8c0b0"/>
+<circle cx="30" cy="46" r="1.5" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<path d="M14,30 C10,34 8,42 12,42 C16,42 16,36 16,30Z" fill="#c8c0b0"/>
+<path d="M46,30 C50,34 52,42 48,42 C44,42 44,36 44,30Z" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P6</div>
+<div class="pattern-label">Kinshiki</div>
+</div>
+
+<!-- P7: Toneri — moon crescents + central line -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,24 34,30 30,36 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M22,22 C18,18 14,22 18,26 C20,28 22,26 22,22Z" fill="#c8c0b0"/>
+<path d="M38,22 C42,18 46,22 42,26 C40,28 38,26 38,22Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<path d="M30,18 L30,12" stroke="#c8c0b0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<path d="M30,42 L30,50" stroke="#c8c0b0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</g>
+<g class="km-outer">
+<path d="M16,28 C12,24 8,28 12,34 C14,38 18,36 18,30Z" fill="#c8c0b0"/>
+<path d="M44,28 C48,24 52,28 48,34 C46,38 42,36 42,30Z" fill="#c8c0b0"/>
+<circle cx="30" cy="8" r="2" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P7</div>
+<div class="pattern-label">Toneri</div>
+</div>
+
+<!-- P8: Hagoromo — sage circles + balanced horns -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<circle cx="22" cy="26" r="4" fill="#c8c0b0"/>
+<circle cx="38" cy="26" r="4" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<circle cx="22" cy="18" r="2.5" fill="#c8c0b0"/>
+<circle cx="38" cy="18" r="2.5" fill="#c8c0b0"/>
+<circle cx="30" cy="14" r="2" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<path d="M18,32 C14,36 12,44 16,46 C20,48 20,40 20,34Z" fill="#c8c0b0"/>
+<path d="M42,32 C46,36 48,44 44,46 C40,48 40,40 40,34Z" fill="#c8c0b0"/>
+<circle cx="30" cy="44" r="2.5" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P8</div>
+<div class="pattern-label">Hagoromo</div>
+</div>
+
+<!-- P9: Hamura — double crescents + diamond dots -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,24 34,30 30,36 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M24,22 C22,16 16,16 18,22 C20,26 24,26 24,22Z" fill="#c8c0b0"/>
+<path d="M36,22 C38,16 44,16 42,22 C40,26 36,26 36,22Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<path d="M24,34 C22,38 16,40 18,36 C20,32 24,32 24,34Z" fill="#c8c0b0"/>
+<path d="M36,34 C38,38 44,40 42,36 C40,32 36,32 36,34Z" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<circle cx="14" cy="20" r="2" fill="#c8c0b0"/>
+<circle cx="46" cy="20" r="2" fill="#c8c0b0"/>
+<circle cx="14" cy="40" r="2" fill="#c8c0b0"/>
+<circle cx="46" cy="40" r="2" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P9</div>
+<div class="pattern-label">Hamura</div>
+</div>
+
+<!-- P10: Indra — angular triple dots + sharp horns -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<circle cx="24" cy="20" r="3" fill="#c8c0b0"/>
+<circle cx="36" cy="20" r="3" fill="#c8c0b0"/>
+<circle cx="30" cy="16" r="2.5" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<path d="M22,18 C18,12 12,14 14,20 C15,24 20,22 22,18Z" fill="#c8c0b0"/>
+<path d="M38,18 C42,12 48,14 46,20 C45,24 40,22 38,18Z" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<path d="M24,36 C20,40 16,48 20,48 C24,48 26,42 26,38Z" fill="#c8c0b0"/>
+<path d="M36,36 C40,40 44,48 40,48 C36,48 34,42 34,38Z" fill="#c8c0b0"/>
+<circle cx="30" cy="44" r="2" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P10</div>
+<div class="pattern-label">Indra</div>
+</div>
+
+<!-- P11: Ashura — flowing spirals + dots -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M24,28 C20,24 18,18 22,16 C26,14 26,24 24,28Z" fill="#c8c0b0"/>
+<path d="M36,28 C40,24 42,18 38,16 C34,14 34,24 36,28Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<circle cx="18" cy="22" r="3" fill="#c8c0b0"/>
+<circle cx="42" cy="22" r="3" fill="#c8c0b0"/>
+<path d="M28,38 C26,42 22,46 26,48 C30,50 30,44 28,38Z" fill="#c8c0b0"/>
+<path d="M32,38 C34,42 38,46 34,48 C30,50 30,44 32,38Z" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<circle cx="14" cy="30" r="2" fill="#c8c0b0"/>
+<circle cx="46" cy="30" r="2" fill="#c8c0b0"/>
+<circle cx="22" cy="44" r="1.5" fill="#c8c0b0"/>
+<circle cx="38" cy="44" r="1.5" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P11</div>
+<div class="pattern-label">Ashura</div>
+</div>
+
+<!-- P12: Twin fangs + arc circles -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M26,24 C22,18 16,16 16,22 C16,28 24,28 26,24Z" fill="#c8c0b0"/>
+<path d="M34,24 C38,18 44,16 44,22 C44,28 36,28 34,24Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<circle cx="12" cy="24" r="3" fill="#c8c0b0"/>
+<circle cx="48" cy="24" r="3" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<path d="M20,34 C16,38 14,46 18,46 C22,46 22,38 22,34Z" fill="#c8c0b0"/>
+<path d="M40,34 C44,38 46,46 42,46 C38,46 38,38 38,34Z" fill="#c8c0b0"/>
+<circle cx="30" cy="42" r="2.5" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P12</div>
+<div class="pattern-label">Twin Fangs</div>
+</div>
+
+<!-- P13: Spiral wave + dots array -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<circle cx="22" cy="30" r="3.5" fill="#c8c0b0"/>
+<circle cx="38" cy="30" r="3.5" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<path d="M20,24 C16,20 12,22 14,28 C16,32 20,30 20,26Z" fill="#c8c0b0"/>
+<path d="M40,24 C44,20 48,22 46,28 C44,32 40,30 40,26Z" fill="#c8c0b0"/>
+<circle cx="30" cy="18" r="2" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<circle cx="16" cy="40" r="2" fill="#c8c0b0"/>
+<circle cx="44" cy="40" r="2" fill="#c8c0b0"/>
+<path d="M24,40 C22,46 20,52 24,50 C28,48 26,42 24,40Z" fill="#c8c0b0"/>
+<path d="M36,40 C38,46 40,52 36,50 C32,48 34,42 36,40Z" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P13</div>
+<div class="pattern-label">Spiral Wave</div>
+</div>
+
+<!-- P14: Crown pattern — top horns + bottom dots -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,26 34,30 30,34 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<path d="M26,24 C24,18 20,14 18,18 C16,22 22,26 26,24Z" fill="#c8c0b0"/>
+<path d="M34,24 C36,18 40,14 42,18 C44,22 38,26 34,24Z" fill="#c8c0b0"/>
+<path d="M30,24 C28,20 28,14 30,12 C32,14 32,20 30,24Z" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<circle cx="14" cy="20" r="2.5" fill="#c8c0b0"/>
+<circle cx="46" cy="20" r="2.5" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<circle cx="22" cy="40" r="2.5" fill="#c8c0b0"/>
+<circle cx="30" cy="42" r="2" fill="#c8c0b0"/>
+<circle cx="38" cy="40" r="2.5" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P14</div>
+<div class="pattern-label">Crown</div>
+</div>
+
+<!-- P15: Void pattern — enclosed ring fragments + dots -->
+<div class="pattern-cell">
+<div class="pattern-bg">
+<svg class="km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#c8c0b0"/>
+<g class="km-inner">
+<circle cx="22" cy="22" r="3" fill="#c8c0b0"/>
+<circle cx="38" cy="22" r="3" fill="#c8c0b0"/>
+<circle cx="22" cy="38" r="3" fill="#c8c0b0"/>
+<circle cx="38" cy="38" r="3" fill="#c8c0b0"/>
+</g>
+<g class="km-mid">
+<path d="M18,18 C14,14 10,18 14,22 C16,24 18,22 18,18Z" fill="#c8c0b0"/>
+<path d="M42,18 C46,14 50,18 46,22 C44,24 42,22 42,18Z" fill="#c8c0b0"/>
+</g>
+<g class="km-outer">
+<path d="M18,40 C14,44 10,42 14,38 C16,36 18,38 18,40Z" fill="#c8c0b0"/>
+<path d="M42,40 C46,44 50,42 46,38 C44,36 42,38 42,40Z" fill="#c8c0b0"/>
+<circle cx="30" cy="14" r="2" fill="#c8c0b0"/>
+<circle cx="30" cy="46" r="2" fill="#c8c0b0"/>
+</g>
+</svg>
+</div>
+<div class="pattern-num">P15</div>
+<div class="pattern-label">Void</div>
+</div>
+
+</div><!-- end grid -->
+
+<hr class="sep"/>
+
+<!-- ============================================================ -->
+<!--              OPTION B PREVIEW — IN CONTEXT                   -->
+<!-- ============================================================ -->
+<h2>IN CONTEXT — OPTION B LAYOUT</h2>
+<p class="note">How P1 (Momoshiki) looks in the actual UI card at Stage 2 Blue Resonance</p>
+
 <div class="kb">
 <div class="kb-center">
-<svg class="km-svg-blue km-spread-2" width="56" height="72" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
-<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#4a8ecc"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#4a8ecc"/></g>
-<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#4a8ecc"/></g>
-<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#4a8ecc"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#4a8ecc"/></g>
+<svg class="km-blue km-s2" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#4a8ecc"/>
+<g class="km-inner">
+<circle cx="22" cy="24" r="3.5" fill="#4a8ecc"/>
+<circle cx="38" cy="24" r="3.5" fill="#4a8ecc"/>
+</g>
+<g class="km-mid">
+<path d="M24,20 C20,14 14,16 16,22 C17,26 22,26 24,22Z" fill="#4a8ecc"/>
+<path d="M36,20 C40,14 46,16 44,22 C43,26 38,26 36,22Z" fill="#4a8ecc"/>
+</g>
+<g class="km-outer">
+<circle cx="18" cy="36" r="2.5" fill="#4a8ecc"/>
+<circle cx="42" cy="36" r="2.5" fill="#4a8ecc"/>
+<path d="M22,38 C18,42 16,48 20,48 C23,48 24,42 24,38Z" fill="#4a8ecc"/>
+<path d="M38,38 C42,42 44,48 40,48 C37,48 36,42 36,38Z" fill="#4a8ecc"/>
+</g>
 </svg>
 <div class="kb-title">Momoshiki's Kāma</div>
 <div class="kb-subtitle">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
@@ -130,13 +607,13 @@ hr.sep{border:none;border-top:1px solid #2a2820;margin:60px auto;max-width:300px
 <div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Horn</div></div>
 <div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Ōtsutsuki</div></div>
 </div>
-<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#4a8ecc;font-weight:600;margin-bottom:6px">Stage 2 — Pattern Spreading (Resonance)</div>
+<div style="text-align:center;font-size:9px;color:#4a8ecc;font-weight:600;margin-bottom:6px">Stage 2 — Pattern Spreading (Resonance)</div>
 <hr class="kb-divider"/>
 <div class="kb-info">
 <div><div class="kl">LOCATION</div><div class="kv">Right palm</div></div>
 <div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Active)</div></div>
-<div><div class="kl">SHAPE</div><div class="kv">Diamond + petals</div></div>
-<div><div class="kl">SPREAD</div><div class="kv">Palm → arm → face</div></div>
+<div><div class="kl">SHAPE</div><div class="kv">Diamond + inner circles</div></div>
+<div><div class="kl">SPREAD</div><div class="kv">Palm → arm</div></div>
 </div>
 <div class="kb-ow">
 <div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE — 35%</div>
@@ -150,216 +627,54 @@ hr.sep{border:none;border-top:1px solid #2a2820;margin:60px auto;max-width:300px
 </div>
 </div>
 
-<hr class="sep"/>
+<!-- Stage 4 full pattern in context -->
+<p class="note" style="margin-top:20px">P2 (Isshiki) at Stage 4 — Red Combat with full Ōtsutsuki pattern</p>
 
-<!-- ============================================================ -->
-<!--                  SVG V2 — SHARP ANGULAR                      -->
-<!-- ============================================================ -->
-<h2>SVG V2 — SHARP ANGULAR</h2>
-<p class="note">More angular petals with sharper tips, tighter blade curves, geometric feel</p>
-
-<div class="svg-row">
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-dormant km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#c8c0b4"/>
-<g class="km-petals">
-<path d="M27,19 C22,13 13,15 16,24 C18,30 25,32 28,26Z" fill="#c8c0b4"/>
-<path d="M33,19 C38,13 47,15 44,24 C42,30 35,32 32,26Z" fill="#c8c0b4"/>
-</g>
-<g class="km-body">
-<path d="M28.5,28 C28.5,38 29,46 30,56 C31,46 31.5,38 31.5,28Z" fill="#c8c0b4"/>
-</g>
-<g class="km-blades">
-<path d="M29,50 C24,58 16,68 12,76 C10,82 14,84 19,80 C24,74 28,62 30,56Z" fill="#c8c0b4"/>
-<path d="M31,50 C36,58 44,68 48,76 C50,82 46,84 41,80 C36,74 32,62 30,56Z" fill="#c8c0b4"/>
-</g>
-</svg>
-</div><span class="svg-show-label">FULL</span></div>
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-blue km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
-<g class="km-petals"><path d="M27,19 C22,13 13,15 16,24 C18,30 25,32 28,26Z" fill="#4a8ecc"/><path d="M33,19 C38,13 47,15 44,24 C42,30 35,32 32,26Z" fill="#4a8ecc"/></g>
-<g class="km-body"><path d="M28.5,28 C28.5,38 29,46 30,56 C31,46 31.5,38 31.5,28Z" fill="#4a8ecc"/></g>
-<g class="km-blades"><path d="M29,50 C24,58 16,68 12,76 C10,82 14,84 19,80 C24,74 28,62 30,56Z" fill="#4a8ecc"/><path d="M31,50 C36,58 44,68 48,76 C50,82 46,84 41,80 C36,74 32,62 30,56Z" fill="#4a8ecc"/></g>
-</svg>
-</div><span class="svg-show-label">BLUE</span></div>
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-red km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#cc3333"/>
-<g class="km-petals"><path d="M27,19 C22,13 13,15 16,24 C18,30 25,32 28,26Z" fill="#cc3333"/><path d="M33,19 C38,13 47,15 44,24 C42,30 35,32 32,26Z" fill="#cc3333"/></g>
-<g class="km-body"><path d="M28.5,28 C28.5,38 29,46 30,56 C31,46 31.5,38 31.5,28Z" fill="#cc3333"/></g>
-<g class="km-blades"><path d="M29,50 C24,58 16,68 12,76 C10,82 14,84 19,80 C24,74 28,62 30,56Z" fill="#cc3333"/><path d="M31,50 C36,58 44,68 48,76 C50,82 46,84 41,80 C36,74 32,62 30,56Z" fill="#cc3333"/></g>
-</svg>
-</div><span class="svg-show-label">RED</span></div>
-</div>
-
-<!-- V2 in Option B layout -->
 <div class="kb">
 <div class="kb-center">
-<svg class="km-svg-blue km-spread-2" width="56" height="72" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
-<g class="km-petals"><path d="M27,19 C22,13 13,15 16,24 C18,30 25,32 28,26Z" fill="#4a8ecc"/><path d="M33,19 C38,13 47,15 44,24 C42,30 35,32 32,26Z" fill="#4a8ecc"/></g>
-<g class="km-body"><path d="M28.5,28 C28.5,38 29,46 30,56 C31,46 31.5,38 31.5,28Z" fill="#4a8ecc"/></g>
-<g class="km-blades"><path d="M29,50 C24,58 16,68 12,76 C10,82 14,84 19,80 C24,74 28,62 30,56Z" fill="#4a8ecc"/><path d="M31,50 C36,58 44,68 48,76 C50,82 46,84 41,80 C36,74 32,62 30,56Z" fill="#4a8ecc"/></g>
+<svg class="km-red km-s4" width="56" height="56" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<polygon points="30,25 34,30 30,35 26,30" fill="#cc3333"/>
+<g class="km-inner">
+<circle cx="20" cy="28" r="4" fill="#cc3333"/>
+<circle cx="40" cy="22" r="3" fill="#cc3333"/>
+</g>
+<g class="km-mid">
+<path d="M26,22 C24,16 18,12 16,18 C14,24 20,26 24,24Z" fill="#cc3333"/>
+<path d="M38,18 C42,12 48,14 46,20 C44,26 40,24 38,20Z" fill="#cc3333"/>
+</g>
+<g class="km-outer">
+<circle cx="14" cy="36" r="2" fill="#cc3333"/>
+<path d="M20,36 C16,40 12,46 16,48 C20,50 22,44 22,38Z" fill="#cc3333"/>
+<path d="M40,32 C44,36 48,44 44,46 C40,48 38,40 38,34Z" fill="#cc3333"/>
+</g>
 </svg>
-<div class="kb-title">Momoshiki's Kāma</div>
-<div class="kb-subtitle">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
+<div class="kb-title" style="color:#8a2020">Isshiki's Kāma</div>
+<div class="kb-subtitle">VESSEL: Kawaki — <span style="color:#cc3333;font-weight:700">COMBAT ACTIVE</span></div>
 </div>
 <div class="kb-stage-ring">
-<div class="kb-seg"><div class="kb-seg-bar on"></div><div class="kb-seg-lbl">Dormant</div></div>
-<div class="kb-seg"><div class="kb-seg-bar on"></div><div class="kb-seg-lbl">Spreading</div></div>
-<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Horn</div></div>
-<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Ōtsutsuki</div></div>
+<div class="kb-seg"><div class="kb-seg-bar on-b" style="background:#cc4444;box-shadow:0 0 5px rgba(204,68,68,.3)"></div><div class="kb-seg-lbl">Dormant</div></div>
+<div class="kb-seg"><div class="kb-seg-bar on-b" style="background:#cc4444;box-shadow:0 0 5px rgba(204,68,68,.3)"></div><div class="kb-seg-lbl">Spreading</div></div>
+<div class="kb-seg"><div class="kb-seg-bar on-b" style="background:#cc4444;box-shadow:0 0 5px rgba(204,68,68,.3)"></div><div class="kb-seg-lbl">Horn</div></div>
+<div class="kb-seg"><div class="kb-seg-bar on-b" style="background:#cc4444;box-shadow:0 0 5px rgba(204,68,68,.3)"></div><div class="kb-seg-lbl">Ōtsutsuki</div></div>
 </div>
-<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#4a8ecc;font-weight:600;margin-bottom:6px">Stage 2 — Pattern Spreading (Resonance)</div>
+<div style="text-align:center;font-size:9px;color:#cc3333;font-weight:700;margin-bottom:6px">Stage 4 — Ōtsutsuki Transformation</div>
 <hr class="kb-divider"/>
 <div class="kb-info">
-<div><div class="kl">LOCATION</div><div class="kv">Right palm</div></div>
-<div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Active)</div></div>
-<div><div class="kl">SHAPE</div><div class="kv">Diamond + petals</div></div>
-<div><div class="kl">SPREAD</div><div class="kv">Palm → arm → face</div></div>
+<div><div class="kl">LOCATION</div><div class="kv">Left palm</div></div>
+<div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#cc3333,#ff7777);border:1px solid #ee5555"></span>Red (Combat)</div></div>
+<div><div class="kl">SHAPE</div><div class="kv">Full Ōtsutsuki pattern</div></div>
+<div><div class="kl">SPREAD</div><div class="kv">Full body + horn</div></div>
 </div>
 <div class="kb-ow">
-<div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE — 35%</div>
-<div class="kb-ow-track"><div class="kb-ow-fill" style="width:35%;background:linear-gradient(90deg,#2a5a8a,#4a8ecc)"></div></div>
+<div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE — 92%</div>
+<div class="kb-ow-track"><div class="kb-ow-fill" style="width:92%;background:linear-gradient(90deg,#8a2a2a,#cc4444)"></div></div>
 </div>
 <div class="kl" style="text-align:center;padding:0 8px">ABILITIES</div>
 <div class="kb-abilities">
-<span class="kb-tag">Chakra Absorption</span>
-<span class="kb-tag">Space-Time Portal</span>
-<span class="kb-tag locked">Jutsu Amplification</span>
+<span class="kb-tag red" style="color:#cc3333;background:rgba(204,51,51,.06);border-color:rgba(204,51,51,.2)">Sukunahikona</span>
+<span class="kb-tag red" style="color:#cc3333;background:rgba(204,51,51,.06);border-color:rgba(204,51,51,.2)">Daikokuten</span>
+<span class="kb-tag red" style="color:#cc3333;background:rgba(204,51,51,.06);border-color:rgba(204,51,51,.2)">Chakra Absorption</span>
 </div>
-</div>
-
-<hr class="sep"/>
-
-<!-- ============================================================ -->
-<!--                SVG V3 — BOLD DRAMATIC                        -->
-<!-- ============================================================ -->
-<h2>SVG V3 — BOLD DRAMATIC</h2>
-<p class="note">Wider petals, thicker body, dramatic sweeping blades — bolder presence</p>
-
-<div class="svg-row">
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-dormant km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 35,10 30,18 25,10" fill="#c8c0b4"/>
-<g class="km-petals">
-<path d="M26,20 C20,14 11,17 14,27 C16,34 25,34 28,27Z" fill="#c8c0b4"/>
-<path d="M34,20 C40,14 49,17 46,27 C44,34 35,34 32,27Z" fill="#c8c0b4"/>
-</g>
-<g class="km-body">
-<path d="M28,30 C27.5,40 28,48 30,58 C32,48 32.5,40 32,30Z" fill="#c8c0b4"/>
-</g>
-<g class="km-blades">
-<path d="M28,52 C22,60 14,70 10,78 C8,84 12,88 18,82 C24,76 28,64 30,58Z" fill="#c8c0b4"/>
-<path d="M32,52 C38,60 46,70 50,78 C52,84 48,88 42,82 C36,76 32,64 30,58Z" fill="#c8c0b4"/>
-</g>
-</svg>
-</div><span class="svg-show-label">FULL</span></div>
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-blue km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 35,10 30,18 25,10" fill="#4a8ecc"/>
-<g class="km-petals"><path d="M26,20 C20,14 11,17 14,27 C16,34 25,34 28,27Z" fill="#4a8ecc"/><path d="M34,20 C40,14 49,17 46,27 C44,34 35,34 32,27Z" fill="#4a8ecc"/></g>
-<g class="km-body"><path d="M28,30 C27.5,40 28,48 30,58 C32,48 32.5,40 32,30Z" fill="#4a8ecc"/></g>
-<g class="km-blades"><path d="M28,52 C22,60 14,70 10,78 C8,84 12,88 18,82 C24,76 28,64 30,58Z" fill="#4a8ecc"/><path d="M32,52 C38,60 46,70 50,78 C52,84 48,88 42,82 C36,76 32,64 30,58Z" fill="#4a8ecc"/></g>
-</svg>
-</div><span class="svg-show-label">BLUE</span></div>
-<div class="svg-show"><div class="svg-bg">
-<svg class="km-svg-red km-spread-4" width="60" height="80" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 35,10 30,18 25,10" fill="#cc3333"/>
-<g class="km-petals"><path d="M26,20 C20,14 11,17 14,27 C16,34 25,34 32,27Z" fill="#cc3333"/><path d="M34,20 C40,14 49,17 46,27 C44,34 35,34 32,27Z" fill="#cc3333"/></g>
-<g class="km-body"><path d="M28,30 C27.5,40 28,48 30,58 C32,48 32.5,40 32,30Z" fill="#cc3333"/></g>
-<g class="km-blades"><path d="M28,52 C22,60 14,70 10,78 C8,84 12,88 18,82 C24,76 28,64 30,58Z" fill="#cc3333"/><path d="M32,52 C38,60 46,70 50,78 C52,84 48,88 42,82 C36,76 32,64 30,58Z" fill="#cc3333"/></g>
-</svg>
-</div><span class="svg-show-label">RED</span></div>
-</div>
-
-<!-- V3 in Option B layout -->
-<div class="kb">
-<div class="kb-center">
-<svg class="km-svg-blue km-spread-2" width="56" height="72" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 35,10 30,18 25,10" fill="#4a8ecc"/>
-<g class="km-petals"><path d="M26,20 C20,14 11,17 14,27 C16,34 25,34 28,27Z" fill="#4a8ecc"/><path d="M34,20 C40,14 49,17 46,27 C44,34 35,34 32,27Z" fill="#4a8ecc"/></g>
-<g class="km-body"><path d="M28,30 C27.5,40 28,48 30,58 C32,48 32.5,40 32,30Z" fill="#4a8ecc"/></g>
-<g class="km-blades"><path d="M28,52 C22,60 14,70 10,78 C8,84 12,88 18,82 C24,76 28,64 30,58Z" fill="#4a8ecc"/><path d="M32,52 C38,60 46,70 50,78 C52,84 48,88 42,82 C36,76 32,64 30,58Z" fill="#4a8ecc"/></g>
-</svg>
-<div class="kb-title">Momoshiki's Kāma</div>
-<div class="kb-subtitle">VESSEL: Boruto Uzumaki — <span style="color:#4a8ecc;font-weight:700">RESONATING</span></div>
-</div>
-<div class="kb-stage-ring">
-<div class="kb-seg"><div class="kb-seg-bar on"></div><div class="kb-seg-lbl">Dormant</div></div>
-<div class="kb-seg"><div class="kb-seg-bar on"></div><div class="kb-seg-lbl">Spreading</div></div>
-<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Horn</div></div>
-<div class="kb-seg"><div class="kb-seg-bar"></div><div class="kb-seg-lbl">Ōtsutsuki</div></div>
-</div>
-<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:9px;color:#4a8ecc;font-weight:600;margin-bottom:6px">Stage 2 — Pattern Spreading (Resonance)</div>
-<hr class="kb-divider"/>
-<div class="kb-info">
-<div><div class="kl">LOCATION</div><div class="kv">Right palm</div></div>
-<div><div class="kl">COLOR</div><div class="kv" style="display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,#4a8ecc,#8ac8ff);border:1px solid #6aaeee"></span>Blue (Active)</div></div>
-<div><div class="kl">SHAPE</div><div class="kv">Diamond + petals</div></div>
-<div><div class="kl">SPREAD</div><div class="kv">Palm → arm → face</div></div>
-</div>
-<div class="kb-ow">
-<div class="kl" style="color:#cc3333">ŌTSUTSUKI OVERWRITE — 35%</div>
-<div class="kb-ow-track"><div class="kb-ow-fill" style="width:35%;background:linear-gradient(90deg,#2a5a8a,#4a8ecc)"></div></div>
-</div>
-<div class="kl" style="text-align:center;padding:0 8px">ABILITIES</div>
-<div class="kb-abilities">
-<span class="kb-tag">Chakra Absorption</span>
-<span class="kb-tag">Space-Time Portal</span>
-<span class="kb-tag locked">Jutsu Amplification</span>
-</div>
-</div>
-
-<hr class="sep"/>
-
-<!-- ============================================================ -->
-<!--              SPREAD STAGE COMPARISON (using V1)              -->
-<!-- ============================================================ -->
-<h2>SPREAD STAGES — PROGRESSIVE EXPANSION</h2>
-<p class="note">How the mark grows from diamond-only to full symbol across all 3 SVG versions</p>
-
-<div style="max-width:500px;margin:0 auto 20px">
-<div style="display:flex;justify-content:center;gap:6px;margin-bottom:6px">
-<!-- V1 stages -->
-<div class="svg-show"><div class="svg-bg" style="padding:10px">
-<svg class="km-svg-dormant km-spread-1" width="36" height="48" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#1a1815"/>
-<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#1a1815"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#1a1815"/></g>
-<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#1a1815"/></g>
-<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#1a1815"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#1a1815"/></g>
-</svg>
-</div><span class="svg-show-label">STG 1</span></div>
-
-<div class="svg-show"><div class="svg-bg" style="padding:10px">
-<svg class="km-svg-blue km-spread-2" width="36" height="48" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
-<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#4a8ecc"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#4a8ecc"/></g>
-<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#4a8ecc"/></g>
-<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#4a8ecc"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#4a8ecc"/></g>
-</svg>
-</div><span class="svg-show-label">STG 2</span></div>
-
-<div class="svg-show"><div class="svg-bg" style="padding:10px">
-<svg class="km-svg-red km-spread-3" width="36" height="48" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#cc3333"/>
-<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#cc3333"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#cc3333"/></g>
-<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#cc3333"/></g>
-<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#cc3333"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#cc3333"/></g>
-</svg>
-</div><span class="svg-show-label">STG 3</span></div>
-
-<div class="svg-show"><div class="svg-bg" style="padding:10px">
-<svg class="km-svg-blue km-spread-4" width="36" height="48" viewBox="0 0 60 95" xmlns="http://www.w3.org/2000/svg">
-<polygon points="30,2 34,9 30,16 26,9" fill="#4a8ecc"/>
-<g class="km-petals"><path d="M27,19 C23,15 15,16 17,25 C19,32 26,31 28,25Z" fill="#4a8ecc"/><path d="M33,19 C37,15 45,16 43,25 C41,32 34,31 32,25Z" fill="#4a8ecc"/></g>
-<g class="km-body"><path d="M29,28 C29,38 29.5,46 30,54 C30.5,46 31,38 31,28Z" fill="#4a8ecc"/></g>
-<g class="km-blades"><path d="M29,48 C25,56 18,66 15,74 C13,80 17,82 21,78 C26,72 29,60 30,54Z" fill="#4a8ecc"/><path d="M31,48 C35,56 42,66 45,74 C47,80 43,82 39,78 C34,72 31,60 30,54Z" fill="#4a8ecc"/></g>
-</svg>
-</div><span class="svg-show-label">STG 4</span></div>
-</div>
-<div style="text-align:center;font-family:'M PLUS 1',sans-serif;font-size:8px;color:#6a6458;letter-spacing:1px">V1 CLEAN CURVES — STAGE PROGRESSION</div>
 </div>
 
 </body>
