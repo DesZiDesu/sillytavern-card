@@ -9086,23 +9086,8 @@
       "displayIndex": 167
     },
     "168": {
-      "keysecondary": [
-        "akatsuki",
-        "rinnegan",
-        "pain",
-        "nagato",
-        "obito",
-        "madara",
-        "ten tails",
-        "อาคาสึกิ",
-        "รินเนกัน",
-        "เพน",
-        "นากาโตะ",
-        "โอบิโตะ",
-        "มาดาระ",
-        "สิบหาง"
-      ],
-      "constant": false,
+      "keysecondary": [],
+      "constant": true,
       "vectorized": false,
       "selective": true,
       "selectiveLogic": 0,
@@ -9143,22 +9128,7 @@
         "tags": []
       },
       "uid": 168,
-      "key": [
-        "gedo mazo",
-        "gedo mazou",
-        "gedo statue",
-        "gedou mazou",
-        "tailed beast sealing",
-        "bijuu sealing",
-        "akatsuki sealing",
-        "demonic statue",
-        "เกโดมาโซ",
-        "รูปปั้นเกโด",
-        "ผนึกบิจู",
-        "ผนึกสัตว์หาง",
-        "อาคาสึกิผนึก",
-        "รูปปั้นปีศาจ"
-      ],
+      "key": [],
       "comment": "UI System — Gedo Mazou Tracker [SW]",
       "content": "<ui_system name=\"Gedo Mazou Tracker\">\n## PURPOSE\nRender the Gedo Mazou (外道魔像) tailed beast sealing tracker — a stone statue SVG showing which of the 9 bijuu have been sealed. Drawn by regex as a visual card. Never describe the UI in prose.\n\n## ACCESS RESTRICTION\nOnly output this tag when {{user}} is:\n- An Akatsuki member (active or allied)\n- A Rinnegan wielder who can summon the statue\n- Present during a sealing ceremony or viewing the statue directly\nDo NOT output this tag for characters who have no knowledge of the statue's status.\n\n## OUTPUT FORMAT\nPlace AFTER narration, BEFORE <SHINOBI_STATUS>:\n<GEDO_MAZO>\n{\n  \"sealed\": [false, false, false, false, false, false, false, false, false]\n}\n</GEDO_MAZO>\n\n## FIELD DEFINITION\n- sealed: array of 9 booleans, index 0-8 mapping to bijuu 1-9 tails:\n  [0] = Shukaku (一尾 / One-Tail)\n  [1] = Matatabi (二尾 / Two-Tails)\n  [2] = Isobu (三尾 / Three-Tails)\n  [3] = Son Gokū (四尾 / Four-Tails)\n  [4] = Kokuō (五尾 / Five-Tails)\n  [5] = Saiken (六尾 / Six-Tails)\n  [6] = Chōmei (七尾 / Seven-Tails)\n  [7] = Gyūki (八尾 / Eight-Tails)\n  [8] = Kurama (九尾 / Nine-Tails)\n\n## RULES\n1. Only output when access restriction is met.\n2. Track sealing progress across the story — once a beast is sealed, keep it true.\n3. A beast set to false means it has NOT been sealed into the statue yet.\n4. When all 9 are true, the statue enters completion state (Ten-Tails revival imminent).\n5. Respect canon order if playing in Shippuden timeline, or allow custom order for original stories.\n6. If a sealed beast is later extracted (e.g. Naruto losing Kurama), set it back to false.\n\n## EXAMPLES\n\n### 3 beasts sealed (Shukaku, Matatabi, Isobu):\n<GEDO_MAZO>\n{\"sealed\": [true, true, true, false, false, false, false, false, false]}\n</GEDO_MAZO>\n\n### 7 beasts sealed (only Gyūki and Kurama remain):\n<GEDO_MAZO>\n{\"sealed\": [true, true, true, true, true, true, true, false, false]}\n</GEDO_MAZO>\n\n### All 9 sealed (Ten-Tails revival ready):\n<GEDO_MAZO>\n{\"sealed\": [true, true, true, true, true, true, true, true, true]}\n</GEDO_MAZO>\n</ui_system>",
       "displayIndex": 168
