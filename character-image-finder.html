@@ -250,7 +250,7 @@
 
   <div class="searchbar">
     <div class="searchrow">
-      <input id="q" type="search" placeholder="Search tags — space adds a second tag (max 2)" autocapitalize="off" autocomplete="off" spellcheck="false" enterkeyhint="search">
+      <input id="q" type="search" placeholder="Search tags — spaces add more tags" autocapitalize="off" autocomplete="off" spellcheck="false" enterkeyhint="search">
       <button id="go" type="button">Search</button>
     </div>
     <div class="suggest" id="suggest" role="listbox"></div>
@@ -361,7 +361,9 @@
   try { Object.assign(settings, JSON.parse(localStorage.getItem("if-settings") || "{}")); } catch (e) {}
   function saveSettings() { try { localStorage.setItem("if-settings", JSON.stringify(settings)); } catch (e) {} }
 
+  var ONLY = "id,rating,file_ext,preview_file_url,large_file_url,file_url,tag_string,tag_string_artist,tag_string_copyright,tag_string_character,tag_string_general";
   var curTag = "", page = 1, loading = false, hasNext = false;
+  var ext = null;          // deep-search state when more than 2 tags are used
   var results = [];        // posts on the current page
   var picks = new Map();   // post id -> {label, sample, original, ext, id}
   var lbIdx = -1;
@@ -481,37 +483,42 @@
     load(terms(q.value.toLowerCase()).join(" "), 1);
   }
   pgPrev.addEventListener("click", function () { if (page > 1) load(curTag, page - 1); });
-  pgNext.addEventListener("click", function () { if (hasNext) load(curTag, page + 1); });
+  pgNext.addEventListener("click", function () {
+    if (ext && !ext.done && ext.cache.length <= page * PER_PAGE) { load(curTag, page); return; }
+    if (hasNext) load(curTag, page + 1);
+  });
+
+  function displayable(x) {
+    return x.preview_file_url && (x.large_file_url || x.file_url) && !SKIP_EXT[x.file_ext];
+  }
+  function resetGrid() {
+    grid.innerHTML = "";
+    results = [];
+    window.scrollTo(0, 0);
+  }
 
   function load(tag, p) {
     if (loading) return;
-    loading = true;
     curTag = tag || "";
     page = p;
     closeLb();
     info.classList.remove("err");
-    info.textContent = "Loading…";
     var parts = terms(curTag);
     var realTags = parts.filter(function (t) { return t.indexOf(":") < 0; });
-    if (realTags.length > 2) {
-      loading = false;
-      fail("Danbooru allows 2 tags max per search — remove a tag. (Filters like the rating setting don’t count.)");
-      return;
-    }
+    if (realTags.length > 2) { extendedLoad(parts, realTags, p); return; }
+    ext = null;
+    loading = true;
+    info.textContent = "Loading…";
     if (settings.rating) parts.push("rating:" + settings.rating);
-    var u = API + "/posts.json?tags=" + encodeURIComponent(parts.join(" ")) + "&limit=" + PER_PAGE + "&page=" + page;
+    var u = API + "/posts.json?tags=" + encodeURIComponent(parts.join(" ")) + "&limit=" + PER_PAGE + "&page=" + page + "&only=" + ONLY;
     fetch(u)
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (res) {
         loading = false;
         if (!res.ok) { fail((res.j && res.j.message) || "Search failed - try again."); return; }
-        var posts = (res.j || []).filter(function (x) {
-          return x.preview_file_url && (x.large_file_url || x.file_url) && !SKIP_EXT[x.file_ext];
-        });
+        var posts = (res.j || []).filter(displayable);
         hasNext = (res.j || []).length >= PER_PAGE;
-        grid.innerHTML = "";
-        results = [];
-        window.scrollTo(0, 0);
+        resetGrid();
         if (posts.length === 0) {
           if (page === 1 && curTag.indexOf(" ") >= 0 && curTag.indexOf("_") < 0 && curTag.indexOf(":") < 0) {
             var joined = curTag.replace(/ /g, "_");
@@ -530,6 +537,69 @@
         updatePager();
       })
       .catch(function () { loading = false; fail("Connection failed - check your network."); });
+  }
+
+  /* deep search: more than 2 tags — send the 2 rarest, filter the rest here */
+  function extendedLoad(parts, realTags, p) {
+    var metas = parts.filter(function (t) { return t.indexOf(":") >= 0; });
+    var pos = realTags.filter(function (t) { return t.charAt(0) !== "-"; });
+    var neg = realTags.filter(function (t) { return t.charAt(0) === "-"; })
+      .map(function (t) { return t.slice(1); });
+    var key = curTag + "|" + settings.rating;
+    loading = true;
+    if (ext && ext.key === key) { scanMore(p, 0); return; }
+    info.textContent = "Preparing deep search…";
+    ext = { key: key, send: null, extras: [], neg: neg, apiPage: 1, cache: [], seen: {}, done: false, scanned: 0 };
+    fetch(API + "/tags.json?search%5Bname_comma%5D=" + encodeURIComponent(pos.join(",")) +
+          "&limit=" + Math.max(pos.length, 20) + "&only=name,post_count")
+      .then(function (r) { return r.json(); })
+      .then(function (counts) {
+        var cmap = {};
+        (Array.isArray(counts) ? counts : []).forEach(function (c) { cmap[c.name] = c.post_count || 0; });
+        var sorted = pos.slice().sort(function (a, b) { return (cmap[a] || 0) - (cmap[b] || 0); });
+        ext.send = sorted.slice(0, 2).concat(metas);
+        if (settings.rating) ext.send.push("rating:" + settings.rating);
+        ext.extras = sorted.slice(2);
+        scanMore(p, 0);
+      })
+      .catch(function () { loading = false; ext = null; fail("Connection failed - check your network."); });
+  }
+  function scanMore(p, calls) {
+    if (ext.cache.length >= p * PER_PAGE || ext.done || calls >= 3) { finishExt(p); return; }
+    info.textContent = "Deep search… found " + ext.cache.length + " · scanned " + ext.scanned + " posts";
+    fetch(API + "/posts.json?tags=" + encodeURIComponent(ext.send.join(" ")) +
+          "&limit=200&page=" + ext.apiPage + "&only=" + ONLY)
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok || !Array.isArray(res.j)) { ext.done = true; finishExt(p); return; }
+        ext.scanned += res.j.length;
+        ext.apiPage++;
+        if (res.j.length < 200) ext.done = true;
+        res.j.forEach(function (x) {
+          if (!displayable(x) || ext.seen[x.id]) return;
+          var ts = " " + (x.tag_string || "") + " ";
+          var hit = ext.extras.every(function (t) { return ts.indexOf(" " + t + " ") >= 0; }) &&
+                    ext.neg.every(function (t) { return ts.indexOf(" " + t + " ") < 0; });
+          if (hit) { ext.seen[x.id] = 1; ext.cache.push(x); }
+        });
+        scanMore(p, calls + 1);
+      })
+      .catch(function () { loading = false; fail("Connection failed - check your network."); });
+  }
+  function finishExt(p) {
+    loading = false;
+    var slice = ext.cache.slice((p - 1) * PER_PAGE, p * PER_PAGE);
+    hasNext = ext.cache.length > p * PER_PAGE || !ext.done;
+    resetGrid();
+    slice.forEach(addCell);
+    if (!slice.length) {
+      fail(ext.done
+        ? "No results for “" + displayTag(curTag) + "” — scanned all " + ext.scanned + " candidate posts."
+        : "No matches in the newest " + ext.scanned + " candidates — tap › to keep scanning.");
+    } else {
+      info.textContent = "“" + displayTag(curTag) + "” · found " + ext.cache.length + (ext.done ? "" : "+") + " · scanned " + ext.scanned;
+    }
+    updatePager();
   }
   function fail(msg) { info.classList.add("err"); info.textContent = msg; }
   function updatePager() {
