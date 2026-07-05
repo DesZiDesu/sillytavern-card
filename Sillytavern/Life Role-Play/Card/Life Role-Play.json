@@ -58,7 +58,7 @@
                     "id": "24a52e76-cb2f-4bd7-8980-f4941e3ed9e6",
                     "scriptName": "Character Header (Colored Name) - Catbox",
                     "findRegex": "/\\[HEADER:\\s*([^|]+?)\\s*\\|\\s*([^|]+?)\\s*\\|\\s*([^\\]]+?)\\s*\\]/gi",
-                    "replaceString": "<div style=\"display:flex; align-items:center; gap:16px; border-bottom:1px solid var(--SmartThemeBorderColor, #333); padding-bottom:12px; margin-bottom:16px; margin-top:8px;\"><img src=\"https://files.catbox.moe/$2\" style=\"width:54px; height:54px; border-radius:6px; object-fit:cover; border:1px solid var(--SmartThemeBorderColor, #444);\" alt=\"$1\"><div style=\"font-size:20px; font-weight:700; color:$3; letter-spacing:0.5px;\">$1</div></div>",
+                    "replaceString": "<div style=\"display:flex; align-items:center; gap:16px; border-bottom:1px solid var(--SmartThemeBorderColor, #333); padding-bottom:12px; margin-bottom:16px; margin-top:8px;\"><img src=\"$2\" style=\"width:54px; height:54px; border-radius:6px; object-fit:cover; border:1px solid var(--SmartThemeBorderColor, #444);\" alt=\"$1\" onerror=\"if(this.dataset.cb){this.style.display='none'}else{this.dataset.cb=1;this.src='https://files.catbox.moe/$2'}\"><div style=\"font-size:20px; font-weight:700; color:$3; letter-spacing:0.5px;\">$1</div></div>",
                     "trimStrings": [],
                     "placement": [
                         1,
@@ -130,7 +130,7 @@
                     "id": "f5f6a827-c555-47fd-8a63-f4d468465ac6",
                     "scriptName": "COTE Character Header",
                     "findRegex": "/\\[CHAR\\|(.*?)\\|(.*?)\\|(.*?)\\]/g",
-                    "replaceString": "<div style=\"display:flex;align-items:center;gap:10px;padding:8px 4px 4px;max-width:520px;margin:0 auto;\"><img src=\"https://files.catbox.moe/$1\" alt=\"$2\" style=\"width:42px;height:42px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block;\" onerror=\"this.style.display='none'\"/><div style=\"display:flex;flex-direction:column;justify-content:center;gap:3px;min-width:0;\"><span style=\"font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:700;color:$3;letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</span><div style=\"height:1px;width:100%;background:linear-gradient(90deg,$3 0%,transparent 100%);opacity:.35;\"></div></div></div>",
+                    "replaceString": "<div style=\"display:flex;align-items:center;gap:10px;padding:8px 4px 4px;max-width:520px;margin:0 auto;\"><img src=\"$1\" alt=\"$2\" style=\"width:42px;height:42px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block;\" onerror=\"if(this.dataset.cb){this.style.display='none'}else{this.dataset.cb=1;this.src='https://files.catbox.moe/$1'}\"/><div style=\"display:flex;flex-direction:column;justify-content:center;gap:3px;min-width:0;\"><span style=\"font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:700;color:$3;letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</span><div style=\"height:1px;width:100%;background:linear-gradient(90deg,$3 0%,transparent 100%);opacity:.35;\"></div></div></div>",
                     "trimStrings": [],
                     "placement": [
                         1,
