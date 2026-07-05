@@ -250,7 +250,7 @@
 
   <div class="searchbar">
     <div class="searchrow">
-      <input id="q" type="search" placeholder="Search characters or tags" autocapitalize="off" autocomplete="off" spellcheck="false" enterkeyhint="search">
+      <input id="q" type="search" placeholder="Search tags — space adds a second tag (max 2)" autocapitalize="off" autocomplete="off" spellcheck="false" enterkeyhint="search">
       <button id="go" type="button">Search</button>
     </div>
     <div class="suggest" id="suggest" role="listbox"></div>
@@ -386,6 +386,8 @@
   function pretty(tag) {
     return String(tag).replace(/_/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); });
   }
+  function terms(s) { return String(s).split(/\s+/).filter(Boolean); }
+  function displayTag(t) { return terms(t).map(pretty).join(" + "); }
   function extOf(url) {
     var m = /\.(\w{2,5})(?:\?|$)/.exec(url || "");
     return m ? m[1] : "jpg";
@@ -425,10 +427,11 @@
 
   /* ---------- autocomplete ---------- */
   q.addEventListener("input", function () {
-    var v = q.value.trim();
+    var parts = terms(q.value);
+    var last = /\s$/.test(q.value) ? "" : (parts[parts.length - 1] || "");
     if (acTimer) clearTimeout(acTimer);
-    if (v.length < 2) { closeSuggest(); return; }
-    acTimer = setTimeout(function () { fetchSuggest(v); }, 250);
+    if (last.length < 2) { closeSuggest(); return; }
+    acTimer = setTimeout(function () { fetchSuggest(last); }, 250);
   });
   function fetchSuggest(v) {
     if (acCtrl) acCtrl.abort();
@@ -449,9 +452,12 @@
           b.children[1].textContent = cat;
           b.children[2].textContent = it.post_count ? it.post_count.toLocaleString() : "";
           b.addEventListener("click", function () {
-            q.value = it.value;
+            var parts = terms(q.value);
+            if (/\s$/.test(q.value) || !parts.length) parts.push(it.value);
+            else parts[parts.length - 1] = it.value;
+            q.value = parts.join(" ");
             closeSuggest();
-            load(it.value, 1);
+            load(q.value, 1);
           });
           suggest.appendChild(b);
           shown++;
@@ -472,7 +478,7 @@
   });
   function startSearch() {
     closeSuggest();
-    load(q.value.trim().replace(/\s+/g, "_").toLowerCase(), 1);
+    load(terms(q.value.toLowerCase()).join(" "), 1);
   }
   pgPrev.addEventListener("click", function () { if (page > 1) load(curTag, page - 1); });
   pgNext.addEventListener("click", function () { if (hasNext) load(curTag, page + 1); });
@@ -485,8 +491,13 @@
     closeLb();
     info.classList.remove("err");
     info.textContent = "Loading…";
-    var parts = [];
-    if (curTag) parts.push(curTag);
+    var parts = terms(curTag);
+    var realTags = parts.filter(function (t) { return t.indexOf(":") < 0; });
+    if (realTags.length > 2) {
+      loading = false;
+      fail("Danbooru allows 2 tags max per search — remove a tag. (Filters like the rating setting don’t count.)");
+      return;
+    }
     if (settings.rating) parts.push("rating:" + settings.rating);
     var u = API + "/posts.json?tags=" + encodeURIComponent(parts.join(" ")) + "&limit=" + PER_PAGE + "&page=" + page;
     fetch(u)
@@ -502,14 +513,20 @@
         results = [];
         window.scrollTo(0, 0);
         if (posts.length === 0) {
+          if (page === 1 && curTag.indexOf(" ") >= 0 && curTag.indexOf("_") < 0 && curTag.indexOf(":") < 0) {
+            var joined = curTag.replace(/ /g, "_");
+            q.value = joined;
+            load(joined, 1);
+            return;
+          }
           fail(curTag
-            ? "No results for “" + pretty(curTag) + "”." + (settings.rating ? " The rating filter in Options may be hiding results." : " Check the spelling via the suggestions.")
+            ? "No results for “" + displayTag(curTag) + "”." + (settings.rating ? " The rating filter in Options may be hiding results." : " Check the spelling via the suggestions.")
             : "Nothing loaded - try again.");
           updatePager();
           return;
         }
         posts.forEach(addCell);
-        info.textContent = (curTag ? "“" + pretty(curTag) + "”" : "Latest uploads") + " · " + posts.length + " images";
+        info.textContent = (curTag ? "“" + displayTag(curTag) + "”" : "Latest uploads") + " · " + posts.length + " images";
         updatePager();
       })
       .catch(function () { loading = false; fail("Connection failed - check your network."); });
@@ -527,7 +544,7 @@
     if (custom) return custom;
     var ch = (p.tag_string_character || "").split(" ")[0];
     if (ch) return pretty(ch);
-    if (curTag) return pretty(curTag);
+    if (curTag) return pretty(terms(curTag)[0]);
     return "Image";
   }
   function togglePick(p) {
