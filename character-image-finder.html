@@ -368,7 +368,7 @@
 
 <div class="crop" id="cropUi" hidden role="dialog" aria-label="Crop image">
   <div class="crop-top">
-    <span>Crop — drag to move, circle to resize; cropped links are served via wsrv.nl</span>
+    <span>Crop — drag to move, circle to resize; the cropped link is verified when you Apply</span>
     <button class="x" id="cropClose" type="button" aria-label="Cancel crop">&#215;</button>
   </div>
   <div class="crop-stage">
@@ -957,6 +957,11 @@
   function croppedUrl(v, url, wantOriginal) {
     var c = crops.get(v.id);
     if (!c) return url;
+    if (c.provider === "photon") {
+      var pc = function (f) { return Math.max(0, Math.min(100, Math.round(f * 10000) / 100)); };
+      return "https://i0.wp.com/" + url.replace(/^https?:\/\//, "") +
+        "?crop=" + pc(c.fx) + "," + pc(c.fy) + "," + pc(c.fw) + "," + pc(c.fh) + "&ssl=1";
+    }
     var W = wantOriginal && v.ow ? v.ow : c.sw;
     var H = wantOriginal && v.oh ? v.oh : c.sh;
     var cx = Math.max(0, Math.round(c.fx * W)), cy = Math.max(0, Math.round(c.fy * H));
@@ -965,6 +970,32 @@
     if (cy + ch > H) ch = Math.max(1, H - cy);
     return "https://images.weserv.nl/?url=" + encodeURIComponent(url) +
       "&cx=" + cx + "&cy=" + cy + "&cw=" + cw + "&ch=" + ch;
+  }
+  function verifyCrop(p, rec) {
+    var v = { id: p.id, ow: p.image_width, oh: p.image_height };
+    var sample = p.large_file_url || p.file_url;
+    function attempt(provider, onFail) {
+      rec.provider = provider;
+      var u = croppedUrl(v, sample, false);
+      var img = new Image(), done = false;
+      var t = setTimeout(function () { if (!done) { done = true; img.src = ""; onFail(); } }, 9000);
+      img.onload = function () {
+        if (done) return;
+        done = true; clearTimeout(t);
+        rec.provider = provider;
+        renderOut();
+        showToast(provider === "wsrv" ? "Crop saved — link verified" : "Crop saved — using backup host (wsrv blocked)");
+      };
+      img.onerror = function () { if (!done) { done = true; clearTimeout(t); onFail(); } };
+      img.src = u;
+    }
+    attempt("wsrv", function () {
+      attempt("photon", function () {
+        rec.provider = "wsrv";
+        renderOut();
+        showToast("Crop saved, but the cropped link failed to load - it may not work");
+      });
+    });
   }
   function dispSize() { return { w: cropImg.clientWidth, h: cropImg.clientHeight }; }
   function renderBox() {
@@ -1048,14 +1079,16 @@
   $("cropApply").addEventListener("click", function () {
     var d = dispSize(), p = cropPost;
     if (!p || !d.w || !d.h) return;
-    crops.set(p.id, {
+    var rec = {
       fx: box.x / d.w, fy: box.y / d.h, fw: box.w / d.w, fh: box.h / d.h,
-      sw: cropImg.naturalWidth, sh: cropImg.naturalHeight
-    });
+      sw: cropImg.naturalWidth, sh: cropImg.naturalHeight, provider: "wsrv"
+    };
+    crops.set(p.id, rec);
     cropUi.hidden = true;
     if (!picks.has(p.id)) togglePick(p); else renderOut();
     updateLbCrop();
-    showToast("Crop saved");
+    showToast("Crop saved — checking link\u2026", true);
+    verifyCrop(p, rec);
   });
 
   /* ---------- boot ---------- */
