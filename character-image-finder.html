@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Character Image Finder</title>
+<meta name="description" content="Search character art, tap to pick images, copy labeled links for Claude.">
+<style>
+  :root {
+    --wall: #F8F6F4;
+    --card: #FFFFFF;
+    --ink: #262024;
+    --ink-soft: #6E6269;
+    --line: #E7DFE2;
+    --rose: #C93D71;
+    --rose-soft: #F9E4ED;
+    --amber: #A8681C;
+    --amber-soft: #F6EAD8;
+    --shadow: 0 1px 4px rgba(38, 32, 36, 0.10);
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --wall: #171317;
+      --card: #221C21;
+      --ink: #F0E9ED;
+      --ink-soft: #A5979F;
+      --line: #393037;
+      --rose: #EE6FA4;
+      --rose-soft: #3A2230;
+      --amber: #E0A45C;
+      --amber-soft: #3A2E1D;
+      --shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--wall);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 20px 14px 120px; }
+
+  .eyebrow {
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--rose); margin: 0 0 6px;
+  }
+  h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 6px; text-wrap: balance; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; margin: 0 0 16px; }
+
+  /* Search */
+  .searchbar { position: relative; }
+  .searchrow { display: flex; gap: 8px; }
+  #q {
+    flex: 1; font: inherit; font-size: 16px; color: var(--ink);
+    background: var(--card); border: 1.5px solid var(--line); border-radius: 12px;
+    padding: 12px 14px; min-width: 0;
+  }
+  #q:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
+  #go {
+    font: inherit; font-size: 15px; font-weight: 700; border: none; cursor: pointer;
+    background: var(--rose); color: #fff; border-radius: 12px; padding: 0 18px;
+  }
+  .suggest {
+    position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 30;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: var(--shadow); overflow: hidden; display: none;
+  }
+  .suggest.open { display: block; }
+  .suggest button {
+    display: flex; width: 100%; align-items: baseline; gap: 8px; text-align: left;
+    font: inherit; font-size: 15px; color: var(--ink); background: none; border: none;
+    border-top: 1px solid var(--line); padding: 11px 14px; cursor: pointer;
+  }
+  .suggest button:first-child { border-top: none; }
+  .suggest .cat { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--rose); }
+  .suggest .n { margin-left: auto; font-size: 12px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+  .opts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 4px; }
+  .seg { display: inline-flex; background: var(--card); border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .seg button {
+    font: inherit; font-size: 13.5px; font-weight: 650; border: none; cursor: pointer;
+    background: none; color: var(--ink-soft); padding: 7px 12px;
+  }
+  .seg button[aria-pressed="true"] { background: var(--rose-soft); color: var(--rose); }
+  .opts .hint { font-size: 12.5px; color: var(--ink-soft); }
+
+  .labelrow { margin: 12px 0 0; }
+  .labelrow input {
+    width: 100%; font: inherit; font-size: 15px; color: var(--ink);
+    background: var(--card); border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 14px;
+  }
+  .labelrow .cap { font-size: 12.5px; color: var(--ink-soft); margin: 4px 2px 0; }
+  input::placeholder { color: var(--ink-soft); opacity: 0.7; }
+
+  /* Status + grid */
+  .status { margin: 18px 0 10px; font-size: 14px; color: var(--ink-soft); min-height: 1.2em; }
+  .status.err { color: var(--rose); font-weight: 650; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  @media (min-width: 520px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  .cell {
+    position: relative; border: none; padding: 0; cursor: pointer;
+    background: var(--card); border-radius: 10px; overflow: hidden;
+    aspect-ratio: 1 / 1; box-shadow: var(--shadow);
+  }
+  .cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cell .pick {
+    position: absolute; inset: 0; border: 3px solid transparent; border-radius: 10px; pointer-events: none;
+  }
+  .cell[aria-pressed="true"] .pick { border-color: var(--rose); background: rgba(201, 61, 113, 0.16); }
+  .cell .num {
+    position: absolute; top: 6px; right: 6px; display: none;
+    min-width: 22px; height: 22px; padding: 0 5px; border-radius: 999px;
+    background: var(--rose); color: #fff; font-size: 12.5px; font-weight: 800;
+    align-items: center; justify-content: center; font-variant-numeric: tabular-nums;
+  }
+  .cell[aria-pressed="true"] .num { display: inline-flex; }
+  .cell .sens {
+    position: absolute; left: 6px; bottom: 6px;
+    background: var(--amber-soft); color: var(--amber);
+    font-size: 10px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+    border-radius: 5px; padding: 1px 5px;
+  }
+  .more {
+    display: block; margin: 16px auto 0; font: inherit; font-size: 15px; font-weight: 650;
+    color: var(--rose); background: none; border: 1.5px solid var(--rose);
+    border-radius: 12px; padding: 10px 22px; cursor: pointer;
+  }
+  .more[hidden] { display: none; }
+
+  /* Bottom bar + output */
+  .bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    background: var(--card); border-top: 1px solid var(--line);
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  }
+  .bar-inner { max-width: 680px; margin: 0 auto; display: flex; align-items: center; gap: 10px; }
+  .count { font-size: 14px; font-weight: 700; }
+  .count small { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-soft); }
+  .bar .spacer { flex: 1; }
+  .bar button {
+    font: inherit; font-size: 14.5px; font-weight: 700; border-radius: 10px;
+    padding: 9px 14px; cursor: pointer; border: 1.5px solid transparent;
+  }
+  #copyBtn { background: var(--rose); color: #fff; border-color: var(--rose); }
+  #listBtn { background: none; color: var(--rose); border-color: var(--rose); }
+  #copyBtn:disabled, #listBtn:disabled { opacity: 0.4; cursor: default; }
+
+  .sheet {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    background: var(--card); border-top: 1px solid var(--line);
+    border-radius: 16px 16px 0 0; box-shadow: 0 -6px 24px rgba(0,0,0,0.18);
+    padding: 14px 14px calc(14px + env(safe-area-inset-bottom));
+    transform: translateY(105%); transition: transform 0.22s ease;
+    max-height: 72vh; display: flex; flex-direction: column;
+  }
+  .sheet.open { transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .sheet { transition: none; } }
+  .sheet-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; max-width: 680px; width: 100%; align-self: center; }
+  .sheet-head h2 { font-size: 16px; font-weight: 750; margin: 0; }
+  .sheet-head .x {
+    margin-left: auto; font: inherit; font-size: 20px; line-height: 1; border: none;
+    background: none; color: var(--ink-soft); cursor: pointer; padding: 4px 8px;
+  }
+  .out {
+    font-family: var(--mono); font-size: 12.5px; line-height: 1.7;
+    background: var(--wall); border: 1.5px dashed var(--line); border-radius: 10px;
+    padding: 10px 12px; white-space: pre-wrap; overflow-wrap: anywhere;
+    overflow-y: auto; max-width: 680px; width: 100%; align-self: center;
+  }
+  .sheet .row2 { display: flex; gap: 8px; margin-top: 10px; max-width: 680px; width: 100%; align-self: center; }
+  .sheet .row2 button {
+    font: inherit; font-size: 14px; font-weight: 650; border-radius: 10px; padding: 9px 14px; cursor: pointer;
+  }
+  #copyBtn2 { background: var(--rose); color: #fff; border: none; }
+  #clearBtn { background: none; color: var(--ink-soft); border: 1.5px solid var(--line); }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 84px; z-index: 60;
+    transform: translateX(-50%) translateY(8px);
+    background: var(--ink); color: var(--wall); font-size: 14px; font-weight: 600;
+    border-radius: 999px; padding: 9px 18px; opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+
+  footer { margin-top: 34px; font-size: 12.5px; color: var(--ink-soft); }
+  footer a { color: var(--rose); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Search &#183; Pick &#183; Paste to Claude</p>
+  <h1>Character Image Finder</h1>
+  <p class="lede">Search a character, tap the images you want, and copy a labeled link list &mdash; no uploading needed. Powered by Danbooru&rsquo;s art database.</p>
+
+  <div class="searchbar">
+    <div class="searchrow">
+      <input id="q" type="search" placeholder="Character name, e.g. hatsune miku" autocapitalize="off" autocomplete="off" spellcheck="false" enterkeyhint="search">
+      <button id="go" type="button">Search</button>
+    </div>
+    <div class="suggest" id="suggest" role="listbox"></div>
+  </div>
+
+  <div class="opts">
+    <div class="seg" role="group" aria-label="Content rating">
+      <button type="button" id="rSafe" aria-pressed="true">Safe only</button>
+      <button type="button" id="rSens" aria-pressed="false">+ Sensitive</button>
+    </div>
+    <div class="seg" role="group" aria-label="Link size">
+      <button type="button" id="uSample" aria-pressed="true">Standard links</button>
+      <button type="button" id="uOrig" aria-pressed="false">Full-size links</button>
+    </div>
+  </div>
+  <p class="opts hint">Standard links load fast for Claude; full-size links are the original files.</p>
+
+  <div class="labelrow">
+    <input id="label" type="text" placeholder="Label for picked images, e.g. Rin — outfit reference" autocomplete="off">
+    <p class="cap">Auto-filled from your search. Edit it any time &mdash; each image you tap is labeled with whatever is written here at that moment, so you can mix characters in one list.</p>
+  </div>
+
+  <p class="status" id="status">Type a character name above to start. Tap a suggestion for exact spelling.</p>
+  <div class="grid" id="grid"></div>
+  <button class="more" id="more" type="button" hidden>Load more</button>
+
+  <footer>Images are fan art hosted by <a href="https://danbooru.donmai.us" rel="noopener">Danbooru</a> and belong to their artists &mdash; use them as references, not as your own work. Links can stop working if the original post is removed. &ldquo;Safe only&rdquo; shows general-rated art; &ldquo;+ Sensitive&rdquo; adds swimsuit/suggestive-level art (never explicit).</footer>
+</div>
+
+<div class="bar">
+  <div class="bar-inner">
+    <div class="count"><span id="nSel">0</span> picked<small id="selHint">tap images to pick them</small></div>
+    <div class="spacer"></div>
+    <button id="listBtn" type="button" disabled>View list</button>
+    <button id="copyBtn" type="button" disabled>Copy list</button>
+  </div>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-label="Your link list">
+  <div class="sheet-head">
+    <h2>Paste-ready list</h2>
+    <button class="x" id="sheetClose" type="button" aria-label="Close">&#215;</button>
+  </div>
+  <div class="out" id="out"></div>
+  <div class="row2">
+    <button id="copyBtn2" type="button">Copy list</button>
+    <button id="clearBtn" type="button">Clear picks</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status">Copied</div>
+
+<script>
+(function () {
+  var API = "https://danbooru.donmai.us";
+  var SKIP_EXT = { mp4: 1, webm: 1, zip: 1, swf: 1 };
+
+  var q = document.getElementById("q");
+  var go = document.getElementById("go");
+  var suggest = document.getElementById("suggest");
+  var grid = document.getElementById("grid");
+  var statusEl = document.getElementById("status");
+  var more = document.getElementById("more");
+  var labelEl = document.getElementById("label");
+  var nSel = document.getElementById("nSel");
+  var selHint = document.getElementById("selHint");
+  var listBtn = document.getElementById("listBtn");
+  var copyBtn = document.getElementById("copyBtn");
+  var copyBtn2 = document.getElementById("copyBtn2");
+  var clearBtn = document.getElementById("clearBtn");
+  var sheet = document.getElementById("sheet");
+  var out = document.getElementById("out");
+  var toast = document.getElementById("toast");
+
+  var rating = "g";           // "g" or "g,s"
+  var urlMode = "sample";     // "sample" or "original"
+  var curTag = "";
+  var page = 1;
+  var loading = false;
+  var picks = new Map();      // post id -> {label, sample, original, thumb}
+  var acTimer = null, acCtrl = null, toastTimer = null;
+
+  function pretty(tag) {
+    return tag.replace(/_/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+  function setSeg(onBtn, offBtn) {
+    onBtn.setAttribute("aria-pressed", "true");
+    offBtn.setAttribute("aria-pressed", "false");
+  }
+  document.getElementById("rSafe").addEventListener("click", function () {
+    rating = "g"; setSeg(this, document.getElementById("rSens"));
+    if (curTag) search(curTag, true);
+  });
+  document.getElementById("rSens").addEventListener("click", function () {
+    rating = "g,s"; setSeg(this, document.getElementById("rSafe"));
+    if (curTag) search(curTag, true);
+  });
+  document.getElementById("uSample").addEventListener("click", function () {
+    urlMode = "sample"; setSeg(this, document.getElementById("uOrig")); renderOut();
+  });
+  document.getElementById("uOrig").addEventListener("click", function () {
+    urlMode = "original"; setSeg(this, document.getElementById("uSample")); renderOut();
+  });
+
+  /* ---- autocomplete ---- */
+  q.addEventListener("input", function () {
+    var v = q.value.trim();
+    if (acTimer) clearTimeout(acTimer);
+    if (v.length < 2) { closeSuggest(); return; }
+    acTimer = setTimeout(function () { fetchSuggest(v); }, 250);
+  });
+  function fetchSuggest(v) {
+    if (acCtrl) acCtrl.abort();
+    acCtrl = new AbortController();
+    var u = API + "/autocomplete.json?search%5Bquery%5D=" + encodeURIComponent(v) +
+            "&search%5Btype%5D=tag_query&limit=8";
+    fetch(u, { signal: acCtrl.signal })
+      .then(function (r) { return r.json(); })
+      .then(function (items) {
+        suggest.innerHTML = "";
+        var shown = 0;
+        (items || []).forEach(function (it) {
+          if (!it.value) return;
+          var b = document.createElement("button");
+          b.type = "button";
+          var cat = it.category === 4 ? "character" : it.category === 3 ? "series" : it.category === 1 ? "artist" : "";
+          b.innerHTML = "<span></span>" + (cat ? '<span class="cat">' + cat + "</span>" : "") +
+                        '<span class="n">' + (it.post_count ? it.post_count.toLocaleString() + " img" : "") + "</span>";
+          b.firstChild.textContent = it.label || it.value;
+          b.addEventListener("click", function () {
+            q.value = it.value;
+            closeSuggest();
+            search(it.value, true);
+          });
+          suggest.appendChild(b);
+          shown++;
+        });
+        suggest.classList.toggle("open", shown > 0);
+      })
+      .catch(function () {});
+  }
+  function closeSuggest() { suggest.classList.remove("open"); suggest.innerHTML = ""; }
+  document.addEventListener("click", function (e) {
+    if (!suggest.contains(e.target) && e.target !== q) closeSuggest();
+  });
+
+  /* ---- search ---- */
+  go.addEventListener("click", function () { startSearch(); });
+  q.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); startSearch(); }
+  });
+  function startSearch() {
+    var v = q.value.trim().replace(/\s+/g, "_").toLowerCase();
+    if (!v) return;
+    closeSuggest();
+    search(v, true);
+  }
+  function search(tag, reset) {
+    if (loading) return;
+    loading = true;
+    if (reset) {
+      curTag = tag;
+      page = 1;
+      grid.innerHTML = "";
+      more.hidden = true;
+      labelEl.value = pretty(tag);
+    }
+    statusEl.classList.remove("err");
+    statusEl.textContent = "Searching…";
+    var u = API + "/posts.json?tags=" + encodeURIComponent(tag + " rating:" + rating) + "&limit=40&page=" + page;
+    fetch(u)
+      .then(function (r) {
+        return r.json().then(function (j) { return { ok: r.ok, j: j }; });
+      })
+      .then(function (res) {
+        loading = false;
+        if (!res.ok) {
+          showErr((res.j && res.j.message) || "Search failed — try again.");
+          return;
+        }
+        var posts = (res.j || []).filter(function (p) {
+          return p.preview_file_url && (p.large_file_url || p.file_url) && !SKIP_EXT[p.file_ext];
+        });
+        if (page === 1 && posts.length === 0) {
+          showErr("No images found for “" + pretty(curTag) + "”. Tap a suggestion from the dropdown — exact spelling matters.");
+          return;
+        }
+        posts.forEach(addCell);
+        statusEl.textContent = "Showing " + grid.children.length + " images for “" + pretty(curTag) + "”. Tap to pick.";
+        more.hidden = (res.j || []).length < 40;
+      })
+      .catch(function () {
+        loading = false;
+        showErr("Couldn’t reach the image search — check your connection and try again.");
+      });
+  }
+  function showErr(msg) {
+    statusEl.classList.add("err");
+    statusEl.textContent = msg;
+  }
+  more.addEventListener("click", function () { page++; search(curTag, false); });
+
+  function addCell(p) {
+    var cell = document.createElement("button");
+    cell.className = "cell";
+    cell.type = "button";
+    cell.setAttribute("aria-pressed", picks.has(p.id) ? "true" : "false");
+    var img = document.createElement("img");
+    img.loading = "lazy";
+    img.alt = pretty((p.tag_string_character || "image").split(" ")[0] || "image");
+    img.src = p.preview_file_url;
+    cell.appendChild(img);
+    var pick = document.createElement("span"); pick.className = "pick"; cell.appendChild(pick);
+    var num = document.createElement("span"); num.className = "num"; cell.appendChild(num);
+    if (p.rating !== "g") {
+      var s = document.createElement("span"); s.className = "sens"; s.textContent = "sens";
+      cell.appendChild(s);
+    }
+    cell.addEventListener("click", function () {
+      if (picks.has(p.id)) picks.delete(p.id);
+      else picks.set(p.id, {
+        label: labelEl.value.trim() || pretty(curTag) || "Image",
+        sample: p.large_file_url || p.file_url,
+        original: p.file_url || p.large_file_url
+      });
+      refreshPicks();
+    });
+    grid.appendChild(cell);
+    cell._postId = p.id;
+  }
+
+  /* ---- picks + output ---- */
+  function refreshPicks() {
+    var order = [];
+    picks.forEach(function (v, k) { order.push(k); });
+    Array.prototype.forEach.call(grid.children, function (cell) {
+      var i = order.indexOf(cell._postId);
+      cell.setAttribute("aria-pressed", i >= 0 ? "true" : "false");
+      cell.querySelector(".num").textContent = i >= 0 ? i + 1 : "";
+    });
+    nSel.textContent = picks.size;
+    selHint.textContent = picks.size ? "labeled “" + (labelEl.value.trim() || "…") + "” as you tap" : "tap images to pick them";
+    listBtn.disabled = copyBtn.disabled = picks.size === 0;
+    renderOut();
+  }
+  function buildText() {
+    var counters = {};
+    var lines = [];
+    picks.forEach(function (v) {
+      counters[v.label] = (counters[v.label] || 0) + 1;
+      var url = urlMode === "original" ? v.original : v.sample;
+      lines.push(v.label + " — image " + counters[v.label] + ": " + url);
+    });
+    return lines.join("\n");
+  }
+  function renderOut() {
+    out.textContent = picks.size ? buildText() : "Nothing picked yet.";
+  }
+
+  listBtn.addEventListener("click", function () { renderOut(); sheet.classList.add("open"); });
+  document.getElementById("sheetClose").addEventListener("click", function () { sheet.classList.remove("open"); });
+  clearBtn.addEventListener("click", function () {
+    picks.clear(); refreshPicks(); sheet.classList.remove("open");
+  });
+  copyBtn.addEventListener("click", function () { copyText(buildText()); });
+  copyBtn2.addEventListener("click", function () { copyText(buildText()); });
+
+  function copyText(text) {
+    if (!text) { showToast("Nothing to copy yet"); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(
+        function () { showToast("Copied — paste it to Claude"); },
+        function () { fallbackCopy(text); }
+      );
+    } else fallbackCopy(text);
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+    showToast(ok ? "Copied — paste it to Claude" : "Couldn’t copy — open the list and select it manually");
+  }
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add("show");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 1700);
+  }
+})();
+</script>
+</body>
+</html>
