@@ -39,8 +39,26 @@
                 {
                     "id": "45623763-3191-49f5-a9a9-1216608c09e0",
                     "scriptName": "MT Character Header",
-                    "findRegex": "/\\[CHAR\\|(.*?)\\|\\s*((\\S)[\\s\\S]*?)\\|(.*?)\\]/g",
-                    "replaceString": "<div style=\"max-width:520px;margin:10px auto 14px auto;display:flex;align-items:center;gap:14px;padding:10px 0 12px 0;border-bottom:1px solid #262626;background:transparent;\"><div style=\"width:46px;height:46px;flex-shrink:0;border:1px solid $4;border-radius:4px;position:relative;background-color:#161616;background-image:linear-gradient(160deg,color-mix(in srgb,$4 38%,transparent),color-mix(in srgb,$4 8%,transparent) 60%,transparent);overflow:hidden;display:flex;align-items:center;justify-content:center;\"><span style=\"font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:color-mix(in srgb,$4 60%,#f4efe0);text-shadow:0 0 14px $4;\">$3</span><img src=\"$1\" alt=\"$2\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;\" onerror=\"if(this.dataset.cb){this.style.display='none'}else{this.dataset.cb=1;this.src='https://files.catbox.moe/$1'}\" onload=\"this.previousElementSibling.style.display='none';this.parentNode.style.backgroundImage='none'\"/></div><div style=\"display:flex;flex-direction:column;justify-content:center;gap:5px;min-width:0;flex:1;\"><span style=\"font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;color:#ffffff;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</span><div style=\"height:2px;width:36px;background:$4;\"></div></div></div>",
+                    "findRegex": "/\\[CHAR\\|(?!https?:\\/\\/)(.*?)\\|\\s*((\\S)[\\s\\S]*?)\\|(.*?)\\]/g",
+                    "replaceString": "<div style=\"max-width:520px;margin:10px auto 14px auto;display:flex;align-items:center;gap:14px;padding:10px 0 12px 0;border-bottom:1px solid #262626;background:transparent;\"><div style=\"width:46px;height:46px;flex-shrink:0;border:1px solid $4;border-radius:4px;position:relative;background-color:#161616;background-image:linear-gradient(160deg,color-mix(in srgb,$4 38%,transparent),color-mix(in srgb,$4 8%,transparent) 60%,transparent);overflow:hidden;display:flex;align-items:center;justify-content:center;\"><span style=\"font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:color-mix(in srgb,$4 60%,#f4efe0);text-shadow:0 0 14px $4;\">$3</span><img src=\"https://files.catbox.moe/$1\" alt=\"$2\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;\" onerror=\"this.style.display='none'\" onload=\"this.previousElementSibling.style.display='none';this.parentNode.style.backgroundImage='none'\"/></div><div style=\"display:flex;flex-direction:column;justify-content:center;gap:5px;min-width:0;flex:1;\"><span style=\"font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;color:#ffffff;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</span><div style=\"height:2px;width:36px;background:$4;\"></div></div></div>",
+                    "trimStrings": [],
+                    "placement": [
+                        1,
+                        2
+                    ],
+                    "disabled": false,
+                    "markdownOnly": true,
+                    "promptOnly": false,
+                    "runOnEdit": true,
+                    "substituteRegex": 0,
+                    "minDepth": null,
+                    "maxDepth": 2
+                },
+                {
+                    "id": "77a0cf36-c30b-49cf-af6d-31e925bab938",
+                    "scriptName": "MT Character Header (URL)",
+                    "findRegex": "/\\[CHAR\\|(https?:\\/\\/[^|\\]]*?)\\|\\s*((\\S)[\\s\\S]*?)\\|(.*?)\\]/g",
+                    "replaceString": "<div style=\"max-width:520px;margin:10px auto 14px auto;display:flex;align-items:center;gap:14px;padding:10px 0 12px 0;border-bottom:1px solid #262626;background:transparent;\"><div style=\"width:46px;height:46px;flex-shrink:0;border:1px solid $4;border-radius:4px;position:relative;background-color:#161616;background-image:linear-gradient(160deg,color-mix(in srgb,$4 38%,transparent),color-mix(in srgb,$4 8%,transparent) 60%,transparent);overflow:hidden;display:flex;align-items:center;justify-content:center;\"><span style=\"font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:color-mix(in srgb,$4 60%,#f4efe0);text-shadow:0 0 14px $4;\">$3</span><img src=\"$1\" alt=\"$2\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;\" onerror=\"this.style.display='none'\" onload=\"this.previousElementSibling.style.display='none';this.parentNode.style.backgroundImage='none'\"/></div><div style=\"display:flex;flex-direction:column;justify-content:center;gap:5px;min-width:0;flex:1;\"><span style=\"font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;color:#ffffff;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</span><div style=\"height:2px;width:36px;background:$4;\"></div></div></div>",
                     "trimStrings": [],
                     "placement": [
                         1,
@@ -201,8 +219,26 @@
                 {
                     "id": "bb829d94-da19-407b-909b-c35c7d019cc6",
                     "scriptName": "MT Skill Header",
-                    "findRegex": "/\\[SKILL\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\]/g",
+                    "findRegex": "/\\[SKILL\\|(?!https?:\\/\\/)(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\]/g",
                     "replaceString": "<div style=\"max-width:520px;margin:10px auto 12px;display:flex;align-items:center;gap:13px;padding:9px 0 11px;border-bottom:1px solid #2b281e;background:transparent;font-family:'Cinzel',serif;\"><img src=\"https://files.catbox.moe/$1\" alt=\"\" onerror=\"this.style.display='none'\" style=\"width:46px;height:46px;object-fit:cover;border:1px solid $4;flex-shrink:0;display:block;\"/><div style=\"display:flex;flex-direction:column;justify-content:center;gap:5px;min-width:0;flex:1;\"><span style=\"font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8a6f33;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$3</span><span style=\"font-size:14px;font-weight:600;color:#efe7d2;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</span><div style=\"height:2px;width:42px;background:$4;\"></div></div></div>",
+                    "trimStrings": [],
+                    "placement": [
+                        1,
+                        2
+                    ],
+                    "disabled": false,
+                    "markdownOnly": true,
+                    "promptOnly": false,
+                    "runOnEdit": true,
+                    "substituteRegex": 0,
+                    "minDepth": null,
+                    "maxDepth": null
+                },
+                {
+                    "id": "131fb654-f88e-41a2-86e6-4fcfe02e97f9",
+                    "scriptName": "MT Skill Header (URL)",
+                    "findRegex": "/\\[SKILL\\|(https?:\\/\\/[^|\\]]*?)\\|(.*?)\\|(.*?)\\|(.*?)\\]/g",
+                    "replaceString": "<div style=\"max-width:520px;margin:10px auto 12px;display:flex;align-items:center;gap:13px;padding:9px 0 11px;border-bottom:1px solid #2b281e;background:transparent;font-family:'Cinzel',serif;\"><img src=\"$1\" alt=\"\" onerror=\"this.style.display='none'\" style=\"width:46px;height:46px;object-fit:cover;border:1px solid $4;flex-shrink:0;display:block;\"/><div style=\"display:flex;flex-direction:column;justify-content:center;gap:5px;min-width:0;flex:1;\"><span style=\"font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8a6f33;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$3</span><span style=\"font-size:14px;font-weight:600;color:#efe7d2;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</span><div style=\"height:2px;width:42px;background:$4;\"></div></div></div>",
                     "trimStrings": [],
                     "placement": [
                         1,
