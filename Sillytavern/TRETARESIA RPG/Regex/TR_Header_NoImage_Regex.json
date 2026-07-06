@@ -1,0 +1,18 @@
+{
+    "id": "9ef8217b-aa67-4a23-80c5-ccd9a04a5dcc",
+    "scriptName": "TR Header (no image)",
+    "findRegex": "/\\[TR_HEAD\\|\\|(.*?)\\|(.*?)(?:\\|(#[0-9A-Fa-f]{3,8}))?\\]/g",
+    "replaceString": "<div style=\"display:flex;align-items:center;gap:11px;padding:4px 0 10px;margin:8px 0 15px;border-bottom:2px solid #d6b458;border-image:linear-gradient(90deg,$3,rgba(214,180,88,.12)) 1;font-family:'Chakra Petch',sans-serif;\"><div style=\"width:5px;align-self:stretch;min-height:32px;flex-shrink:0;background:#d6b458;background:$3;border-radius:2px;\"></div><div style=\"min-width:0;flex:1;display:flex;flex-direction:column;gap:4px;\"><div style=\"font-family:'Orbitron',sans-serif;font-weight:800;font-size:16px;letter-spacing:2px;line-height:1.15;color:#f4dc93;color:$3;word-break:break-word;\">$1</div><div style=\"font-size:10px;letter-spacing:1.5px;color:#9a8a5e;text-transform:uppercase;word-break:break-word;\">$2</div></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
