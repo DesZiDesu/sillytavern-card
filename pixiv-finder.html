@@ -138,7 +138,11 @@
         <option value="all">All ages (safe + R-18 mixed listing needs session)</option>
         <option value="r18">R-18 only (needs PIXIV_SESSION on worker)</option>
       </select></div>
-    <div class="row"><button id="cfgSave" type="button">Save &amp; close</button></div>
+    <div class="row">
+      <button id="cfgSave" type="button">Save &amp; close</button>
+      <button id="cfgTest" type="button" style="background:var(--bg);color:var(--ink);border-color:var(--line);">Test connection</button>
+    </div>
+    <div class="note" id="cfgStatus" hidden></div>
     <p class="note">Personal use only — this talks to Pixiv through <em>your</em> worker with <em>your</em>
     optional session. Keep the worker URL private, keep volume low, and don't re-share artists' work.
     Session cookies expire after a few weeks; paste a fresh one if R-18 stops working.</p>
@@ -217,6 +221,23 @@
     if(cfg.url) showToast("Saved");
   });
   if(!cfg.url) openSetup();
+  $("cfgTest").addEventListener("click", function(){
+    var st=$("cfgStatus"); st.hidden=false; st.style.color="";
+    var u=$("cfgUrl").value.trim().replace(/\/+$/,"");
+    var k=$("cfgKey").value.trim();
+    if(!u){ st.style.color="var(--danger)"; st.textContent="Paste your worker URL first."; return; }
+    st.textContent="Testing\u2026";
+    fetch(u+"/search?word=miku&page=1&mode=safe"+(k?"&key="+encodeURIComponent(k):""))
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res.error){ st.style.color="var(--danger)";
+          st.textContent="Worker reached, but it said: "+(res.message||"unknown error"); }
+        else { st.style.color="#2e9e5b";
+          st.textContent="\u2713 Working! Pixiv answered with "+(res.items?res.items.length:0)+" results \u2014 hit Save & close and start searching."; }
+      })
+      .catch(function(){ st.style.color="var(--danger)";
+        st.textContent="Could not reach that URL \u2014 check it ends with .workers.dev and has no spaces."; });
+  });
 
   function api(path, params){
     var u = cfg.url + path + "?" + new URLSearchParams(params).toString() +
