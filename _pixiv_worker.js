@@ -76,7 +76,12 @@ export default {
           "&order=date_d&mode=" + mode + "&p=" + encodeURIComponent(page) +
           "&s_mode=" + smode + "&type=all&lang=en";
         const r = await fetch(target, { headers: pixivHeaders(env) });
-        if (!r.ok) return json({ error: true, message: "pixiv answered " + r.status }, 502);
+        if (!r.ok) {
+          const hint = (r.status === 403 && !env.PIXIV_SESSION)
+            ? "pixiv answered 403 — add the PIXIV_SESSION secret (your PHPSESSID cookie) to this worker; Pixiv now blocks search without a logged-in session"
+            : "pixiv answered " + r.status;
+          return json({ error: true, message: hint }, 502);
+        }
         const data = await r.json();
         const bucket = data?.body?.illustManga || data?.body?.illust || {};
         const items = (bucket.data || [])
