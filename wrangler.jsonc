@@ -1,0 +1,8 @@
+{
+  // Cloudflare Workers config — lets the "Deploy to Cloudflare" button
+  // deploy _pixiv_worker.js without touching any code:
+  // https://deploy.workers.cloudflare.com/?url=https://github.com/DesZiDesu/sillytavern-card
+  "name": "pixiv-proxy",
+  "main": "_pixiv_worker.js",
+  "compatibility_date": "2026-01-01"
+}
