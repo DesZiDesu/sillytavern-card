@@ -2,6 +2,32 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-08 — ZZZ: four more systems (<ZZZ_STATUS>, <ZZZ_KNOT>, <ZZZ_RESULT>, <ZZZ_TV>)
+
+Completes the ZZZ system set alongside the Knock Knock phone. All four are JSON-payload iframe
+regex in the same ZZZ lime/orange industrial style, EN/TH labels via `ui_lang`, avatars/images
+via catbox code or URL, and each is documented by a constant lorebook entry (uids 251–254).
+- **`ZZZ Status (Proxy HUD)`** (`Regex/ZZZ_Status_Regex.json`): `<ZZZ_STATUS>{json}</ZZZ_STATUS>`
+  scene tracker — the game's 5-phase **time bar** (morning/noon/afternoon/evening/midnight),
+  location, **Dennies** (auto comma), active commission with progress bar, party avatar row,
+  **trust change chips** (▲/▼) and a note line. Omitted fields hide their tiles.
+- **`ZZZ Inter-Knot Post`** (`Regex/ZZZ_InterKnot_Regex.json`): `<ZZZ_KNOT>{json}</ZZZ_KNOT>`
+  anonymous-board post card — poster with avatar (**anonymous → paper-bag icon**, also the
+  broken-image fallback), title, body, image, tag chips, likes, HOT/PINNED badges, optional
+  **attached-commission banner** (reward + rank + VIEW), reply thread with `me:true` → lime
+  name + YOU chip for Phaethon.
+- **`ZZZ Commission Result`** (`Regex/ZZZ_Result_Regex.json`): `<ZZZ_RESULT>{json}</ZZZ_RESULT>`
+  the Commission Complete screen — animated stamp banner (red **FAILED** variant, dimmed
+  rewards), skewed **rank badge** (S gold · A orange · B blue · C/D gray) with halftone burst,
+  objectives checklist with BONUS chips, rewards grid, note line.
+- **`ZZZ TV Mode (HDD)`** (`Regex/ZZZ_TV_Regex.json`): `<ZZZ_TV>{json}</ZZZ_TV>` Hollow
+  exploration — a wall of static **CRT TVs** with one lit event screen (turn-on flicker,
+  scanlines, type-coloured glow), ~14 built-in SVG event icons, dim icons on surrounding TVs
+  via `grid`, console text line with blinking caret, **Eous** corner marker and skewed choice
+  buttons.
+- Previews: `_preview_zzz_status.html`, `_preview_zzz_knot.html`, `_preview_zzz_result.html`,
+  `_preview_zzz_tv.html`.
+
 ## 2026-07-08 — ZZZ: Knock Knock phone chat (<ZZZ_PHONE>)
 
 The in-game Inter-Knot messenger for Zenless Zone Zero, rendered as an animated phone.
