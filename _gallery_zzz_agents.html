@@ -61,6 +61,7 @@ function cands(p){return ['File:Agent '+p+' Icon.png','File:'+p+' Icon.png','Fil
 
 var found={}; // page -> {url, srcLabel}
 function setCard(page,url,label,cls){
+ if(url)url=url.replace(/\/revision\/latest.*$/,'');
  var r=cards[page];r.url=url;r.src=label;
  var av=r.el.querySelector('.av'),bdg=r.el.querySelector('.bdg');
  bdg.textContent=label;bdg.className='bdg '+cls;

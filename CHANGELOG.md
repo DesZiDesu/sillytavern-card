@@ -15,7 +15,8 @@ Wiki portrait URLs for the whole 3.1 roster, wired into the lorebook for the [CH
   NPCs without a HEADER line use imageless `[NPC]` — never guess URLs.
 - Image choice: the wiki's square **`Agent <Full Name> Icon.png`** (the in-game face icon) —
   best fit for the 48px header avatar and round chat avatars. URLs are the stable
-  `static.wikia.nocookie.net/...(md5 path).../revision/latest` form, derived offline from
+  `static.wikia.nocookie.net/...(md5 path)...` form (no `/revision/latest` suffix — that
+  URL form is blocked on some networks/content-blockers), derived offline from
   page titles verified against the wiki (incl. `Soldier 0 - Anby`, `Orphie Magnusson & Magus`,
   `Alexandrina Sebastiane`, `Lucia Elowen`, `Yidhari Murphy`, `Komano Manato`,
   `Sigrid de L'Azur`…).
