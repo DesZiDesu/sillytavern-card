@@ -2,6 +2,27 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-08 — ZZZ: character header images for all 55 agents (+ Wise & Belle)
+
+Wiki portrait URLs for the whole 3.1 roster, wired into the lorebook for the [CHAR] header system.
+- **Lorebook**: every playable Agent's entry now ends with a ready-made
+  `HEADER: [CHAR|<wiki icon URL>|<Name>|<#hex>]` line — 55 entries updated (57 headers: the
+  Anby entry also carries Soldier 0 - Anby, the Phaethon entry carries Wise & Belle). Each
+  character gets a hand-picked **signature colour** used consistently across [CHAR]/[SAY]/
+  [THINK]/<ZZZ_PHONE>/<ZZZ_KNOT>.
+- New **constant entry** `ZZZ • Character Header Images` (uid 255): copy the HEADER line
+  verbatim when the character speaks; reuse the same URL/hex as phone/forum avatars; minor
+  NPCs without a HEADER line use imageless `[NPC]` — never guess URLs.
+- Image choice: the wiki's square **`Agent <Full Name> Icon.png`** (the in-game face icon) —
+  best fit for the 48px header avatar and round chat avatars. URLs are the stable
+  `static.wikia.nocookie.net/...(md5 path).../revision/latest` form, derived offline from
+  page titles verified against the wiki (incl. `Soldier 0 - Anby`, `Orphie Magnusson & Magus`,
+  `Alexandrina Sebastiane`, `Lucia Elowen`, `Yidhari Murphy`, `Komano Manato`,
+  `Sigrid de L'Azur`…).
+- **Verification gallery** `_gallery_zzz_agents.html`: open in a browser to test-load all 57 —
+  tries Icon, auto-falls back to Portrait, badges ICON/PORTRAIT/FAIL, click any card to copy
+  its [CHAR] tag. (Couldn't be network-verified from the sandbox; the gallery is the check.)
+
 ## 2026-07-08 — ZZZ: four more systems (<ZZZ_STATUS>, <ZZZ_KNOT>, <ZZZ_RESULT>, <ZZZ_TV>)
 
 Completes the ZZZ system set alongside the Knock Knock phone. All four are JSON-payload iframe
