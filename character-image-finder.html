@@ -135,6 +135,10 @@
     background: rgba(0,0,0,0.55); color: #fff;
   }
   .cell .rate.x { background: var(--danger); }
+  .cell .favmark { position: absolute; top: 5px; left: 5px; z-index: 2; pointer-events: none;
+    font-size: 14px; line-height: 1; color: #ff5b7f; text-shadow: 0 1px 3px rgba(0,0,0,0.7); display: none; }
+  .cell.faved .favmark { display: block; }
+  .iconbtn.on { color: #ff5b7f; border-color: #ff5b7f; }
 
   footer { margin-top: 26px; font-size: 12px; color: var(--soft); }
   footer a { color: inherit; }
@@ -194,16 +198,21 @@
   #copyBtn2 { background: var(--btn); color: var(--btn-ink); border: 1px solid var(--btn); }
   #clearBtn { background: none; color: var(--soft); border: 1px solid var(--line); }
 
-  /* Viewer */
-  .lb { position: fixed; inset: 0; z-index: 70; background: rgba(8, 8, 10, 0.97); display: flex; flex-direction: column; }
+  /* Viewer — scrolls as one column so tags are always reachable on mobile */
+  .lb { position: fixed; inset: 0; z-index: 70; background: rgba(8, 8, 10, 0.97);
+    display: flex; flex-direction: column; overflow-y: auto; -webkit-overflow-scrolling: touch; }
   .lb[hidden] { display: none; }
-  .lb-top { display: flex; align-items: center; gap: 10px; color: #fff; padding: calc(10px + env(safe-area-inset-top)) 14px 6px; }
+  .lb-top { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 10px; color: #fff;
+    padding: calc(10px + env(safe-area-inset-top)) 14px 6px; background: rgba(8,8,10,0.92); backdrop-filter: blur(4px); }
   .lb-title { font-size: 13px; opacity: 0.85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .lb-top .x { margin-left: auto; background: none; border: none; color: #fff; font-size: 26px; line-height: 1; padding: 2px 8px; }
-  .lb-imgwrap { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 0 8px; }
-  .lb-imgwrap img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .lb-top .fav { margin-left: auto; background: none; border: none; color: #fff; font-size: 22px; line-height: 1; padding: 2px 6px; opacity: 0.7; }
+  .lb-top .fav.on { color: #ff5b7f; opacity: 1; }
+  .lb-top .x { background: none; border: none; color: #fff; font-size: 26px; line-height: 1; padding: 2px 8px; }
+  .lb-imgwrap { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 6px 8px; }
+  .lb-imgwrap img { max-width: 100%; max-height: 60vh; object-fit: contain; }
+  .lb-hint { text-align: center; color: rgba(255,255,255,0.5); font-size: 11px; padding: 0 0 2px; }
   .lb-tags {
-    max-height: 26vh; overflow-y: auto; padding: 8px 14px 4px; color: #fff;
+    padding: 8px 14px 4px; color: #fff;
   }
   .lb-tags .tg { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; opacity: 0.6; margin: 8px 0 5px; }
   .lb-tags .tg:first-child { margin-top: 0; }
@@ -213,8 +222,10 @@
     border-radius: 999px; padding: 3px 10px; font-size: 12px;
   }
   .lb-actions {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+    position: sticky; bottom: 0; z-index: 2; margin-top: auto;
+    display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
     padding: 10px 14px calc(14px + env(safe-area-inset-bottom));
+    background: rgba(8,8,10,0.92); backdrop-filter: blur(4px);
   }
   .lb-actions .nav {
     background: none; border: 1px solid rgba(255,255,255,0.45); color: #fff;
@@ -270,6 +281,7 @@
   <div class="top">
     <div class="brand">Image Finder<small>Danbooru search</small></div>
     <div class="spacer"></div>
+    <button class="iconbtn" id="favBtn" type="button" aria-label="Favorites" title="Favorites">&#9825;</button>
     <button class="iconbtn" id="themeBtn" type="button" aria-label="Switch theme">&#9681;</button>
     <button class="iconbtn" id="optBtn" type="button" aria-label="Options">&#9881;</button>
   </div>
@@ -336,6 +348,12 @@
       </div>
       <div class="set-note">Applies to single downloads and ZIP archives.</div>
     </div>
+    <div class="set-group">
+      <div class="gt">Proxy (for blocked networks)</div>
+      <input id="cProxy" type="url" autocomplete="off" placeholder="https://your-worker.workers.dev"
+        style="width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:14px;">
+      <div class="set-note">If Danbooru is blocked on your network (&ldquo;Connection failed&rdquo;), paste a Cloudflare Worker URL running <code>_pixiv_worker.js</code>. All searches and images then route through it. Leave empty for a direct connection.</div>
+    </div>
   </div>
 </div>
 
@@ -353,9 +371,11 @@
 <div class="lb" id="lb" hidden role="dialog" aria-label="Image viewer">
   <div class="lb-top">
     <span class="lb-title" id="lbTitle"></span>
+    <button class="fav" id="lbFav" type="button" aria-label="Favorite" title="Favorite">&#9825;</button>
     <button class="x" id="lbClose" type="button" aria-label="Close viewer">&#215;</button>
   </div>
   <div class="lb-imgwrap"><img id="lbImg" alt="Preview"></div>
+  <div class="lb-hint">&#8595; scroll for tags</div>
   <div class="lb-tags" id="lbTags"></div>
   <div class="lb-actions">
     <button class="nav" id="lbPrev" type="button" aria-label="Previous image">&#8249;</button>
@@ -408,11 +428,23 @@
       scrim = $("scrim"), optSheet = $("optSheet"), listSheet = $("listSheet"),
       out = $("out"), toast = $("toast"),
       lb = $("lb"), lbImg = $("lbImg"), lbTitle = $("lbTitle"), lbTags = $("lbTags"),
-      lbPick = $("lbPick"), lbDl = $("lbDl"), lbPrev = $("lbPrev"), lbNext = $("lbNext");
+      lbPick = $("lbPick"), lbDl = $("lbDl"), lbPrev = $("lbPrev"), lbNext = $("lbNext"),
+      lbFav = $("lbFav"), favBtn = $("favBtn");
 
-  var settings = { rating: "", link: "sample", dl: "sample" };
+  var settings = { rating: "", link: "sample", dl: "sample", proxy: "" };
   try { Object.assign(settings, JSON.parse(localStorage.getItem("if-settings") || "{}")); } catch (e) {}
   function saveSettings() { try { localStorage.setItem("if-settings", JSON.stringify(settings)); } catch (e) {} }
+
+  // When a proxy (Cloudflare Worker) is set, route Danbooru API + images through it,
+  // so the finder works on networks that block danbooru.donmai.us.
+  function apiUrl(path) {
+    var px = (settings.proxy || "").replace(/\/+$/, "");
+    return px ? px + "/danbooru?path=" + encodeURIComponent(path) : API + path;
+  }
+  function imgUrl(u) {
+    var px = (settings.proxy || "").replace(/\/+$/, "");
+    return (px && u && u.indexOf("donmai.us") >= 0) ? px + "/dbimage?url=" + encodeURIComponent(u) : u;
+  }
 
   var ONLY = "id,rating,file_ext,image_width,image_height,preview_file_url,large_file_url,file_url,tag_string,tag_string_artist,tag_string_copyright,tag_string_character,tag_string_general";
   var curTag = "", page = 1, loading = false, hasNext = false;
@@ -420,6 +452,14 @@
   var results = [];        // posts on the current page
   var picks = new Map();   // post id -> {label, sample, original, ext, id}
   var crops = new Map();   // post id -> {fx,fy,fw,fh,sw,sh} fractions + sample dims
+  var favs = [];           // saved post objects (newest first)
+  var favIds = {};         // id -> true
+  var favMode = false;     // grid currently showing favorites
+  try {
+    favs = JSON.parse(localStorage.getItem("if-favs") || "[]") || [];
+    favs.forEach(function (p) { favIds[p.id] = true; });
+  } catch (e) { favs = []; }
+  function saveFavs() { try { localStorage.setItem("if-favs", JSON.stringify(favs)); } catch (e) {} }
   var lbIdx = -1;
   var acTimer = null, acCtrl = null, toastTimer = null;
 
@@ -473,6 +513,15 @@
   bindChoices($("cLink"), "link", renderOut);
   bindChoices($("cDl"), "dl", null);
 
+  var proxyInput = $("cProxy");
+  proxyInput.value = settings.proxy || "";
+  proxyInput.addEventListener("change", function () {
+    settings.proxy = proxyInput.value.trim().replace(/\/+$/, "");
+    proxyInput.value = settings.proxy;
+    saveSettings();
+    if (curTag !== null) load(curTag, 1);
+  });
+
   function openSheet(s) { scrim.hidden = false; s.hidden = false; }
   function closeSheets() { scrim.hidden = true; optSheet.hidden = true; listSheet.hidden = true; }
   $("optBtn").addEventListener("click", function () { openSheet(optSheet); });
@@ -492,7 +541,7 @@
   function fetchSuggest(v) {
     if (acCtrl) acCtrl.abort();
     acCtrl = new AbortController();
-    fetch(API + "/autocomplete.json?search%5Bquery%5D=" + encodeURIComponent(v) + "&search%5Btype%5D=tag_query&limit=8",
+    fetch(apiUrl("/autocomplete.json?search%5Bquery%5D=" + encodeURIComponent(v) + "&search%5Btype%5D=tag_query&limit=8"),
       { signal: acCtrl.signal })
       .then(function (r) { return r.json(); })
       .then(function (items) {
@@ -551,8 +600,31 @@
     window.scrollTo(0, 0);
   }
 
+  function showFavorites() {
+    favMode = true;
+    updateFavBtn();
+    closeLb();
+    resetGrid();
+    if (!favs.length) {
+      info.classList.remove("err");
+      info.textContent = "No favorites yet — open an image and tap ♡ to save it here.";
+    } else {
+      favs.forEach(addCell);
+      info.classList.remove("err");
+      info.textContent = "Favorites · " + favs.length + " saved";
+    }
+    page = 1; hasNext = false; updatePager();
+  }
+  favBtn.addEventListener("click", function () {
+    if (favMode) { favMode = false; updateFavBtn(); load(curTag, 1); }
+    else showFavorites();
+  });
+  updateFavBtn();
+
   function load(tag, p) {
     if (loading) return;
+    favMode = false;
+    updateFavBtn();
     curTag = tag || "";
     page = p;
     closeLb();
@@ -564,7 +636,7 @@
     loading = true;
     info.textContent = "Loading…";
     if (settings.rating) parts.push("rating:" + settings.rating);
-    var u = API + "/posts.json?tags=" + encodeURIComponent(parts.join(" ")) + "&limit=" + PER_PAGE + "&page=" + page + "&only=" + ONLY;
+    var u = apiUrl("/posts.json?tags=" + encodeURIComponent(parts.join(" ")) + "&limit=" + PER_PAGE + "&page=" + page + "&only=" + ONLY);
     fetch(u)
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (res) {
@@ -590,7 +662,7 @@
         info.textContent = (curTag ? "“" + displayTag(curTag) + "”" : "Latest uploads") + " · " + posts.length + " images";
         updatePager();
       })
-      .catch(function () { loading = false; fail("Connection failed - check your network."); });
+      .catch(function () { loading = false; fail("Connection failed. If Danbooru is blocked on your network, set a Proxy in Options (\u2699)."); });
   }
 
   /* deep search: more than 2 tags — send the 2 rarest, filter the rest here */
@@ -604,8 +676,8 @@
     if (ext && ext.key === key) { scanMore(p, 0); return; }
     info.textContent = "Preparing deep search…";
     ext = { key: key, send: null, extras: [], neg: neg, apiPage: 1, cache: [], seen: {}, done: false, scanned: 0 };
-    fetch(API + "/tags.json?search%5Bname_comma%5D=" + encodeURIComponent(pos.join(",")) +
-          "&limit=" + Math.max(pos.length, 20) + "&only=name,post_count")
+    fetch(apiUrl("/tags.json?search%5Bname_comma%5D=" + encodeURIComponent(pos.join(",")) +
+          "&limit=" + Math.max(pos.length, 20) + "&only=name,post_count"))
       .then(function (r) { return r.json(); })
       .then(function (counts) {
         var cmap = {};
@@ -616,13 +688,13 @@
         ext.extras = sorted.slice(2);
         scanMore(p, 0);
       })
-      .catch(function () { loading = false; ext = null; fail("Connection failed - check your network."); });
+      .catch(function () { loading = false; ext = null; fail("Connection failed. If Danbooru is blocked on your network, set a Proxy in Options (\u2699)."); });
   }
   function scanMore(p, calls) {
     if (ext.cache.length >= p * PER_PAGE || ext.done || calls >= 3) { finishExt(p); return; }
     info.textContent = "Deep search… found " + ext.cache.length + " · scanned " + ext.scanned + " posts";
-    fetch(API + "/posts.json?tags=" + encodeURIComponent(ext.send.join(" ")) +
-          "&limit=200&page=" + ext.apiPage + "&only=" + ONLY)
+    fetch(apiUrl("/posts.json?tags=" + encodeURIComponent(ext.send.join(" ")) +
+          "&limit=200&page=" + ext.apiPage + "&only=" + ONLY))
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (res) {
         if (!res.ok || !Array.isArray(res.j)) { ext.done = true; finishExt(p); return; }
@@ -638,7 +710,7 @@
         });
         scanMore(p, calls + 1);
       })
-      .catch(function () { loading = false; fail("Connection failed - check your network."); });
+      .catch(function () { loading = false; fail("Connection failed. If Danbooru is blocked on your network, set a Proxy in Options (\u2699)."); });
   }
   function finishExt(p) {
     loading = false;
@@ -686,12 +758,15 @@
     var idx = results.length;
     results.push(p);
     var cell = document.createElement("div");
-    cell.className = "cell" + (picks.has(p.id) ? " picked" : "");
+    cell.className = "cell" + (picks.has(p.id) ? " picked" : "") + (favIds[p.id] ? " faved" : "");
     var img = document.createElement("img");
     img.loading = "lazy";
     img.alt = pretty((p.tag_string_character || "image").split(" ")[0] || "image");
-    img.src = p.preview_file_url;
+    img.src = imgUrl(p.preview_file_url);
     cell.appendChild(img);
+    var fm = document.createElement("span");
+    fm.className = "favmark"; fm.textContent = "♥";
+    cell.appendChild(fm);
     var view = document.createElement("button");
     view.className = "view"; view.type = "button";
     view.setAttribute("aria-label", "Open viewer");
@@ -727,7 +802,7 @@
     lbIdx = i;
     var p = results[i];
     lbImg.src = "";
-    lbImg.src = p.large_file_url || p.file_url;
+    lbImg.src = imgUrl(p.large_file_url || p.file_url);
     lbTitle.textContent = (i + 1) + " / " + results.length +
       (p.tag_string_character ? " · " + pretty(p.tag_string_character.split(" ")[0]) : "");
     lbTags.innerHTML = "";
@@ -754,8 +829,35 @@
     lbNext.disabled = i === results.length - 1;
     updateLbPick();
     updateLbCrop();
+    updateLbFav();
+    lb.scrollTop = 0;
     lb.hidden = false;
     document.body.style.overflow = "hidden";
+  }
+  function updateLbFav() {
+    if (lbIdx < 0 || lbIdx >= results.length) return;
+    var on = !!favIds[results[lbIdx].id];
+    lbFav.textContent = on ? "♥" : "♡";
+    lbFav.classList.toggle("on", on);
+  }
+  function toggleFav(p) {
+    if (favIds[p.id]) {
+      delete favIds[p.id];
+      favs = favs.filter(function (f) { return f.id !== p.id; });
+    } else {
+      favIds[p.id] = true;
+      favs.unshift(p);
+    }
+    saveFavs();
+    // reflect on any visible grid cell
+    Array.prototype.forEach.call(grid.children, function (cell) {
+      if (cell._postId === p.id) cell.classList.toggle("faved", !!favIds[p.id]);
+    });
+    updateFavBtn();
+  }
+  function updateFavBtn() {
+    favBtn.classList.toggle("on", favMode);
+    favBtn.textContent = favs.length ? "♥" : "♡";
   }
   function updateLbPick() {
     if (lbIdx < 0 || lbIdx >= results.length) return;
@@ -770,6 +872,12 @@
     document.body.style.overflow = "";
   }
   lbPick.addEventListener("click", function () { if (lbIdx >= 0) togglePick(results[lbIdx]); });
+  lbFav.addEventListener("click", function () {
+    if (lbIdx < 0) return;
+    toggleFav(results[lbIdx]);
+    updateLbFav();
+    if (favMode && !favIds[results[lbIdx].id]) { showFavorites(); }  // refresh gallery on unfav
+  });
   lbPrev.addEventListener("click", function () { openLb(lbIdx - 1); });
   lbNext.addEventListener("click", function () { openLb(lbIdx + 1); });
   $("lbClose").addEventListener("click", closeLb);
@@ -860,7 +968,7 @@
   }
   function downloadOne(url, name) {
     showToast("Downloading…", true);
-    fetch(url)
+    fetch(imgUrl(url))
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.blob(); })
       .then(function (b) { saveBlob(b, name); showToast("Saved " + name); })
       .catch(function () { showToast("Download failed - try again"); });
@@ -881,7 +989,7 @@
     list.forEach(function (v, i) {
       chain = chain.then(function () {
         var url = croppedUrl(v, settings.dl === "original" ? v.original : v.sample, settings.dl === "original");
-        return fetch(url)
+        return fetch(imgUrl(url))
           .then(function (r) { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
           .then(function (buf) {
             files.push({ name: fileNameFor(v, url, i + 1), data: new Uint8Array(buf) });
@@ -1032,7 +1140,7 @@
       if (c) { box = { x: c.fx * d.w, y: c.fy * d.h, w: c.fw * d.w, h: c.fh * d.h }; renderBox(); }
       else fitRatio(null);
     };
-    cropImg.src = p.large_file_url || p.file_url;
+    cropImg.src = imgUrl(p.large_file_url || p.file_url);
     if (cropImg.complete && cropImg.naturalWidth) cropImg.onload();
   }
   cropRatios.querySelectorAll("button").forEach(function (b) {

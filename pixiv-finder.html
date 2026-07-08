@@ -126,7 +126,8 @@
       <li>Create a free account at <a href="https://dash.cloudflare.com" target="_blank" rel="noopener">dash.cloudflare.com</a></li>
       <li>Workers &amp; Pages &rarr; Create &rarr; Worker &rarr; paste the contents of <code>_pixiv_worker.js</code> (in this repo) &rarr; Deploy</li>
       <li>Copy the worker URL (<code>https://&lt;name&gt;.&lt;acct&gt;.workers.dev</code>) and paste it below</li>
-      <li>Optional: add worker secrets — <code>ACCESS_KEY</code> (any password, enter it below too) and <code>PIXIV_SESSION</code> (your PHPSESSID cookie, enables R-18)</li>
+      <li><b>Required:</b> add a worker secret <code>PIXIV_SESSION</code> = your pixiv.net <code>PHPSESSID</code> cookie. Pixiv blocks search without a logged-in session, so this is needed even for safe mode. (In Cloudflare: your worker &rarr; Settings &rarr; Variables and Secrets &rarr; Add &rarr; type Secret.)</li>
+      <li>Optional: <code>ACCESS_KEY</code> secret (any password) locks your worker — enter the same value in Access key below. Leave blank if you skip it.</li>
     </ol>
     <div class="fld"><label for="cfgUrl">Worker URL</label>
       <input id="cfgUrl" type="url" placeholder="https://pixiv-proxy.yourname.workers.dev"></div>

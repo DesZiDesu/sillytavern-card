@@ -76,7 +76,12 @@ export default {
           "&order=date_d&mode=" + mode + "&p=" + encodeURIComponent(page) +
           "&s_mode=" + smode + "&type=all&lang=en";
         const r = await fetch(target, { headers: pixivHeaders(env) });
-        if (!r.ok) return json({ error: true, message: "pixiv answered " + r.status }, 502);
+        if (!r.ok) {
+          const hint = (r.status === 403 && !env.PIXIV_SESSION)
+            ? "pixiv answered 403 — add the PIXIV_SESSION secret (your PHPSESSID cookie) to this worker; Pixiv now blocks search without a logged-in session"
+            : "pixiv answered " + r.status;
+          return json({ error: true, message: hint }, 502);
+        }
         const data = await r.json();
         const bucket = data?.body?.illustManga || data?.body?.illust || {};
         const items = (bucket.data || [])
@@ -127,7 +132,41 @@ export default {
         return new Response(r.body, { status: 200, headers: h });
       }
 
-      return json({ error: true, message: "routes: /search /illust /image" }, 404);
+      // ---------- Danbooru JSON passthrough: /danbooru?path=/posts.json%3F...
+      // Lets the image finder work on networks that block danbooru.donmai.us.
+      if (url.pathname === "/danbooru") {
+        const path = url.searchParams.get("path") || "";
+        if (!path.startsWith("/")) return json({ error: true, message: "path must start with /" }, 400);
+        const r = await fetch("https://danbooru.donmai.us" + path, {
+          headers: { "User-Agent": UA, "Accept": "application/json" },
+        });
+        const body = await r.text();
+        return new Response(body, {
+          status: r.status,
+          headers: { "content-type": "application/json; charset=utf-8", ...CORS },
+        });
+      }
+
+      // ---------- Danbooru image passthrough: /dbimage?url=<cdn.donmai.us url>
+      if (url.pathname === "/dbimage") {
+        const target = url.searchParams.get("url") || "";
+        let t;
+        try { t = new URL(target); } catch { return json({ error: true, message: "bad url" }, 400); }
+        if (!t.hostname.endsWith(".donmai.us")) return json({ error: true, message: "only donmai.us urls allowed" }, 400);
+        const r = await fetch(t.toString(), {
+          headers: { "User-Agent": UA },
+          cf: { cacheEverything: true, cacheTtl: 86400 },
+        });
+        if (!r.ok) return json({ error: true, message: "donmai answered " + r.status }, 502);
+        const h = new Headers(CORS);
+        h.set("content-type", r.headers.get("content-type") || "image/jpeg");
+        h.set("cache-control", "public, max-age=86400");
+        const cd = url.searchParams.get("dl");
+        if (cd) h.set("content-disposition", 'attachment; filename="' + cd.replace(/[^\w.\-]+/g, "_") + '"');
+        return new Response(r.body, { status: 200, headers: h });
+      }
+
+      return json({ error: true, message: "routes: /search /illust /image /danbooru /dbimage" }, 404);
     } catch (e) {
       return json({ error: true, message: String(e) }, 500);
     }
