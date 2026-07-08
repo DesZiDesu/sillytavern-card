@@ -2,6 +2,31 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-08 — ZZZ: Knock Knock phone chat (<ZZZ_PHONE>)
+
+The in-game Inter-Knot messenger for Zenless Zone Zero, rendered as an animated phone.
+- New regex **`ZZZ Phone (Knock Knock)`** (`Zenless Zone Zero/Regex/ZZZ_Phone_Regex.json`):
+  `<ZZZ_PHONE>{json}</ZZZ_PHONE>` renders a **game-authentic Knock Knock replica** — phone frame
+  with status bar (clock/battery), app header with the contact's round avatar, name and
+  online / offline / **typing…** status, ZZZ lime/orange accent chrome, and the chat feed:
+  agents' white bubbles on the left with circular avatars, {{user}}'s light-yellow bubbles on
+  the right with **✓/✓✓ read ticks**, per-message times, day dividers, centered system lines,
+  an animated typing bubble and a fake input bar.
+- **Tap-to-open Agent Profile**: tapping the header or any avatar opens the contact's profile
+  page inside the phone — big avatar with signature-colour ring, faction chip, Inter-Knot ID,
+  signature quote and a skewed **Trust** bar (`trust`/`trust_max`).
+- **Stickers & images**: messages can be an image (`img`) or a sticker (`sticker`) — 4 built-in
+  SVG bangboo stickers (`bangboo`, `bangboo_love`, `bangboo_shock`, `bangboo_sad`) or any
+  catbox code / URL. Avatars use the same catbox-code-or-URL convention as the Global headers
+  (missing avatar → coloured initial). Light **group-chat** support via per-message
+  `name`/`avatar`/`hex` overrides.
+- **EN/TH labels** via `ui_lang` (online/typing/read/placeholder/profile labels), Thai glyphs
+  via Noto Sans Thai. Iframe render like MT Letter / AI Alert.
+- **Lorebook** (`Zenless Zone Zero/Lorebook/…world_info.json`, new constant entry uid 250):
+  documents the full JSON schema, the "phone chats only — face-to-face speech keeps the normal
+  [THINK]/[CHAR]/[SAY] blocks" rule, re-render-the-whole-feed behaviour, stickers, and an example.
+- Preview: `_preview_zzz_phone.html`.
+
 ## 2026-06-23 — Global: imageless NPC header ([NPC])
 
 - New regex **`Global • NPC Header (no image)`** (`Global Regex/Global_NPC_Header.json`):
