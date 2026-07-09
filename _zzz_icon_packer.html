@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>ZZZ Icon Packer</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#141416;font-family:-apple-system,'Rubik',sans-serif;color:#e8e8ea;padding:24px 16px;max-width:640px;margin:0 auto}
+h1{font-size:16px;letter-spacing:.1em;text-transform:uppercase}
+h1 span{color:#d3fd51}
+p{font-size:13px;color:#9a9aa2;line-height:1.6;margin:10px 0}
+#go{display:block;width:100%;font:800 14px -apple-system,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:#d3fd51;color:#141408;border:0;padding:14px;border-radius:8px;margin:14px 0}
+#go:disabled{background:#3a3a40;color:#8f8f96}
+#log{font:12px ui-monospace,monospace;color:#c9e88a;line-height:1.7;white-space:pre-wrap;background:#101013;border:1px solid #26262b;border-radius:8px;padding:12px;min-height:80px;max-height:45vh;overflow:auto}
+#bar{height:8px;background:#26262b;border-radius:4px;overflow:hidden;margin:10px 0}
+#bar i{display:block;height:100%;width:0;background:#d3fd51}
+</style></head><body>
+<h1>ZZZ <span>Icon Packer</span></h1>
+<p>Tap the button. This page downloads all 57 agent icons through the wsrv.nl proxy (the route that works on your network), packs them into <b>zzz-icons.zip</b>, and saves it to your phone. Then attach that zip in the Claude chat.</p>
+<button id="go">Download all 57 icons as ZIP</button>
+<div id="bar"><i></i></div>
+<div id="log">ready.</div>
+<script>
+var A=[{"slug": "anby", "name": "Anby", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/b1/Agent_Anby_Demara_Icon.png"}, {"slug": "billy", "name": "Billy", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/99/Agent_Billy_Kid_Icon.png"}, {"slug": "nicole", "name": "Nicole", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/2/21/Agent_Nicole_Demara_Icon.png"}, {"slug": "nekomata", "name": "Nekomata", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/3/3c/Agent_Nekomata_Icon.png"}, {"slug": "corin", "name": "Corin", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/e4/Agent_Corin_Wickes_Icon.png"}, {"slug": "ellen", "name": "Ellen", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/ed/Agent_Ellen_Joe_Icon.png"}, {"slug": "lycaon", "name": "Lycaon", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/2/2f/Agent_Von_Lycaon_Icon.png"}, {"slug": "rina", "name": "Rina", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/a8/Agent_Alexandrina_Sebastiane_Icon.png"}, {"slug": "soukaku", "name": "Soukaku", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/8/89/Agent_Soukaku_Icon.png"}, {"slug": "grace", "name": "Grace", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/e6/Agent_Grace_Howard_Icon.png"}, {"slug": "anton", "name": "Anton", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/1/13/Agent_Anton_Ivanov_Icon.png"}, {"slug": "ben", "name": "Ben", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/ba/Agent_Ben_Bigger_Icon.png"}, {"slug": "koleda", "name": "Koleda", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/a8/Agent_Koleda_Belobog_Icon.png"}, {"slug": "soldier-11", "name": "Soldier 11", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/6/62/Agent_Soldier_11_Icon.png"}, {"slug": "zhu-yuan", "name": "Zhu Yuan", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fb/Agent_Zhu_Yuan_Icon.png"}, {"slug": "qingyi", "name": "Qingyi", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/3/39/Agent_Qingyi_Icon.png"}, {"slug": "jane", "name": "Jane", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/e7/Agent_Jane_Doe_Icon.png"}, {"slug": "seth", "name": "Seth", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/6/6d/Agent_Seth_Lowell_Icon.png"}, {"slug": "caesar", "name": "Caesar", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/af/Agent_Caesar_King_Icon.png"}, {"slug": "burnice", "name": "Burnice", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/f9/Agent_Burnice_White_Icon.png"}, {"slug": "piper", "name": "Piper", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/c/ca/Agent_Piper_Wheel_Icon.png"}, {"slug": "lucy", "name": "Lucy", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/b8/Agent_Luciana_de_Montefio_Icon.png"}, {"slug": "lighter", "name": "Lighter", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/b5/Agent_Lighter_Icon.png"}, {"slug": "yanagi", "name": "Yanagi", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/8/8c/Agent_Tsukishiro_Yanagi_Icon.png"}, {"slug": "miyabi", "name": "Miyabi", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/94/Agent_Hoshimi_Miyabi_Icon.png"}, {"slug": "harumasa", "name": "Harumasa", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fe/Agent_Asaba_Harumasa_Icon.png"}, {"slug": "astra", "name": "Astra", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/b8/Agent_Astra_Yao_Icon.png"}, {"slug": "evelyn", "name": "Evelyn", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/1/17/Agent_Evelyn_Chevalier_Icon.png"}, {"slug": "soldier-0-anby", "name": "Soldier 0 Anby", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/95/Agent_Soldier_0_-_Anby_Icon.png"}, {"slug": "pulchra", "name": "Pulchra", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/8/8c/Agent_Pulchra_Fellini_Icon.png"}, {"slug": "trigger", "name": "Trigger", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/d/df/Agent_Trigger_Icon.png"}, {"slug": "vivian", "name": "Vivian", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/d/d5/Agent_Vivian_Banshee_Icon.png"}, {"slug": "hugo", "name": "Hugo", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/99/Agent_Hugo_Vlad_Icon.png"}, {"slug": "yixuan", "name": "Yixuan", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/f7/Agent_Yixuan_Icon.png"}, {"slug": "pan-yinhu", "name": "Pan Yinhu", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/ab/Agent_Pan_Yinhu_Icon.png"}, {"slug": "ju-fufu", "name": "Ju Fufu", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/4/4a/Agent_Ju_Fufu_Icon.png"}, {"slug": "yuzuha", "name": "Yuzuha", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fc/Agent_Ukinami_Yuzuha_Icon.png"}, {"slug": "alice", "name": "Alice", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/7/7e/Agent_Alice_Thymefield_Icon.png"}, {"slug": "seed", "name": "Seed", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fb/Agent_Seed_Icon.png"}, {"slug": "orphie-magus", "name": "Orphie & Magus", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/6/63/Agent_Orphie_Magnusson_%26_Magus_Icon.png"}, {"slug": "manato", "name": "Manato", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/7/7c/Agent_Komano_Manato_Icon.png"}, {"slug": "yidhari", "name": "Yidhari", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/6/6f/Agent_Yidhari_Murphy_Icon.png"}, {"slug": "banyue", "name": "Banyue", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/7/70/Agent_Banyue_Icon.png"}, {"slug": "dialyn", "name": "Dialyn", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/2/25/Agent_Dialyn_Icon.png"}, {"slug": "zhao", "name": "Zhao", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/d/d4/Agent_Zhao_Icon.png"}, {"slug": "ye-shunguang", "name": "Ye Shunguang", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/94/Agent_Ye_Shunguang_Icon.png"}, {"slug": "sunna", "name": "Sunna", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/0/0f/Agent_Sunna_Icon.png"}, {"slug": "aria", "name": "Aria", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/2/2d/Agent_Aria_Icon.png"}, {"slug": "nangong-yu", "name": "Nangong Yu", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/a3/Agent_Nangong_Yu_Icon.png"}, {"slug": "cissia", "name": "Cissia", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/be/Agent_Cissia_Icon.png"}, {"slug": "pyrois", "name": "Pyrois", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/4/4b/Agent_Pyrois_Icon.png"}, {"slug": "lucia", "name": "Lucia", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/ff/Agent_Lucia_Elowen_Icon.png"}, {"slug": "remielle", "name": "Remielle", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/c/ce/Agent_Remielle_Dan_Icon.png"}, {"slug": "sigrid", "name": "Sigrid", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/ef/Agent_Sigrid_de_L%27Azur_Icon.png"}, {"slug": "promeia", "name": "Promeia", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/c/ce/Agent_Promeia_Icon.png"}, {"slug": "wise", "name": "Wise", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/3/31/Agent_Wise_Icon.png"}, {"slug": "belle", "name": "Belle", "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/ee/Agent_Belle_Icon.png"}];
+var log=document.getElementById('log'),bar=document.querySelector('#bar i'),go=document.getElementById('go');
+function say(s){log.textContent+='\n'+s;log.scrollTop=1e9;}
+
+// minimal STORE-only zip writer
+var CRC=(function(){var t=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return function(b){var c=0xFFFFFFFF;for(var i=0;i<b.length;i++)c=t[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;};})();
+function zip(files){ // files: [{name, data(Uint8Array)}]
+ var parts=[],central=[],off=0,enc=new TextEncoder();
+ function u16(v){return new Uint8Array([v&255,(v>>8)&255]);}
+ function u32(v){return new Uint8Array([v&255,(v>>8)&255,(v>>16)&255,(v>>>24)&255]);}
+ files.forEach(function(f){
+  var n=enc.encode(f.name),crc=CRC(f.data);
+  var lh=[u32(0x04034b50),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(f.data.length),u32(f.data.length),u16(n.length),u16(0)];
+  var lhLen=30+n.length;
+  parts.push.apply(parts,lh);parts.push(n,f.data);
+  central.push({n:n,crc:crc,size:f.data.length,off:off});
+  off+=lhLen+f.data.length;
+ });
+ var cdStart=off,cdLen=0;
+ central.forEach(function(c){
+  var ch=[u32(0x02014b50),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0),u32(c.crc),u32(c.size),u32(c.size),u16(c.n.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(c.off)];
+  parts.push.apply(parts,ch);parts.push(c.n);cdLen+=46+c.n.length;
+ });
+ parts.push(u32(0x06054b50),u16(0),u16(0),u16(central.length),u16(central.length),u32(cdLen),u32(cdStart),u16(0));
+ return new Blob(parts,{type:'application/zip'});
+}
+function prox(u){return 'https://wsrv.nl/?url='+encodeURIComponent(u);}
+go.onclick=async function(){
+ go.disabled=true;var files=[],fail=[];
+ for(var i=0;i<A.length;i++){
+  var a=A[i];bar.style.width=((i+1)/A.length*100)+'%';
+  try{
+   var r=await fetch(prox(a.url));
+   if(!r.ok)throw new Error('HTTP '+r.status);
+   var b=new Uint8Array(await r.arrayBuffer());
+   if(b.length<100)throw new Error('too small');
+   files.push({name:a.slug+'.png',data:b});
+   say('✓ '+a.name+' ('+Math.round(b.length/1024)+' KB)');
+  }catch(e){fail.push(a.slug);say('✗ '+a.name+' — '+e.message);}
+ }
+ say('---');
+ say('done: '+files.length+' ok, '+fail.length+' failed'+(fail.length?' ['+fail.join(', ')+']':''));
+ if(files.length){
+  var blob=zip(files),u=URL.createObjectURL(blob),aEl=document.createElement('a');
+  aEl.href=u;aEl.download='zzz-icons.zip';document.body.appendChild(aEl);aEl.click();
+  say('zip saved ('+Math.round(blob.size/1024)+' KB) — attach it in the Claude chat.');
+ }
+ go.disabled=false;
+};
+</script></body></html>
