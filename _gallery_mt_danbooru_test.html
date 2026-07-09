@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mushoku Tensei — Danbooru Finder 1:1 Portrait Test</title>
+  <style>
+    :root { color-scheme: dark; --bg:#101014; --panel:#1a1a20; --line:#2f3038; --text:#f2f2f4; --muted:#aaaab5; --accent:#8fb5d4; }
+    * { box-sizing: border-box; }
+    body { margin:0; padding:24px; background:radial-gradient(circle at top,#1c2230 0,#101014 46rem); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    header { max-width:1100px; margin:0 auto 20px; }
+    h1 { margin:0 0 8px; font-size:clamp(22px,3vw,34px); letter-spacing:.02em; }
+    .note { margin:0; color:var(--muted); line-height:1.55; font-size:14px; }
+    .note code { color:var(--accent); }
+    .grid { max-width:1300px; margin:22px auto 0; display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:14px; }
+    .card { margin:0; overflow:hidden; border:1px solid var(--line); border-radius:14px; background:rgba(26,26,32,.9); box-shadow:0 10px 28px rgba(0,0,0,.22); }
+    .portrait { display:block; aspect-ratio:1/1; background:#09090d; position:relative; }
+    .portrait img { width:100%; height:100%; display:block; object-fit:cover; object-position:top center; }
+    .meta { min-height:74px; padding:10px 11px 12px; display:grid; grid-template-columns:auto 1fr; column-gap:8px; row-gap:4px; align-items:start; font-size:12px; line-height:1.35; }
+    .idx { grid-row:1 / span 2; color:#0f1118; background:var(--accent); border-radius:999px; padding:2px 6px; font-weight:700; font-size:11px; }
+    b { font-size:13px; font-weight:650; }
+    code { grid-column:2; color:var(--accent); font-size:11px; overflow-wrap:anywhere; }
+    .broken .portrait::after { content:"image failed to load"; position:absolute; inset:0; display:grid; place-items:center; color:#ff8a8a; font-size:12px; background:#151018; }
+    .broken img { display:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mushoku Tensei — 1:1 Character Portrait Test (35)</h1>
+    <p class="note">Test gallery built from the repo's existing Mushoku Tensei NPC image set after Danbooru direct API checks were blocked by the environment's CONNECT proxy. Each tile forces a square <code>aspect-ratio: 1 / 1</code> portrait crop and links to the stored full-size image URL.</p>
+  </header>
+  <main class="grid" aria-label="Mushoku Tensei character portrait test gallery">
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/g4wnvs.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/g4wnvs.jpg" alt="Rudeus Greyrat (Child)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">01</span><b>Rudeus Greyrat (Child)</b><code>g4wnvs.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/aoi25p.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/aoi25p.jpg" alt="Rudeus Greyrat (Teen)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">02</span><b>Rudeus Greyrat (Teen)</b><code>aoi25p.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/mkxzul.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/mkxzul.jpg" alt="Rudeus Greyrat (Adult)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">03</span><b>Rudeus Greyrat (Adult)</b><code>mkxzul.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/l68dsz.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/l68dsz.jpg" alt="Roxy Migurdia" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">04</span><b>Roxy Migurdia</b><code>l68dsz.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/ofqnnp.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/ofqnnp.jpg" alt="Sylphiette (Child)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">05</span><b>Sylphiette (Child)</b><code>ofqnnp.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/fnpi6d.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/fnpi6d.jpg" alt="Sylphiette &quot;Fitz&quot; (Teen)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">06</span><b>Sylphiette &quot;Fitz&quot; (Teen)</b><code>fnpi6d.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/8l0zdd.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/8l0zdd.jpg" alt="Sylphiette Greyrat (Adult)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">07</span><b>Sylphiette Greyrat (Adult)</b><code>8l0zdd.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/g76umh.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/g76umh.jpg" alt="Eris Boreas Greyrat (Child)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">08</span><b>Eris Boreas Greyrat (Child)</b><code>g76umh.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/2ad7m5.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/2ad7m5.jpg" alt="Eris Greyrat (Adult)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">09</span><b>Eris Greyrat (Adult)</b><code>2ad7m5.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/qzcj83.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/qzcj83.jpg" alt="Paul Greyrat" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">10</span><b>Paul Greyrat</b><code>qzcj83.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/9mjvpp.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/9mjvpp.jpg" alt="Zenith Greyrat" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">11</span><b>Zenith Greyrat</b><code>9mjvpp.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/y0kgx5.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/y0kgx5.jpg" alt="Lilia Greyrat" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">12</span><b>Lilia Greyrat</b><code>y0kgx5.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/vxt2fc.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/vxt2fc.jpg" alt="Aisha Greyrat (Child)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">13</span><b>Aisha Greyrat (Child)</b><code>vxt2fc.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/22eoak.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/22eoak.jpg" alt="Aisha Greyrat (Teen)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">14</span><b>Aisha Greyrat (Teen)</b><code>22eoak.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/yk52at.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/yk52at.jpg" alt="Norn Greyrat (Child)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">15</span><b>Norn Greyrat (Child)</b><code>yk52at.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/b0v4d2.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/b0v4d2.jpg" alt="Norn Greyrat (Teen)" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">16</span><b>Norn Greyrat (Teen)</b><code>b0v4d2.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/ejg24y.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/ejg24y.jpg" alt="Ghislaine Dedoldia" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">17</span><b>Ghislaine Dedoldia</b><code>ejg24y.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/4hc1k9.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/4hc1k9.jpg" alt="Ruijerd Superdia" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">18</span><b>Ruijerd Superdia</b><code>4hc1k9.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/0h5elj.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/0h5elj.jpg" alt="Orsted" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">19</span><b>Orsted</b><code>0h5elj.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/47786o.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/47786o.jpg" alt="Hitogami" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">20</span><b>Hitogami</b><code>47786o.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/dxf3j5.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/dxf3j5.jpg" alt="Kishirika Kishirisu" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">21</span><b>Kishirika Kishirisu</b><code>dxf3j5.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/uxe35p.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/uxe35p.jpg" alt="Badigadi" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">22</span><b>Badigadi</b><code>uxe35p.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/bi74ze.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/bi74ze.jpg" alt="Atoferatofe Raibaku" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">23</span><b>Atoferatofe Raibaku</b><code>bi74ze.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/njepns.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/njepns.jpg" alt="Perugius Dola" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">24</span><b>Perugius Dola</b><code>njepns.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/fmggl3.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/fmggl3.jpg" alt="Nanahoshi Shizuka" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">25</span><b>Nanahoshi Shizuka</b><code>fmggl3.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/p245lh.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/p245lh.jpg" alt="Cliff Grimoire" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">26</span><b>Cliff Grimoire</b><code>p245lh.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/d6ku01.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/d6ku01.jpg" alt="Elinalise Dragonroad" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">27</span><b>Elinalise Dragonroad</b><code>d6ku01.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/32400u.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/32400u.jpg" alt="Zanoba Shirone" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">28</span><b>Zanoba Shirone</b><code>32400u.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/ezuv8c.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/ezuv8c.jpg" alt="Linia Dedoldia" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">29</span><b>Linia Dedoldia</b><code>ezuv8c.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/0j3k4r.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/0j3k4r.jpg" alt="Pursena Adoldia" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">30</span><b>Pursena Adoldia</b><code>0j3k4r.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/c0vsxz.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/c0vsxz.jpg" alt="Lucie Greyrat" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">31</span><b>Lucie Greyrat</b><code>c0vsxz.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/6dx9q7.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/6dx9q7.jpg" alt="Lara Greyrat" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">32</span><b>Lara Greyrat</b><code>6dx9q7.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/gfzy2g.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/gfzy2g.jpg" alt="Lily Greyrat" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">33</span><b>Lily Greyrat</b><code>gfzy2g.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/89kcvo.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/89kcvo.jpg" alt="Ars Greyrat" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">34</span><b>Ars Greyrat</b><code>89kcvo.jpg</code></div>
+      </article>
+      <article class="card">
+        <a class="portrait" href="https://files.catbox.moe/7jsy4r.jpg" target="_blank" rel="noopener">
+          <img src="https://files.catbox.moe/7jsy4r.jpg" alt="Leo" loading="lazy" onerror="this.closest('.card').classList.add('broken')">
+        </a>
+        <div class="meta"><span class="idx">35</span><b>Leo</b><code>7jsy4r.jpg</code></div>
+      </article>
+  </main>
+</body>
+</html>
