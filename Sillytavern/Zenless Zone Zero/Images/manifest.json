@@ -340,5 +340,17 @@
   "name": "Belle",
   "hex": "#ff7a8a",
   "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/ee/Agent_Belle_Icon.png"
+ },
+ "velina": {
+  "page": "Velina Airgid",
+  "name": "Velina",
+  "hex": "#9fe8c9",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fb/Agent_Velina_Airgid_Icon.png"
+ },
+ "norma": {
+  "page": "Norma Hollowell",
+  "name": "Norma",
+  "hex": "#ff9a4d",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/1/18/Agent_Norma_Hollowell_Icon.png"
  }
 }
