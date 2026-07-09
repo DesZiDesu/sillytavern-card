@@ -1,0 +1,344 @@
+{
+ "anby": {
+  "page": "Anby Demara",
+  "name": "Anby",
+  "hex": "#8fb8d8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/b1/Agent_Anby_Demara_Icon.png"
+ },
+ "billy": {
+  "page": "Billy Kid",
+  "name": "Billy",
+  "hex": "#e8534a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/99/Agent_Billy_Kid_Icon.png"
+ },
+ "nicole": {
+  "page": "Nicole Demara",
+  "name": "Nicole",
+  "hex": "#e93b81",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/2/21/Agent_Nicole_Demara_Icon.png"
+ },
+ "nekomata": {
+  "page": "Nekomata",
+  "name": "Nekomata",
+  "hex": "#e34f4f",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/3/3c/Agent_Nekomata_Icon.png"
+ },
+ "corin": {
+  "page": "Corin Wickes",
+  "name": "Corin",
+  "hex": "#d78ad0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/e4/Agent_Corin_Wickes_Icon.png"
+ },
+ "ellen": {
+  "page": "Ellen Joe",
+  "name": "Ellen",
+  "hex": "#7ec8e3",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/ed/Agent_Ellen_Joe_Icon.png"
+ },
+ "lycaon": {
+  "page": "Von Lycaon",
+  "name": "Lycaon",
+  "hex": "#c9ccd4",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/2/2f/Agent_Von_Lycaon_Icon.png"
+ },
+ "rina": {
+  "page": "Alexandrina Sebastiane",
+  "name": "Rina",
+  "hex": "#9edb4f",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/a8/Agent_Alexandrina_Sebastiane_Icon.png"
+ },
+ "soukaku": {
+  "page": "Soukaku",
+  "name": "Soukaku",
+  "hex": "#6db7ff",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/8/89/Agent_Soukaku_Icon.png"
+ },
+ "grace": {
+  "page": "Grace Howard",
+  "name": "Grace",
+  "hex": "#b5e04a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/e6/Agent_Grace_Howard_Icon.png"
+ },
+ "anton": {
+  "page": "Anton Ivanov",
+  "name": "Anton",
+  "hex": "#ffb164",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/1/13/Agent_Anton_Ivanov_Icon.png"
+ },
+ "ben": {
+  "page": "Ben Bigger",
+  "name": "Ben",
+  "hex": "#d9a05b",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/ba/Agent_Ben_Bigger_Icon.png"
+ },
+ "koleda": {
+  "page": "Koleda Belobog",
+  "name": "Koleda",
+  "hex": "#ff8b3d",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/a8/Agent_Koleda_Belobog_Icon.png"
+ },
+ "soldier-11": {
+  "page": "Soldier 11",
+  "name": "Soldier 11",
+  "hex": "#ff5d3a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/6/62/Agent_Soldier_11_Icon.png"
+ },
+ "zhu-yuan": {
+  "page": "Zhu Yuan",
+  "name": "Zhu Yuan",
+  "hex": "#4f8be8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fb/Agent_Zhu_Yuan_Icon.png"
+ },
+ "qingyi": {
+  "page": "Qingyi",
+  "name": "Qingyi",
+  "hex": "#6fd0b8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/3/39/Agent_Qingyi_Icon.png"
+ },
+ "jane": {
+  "page": "Jane Doe",
+  "name": "Jane",
+  "hex": "#e0559a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/e7/Agent_Jane_Doe_Icon.png"
+ },
+ "seth": {
+  "page": "Seth Lowell",
+  "name": "Seth",
+  "hex": "#f2c94c",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/6/6d/Agent_Seth_Lowell_Icon.png"
+ },
+ "caesar": {
+  "page": "Caesar King",
+  "name": "Caesar",
+  "hex": "#e8d48b",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/af/Agent_Caesar_King_Icon.png"
+ },
+ "burnice": {
+  "page": "Burnice White",
+  "name": "Burnice",
+  "hex": "#ff7a33",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/f9/Agent_Burnice_White_Icon.png"
+ },
+ "piper": {
+  "page": "Piper Wheel",
+  "name": "Piper",
+  "hex": "#b07ae0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/c/ca/Agent_Piper_Wheel_Icon.png"
+ },
+ "lucy": {
+  "page": "Luciana de Montefio",
+  "name": "Lucy",
+  "hex": "#ff9ec4",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/b8/Agent_Luciana_de_Montefio_Icon.png"
+ },
+ "lighter": {
+  "page": "Lighter",
+  "name": "Lighter",
+  "hex": "#ffb54d",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/b5/Agent_Lighter_Icon.png"
+ },
+ "yanagi": {
+  "page": "Tsukishiro Yanagi",
+  "name": "Yanagi",
+  "hex": "#9d7ae8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/8/8c/Agent_Tsukishiro_Yanagi_Icon.png"
+ },
+ "miyabi": {
+  "page": "Hoshimi Miyabi",
+  "name": "Miyabi",
+  "hex": "#9ff0e0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/94/Agent_Hoshimi_Miyabi_Icon.png"
+ },
+ "harumasa": {
+  "page": "Asaba Harumasa",
+  "name": "Harumasa",
+  "hex": "#62d9a8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fe/Agent_Asaba_Harumasa_Icon.png"
+ },
+ "astra": {
+  "page": "Astra Yao",
+  "name": "Astra",
+  "hex": "#e8577f",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/b8/Agent_Astra_Yao_Icon.png"
+ },
+ "evelyn": {
+  "page": "Evelyn Chevalier",
+  "name": "Evelyn",
+  "hex": "#ff5d4a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/1/17/Agent_Evelyn_Chevalier_Icon.png"
+ },
+ "soldier-0-anby": {
+  "page": "Soldier 0 - Anby",
+  "name": "Soldier 0 Anby",
+  "hex": "#c0d8ee",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/95/Agent_Soldier_0_-_Anby_Icon.png"
+ },
+ "pulchra": {
+  "page": "Pulchra Fellini",
+  "name": "Pulchra",
+  "hex": "#b48ae0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/8/8c/Agent_Pulchra_Fellini_Icon.png"
+ },
+ "trigger": {
+  "page": "Trigger",
+  "name": "Trigger",
+  "hex": "#a8b8c8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/d/df/Agent_Trigger_Icon.png"
+ },
+ "vivian": {
+  "page": "Vivian Banshee",
+  "name": "Vivian",
+  "hex": "#c979d8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/d/d5/Agent_Vivian_Banshee_Icon.png"
+ },
+ "hugo": {
+  "page": "Hugo Vlad",
+  "name": "Hugo",
+  "hex": "#8093ea",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/99/Agent_Hugo_Vlad_Icon.png"
+ },
+ "yixuan": {
+  "page": "Yixuan",
+  "name": "Yixuan",
+  "hex": "#a9d6f5",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/f7/Agent_Yixuan_Icon.png"
+ },
+ "pan-yinhu": {
+  "page": "Pan Yinhu",
+  "name": "Pan Yinhu",
+  "hex": "#d4a24f",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/ab/Agent_Pan_Yinhu_Icon.png"
+ },
+ "ju-fufu": {
+  "page": "Ju Fufu",
+  "name": "Ju Fufu",
+  "hex": "#ff8b5c",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/4/4a/Agent_Ju_Fufu_Icon.png"
+ },
+ "yuzuha": {
+  "page": "Ukinami Yuzuha",
+  "name": "Yuzuha",
+  "hex": "#f5b8d0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fc/Agent_Ukinami_Yuzuha_Icon.png"
+ },
+ "alice": {
+  "page": "Alice Thymefield",
+  "name": "Alice",
+  "hex": "#f2d24b",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/7/7e/Agent_Alice_Thymefield_Icon.png"
+ },
+ "seed": {
+  "page": "Seed",
+  "name": "Seed",
+  "hex": "#d8e0e8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/fb/Agent_Seed_Icon.png"
+ },
+ "orphie-magus": {
+  "page": "Orphie Magnusson & Magus",
+  "name": "Orphie & Magus",
+  "hex": "#ff6d3a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/6/63/Agent_Orphie_Magnusson_%26_Magus_Icon.png"
+ },
+ "manato": {
+  "page": "Komano Manato",
+  "name": "Manato",
+  "hex": "#f07a4a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/7/7c/Agent_Komano_Manato_Icon.png"
+ },
+ "yidhari": {
+  "page": "Yidhari Murphy",
+  "name": "Yidhari",
+  "hex": "#b0a6e8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/6/6f/Agent_Yidhari_Murphy_Icon.png"
+ },
+ "banyue": {
+  "page": "Banyue",
+  "name": "Banyue",
+  "hex": "#8fd0d8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/7/70/Agent_Banyue_Icon.png"
+ },
+ "dialyn": {
+  "page": "Dialyn",
+  "name": "Dialyn",
+  "hex": "#e0a0d8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/2/25/Agent_Dialyn_Icon.png"
+ },
+ "zhao": {
+  "page": "Zhao",
+  "name": "Zhao",
+  "hex": "#d0c0e8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/d/d4/Agent_Zhao_Icon.png"
+ },
+ "ye-shunguang": {
+  "page": "Ye Shunguang",
+  "name": "Ye Shunguang",
+  "hex": "#f0c04a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/9/94/Agent_Ye_Shunguang_Icon.png"
+ },
+ "sunna": {
+  "page": "Sunna",
+  "name": "Sunna",
+  "hex": "#ffd543",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/0/0f/Agent_Sunna_Icon.png"
+ },
+ "aria": {
+  "page": "Aria",
+  "name": "Aria",
+  "hex": "#b8a8f0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/2/2d/Agent_Aria_Icon.png"
+ },
+ "nangong-yu": {
+  "page": "Nangong Yu",
+  "name": "Nangong Yu",
+  "hex": "#7ab8e8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/a/a3/Agent_Nangong_Yu_Icon.png"
+ },
+ "cissia": {
+  "page": "Cissia",
+  "name": "Cissia",
+  "hex": "#ef8fb0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/b/be/Agent_Cissia_Icon.png"
+ },
+ "pyrois": {
+  "page": "Pyrois",
+  "name": "Pyrois",
+  "hex": "#ff6d3a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/4/4b/Agent_Pyrois_Icon.png"
+ },
+ "lucia": {
+  "page": "Lucia Elowen",
+  "name": "Lucia",
+  "hex": "#97e0c0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/f/ff/Agent_Lucia_Elowen_Icon.png"
+ },
+ "remielle": {
+  "page": "Remielle Dan",
+  "name": "Remielle",
+  "hex": "#e8c890",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/c/ce/Agent_Remielle_Dan_Icon.png"
+ },
+ "sigrid": {
+  "page": "Sigrid de L'Azur",
+  "name": "Sigrid",
+  "hex": "#8fc8f0",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/ef/Agent_Sigrid_de_L%27Azur_Icon.png"
+ },
+ "promeia": {
+  "page": "Promeia",
+  "name": "Promeia",
+  "hex": "#9fd4e8",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/c/ce/Agent_Promeia_Icon.png"
+ },
+ "wise": {
+  "page": "Wise",
+  "name": "Wise",
+  "hex": "#7fd87f",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/3/31/Agent_Wise_Icon.png"
+ },
+ "belle": {
+  "page": "Belle",
+  "name": "Belle",
+  "hex": "#ff7a8a",
+  "url": "https://static.wikia.nocookie.net/zenless-zone-zero/images/e/ee/Agent_Belle_Icon.png"
+ }
+}

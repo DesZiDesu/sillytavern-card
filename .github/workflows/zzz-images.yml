@@ -1,0 +1,58 @@
+name: Fetch ZZZ agent images
+
+# Downloads the agent icons listed in the manifest from the ZZZ wiki's image
+# CDN (GitHub runners have open internet; the Claude sandbox does not) and
+# commits them into Sillytavern/Zenless Zone Zero/Images/.
+
+on:
+  push:
+    branches: ["claude/zzz-regex-lorebook-j53m1z"]
+    paths:
+      - ".github/workflows/zzz-images.yml"
+      - "Sillytavern/Zenless Zone Zero/Images/manifest.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download icons
+        run: |
+          python3 - <<'EOF'
+          import json, os, time, urllib.request
+
+          DIR = "Sillytavern/Zenless Zone Zero/Images"
+          man = json.load(open(f"{DIR}/manifest.json"))
+          UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"}
+          ok, fail = [], {}
+          for slug, m in man.items():
+              try:
+                  req = urllib.request.Request(m["url"], headers=UA)
+                  data = urllib.request.urlopen(req, timeout=30).read()
+                  if not data.startswith(b"\x89PNG"):
+                      raise ValueError(f"not a PNG ({len(data)} bytes)")
+                  with open(f"{DIR}/{slug}.png", "wb") as f:
+                      f.write(data)
+                  ok.append(slug)
+              except Exception as e:
+                  fail[slug] = f"{m['url']} -> {e}"
+              time.sleep(0.4)
+          report = {"downloaded": len(ok), "failed": fail}
+          json.dump(report, open(f"{DIR}/_fetch_report.json", "w"), indent=1)
+          print(json.dumps(report, indent=1))
+          if not ok:
+              raise SystemExit("every download failed")
+          EOF
+
+      - name: Commit images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Sillytavern/Zenless Zone Zero/Images"
+          git commit -m "ZZZ: agent icons downloaded from the wiki CDN [skip ci]" || echo "nothing to commit"
+          git push
