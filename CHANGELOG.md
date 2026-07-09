@@ -2,6 +2,21 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-09 — ZZZ: user-side outgoing texts (<ZZZ_SMS>)
+
+The player's own Knock Knock texts now render as phone UI on THEIR side of the chat.
+- New regex **`ZZZ SMS (user outgoing texts)`** (`Zenless Zone Zero/Regex/ZZZ_SMS_Regex.json`):
+  the player types a plain block — `<ZZZ_SMS>` · optional `to: Name` · one line per message ·
+  `</ZZZ_SMS>` — and on send it renders the **mini outgoing panel**: `▸ TO: NAME · KNOCK KNOCK`
+  mono header with pulsing send-plane, right-aligned yellow bubbles (pop-in stagger), animated
+  **✓ → ✓✓ delivery ticks**, diagonal texture and the lime→orange hairline. No JSON to type;
+  Thai/EN friendly; batching = write several lines, send once.
+- **Lorebook** (new constant entry uid 256): the tag belongs to the player (AI must never emit
+  it); on seeing it the AI treats each line as a sent text and replies with <ZZZ_PHONE> whose
+  feed includes those texts as from:"me" with read state — contacts may also leave them unread
+  or reply late.
+- Preview: `_preview_zzz_sms.html`.
+
 ## 2026-07-09 — ZZZ: character header regex — 4 designs, pick one
 
 A ZZZ-specific speech-block header replacing the plain Global • Header in ZZZ chats.
