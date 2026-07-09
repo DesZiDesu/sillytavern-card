@@ -2,6 +2,43 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-09 — ZZZ: user-side outgoing texts (<ZZZ_SMS>)
+
+The player's own Knock Knock texts now render as phone UI on THEIR side of the chat.
+- New regex **`ZZZ SMS (user outgoing texts)`** (`Zenless Zone Zero/Regex/ZZZ_SMS_Regex.json`):
+  the player types a plain block — `<ZZZ_SMS>` · optional `to: Name` · one line per message ·
+  `</ZZZ_SMS>` — and on send it renders the **mini outgoing panel**: `▸ TO: NAME · KNOCK KNOCK`
+  mono header with pulsing send-plane, right-aligned yellow bubbles (pop-in stagger), animated
+  **✓ → ✓✓ delivery ticks**, diagonal texture and the lime→orange hairline. No JSON to type;
+  Thai/EN friendly; batching = write several lines, send once.
+- **Lorebook** (new constant entry uid 256): the tag belongs to the player (AI must never emit
+  it); on seeing it the AI treats each line as a sent text and replies with <ZZZ_PHONE> whose
+  feed includes those texts as from:"me" with read state — contacts may also leave them unread
+  or reply late.
+- Preview: `_preview_zzz_sms.html`.
+
+## 2026-07-09 — ZZZ: character header regex — 4 designs, pick one
+
+A ZZZ-specific speech-block header replacing the plain Global • Header in ZZZ chats.
+- New folder **`Zenless Zone Zero/Regex/Header (เลือกโหลดแค่อันเดียว - pick ONE)/`** with
+  four regex that all match the same 4-field tag `[CHAR|image_url|Name|#hex|faction]` —
+  **install exactly one** (README inside, TH):
+  **A — Agent File Tag** (skewed frame, halftone dots, lime shadow, italic caps name,
+  `// FACTION` mono line, lime→orange hairline) · **B — Knock Knock Contact** (round
+  glow-ring avatar, pulsing status dot — matches the phone) · **C — Stripe Banner**
+  (full-width skewed black banner, hex border, hazard stripes, blinking cursor) ·
+  **D — ZZZ Minimal** (rounded avatar, name in hex, skewed lime faction chip,
+  hex→lime hairline). Subtle motion via inline SVG SMIL (sanitizer-safe); inline HTML,
+  no iframe. Disable the Global • Header scripts in ZZZ chats (field-count conflict).
+- **Images**: all 59 portraits now live in `Zenless Zone Zero/Images/` (self-hosted;
+  fetched via the browser packer since the wiki CDN and GitHub Actions were unavailable;
+  Nekomata uses user-provided art). Velina Airgid + Norma Hollowell (3.0 Roscaelifer,
+  previously missing) added — roster is 57 agents + Wise & Belle.
+- **Lorebook**: all 59 HEADER lines rewritten to the 4-field form with each character's
+  faction; sha-pinned rawcdn.githack URLs; constant entry (uid 255) updated with the
+  4-field rules and setup note.
+- Preview: `_preview_zzz_headers.html` (renders all four from the shipped regex).
+
 ## 2026-07-08 — ZZZ: character header images for all 55 agents (+ Wise & Belle)
 
 Wiki portrait URLs for the whole 3.1 roster, wired into the lorebook for the [CHAR] header system.

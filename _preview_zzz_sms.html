@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Noto+Sans+Thai:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{background:transparent;font-family:'Rubik','Noto Sans Thai',sans-serif;-webkit-font-smoothing:antialiased}
+#wrap{max-width:380px;margin:10px auto;padding:0 6px}
+#p{position:relative;background:#17171a;border:1px solid #303036;border-radius:14px;padding:11px 12px 13px;overflow:hidden;
+background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.02) 0 9px,transparent 9px 18px)}
+#p::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2.5px;background:linear-gradient(90deg,#d3fd51 0 34%,#ff7a33 34% 46%,transparent 46%)}
+#hd{display:flex;align-items:center;gap:7px;font:9.5px 'Share Tech Mono',monospace;letter-spacing:.18em;color:#d3fd51;text-transform:uppercase}
+#hd svg{width:12px;height:12px;stroke:#d3fd51;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+#hd small{color:#6f6f76;letter-spacing:.1em}
+.row{display:flex;flex-direction:column;align-items:flex-end;margin-top:9px}
+.bub{background:#f4eda0;color:#25230f;font-size:13px;line-height:1.5;padding:8px 13px;border-radius:14px;border-bottom-right-radius:3px;box-shadow:0 2px 6px rgba(0,0,0,.3);max-width:82%;word-wrap:break-word;white-space:pre-wrap;animation:pop .22s ease-out both}
+@keyframes pop{from{opacity:0;transform:translateY(5px) scale(.97)}to{opacity:1;transform:none}}
+.tk{font:10px 'Share Tech Mono',monospace;color:#7d7d85;margin-top:3px;letter-spacing:-.22em;padding-right:.22em;transition:color .35s}
+.tk.rd{color:#a7d94a}
+</style></head><body>
+<textarea id="raw" style="display:none">
+to: Nicole
+ตื่นยัง
+งานเมื่อคืนเสร็จแล้ว เดี๋ยวส่งหลักฐานให้
+Coffee's on you this time 😤
+</textarea>
+<div id="wrap"><div id="p">
+ <div id="hd"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-2.5-7.5z"><animate attributeName="opacity" values="1;.35;1" dur="2s" repeatCount="indefinite"/></path></svg><span id="hT"></span><small id="hS">&nbsp;· KNOCK KNOCK</small></div>
+ <div id="ms"></div>
+</div></div>
+<script>
+(function(){
+ function esc(s){return String(s==null?'':s).replace(/[<>&]/g,function(x){return{'<':'&lt;','>':'&gt;','&':'&amp;'}[x];});}
+ var raw=(document.getElementById('raw').value||'').replace(/<\/?ZZZ_SMS>/gi,'');
+ var lines=raw.split(/\r?\n/).map(function(l){return l.trim();}).filter(function(l){return l!=='';});
+ var to='';
+ if(lines.length&&/^to\s*[:：]/i.test(lines[0])){to=lines[0].replace(/^to\s*[:：]\s*/i,'');lines.shift();}
+ document.getElementById('hT').textContent=to?('TO: '+to):'OUTGOING';
+ var ms=document.getElementById('ms'),h='';
+ if(!lines.length)lines=['…'];
+ for(var i=0;i<lines.length;i++){
+  h+='<div class="row" style="animation-delay:'+(i*.12)+'s"><div class="bub" style="animation-delay:'+(i*.12)+'s">'+esc(lines[i])+'</div><span class="tk">✓</span></div>';
+ }
+ ms.innerHTML=h;
+ var tks=ms.querySelectorAll('.tk');
+ for(var i=0;i<tks.length;i++)(function(el,i){setTimeout(function(){el.textContent='✓✓';el.classList.add('rd');},700+i*420);})(tks[i],i);
+})();
+</script>
+</body></html>

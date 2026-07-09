@@ -1,0 +1,18 @@
+{
+    "id": "914e6c08-d73b-4a52-8069-5fb2c47d18e9",
+    "scriptName": "ZZZ Header C — Stripe Banner",
+    "findRegex": "/\\[CHAR\\|(https?:\\/\\/[^|\\]]*)\\|([^|\\]]*)\\|([^|\\]]*)\\|([^|\\]]*)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&family=Noto+Sans+Thai:wght@400;600;700&family=Share+Tech+Mono&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:520px;margin:16px auto 2px;font-family:'Rubik','Noto Sans Thai',sans-serif;\"><div style=\"display:flex;align-items:stretch;transform:skewX(-6deg);\"><div style=\"width:62px;flex-shrink:0;overflow:hidden;background:#141416;border:2.5px solid $3;border-right:none;position:relative;\"><img src=\"$1\" alt=\"$2\" style=\"width:114%;height:100%;object-fit:cover;object-position:top;transform:skewX(6deg) translateX(-6%);display:block;\" onerror=\"this.style.display='none'\"></div><div style=\"flex:1;position:relative;background:#0c0c0e;border:2.5px solid $3;border-left:none;padding:8px 40px 8px 16px;min-width:0;overflow:hidden;\"><div style=\"position:absolute;right:0;top:0;bottom:0;width:34px;background:repeating-linear-gradient(-55deg,$3 0 7px,transparent 7px 15px);opacity:.55;\"></div><div style=\"font-weight:800;font-style:italic;font-size:15.5px;letter-spacing:.06em;text-transform:uppercase;color:#f4f4f6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">$2</div><div style=\"margin-top:2px;font-family:'Share Tech Mono',monospace;font-size:9.5px;letter-spacing:.2em;color:#d3fd51;text-transform:uppercase;display:flex;align-items:center;gap:6px;\"><span>// $4</span><svg width=\"5\" height=\"10\" viewBox=\"0 0 5 10\" style=\"flex-shrink:0;\"><rect width=\"5\" height=\"10\" fill=\"#d3fd51\"><animate attributeName=\"opacity\" values=\"1;0;1\" dur=\"1.4s\" repeatCount=\"indefinite\"/></rect></svg></div></div></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
