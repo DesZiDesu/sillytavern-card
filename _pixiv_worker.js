@@ -166,7 +166,26 @@ export default {
         return new Response(r.body, { status: 200, headers: h });
       }
 
-      return json({ error: true, message: "routes: /search /illust /image /danbooru /dbimage" }, 404);
+      // ---------- Wiki image passthrough: /wiki?url=<static.wikia.nocookie.net url>
+      // Lets card headers/avatars work on networks that block Fandom's image CDN.
+      if (url.pathname === "/wiki") {
+        const target = url.searchParams.get("url") || "";
+        let t;
+        try { t = new URL(target.startsWith("http") ? target : "https://" + target); } catch { return json({ error: true, message: "bad url" }, 400); }
+        if (t.hostname !== "static.wikia.nocookie.net")
+          return json({ error: true, message: "only static.wikia.nocookie.net urls allowed" }, 400);
+        const r = await fetch(t.toString(), {
+          headers: { "User-Agent": UA },
+          cf: { cacheEverything: true, cacheTtl: 604800 },
+        });
+        if (!r.ok) return json({ error: true, message: "wikia answered " + r.status }, 502);
+        const h = new Headers(CORS);
+        h.set("content-type", r.headers.get("content-type") || "image/png");
+        h.set("cache-control", "public, max-age=604800");
+        return new Response(r.body, { status: 200, headers: h });
+      }
+
+      return json({ error: true, message: "routes: /search /illust /image /danbooru /dbimage /wiki" }, 404);
     } catch (e) {
       return json({ error: true, message: String(e) }, 500);
     }

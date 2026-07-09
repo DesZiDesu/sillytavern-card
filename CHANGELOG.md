@@ -2,6 +2,79 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-08 — ZZZ: character header images for all 55 agents (+ Wise & Belle)
+
+Wiki portrait URLs for the whole 3.1 roster, wired into the lorebook for the [CHAR] header system.
+- **Lorebook**: every playable Agent's entry now ends with a ready-made
+  `HEADER: [CHAR|<wiki icon URL>|<Name>|<#hex>]` line — 55 entries updated (57 headers: the
+  Anby entry also carries Soldier 0 - Anby, the Phaethon entry carries Wise & Belle). Each
+  character gets a hand-picked **signature colour** used consistently across [CHAR]/[SAY]/
+  [THINK]/<ZZZ_PHONE>/<ZZZ_KNOT>.
+- New **constant entry** `ZZZ • Character Header Images` (uid 255): copy the HEADER line
+  verbatim when the character speaks; reuse the same URL/hex as phone/forum avatars; minor
+  NPCs without a HEADER line use imageless `[NPC]` — never guess URLs.
+- Image choice: the wiki's square **`Agent <Full Name> Icon.png`** (the in-game face icon) —
+  best fit for the 48px header avatar and round chat avatars. URLs are the stable
+  `static.wikia.nocookie.net/...(md5 path)...` form (no `/revision/latest` suffix — that
+  URL form is blocked on some networks/content-blockers), derived offline from
+  page titles verified against the wiki (incl. `Soldier 0 - Anby`, `Orphie Magnusson & Magus`,
+  `Alexandrina Sebastiane`, `Lucia Elowen`, `Yidhari Murphy`, `Komano Manato`,
+  `Sigrid de L'Azur`…).
+- **Verification gallery** `_gallery_zzz_agents.html`: open in a browser to test-load all 57 —
+  tries Icon, auto-falls back to Portrait, badges ICON/PORTRAIT/FAIL, click any card to copy
+  its [CHAR] tag. (Couldn't be network-verified from the sandbox; the gallery is the check.)
+
+## 2026-07-08 — ZZZ: four more systems (<ZZZ_STATUS>, <ZZZ_KNOT>, <ZZZ_RESULT>, <ZZZ_TV>)
+
+Completes the ZZZ system set alongside the Knock Knock phone. All four are JSON-payload iframe
+regex in the same ZZZ lime/orange industrial style, EN/TH labels via `ui_lang`, avatars/images
+via catbox code or URL, and each is documented by a constant lorebook entry (uids 251–254).
+- **`ZZZ Status (Proxy HUD)`** (`Regex/ZZZ_Status_Regex.json`): `<ZZZ_STATUS>{json}</ZZZ_STATUS>`
+  scene tracker — the game's 5-phase **time bar** (morning/noon/afternoon/evening/midnight),
+  location, **Dennies** (auto comma), active commission with progress bar, party avatar row,
+  **trust change chips** (▲/▼) and a note line. Omitted fields hide their tiles.
+- **`ZZZ Inter-Knot Post`** (`Regex/ZZZ_InterKnot_Regex.json`): `<ZZZ_KNOT>{json}</ZZZ_KNOT>`
+  anonymous-board post card — poster with avatar (**anonymous → paper-bag icon**, also the
+  broken-image fallback), title, body, image, tag chips, likes, HOT/PINNED badges, optional
+  **attached-commission banner** (reward + rank + VIEW), reply thread with `me:true` → lime
+  name + YOU chip for Phaethon.
+- **`ZZZ Commission Result`** (`Regex/ZZZ_Result_Regex.json`): `<ZZZ_RESULT>{json}</ZZZ_RESULT>`
+  the Commission Complete screen — animated stamp banner (red **FAILED** variant, dimmed
+  rewards), skewed **rank badge** (S gold · A orange · B blue · C/D gray) with halftone burst,
+  objectives checklist with BONUS chips, rewards grid, note line.
+- **`ZZZ TV Mode (HDD)`** (`Regex/ZZZ_TV_Regex.json`): `<ZZZ_TV>{json}</ZZZ_TV>` Hollow
+  exploration — a wall of static **CRT TVs** with one lit event screen (turn-on flicker,
+  scanlines, type-coloured glow), ~14 built-in SVG event icons, dim icons on surrounding TVs
+  via `grid`, console text line with blinking caret, **Eous** corner marker and skewed choice
+  buttons.
+- Previews: `_preview_zzz_status.html`, `_preview_zzz_knot.html`, `_preview_zzz_result.html`,
+  `_preview_zzz_tv.html`.
+
+## 2026-07-08 — ZZZ: Knock Knock phone chat (<ZZZ_PHONE>)
+
+The in-game Inter-Knot messenger for Zenless Zone Zero, rendered as an animated phone.
+- New regex **`ZZZ Phone (Knock Knock)`** (`Zenless Zone Zero/Regex/ZZZ_Phone_Regex.json`):
+  `<ZZZ_PHONE>{json}</ZZZ_PHONE>` renders a **game-authentic Knock Knock replica** — phone frame
+  with status bar (clock/battery), app header with the contact's round avatar, name and
+  online / offline / **typing…** status, ZZZ lime/orange accent chrome, and the chat feed:
+  agents' white bubbles on the left with circular avatars, {{user}}'s light-yellow bubbles on
+  the right with **✓/✓✓ read ticks**, per-message times, day dividers, centered system lines,
+  an animated typing bubble and a fake input bar.
+- **Tap-to-open Agent Profile**: tapping the header or any avatar opens the contact's profile
+  page inside the phone — big avatar with signature-colour ring, faction chip, Inter-Knot ID,
+  signature quote and a skewed **Trust** bar (`trust`/`trust_max`).
+- **Stickers & images**: messages can be an image (`img`) or a sticker (`sticker`) — 4 built-in
+  SVG bangboo stickers (`bangboo`, `bangboo_love`, `bangboo_shock`, `bangboo_sad`) or any
+  catbox code / URL. Avatars use the same catbox-code-or-URL convention as the Global headers
+  (missing avatar → coloured initial). Light **group-chat** support via per-message
+  `name`/`avatar`/`hex` overrides.
+- **EN/TH labels** via `ui_lang` (online/typing/read/placeholder/profile labels), Thai glyphs
+  via Noto Sans Thai. Iframe render like MT Letter / AI Alert.
+- **Lorebook** (`Zenless Zone Zero/Lorebook/…world_info.json`, new constant entry uid 250):
+  documents the full JSON schema, the "phone chats only — face-to-face speech keeps the normal
+  [THINK]/[CHAR]/[SAY] blocks" rule, re-render-the-whole-feed behaviour, stickers, and an example.
+- Preview: `_preview_zzz_phone.html`.
+
 ## 2026-06-23 — Global: imageless NPC header ([NPC])
 
 - New regex **`Global • NPC Header (no image)`** (`Global Regex/Global_NPC_Header.json`):
