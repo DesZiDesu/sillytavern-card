@@ -1,0 +1,193 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Dragon Ball Wiki Image Packer</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#101013;font-family:'Rubik',system-ui,sans-serif;color:#e8e8ea;padding:20px 14px 60px;max-width:1000px;margin:0 auto;
+background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1.4px);background-size:13px 13px}
+header{position:relative;border:1px solid #2c2c30;border-radius:12px;background:#16161a;padding:16px 18px;overflow:hidden;margin-bottom:14px}
+header::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(#f6a01a,#2a6fd6)}
+header::after{content:'';position:absolute;right:-30px;top:-40px;width:150px;height:150px;background:radial-gradient(rgba(211,253,81,.12) 1.5px,transparent 2px);background-size:12px 12px;transform:rotate(15deg)}
+h1{font:900 20px 'Rubik';letter-spacing:.06em;text-transform:uppercase;transform:skewX(-6deg)}
+h1 b{color:#f6a01a}h1 i{color:#2a6fd6;font-style:normal}
+.sub{font:10px 'Share Tech Mono',monospace;color:#7a7a82;letter-spacing:.14em;margin-top:5px}
+.panel{border:1px solid #2c2c30;border-radius:12px;background:#16161a;padding:14px;margin-bottom:12px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{flex:1;min-width:200px;background:#0e0e11;border:1px solid #33333a;border-radius:7px;padding:10px 12px;font-size:12px;color:#e8e8ea;font-family:'Share Tech Mono',monospace}
+label.ck{font-size:12px;color:#b8b8c0;display:flex;gap:7px;align-items:center;margin:9px 0 0}
+label.ck input[type=number]{width:58px;background:#0e0e11;border:1px solid #33333a;border-radius:5px;color:#f6a01a;padding:5px 7px;font-family:'Share Tech Mono',monospace}
+button{font:800 12px 'Rubik';letter-spacing:.08em;text-transform:uppercase;border:0;padding:11px 16px;border-radius:7px;cursor:pointer;transform:skewX(-6deg)}
+button>span{display:inline-block;transform:skewX(6deg)}
+.primary{background:#f6a01a;color:#12140a}
+.ghost{background:#25252b;color:#c9c9cf;border:1px solid #35353c}
+button:disabled{background:#25252b;color:#6a6a72;cursor:default}
+#bar{height:6px;background:#25252b;border-radius:4px;overflow:hidden;margin:12px 0 6px}
+#bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#f6a01a,#2a6fd6);transition:width .2s}
+#log{font:11.5px 'Share Tech Mono',monospace;color:#b6e072;line-height:1.7;white-space:pre-wrap;background:#0b0b0e;border:1px solid #242429;border-radius:8px;padding:11px;max-height:26vh;overflow:auto}
+#log .warn{color:#ffb164}#log .bad{color:#ff6d5a}#log .ok{color:#f6a01a}
+.agent{border:1px solid #26262c;border-radius:11px;background:#15151a;margin-top:11px;overflow:hidden}
+.agent.skip{opacity:.32}
+.abar{display:flex;align-items:center;gap:11px;padding:10px 12px;background:#101014;border-bottom:1px solid #26262c}
+.abar .av{width:40px;height:40px;border-radius:8px;object-fit:cover;object-position:top;border:2px solid #f6a01a;background:#25252b}
+.abar b{font-size:14px;letter-spacing:.02em}
+.abar .cnt{font:10px 'Share Tech Mono',monospace;color:#ff9a5c}
+.abar .sk{margin-left:auto;font:800 10px 'Rubik';letter-spacing:.08em;text-transform:uppercase;background:#25252b;color:#ff8d7a;border:0;padding:6px 12px;border-radius:6px;transform:skewX(-6deg);cursor:pointer}
+.reel{display:flex;gap:8px;overflow-x:auto;padding:11px 12px;-webkit-overflow-scrolling:touch}
+.pic{position:relative;flex:0 0 auto;width:118px;height:118px;border-radius:9px;overflow:hidden;border:3px solid transparent;cursor:pointer;background:#0e0e11}
+.pic img{width:100%;height:100%;object-fit:cover;object-position:top}
+.pic.on{border-color:#f6a01a;box-shadow:0 0 0 1px #f6a01a}
+.pic.on::after{content:'✓';position:absolute;top:3px;right:3px;width:18px;height:18px;background:#f6a01a;color:#12140a;font:900 12px/18px 'Rubik';text-align:center;border-radius:50%}
+.pic .tag{position:absolute;left:3px;bottom:3px;font:800 8px 'Share Tech Mono',monospace;background:rgba(0,0,0,.78);color:#f6a01a;padding:2px 6px;border-radius:3px;letter-spacing:.06em;max-width:88%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+</style></head><body>
+<header>
+ <h1>DRAGON <b>BALL</b> <i>Image Packer</i></h1>
+ <div class="sub">// SOURCE: dragonball.fandom.com — OFFICIAL WIKI ART ONLY</div>
+</header>
+<div class="panel">
+ <div class="row"><input type="text" id="manual" value="Goku, Vegeta, Gohan, Piccolo, Krillin, Tien Shinhan, Yamcha, Chiaotzu, Trunks (future), Goten, Android 18, Master Roshi" placeholder="character wiki pages, comma separated"></div>
+ <label class="ck"><input type="checkbox" id="crop"> crop each to 1:1 square (640px JPG) — else keep original PNG with transparency</label>
+ <label class="ck">pre-select top <input type="number" id="topN" value="6" min="1" max="30"> images per agent <button class="ghost" id="applyTop" style="padding:6px 11px;transform:none;margin-left:4px"><span>apply</span></button></label>
+ <div class="row" style="margin-top:11px">
+  <button class="primary" id="run"><span>▶ Fetch Z Fighters</span></button>
+  <button class="ghost" id="dl" disabled><span>⤓ Download ZIP</span></button>
+ </div>
+ <div id="bar"><i></i></div>
+ <div id="log">idle. tap “Fetch characters” to pull the official ZZZ wiki roster and their art.</div>
+</div>
+<div id="stage"></div>
+<script>
+(function(){
+var API='https://dragonball.fandom.com/api.php';
+var $=function(i){return document.getElementById(i)};
+var log=$('log'),bar=$('bar').firstElementChild;
+function say(s,c){var d=document.createElement('div');if(c)d.className=c;d.textContent=s;log.appendChild(d);log.scrollTop=1e9;}
+function J(u,ms){ms=ms||13000;var a=new AbortController();var t=setTimeout(function(){a.abort()},ms);
+ return fetch(u,{signal:a.signal}).then(function(r){clearTimeout(t);if(!r.ok)throw new Error('HTTP '+r.status);return r.json()},
+ function(e){clearTimeout(t);throw(e&&e.name==='AbortError'?new Error('timeout'):e)});}
+function api(q){return J(API+'?'+q+'&format=json&origin=*')}
+function clean(u){return String(u||'').replace(/\/revision\/latest.*$/,'')}
+function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function okImg(t){return /\.(png|jpe?g|webp)$/i.test(t)}
+
+var AG=[]; // {name,slug,pics:[{title,url,thumb,w,score}],sel:[],skip}
+
+async function roster(){
+ var manual=($('manual').value||'').split(',').map(function(x){return x.trim()}).filter(Boolean);
+ if(manual.length){say('manual: '+manual.join(', '));return manual;}
+ var cats=['Z Fighters','Saiyans','Characters','Protagonists'];
+ for(var i=0;i<cats.length;i++){
+  try{var j=await api('action=query&list=categorymembers&cmtitle=Category:'+encodeURIComponent(cats[i])+'&cmlimit=500&cmtype=page');
+   var m=(j.query&&j.query.categorymembers)||[];
+   var names=m.map(function(x){return x.title}).filter(function(t){return t.indexOf(':')<0});
+   if(names.length){say('roster from Category:'+cats[i]+' — '+names.length+' pages','ok');return names;}
+  }catch(e){}
+ }
+ throw new Error('could not read any agent category — use the manual field');
+}
+
+async function artFor(name){
+ var toks=name.toLowerCase().split(/[^a-z0-9]+/).filter(function(x){return x.length>=3});
+ var nosp=toks.join('');
+ var j=await api('action=query&titles='+encodeURIComponent(name)+'&prop=images&imlimit=250&redirects=1');
+ var pg=(j.query&&j.query.pages)||{},titles=[];
+ Object.keys(pg).forEach(function(k){(pg[k].images||[]).forEach(function(im){titles.push(im.title)})});
+ titles=titles.filter(function(t){if(!okImg(t))return false;var l=t.toLowerCase();
+  if(nosp&&l.indexOf(nosp)>=0)return true;return toks.some(function(x){return l.indexOf(x)>=0})});
+ if(!titles.length)return [];
+ var out=[];
+ for(var s=0;s<titles.length&&out.length<30;s+=45){
+  var q=await api('action=query&titles='+encodeURIComponent(titles.slice(s,s+45).join('|'))+'&prop=imageinfo&iiprop=url|size&iiurlwidth=200');
+  var p2=(q.query&&q.query.pages)||{};
+  Object.keys(p2).forEach(function(k){var ii=p2[k].imageinfo&&p2[k].imageinfo[0];if(!ii||!ii.url)return;
+   var l=(p2[k].title||'').toLowerCase();
+   var sc=(/(portrait|splash|full|standing|artwork|render|card)/.test(l)?100:0)+(/icon|avatar/.test(l)?40:0)+Math.round((ii.width||0)/1000);
+   out.push({title:(p2[k].title||'').replace(/^File:/,''),url:clean(ii.url),thumb:clean(ii.thumburl||ii.url),w:ii.width||0,score:sc})});
+ }
+ out.sort(function(a,b){return b.score-a.score});
+ return out;
+}
+
+$('run').onclick=async function(){
+ $('run').disabled=true;AG=[];$('stage').innerHTML='';log.innerHTML='';
+ try{
+  var names=await roster();
+  say(names.length+' agents to scan…');
+  for(var i=0;i<names.length;i++){
+   bar.style.width=((i+1)/names.length*100)+'%';
+   say('· '+names[i]+' ('+(i+1)+'/'+names.length+')');
+   try{var pics=await artFor(names[i]);
+    if(pics.length){var n=Math.max(1,Math.min(30,+$('topN').value||6));
+     AG.push({name:names[i],slug:slug(names[i]),pics:pics,sel:pics.map(function(_,j){return j<n}),skip:false});
+     say('  ✓ '+pics.length+' images','ok');}
+    else say('  – no matching art','warn');
+   }catch(e){say('  ✗ '+e.message,'bad')}
+   await new Promise(function(r){setTimeout(r,300)});
+  }
+  render();say('done — '+AG.length+' agents ready. tap thumbnails to pick, then Download ZIP.','ok');
+  $('dl').disabled=!AG.length;
+ }catch(e){say('ERROR: '+e.message,'bad')}
+ $('run').disabled=false;
+};
+$('applyTop').onclick=function(){var n=Math.max(1,Math.min(30,+$('topN').value||6));
+ AG.forEach(function(a){a.sel=a.pics.map(function(_,j){return j<n})});render()};
+
+function render(){
+ var st=$('stage');st.innerHTML='';
+ AG.forEach(function(a){
+  var d=document.createElement('div');d.className='agent'+(a.skip?' skip':'');
+  var cover=a.pics[a.sel.indexOf(true)>=0?a.sel.indexOf(true):0];
+  var h='<div class="abar"><img class="av" src="'+(cover?cover.thumb:'')+'"><b>'+a.name+'</b>'
+   +'<span class="cnt">'+a.sel.filter(Boolean).length+' / '+a.pics.length+'</span>'
+   +'<button class="sk">'+(a.skip?'include':'skip')+'</button></div><div class="reel">';
+  a.pics.forEach(function(p,j){h+='<div class="pic'+(a.sel[j]?' on':'')+'" data-j="'+j+'"><img loading="lazy" src="'+p.thumb+'"><span class="tag">'+p.title+'</span></div>'});
+  h+='</div>';d.innerHTML=h;
+  d.querySelector('.sk').onclick=function(){a.skip=!a.skip;render()};
+  d.querySelectorAll('.pic').forEach(function(el){el.onclick=function(){var j=+el.dataset.j;a.sel[j]=!a.sel[j];render()}});
+  st.appendChild(d);
+ });
+}
+
+// zip (store) + crop
+var CRC=(function(){var t=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return function(b){var c=0xFFFFFFFF;for(var i=0;i<b.length;i++)c=t[(c^b[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}})();
+function zip(files){var P=[],C=[],off=0,E=new TextEncoder();
+ var u16=function(v){return new Uint8Array([v&255,v>>8&255])},u32=function(v){return new Uint8Array([v&255,v>>8&255,v>>16&255,v>>>24&255])};
+ files.forEach(function(f){var n=E.encode(f.name),c=CRC(f.data);
+  P.push(u32(0x04034b50),u16(20),u16(0),u16(0),u16(0),u16(0),u32(c),u32(f.data.length),u32(f.data.length),u16(n.length),u16(0),n,f.data);
+  C.push({n:n,c:c,s:f.data.length,o:off});off+=30+n.length+f.data.length});
+ var cs=off,cl=0;C.forEach(function(x){P.push(u32(0x02014b50),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0),u32(x.c),u32(x.s),u32(x.s),u16(x.n.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(x.o),x.n);cl+=46+x.n.length});
+ P.push(u32(0x06054b50),u16(0),u16(0),u16(C.length),u16(C.length),u32(cl),u32(cs),u16(0));return new Blob(P,{type:'application/zip'})}
+function load(u){return new Promise(function(res,rej){var im=new Image();im.crossOrigin='anonymous';var t=setTimeout(function(){im.src='';rej(new Error('timeout'))},20000);
+ im.onload=function(){clearTimeout(t);try{var c=document.createElement('canvas');c.width=c.height=1;var x=c.getContext('2d');x.drawImage(im,0,0,1,1);x.getImageData(0,0,1,1);res(im)}catch(e){rej(e)}};
+ im.onerror=function(){clearTimeout(t);rej(new Error('load fail'))};im.src=u})}
+async function grab(u){try{return await load(u)}catch(e){return await load('https://wsrv.nl/?url='+encodeURIComponent(u))}}
+function sq(im){var w=im.naturalWidth,h=im.naturalHeight,s=Math.min(w,h),c=document.createElement('canvas');c.width=c.height=640;
+ c.getContext('2d').drawImage(im,w>h?(w-h)/2:0,0,s,s,0,0,640,640);return c}
+function full(im){var w=im.naturalWidth,h=im.naturalHeight,k=Math.min(1,1600/Math.max(w,h)),c=document.createElement('canvas');
+ c.width=Math.round(w*k);c.height=Math.round(h*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);return c}
+
+$('dl').onclick=async function(){
+ $('dl').disabled=true;
+ var jobs=[];AG.forEach(function(a){if(a.skip)return;a.pics.forEach(function(p,j){if(a.sel[j])jobs.push({a:a,p:p})})});
+ if(!jobs.length){say('nothing selected','warn');$('dl').disabled=false;return}
+ var crop=$('crop').checked;
+ say('packing '+jobs.length+' images'+(crop?' (1:1 640 JPG)':' (original PNG)')+'…');
+ var files=[],meta={},cnt={},bytes=0,part=1;
+ async function flush(last){if(!files.length)return;
+  files.push({name:'_manifest.json',data:new TextEncoder().encode(JSON.stringify(meta,null,1))});
+  var b=zip(files),u=URL.createObjectURL(b),a=document.createElement('a');
+  var nm=(part===1&&last)?'dragonball-images.zip':'dragonball-images-part'+part+'.zip';
+  a.href=u;a.download=nm;document.body.appendChild(a);a.click();
+  say('saved '+nm+' — '+(Math.round(b.size/104857.6)/10)+' MB, '+(files.length-1)+' imgs','ok');
+  files=[];meta={};bytes=0;part++;await new Promise(function(r){setTimeout(r,900)})}
+ for(var i=0;i<jobs.length;i++){var a=jobs[i].a,p=jobs[i].p;bar.style.width=((i+1)/jobs.length*100)+'%';
+  try{var im=await grab(p.url);var cv=crop?sq(im):full(im);
+   var blob=await new Promise(function(r){cv.toBlob(r,crop?'image/jpeg':'image/png',0.9)});
+   cnt[a.slug]=(cnt[a.slug]||0)+1;var fn=a.slug+'/'+cnt[a.slug]+(crop?'.jpg':'.png');
+   var data=new Uint8Array(await blob.arrayBuffer());files.push({name:fn,data:data});bytes+=data.length;
+   (meta[a.slug]=meta[a.slug]||[]).push({file:fn,source:p.title,page:'https://dragonball.fandom.com/wiki/'+encodeURIComponent(a.name)});
+   if(bytes>25*1048576)await flush(false);
+  }catch(e){say('✗ '+a.name+' — '+e.message,'bad')}}
+ await flush(true);say('all parts saved — attach the zip(s) to Claude.','ok');$('dl').disabled=false;
+};
+})();
+</script></body></html>
