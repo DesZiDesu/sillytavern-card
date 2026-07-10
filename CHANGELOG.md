@@ -4,12 +4,17 @@ All notable additions to this repository's cards, lorebooks, and regex are liste
 
 ## 2026-07-10 — WuWa speech system (header + dialogue + monologue), short-name links
 
-- New **WuWa speech regex** (`Wuthering Waves/Regex/WS_*`): **`[WCHAR|filename|Name|#hex|element · region]`**
-  header (the "Gold Plate" design — cut-corner plate, element tag, bold caps name, gold double-line),
-  **`[WSAY|#hex|text]`** dialogue (cream bubble, hex accent bar + gold hairline) and
-  **`[WTHINK|Name|#hex|text]`** monologue (dashed thought with ◈). WuWa-specific tags, so they
-  don't collide with the Global speech block. Fully **responsive** — `clamp()` sizing + fluid
-  widths adapt to PC/laptop/mobile. Verified at 560px and 380px.
+- New **WuWa speech system** (`Wuthering Waves/Regex/`), WuWa-specific tags that don't collide
+  with the Global speech block, fully **responsive** (`clamp()` + fluid widths, verified in a
+  full multi-turn flow at PC and mobile with no overlap):
+  - **Header** `[WCHAR|filename|Name|#hex|element · region]` — **4 designs, pick one**:
+    A Resonance Bar (glass + animated equalizer), B Tacet Mark (rotating diamond frame),
+    C Gold Plate (cut-corner + element tag), D Minimal Waveform.
+  - **Dialogue** `[WSAY|#hex|text]` — **3 designs, pick one**: A Dialogue Box (game-UI tab),
+    B Cinematic Subtitle (centered, flank lines), C Tailed Bubble (tail points at the header).
+  - **Monologue** `[WTHINK|Name|#hex|text]` — **2 designs, pick one**: Rune Panel (corner
+    brackets) · Echo (double-outline). All designs share the same tags, so AI output is identical
+    whichever you install.
 - **Short filename links**: `[WCHAR]`'s first field is just the image slug (e.g. `changli`) — the
   regex builds the full CDN URL, so the AI never pastes long URLs. Lorebook updated: all 48
   character HEADER lines rewritten to `[WCHAR|slug|…]`, the portrait directory reformatted to

@@ -1,0 +1,18 @@
+{
+    "id": "b7f3a218-9d40-4e5c-8a61-2c9e07d4b3f1",
+    "scriptName": "WuWa Header B — Tacet Mark",
+    "findRegex": "/\\[WCHAR\\|([^|\\]]+)\\|([^|\\]]+)\\|(#[0-9a-fA-F]{3,6})\\|([^\\]]*)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@500;600;700&family=Noto+Sans+Thai:wght@500;600&display=swap\" rel=\"stylesheet\"/><div style=\"display:flex;align-items:center;gap:clamp(12px,3.5vw,16px);max-width:520px;width:100%;margin:16px auto 8px;padding:6px 4px;font-family:'Cinzel','Noto Sans Thai',serif\"><span style=\"position:relative;width:clamp(52px,14vw,60px);height:clamp(52px,14vw,60px);flex-shrink:0;display:flex;align-items:center;justify-content:center\"><svg viewBox=\"0 0 60 60\" style=\"position:absolute;inset:0;width:100%;height:100%\"><rect x=\"12\" y=\"12\" width=\"36\" height=\"36\" fill=\"none\" stroke=\"$3\" stroke-width=\"1\" opacity=\".55\"><animateTransform attributeName=\"transform\" type=\"rotate\" from=\"45 30 30\" to=\"405 30 30\" dur=\"16s\" repeatCount=\"indefinite\"/></rect><rect x=\"17\" y=\"17\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"#d9c38a\" stroke-width=\"1\" opacity=\".3\"><animateTransform attributeName=\"transform\" type=\"rotate\" from=\"45 30 30\" to=\"-315 30 30\" dur=\"22s\" repeatCount=\"indefinite\"/></rect></svg><img src=\"https://rawcdn.githack.com/DesZiDesu/sillytavern-card/main/Sillytavern/Wuthering%20Waves/Images/$1.jpg\" alt=\"$2\" style=\"width:72%;height:72%;object-fit:cover;object-position:top;border-radius:50%;border:2px solid $3;position:relative;z-index:1\" onerror=\"this.style.display='none'\"></span><span style=\"min-width:0\"><span style=\"font:700 clamp(16px,4.6vw,19px) 'Cinzel',serif;color:#f2f3f5;letter-spacing:.03em;display:flex;align-items:center;gap:8px\"><span style=\"color:$3;font-weight:500;opacity:.85\">◈</span>$2</span><span style=\"display:block;font:600 clamp(8px,2.3vw,9.5px) 'Rajdhani',monospace;letter-spacing:.2em;color:#8b909a;text-transform:uppercase;margin-top:4px\">$4</span><span style=\"display:block;height:1px;width:min(230px,80%);margin-top:6px;background:linear-gradient(90deg,$3,transparent)\"></span></span></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
