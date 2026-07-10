@@ -1,0 +1,1569 @@
+{
+ "generated": "2026-07-10T17:19:33.611Z",
+ "loaded": 232,
+ "failed": 0,
+ "note": "Multi-image characters are Base->form galleries; forms[] is in transformation order.",
+ "broken": {},
+ "manifest": {
+  "ดราก้อนบอล/เทพเจ้ามังกร": {
+   "slug": "misc",
+   "forms": [
+    {
+     "form": "1",
+     "file": "Images/misc/01_1.jpg",
+     "source": "https://files.catbox.moe/gttemf.PNG"
+    },
+    {
+     "form": "2",
+     "file": "Images/misc/02_2.jpg",
+     "source": "https://files.catbox.moe/oj9fpe.PNG"
+    },
+    {
+     "form": "3",
+     "file": "Images/misc/03_3.jpg",
+     "source": "https://files.catbox.moe/8h47z0.PNG"
+    },
+    {
+     "form": "5",
+     "file": "Images/misc/04_5.jpg",
+     "source": "https://files.catbox.moe/32x0u3.PNG"
+    }
+   ]
+  },
+  "ช่องเก็บของ": {
+   "slug": "misc_2",
+   "forms": [
+    {
+     "form": "ถั่วเซียน",
+     "file": "Images/misc_2/01_img1.jpg",
+     "source": "https://files.catbox.moe/7wjq1z.png"
+    },
+    {
+     "form": "สีเขียว",
+     "file": "Images/misc_2/02_img2.jpg",
+     "source": "https://files.catbox.moe/s1mmbv.png"
+    }
+   ]
+  },
+  "ไอเท็ม: ถั่วเซียน": {
+   "slug": "misc_3",
+   "forms": [
+    {
+     "form": "",
+     "file": "Images/misc_3/01_img1.jpg",
+     "source": "https://files.catbox.moe/7wjq1z.png"
+    }
+   ]
+  },
+  "ไอเท็ม: สเคาเตอร์": {
+   "slug": "misc_4",
+   "forms": [
+    {
+     "form": "",
+     "file": "Images/misc_4/01_img1.jpg",
+     "source": "https://files.catbox.moe/s1mmbv.png"
+    }
+   ]
+  },
+  "ไอเท็ม: Space Pod": {
+   "slug": "space_pod",
+   "forms": [
+    {
+     "form": "",
+     "file": "Images/space_pod/01_img1.jpg",
+     "source": "https://files.catbox.moe/rcw8r9.png"
+    }
+   ]
+  },
+  "ไอเท็ม: ตุ้มหูโปตาร่า": {
+   "slug": "misc_5",
+   "forms": [
+    {
+     "form": "",
+     "file": "Images/misc_5/01_img1.jpg",
+     "source": "https://files.catbox.moe/n0v1gd.png"
+    }
+   ]
+  },
+  "เซ็นโอ": {
+   "slug": "misc_6",
+   "forms": [
+    {
+     "form": "Zeno / The Omni-King",
+     "file": "Images/misc_6/01_zeno_the_omni_king.jpg",
+     "source": "https://files.catbox.moe/7qs2tq.jpeg"
+    }
+   ]
+  },
+  "มหาเทวดา": {
+   "slug": "misc_7",
+   "forms": [
+    {
+     "form": "Grand Priest",
+     "file": "Images/misc_7/01_grand_priest.jpg",
+     "source": "https://files.catbox.moe/wmm0rq.jpeg"
+    }
+   ]
+  },
+  "SON GOKU [SUPER]": {
+   "slug": "son_goku_super",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/son_goku_super/01_base_form.jpg",
+     "source": "https://files.catbox.moe/8jnpfr.PNG"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/son_goku_super/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/5w2hel.jpeg"
+    },
+    {
+     "form": "Super Saiyan 2",
+     "file": "Images/son_goku_super/03_super_saiyan_2.jpg",
+     "source": "https://files.catbox.moe/bwj99n.jpeg"
+    },
+    {
+     "form": "Super Saiyan 3",
+     "file": "Images/son_goku_super/04_super_saiyan_3.jpg",
+     "source": "https://files.catbox.moe/mj4axw.jpeg"
+    },
+    {
+     "form": "Super Saiyan God",
+     "file": "Images/son_goku_super/05_super_saiyan_god.jpg",
+     "source": "https://files.catbox.moe/o7x2nb.jpeg"
+    },
+    {
+     "form": "Super Saiyan Blue",
+     "file": "Images/son_goku_super/06_super_saiyan_blue.jpg",
+     "source": "https://files.catbox.moe/mmzkis.jpeg"
+    },
+    {
+     "form": "Ultra Instinct -Sign-",
+     "file": "Images/son_goku_super/07_ultra_instinct_sign.jpg",
+     "source": "https://files.catbox.moe/7pidpz.jpeg"
+    },
+    {
+     "form": "Perfected Ultra Instinct",
+     "file": "Images/son_goku_super/08_perfected_ultra_instinct.jpg",
+     "source": "https://files.catbox.moe/86koqs.jpeg"
+    }
+   ]
+  },
+  "VEGETA [SUPER]": {
+   "slug": "vegeta_super",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/vegeta_super/01_base_form.jpg",
+     "source": "https://files.catbox.moe/e7cnqz.jpeg"
+    },
+    {
+     "form": "Super Saiyan 1 & 2",
+     "file": "Images/vegeta_super/02_super_saiyan_1_2.jpg",
+     "source": "https://files.catbox.moe/8rh08a.jpeg"
+    },
+    {
+     "form": "Super Saiyan God",
+     "file": "Images/vegeta_super/03_super_saiyan_god.jpg",
+     "source": "https://files.catbox.moe/mc8yme.jpeg"
+    },
+    {
+     "form": "Super Saiyan Blue",
+     "file": "Images/vegeta_super/04_super_saiyan_blue.jpg",
+     "source": "https://files.catbox.moe/s3heb7.jpeg"
+    },
+    {
+     "form": "Super Saiyan Blue Evolved",
+     "file": "Images/vegeta_super/05_super_saiyan_blue_evolved.jpg",
+     "source": "https://files.catbox.moe/jqac41.jpeg"
+    },
+    {
+     "form": "Ultra Ego",
+     "file": "Images/vegeta_super/06_ultra_ego.jpg",
+     "source": "https://files.catbox.moe/dauswm.jpeg"
+    }
+   ]
+  },
+  "SON GOHAN (DBSH)": {
+   "slug": "son_gohan_dbsh",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/son_gohan_dbsh/01_base_form.jpg",
+     "source": "https://files.catbox.moe/9jdipq.png"
+    },
+    {
+     "form": "Super Saiyan 1 & 2",
+     "file": "Images/son_gohan_dbsh/02_super_saiyan_1_2.jpg",
+     "source": "https://files.catbox.moe/guwg5m.png"
+    },
+    {
+     "form": "Ultimate Gohan",
+     "file": "Images/son_gohan_dbsh/03_ultimate_gohan.jpg",
+     "source": "https://files.catbox.moe/z1uz56.png"
+    },
+    {
+     "form": "Beast Gohan",
+     "file": "Images/son_gohan_dbsh/04_beast_gohan.jpg",
+     "source": "https://files.catbox.moe/h9jewm.png"
+    }
+   ]
+  },
+  "GRANOLA": {
+   "slug": "granola",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/granola/01_base_form.jpg",
+     "source": "https://files.catbox.moe/r2iq93.png"
+    },
+    {
+     "form": "Right Eye Activation",
+     "file": "Images/granola/02_right_eye_activation.jpg",
+     "source": "https://files.catbox.moe/r2iq93.png"
+    }
+   ]
+  },
+  "JIREN": {
+   "slug": "jiren",
+   "forms": [
+    {
+     "form": "Base Form - Suppressed",
+     "file": "Images/jiren/01_base_form_suppressed.jpg",
+     "source": "https://files.catbox.moe/2aplxd.png"
+    },
+    {
+     "form": "50% Power / ปล่อยพลังบางส่วน",
+     "file": "Images/jiren/02_50_power.jpg",
+     "source": "https://files.catbox.moe/tafd1w.png"
+    },
+    {
+     "form": "Full Power",
+     "file": "Images/jiren/03_full_power.jpg",
+     "source": "https://files.catbox.moe/34b0gi.jpeg"
+    }
+   ]
+  },
+  "FRIEZA": {
+   "slug": "frieza",
+   "forms": [
+    {
+     "form": "First Form",
+     "file": "Images/frieza/01_first_form.jpg",
+     "source": "https://files.catbox.moe/vqpeiy.jpeg"
+    },
+    {
+     "form": "Second Form",
+     "file": "Images/frieza/02_second_form.jpg",
+     "source": "https://files.catbox.moe/n0qsz4.png"
+    },
+    {
+     "form": "Third Form",
+     "file": "Images/frieza/03_third_form.jpg",
+     "source": "https://files.catbox.moe/syuxbu.png"
+    },
+    {
+     "form": "Final Form - 100%",
+     "file": "Images/frieza/04_final_form_100.jpg",
+     "source": "https://files.catbox.moe/b643cr.png"
+    },
+    {
+     "form": "Golden Frieza",
+     "file": "Images/frieza/05_golden_frieza.jpg",
+     "source": "https://files.catbox.moe/5pm0ah.jpeg"
+    },
+    {
+     "form": "Black Frieza",
+     "file": "Images/frieza/06_black_frieza.jpg",
+     "source": "https://files.catbox.moe/v20fo3.png"
+    }
+   ]
+  },
+  "CELL": {
+   "slug": "cell",
+   "forms": [
+    {
+     "form": "Imperfect Form",
+     "file": "Images/cell/01_imperfect_form.jpg",
+     "source": "https://files.catbox.moe/to7zsp.jpeg"
+    },
+    {
+     "form": "Semi-Perfect Form",
+     "file": "Images/cell/02_semi_perfect_form.jpg",
+     "source": "https://files.catbox.moe/7lz0y5.jpeg"
+    },
+    {
+     "form": "Perfect Form",
+     "file": "Images/cell/03_perfect_form.jpg",
+     "source": "https://files.catbox.moe/tqk51n.jpeg"
+    },
+    {
+     "form": "Super Perfect Form",
+     "file": "Images/cell/04_super_perfect_form.jpg",
+     "source": "https://files.catbox.moe/awf57e.jpeg"
+    },
+    {
+     "form": "Golden Form / Ultimate Evolution",
+     "file": "Images/cell/05_golden_form_ultimate_evolution.jpg",
+     "source": "https://files.catbox.moe/gb4962.jpeg"
+    }
+   ]
+  },
+  "MORO": {
+   "slug": "moro",
+   "forms": [
+    {
+     "form": "Base Form - Elderly",
+     "file": "Images/moro/01_base_form_elderly.jpg",
+     "source": "https://files.catbox.moe/6319cn.jpeg"
+    },
+    {
+     "form": "Energy Absorption Form - 1st Form",
+     "file": "Images/moro/02_energy_absorption_form_1st_form.jpg",
+     "source": "https://files.catbox.moe/11eufw.jpeg"
+    },
+    {
+     "form": "Perfected Form - 2nd Form",
+     "file": "Images/moro/03_perfected_form_2nd_form.jpg",
+     "source": "https://files.catbox.moe/ruvclf.jpeg"
+    }
+   ]
+  },
+  "WHIS": {
+   "slug": "whis",
+   "forms": [
+    {
+     "form": "Whis",
+     "file": "Images/whis/01_whis.jpg",
+     "source": "https://files.catbox.moe/kx75ld.jpeg"
+    }
+   ]
+  },
+  "VADOS": {
+   "slug": "vados",
+   "forms": [
+    {
+     "form": "Vados",
+     "file": "Images/vados/01_vados.jpg",
+     "source": "https://files.catbox.moe/w4ag46.jpeg"
+    }
+   ]
+  },
+  "BEERUS": {
+   "slug": "beerus",
+   "forms": [
+    {
+     "form": "Beerus",
+     "file": "Images/beerus/01_beerus.jpg",
+     "source": "https://files.catbox.moe/bb5hsy.png"
+    }
+   ]
+  },
+  "CHAMPA": {
+   "slug": "champa",
+   "forms": [
+    {
+     "form": "Champa",
+     "file": "Images/champa/01_champa.jpg",
+     "source": "https://files.catbox.moe/88yl69.jpeg"
+    }
+   ]
+  },
+  "PICCOLO": {
+   "slug": "piccolo",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/piccolo/01_base_form.jpg",
+     "source": "https://files.catbox.moe/fp8cpk.jpeg"
+    },
+    {
+     "form": "Orange Piccolo",
+     "file": "Images/piccolo/02_orange_piccolo.jpg",
+     "source": "https://files.catbox.moe/jzn3zc.jpeg"
+    }
+   ]
+  },
+  "VEGITO [SUPER]": {
+   "slug": "vegito_super",
+   "forms": [
+    {
+     "form": "Base Vegito",
+     "file": "Images/vegito_super/01_base_vegito.jpg",
+     "source": "https://files.catbox.moe/6ylaas.jpeg"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/vegito_super/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/99bul7.jpeg"
+    },
+    {
+     "form": "Super Saiyan God",
+     "file": "Images/vegito_super/03_super_saiyan_god.jpg",
+     "source": "https://files.catbox.moe/t3ctyd.jpeg"
+    },
+    {
+     "form": "Super Saiyan Blue",
+     "file": "Images/vegito_super/04_super_saiyan_blue.jpg",
+     "source": "https://files.catbox.moe/tv1dii.jpeg"
+    }
+   ]
+  },
+  "GOGETA": {
+   "slug": "gogeta",
+   "forms": [
+    {
+     "form": "Base Gogeta",
+     "file": "Images/gogeta/01_base_gogeta.jpg",
+     "source": "https://files.catbox.moe/hy7rgy.jpeg"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/gogeta/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/qcwcfj.png"
+    },
+    {
+     "form": "Super Saiyan 2 - Potential",
+     "file": "Images/gogeta/03_super_saiyan_2_potential.jpg",
+     "source": "https://files.catbox.moe/r8c1jd.png"
+    },
+    {
+     "form": "Super Saiyan 3 - Potential",
+     "file": "Images/gogeta/04_super_saiyan_3_potential.jpg",
+     "source": "https://files.catbox.moe/md9cjz.png"
+    },
+    {
+     "form": "Super Saiyan 4",
+     "file": "Images/gogeta/05_super_saiyan_4.jpg",
+     "source": "https://files.catbox.moe/8o0x04.jpeg"
+    },
+    {
+     "form": "Super Saiyan God - Potential",
+     "file": "Images/gogeta/06_super_saiyan_god_potential.jpg",
+     "source": "https://files.catbox.moe/hp4myw.png"
+    },
+    {
+     "form": "Super Saiyan Blue",
+     "file": "Images/gogeta/07_super_saiyan_blue.jpg",
+     "source": "https://files.catbox.moe/lkl3bd.png"
+    }
+   ]
+  },
+  "ANDROID 21": {
+   "slug": "android_21",
+   "forms": [
+    {
+     "form": "Good Scientist Form",
+     "file": "Images/android_21/01_good_scientist_form.jpg",
+     "source": "https://files.catbox.moe/6q3j9y.jpeg"
+    },
+    {
+     "form": "Majin Form - Good/Controlled",
+     "file": "Images/android_21/02_majin_form_good_controlled.jpg",
+     "source": "https://files.catbox.moe/nhoomm.jpeg"
+    },
+    {
+     "form": "Evil Majin Form",
+     "file": "Images/android_21/03_evil_majin_form.jpg",
+     "source": "https://files.catbox.moe/1iwb2l.jpeg"
+    },
+    {
+     "form": "Corrupted Evil Majin Form",
+     "file": "Images/android_21/04_corrupted_evil_majin_form.jpg",
+     "source": "https://files.catbox.moe/pakr2q.jpeg"
+    }
+   ]
+  },
+  "COOLER": {
+   "slug": "cooler",
+   "forms": [
+    {
+     "form": "Fourth Form",
+     "file": "Images/cooler/01_fourth_form.jpg",
+     "source": "https://files.catbox.moe/z416f9.jpeg"
+    },
+    {
+     "form": "Fifth Form",
+     "file": "Images/cooler/02_fifth_form.jpg",
+     "source": "https://files.catbox.moe/g5bkqz.jpeg"
+    },
+    {
+     "form": "Golden Fourth Form",
+     "file": "Images/cooler/03_golden_fourth_form.jpg",
+     "source": "https://files.catbox.moe/k8r97c.jpeg"
+    },
+    {
+     "form": "Golden Fifth Form",
+     "file": "Images/cooler/04_golden_fifth_form.jpg",
+     "source": "https://files.catbox.moe/93j2un.jpeg"
+    },
+    {
+     "form": "Meta-Cooler",
+     "file": "Images/cooler/05_meta_cooler.jpg",
+     "source": "https://files.catbox.moe/6phy9e.jpeg"
+    }
+   ]
+  },
+  "BROLY (DBS)": {
+   "slug": "broly_dbs",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/broly_dbs/01_base_form.jpg",
+     "source": "https://files.catbox.moe/ho3o7o.jpeg"
+    },
+    {
+     "form": "Great Ape Power / Wrathful Form",
+     "file": "Images/broly_dbs/02_great_ape_power_wrathful_form.jpg",
+     "source": "https://files.catbox.moe/yusyqn.jpeg"
+    },
+    {
+     "form": "Super Saiyan - Uncontrolled",
+     "file": "Images/broly_dbs/03_super_saiyan_uncontrolled.jpg",
+     "source": "https://files.catbox.moe/q2tylc.jpeg"
+    },
+    {
+     "form": "Legendary Super Saiyan / Super Saiyan Full Power",
+     "file": "Images/broly_dbs/04_legendary_super_saiyan_super_saiyan_full.jpg",
+     "source": "https://files.catbox.moe/0dof4c.jpeg"
+    },
+    {
+     "form": "Controlled Super Saiyan",
+     "file": "Images/broly_dbs/05_controlled_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/x92oxo.jpeg"
+    }
+   ]
+  },
+  "KING COLD": {
+   "slug": "king_cold",
+   "forms": [
+    {
+     "form": "First Form - Suppressed",
+     "file": "Images/king_cold/01_first_form_suppressed.jpg",
+     "source": "https://files.catbox.moe/ax41wd.jpeg"
+    }
+   ]
+  },
+  "MAJIN BUU": {
+   "slug": "majin_buu",
+   "forms": [
+    {
+     "form": "Fat Buu / Majin Buu",
+     "file": "Images/majin_buu/01_fat_buu_majin_buu.jpg",
+     "source": "https://files.catbox.moe/6nwjxj.jpeg"
+    },
+    {
+     "form": "Evil Buu / Grey Buu",
+     "file": "Images/majin_buu/02_evil_buu_grey_buu.jpg",
+     "source": "https://files.catbox.moe/4pys04.jpeg"
+    },
+    {
+     "form": "Super Buu",
+     "file": "Images/majin_buu/03_super_buu.jpg",
+     "source": "https://files.catbox.moe/3wmzwk.jpeg"
+    },
+    {
+     "form": "Kid Buu / Pure Buu",
+     "file": "Images/majin_buu/04_kid_buu_pure_buu.jpg",
+     "source": "https://files.catbox.moe/hrpak6.jpeg"
+    }
+   ]
+  },
+  "TURLES": {
+   "slug": "turles",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/turles/01_base_form.jpg",
+     "source": "https://files.catbox.moe/tfx13a.jpeg"
+    },
+    {
+     "form": "Fruit-Enhanced",
+     "file": "Images/turles/02_fruit_enhanced.jpg",
+     "source": "https://files.catbox.moe/tfx13a.jpeg"
+    },
+    {
+     "form": "Oozaru",
+     "file": "Images/turles/03_oozaru.jpg",
+     "source": "https://files.catbox.moe/qs4cg4.jpeg"
+    }
+   ]
+  },
+  "ไอเท็ม: Corrupted Dragon Ball": {
+   "slug": "corrupted_dragon_ball",
+   "forms": [
+    {
+     "form": "* 2 ดาว: * 3 ดาว: * 4 ดาว:",
+     "file": "Images/corrupted_dragon_ball/01_2_3_4.jpg",
+     "source": "https://files.catbox.moe/8no4vi.PNG"
+    },
+    {
+     "form": "* 3 ดาว: * 4 ดาว: * 5 ดาว:",
+     "file": "Images/corrupted_dragon_ball/02_3_4_5.jpg",
+     "source": "https://files.catbox.moe/5jgwl6.PNG"
+    },
+    {
+     "form": "* 4 ดาว: * 5 ดาว: * 6 ดาว: * 7 ดาว: <img src",
+     "file": "Images/corrupted_dragon_ball/03_4_5_6_7_img_src.jpg",
+     "source": "https://files.catbox.moe/61xcwj.PNG"
+    },
+    {
+     "form": "* 5 ดาว: * 6 ดาว: * 7 ดาว: **ข้อมูล (Descript",
+     "file": "Images/corrupted_dragon_ball/04_5_6_7_descript.jpg",
+     "source": "https://files.catbox.moe/ktdoy7.PNG"
+    },
+    {
+     "form": "Description",
+     "file": "Images/corrupted_dragon_ball/05_description.jpg",
+     "source": "https://files.catbox.moe/fuzg9u.PNG"
+    },
+    {
+     "form": "Description",
+     "file": "Images/corrupted_dragon_ball/06_description.jpg",
+     "source": "https://files.catbox.moe/c347xk.PNG"
+    },
+    {
+     "form": "Description",
+     "file": "Images/corrupted_dragon_ball/07_description.jpg",
+     "source": "https://files.catbox.moe/u8oe2j.PNG"
+    },
+    {
+     "form": "1",
+     "file": "Images/corrupted_dragon_ball/08_1.jpg",
+     "source": "https://files.catbox.moe/8no4vi.PNG"
+    },
+    {
+     "form": "2",
+     "file": "Images/corrupted_dragon_ball/09_2.jpg",
+     "source": "https://files.catbox.moe/5jgwl6.PNG"
+    },
+    {
+     "form": "3",
+     "file": "Images/corrupted_dragon_ball/10_3.jpg",
+     "source": "https://files.catbox.moe/61xcwj.PNG"
+    },
+    {
+     "form": "4",
+     "file": "Images/corrupted_dragon_ball/11_4.jpg",
+     "source": "https://files.catbox.moe/ktdoy7.PNG"
+    },
+    {
+     "form": "5",
+     "file": "Images/corrupted_dragon_ball/12_5.jpg",
+     "source": "https://files.catbox.moe/fuzg9u.PNG"
+    },
+    {
+     "form": "6",
+     "file": "Images/corrupted_dragon_ball/13_6.jpg",
+     "source": "https://files.catbox.moe/c347xk.PNG"
+    },
+    {
+     "form": "7",
+     "file": "Images/corrupted_dragon_ball/14_7.jpg",
+     "source": "https://files.catbox.moe/u8oe2j.PNG"
+    }
+   ]
+  },
+  "CAULIFLA": {
+   "slug": "caulifla",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/caulifla/01_base_form.jpg",
+     "source": "https://files.catbox.moe/k5ooeh.jpeg"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/caulifla/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/omuc92.jpeg"
+    },
+    {
+     "form": "Super Saiyan 2",
+     "file": "Images/caulifla/03_super_saiyan_2.jpg",
+     "source": "https://files.catbox.moe/zpmmut.jpeg"
+    },
+    {
+     "form": "Super Saiyan 3 - Potential",
+     "file": "Images/caulifla/04_super_saiyan_3_potential.jpg",
+     "source": "https://files.catbox.moe/vvxzop.jpeg"
+    },
+    {
+     "form": "Super Saiyan God - Potential",
+     "file": "Images/caulifla/05_super_saiyan_god_potential.jpg",
+     "source": "https://files.catbox.moe/m27ioo.jpeg"
+    }
+   ]
+  },
+  "KALE": {
+   "slug": "kale",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/kale/01_base_form.jpg",
+     "source": "https://files.catbox.moe/dr0aat.jpeg"
+    },
+    {
+     "form": "คลั่ง",
+     "file": "Images/kale/02_img2.jpg",
+     "source": "https://files.catbox.moe/op5twc.jpeg"
+    },
+    {
+     "form": "ควบคุมได้",
+     "file": "Images/kale/03_img3.jpg",
+     "source": "https://files.catbox.moe/ntutcp.jpeg"
+    }
+   ]
+  },
+  "KEFLA": {
+   "slug": "kefla",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/kefla/01_base_form.jpg",
+     "source": "https://files.catbox.moe/gvqglz.jpeg"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/kefla/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/rcgtim.jpeg"
+    }
+   ]
+  },
+  "GOKU BLACK": {
+   "slug": "goku_black",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/goku_black/01_base_form.jpg",
+     "source": "https://files.catbox.moe/i6lsii.jpeg"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/goku_black/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/84lozi.jpeg"
+    },
+    {
+     "form": "Super Saiyan Rosé",
+     "file": "Images/goku_black/03_super_saiyan_ros.jpg",
+     "source": "https://files.catbox.moe/90akhl.jpeg"
+    },
+    {
+     "form": "Super Saiyan Rosé Perfected",
+     "file": "Images/goku_black/04_super_saiyan_ros_perfected.jpg",
+     "source": "https://files.catbox.moe/npnxh5.jpeg"
+    }
+   ]
+  },
+  "ZAMASU": {
+   "slug": "zamasu",
+   "forms": [
+    {
+     "form": "Apprentice Kai",
+     "file": "Images/zamasu/01_apprentice_kai.jpg",
+     "source": "https://files.catbox.moe/crlcly.jpeg"
+    },
+    {
+     "form": "Immortal Zamasu",
+     "file": "Images/zamasu/02_immortal_zamasu.jpg",
+     "source": "https://files.catbox.moe/n0zg5z.jpeg"
+    },
+    {
+     "form": "Fused Zamasu",
+     "file": "Images/zamasu/03_fused_zamasu.jpg",
+     "source": "https://files.catbox.moe/mt7cpr.jpeg"
+    },
+    {
+     "form": "Corrupted Fused Zamasu",
+     "file": "Images/zamasu/04_corrupted_fused_zamasu.jpg",
+     "source": "https://files.catbox.moe/cq57yv.jpeg"
+    }
+   ]
+  },
+  "RADITZ": {
+   "slug": "raditz",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/raditz/01_base_form.jpg",
+     "source": "https://files.catbox.moe/8p1rk7.jpeg"
+    },
+    {
+     "form": "Super Saiyan - Non-Canon",
+     "file": "Images/raditz/02_super_saiyan_non_canon.jpg",
+     "source": "https://files.catbox.moe/cgs29a.jpeg"
+    }
+   ]
+  },
+  "HIT [ASSASSIN]": {
+   "slug": "hit_assassin",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/hit_assassin/01_base_form.jpg",
+     "source": "https://files.catbox.moe/2cp5id.jpeg"
+    }
+   ]
+  },
+  "BROLY [Z]": {
+   "slug": "broly_z",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/broly_z/01_base_form.jpg",
+     "source": "https://files.catbox.moe/54a5wt.png"
+    },
+    {
+     "form": "Type C / Controlled Super Saiyan",
+     "file": "Images/broly_z/02_type_c_controlled_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/1p1u74.png"
+    },
+    {
+     "form": "Type C - Berserk",
+     "file": "Images/broly_z/03_type_c_berserk.jpg",
+     "source": "https://files.catbox.moe/mg7ls5.png"
+    },
+    {
+     "form": "Legendary Super Saiyan - Controlled",
+     "file": "Images/broly_z/04_legendary_super_saiyan_controlled.jpg",
+     "source": "https://files.catbox.moe/cpnmft.png"
+    },
+    {
+     "form": "Legendary Super Saiyan - Berserk",
+     "file": "Images/broly_z/05_legendary_super_saiyan_berserk.jpg",
+     "source": "https://files.catbox.moe/68rwtp.png"
+    },
+    {
+     "form": "Super Saiyan 4 - Head Canon / Potential",
+     "file": "Images/broly_z/06_super_saiyan_4_head_canon_potential.jpg",
+     "source": "https://files.catbox.moe/ua69oh.png"
+    }
+   ]
+  },
+  "SAIBAMAN": {
+   "slug": "saibaman",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/saibaman/01_base_form.jpg",
+     "source": "https://files.catbox.moe/g7mejg.jpeg"
+    }
+   ]
+  },
+  "NAPPA": {
+   "slug": "nappa",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/nappa/01_base_form.jpg",
+     "source": "https://files.catbox.moe/15e0v7.jpeg"
+    },
+    {
+     "form": "Oozaru",
+     "file": "Images/nappa/02_oozaru.jpg",
+     "source": "https://files.catbox.moe/ewlv8q.jpeg"
+    }
+   ]
+  },
+  "ANDROID 17": {
+   "slug": "android_17",
+   "forms": [
+    {
+     "form": "Base Form - Z Timeline",
+     "file": "Images/android_17/01_base_form_z_timeline.jpg",
+     "source": "https://files.catbox.moe/1o33gz.jpeg"
+    },
+    {
+     "form": "Base Form - GT Timeline",
+     "file": "Images/android_17/02_base_form_gt_timeline.jpg",
+     "source": "https://files.catbox.moe/olkkes.jpeg"
+    }
+   ]
+  },
+  "ANDROID 18": {
+   "slug": "android_18",
+   "forms": [
+    {
+     "form": "Base Form - Z Timeline",
+     "file": "Images/android_18/01_base_form_z_timeline.jpg",
+     "source": "https://files.catbox.moe/ovkevt.jpeg"
+    }
+   ]
+  },
+  "BABY": {
+   "slug": "baby",
+   "forms": [
+    {
+     "form": "Infant Parasite Form",
+     "file": "Images/baby/01_infant_parasite_form.jpg",
+     "source": "https://files.catbox.moe/bab0qv.jpeg"
+    },
+    {
+     "form": "Growing Form",
+     "file": "Images/baby/02_growing_form.jpg",
+     "source": "https://files.catbox.moe/gqgwqt.jpeg"
+    },
+    {
+     "form": "Adult/Pre-Possession Form",
+     "file": "Images/baby/03_adult_pre_possession_form.jpg",
+     "source": "https://files.catbox.moe/gdfci2.jpeg"
+    }
+   ]
+  },
+  "CELL MAX": {
+   "slug": "cell_max",
+   "forms": [
+    {
+     "form": "Berserk Form",
+     "file": "Images/cell_max/01_berserk_form.jpg",
+     "source": "https://files.catbox.moe/skumpr.jpeg"
+    }
+   ]
+  },
+  "VEGETA [GT]": {
+   "slug": "vegeta_gt",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/vegeta_gt/01_base_form.jpg",
+     "source": "https://files.catbox.moe/w1ll5z.webp"
+    },
+    {
+     "form": "Super Saiyan 1 & 2",
+     "file": "Images/vegeta_gt/02_super_saiyan_1_2.jpg",
+     "source": "https://files.catbox.moe/5vmlnk.jpeg"
+    },
+    {
+     "form": "Super Saiyan 4",
+     "file": "Images/vegeta_gt/03_super_saiyan_4.jpg",
+     "source": "https://files.catbox.moe/71yq3l.jpeg"
+    },
+    {
+     "form": "Base Form / Early Possession",
+     "file": "Images/vegeta_gt/04_base_form_early_possession.jpg",
+     "source": "https://files.catbox.moe/qxrmhk.jpeg"
+    },
+    {
+     "form": "Super Baby Vegeta 1",
+     "file": "Images/vegeta_gt/05_super_baby_vegeta_1.jpg",
+     "source": "https://files.catbox.moe/zxgzz3.jpeg"
+    },
+    {
+     "form": "Super Baby Vegeta 2",
+     "file": "Images/vegeta_gt/06_super_baby_vegeta_2.jpg",
+     "source": "https://files.catbox.moe/nlsr7a.jpeg"
+    },
+    {
+     "form": "Great Ape Baby",
+     "file": "Images/vegeta_gt/07_great_ape_baby.jpg",
+     "source": "https://files.catbox.moe/4l6c4b.jpeg"
+    }
+   ]
+  },
+  "GOKU [GT]": {
+   "slug": "goku_gt",
+   "forms": [
+    {
+     "form": "Kid Base Form",
+     "file": "Images/goku_gt/01_kid_base_form.jpg",
+     "source": "https://files.catbox.moe/5mb6mx.jpeg"
+    },
+    {
+     "form": "Kid Super Saiyan 1 & 2",
+     "file": "Images/goku_gt/02_kid_super_saiyan_1_2.jpg",
+     "source": "https://files.catbox.moe/64iq1d.jpeg"
+    },
+    {
+     "form": "Kid Super Saiyan 3",
+     "file": "Images/goku_gt/03_kid_super_saiyan_3.jpg",
+     "source": "https://files.catbox.moe/m5hu6g.jpeg"
+    },
+    {
+     "form": "Adult Base Form - Temporarily",
+     "file": "Images/goku_gt/04_adult_base_form_temporarily.jpg",
+     "source": "https://files.catbox.moe/j6bvcq.jpeg"
+    },
+    {
+     "form": "Adult Super Saiyan 1 & 2 - Temporarily",
+     "file": "Images/goku_gt/05_adult_super_saiyan_1_2_temporarily.jpg",
+     "source": "https://files.catbox.moe/9gce9v.jpeg"
+    },
+    {
+     "form": "Adult Super Saiyan 3 - Temporarily",
+     "file": "Images/goku_gt/06_adult_super_saiyan_3_temporarily.jpg",
+     "source": "https://files.catbox.moe/6nie3t.jpeg"
+    },
+    {
+     "form": "Super Saiyan 4 - Full Power",
+     "file": "Images/goku_gt/07_super_saiyan_4_full_power.jpg",
+     "source": "https://files.catbox.moe/n0e2y9.jpeg"
+    }
+   ]
+  },
+  "VEGETA [Early - Z]": {
+   "slug": "vegeta_early_z",
+   "forms": [
+    {
+     "form": "Base Form - Suppressed",
+     "file": "Images/vegeta_early_z/01_base_form_suppressed.jpg",
+     "source": "https://files.catbox.moe/xnocm3.jpeg"
+    },
+    {
+     "form": "Full Power - Base Form",
+     "file": "Images/vegeta_early_z/02_full_power_base_form.jpg",
+     "source": "https://files.catbox.moe/hqf2bg.jpeg"
+    },
+    {
+     "form": "Oozaru",
+     "file": "Images/vegeta_early_z/03_oozaru.jpg",
+     "source": "https://files.catbox.moe/kxh7o9.jpeg"
+    }
+   ]
+  },
+  "GOTEN": {
+   "slug": "goten",
+   "forms": [
+    {
+     "form": "Kid Base Form",
+     "file": "Images/goten/01_kid_base_form.jpg",
+     "source": "https://files.catbox.moe/eejkq4.png"
+    },
+    {
+     "form": "Kid Super Saiyan",
+     "file": "Images/goten/02_kid_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/uxvlj5.jpeg"
+    },
+    {
+     "form": "Teen Base Form - Super Hero Arc",
+     "file": "Images/goten/03_teen_base_form_super_hero_arc.jpg",
+     "source": "https://files.catbox.moe/otx2oe.jpeg"
+    }
+   ]
+  },
+  "TRUNK [Present Timeline]": {
+   "slug": "trunk_present_timeline",
+   "forms": [
+    {
+     "form": "Kid Base Form",
+     "file": "Images/trunk_present_timeline/01_kid_base_form.jpg",
+     "source": "https://files.catbox.moe/pwhg7u.PNG"
+    },
+    {
+     "form": "Kid Super Saiyan",
+     "file": "Images/trunk_present_timeline/02_kid_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/52b3ut.jpeg"
+    },
+    {
+     "form": "Teen Base Form - Super Hero Arc",
+     "file": "Images/trunk_present_timeline/03_teen_base_form_super_hero_arc.jpg",
+     "source": "https://files.catbox.moe/l8h1y8.jpeg"
+    }
+   ]
+  },
+  "GOTENKS": {
+   "slug": "gotenks",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/gotenks/01_base_form.jpg",
+     "source": "https://files.catbox.moe/lf0rq8.png"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/gotenks/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/7rpn2z.png"
+    },
+    {
+     "form": "Super Saiyan 2 - Potential",
+     "file": "Images/gotenks/03_super_saiyan_2_potential.jpg",
+     "source": "https://files.catbox.moe/3nlivz.png"
+    },
+    {
+     "form": "Super Saiyan 3",
+     "file": "Images/gotenks/04_super_saiyan_3.jpg",
+     "source": "https://files.catbox.moe/q7sahu.png"
+    },
+    {
+     "form": "Super Saiyan 4 - Potential",
+     "file": "Images/gotenks/05_super_saiyan_4_potential.jpg",
+     "source": "https://files.catbox.moe/x2uf9o.png"
+    },
+    {
+     "form": "Super Saiyan God - Potential",
+     "file": "Images/gotenks/06_super_saiyan_god_potential.jpg",
+     "source": "https://files.catbox.moe/zu6g44.png"
+    }
+   ]
+  },
+  "TRUNKS [Z] [Future]": {
+   "slug": "trunks_z_future",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/trunks_z_future/01_base_form.jpg",
+     "source": "https://files.catbox.moe/p2yjkc.png"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/trunks_z_future/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/lc40lp.png"
+    },
+    {
+     "form": "Full Power - หลังศึกเซลล์",
+     "file": "Images/trunks_z_future/03_full_power.jpg",
+     "source": "https://files.catbox.moe/09a0tb.png"
+    }
+   ]
+  },
+  "TRUNKS [Super] [Future]": {
+   "slug": "trunks_super_future",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/trunks_super_future/01_base_form.jpg",
+     "source": "https://files.catbox.moe/x8wxor.png"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/trunks_super_future/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/nbncbg.png"
+    },
+    {
+     "form": "Full Power",
+     "file": "Images/trunks_super_future/03_full_power.jpg",
+     "source": "https://files.catbox.moe/532yol.png"
+    },
+    {
+     "form": "Super Saiyan 2",
+     "file": "Images/trunks_super_future/04_super_saiyan_2.jpg",
+     "source": "https://files.catbox.moe/4jbkk1.png"
+    },
+    {
+     "form": "Super Saiyan Rage / SS Hikari",
+     "file": "Images/trunks_super_future/05_super_saiyan_rage_ss_hikari.jpg",
+     "source": "https://files.catbox.moe/96twb3.png"
+    },
+    {
+     "form": "Super Saiyan 3 - Potential",
+     "file": "Images/trunks_super_future/06_super_saiyan_3_potential.jpg",
+     "source": "https://files.catbox.moe/npriz7.png"
+    },
+    {
+     "form": "Super Saiyan God - Potential",
+     "file": "Images/trunks_super_future/07_super_saiyan_god_potential.jpg",
+     "source": "https://files.catbox.moe/ixkeon.png"
+    }
+   ]
+  },
+  "ANDROID 17 [SUPER]": {
+   "slug": "android_17_super",
+   "forms": [
+    {
+     "form": "Base Form - Super Timeline",
+     "file": "Images/android_17_super/01_base_form_super_timeline.jpg",
+     "source": "https://files.catbox.moe/bqtatd.png"
+    }
+   ]
+  },
+  "ANDROID 18 [SUPER]": {
+   "slug": "android_18_super",
+   "forms": [
+    {
+     "form": "Base Form - Super Timeline",
+     "file": "Images/android_18_super/01_base_form_super_timeline.jpg",
+     "source": "https://files.catbox.moe/xbseq8.png"
+    }
+   ]
+  },
+  "KRILLIN": {
+   "slug": "krillin",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/krillin/01_base_form.jpg",
+     "source": "https://files.catbox.moe/dy3lcr.png"
+    }
+   ]
+  },
+  "YAMCHA": {
+   "slug": "yamcha",
+   "forms": [
+    {
+     "form": "Base Form - Early Dragon Ball",
+     "file": "Images/yamcha/01_base_form_early_dragon_ball.jpg",
+     "source": "https://files.catbox.moe/u8jyeu.png"
+    },
+    {
+     "form": "Base Form - Super Timeline",
+     "file": "Images/yamcha/02_base_form_super_timeline.jpg",
+     "source": "https://files.catbox.moe/u8jyeu.png"
+    },
+    {
+     "form": "Super Saiyan - Potential / Gag",
+     "file": "Images/yamcha/03_super_saiyan_potential_gag.jpg",
+     "source": "https://files.catbox.moe/u8jyeu.png"
+    }
+   ]
+  },
+  "TIEN SHINHAN": {
+   "slug": "tien_shinhan",
+   "forms": [
+    {
+     "form": "Base Form - Early Dragon Ball / Z",
+     "file": "Images/tien_shinhan/01_base_form_early_dragon_ball_z.jpg",
+     "source": "https://files.catbox.moe/3w4dvb.png"
+    },
+    {
+     "form": "Base Form - Super Timeline",
+     "file": "Images/tien_shinhan/02_base_form_super_timeline.jpg",
+     "source": "https://files.catbox.moe/3w4dvb.png"
+    }
+   ]
+  },
+  "ROSHI": {
+   "slug": "roshi",
+   "forms": [
+    {
+     "form": "Base Form - Early Dragon Ball / Z / Super",
+     "file": "Images/roshi/01_base_form_early_dragon_ball_z_super.jpg",
+     "source": "https://files.catbox.moe/8ihrvr.png"
+    },
+    {
+     "form": "Max Power Form",
+     "file": "Images/roshi/02_max_power_form.jpg",
+     "source": "https://files.catbox.moe/9ve2gs.png"
+    }
+   ]
+  },
+  "GOHAN [FUTURE]": {
+   "slug": "gohan_future",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/gohan_future/01_base_form.jpg",
+     "source": "https://files.catbox.moe/1np8wp.png"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/gohan_future/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/2axkpg.png"
+    },
+    {
+     "form": "Super Saiyan 2 - Potential",
+     "file": "Images/gohan_future/03_super_saiyan_2_potential.jpg",
+     "source": "https://files.catbox.moe/0sw87w.png"
+    },
+    {
+     "form": "Super Saiyan 3 - Potential",
+     "file": "Images/gohan_future/04_super_saiyan_3_potential.jpg",
+     "source": "https://files.catbox.moe/5ei74n.png"
+    },
+    {
+     "form": "Super Saiyan God - Potential",
+     "file": "Images/gohan_future/05_super_saiyan_god_potential.jpg",
+     "source": "https://files.catbox.moe/6ly6ff.png"
+    },
+    {
+     "form": "Super Saiyan Blue - Potential",
+     "file": "Images/gohan_future/06_super_saiyan_blue_potential.jpg",
+     "source": "https://files.catbox.moe/00nc5c.png"
+    }
+   ]
+  },
+  "BARDOCK": {
+   "slug": "bardock",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/bardock/01_base_form.jpg",
+     "source": "https://files.catbox.moe/vpss4k.png"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/bardock/02_super_saiyan.jpg",
+     "source": "https://files.catbox.moe/pc569i.png"
+    },
+    {
+     "form": "Super Saiyan 2 - Potential",
+     "file": "Images/bardock/03_super_saiyan_2_potential.jpg",
+     "source": "https://files.catbox.moe/oiz4t0.png"
+    },
+    {
+     "form": "Super Saiyan 3 - Potential",
+     "file": "Images/bardock/04_super_saiyan_3_potential.jpg",
+     "source": "https://files.catbox.moe/aj7qjp.png"
+    }
+   ]
+  },
+  "GINE": {
+   "slug": "gine",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/gine/01_base_form.jpg",
+     "source": "https://files.catbox.moe/50ad8n.png"
+    },
+    {
+     "form": "Super Saiyan - Potential / Non-Canon",
+     "file": "Images/gine/02_super_saiyan_potential_non_canon.jpg",
+     "source": "https://files.catbox.moe/5j3zaq.png"
+    },
+    {
+     "form": "Super Saiyan 2 - Potential / Non-Canon",
+     "file": "Images/gine/03_super_saiyan_2_potential_non_canon.jpg",
+     "source": "https://files.catbox.moe/n83n5b.png"
+    },
+    {
+     "form": "Super Saiyan 3 - Potential / Non-Canon",
+     "file": "Images/gine/04_super_saiyan_3_potential_non_canon.jpg",
+     "source": "https://files.catbox.moe/cngp55.png"
+    },
+    {
+     "form": "Super Saiyan 4 - Potential / Non-Canon",
+     "file": "Images/gine/05_super_saiyan_4_potential_non_canon.jpg",
+     "source": "https://files.catbox.moe/aezo6d.png"
+    }
+   ]
+  },
+  "FASHA": {
+   "slug": "fasha",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/fasha/01_base_form.jpg",
+     "source": "https://files.catbox.moe/yvcuj6.png"
+    },
+    {
+     "form": "Super Saiyan - Potential / Non-Canon",
+     "file": "Images/fasha/02_super_saiyan_potential_non_canon.jpg",
+     "source": "https://files.catbox.moe/i0gdpt.png"
+    }
+   ]
+  },
+  "CHEELAI": {
+   "slug": "cheelai",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/cheelai/01_base_form.jpg",
+     "source": "https://files.catbox.moe/mjshuc.png"
+    }
+   ]
+  },
+  "VIDEL": {
+   "slug": "videl",
+   "forms": [
+    {
+     "form": "Z Timeline",
+     "file": "Images/videl/01_z_timeline.jpg",
+     "source": "https://files.catbox.moe/vjgttp.png"
+    },
+    {
+     "form": "Super Timeline",
+     "file": "Images/videl/02_super_timeline.jpg",
+     "source": "https://files.catbox.moe/w78htk.png"
+    }
+   ]
+  },
+  "AEOS [DBH]": {
+   "slug": "aeos_dbh",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/aeos_dbh/01_base_form.jpg",
+     "source": "https://files.catbox.moe/joeeh0.png"
+    },
+    {
+     "form": "Prime Supreme Kai of Time Form",
+     "file": "Images/aeos_dbh/02_prime_supreme_kai_of_time_form.jpg",
+     "source": "https://files.catbox.moe/qn9k1l.png"
+    }
+   ]
+  },
+  "CHRONOA [DBH]": {
+   "slug": "chronoa_dbh",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/chronoa_dbh/01_base_form.jpg",
+     "source": "https://files.catbox.moe/v51vr0.png"
+    },
+    {
+     "form": "Full Power",
+     "file": "Images/chronoa_dbh/02_full_power.jpg",
+     "source": "https://files.catbox.moe/qlo8io.png"
+    },
+    {
+     "form": "Grand Supreme Kai of Time",
+     "file": "Images/chronoa_dbh/03_grand_supreme_kai_of_time.jpg",
+     "source": "https://files.catbox.moe/n6t0yp.png"
+    },
+    {
+     "form": "Adult Chronoa - Potential",
+     "file": "Images/chronoa_dbh/04_adult_chronoa_potential.jpg",
+     "source": "https://files.catbox.moe/94fuxr.png"
+    }
+   ]
+  },
+  "KAI'O-SHIN [U7]": {
+   "slug": "kai_o_shin_u7",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/kai_o_shin_u7/01_base_form.jpg",
+     "source": "https://files.catbox.moe/u1xq7j.png"
+    }
+   ]
+  },
+  "OLD KAI [U7]": {
+   "slug": "old_kai_u7",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/old_kai_u7/01_base_form.jpg",
+     "source": "https://files.catbox.moe/4hpz0q.jpeg"
+    }
+   ]
+  },
+  "KIBITO [U7]": {
+   "slug": "kibito_u7",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/kibito_u7/01_base_form.jpg",
+     "source": "https://files.catbox.moe/7wwiac.png"
+    }
+   ]
+  },
+  "MERUS": {
+   "slug": "merus",
+   "forms": [
+    {
+     "form": "Angel-in-Training / Galactic Patrolman",
+     "file": "Images/merus/01_angel_in_training_galactic_patrolman.jpg",
+     "source": "https://files.catbox.moe/5tv0mn.png"
+    }
+   ]
+  },
+  "KING KAI": {
+   "slug": "king_kai",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/king_kai/01_base_form.jpg",
+     "source": "https://files.catbox.moe/2anxz5.jpeg"
+    }
+   ]
+  },
+  "DABURA": {
+   "slug": "dabura",
+   "forms": [
+    {
+     "form": "Base Form / Demon King",
+     "file": "Images/dabura/01_base_form_demon_king.jpg",
+     "source": "https://files.catbox.moe/g8is6k.png"
+    }
+   ]
+  },
+  "CHI-CHI": {
+   "slug": "chi_chi",
+   "forms": [
+    {
+     "form": "Dragon Ball Classic",
+     "file": "Images/chi_chi/01_dragon_ball_classic.jpg",
+     "source": "https://files.catbox.moe/9zqyum.png"
+    },
+    {
+     "form": "Z Timeline",
+     "file": "Images/chi_chi/02_z_timeline.jpg",
+     "source": "https://files.catbox.moe/7kyj90.png"
+    },
+    {
+     "form": "Buu Saga - Super",
+     "file": "Images/chi_chi/03_buu_saga_super.jpg",
+     "source": "https://files.catbox.moe/hzpl6m.png"
+    }
+   ]
+  },
+  "ZANGYA": {
+   "slug": "zangya",
+   "forms": [
+    {
+     "form": "Base Form / Full Power",
+     "file": "Images/zangya/01_base_form_full_power.jpg",
+     "source": "https://files.catbox.moe/07yfzi.png"
+    }
+   ]
+  },
+  "TOWA": {
+   "slug": "towa",
+   "forms": [
+    {
+     "form": "Base Form / Demon Scientist",
+     "file": "Images/towa/01_base_form_demon_scientist.jpg",
+     "source": "https://files.catbox.moe/cts31b.png"
+    }
+   ]
+  },
+  "MARON": {
+   "slug": "maron",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/maron/01_base_form.jpg",
+     "source": "https://files.catbox.moe/5y3h8s.png"
+    }
+   ]
+  },
+  "ERASA": {
+   "slug": "erasa",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/erasa/01_base_form.jpg",
+     "source": "https://files.catbox.moe/cia7mr.png"
+    }
+   ]
+  },
+  "BOJACK": {
+   "slug": "bojack",
+   "forms": [
+    {
+     "form": "Base Form / Full Power",
+     "file": "Images/bojack/01_base_form_full_power.jpg",
+     "source": "https://files.catbox.moe/lt7cin.png"
+    }
+   ]
+  },
+  "XICOR [AF]": {
+   "slug": "xicor_af",
+   "forms": [
+    {
+     "form": "Base Form / Full Power",
+     "file": "Images/xicor_af/01_base_form_full_power.jpg",
+     "source": "https://files.catbox.moe/nz80bb.png"
+    },
+    {
+     "form": "Super Saiyan 5 - Potential / Fan-Made",
+     "file": "Images/xicor_af/02_super_saiyan_5_potential_fan_made.jpg",
+     "source": "https://files.catbox.moe/nz80bb.png"
+    }
+   ]
+  },
+  "GOHAN [BLACK]": {
+   "slug": "gohan_black",
+   "forms": [
+    {
+     "form": "Base Form - Godly Ki Infusion",
+     "file": "Images/gohan_black/01_base_form_godly_ki_infusion.jpg",
+     "source": "https://files.catbox.moe/5mm0ur.png"
+    },
+    {
+     "form": "Ultimate Gohan Black / Mystic Gohan Black",
+     "file": "Images/gohan_black/02_ultimate_gohan_black_mystic_gohan_black.jpg",
+     "source": "https://files.catbox.moe/hpll5h.png"
+    }
+   ]
+  }
+ }
+}
