@@ -124,7 +124,8 @@ async function srcWikiAll(tag){
   Object.keys(pp).forEach(function(k){var ii=pp[k].imageinfo&&pp[k].imageinfo[0];if(!ii||!ii.url)return;
    var low=(pp[k].title||'').toLowerCase();
    var sc=(/(splash|portrait|card|standing|fullbody|full_body)/.test(low)?100:0)+(/icon/.test(low)?5:0)+Math.round((ii.width||0)/1000);
-   out.push({src:'WIKI',url:ii.url,thumb:ii.thumburl||ii.url,score:sc,w:ii.width||0,h:ii.height||0,page:'https://wutheringwaves.fandom.com/wiki/'+n});
+   var clean=function(u){return String(u||'').replace(/\/revision\/latest.*$/,'');};
+   out.push({src:'WIKI',url:clean(ii.url),thumb:clean(ii.thumburl||ii.url),score:sc,w:ii.width||0,h:ii.height||0,page:'https://wutheringwaves.fandom.com/wiki/'+n});
   });
  }
  return out;
