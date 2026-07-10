@@ -14,22 +14,28 @@ button.alt{background:#2a3038;color:#c9c9cf}
 #log{font:11.5px ui-monospace,monospace;color:#9fe3cf;line-height:1.65;white-space:pre-wrap;background:#0d1014;border:1px solid #262b33;border-radius:8px;padding:11px;max-height:30vh;overflow:auto;margin:8px 0}
 #bar{height:7px;background:#262b33;border-radius:4px;overflow:hidden;margin:8px 0}
 #bar i{display:block;height:100%;width:0;background:#7dd8c0}
-#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;margin-top:14px}
-.c{background:#1b1f26;border:1px solid #2b313b;border-radius:10px;padding:8px;position:relative}
-.c.off{opacity:.32}
-.c img{width:100%;aspect-ratio:1;object-fit:cover;object-position:top;border-radius:7px;background:#12151a;cursor:pointer}
-.c b{display:block;font-size:11px;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.c small{font-size:9px;color:#8f8f96;display:block}
-.c .x{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.65);color:#ff8d7a;border:1px solid #444;font-size:11px;line-height:20px;text-align:center;cursor:pointer}
-.c .src{position:absolute;top:4px;left:4px;font:800 8px monospace;background:rgba(0,0,0,.7);color:#7dd8c0;padding:2px 6px;border-radius:3px;letter-spacing:.08em}
-.hint{font-size:10px;color:#6f7680;margin-top:3px}
+#grid{margin-top:14px}
+.ch{background:#171b21;border:1px solid #262b33;border-radius:10px;padding:9px 10px;margin-bottom:10px}
+.ch.off{opacity:.35}
+.ch .hd{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.ch .hd b{font-size:13px}
+.ch .hd small{font-size:10px;color:#7dd8c0;font-family:monospace}
+.ch .hd .x{margin-left:auto;font:700 10px monospace;background:#2a3038;color:#ff8d7a;border:0;padding:5px 10px;border-radius:5px}
+.strip{display:flex;gap:7px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.t{position:relative;flex:0 0 auto;width:104px;height:104px;border-radius:8px;overflow:hidden;border:3px solid transparent;cursor:pointer;background:#12151a}
+.t img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.t.sel{border-color:#7dd8c0}
+.t .sb{position:absolute;top:2px;left:2px;font:800 7.5px monospace;background:rgba(0,0,0,.75);color:#7dd8c0;padding:2px 5px;border-radius:3px}
+.t .sc{position:absolute;bottom:2px;right:2px;font:700 8px monospace;background:rgba(0,0,0,.75);color:#c9c9cf;padding:2px 5px;border-radius:3px}
+.t.sel::after{content:'✓';position:absolute;top:2px;right:2px;width:16px;height:16px;background:#7dd8c0;color:#10231d;font:800 11px/16px sans-serif;text-align:center;border-radius:50%}
 </style></head><body>
 <h1>WuWa <span>Gallery Packer</span> <small style="color:#6f7680;font-size:10px">// Danbooru · Gelbooru · Safebooru · yande.re · Konachan · Wiki · Zerochan</small></h1>
-<p class="n"><b>Discover</b> finds every WuWa character and pulls up to 8 candidates per character, cascading through 7 sources (badge shows which). Tap image = next candidate · ✕ = skip. <b>Find tags</b>: type part of a name (e.g. <i>rover</i>) to list the REAL booru tags with post counts. <b>Manual tags</b>: comma-separated, fetches only those. <b>Download ZIP</b> crops all picks to 1:1 640×640.</p>
+<p class="n"><b>Discover</b> finds every WuWa character and pulls up to 24 candidates each from 7 sources. Every character gets a <b>swipeable thumbnail strip</b> — tap a thumbnail to select/deselect it (teal border = will be packed); the top-N are pre-selected. <b>Find tags</b> shows real booru tags. <b>Download ZIP</b> crops every selected image to 1:1 640×640 into per-character folders, splitting into ~25 MB parts if needed.</p>
 <input type="text" id="wk" placeholder="(optional) Cloudflare worker URL — only needed if Danbooru is blocked on your network">
 <input type="text" id="mt" placeholder="(optional) manual tags, comma-separated — e.g. rover_(wuthering_waves), aalto">
 <input type="text" id="tf" placeholder="find tags: type a name fragment, e.g. rover — then press Find tags">
 <label class="ck"><input type="checkbox" id="sens"> include rating:sensitive (default = general/safe only)</label>
+<label class="ck">auto-select top <input type="number" id="selN" value="10" min="1" max="24" style="width:60px;background:#1b1f26;border:1px solid #333a44;border-radius:5px;color:#e8e8ea;padding:4px 6px"> images per character <button id="selApply" class="alt" style="padding:6px 10px;margin:0">apply to all</button></label>
 <button id="ft" class="alt">Find tags</button><button id="go">Discover characters</button><button id="zip" class="alt" disabled>Download ZIP</button>
 <div id="bar"><i></i></div>
 <div id="log">ready.</div>
@@ -56,33 +62,33 @@ async function srcDan(tag){
  var r=sens()?'rating:g,s':'rating:g';
  var posts=await dapi('/posts.json?tags='+encodeURIComponent(tag+' '+r)+'&limit=40')||[];
  return posts.filter(function(p){return p.large_file_url&&okExt(p.large_file_url)&&p.tag_count_character<=2&&!p.is_banned&&p.image_width>=500&&p.image_height>=500;})
-  .map(function(p){return {src:'DB',url:p.large_file_url,score:p.score||0,w:p.image_width,h:p.image_height,page:'https://danbooru.donmai.us/posts/'+p.id};});
+  .map(function(p){return {src:'DB',url:p.large_file_url,thumb:p.preview_file_url||p.large_file_url,score:p.score||0,w:p.image_width,h:p.image_height,page:'https://danbooru.donmai.us/posts/'+p.id};});
 }
 async function srcGel(tag){
  var r=sens()?'-rating:questionable -rating:explicit':'rating:general';
  var j=await J('https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=40&tags='+encodeURIComponent(tag+' '+r+' sort:score'));
  var posts=(j&&j.post)||[];if(!Array.isArray(posts))posts=[posts];
  return posts.filter(function(p){return p.file_url&&okExt(p.file_url)&&p.width>=500&&p.height>=500&&/(^| )solo( |$)/.test(p.tags||'');})
-  .map(function(p){return {src:'GB',url:p.file_url,score:parseInt(p.score)||0,w:p.width,h:p.height,page:'https://gelbooru.com/index.php?page=post&s=view&id='+p.id};});
+  .map(function(p){return {src:'GB',url:p.file_url,thumb:p.preview_url||p.file_url,score:parseInt(p.score)||0,w:p.width,h:p.height,page:'https://gelbooru.com/index.php?page=post&s=view&id='+p.id};});
 }
 async function srcMoe(host,label,tag){
  var r=sens()?'':' rating:s';
  var posts=await J('https://'+host+'/post.json?limit=40&tags='+encodeURIComponent(tag+r))||[];
  return posts.filter(function(p){return (p.file_url||p.sample_url)&&okExt(p.file_url||p.sample_url)&&p.width>=500&&p.height>=500&&(sens()||p.rating==='s');})
-  .map(function(p){return {src:label,url:p.file_url||p.sample_url,score:p.score||0,w:p.width,h:p.height,page:'https://'+host+'/post/show/'+p.id};});
+  .map(function(p){return {src:label,url:p.file_url||p.sample_url,thumb:p.preview_url||p.sample_url,score:p.score||0,w:p.width,h:p.height,page:'https://'+host+'/post/show/'+p.id};});
 }
 async function srcSfb(tag){
  var arr=await J('https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1&limit=40&tags='+encodeURIComponent(tag))||[];
  if(!Array.isArray(arr))arr=[arr];
  return arr.filter(function(p){return p.image&&okExt(p.image)&&p.width>=500&&p.height>=500&&/(^| )solo( |$)/.test(p.tags||'');})
-  .map(function(p){return {src:'SB',url:'https://safebooru.org/images/'+p.directory+'/'+p.image,score:parseInt(p.score)||0,w:p.width,h:p.height,page:'https://safebooru.org/index.php?page=post&s=view&id='+p.id};});
+  .map(function(p){return {src:'SB',url:'https://safebooru.org/images/'+p.directory+'/'+p.image,thumb:'https://safebooru.org/thumbnails/'+p.directory+'/thumbnail_'+p.image.replace(/\.\w+$/,'.jpg'),score:parseInt(p.score)||0,w:p.width,h:p.height,page:'https://safebooru.org/index.php?page=post&s=view&id='+p.id};});
 }
 async function srcWiki(tag){
  var n=wikiName(tag);
  var j=await J('https://wutheringwaves.fandom.com/api.php?action=query&titles='+encodeURIComponent(n)+'&prop=pageimages&piprop=original&redirects=1&format=json&origin=*');
  var pages=(j.query&&j.query.pages)||{};var out=[];
  Object.keys(pages).forEach(function(k){var pg=pages[k];
-  if(pg.original&&pg.original.source)out.push({src:'WIKI',url:pg.original.source.replace(/\/revision\/latest.*$/,''),score:1,w:999,h:999,page:'https://wutheringwaves.fandom.com/wiki/'+n});});
+  if(pg.original&&pg.original.source)out.push({src:'WIKI',url:pg.original.source.replace(/\/revision\/latest.*$/,''),thumb:pg.original.source.replace(/\/revision\/latest.*$/,''),score:1,w:999,h:999,page:'https://wutheringwaves.fandom.com/wiki/'+n});});
  return out;
 }
 async function srcZc(tag){
@@ -91,7 +97,7 @@ async function srcZc(tag){
  var items=(j&&j.items)||[];
  return items.filter(function(it){return it.width>=500&&it.height>=500&&it.thumbnail;}).map(function(it){
   var name=(it.tag||nice(tag)).replace(/ /g,'.');
-  return {src:'ZC',url:'https://static.zerochan.net/'+name+'.full.'+it.id+'.jpg',score:it.fav||0,w:it.width,h:it.height,page:'https://www.zerochan.net/'+it.id};});
+  return {src:'ZC',url:'https://static.zerochan.net/'+name+'.full.'+it.id+'.jpg',thumb:it.thumbnail,score:it.fav||0,w:it.width,h:it.height,page:'https://www.zerochan.net/'+it.id};});
 }
 var CASCADE=[['Danbooru',srcDan],['Gelbooru',srcGel],['yande.re',function(t){return srcMoe('yande.re','YD',t);}],
  ['Konachan',function(t){return srcMoe('konachan.net','KC',t);}],['Safebooru',srcSfb],['Wiki',srcWiki],['Zerochan',srcZc]];
@@ -99,14 +105,14 @@ var CASCADE=[['Danbooru',srcDan],['Gelbooru',srcGel],['yande.re',function(t){ret
 var strikes={};
 async function candidatesFor(tag){
  var out=[],errs=[];
- for(var i=0;i<CASCADE.length&&out.length<8;i++){
+ for(var i=0;i<CASCADE.length&&out.length<24;i++){
   var name=CASCADE[i][0];
   if((strikes[name]||0)>=2){errs.push(name+'(banned)');continue;}
   try{
    var got=await CASCADE[i][1](tag);
    strikes[name]=0;
    got.sort(function(a,b){return b.score-a.score;});
-   got.slice(0,8-out.length).forEach(function(c){out.push(c);});
+   got.slice(0,24-out.length).forEach(function(c){out.push(c);});
   }catch(e){errs.push(name);if(/timeout|Failed to fetch/i.test(e.message))strikes[name]=(strikes[name]||0)+1;}
  }
  return {cands:out,errs:errs};
@@ -156,7 +162,7 @@ $('go').onclick=async function(){
      if(probe.length&&wu.length/probe.length<0.5){say('· '+nice(t.name)+' — not WuWa, skipped');continue;}
     }
     var r=await candidatesFor(t.name);
-    if(r.cands.length){CH.push({tag:t.name,name:nice(t.name),slug:slug(t.name),cands:r.cands,i:0,skip:false});
+    if(r.cands.length){var n0=Math.max(1,Math.min(24,+$('selN').value||10));CH.push({tag:t.name,name:nice(t.name),slug:slug(t.name),cands:r.cands,sel:r.cands.map(function(_,j){return j<n0;}),skip:false});
      say('✓ '+nice(t.name)+' ('+r.cands.length+' candidates: '+r.cands.map(function(c){return c.src;}).join(',')+')'+(r.errs.length?'  [unreachable: '+r.errs.join(',')+']':''));}
     else say('✗ '+nice(t.name)+' — nothing usable on any source'+(r.errs.length?' [unreachable: '+r.errs.join(',')+']':''));
    }catch(e){say('✗ '+t.name+' — '+e.message);}
@@ -172,14 +178,26 @@ $('go').onclick=async function(){
 function render(){
  var g=$('grid');g.innerHTML='';
  CH.forEach(function(c){
-  var d=document.createElement('div');d.className='c'+(c.skip?' off':'');
-  var p=c.cands[c.i];
-  d.innerHTML='<img loading="lazy" src="'+p.url+'"><span class="src">'+p.src+'</span><span class="x">✕</span><b>'+c.name+'</b><small>score '+p.score+' · '+(c.i+1)+'/'+c.cands.length+'</small><div class="hint">tap image = next candidate</div>';
-  d.querySelector('img').onclick=function(){c.i=(c.i+1)%c.cands.length;render();};
+  var d=document.createElement('div');d.className='ch'+(c.skip?' off':'');
+  var selCount=c.sel.filter(Boolean).length;
+  var h='<div class="hd"><b>'+c.name+'</b><small>'+selCount+'/'+c.cands.length+' selected</small><button class="x">'+(c.skip?'unskip':'skip')+'</button></div><div class="strip">';
+  c.cands.forEach(function(p,j){
+   h+='<div class="t'+(c.sel[j]?' sel':'')+'" data-j="'+j+'"><img loading="lazy" src="'+(p.thumb||p.url)+'"><span class="sb">'+p.src+'</span><span class="sc">'+p.score+'</span></div>';
+  });
+  h+='</div>';
+  d.innerHTML=h;
   d.querySelector('.x').onclick=function(){c.skip=!c.skip;render();};
+  d.querySelectorAll('.t').forEach(function(el){
+   el.onclick=function(){var j=+el.dataset.j;c.sel[j]=!c.sel[j];render();};
+  });
   g.appendChild(d);
  });
 }
+$('selApply').onclick=function(){
+ var n=Math.max(1,Math.min(24,+$('selN').value||10));
+ CH.forEach(function(c){c.sel=c.cands.map(function(_,j){return j<n;});});
+ render();
+};
 
 /* ---------- zip ---------- */
 var CRC=(function(){var t=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return function(b){var c=0xFFFFFFFF;for(var i=0;i<b.length;i++)c=t[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;};})();
@@ -202,23 +220,37 @@ function cropSquare(img){var w=img.naturalWidth,h=img.naturalHeight,s=Math.min(w
  cv.getContext('2d').drawImage(img,sx,sy,s,s,0,0,640,640);return cv;}
 $('zip').onclick=async function(){
  $('zip').disabled=true;
- var picks=CH.filter(function(c){return !c.skip;});
- say('cropping + packing '+picks.length+' images…');
- var files=[],meta={};
- for(var i=0;i<picks.length;i++){
-  var c=picks[i],p=c.cands[c.i];bar.style.width=((i+1)/picks.length*100)+'%';
+ var jobs=[];
+ CH.forEach(function(c){if(c.skip)return;c.cands.forEach(function(p,j){if(c.sel[j])jobs.push({c:c,p:p,n:0});});});
+ var perChar={};jobs.forEach(function(x){perChar[x.c.slug]=(perChar[x.c.slug]||0)+1;});
+ say('cropping + packing '+jobs.length+' images across '+Object.keys(perChar).length+' characters…');
+ var files=[],meta={},bytes=0,part=1;
+ async function flush(last){
+  if(!files.length)return;
+  files.push({name:'_manifest.json',data:new TextEncoder().encode(JSON.stringify(meta,null,1))});
+  var b=zip(files),u=URL.createObjectURL(b),a=document.createElement('a');
+  var nm=(part===1&&last)?'wuwa-gallery.zip':('wuwa-gallery-part'+part+'.zip');
+  a.href=u;a.download=nm;document.body.appendChild(a);a.click();
+  say('… saved '+nm+' ('+Math.round(b.size/1048576*10)/10+' MB, '+(files.length-1)+' images)');
+  files=[];meta={};bytes=0;part++;
+  await new Promise(function(r){setTimeout(r,800);});
+ }
+ var counters={};
+ for(var i=0;i<jobs.length;i++){
+  var c=jobs[i].c,p=jobs[i].p;bar.style.width=((i+1)/jobs.length*100)+'%';
   try{
    var im=await loadImg(byteURLs(p.url));
-   var blob=await new Promise(function(r){cropSquare(im).toBlob(r,'image/jpeg',0.9);});
-   files.push({name:c.slug+'.jpg',data:new Uint8Array(await blob.arrayBuffer())});
-   meta[c.slug]={tag:c.tag,source:p.src,page:p.page,score:p.score};
-   say('✓ '+c.name+' ['+p.src+']');
-  }catch(e){say('✗ '+c.name+' — '+e.message);}
+   var blob=await new Promise(function(r){cropSquare(im).toBlob(r,'image/jpeg',0.87);});
+   counters[c.slug]=(counters[c.slug]||0)+1;
+   var fn=c.slug+'/'+counters[c.slug]+'.jpg';
+   var data=new Uint8Array(await blob.arrayBuffer());
+   files.push({name:fn,data:data});bytes+=data.length;
+   (meta[c.slug]=meta[c.slug]||[]).push({file:fn,source:p.src,page:p.page,score:p.score});
+   if(bytes>25*1048576)await flush(false);
+  }catch(e){say('✗ '+c.name+' #'+(counters[c.slug]||0)+' — '+e.message);}
  }
- files.push({name:'_manifest.json',data:new TextEncoder().encode(JSON.stringify(meta,null,1))});
- var b=zip(files),u=URL.createObjectURL(b),a=document.createElement('a');
- a.href=u;a.download='wuwa-gallery.zip';document.body.appendChild(a);a.click();
- say('--- zip saved ('+Math.round(b.size/1024)+' KB, '+(files.length-1)+' images @640×640 1:1) — attach it in the Claude chat.');
+ await flush(true);
+ say('--- all parts saved — attach the zip(s) in the Claude chat.');
  $('zip').disabled=false;
 };
 })();
