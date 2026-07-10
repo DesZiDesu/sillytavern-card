@@ -8,7 +8,7 @@ h1 span{color:#7dd8c0}
 p.n{font-size:12px;color:#9a9aa2;line-height:1.6;margin:8px 0}
 input[type=text]{width:100%;background:#1b1f26;border:1px solid #333a44;border-radius:7px;padding:9px 12px;font-size:12px;color:#e8e8ea;margin:4px 0}
 label.ck{font-size:12px;color:#c9c9cf;display:flex;gap:7px;align-items:center;margin:7px 0}
-button{font:800 13px -apple-system,sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#7dd8c0;color:#10231d;border:0;padding:12px 16px;border-radius:8px;margin:8px 8px 8px 0;cursor:pointer}
+button{font:800 12px -apple-system,sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#7dd8c0;color:#10231d;border:0;padding:11px 14px;border-radius:8px;margin:6px 6px 6px 0;cursor:pointer}
 button:disabled{background:#333a44;color:#8f8f96}
 button.alt{background:#2a3038;color:#c9c9cf}
 #log{font:11.5px ui-monospace,monospace;color:#9fe3cf;line-height:1.65;white-space:pre-wrap;background:#0d1014;border:1px solid #262b33;border-radius:8px;padding:11px;max-height:30vh;overflow:auto;margin:8px 0}
@@ -21,14 +21,16 @@ button.alt{background:#2a3038;color:#c9c9cf}
 .c b{display:block;font-size:11px;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .c small{font-size:9px;color:#8f8f96;display:block}
 .c .x{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.65);color:#ff8d7a;border:1px solid #444;font-size:11px;line-height:20px;text-align:center;cursor:pointer}
+.c .src{position:absolute;top:4px;left:4px;font:800 8px monospace;background:rgba(0,0,0,.7);color:#7dd8c0;padding:2px 6px;border-radius:3px;letter-spacing:.08em}
 .hint{font-size:10px;color:#6f7680;margin-top:3px}
 </style></head><body>
-<h1>WuWa <span>Gallery Packer</span> <small style="color:#6f7680;font-size:10px">// Danbooru</small></h1>
-<p class="n">1) Tap <b>Discover</b> — finds every Wuthering Waves character tag on Danbooru and auto-picks the highest-scored safe solo art for each. 2) Tap any image to cycle candidates; tap ✕ to skip a character. 3) <b>Download ZIP</b> crops everything to 1:1 (640×640) and saves <b>wuwa-gallery.zip</b> — attach that in the Claude chat.</p>
-<input type="text" id="wk" placeholder="(optional) your Cloudflare worker URL, e.g. https://pixiv-proxy.xxx.workers.dev — used if Danbooru is blocked on your network">
-<label class="ck"><input type="checkbox" id="sens"> include rating:sensitive (default = general only)</label>
-<input type="text" id="mt" placeholder="(optional) manual tags, comma-separated — e.g. rover_(female)_(wuthering_waves), aalto_(wuthering_waves) — fetches ONLY these, skips discovery">
-<button id="go">Discover characters</button><button id="zip" class="alt" disabled>Download ZIP</button>
+<h1>WuWa <span>Gallery Packer</span> <small style="color:#6f7680;font-size:10px">// Danbooru · Gelbooru · Safebooru · yande.re · Konachan · Wiki · Zerochan</small></h1>
+<p class="n"><b>Discover</b> finds every WuWa character and pulls up to 8 candidates per character, cascading through 7 sources (badge shows which). Tap image = next candidate · ✕ = skip. <b>Find tags</b>: type part of a name (e.g. <i>rover</i>) to list the REAL booru tags with post counts. <b>Manual tags</b>: comma-separated, fetches only those. <b>Download ZIP</b> crops all picks to 1:1 640×640.</p>
+<input type="text" id="wk" placeholder="(optional) Cloudflare worker URL — only needed if Danbooru is blocked on your network">
+<input type="text" id="mt" placeholder="(optional) manual tags, comma-separated — e.g. rover_(wuthering_waves), aalto">
+<input type="text" id="tf" placeholder="find tags: type a name fragment, e.g. rover — then press Find tags">
+<label class="ck"><input type="checkbox" id="sens"> include rating:sensitive (default = general/safe only)</label>
+<button id="ft" class="alt">Find tags</button><button id="go">Discover characters</button><button id="zip" class="alt" disabled>Download ZIP</button>
 <div id="bar"><i></i></div>
 <div id="log">ready.</div>
 <div id="grid"></div>
@@ -40,77 +42,140 @@ function say(s){log.textContent+='\n'+s;log.scrollTop=1e9;}
 var wk=localStorage.getItem('wuwa_wk')||'';$('wk').value=wk;
 $('wk').oninput=function(){wk=this.value.trim().replace(/\/+$/,'');localStorage.setItem('wuwa_wk',wk);};
 wk=wk.replace(/\/+$/,'');
-
-async function dapi(path){ // path like /posts.json?tags=...
- if(wk){var r=await fetch(wk+'/danbooru?path='+encodeURIComponent(path));return r.json();}
- var r2=await fetch('https://danbooru.donmai.us'+path);return r2.json();
-}
-function byteURLs(u){ // candidates for CORS bytes, best first
- var a=[u];
- if(wk)a.push(wk+'/dbimage?url='+encodeURIComponent(u));
- a.push('https://wsrv.nl/?url='+encodeURIComponent(u));
- return a;
-}
-var CH=[]; // {tag,name,slug,cands:[posts],i,skip}
-function slug(t){return t.replace(/_\((wuthering_waves|wuwa)\)$/,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
+function sens(){return $('sens').checked;}
+function J(u){return fetch(u).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();});}
+async function dapi(path){ if(wk)return J(wk+'/danbooru?path='+encodeURIComponent(path)); return J('https://danbooru.donmai.us'+path); }
+function slug(t){return String(t).toLowerCase().replace(/_\((wuthering_waves|wuwa)\)$/,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
 function nice(t){return slug(t).replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});}
+function wikiName(t){return nice(t).replace(/ /g,'_');}
+function okExt(u){return /\.(jpe?g|png|webp)(\?|$)/i.test(u||'');}
 
+/* ---------- source adapters: return [{src,url,score,w,h,page}] ---------- */
+async function srcDan(tag){
+ var r=sens()?'rating:g,s':'rating:g';
+ var posts=await dapi('/posts.json?tags='+encodeURIComponent(tag+' '+r)+'&limit=40')||[];
+ return posts.filter(function(p){return p.large_file_url&&okExt(p.large_file_url)&&p.tag_count_character<=2&&!p.is_banned&&p.image_width>=500&&p.image_height>=500;})
+  .map(function(p){return {src:'DB',url:p.large_file_url,score:p.score||0,w:p.image_width,h:p.image_height,page:'https://danbooru.donmai.us/posts/'+p.id};});
+}
+async function srcGel(tag){
+ var r=sens()?'-rating:questionable -rating:explicit':'rating:general';
+ var j=await J('https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=40&tags='+encodeURIComponent(tag+' '+r+' sort:score'));
+ var posts=(j&&j.post)||[];if(!Array.isArray(posts))posts=[posts];
+ return posts.filter(function(p){return p.file_url&&okExt(p.file_url)&&p.width>=500&&p.height>=500&&/(^| )solo( |$)/.test(p.tags||'');})
+  .map(function(p){return {src:'GB',url:p.file_url,score:parseInt(p.score)||0,w:p.width,h:p.height,page:'https://gelbooru.com/index.php?page=post&s=view&id='+p.id};});
+}
+async function srcMoe(host,label,tag){
+ var r=sens()?'':' rating:s';
+ var posts=await J('https://'+host+'/post.json?limit=40&tags='+encodeURIComponent(tag+r))||[];
+ return posts.filter(function(p){return (p.file_url||p.sample_url)&&okExt(p.file_url||p.sample_url)&&p.width>=500&&p.height>=500&&(sens()||p.rating==='s');})
+  .map(function(p){return {src:label,url:p.file_url||p.sample_url,score:p.score||0,w:p.width,h:p.height,page:'https://'+host+'/post/show/'+p.id};});
+}
+async function srcSfb(tag){
+ var arr=await J('https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1&limit=40&tags='+encodeURIComponent(tag))||[];
+ if(!Array.isArray(arr))arr=[arr];
+ return arr.filter(function(p){return p.image&&okExt(p.image)&&p.width>=500&&p.height>=500&&/(^| )solo( |$)/.test(p.tags||'');})
+  .map(function(p){return {src:'SB',url:'https://safebooru.org/images/'+p.directory+'/'+p.image,score:parseInt(p.score)||0,w:p.width,h:p.height,page:'https://safebooru.org/index.php?page=post&s=view&id='+p.id};});
+}
+async function srcWiki(tag){
+ var n=wikiName(tag);
+ var j=await J('https://wutheringwaves.fandom.com/api.php?action=query&titles='+encodeURIComponent(n)+'&prop=pageimages&piprop=original&redirects=1&format=json&origin=*');
+ var pages=(j.query&&j.query.pages)||{};var out=[];
+ Object.keys(pages).forEach(function(k){var pg=pages[k];
+  if(pg.original&&pg.original.source)out.push({src:'WIKI',url:pg.original.source.replace(/\/revision\/latest.*$/,''),score:1,w:999,h:999,page:'https://wutheringwaves.fandom.com/wiki/'+n});});
+ return out;
+}
+async function srcZc(tag){
+ var n=nice(tag).replace(/ /g,'+');
+ var j=await J('https://www.zerochan.net/'+n+'?json&l=12');
+ var items=(j&&j.items)||[];
+ return items.filter(function(it){return it.width>=500&&it.height>=500&&it.thumbnail;}).map(function(it){
+  var name=(it.tag||nice(tag)).replace(/ /g,'.');
+  return {src:'ZC',url:'https://static.zerochan.net/'+name+'.full.'+it.id+'.jpg',score:it.fav||0,w:it.width,h:it.height,page:'https://www.zerochan.net/'+it.id};});
+}
+var CASCADE=[['Danbooru',srcDan],['Gelbooru',srcGel],['yande.re',function(t){return srcMoe('yande.re','YD',t);}],
+ ['Konachan',function(t){return srcMoe('konachan.net','KC',t);}],['Safebooru',srcSfb],['Wiki',srcWiki],['Zerochan',srcZc]];
+
+async function candidatesFor(tag){
+ var out=[],errs=[];
+ for(var i=0;i<CASCADE.length&&out.length<8;i++){
+  try{
+   var got=await CASCADE[i][1](tag);
+   got.sort(function(a,b){return b.score-a.score;});
+   got.slice(0,8-out.length).forEach(function(c){out.push(c);});
+  }catch(e){errs.push(CASCADE[i][0]);}
+ }
+ return {cands:out,errs:errs};
+}
+
+/* ---------- tag finder ---------- */
+$('ft').onclick=async function(){
+ var q=($('tf').value||'').trim();if(!q)return;
+ $('ft').disabled=true;say('--- tag search "'+q+'":');
+ try{var d=await dapi('/tags.json?search[name_matches]=*'+encodeURIComponent(q)+'*&search[category]=4&search[order]=count&limit=10');
+  (d||[]).forEach(function(t){say('  DB  '+t.name+'  ('+t.post_count+' posts)');});
+  if(!d||!d.length)say('  DB  no character tags match');
+ }catch(e){say('  DB  error '+e.message);}
+ try{var g=await J('https://gelbooru.com/index.php?page=dapi&s=tag&q=index&json=1&limit=10&orderby=count&name_pattern=%'+encodeURIComponent(q)+'%');
+  var tags=(g&&g.tag)||[];if(!Array.isArray(tags))tags=[tags];
+  tags.filter(function(t){return t.type===4||t.type==='4';}).forEach(function(t){say('  GB  '+t.name+'  ('+t.count+' posts)');});
+ }catch(e){say('  GB  error '+e.message);}
+ say('paste the right tag into the manual field.');
+ $('ft').disabled=false;
+};
+
+/* ---------- main flow ---------- */
+var CH=[];
 $('go').onclick=async function(){
  $('go').disabled=true;CH=[];$('grid').innerHTML='';
  try{
   var manual=($('mt').value||'').split(',').map(function(x){return x.trim();}).filter(Boolean);
   var tags=[];
-  if(manual.length){tags=manual.map(function(n){return {name:n,pc:999};});say('manual mode: '+manual.join(', '));}
+  if(manual.length){tags=manual.map(function(n){return {name:n};});say('manual mode: '+manual.join(', '));}
   else{
-  say('discovering character tags for wuthering_waves…');
-  var j=await dapi('/related_tag.json?query=wuthering_waves&category=Character&limit=200');
-  var arr=j.related_tags||j.tags||[];
-  arr.forEach(function(it){
-   var t=it.tag||it; var name=t.name||it[0]; var cat=(t.category!=null?t.category:4); var pc=t.post_count||0;
-   if(name&&cat===4&&pc>=5)tags.push({name:name,pc:pc});
-  });
+   say('discovering character tags for wuthering_waves…');
+   var j=await dapi('/related_tag.json?query=wuthering_waves&category=Character&limit=200');
+   var arr=j.related_tags||j.tags||[];
+   arr.forEach(function(it){var t=it.tag||it;var name=t.name||it[0];var cat=(t.category!=null?t.category:4);var pc=t.post_count||0;
+    if(name&&cat===4&&pc>=5)tags.push({name:name,pc:pc});});
   }
-  if(!tags.length)throw new Error('no character tags returned — try the worker URL field');
-  say('found '+tags.length+' character tags. fetching best art…');
-  var rating=$('sens').checked?'rating:g,s':'rating:g';
+  if(!tags.length)throw new Error('no character tags — use Find tags / manual field');
+  say(tags.length+' characters to process…');
   for(var i=0;i<tags.length;i++){
    bar.style.width=((i+1)/tags.length*100)+'%';
    var t=tags[i];
    try{
-    var posts=await dapi('/posts.json?tags='+encodeURIComponent(t.name+' '+rating)+'&limit=40')||[];
-    var wuwa=posts.filter(function(p){return /wuthering_waves/.test(p.tag_string_copyright||'');});
-    if(!manual.length&&posts.length&&wuwa.length/posts.length<0.5){say('· '+nice(t.name)+' — not a WuWa character ('+Math.round(wuwa.length/posts.length*100)+'% WuWa art), skipped');continue;}
-    var pool=manual.length?posts:wuwa;
-    var ok=pool.filter(function(p){
-     return p.large_file_url&&['jpg','jpeg','png','webp'].indexOf(p.file_ext)>=0
-       &&(manual.length?p.tag_count_character<=2:p.tag_count_character===1)&&!p.is_banned&&p.image_width>=500&&p.image_height>=500
-       &&!/comic|4koma/.test(p.tag_string_general||'');
-    }).sort(function(a,b){return b.score-a.score;}).slice(0,6);
-    if(ok.length){CH.push({tag:t.name,name:nice(t.name),slug:slug(t.name),cands:ok,i:0,skip:false});say('✓ '+nice(t.name)+' ('+ok.length+' candidates, top score '+ok[0].score+')');}
-    else say('· '+nice(t.name)+' — no usable art, skipped');
+    if(!manual.length){ // copyright-share gate (auto mode only)
+     var probe=await dapi('/posts.json?tags='+encodeURIComponent(t.name+' '+(sens()?'rating:g,s':'rating:g'))+'&limit=20')||[];
+     var wu=probe.filter(function(p){return /wuthering_waves/.test(p.tag_string_copyright||'');});
+     if(probe.length&&wu.length/probe.length<0.5){say('· '+nice(t.name)+' — not WuWa, skipped');continue;}
+    }
+    var r=await candidatesFor(t.name);
+    if(r.cands.length){CH.push({tag:t.name,name:nice(t.name),slug:slug(t.name),cands:r.cands,i:0,skip:false});
+     say('✓ '+nice(t.name)+' ('+r.cands.length+' candidates: '+r.cands.map(function(c){return c.src;}).join(',')+')'+(r.errs.length?'  [unreachable: '+r.errs.join(',')+']':''));}
+    else say('✗ '+nice(t.name)+' — nothing usable on any source'+(r.errs.length?' [unreachable: '+r.errs.join(',')+']':''));
    }catch(e){say('✗ '+t.name+' — '+e.message);}
    await new Promise(function(r){setTimeout(r,350);});
   }
   render();
-  say('--- done: '+CH.length+' characters ready. Tap images to cycle; ✕ to skip; then Download ZIP.');
+  say('--- done: '+CH.length+' characters. Tap = next candidate · ✕ = skip · then Download ZIP.');
   $('zip').disabled=!CH.length;
- }catch(e){say('ERROR: '+e.message+(wk?'':' — if your network blocks Danbooru, paste your worker URL above and retry.'));}
+ }catch(e){say('ERROR: '+e.message);}
  $('go').disabled=false;
 };
 
 function render(){
  var g=$('grid');g.innerHTML='';
- CH.forEach(function(c,idx){
+ CH.forEach(function(c){
   var d=document.createElement('div');d.className='c'+(c.skip?' off':'');
   var p=c.cands[c.i];
-  d.innerHTML='<img loading="lazy" src="'+p.large_file_url+'"><span class="x">✕</span><b>'+c.name+'</b><small>score '+p.score+' · '+(c.i+1)+'/'+c.cands.length+'</small><div class="hint">tap image = next candidate</div>';
+  d.innerHTML='<img loading="lazy" src="'+p.url+'"><span class="src">'+p.src+'</span><span class="x">✕</span><b>'+c.name+'</b><small>score '+p.score+' · '+(c.i+1)+'/'+c.cands.length+'</small><div class="hint">tap image = next candidate</div>';
   d.querySelector('img').onclick=function(){c.i=(c.i+1)%c.cands.length;render();};
   d.querySelector('.x').onclick=function(){c.skip=!c.skip;render();};
   g.appendChild(d);
  });
 }
 
-// STORE-only zip
+/* ---------- zip ---------- */
 var CRC=(function(){var t=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return function(b){var c=0xFFFFFFFF;for(var i=0;i<b.length;i++)c=t[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;};})();
 function zip(files){var parts=[],central=[],off=0,enc=new TextEncoder();
  function u16(v){return new Uint8Array([v&255,(v>>8)&255]);}
@@ -122,17 +187,13 @@ function zip(files){var parts=[],central=[],off=0,enc=new TextEncoder();
  central.forEach(function(c){parts.push(u32(0x02014b50),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0),u32(c.crc),u32(c.size),u32(c.size),u16(c.n.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(c.off),c.n);cdL+=46+c.n.length;});
  parts.push(u32(0x06054b50),u16(0),u16(0),u16(central.length),u16(central.length),u32(cdL),u32(cdS),u16(0));
  return new Blob(parts,{type:'application/zip'});}
-
-function cropSquare(img){ // 1:1 — portrait art crops from the top (keeps the face), landscape center
- var w=img.naturalWidth,h=img.naturalHeight,s=Math.min(w,h);
- var sx=w>h?(w-h)/2:0, sy=0;
- var cv=document.createElement('canvas');cv.width=640;cv.height=640;
- cv.getContext('2d').drawImage(img,sx,sy,s,s,0,0,640,640);
- return cv;
-}
+function byteURLs(u){var a=[u];if(wk&&/donmai\.us/.test(u))a.push(wk+'/dbimage?url='+encodeURIComponent(u));a.push('https://wsrv.nl/?url='+encodeURIComponent(u));return a;}
 function loadOne(u){return new Promise(function(res,rej){var im=new Image();im.crossOrigin='anonymous';im.onload=function(){res(im);};im.onerror=function(){rej(new Error('img load failed'));};im.src=u;});}
 async function loadImg(urls){var err;for(var i=0;i<urls.length;i++){try{var im=await loadOne(urls[i]);var cv=document.createElement('canvas');cv.width=1;cv.height=1;var cx=cv.getContext('2d');cx.drawImage(im,0,0,1,1);cx.getImageData(0,0,1,1);return im;}catch(e){err=e;}}throw err||new Error('all sources failed');}
-
+function cropSquare(img){var w=img.naturalWidth,h=img.naturalHeight,s=Math.min(w,h);
+ var sx=w>h?(w-h)/2:0, sy=0;
+ var cv=document.createElement('canvas');cv.width=640;cv.height=640;
+ cv.getContext('2d').drawImage(img,sx,sy,s,s,0,0,640,640);return cv;}
 $('zip').onclick=async function(){
  $('zip').disabled=true;
  var picks=CH.filter(function(c){return !c.skip;});
@@ -141,12 +202,11 @@ $('zip').onclick=async function(){
  for(var i=0;i<picks.length;i++){
   var c=picks[i],p=c.cands[c.i];bar.style.width=((i+1)/picks.length*100)+'%';
   try{
-   var im=await loadImg(byteURLs(p.large_file_url));
-   var cv=cropSquare(im);
-   var blob=await new Promise(function(r){cv.toBlob(r,'image/jpeg',0.9);});
+   var im=await loadImg(byteURLs(p.url));
+   var blob=await new Promise(function(r){cropSquare(im).toBlob(r,'image/jpeg',0.9);});
    files.push({name:c.slug+'.jpg',data:new Uint8Array(await blob.arrayBuffer())});
-   meta[c.slug]={tag:c.tag,post:'https://danbooru.donmai.us/posts/'+p.id,score:p.score,rating:p.rating};
-   say('✓ '+c.name);
+   meta[c.slug]={tag:c.tag,source:p.src,page:p.page,score:p.score};
+   say('✓ '+c.name+' ['+p.src+']');
   }catch(e){say('✗ '+c.name+' — '+e.message);}
  }
  files.push({name:'_manifest.json',data:new TextEncoder().encode(JSON.stringify(meta,null,1))});
