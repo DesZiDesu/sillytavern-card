@@ -1,0 +1,18 @@
+{
+    "id": "f1a2c3d4-5e6f-4708-8192-a3b4c5d6e7f8",
+    "scriptName": "WuWa Dialogue B — Cinematic Subtitle",
+    "findRegex": "/\\[WSAY\\|(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Noto+Sans+Thai:wght@500;600&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:min(520px,96%);margin:8px auto 16px;text-align:center;font-family:'Rajdhani','Noto Sans Thai',sans-serif\"><span style=\"display:inline-flex;align-items:center;gap:clamp(8px,3vw,12px);max-width:100%\"><span style=\"height:1px;width:clamp(16px,5vw,28px);background:$1;flex-shrink:0\"></span><span style=\"font-size:clamp(13.5px,3.8vw,15px);line-height:1.5;color:#eef0f2\">$2</span><span style=\"height:1px;width:clamp(16px,5vw,28px);background:$1;flex-shrink:0\"></span></span></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

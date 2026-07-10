@@ -1,0 +1,18 @@
+{
+    "id": "e4f7a123-5d9e-4c34-af3b-81b0d645be97",
+    "scriptName": "WuWa Monologue — Echo",
+    "findRegex": "/\\[WTHINK\\|([^|\\]]*)\\|(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Rajdhani:wght@500;600;700&family=Noto+Sans+Thai:wght@500;600&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:min(460px,94%);margin:12px auto 6px;font-family:'Rajdhani','Noto Sans Thai',sans-serif\"><div style=\"font:600 clamp(9px,2.3vw,10px) 'Rajdhani',monospace;letter-spacing:.2em;color:$2;text-transform:uppercase;margin:0 0 5px 10px\">$1</div><div style=\"position:relative\"><div style=\"position:absolute;inset:4px -4px -4px 4px;border:1px solid $2;opacity:.25;border-radius:12px\"></div><div style=\"position:relative;background:#13151b;border:1px solid $2;border-radius:12px;padding:clamp(10px,2.5vw,13px) clamp(15px,4vw,20px);font-style:italic;font-size:clamp(12px,3.3vw,13px);line-height:1.55;color:#cdd2da\">$3</div></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

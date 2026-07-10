@@ -2,6 +2,28 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-10 — WuWa speech system (header + dialogue + monologue), short-name links
+
+- New **WuWa speech system** (`Wuthering Waves/Regex/`), WuWa-specific tags that don't collide
+  with the Global speech block, fully **responsive** (`clamp()` + fluid widths, verified in a
+  full multi-turn flow at PC and mobile with no overlap):
+  - **Header** `[WCHAR|filename|Name|#hex|element · region]` — **4 designs, pick one**:
+    A Resonance Bar (glass + animated equalizer), B Tacet Mark (rotating diamond frame),
+    C Gold Plate (cut-corner + element tag), D Minimal Waveform.
+  - **Dialogue** `[WSAY|#hex|text]` — **3 designs, pick one**: A Dialogue Box (game-UI tab),
+    B Cinematic Subtitle (centered, flank lines), C Tailed Bubble (tail points at the header).
+  - **Monologue** `[WTHINK|Name|#hex|text]` — **2 designs, pick one**: Rune Panel (corner
+    brackets) · Echo (double-outline). All designs share the same tags, so AI output is identical
+    whichever you install.
+- **Short filename links**: `[WCHAR]`'s first field is just the image slug (e.g. `changli`) — the
+  regex builds the full CDN URL, so the AI never pastes long URLs. Lorebook updated: all 48
+  character HEADER lines rewritten to `[WCHAR|slug|…]`, the portrait directory reformatted to
+  `Name | filename | #hex | element · region`, and a new constant **WuWa • Speech System** entry
+  documents the tags, the short-filename rule and the THINK→WCHAR→WSAY placement law.
+- **ZZZ short-name links too**: the four ZZZ header regexes now accept a short filename in field 1
+  (`[CHAR|anby|Anby|#hex|faction]`) and build the CDN URL themselves. All 57 ZZZ HEADER lines and
+  the 4-part directory rewritten to short filenames; constant entry 255 documents the rule.
+
 ## 2026-07-10 — ZZZ wiki image packer + repo reorganization
 
 - New **`Tools/image-tools/zzz_wiki_image_packer.html`** — pulls **official Zenless Zone Zero
