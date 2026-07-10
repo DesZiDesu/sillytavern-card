@@ -27,6 +27,7 @@ button.alt{background:#2a3038;color:#c9c9cf}
 <p class="n">1) Tap <b>Discover</b> — finds every Wuthering Waves character tag on Danbooru and auto-picks the highest-scored safe solo art for each. 2) Tap any image to cycle candidates; tap ✕ to skip a character. 3) <b>Download ZIP</b> crops everything to 1:1 (640×640) and saves <b>wuwa-gallery.zip</b> — attach that in the Claude chat.</p>
 <input type="text" id="wk" placeholder="(optional) your Cloudflare worker URL, e.g. https://pixiv-proxy.xxx.workers.dev — used if Danbooru is blocked on your network">
 <label class="ck"><input type="checkbox" id="sens"> include rating:sensitive (default = general only)</label>
+<input type="text" id="mt" placeholder="(optional) manual tags, comma-separated — e.g. rover_(female)_(wuthering_waves), aalto_(wuthering_waves) — fetches ONLY these, skips discovery">
 <button id="go">Discover characters</button><button id="zip" class="alt" disabled>Download ZIP</button>
 <div id="bar"><i></i></div>
 <div id="log">ready.</div>
@@ -57,14 +58,18 @@ function nice(t){return slug(t).replace(/-/g,' ').replace(/\b\w/g,function(c){re
 $('go').onclick=async function(){
  $('go').disabled=true;CH=[];$('grid').innerHTML='';
  try{
+  var manual=($('mt').value||'').split(',').map(function(x){return x.trim();}).filter(Boolean);
+  var tags=[];
+  if(manual.length){tags=manual.map(function(n){return {name:n,pc:999};});say('manual mode: '+manual.join(', '));}
+  else{
   say('discovering character tags for wuthering_waves…');
   var j=await dapi('/related_tag.json?query=wuthering_waves&category=Character&limit=200');
   var arr=j.related_tags||j.tags||[];
-  var tags=[];
   arr.forEach(function(it){
    var t=it.tag||it; var name=t.name||it[0]; var cat=(t.category!=null?t.category:4); var pc=t.post_count||0;
    if(name&&cat===4&&pc>=5)tags.push({name:name,pc:pc});
   });
+  }
   if(!tags.length)throw new Error('no character tags returned — try the worker URL field');
   say('found '+tags.length+' character tags. fetching best art…');
   var rating=$('sens').checked?'rating:g,s':'rating:g';
@@ -74,10 +79,11 @@ $('go').onclick=async function(){
    try{
     var posts=await dapi('/posts.json?tags='+encodeURIComponent(t.name+' '+rating)+'&limit=40')||[];
     var wuwa=posts.filter(function(p){return /wuthering_waves/.test(p.tag_string_copyright||'');});
-    if(posts.length&&wuwa.length/posts.length<0.5){say('· '+nice(t.name)+' — not a WuWa character ('+Math.round(wuwa.length/posts.length*100)+'% WuWa art), skipped');continue;}
-    var ok=wuwa.filter(function(p){
+    if(!manual.length&&posts.length&&wuwa.length/posts.length<0.5){say('· '+nice(t.name)+' — not a WuWa character ('+Math.round(wuwa.length/posts.length*100)+'% WuWa art), skipped');continue;}
+    var pool=manual.length?posts:wuwa;
+    var ok=pool.filter(function(p){
      return p.large_file_url&&['jpg','jpeg','png','webp'].indexOf(p.file_ext)>=0
-       &&p.tag_count_character===1&&!p.is_banned&&p.image_width>=500&&p.image_height>=500
+       &&(manual.length?p.tag_count_character<=2:p.tag_count_character===1)&&!p.is_banned&&p.image_width>=500&&p.image_height>=500
        &&!/comic|4koma/.test(p.tag_string_general||'');
     }).sort(function(a,b){return b.score-a.score;}).slice(0,6);
     if(ok.length){CH.push({tag:t.name,name:nice(t.name),slug:slug(t.name),cands:ok,i:0,skip:false});say('✓ '+nice(t.name)+' ('+ok.length+' candidates, top score '+ok[0].score+')');}
