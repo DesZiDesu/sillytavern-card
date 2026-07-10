@@ -8,28 +8,27 @@ h1{font-size:18px;letter-spacing:.06em}h1 b{color:#f6a01a}
 p{color:#9a9aa2;font-size:13px;margin:8px 0 14px;line-height:1.5}
 .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
 button{background:#f6a01a;color:#141408;border:0;border-radius:8px;padding:11px 18px;font-weight:700;font-size:13px;cursor:pointer}
-button:disabled{opacity:.4;cursor:default}button.alt{background:#2a6fd6;color:#fff}
+button:disabled{opacity:.4;cursor:default}
 label{font-size:12px;color:#b9bcc4;display:flex;align-items:center;gap:6px}
 #prog{height:6px;background:#1b1d22;border-radius:4px;overflow:hidden;margin:10px 0}
 #bar{height:100%;width:0;background:linear-gradient(90deg,#f6a01a,#2a6fd6);transition:width .2s}
 #saves a{display:block;background:#123b1e;border:1px solid #2f7d46;color:#7dfba6;border-radius:8px;padding:13px 15px;margin:8px 0;font-size:14px;font-weight:700;text-decoration:none;text-align:center}
-#log{font-family:ui-monospace,monospace;font-size:11px;background:#111317;border:1px solid #23262d;border-radius:8px;padding:10px;height:170px;overflow:auto;white-space:pre-wrap;line-height:1.45;margin-top:8px}
+#log{font-family:ui-monospace,monospace;font-size:11px;background:#111317;border:1px solid #23262d;border-radius:8px;padding:10px;height:160px;overflow:auto;white-space:pre-wrap;line-height:1.45;margin-top:8px}
 .ok{color:#5ad18a}.bad{color:#ff6b6b}.warn{color:#ffcf6b}.dim{color:#8b909a}
 #grid{margin-top:16px}
 .ent{border:1px solid #23262d;border-radius:9px;margin:10px 0;overflow:hidden}
 .ent h3{font-size:13px;background:#14161b;padding:8px 12px;color:#f6a01a;font-weight:700}
 .ent .row{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px}
-.pic{width:104px;font-size:10px}
-.pic img{width:104px;height:104px;object-fit:cover;border-radius:6px;background:#1b1d22;display:block}
+.pic{width:96px;font-size:10px}
+.pic img{width:96px;height:96px;object-fit:cover;border-radius:6px;background:#1b1d22;display:block}
 .pic .fm{margin-top:4px;color:#cfd2d8;line-height:1.3}.pic .ix{color:#6f747d}
 .pic.fail img{outline:2px solid #ff6b6b}.pic.fail .fm{color:#ff8b8b}
 </style></head><body>
 <h1><b>Dragon Ball</b> — Catbox Image Packer</h1>
-<p>Downloads every catbox image in the lorebook, grouped by character. Multi-image characters are <b>transformation galleries</b> (Base → forms); each image is labelled with its form. Files into <code>Images/&lt;character&gt;/NN_&lt;form&gt;.png</code>. Memory-safe for phones: fetches raw bytes (no canvas), frees each as it goes, and splits into parts if large. When done, <b>tap the green save link(s)</b> that appear.</p>
+<p>Fetches every catbox image, verifies it, and builds a ZIP — all in one pass. Multi-image characters are <b>transformation galleries</b> (Base → forms); each image is labelled with its form and filed as <code>Images/&lt;character&gt;/NN_&lt;form&gt;.jpg</code>. Phone-safe: reads &amp; shrinks each image the instant it arrives (nothing is held as a live blob), so one modest ZIP comes out at the end. When it finishes, <b>tap the green save link</b>.</p>
 <div class="bar">
- <button id="run">▶ Fetch &amp; verify all</button>
- <button id="dl" class="alt" disabled>⬇ Build ZIP</button>
- <label><input type="checkbox" id="parts"> force smaller parts (~15 MB each)</label>
+ <button id="run">▶ Fetch, verify &amp; build ZIP</button>
+ <label><input type="checkbox" id="full"> full resolution (bigger — may split into parts)</label>
 </div>
 <div id="prog"><div id="bar"></div></div>
 <div id="saves"></div>
@@ -50,73 +49,65 @@ function zip(files){var P=[],C=[],off=0,E=new TextEncoder();
   C.push({n:n,c:c,s:f.data.length,o:off});off+=30+n.length+f.data.length});
  var cs=off,cl=0;C.forEach(function(x){P.push(u32(0x02014b50),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0),u32(x.c),u32(x.s),u32(x.s),u16(x.n.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(x.o),x.n);cl+=46+x.n.length});
  P.push(u32(0x06054b50),u16(0),u16(0),u16(C.length),u16(C.length),u32(cl),u32(cs),u16(0));return new Blob(P,{type:'application/zip'})}
-// fetch raw bytes: try catbox direct, else wsrv proxy (adds CORS). No canvas -> low memory.
 async function fetchBlob(u){
  try{var r=await fetch(u,{mode:'cors'});if(r.ok)return await r.blob();throw 0}
  catch(e){var r2=await fetch('https://wsrv.nl/?url='+encodeURIComponent(u)+'&n=-1');if(!r2.ok)throw new Error('404');return await r2.blob()}}
-var RESULTS=[];
+function scale(bmp,max){var w=bmp.width||bmp.naturalWidth,h=bmp.height||bmp.naturalHeight,k=Math.min(1,max/Math.max(w,h));
+ var c=document.createElement('canvas');c.width=Math.max(1,Math.round(w*k));c.height=Math.max(1,Math.round(h*k));
+ c.getContext('2d').drawImage(bmp,0,0,c.width,c.height);return c}
+function toBlob(cv,type,q){return new Promise(function(res){cv.toBlob(res,type,q)})}
+async function decode(blob){
+ if(window.createImageBitmap){try{return await createImageBitmap(blob)}catch(e){}}
+ return await new Promise(function(res,rej){var u=URL.createObjectURL(blob),im=new Image();
+  im.onload=function(){res(im)};im.onerror=function(){rej(new Error('decode'))};im.src=u})}
+var saveIdx=0;
+function offer(blob,name){var url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download=name;a.textContent='⬇ Save '+name+'  ('+(Math.round(blob.size/104857.6)/10)+' MB) — tap to download';
+ $('saves').appendChild(a);try{if(saveIdx===0)a.click()}catch(e){}saveIdx++}
 $('run').onclick=async function(){
- $('run').disabled=true;$('dl').disabled=true;$('saves').innerHTML='';RESULTS.forEach(function(r){if(r.thumb)URL.revokeObjectURL(r.thumb)});RESULTS=[];$('grid').innerHTML='';
+ $('run').disabled=true;$('saves').innerHTML='';$('grid').innerHTML='';saveIdx=0;
+ var full=$('full').checked,LIM=(full?36:120)*1048576;
  var total=0;MAP.forEach(function(e){total+=e.imgs.length});
- say('fetching '+total+' images across '+MAP.length+' entries…','dim');
- var done=0,okc=0,badc=0;
+ say('fetching + building from '+total+' images across '+MAP.length+' entries…','dim');
+ var files=[],manifest={},broken={},cnt={},bytes=0,part=1,multi=false,done=0,okc=0,badc=0;
+ async function flush(last){
+  if(!files.length){return}
+  var rep={generated:new Date().toISOString(),part:part,loaded:okc,failed:badc,note:'Multi-image characters are Base->form galleries; forms[] is in transformation order.',broken:broken,manifest:manifest};
+  files.push({name:'_manifest.json',data:new TextEncoder().encode(JSON.stringify(rep,null,1))});
+  var txt='DRAGON BALL — BROKEN / MISSING IMAGES\n\n';
+  Object.keys(broken).forEach(function(k){txt+=k+'\n';broken[k].forEach(function(b){txt+='   ['+(b.form||'?')+']  '+b.url+'\n'})});
+  if(!Object.keys(broken).length)txt+='(none)\n';
+  files.push({name:'_BROKEN.txt',data:new TextEncoder().encode(txt)});
+  var name=(!multi&&last)?'dragonball-images.zip':'dragonball-images-part'+part+'.zip';
+  offer(zip(files),name);say('ready: '+name+' — '+(files.length-2)+' images','ok');
+  files=[];bytes=0;part++;multi=multi||!last;await new Promise(function(r){setTimeout(r,50)});}
  for(var ei=0;ei<MAP.length;ei++){var e=MAP[ei];
   var box=document.createElement('div');box.className='ent';
   box.innerHTML='<h3>'+esc(e.name)+(e.imgs.length>1?' — '+e.imgs.length+' forms':'')+'</h3>';
   var row=document.createElement('div');row.className='row';box.appendChild(row);$('grid').appendChild(box);
   for(var j=0;j<e.imgs.length;j++){var im=e.imgs[j];done++;bar.style.width=(done/total*100)+'%';
    var pic=document.createElement('div');pic.className='pic';row.appendChild(pic);
-   var jb={name:e.name,slug:e.slug,url:im.url,form:im.form,eng:im.eng,idx:j+1,total:e.imgs.length,ext:ext(im.url)};
-   try{var blob=await fetchBlob(im.url);jb.blob=blob;jb.ok=true;jb.thumb=URL.createObjectURL(blob);
-    RESULTS.push(jb);okc++;
-    pic.innerHTML='<img loading="lazy" src="'+jb.thumb+'"><div class="fm">'+esc(im.eng||im.form||'—')+'</div><div class="ix">'+(j+1)+'/'+e.imgs.length+'</div>';
-   }catch(err){jb.ok=false;RESULTS.push(jb);badc++;pic.className='pic fail';
+   try{var blob=await fetchBlob(im.url);var bmp=await decode(blob);
+    var outExt=full?ext(im.url):'jpg',data;
+    if(full){data=new Uint8Array(await blob.arrayBuffer())}
+    else{var cv=scale(bmp,900);var jb=await toBlob(cv,'image/jpeg',0.9);data=new Uint8Array(await jb.arrayBuffer())}
+    var tv=scale(bmp,192);var tb=await toBlob(tv,'image/jpeg',0.72);var turl=URL.createObjectURL(tb);
+    if(bmp.close)bmp.close();
+    cnt[e.slug]=(cnt[e.slug]||0)+1;var nn=('0'+cnt[e.slug]).slice(-2);
+    var fn='Images/'+e.slug+'/'+nn+'_'+fslug(im.eng||im.form,j+1)+'.'+outExt;
+    files.push({name:fn,data:data});bytes+=data.length;okc++;
+    (manifest[e.name]=manifest[e.name]||{slug:e.slug,forms:[]});manifest[e.name].forms.push({form:im.eng||im.form,file:fn,source:im.url});
+    pic.innerHTML='<img loading="lazy" src="'+turl+'"><div class="fm">'+esc(im.eng||im.form||'—')+'</div><div class="ix">'+(j+1)+'/'+e.imgs.length+'</div>';
+    if(bytes>=LIM)await flush(false);
+   }catch(err){badc++;pic.className='pic fail';
     pic.innerHTML='<img><div class="fm">✗ '+esc(im.eng||im.form||('#'+(j+1)))+'</div><div class="ix">'+(j+1)+'/'+e.imgs.length+'</div>';
+    (broken[e.name]=broken[e.name]||[]).push({form:im.form,url:im.url});
     say('✗ '+e.name+' — '+(im.form||('image '+(j+1)))+'  '+im.url,'bad');}
+   if(done%10===0)await new Promise(function(r){setTimeout(r,0)});
   }
  }
- say('done — '+okc+' loaded, '+badc+' FAILED','');
- if(badc){say('--- BROKEN (need re-sourcing) ---','warn');
-  var by={};RESULTS.filter(function(r){return !r.ok}).forEach(function(r){(by[r.name]=by[r.name]||[]).push(r.form||('#'+r.idx))});
-  Object.keys(by).forEach(function(k){say('  • '+k+' → '+by[k].join(', '),'bad')});}
- $('run').disabled=false;$('dl').disabled=!okc;
- if(okc)say('now tap "Build ZIP".','ok');
-};
-function offer(blob,name){var url=URL.createObjectURL(blob);
- var a=document.createElement('a');a.href=url;a.download=name;a.textContent='⬇ Save '+name+'  ('+(Math.round(blob.size/104857.6)/10)+' MB) — tap to download';
- $('saves').appendChild(a);
- try{a.click()}catch(e){}}
-$('dl').onclick=async function(){
- $('dl').disabled=true;$('saves').innerHTML='';
- var good=RESULTS.filter(function(r){return r.ok});
- var LIM=($('parts').checked?15:38)*1048576;
- say('building zip from '+good.length+' images…','dim');
- var files=[],manifest={},broken={},cnt={},bytes=0,part=1,anyPart=false;
- RESULTS.filter(function(r){return !r.ok}).forEach(function(r){(broken[r.name]=broken[r.name]||[]).push({form:r.form,url:r.url})});
- async function flush(last){
-  if(!files.length)return;
-  var report={generated:new Date().toISOString(),part:part,loaded:good.length,failed:RESULTS.length-good.length,note:'Multi-image characters are Base->form galleries; forms[] is in transformation order.',broken:broken,manifest:manifest};
-  files.push({name:'_manifest.json',data:new TextEncoder().encode(JSON.stringify(report,null,1))});
-  var txt='DRAGON BALL — BROKEN / MISSING IMAGES\n\n';
-  Object.keys(broken).forEach(function(k){txt+=k+'\n';broken[k].forEach(function(b){txt+='   ['+(b.form||'?')+']  '+b.url+'\n'})});
-  if(!Object.keys(broken).length)txt+='(none)\n';
-  files.push({name:'_BROKEN.txt',data:new TextEncoder().encode(txt)});
-  var name=(!anyPart&&last)?'dragonball-images.zip':'dragonball-images-part'+part+'.zip';
-  var blob=zip(files);offer(blob,name);
-  say('ready: '+name+' — '+(files.length-2)+' images','ok');
-  files=[];bytes=0;part++;anyPart=anyPart||!last;await new Promise(function(r){setTimeout(r,60)});}
- for(var i=0;i<good.length;i++){var r=good[i];bar.style.width=((i+1)/good.length*100)+'%';
-  try{var buf=new Uint8Array(await r.blob.arrayBuffer());
-   cnt[r.slug]=(cnt[r.slug]||0)+1;var nn=('0'+cnt[r.slug]).slice(-2);
-   var fn='Images/'+r.slug+'/'+nn+'_'+fslug(r.eng||r.form,r.idx)+'.'+r.ext;
-   files.push({name:fn,data:buf});bytes+=buf.length;
-   (manifest[r.name]=manifest[r.name]||{slug:r.slug,forms:[]});manifest[r.name].forms.push({form:r.eng||r.form,file:fn,source:r.url});
-   if(bytes>=LIM)await flush(false);
-  }catch(e){say('✗ pack '+r.name+' — '+e.message,'bad')}
-  if(i%12===0)await new Promise(function(res){setTimeout(res,0)});
- }
  await flush(true);
- say('all parts ready above. Tap each green link to save, then attach the zip(s) to Claude.','ok');
- $('dl').disabled=false;
+ say('done — '+okc+' packed, '+badc+' failed. Tap the green link(s) above to save, then attach the zip to Claude.',badc?'warn':'ok');
+ $('run').disabled=false;
 };
 </script></body></html>
