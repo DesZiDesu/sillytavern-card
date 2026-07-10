@@ -66,7 +66,7 @@ function offer(blob,name){var url=URL.createObjectURL(blob),a=document.createEle
  $('saves').appendChild(a);try{if(saveIdx===0)a.click()}catch(e){}saveIdx++}
 $('run').onclick=async function(){
  $('run').disabled=true;$('saves').innerHTML='';$('grid').innerHTML='';saveIdx=0;
- var full=$('full').checked,LIM=(full?36:120)*1048576;
+ var full=$('full').checked,LIM=28*1048576;
  var total=0;MAP.forEach(function(e){total+=e.imgs.length});
  say('fetching + building from '+total+' images across '+MAP.length+' entries…','dim');
  var files=[],manifest={},broken={},cnt={},bytes=0,part=1,multi=false,done=0,okc=0,badc=0;
