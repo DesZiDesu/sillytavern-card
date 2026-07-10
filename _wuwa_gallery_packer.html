@@ -44,9 +44,11 @@ async function dapi(path){ // path like /posts.json?tags=...
  if(wk){var r=await fetch(wk+'/danbooru?path='+encodeURIComponent(path));return r.json();}
  var r2=await fetch('https://danbooru.donmai.us'+path);return r2.json();
 }
-function imgProxy(u,w){ // CORS-safe bytes + display
- if(wk)return wk+'/dbimage?url='+encodeURIComponent(u);
- return 'https://wsrv.nl/?url='+encodeURIComponent(u)+(w?('&w='+w):'');
+function byteURLs(u){ // candidates for CORS bytes, best first
+ var a=[u];
+ if(wk)a.push(wk+'/dbimage?url='+encodeURIComponent(u));
+ a.push('https://wsrv.nl/?url='+encodeURIComponent(u));
+ return a;
 }
 var CH=[]; // {tag,name,slug,cands:[posts],i,skip}
 function slug(t){return t.replace(/_\((wuthering_waves|wuwa)\)$/,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
@@ -70,8 +72,10 @@ $('go').onclick=async function(){
    bar.style.width=((i+1)/tags.length*100)+'%';
    var t=tags[i];
    try{
-    var posts=await dapi('/posts.json?tags='+encodeURIComponent(t.name+' '+rating)+'&limit=40');
-    var ok=(posts||[]).filter(function(p){
+    var posts=await dapi('/posts.json?tags='+encodeURIComponent(t.name+' '+rating)+'&limit=40')||[];
+    var wuwa=posts.filter(function(p){return /wuthering_waves/.test(p.tag_string_copyright||'');});
+    if(posts.length&&wuwa.length/posts.length<0.5){say('· '+nice(t.name)+' — not a WuWa character ('+Math.round(wuwa.length/posts.length*100)+'% WuWa art), skipped');continue;}
+    var ok=wuwa.filter(function(p){
      return p.large_file_url&&['jpg','jpeg','png','webp'].indexOf(p.file_ext)>=0
        &&p.tag_count_character===1&&!p.is_banned&&p.image_width>=500&&p.image_height>=500
        &&!/comic|4koma/.test(p.tag_string_general||'');
@@ -93,7 +97,7 @@ function render(){
  CH.forEach(function(c,idx){
   var d=document.createElement('div');d.className='c'+(c.skip?' off':'');
   var p=c.cands[c.i];
-  d.innerHTML='<img loading="lazy" src="'+imgProxy(p.large_file_url,340)+'"><span class="x">✕</span><b>'+c.name+'</b><small>score '+p.score+' · '+(c.i+1)+'/'+c.cands.length+'</small><div class="hint">tap image = next candidate</div>';
+  d.innerHTML='<img loading="lazy" src="'+p.large_file_url+'"><span class="x">✕</span><b>'+c.name+'</b><small>score '+p.score+' · '+(c.i+1)+'/'+c.cands.length+'</small><div class="hint">tap image = next candidate</div>';
   d.querySelector('img').onclick=function(){c.i=(c.i+1)%c.cands.length;render();};
   d.querySelector('.x').onclick=function(){c.skip=!c.skip;render();};
   g.appendChild(d);
@@ -120,7 +124,8 @@ function cropSquare(img){ // 1:1 — portrait art crops from the top (keeps the 
  cv.getContext('2d').drawImage(img,sx,sy,s,s,0,0,640,640);
  return cv;
 }
-function loadImg(u){return new Promise(function(res,rej){var im=new Image();im.crossOrigin='anonymous';im.onload=function(){res(im);};im.onerror=function(){rej(new Error('img load failed'));};im.src=u;});}
+function loadOne(u){return new Promise(function(res,rej){var im=new Image();im.crossOrigin='anonymous';im.onload=function(){res(im);};im.onerror=function(){rej(new Error('img load failed'));};im.src=u;});}
+async function loadImg(urls){var err;for(var i=0;i<urls.length;i++){try{var im=await loadOne(urls[i]);var cv=document.createElement('canvas');cv.width=1;cv.height=1;var cx=cv.getContext('2d');cx.drawImage(im,0,0,1,1);cx.getImageData(0,0,1,1);return im;}catch(e){err=e;}}throw err||new Error('all sources failed');}
 
 $('zip').onclick=async function(){
  $('zip').disabled=true;
@@ -130,7 +135,7 @@ $('zip').onclick=async function(){
  for(var i=0;i<picks.length;i++){
   var c=picks[i],p=c.cands[c.i];bar.style.width=((i+1)/picks.length*100)+'%';
   try{
-   var im=await loadImg(imgProxy(p.large_file_url,1100));
+   var im=await loadImg(byteURLs(p.large_file_url));
    var cv=cropSquare(im);
    var blob=await new Promise(function(r){cv.toBlob(r,'image/jpeg',0.9);});
    files.push({name:c.slug+'.jpg',data:new Uint8Array(await blob.arrayBuffer())});
