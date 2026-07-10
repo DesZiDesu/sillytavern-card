@@ -2,6 +2,20 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-10 — WuWa portraits + both lorebooks: link directory, TH keywords, vectorized
+
+- **WuWa official face portraits**: one face-focused official portrait per character (56),
+  256px square, in `Wuthering Waves/Images/`. 47 matched characters gained a ready-made
+  `[CHAR|url|Name|#hex]` HEADER line in their lorebook entry (signature #hex auto-sampled from
+  the portrait); renders via the Global header. Headers verified.
+- **Character Portrait Link Directory** (fixes "images don't load — AI doesn't know the URL"):
+  new **constant** entries listing every character → portrait URL → signature #hex, so the AI
+  always has the exact link in context. ZZZ: 4 parts (59 characters); WuWa: 3 parts (56).
+  URLs are sha-pinned rawcdn.githack.
+- **EN + TH keywords on every normal entry**: ZZZ — 210 entries gained Thai keywords alongside
+  English (WuWa already had them). All non-constant entries in both lorebooks are now
+  **vectorized** (green + link icon) for semantic RAG triggering.
+
 ## 2026-07-09 — ZZZ: user-side outgoing texts (<ZZZ_SMS>)
 
 The player's own Knock Knock texts now render as phone UI on THEIR side of the chat.
