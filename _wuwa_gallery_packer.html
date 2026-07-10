@@ -35,6 +35,8 @@ button.alt{background:#2a3038;color:#c9c9cf}
 <input type="text" id="mt" placeholder="(optional) manual tags, comma-separated — e.g. rover_(wuthering_waves), aalto">
 <input type="text" id="tf" placeholder="find tags: type a name fragment, e.g. rover — then press Find tags">
 <label class="ck"><input type="checkbox" id="sens"> include rating:sensitive (default = general/safe only)</label>
+<label class="ck"><input type="checkbox" id="official"> official wiki art only (game portraits/icons, no fan art)</label>
+<label class="ck"><input type="checkbox" id="orig"> keep original size &amp; transparency (PNG, no 1:1 crop)</label>
 <label class="ck">auto-select top <input type="number" id="selN" value="10" min="1" max="24" style="width:60px;background:#1b1f26;border:1px solid #333a44;border-radius:5px;color:#e8e8ea;padding:4px 6px"> images per character <button id="selApply" class="alt" style="padding:6px 10px;margin:0">apply to all</button></label>
 <button id="ft" class="alt">Find tags</button><button id="go">Discover characters</button><button id="zip" class="alt" disabled>Download ZIP</button>
 <div id="bar"><i></i></div>
@@ -99,17 +101,45 @@ async function srcZc(tag){
   var name=(it.tag||nice(tag)).replace(/ /g,'.');
   return {src:'ZC',url:'https://static.zerochan.net/'+name+'.full.'+it.id+'.jpg',thumb:it.thumbnail,score:it.fav||0,w:it.width,h:it.height,page:'https://www.zerochan.net/'+it.id};});
 }
+async function srcWikiAll(tag){
+ var api='https://wutheringwaves.fandom.com/api.php';
+ var n=wikiName(tag);
+ var j=await J(api+'?action=query&titles='+encodeURIComponent(n)+'&prop=images&imlimit=200&redirects=1&format=json&origin=*');
+ var pages=(j.query&&j.query.pages)||{};var titles=[];
+ Object.keys(pages).forEach(function(k){(pages[k].images||[]).forEach(function(im){titles.push(im.title);});});
+ var toks=nice(tag).toLowerCase().split(' ').filter(function(x){return x.length>=3;});
+ var nosp=toks.join('');
+ titles=titles.filter(function(ti){
+  if(!/\.(png|jpe?g|webp)$/i.test(ti))return false;
+  var low=ti.toLowerCase();
+  if(nosp&&low.indexOf(nosp)>=0)return true;
+  return toks.some(function(x){return low.indexOf(x)>=0;});
+ });
+ if(!titles.length)return [];
+ var out=[];
+ for(var s0=0;s0<titles.length&&out.length<24;s0+=40){
+  var batch=titles.slice(s0,s0+40);
+  var q=await J(api+'?action=query&titles='+encodeURIComponent(batch.join('|'))+'&prop=imageinfo&iiprop=url|size&iiurlwidth=220&format=json&origin=*');
+  var pp=(q.query&&q.query.pages)||{};
+  Object.keys(pp).forEach(function(k){var ii=pp[k].imageinfo&&pp[k].imageinfo[0];if(!ii||!ii.url)return;
+   var low=(pp[k].title||'').toLowerCase();
+   var sc=(/(splash|portrait|card|standing|fullbody|full_body)/.test(low)?100:0)+(/icon/.test(low)?5:0)+Math.round((ii.width||0)/1000);
+   out.push({src:'WIKI',url:ii.url,thumb:ii.thumburl||ii.url,score:sc,w:ii.width||0,h:ii.height||0,page:'https://wutheringwaves.fandom.com/wiki/'+n});
+  });
+ }
+ return out;
+}
 var CASCADE=[['Danbooru',srcDan],['Gelbooru',srcGel],['yande.re',function(t){return srcMoe('yande.re','YD',t);}],
  ['Konachan',function(t){return srcMoe('konachan.net','KC',t);}],['Safebooru',srcSfb],['Wiki',srcWiki],['Zerochan',srcZc]];
 
 var strikes={};
-async function candidatesFor(tag){
- var out=[],errs=[];
- for(var i=0;i<CASCADE.length&&out.length<24;i++){
-  var name=CASCADE[i][0];
-  if((strikes[name]||0)>=2){errs.push(name+'(banned)');continue;}
+async function candidatesFor(tag,cas){
+ cas=cas||CASCADE;var out=[],errs=[];
+ for(var i=0;i<cas.length&&out.length<24;i++){
+  var name=cas[i][0];
+  if(cas.length>1&&(strikes[name]||0)>=2){errs.push(name+'(banned)');continue;}
   try{
-   var got=await CASCADE[i][1](tag);
+   var got=await cas[i][1](tag);
    strikes[name]=0;
    got.sort(function(a,b){return b.score-a.score;});
    got.slice(0,24-out.length).forEach(function(c){out.push(c);});
@@ -142,7 +172,19 @@ $('go').onclick=async function(){
   var manual=($('mt').value||'').split(',').map(function(x){return x.trim();}).filter(Boolean);
   var tags=[];
   if(manual.length){tags=manual.map(function(n){return {name:n};});say('manual mode: '+manual.join(', '));}
-  else{
+  else if($('official').checked){
+   say('listing official resonators from the wiki…');
+   var cats=['Resonators','Playable Characters','Resonator','Characters'];
+   for(var ci=0;ci<cats.length&&!tags.length;ci++){
+    try{var jc=await J('https://wutheringwaves.fandom.com/api.php?action=query&list=categorymembers&cmtitle=Category:'+encodeURIComponent(cats[ci])+'&cmlimit=500&cmtype=page&format=json&origin=*');
+     var mem=(jc.query&&jc.query.categorymembers)||[];
+     mem.forEach(function(m){if(m.title&&m.title.indexOf(':')<0)tags.push({name:m.title});});
+     if(tags.length)say('  category "'+cats[ci]+'": '+tags.length+' pages');
+    }catch(e){}
+   }
+   if(!tags.length)say('  wiki category unavailable — using Danbooru roster');
+  }
+  if(!manual.length&&!tags.length){
    say('discovering character tags for wuthering_waves…');
    var j=await dapi('/related_tag.json?query=wuthering_waves&category=Character&limit=200');
    var arr=j.related_tags||j.tags||[];
@@ -156,12 +198,13 @@ $('go').onclick=async function(){
    var t=tags[i];
    say('… '+nice(t.name)+' ('+(i+1)+'/'+tags.length+')');
    try{
-    if(!manual.length){ // copyright-share gate (auto mode only)
+    if(!manual.length&&!$('official').checked){ // copyright-share gate (auto mode only)
      var probe=await dapi('/posts.json?tags='+encodeURIComponent(t.name+' '+(sens()?'rating:g,s':'rating:g'))+'&limit=20')||[];
      var wu=probe.filter(function(p){return /wuthering_waves/.test(p.tag_string_copyright||'');});
      if(probe.length&&wu.length/probe.length<0.5){say('· '+nice(t.name)+' — not WuWa, skipped');continue;}
     }
-    var r=await candidatesFor(t.name);
+    var cas=$('official').checked?[['Wiki',srcWikiAll]]:CASCADE;
+    var r=await candidatesFor(t.name,cas);
     if(r.cands.length){var n0=Math.max(1,Math.min(24,+$('selN').value||10));CH.push({tag:t.name,name:nice(t.name),slug:slug(t.name),cands:r.cands,sel:r.cands.map(function(_,j){return j<n0;}),skip:false});
      say('✓ '+nice(t.name)+' ('+r.cands.length+' candidates: '+r.cands.map(function(c){return c.src;}).join(',')+')'+(r.errs.length?'  [unreachable: '+r.errs.join(',')+']':''));}
     else say('✗ '+nice(t.name)+' — nothing usable on any source'+(r.errs.length?' [unreachable: '+r.errs.join(',')+']':''));
@@ -218,6 +261,10 @@ function cropSquare(img){var w=img.naturalWidth,h=img.naturalHeight,s=Math.min(w
  var sx=w>h?(w-h)/2:0, sy=0;
  var cv=document.createElement('canvas');cv.width=640;cv.height=640;
  cv.getContext('2d').drawImage(img,sx,sy,s,s,0,0,640,640);return cv;}
+function fullCanvas(img){var w=img.naturalWidth,h=img.naturalHeight,mx=1600,sc=Math.min(1,mx/Math.max(w,h));
+ var cw=Math.max(1,Math.round(w*sc)),chh=Math.max(1,Math.round(h*sc));
+ var cv=document.createElement('canvas');cv.width=cw;cv.height=chh;
+ cv.getContext('2d').drawImage(img,0,0,cw,chh);return cv;}
 $('zip').onclick=async function(){
  $('zip').disabled=true;
  var jobs=[];
@@ -240,9 +287,11 @@ $('zip').onclick=async function(){
   var c=jobs[i].c,p=jobs[i].p;bar.style.width=((i+1)/jobs.length*100)+'%';
   try{
    var im=await loadImg(byteURLs(p.url));
-   var blob=await new Promise(function(r){cropSquare(im).toBlob(r,'image/jpeg',0.87);});
+   var useOrig=$('orig').checked;
+   var cv=useOrig?fullCanvas(im):cropSquare(im);
+   var blob=await new Promise(function(r){cv.toBlob(r,useOrig?'image/png':'image/jpeg',0.9);});
    counters[c.slug]=(counters[c.slug]||0)+1;
-   var fn=c.slug+'/'+counters[c.slug]+'.jpg';
+   var fn=c.slug+'/'+counters[c.slug]+(useOrig?'.png':'.jpg');
    var data=new Uint8Array(await blob.arrayBuffer());
    files.push({name:fn,data:data});bytes+=data.length;
    (meta[c.slug]=meta[c.slug]||[]).push({file:fn,source:p.src,page:p.page,score:p.score});
