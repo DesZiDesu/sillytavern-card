@@ -4,6 +4,13 @@ Characters with **multiple images are transformation galleries**: images run in 
 
 > Single-portrait characters (one image, no transformations) are listed at the bottom.
 
+## ⚠️ Missing images (dead catbox links — awaiting replacements)
+
+| Character | Form | Dead link |
+|---|---|---|
+| GOGETA | Super Saiyan 2 (Potential) | `https://files.catbox.moe/r8c1jd.png` |
+| GOTENKS | Super Saiyan 4 (Potential) | `https://files.catbox.moe/x2uf9o.png` |
+
 
 ## Transformation galleries (Base → forms)
 
@@ -102,7 +109,7 @@ Characters with **multiple images are transformation galleries**: images run in 
 **GOGETA** — 7 forms  
 1. Base Gogeta  
 2. Super Saiyan  
-3. Super Saiyan 2 - Potential  
+3. Super Saiyan 2 - Potential ⚠️ *dead link (`r8c1jd.png`) — needs replacement image*  
 4. Super Saiyan 3 - Potential  
 5. Super Saiyan 4  
 6. Super Saiyan God - Potential  
@@ -145,7 +152,7 @@ Characters with **multiple images are transformation galleries**: images run in 
 2. Super Saiyan  
 3. Super Saiyan 2 - Potential  
 4. Super Saiyan 3  
-5. Super Saiyan 4 - Potential  
+5. Super Saiyan 4 - Potential ⚠️ *dead link (`x2uf9o.png`) — needs replacement image*  
 6. Super Saiyan God - Potential  
 
 **GRANOLA** — 2 forms  
