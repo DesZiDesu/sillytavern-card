@@ -2,6 +2,20 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-10 — WuWa speech system (header + dialogue + monologue), short-name links
+
+- New **WuWa speech regex** (`Wuthering Waves/Regex/WS_*`): **`[WCHAR|filename|Name|#hex|element · region]`**
+  header (the "Gold Plate" design — cut-corner plate, element tag, bold caps name, gold double-line),
+  **`[WSAY|#hex|text]`** dialogue (cream bubble, hex accent bar + gold hairline) and
+  **`[WTHINK|Name|#hex|text]`** monologue (dashed thought with ◈). WuWa-specific tags, so they
+  don't collide with the Global speech block. Fully **responsive** — `clamp()` sizing + fluid
+  widths adapt to PC/laptop/mobile. Verified at 560px and 380px.
+- **Short filename links**: `[WCHAR]`'s first field is just the image slug (e.g. `changli`) — the
+  regex builds the full CDN URL, so the AI never pastes long URLs. Lorebook updated: all 48
+  character HEADER lines rewritten to `[WCHAR|slug|…]`, the portrait directory reformatted to
+  `Name | filename | #hex | element · region`, and a new constant **WuWa • Speech System** entry
+  documents the tags, the short-filename rule and the THINK→WCHAR→WSAY placement law.
+
 ## 2026-07-10 — ZZZ wiki image packer + repo reorganization
 
 - New **`Tools/image-tools/zzz_wiki_image_packer.html`** — pulls **official Zenless Zone Zero

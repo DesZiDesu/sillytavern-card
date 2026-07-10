@@ -1,0 +1,18 @@
+{
+    "id": "b2d58f01-3c7e-4a12-8d19-6f8be4239c75",
+    "scriptName": "WuWa • Dialogue",
+    "findRegex": "/\\[WSAY\\|(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Noto+Sans+Thai:wght@500;600&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:min(480px,94%);width:-webkit-fit-content;width:fit-content;margin:8px auto 12px;font-family:'Noto Sans Thai','Rajdhani',sans-serif\"><div style=\"position:relative;background:#f6f4ee;color:#1a1a1d;border:2px solid $1;border-radius:4px;padding:clamp(9px,2.5vw,12px) clamp(15px,4vw,21px) clamp(10px,2.5vw,13px);font-size:clamp(13px,3.6vw,14px);line-height:1.55;box-shadow:0 4px 14px rgba(0,0,0,.4)\"><span style=\"position:absolute;left:0;top:0;bottom:0;width:3px;background:$1\"></span><span style=\"position:absolute;left:9px;right:9px;top:5px;height:1px;background:rgba(217,195,138,.55)\"></span>$2</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

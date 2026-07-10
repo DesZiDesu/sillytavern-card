@@ -1,0 +1,18 @@
+{
+    "id": "a1c47e90-2b6d-4f31-9c08-5e7ad3128b64",
+    "scriptName": "WuWa • Header (Gold Plate)",
+    "findRegex": "/\\[WCHAR\\|([^|\\]]+)\\|([^|\\]]+)\\|(#[0-9a-fA-F]{3,6})\\|([^\\]]*)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Noto+Sans+Thai:wght@500;600&display=swap\" rel=\"stylesheet\"/><div style=\"position:relative;display:flex;align-items:stretch;max-width:520px;width:100%;margin:14px auto 8px;background:#111317;clip-path:polygon(0 0,100% 0,100% 72%,96% 100%,0 100%);border-left:3px solid $3;font-family:'Rajdhani','Noto Sans Thai',system-ui,sans-serif\"><span style=\"position:absolute;inset:0;border:1px solid #34383f;clip-path:polygon(0 0,100% 0,100% 72%,96% 100%,0 100%);pointer-events:none\"></span><span style=\"width:clamp(52px,14vw,62px);flex-shrink:0;overflow:hidden;border-right:1px solid #2c2f36;display:block\"><img src=\"https://rawcdn.githack.com/DesZiDesu/sillytavern-card/main/Sillytavern/Wuthering%20Waves/Images/$1.jpg\" alt=\"$2\" style=\"width:100%;height:100%;min-height:56px;object-fit:cover;object-position:top;display:block\" onerror=\"this.style.display='none'\"></span><span style=\"flex:1;min-width:0;padding:clamp(7px,2vw,10px) clamp(11px,3vw,16px);display:flex;flex-direction:column;justify-content:center\"><span style=\"display:flex;align-items:center;gap:7px\"><span style=\"width:5px;height:5px;background:$3;transform:rotate(45deg);flex-shrink:0\"></span><span style=\"font:600 clamp(8px,2.3vw,9px) 'Rajdhani',monospace;letter-spacing:.22em;color:$3;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis\">$4</span></span><span style=\"font:700 clamp(15px,4.4vw,18px) 'Rajdhani','Noto Sans Thai',sans-serif;letter-spacing:.07em;color:#f2f3f5;text-transform:uppercase;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block\">$2</span><span style=\"height:2px;margin-top:5px;background:linear-gradient(90deg,#d9c38a 0 40%,transparent 40%);display:block\"></span></span></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
