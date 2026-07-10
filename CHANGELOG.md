@@ -15,6 +15,9 @@ All notable additions to this repository's cards, lorebooks, and regex are liste
   character HEADER lines rewritten to `[WCHAR|slug|…]`, the portrait directory reformatted to
   `Name | filename | #hex | element · region`, and a new constant **WuWa • Speech System** entry
   documents the tags, the short-filename rule and the THINK→WCHAR→WSAY placement law.
+- **ZZZ short-name links too**: the four ZZZ header regexes now accept a short filename in field 1
+  (`[CHAR|anby|Anby|#hex|faction]`) and build the CDN URL themselves. All 57 ZZZ HEADER lines and
+  the 4-part directory rewritten to short filenames; constant entry 255 documents the rule.
 
 ## 2026-07-10 — ZZZ wiki image packer + repo reorganization
 
