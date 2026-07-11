@@ -2,7 +2,7 @@
 
 Characters with **multiple images are transformation galleries**: images run in order from **Base form → higher forms**, matching the `Images/<slug>/` folders (files numbered `01_...`, `02_...`). Labels marked *Potential / Non-Canon / Head Canon* are non-canon forms kept for roleplay flexibility.
 
-✅ **All 307 images stored in `Images/` across 120 characters (updated 2026-07-11, batch 2: +35 characters incl. Bulma, Mr. Satan, Dende, androids, Ginyu Force leads, Frost, Top, Gammas, Janemba, Shenron/Porunga, King Vegeta, Paragus, Vegeta Daima, Majin Vegeta).**
+✅ **All 309 images stored in `Images/` across 120 characters (updated 2026-07-11).**
 
 > Single-portrait characters are listed at the bottom.
 
@@ -34,6 +34,11 @@ Characters with **multiple images are transformation galleries**: images run in 
 2. Super Saiyan  
 3. Super Saiyan 2 - Potential  
 4. Super Saiyan 3 - Potential  
+
+**BEERUS** — 3 forms  
+1. Base Form  
+2. ??? Percent Power  
+3. Serious  
 
 **BROLY (DBS)** — 5 forms  
 1. Base Form  
@@ -397,4 +402,4 @@ Characters with **multiple images are transformation galleries**: images run in 
 
 ## Single-portrait characters
 
-ANDROID 13, ANDROID 16, ANDROID 17 [SUPER], ANDROID 18, ANDROID 18 [SUPER], ANDROID 19, BABIDI, BEERUS, BOJACK, CELL MAX, CHAMPA, CHEELAI, CHIAOTZU, DABURA, DODORIA, DR. GERO (ANDROID 20), DR. HEDO, ERASA, GAMMA 1, GAMMA 2, GAS, HIT [ASSASSIN], JACO, KAI'O-SHIN [U7], KAMI, KIBITO [U7], KING COLD, KING KAI, KING PICCOLO (PICCOLO DAIMAO), KING VEGETA, KORIN, KRILLIN, MAJIN VEGETA [Z], MARON, MERUS, MR. POPO, MR. SATAN (HERCULE), NEVA [DAIMA], OLD KAI [U7], OMEGA SHENRON [GT], PORUNGA, SAIBAMAN, TOWA, VADOS, WHIS, YAJIROBE, ZANGYA, ZARBON, มหาเทวดา, เซ็นโอ, ไอเท็ม: Space Pod, ไอเท็ม: ตุ้มหูโปตาร่า, ไอเท็ม: ถั่วเซียน, ไอเท็ม: สเคาเตอร์
+ANDROID 13, ANDROID 16, ANDROID 17 [SUPER], ANDROID 18, ANDROID 18 [SUPER], ANDROID 19, BABIDI, BOJACK, CELL MAX, CHAMPA, CHEELAI, CHIAOTZU, DABURA, DODORIA, DR. GERO (ANDROID 20), DR. HEDO, ERASA, GAMMA 1, GAMMA 2, GAS, HIT [ASSASSIN], JACO, KAI'O-SHIN [U7], KAMI, KIBITO [U7], KING COLD, KING KAI, KING PICCOLO (PICCOLO DAIMAO), KING VEGETA, KORIN, KRILLIN, MAJIN VEGETA [Z], MARON, MERUS, MR. POPO, MR. SATAN (HERCULE), NEVA [DAIMA], OLD KAI [U7], OMEGA SHENRON [GT], PORUNGA, SAIBAMAN, TOWA, VADOS, WHIS, YAJIROBE, ZANGYA, ZARBON, มหาเทวดา, เซ็นโอ, ไอเท็ม: Space Pod, ไอเท็ม: ตุ้มหูโปตาร่า, ไอเท็ม: ถั่วเซียน, ไอเท็ม: สเคาเตอร์

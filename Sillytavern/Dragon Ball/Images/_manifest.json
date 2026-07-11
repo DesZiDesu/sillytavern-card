@@ -1,6 +1,6 @@
 {
  "generated": "2026-07-10T17:19:33.611Z",
- "loaded": 307,
+ "loaded": 309,
  "failed": 0,
  "note": "Multi-image characters are Base->form galleries; forms[] is in transformation order. Updated 2026-07-11 with user-supplied images (Goku Early/Daima, Gohan Early/Teen, Oozaru shared, plus replacements).",
  "broken": {},
@@ -364,9 +364,19 @@
    "slug": "beerus",
    "forms": [
     {
-     "form": "Beerus",
-     "file": "Images/beerus/01_beerus.jpg",
-     "source": "https://files.catbox.moe/bb5hsy.png"
+     "form": "Base Form",
+     "file": "Images/beerus/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 3)"
+    },
+    {
+     "form": "??? Percent Power",
+     "file": "Images/beerus/02_percent_power.jpg",
+     "source": "user upload 2026-07-11 (batch 3)"
+    },
+    {
+     "form": "Serious",
+     "file": "Images/beerus/03_serious.jpg",
+     "source": "user upload 2026-07-11 (batch 3)"
     }
    ]
   },
