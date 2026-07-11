@@ -6,146 +6,162 @@
 body{background:#0a0b0e;padding:20px 14px;font-family:'Rajdhani',system-ui,sans-serif;max-width:600px;margin:0 auto;color:#e8eaee}
 .hd h1{font:700 19px 'Oswald';letter-spacing:.03em}.hd h1 b{color:#f6a01a}
 .hd p{color:#9aa1ad;font-size:13px;line-height:1.5;margin:6px 0 8px}
-.lab{font:700 12px 'Oswald',monospace;letter-spacing:.2em;color:#f6a01a;text-transform:uppercase;margin:30px 0 3px;border-top:1px solid #23262d;padding-top:16px}
+.lab{font:700 12px 'Oswald',monospace;letter-spacing:.2em;color:#f6a01a;text-transform:uppercase;margin:30px 0 8px;border-top:1px solid #23262d;padding-top:16px}
 .lab small{display:block;color:#7a808a;font-weight:500;letter-spacing:.04em;text-transform:none;margin-top:2px;font-size:11px}
+.panel{display:none}.panel.on{display:block;animation:fx .2s ease}
+@keyframes fx{from{opacity:0}to{opacity:1}}
+.opt.col .tabs,.opt.col .bodies{display:none}
+.head{cursor:pointer;user-select:none}.tab{cursor:pointer;user-select:none}
 
 /* ============================================================ A — SCOUTER TERMINAL */
-.A{background:#050a07;border:1px solid #1c5233;border-radius:5px;padding:0;overflow:hidden;font-family:'Share Tech Mono',monospace;position:relative}
+.A{background:#050a07;border:1px solid #1c5233;border-radius:5px;overflow:hidden;font-family:'Share Tech Mono',monospace;position:relative}
 .A::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(72,224,122,.045) 0 1px,transparent 1px 3px);pointer-events:none;z-index:3}
-.A .top{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid #16401f;background:linear-gradient(180deg,#08130c,#050a07)}
+.A .head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid #16401f;background:linear-gradient(180deg,#08130c,#050a07)}
 .A .tt{font-size:9px;letter-spacing:.28em;color:#2f8a4e;text-transform:uppercase}
 .A .nm{font:700 20px 'Rajdhani',sans-serif;letter-spacing:.06em;color:#c6ffd8;text-shadow:0 0 8px rgba(72,224,122,.4);text-transform:uppercase;margin-top:1px}
 .A .pw{font-size:22px;color:#48e07a;text-shadow:0 0 10px rgba(72,224,122,.5);text-align:right;line-height:1}
 .A .pwl{font-size:8px;letter-spacing:.2em;color:#2f8a4e;text-align:right}
-.A .tabs{display:flex;gap:6px;padding:8px 12px 0}
-.A .tab{font-size:11px;letter-spacing:.12em;color:#2f8a4e;padding:5px 10px;border:1px solid #16401f;border-bottom:0;background:#08130c;text-transform:uppercase}
-.A .tab.on{color:#7dffa8;border-color:#2f8a4e;background:#0c1c11;box-shadow:0 0 12px rgba(72,224,122,.15) inset}
-.A .body{border-top:1px solid #16401f;padding:12px 14px 14px;position:relative;z-index:2}
+.A .tabs{display:flex;gap:6px;padding:8px 12px 0;position:relative;z-index:2}
+.A .tab{font-size:11px;letter-spacing:.1em;color:#2f8a4e;padding:5px 10px;border:1px solid #16401f;border-bottom:0;background:#08130c;text-transform:uppercase}
+.A .tab.on{color:#7dffa8;border-color:#2f8a4e;background:#0c1c11}
+.A .bodies{border-top:1px solid #16401f;position:relative;z-index:2}
+.A .panel{padding:12px 14px 14px}
 .A .row{display:flex;justify-content:space-between;font-size:13px;color:#8fd7a5;padding:3px 0;border-bottom:1px dashed #163f21}
-.A .row b{color:#5cbf78;font-weight:400;letter-spacing:.1em;font-size:11px}
+.A .row b{color:#5cbf78;font-weight:400;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
 .A .row span{color:#d7f7e2}
-.A .seg{display:flex;gap:2px;margin-top:8px}
-.A .seg i{flex:1;height:9px;background:#0e2916;border:1px solid #1c5233}
-.A .seg i.f{background:#48e07a;box-shadow:0 0 6px rgba(72,224,122,.6)}
-.A .sl{font-size:9px;color:#2f8a4e;letter-spacing:.18em;margin:10px 0 3px}
+.A .sl{font-size:9px;color:#2f8a4e;letter-spacing:.16em;margin:10px 0 3px;text-transform:uppercase}
+.A .seg{display:flex;gap:2px}.A .seg i{flex:1;height:9px;background:#0e2916;border:1px solid #1c5233}.A .seg i.f{background:#48e07a;box-shadow:0 0 5px rgba(72,224,122,.6)}.A .seg i.y{background:#e0c341;border-color:#8a6f1e}.A .seg i.r{background:#e05a4a;border-color:#7a2c22}
+.A .chip{display:inline-block;font-size:11px;color:#8fd7a5;border:1px solid #1c5233;padding:2px 8px;margin:3px 4px 0 0}
+.A .chip.o{color:#7dffa8;border-color:#48e07a}.A .chip.lk{color:#3f6b4c;border-style:dashed}.A .chip.hurt{color:#e0a08f;border-color:#7a3c30}
+.A .tq{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px dashed #163f21}.A .tq b{color:#d7f7e2;font-weight:400}.A .tq i{color:#e0c341;font-style:normal}.A .tq small{display:block;color:#3f6b4c;font-size:10px}
 
 /* ============================================================ B — CAPSULE TECH */
 .B{background:linear-gradient(160deg,#141c2b,#0e1420);border:1px solid #26344a;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.5)}
-.B .top{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(90deg,#182236,#111827);border-bottom:1px solid #26344a}
+.B .head{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(90deg,#182236,#111827);border-bottom:1px solid #26344a}
 .B .badge{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,#3b82f6,#1e40af);display:flex;align-items:center;justify-content:center;font:700 18px 'Oswald';color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(59,130,246,.4)}
 .B .tt{font-size:9px;letter-spacing:.2em;color:#6a8bc0;text-transform:uppercase}
-.B .nm{font:700 19px 'Oswald';letter-spacing:.02em;color:#eaf0fa;text-transform:uppercase;line-height:1.05}
-.B .pw{margin-left:auto;text-align:right}
-.B .pw b{display:block;font:700 20px 'Teko';color:#5bc0ff;letter-spacing:.02em}
-.B .pw i{font-size:8px;letter-spacing:.16em;color:#5a6b85;font-style:normal;text-transform:uppercase}
+.B .nm{font:700 19px 'Oswald';color:#eaf0fa;text-transform:uppercase;line-height:1.05}
+.B .pw{margin-left:auto;text-align:right}.B .pw b{display:block;font:700 20px 'Teko';color:#5bc0ff}.B .pw i{font-size:8px;letter-spacing:.16em;color:#5a6b85;font-style:normal;text-transform:uppercase}
 .B .tabs{display:flex;gap:5px;padding:11px 14px;background:#0c111c}
-.B .tab{flex:1;text-align:center;font:600 11px 'Rajdhani';letter-spacing:.08em;color:#7a8aa5;padding:8px 4px;border-radius:8px;text-transform:uppercase}
+.B .tab{flex:1;text-align:center;font:600 11px 'Rajdhani';letter-spacing:.06em;color:#7a8aa5;padding:8px 4px;border-radius:8px;text-transform:uppercase}
 .B .tab.on{color:#0c111c;background:linear-gradient(180deg,#5bc0ff,#3b82f6);font-weight:700;box-shadow:0 3px 10px rgba(59,130,246,.35)}
-.B .body{padding:13px 15px 15px}
+.B .panel{padding:13px 15px 15px}
 .B .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.B .c{background:#141c2b;border:1px solid #26344a;border-radius:9px;padding:8px 11px}
+.B .c{background:#141c2b;border:1px solid #26344a;border-radius:9px;padding:8px 11px}.B .c.full{grid-column:1/-1}
 .B .c .k{font-size:8px;letter-spacing:.14em;color:#5a6b85;text-transform:uppercase;font-weight:600}
-.B .c .v{font:600 14px 'Rajdhani';color:#eaf0fa;margin-top:1px}
-.B .c .v.o{color:#5bc0ff;font-family:'Teko';font-size:18px}
-.B .bar{margin-top:11px}
-.B .bar .r{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
-.B .bar .r b{color:#ff7a6b;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:10px}
-.B .bar .r span{color:#8a97ad;font-family:'Teko';font-size:14px}
-.B .bar .t{height:8px;background:#0c111c;border-radius:5px;overflow:hidden}
-.B .bar .t i{display:block;height:100%;width:68%;background:linear-gradient(90deg,#ef4444,#f87171);border-radius:5px}
+.B .c .v{font:600 14px 'Rajdhani';color:#eaf0fa;margin-top:1px}.B .c .v.o{color:#5bc0ff;font-family:'Teko';font-size:18px}.B .c .v small{color:#8a97ad;font-size:12px;font-weight:500}.B .c .v b{color:#5bc0ff}
+.B .bar{margin-top:10px}.B .bar .r{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}.B .bar .r b{font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:10px}.B .bar .r span{color:#8a97ad;font-family:'Teko';font-size:14px}
+.B .t{height:8px;background:#0c111c;border-radius:5px;overflow:hidden}.B .t i{display:block;height:100%;border-radius:5px}
+.B .sh{font:600 9px 'Rajdhani';letter-spacing:.16em;color:#6a8bc0;text-transform:uppercase;margin:12px 0 6px}
+.B .chip{display:inline-flex;font-size:12px;font-weight:600;padding:4px 11px;border-radius:20px;border:1px solid #26344a;background:#141c2b;color:#a7b3c8;margin:0 5px 5px 0}
+.B .chip.on{border-color:#5bc0ff;color:#5bc0ff;background:rgba(91,192,255,.1)}.B .chip.cur{border-color:#48e07a;color:#48e07a;background:rgba(72,224,122,.1)}.B .chip.lk{color:#4a5468;border-style:dashed}.B .chip.hurt{border-color:#ef4444;color:#ff9b8f;background:rgba(239,68,68,.12)}
+.B .tq{display:flex;align-items:center;gap:8px;padding:7px 2px;border-bottom:1px solid #1c2536}.B .tq .tn{font:600 13px 'Rajdhani';color:#eaf0fa}.B .tq .td{font-size:11px;color:#7a8aa5}.B .tq .tc{margin-left:auto;font-family:'Teko';font-size:14px;color:#5bc0ff}
 
 /* ============================================================ C — MANGA INK */
 .C{background:#f6f2e9;border:3px solid #16130d;border-radius:3px;overflow:hidden;color:#16130d;box-shadow:6px 6px 0 rgba(0,0,0,.35)}
-.C .top{padding:12px 15px;border-bottom:3px solid #16130d;position:relative;background:#efe9db;
- background-image:radial-gradient(#d9cfb8 1px,transparent 1.4px);background-size:7px 7px}
-.C .tt{font:700 10px 'Oswald';letter-spacing:.28em;text-transform:uppercase;color:#9a1f18}
-.C .nm{font:400 30px 'Anton','Oswald';letter-spacing:.01em;text-transform:uppercase;line-height:.95;margin-top:2px}
-.C .pw{position:absolute;right:14px;top:12px;text-align:right;transform:rotate(-4deg)}
-.C .pw b{display:block;font:400 26px 'Anton';color:#9a1f18;line-height:.8}
-.C .pw i{font:700 8px 'Oswald';letter-spacing:.16em;font-style:normal;text-transform:uppercase}
+.C .head{padding:12px 15px;border-bottom:3px solid #16130d;position:relative;background:#efe9db;background-image:radial-gradient(#d9cfb8 1px,transparent 1.4px);background-size:7px 7px}
+.C .tt{font:700 10px 'Oswald';letter-spacing:.26em;text-transform:uppercase;color:#9a1f18}
+.C .nm{font:400 30px 'Anton','Oswald';text-transform:uppercase;line-height:.95;margin-top:2px}
+.C .pw{position:absolute;right:14px;top:12px;text-align:right;transform:rotate(-4deg)}.C .pw b{display:block;font:400 26px 'Anton';color:#9a1f18;line-height:.8}.C .pw i{font:700 8px 'Oswald';letter-spacing:.14em;font-style:normal;text-transform:uppercase}
 .C .tabs{display:flex}
-.C .tab{flex:1;text-align:center;font:700 11px 'Oswald';letter-spacing:.1em;text-transform:uppercase;padding:8px 4px;border-right:2px solid #16130d;background:#e5ddca;color:#5a5344}
-.C .tab:last-child{border-right:0}
+.C .tab{flex:1;text-align:center;font:700 11px 'Oswald';letter-spacing:.08em;text-transform:uppercase;padding:8px 4px;border-right:2px solid #16130d;background:#e5ddca;color:#5a5344}.C .tab:last-child{border-right:0}
 .C .tab.on{background:#16130d;color:#f6f2e9}
-.C .body{padding:12px 15px 15px}
-.C .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1.5px dashed #16130d80}
-.C .row b{font:700 11px 'Oswald';letter-spacing:.08em;text-transform:uppercase;color:#5a5344}
-.C .row span{font:600 14px 'Rajdhani'}
-.C .abil{margin-top:10px;border:2px solid #16130d;padding:8px 10px;font-size:13px;font-weight:600;line-height:1.4;background:#fff}
-.C .abil b{color:#9a1f18}
+.C .panel{padding:12px 15px 15px}
+.C .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1.5px dashed rgba(22,19,13,.5)}.C .row b{font:700 11px 'Oswald';letter-spacing:.06em;text-transform:uppercase;color:#5a5344}.C .row span{font:600 14px 'Rajdhani'}
+.C .abil{margin-top:10px;border:2px solid #16130d;padding:8px 10px;font-size:13px;font-weight:600;line-height:1.4;background:#fff}.C .abil b{color:#9a1f18}
+.C .sh{font:700 10px 'Oswald';letter-spacing:.16em;text-transform:uppercase;margin:12px 0 6px;color:#9a1f18;border-bottom:2px solid #16130d;padding-bottom:2px}
+.C .chip{display:inline-block;font:700 11px 'Oswald';letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border:2px solid #16130d;margin:0 5px 5px 0;background:#fff}.C .chip.on{background:#16130d;color:#f6f2e9}.C .chip.cur{background:#9a1f18;color:#fff;border-color:#9a1f18}.C .chip.lk{border-style:dashed;color:#8a8272;background:transparent}.C .chip.hurt{color:#9a1f18;border-color:#9a1f18}
+.C .bar{margin:8px 0}.C .bar .r{display:flex;justify-content:space-between;font:700 10px 'Oswald';letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}.C .t{height:11px;border:2px solid #16130d;background:#fff}.C .t i{display:block;height:100%;background:#16130d}.C .t i.hp{background:#9a1f18}
+.C .tq{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1.5px dashed rgba(22,19,13,.5)}.C .tq b{font:600 13px 'Rajdhani'}.C .tq small{display:block;font-size:11px;color:#5a5344}.C .tq i{font:700 11px 'Oswald';font-style:normal;color:#9a1f18}
 
 /* ============================================================ D — BOLD SHONEN */
 .D{background:#111214;border-radius:10px;overflow:hidden;position:relative;border:1px solid #2a2c30}
-.D .top{position:relative;padding:16px 16px 13px;background:linear-gradient(120deg,#f6a01a,#e2740c);overflow:hidden}
-.D .top::after{content:'';position:absolute;right:-30px;top:-30px;width:120px;height:120px;background:repeating-linear-gradient(45deg,rgba(0,0,0,.08) 0 6px,transparent 6px 12px)}
-.D .tt{font:700 9px 'Oswald';letter-spacing:.22em;color:#5a2e00;text-transform:uppercase}
+.D .head{position:relative;padding:16px 16px 13px;background:linear-gradient(120deg,#f6a01a,#e2740c);overflow:hidden}
+.D .head::after{content:'';position:absolute;right:-30px;top:-30px;width:120px;height:120px;background:repeating-linear-gradient(45deg,rgba(0,0,0,.08) 0 6px,transparent 6px 12px)}
+.D .tt{font:700 9px 'Oswald';letter-spacing:.2em;color:#5a2e00;text-transform:uppercase}
 .D .nm{font:400 32px 'Bebas Neue','Oswald';letter-spacing:.03em;color:#141414;line-height:.9;margin-top:1px}
-.D .pw{position:absolute;right:16px;bottom:12px;font:400 30px 'Bebas Neue';color:#fff;letter-spacing:.02em;text-shadow:2px 2px 0 rgba(0,0,0,.25)}
-.D .pw small{display:block;font:700 8px 'Oswald';letter-spacing:.18em;color:#5a2e00;text-align:right;margin-bottom:-4px}
-.D .tabs{display:flex;gap:0;background:#0c0d0f;padding:0 8px}
-.D .tab{font:700 12px 'Oswald';letter-spacing:.1em;text-transform:uppercase;color:#6a6f78;padding:11px 12px;border-bottom:3px solid transparent}
+.D .pw{position:absolute;right:16px;bottom:12px;font:400 30px 'Bebas Neue';color:#fff;letter-spacing:.02em;text-shadow:2px 2px 0 rgba(0,0,0,.25);text-align:right}.D .pw small{display:block;font:700 8px 'Oswald';letter-spacing:.16em;color:#5a2e00;margin-bottom:-4px}
+.D .tabs{display:flex;background:#0c0d0f;padding:0 8px}
+.D .tab{font:700 12px 'Oswald';letter-spacing:.08em;text-transform:uppercase;color:#6a6f78;padding:11px 12px;border-bottom:3px solid transparent}
 .D .tab.on{color:#f6a01a;border-bottom-color:#f6a01a}
-.D .body{padding:13px 15px 15px}
+.D .panel{padding:13px 15px 15px}
 .D .grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2a2c30;border:1px solid #2a2c30;border-radius:7px;overflow:hidden}
-.D .c{background:#16171a;padding:8px 12px}
-.D .c .k{font:700 8px 'Oswald';letter-spacing:.14em;color:#6a6f78;text-transform:uppercase}
-.D .c .v{font:600 15px 'Rajdhani';color:#f2f3f5;margin-top:1px}
-.D .c .v.o{color:#f6a01a;font-weight:700}
-.D .bar{margin-top:12px}
-.D .bar .r{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
-.D .bar .r b{font:700 10px 'Oswald';letter-spacing:.1em;text-transform:uppercase;color:#ff6b5b}
-.D .bar .r span{color:#9aa1ad;font-weight:600}
-.D .bar .t{height:7px;background:#0c0d0f;border-radius:0;overflow:hidden;transform:skewX(-18deg)}
-.D .bar .t i{display:block;height:100%;width:68%;background:#ff5b48}
+.D .c{background:#16171a;padding:8px 12px}.D .c.full{grid-column:1/-1}
+.D .c .k{font:700 8px 'Oswald';letter-spacing:.14em;color:#6a6f78;text-transform:uppercase}.D .c .v{font:600 15px 'Rajdhani';color:#f2f3f5;margin-top:1px}.D .c .v.o{color:#f6a01a;font-weight:700}.D .c .v small{color:#9aa1ad;font-size:12px}.D .c .v b{color:#f6a01a}
+.D .bar{margin-top:11px}.D .bar .r{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}.D .bar .r b{font:700 10px 'Oswald';letter-spacing:.08em;text-transform:uppercase}.D .bar .r span{color:#9aa1ad;font-weight:600}
+.D .t{height:8px;background:#0c0d0f;overflow:hidden;transform:skewX(-18deg)}.D .t i{display:block;height:100%}
+.D .sh{font:700 10px 'Oswald';letter-spacing:.14em;text-transform:uppercase;color:#f6a01a;margin:13px 0 6px}
+.D .chip{display:inline-block;font:600 12px 'Rajdhani';padding:4px 11px;border-radius:3px;border:1px solid #2a2c30;background:#16171a;color:#b9bfc9;margin:0 5px 5px 0}.D .chip.on{border-color:#f6a01a;color:#f6a01a;background:rgba(246,160,26,.1)}.D .chip.cur{border-color:#48e07a;color:#48e07a;background:rgba(72,224,122,.1)}.D .chip.lk{color:#5a5f68;border-style:dashed}.D .chip.hurt{border-color:#ff5b48;color:#ff9b8f;background:rgba(255,91,72,.12)}
+.D .tq{display:flex;align-items:center;gap:9px;padding:7px 2px;border-bottom:1px solid #22242a}.D .tq .tn{font:700 13px 'Oswald';letter-spacing:.02em;color:#f2f3f5}.D .tq .td{font-size:11px;color:#8a909a}.D .tq .tc{margin-left:auto;font-weight:700;color:#f6a01a;font-size:13px}
 </style></head><body>
 <div class="hd">
-<h1><b>Dragon Ball</b> — Status HUD · pick a direction</h1>
-<p>Four distinct looks (text tabs, no icon clutter). Each shows the header + tab bar + a sample page so you can judge the vibe. Tell me a letter — then I build that one out fully (all pages, interactive tabs, collapse, data-driven).</p>
+<h1><b>Dragon Ball</b> — Status HUD · tap around &amp; pick</h1>
+<p>All four are <b>live now</b> — tap the tabs to switch pages, tap the top bar to collapse. Play with each, then tell me a letter (or say what to change / mix).</p>
 </div>
 
-<div class="lab">A — Scouter Terminal <small>Frieza-saga green readout · monospace · scanlines · segmented bars</small></div>
-<div class="A">
- <div class="top"><div><div class="tt">Combat Scouter · Online</div><div class="nm">Kaen</div></div><div><div class="pw">1,200,000</div><div class="pwl">Battle Power</div></div></div>
- <div class="tabs"><div class="tab on">Profile</div><div class="tab">Vitality</div><div class="tab">Skills</div><div class="tab">Items</div></div>
- <div class="body">
-  <div class="row"><b>Race</b><span>Saiyan</span></div>
-  <div class="row"><b>Age / Gender</b><span>24 · Male</span></div>
-  <div class="row"><b>Alignment</b><span>Chaotic Good</span></div>
-  <div class="sl">HP ▸ 68%</div><div class="seg"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div>
+<!-- ============ A ============ -->
+<div class="lab">A — Scouter Terminal <small>tap the tabs · tap the header to collapse</small></div>
+<div class="A opt">
+ <div class="head"><div><div class="tt">Combat Scouter · Online</div><div class="nm">Kaen</div></div><div><div class="pw">1,200,000</div><div class="pwl">Battle Power</div></div></div>
+ <div class="tabs"><div class="tab on" data-t="0">Profile</div><div class="tab" data-t="1">Vitality</div><div class="tab" data-t="2">Skills</div><div class="tab" data-t="3">Items</div></div>
+ <div class="bodies">
+  <div class="panel on" data-t="0"><div class="row"><b>Race</b><span>Saiyan</span></div><div class="row"><b>Age / Gender</b><span>24 · Male</span></div><div class="row"><b>Alignment</b><span>Chaotic Good</span></div><div class="sl">Race Ability</div><div style="font-size:12px;color:#8fd7a5;line-height:1.4">Zenkai Boost · Oozaru (full moon, needs tail)</div></div>
+  <div class="panel" data-t="1"><div class="sl">HP ▸ 68%</div><div class="seg"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div><div class="sl">Stamina ▸ 46%</div><div class="seg"><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i><i></i><i></i><i></i><i></i></div><div class="sl">Ki ▸ 94%</div><div class="seg"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="sl" style="margin-top:11px">Injuries</div><span class="chip hurt">Fractured arm</span><span class="chip hurt">Ki exhaustion</span></div>
+  <div class="panel" data-t="2"><div class="sl">Transformations</div><span class="chip">Base</span><span class="chip o">★ Super Saiyan</span><span class="chip lk">SS2 (locked)</span><span class="chip lk">Oozaru (locked)</span><div class="sl" style="margin-top:11px">Techniques</div><div class="tq"><b>Kamehameha<small>Signature ki wave</small></b><i>1,500 Ki</i></div><div class="tq"><b>Instant Transmission<small>Teleport to a ki signature</small></b><i>800 Ki</i></div></div>
+  <div class="panel" data-t="3"><div class="sl">Inventory</div><span class="chip o">Senzu Bean ×2</span><span class="chip">Capsule: Hovercar</span><span class="chip">Scouter</span><div class="row" style="margin-top:11px"><b>Zeni</b><span>45,000</span></div></div>
  </div>
 </div>
 
-<div class="lab">B — Capsule Tech <small>clean game-menu UI · navy + cyan/blue · rounded cards · pill tabs</small></div>
-<div class="B">
- <div class="top"><span class="badge">K</span><div><div class="tt">Saiyan Fighter · Earth</div><div class="nm">Kaen</div></div><div class="pw"><b>1,200,000</b><i>Battle Power</i></div></div>
- <div class="tabs"><div class="tab on">Profile</div><div class="tab">Vitality</div><div class="tab">Skills</div><div class="tab">Items</div></div>
- <div class="body">
-  <div class="grid"><div class="c"><div class="k">Race</div><div class="v">Saiyan</div></div><div class="c"><div class="k">Age</div><div class="v">24</div></div><div class="c"><div class="k">Power Level</div><div class="v o">1,200,000</div></div><div class="c"><div class="k">Alignment</div><div class="v">Chaotic Good</div></div></div>
-  <div class="bar"><div class="r"><b>Health</b><span>6,800 / 10,000</span></div><div class="t"><i></i></div></div>
+<!-- ============ B ============ -->
+<div class="lab">B — Capsule Tech <small>tap the tabs · tap the header to collapse</small></div>
+<div class="B opt">
+ <div class="head"><span class="badge">K</span><div><div class="tt">Saiyan Fighter · Earth</div><div class="nm">Kaen</div></div><div class="pw"><b>1,200,000</b><i>Battle Power</i></div></div>
+ <div class="tabs"><div class="tab on" data-t="0">Profile</div><div class="tab" data-t="1">Vitality</div><div class="tab" data-t="2">Skills</div><div class="tab" data-t="3">Items</div></div>
+ <div class="bodies">
+  <div class="panel on" data-t="0"><div class="grid"><div class="c"><div class="k">Race</div><div class="v">Saiyan</div></div><div class="c"><div class="k">Age</div><div class="v">24</div></div><div class="c"><div class="k">Power Level</div><div class="v o">1,200,000</div></div><div class="c"><div class="k">Alignment</div><div class="v">Chaotic Good</div></div><div class="c full"><div class="k">Race Ability</div><div class="v"><b>Zenkai Boost</b> <small>— power surge after near-death.</small> <b>Oozaru</b> <small>— Great Ape (full moon).</small></div></div></div></div>
+  <div class="panel" data-t="1"><div class="bar"><div class="r"><b style="color:#ff7a6b">Health</b><span>6,800 / 10,000</span></div><div class="t"><i style="width:68%;background:linear-gradient(90deg,#ef4444,#f87171)"></i></div></div><div class="bar"><div class="r"><b style="color:#5ad18a">Stamina</b><span>4,100 / 9,000</span></div><div class="t"><i style="width:46%;background:linear-gradient(90deg,#22c55e,#4ade80)"></i></div></div><div class="bar"><div class="r"><b style="color:#5bc0ff">Ki</b><span>7,500 / 8,000</span></div><div class="t"><i style="width:94%;background:linear-gradient(90deg,#3b82f6,#5bc0ff)"></i></div></div><div class="sh">Injuries</div><span class="chip hurt">Fractured arm — moderate</span><span class="chip hurt">Ki exhaustion</span></div>
+  <div class="panel" data-t="2"><div class="sh">Transformations</div><span class="chip">Base</span><span class="chip cur">Super Saiyan</span><span class="chip lk">Super Saiyan 2</span><span class="chip lk">Oozaru</span><div class="sh">Techniques</div><div class="tq"><div><div class="tn">Kamehameha</div><div class="td">Signature ki wave</div></div><span class="tc">1,500 Ki</span></div><div class="tq"><div><div class="tn">Instant Transmission</div><div class="td">Teleport to a ki signature</div></div><span class="tc">800 Ki</span></div></div>
+  <div class="panel" data-t="3"><div class="sh">Inventory</div><span class="chip on">Senzu Bean ×2</span><span class="chip">Capsule: Hovercar</span><span class="chip">Scouter</span><span class="chip">Med-Kit</span><div class="sh">Zeni</div><div class="c full"><div class="v o">45,000</div></div></div>
  </div>
 </div>
 
-<div class="lab">C — Manga Ink <small>databook page · cream paper + halftone · thick black ink · Anton display type</small></div>
-<div class="C">
- <div class="top"><div class="tt">Saiyan Fighter · Earth</div><div class="nm">Kaen</div><div class="pw"><b>1.2M</b><i>Battle Power</i></div></div>
- <div class="tabs"><div class="tab on">Profile</div><div class="tab">Vitality</div><div class="tab">Skills</div><div class="tab">Items</div></div>
- <div class="body">
-  <div class="row"><b>Race</b><span>Saiyan</span></div>
-  <div class="row"><b>Age / Gender</b><span>24 · Male</span></div>
-  <div class="row"><b>Alignment</b><span>Chaotic Good</span></div>
-  <div class="abil"><b>Zenkai Boost</b> — surges in power after near-death. <b>Oozaru</b> — Great Ape under a full moon.</div>
+<!-- ============ C ============ -->
+<div class="lab">C — Manga Ink <small>tap the tabs · tap the header to collapse</small></div>
+<div class="C opt">
+ <div class="head"><div class="tt">Saiyan Fighter · Earth</div><div class="nm">Kaen</div><div class="pw"><b>1.2M</b><i>Battle Power</i></div></div>
+ <div class="tabs"><div class="tab on" data-t="0">Profile</div><div class="tab" data-t="1">Vitality</div><div class="tab" data-t="2">Skills</div><div class="tab" data-t="3">Items</div></div>
+ <div class="bodies">
+  <div class="panel on" data-t="0"><div class="row"><b>Race</b><span>Saiyan</span></div><div class="row"><b>Age / Gender</b><span>24 · Male</span></div><div class="row"><b>Alignment</b><span>Chaotic Good</span></div><div class="abil"><b>Zenkai Boost</b> — surges in power after near-death. <b>Oozaru</b> — Great Ape under a full moon.</div></div>
+  <div class="panel" data-t="1"><div class="bar"><div class="r"><span>Health</span><span>68%</span></div><div class="t"><i class="hp" style="width:68%"></i></div></div><div class="bar"><div class="r"><span>Stamina</span><span>46%</span></div><div class="t"><i style="width:46%"></i></div></div><div class="bar"><div class="r"><span>Ki</span><span>94%</span></div><div class="t"><i style="width:94%"></i></div></div><div class="sh">Injuries</div><span class="chip hurt">Fractured arm</span><span class="chip hurt">Ki exhaustion</span></div>
+  <div class="panel" data-t="2"><div class="sh">Transformations</div><span class="chip">Base</span><span class="chip cur">Super Saiyan</span><span class="chip lk">SS2</span><span class="chip lk">Oozaru</span><div class="sh">Techniques</div><div class="tq"><b>Kamehameha<small>Signature ki wave</small></b><i>1,500 Ki</i></div><div class="tq"><b>Instant Transmission<small>Teleport to a ki signature</small></b><i>800 Ki</i></div></div>
+  <div class="panel" data-t="3"><div class="sh">Inventory</div><span class="chip on">Senzu ×2</span><span class="chip">Hovercar</span><span class="chip">Scouter</span><div class="row" style="margin-top:8px"><b>Zeni</b><span>45,000</span></div></div>
  </div>
 </div>
 
-<div class="lab">D — Bold Shonen <small>flat &amp; punchy · orange gi banner · Bebas Neue · skewed energy bars</small></div>
-<div class="D">
- <div class="top"><div class="tt">Saiyan Fighter · Earth</div><div class="nm">Kaen</div><div class="pw"><small>Battle Power</small>1,200,000</div></div>
- <div class="tabs"><div class="tab on">Profile</div><div class="tab">Vitality</div><div class="tab">Skills</div><div class="tab">Items</div></div>
- <div class="body">
-  <div class="grid"><div class="c"><div class="k">Race</div><div class="v">Saiyan</div></div><div class="c"><div class="k">Age</div><div class="v">24</div></div><div class="c"><div class="k">Power Level</div><div class="v o">1,200,000</div></div><div class="c"><div class="k">Alignment</div><div class="v">Chaotic Good</div></div></div>
-  <div class="bar"><div class="r"><b>Health</b><span>6,800 / 10,000</span></div><div class="t"><i></i></div></div>
+<!-- ============ D ============ -->
+<div class="lab">D — Bold Shonen <small>tap the tabs · tap the header to collapse</small></div>
+<div class="D opt">
+ <div class="head"><div class="tt">Saiyan Fighter · Earth</div><div class="nm">Kaen</div><div class="pw"><small>Battle Power</small>1,200,000</div></div>
+ <div class="tabs"><div class="tab on" data-t="0">Profile</div><div class="tab" data-t="1">Vitality</div><div class="tab" data-t="2">Skills</div><div class="tab" data-t="3">Items</div></div>
+ <div class="bodies">
+  <div class="panel on" data-t="0"><div class="grid"><div class="c"><div class="k">Race</div><div class="v">Saiyan</div></div><div class="c"><div class="k">Age</div><div class="v">24</div></div><div class="c"><div class="k">Power Level</div><div class="v o">1,200,000</div></div><div class="c"><div class="k">Alignment</div><div class="v">Chaotic Good</div></div><div class="c full"><div class="k">Race Ability</div><div class="v"><b>Zenkai Boost</b> <small>— power surge after near-death.</small> <b>Oozaru</b> <small>— full moon.</small></div></div></div></div>
+  <div class="panel" data-t="1"><div class="bar"><div class="r"><b style="color:#ff5b48">Health</b><span>6,800 / 10,000</span></div><div class="t"><i style="width:68%;background:#ff5b48"></i></div></div><div class="bar"><div class="r"><b style="color:#4ade80">Stamina</b><span>4,100 / 9,000</span></div><div class="t"><i style="width:46%;background:#4ade80"></i></div></div><div class="bar"><div class="r"><b style="color:#f6a01a">Ki</b><span>7,500 / 8,000</span></div><div class="t"><i style="width:94%;background:#f6a01a"></i></div></div><div class="sh">Injuries</div><span class="chip hurt">Fractured arm</span><span class="chip hurt">Ki exhaustion</span></div>
+  <div class="panel" data-t="2"><div class="sh">Transformations</div><span class="chip">Base</span><span class="chip cur">Super Saiyan</span><span class="chip lk">SS2</span><span class="chip lk">Oozaru</span><div class="sh">Techniques</div><div class="tq"><div><div class="tn">Kamehameha</div><div class="td">Signature ki wave</div></div><span class="tc">1,500 Ki</span></div><div class="tq"><div><div class="tn">Instant Transmission</div><div class="td">Teleport to a ki signature</div></div><span class="tc">800 Ki</span></div></div>
+  <div class="panel" data-t="3"><div class="sh">Inventory</div><span class="chip on">Senzu Bean ×2</span><span class="chip">Capsule: Hovercar</span><span class="chip">Scouter</span><div class="sh">Zeni</div><div class="grid"><div class="c full"><div class="v o">45,000</div></div></div></div>
  </div>
 </div>
 
-<p style="color:#6f747d;font-size:12px;margin:26px 0 0;line-height:1.5;border-top:1px solid #23262d;padding-top:14px">Reply with a letter (A / B / C / D) — or mix ("B's layout but Scouter green"). I'll then build the full interactive version of your pick. Not sure? I can also do a couple more directions.</p>
+<p style="color:#6f747d;font-size:12px;margin:26px 0 0;line-height:1.5;border-top:1px solid #23262d;padding-top:14px">Pick a letter, or tell me exactly what feels off and I'll adjust / make more directions. Once you choose, I build it out fully (all fields, collapse, data-driven from a <code style="color:#f6a01a">&lt;DB_STATUS&gt;</code> JSON tag) and wrap it into the regex.</p>
+
+<script>
+document.querySelectorAll('.opt').forEach(function(opt){
+ var tabs=opt.querySelectorAll('.tab'),panels=opt.querySelectorAll('.panel');
+ tabs.forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();
+  var i=t.getAttribute('data-t');
+  tabs.forEach(function(x){x.classList.toggle('on',x.getAttribute('data-t')===i)});
+  panels.forEach(function(x){x.classList.toggle('on',x.getAttribute('data-t')===i)});
+ })});
+ opt.querySelector('.head').addEventListener('click',function(){opt.classList.toggle('col')});
+});
+</script>
 </body></html>
