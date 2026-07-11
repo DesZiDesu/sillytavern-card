@@ -1,10 +1,10 @@
 # Dragon Ball — Image / Form Index
 
-Characters with **multiple images are transformation galleries**: images run in order from **Base form → higher forms**. Each entry lists that order, matching the image order in the lorebook and in the `Images/<slug>/` folders produced by the Catbox Packer (files numbered `01_...`, `02_...` in the same order). Labels marked *Potential / Non-Canon / Head Canon* are non-canon forms kept for roleplay flexibility.
+Characters with **multiple images are transformation galleries**: images run in order from **Base form → higher forms**. Each entry lists that order, matching the `Images/<slug>/` folders (files numbered `01_...`, `02_...`). Labels marked *Potential / Non-Canon / Head Canon* are non-canon forms kept for roleplay flexibility.
+
+✅ **All 252 images stored in `Images/` (updated 2026-07-11).** New galleries: GOKU [EARLY], GOKU [DAIMA], GOHAN [EARLY], GOHAN [TEEN], OOZARU (shared). Updated images: Goku Super base + SSB Kaioken, Xicor SS5, Granola (base + Both Eyes), Yamcha ×2, Merus.
 
 > Single-portrait characters (one image, no transformations) are listed at the bottom.
-
-✅ **All 232 images downloaded and stored in `Images/` (2026-07-10).** No missing images — the two links that intermittently failed (Gogeta SS2, Gotenks SS4) were recovered by retry; the failures were catbox rate-limiting, not dead files.
 
 
 ## Transformation galleries (Base → forms)
@@ -114,6 +114,11 @@ Characters with **multiple images are transformation galleries**: images run in 
 1. Base Form - Godly Ki Infusion  
 2. Ultimate Gohan Black / Mystic Gohan Black  
 
+**GOHAN [EARLY]** — 3 forms  
+1. Kid Gohan - Hat (Saiyan Saga)  
+2. Kid Gohan - Early Z  
+3. Kid Gohan - Training Headband  
+
 **GOHAN [FUTURE]** — 6 forms  
 1. Base Form  
 2. Super Saiyan  
@@ -122,11 +127,30 @@ Characters with **multiple images are transformation galleries**: images run in 
 5. Super Saiyan God - Potential  
 6. Super Saiyan Blue - Potential  
 
+**GOHAN [TEEN]** — 3 forms  
+1. Base Form  
+2. Super Saiyan  
+3. Super Saiyan 2  
+
 **GOKU BLACK** — 4 forms  
 1. Base Form  
 2. Super Saiyan  
 3. Super Saiyan Rosé  
 4. Super Saiyan Rosé Perfected  
+
+**GOKU [DAIMA]** — 5 forms  
+1. Kid Base Form  
+2. Kid Super Saiyan  
+3. Kid Super Saiyan 3  
+4. Super Saiyan 4 - Kid Form  
+5. Super Saiyan 4 - Adult Form  
+
+**GOKU [EARLY]** — 5 forms  
+1. Kid Goku - Blue Gi (Original Dragon Ball)  
+2. Kid Goku - Red Turtle Hermit Gi (Original Dragon Ball)  
+3. Base Form (Early Z)  
+4. Base Form (Early Z) #2  
+5. Kaioken  
 
 **GOKU [GT]** — 7 forms  
 1. Kid Base Form  
@@ -150,9 +174,10 @@ Characters with **multiple images are transformation galleries**: images run in 
 5. Super Saiyan 4 - Potential  
 6. Super Saiyan God - Potential  
 
-**GRANOLA** — 2 forms  
+**GRANOLA** — 3 forms  
 1. Base Form  
 2. Right Eye Activation  
+3. Both Eyes Activation  
 
 **JIREN** — 3 forms  
 1. Base Form - Suppressed  
@@ -183,6 +208,10 @@ Characters with **multiple images are transformation galleries**: images run in 
 1. Base Form  
 2. Oozaru  
 
+**OOZARU [SHARED — all Saiyans with tails]** — 2 forms  
+1. Base Oozaru (Great Ape)  
+2. Golden Oozaru  
+
 **PICCOLO** — 2 forms  
 1. Base Form  
 2. Orange Piccolo  
@@ -201,15 +230,16 @@ Characters with **multiple images are transformation galleries**: images run in 
 3. Ultimate Gohan  
 4. Beast Gohan  
 
-**SON GOKU [SUPER]** — 8 forms  
+**SON GOKU [SUPER]** — 9 forms  
 1. Base Form  
 2. Super Saiyan  
 3. Super Saiyan 2  
 4. Super Saiyan 3  
 5. Super Saiyan God  
 6. Super Saiyan Blue  
-7. Ultra Instinct -Sign-  
-8. Perfected Ultra Instinct  
+7. Super Saiyan Blue Kaioken  
+8. Ultra Instinct -Sign-  
+9. Perfected Ultra Instinct  
 
 **TIEN SHINHAN** — 2 forms  
 1. Base Form - Early Dragon Ball / Z  

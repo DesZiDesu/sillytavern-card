@@ -1,8 +1,8 @@
 {
  "generated": "2026-07-10T17:19:33.611Z",
- "loaded": 232,
+ "loaded": 252,
  "failed": 0,
- "note": "Multi-image characters are Base->form galleries; forms[] is in transformation order.",
+ "note": "Multi-image characters are Base->form galleries; forms[] is in transformation order. Updated 2026-07-11 with user-supplied images (Goku Early/Daima, Gohan Early/Teen, Oozaru shared, plus replacements).",
  "broken": {},
  "manifest": {
   "ดราก้อนบอล/เทพเจ้ามังกร": {
@@ -111,7 +111,7 @@
     {
      "form": "Base Form",
      "file": "Images/son_goku_super/01_base_form.jpg",
-     "source": "https://files.catbox.moe/8jnpfr.PNG"
+     "source": "user upload 2026-07-11"
     },
     {
      "form": "Super Saiyan",
@@ -139,13 +139,18 @@
      "source": "https://files.catbox.moe/mmzkis.jpeg"
     },
     {
+     "form": "Super Saiyan Blue Kaioken",
+     "file": "Images/son_goku_super/07_super_saiyan_blue_kaioken.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
      "form": "Ultra Instinct -Sign-",
-     "file": "Images/son_goku_super/07_ultra_instinct_sign.jpg",
+     "file": "Images/son_goku_super/08_ultra_instinct_sign.jpg",
      "source": "https://files.catbox.moe/7pidpz.jpeg"
     },
     {
      "form": "Perfected Ultra Instinct",
-     "file": "Images/son_goku_super/08_perfected_ultra_instinct.jpg",
+     "file": "Images/son_goku_super/09_perfected_ultra_instinct.jpg",
      "source": "https://files.catbox.moe/86koqs.jpeg"
     }
    ]
@@ -216,12 +221,17 @@
     {
      "form": "Base Form",
      "file": "Images/granola/01_base_form.jpg",
-     "source": "https://files.catbox.moe/r2iq93.png"
+     "source": "user upload 2026-07-11"
     },
     {
      "form": "Right Eye Activation",
      "file": "Images/granola/02_right_eye_activation.jpg",
      "source": "https://files.catbox.moe/r2iq93.png"
+    },
+    {
+     "form": "Both Eyes Activation",
+     "file": "Images/granola/03_both_eyes_activation.jpg",
+     "source": "user upload 2026-07-11"
     }
    ]
   },
@@ -1191,12 +1201,12 @@
     {
      "form": "Base Form - Early Dragon Ball",
      "file": "Images/yamcha/01_base_form_early_dragon_ball.jpg",
-     "source": "https://files.catbox.moe/u8jyeu.png"
+     "source": "user upload 2026-07-11"
     },
     {
      "form": "Base Form - Super Timeline",
      "file": "Images/yamcha/02_base_form_super_timeline.jpg",
-     "source": "https://files.catbox.moe/u8jyeu.png"
+     "source": "user upload 2026-07-11"
     },
     {
      "form": "Super Saiyan - Potential / Gag",
@@ -1441,7 +1451,7 @@
     {
      "form": "Angel-in-Training / Galactic Patrolman",
      "file": "Images/merus/01_angel_in_training_galactic_patrolman.jpg",
-     "source": "https://files.catbox.moe/5tv0mn.png"
+     "source": "user upload 2026-07-11"
     }
    ]
   },
@@ -1546,7 +1556,7 @@
     {
      "form": "Super Saiyan 5 - Potential / Fan-Made",
      "file": "Images/xicor_af/02_super_saiyan_5_potential_fan_made.jpg",
-     "source": "https://files.catbox.moe/nz80bb.png"
+     "source": "user upload 2026-07-11"
     }
    ]
   },
@@ -1562,6 +1572,121 @@
      "form": "Ultimate Gohan Black / Mystic Gohan Black",
      "file": "Images/gohan_black/02_ultimate_gohan_black_mystic_gohan_black.jpg",
      "source": "https://files.catbox.moe/hpll5h.png"
+    }
+   ]
+  },
+  "GOKU [EARLY]": {
+   "slug": "goku_early",
+   "forms": [
+    {
+     "form": "Kid Goku - Blue Gi (Original Dragon Ball)",
+     "file": "Images/goku_early/01_kid_goku_blue_gi_original_db.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Kid Goku - Red Turtle Hermit Gi (Original Dragon Ball)",
+     "file": "Images/goku_early/02_kid_goku_red_turtle_hermit_gi.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Base Form (Early Z)",
+     "file": "Images/goku_early/03_base_form_early_z.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Base Form (Early Z) #2",
+     "file": "Images/goku_early/04_base_form_early_z_2.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Kaioken",
+     "file": "Images/goku_early/05_kaioken.jpg",
+     "source": "user upload 2026-07-11"
+    }
+   ]
+  },
+  "GOKU [DAIMA]": {
+   "slug": "goku_daima",
+   "forms": [
+    {
+     "form": "Kid Base Form",
+     "file": "Images/goku_daima/01_kid_base_form.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Kid Super Saiyan",
+     "file": "Images/goku_daima/02_kid_super_saiyan.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Kid Super Saiyan 3",
+     "file": "Images/goku_daima/03_kid_super_saiyan_3.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Super Saiyan 4 - Kid Form",
+     "file": "Images/goku_daima/04_super_saiyan_4_kid.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Super Saiyan 4 - Adult Form",
+     "file": "Images/goku_daima/05_super_saiyan_4_adult.jpg",
+     "source": "user upload 2026-07-11"
+    }
+   ]
+  },
+  "GOHAN [EARLY]": {
+   "slug": "gohan_early",
+   "forms": [
+    {
+     "form": "Kid Gohan - Hat (Saiyan Saga)",
+     "file": "Images/gohan_early/01_kid_gohan_hat_saiyan_saga.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Kid Gohan - Early Z",
+     "file": "Images/gohan_early/02_kid_gohan_early_z.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Kid Gohan - Training Headband",
+     "file": "Images/gohan_early/03_kid_gohan_training_headband.jpg",
+     "source": "user upload 2026-07-11"
+    }
+   ]
+  },
+  "GOHAN [TEEN]": {
+   "slug": "gohan_teen",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/gohan_teen/01_base_form.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Super Saiyan",
+     "file": "Images/gohan_teen/02_super_saiyan.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Super Saiyan 2",
+     "file": "Images/gohan_teen/03_super_saiyan_2.jpg",
+     "source": "user upload 2026-07-11"
+    }
+   ]
+  },
+  "OOZARU [SHARED — all Saiyans with tails]": {
+   "slug": "oozaru",
+   "forms": [
+    {
+     "form": "Base Oozaru (Great Ape)",
+     "file": "Images/oozaru/01_base_oozaru_great_ape.jpg",
+     "source": "user upload 2026-07-11"
+    },
+    {
+     "form": "Golden Oozaru",
+     "file": "Images/oozaru/02_golden_oozaru.jpg",
+     "source": "user upload 2026-07-11"
     }
    ]
   }
