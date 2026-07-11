@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dragon Ball — Fighter Status HUD</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d0f13;font-family:'Rajdhani','Oswald',system-ui,sans-serif;color:#eef0f2;padding:22px 14px;max-width:560px;margin:0 auto}
+.intro h1{font:700 19px 'Oswald';letter-spacing:.04em}.intro h1 b{color:#f6a01a}
+.intro p{color:#9a9aa2;font-size:13px;line-height:1.5;margin:6px 0 18px}
+.intro code{background:#181b21;border:1px solid #262b33;border-radius:4px;padding:1px 5px;font-size:12px;color:#f6a01a}
+details{border:0}summary{list-style:none;cursor:pointer;user-select:none}summary::-webkit-details-marker{display:none}
+
+/* ===== outer collapsible HUD ===== */
+.hud{background:linear-gradient(180deg,#14171d,#101319);border:1px solid #2a2f38;border-radius:12px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.45)}
+.hud>summary{display:flex;align-items:center;gap:11px;padding:11px 14px;background:linear-gradient(90deg,#1a1e26,#14171d);border-bottom:1px solid #2a2f38}
+.hud>summary .ava{width:42px;height:42px;border-radius:8px;object-fit:cover;object-position:top;border:2px solid #f6a01a;flex-shrink:0}
+.hud>summary .nm{display:block;font:700 16px 'Oswald';letter-spacing:.04em;text-transform:uppercase;color:#f6f7f8;line-height:1.1}
+.hud>summary .rl{display:block;font:600 9px 'Rajdhani',monospace;letter-spacing:.18em;color:#8a909a;text-transform:uppercase;margin-top:2px}
+.hud>summary .pw{margin-left:auto;text-align:right}
+.hud>summary .pw b{display:block;font:700 14px 'Rajdhani',monospace;color:#f6a01a;letter-spacing:.03em}
+.hud>summary .pw i{font:600 7.5px 'Rajdhani',monospace;letter-spacing:.2em;color:#7a808a;font-style:normal}
+.hud>summary .chev{margin-left:8px;color:#6f747d;font-size:12px;transition:.2s}
+.hud[open]>summary .chev{transform:rotate(180deg)}
+
+/* ===== tab row (accordion pages) ===== */
+.tabs{padding:9px}
+.pg{border:1px solid #23262d;border-radius:9px;margin:7px 0;overflow:hidden;background:#0f1218}
+.pg>summary{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.pg>summary .ic{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:#1c212b}
+.pg>summary .lb{font:700 12.5px 'Oswald';letter-spacing:.1em;text-transform:uppercase;color:#cdd2da}
+.pg>summary .hint{margin-left:auto;font:600 10px 'Rajdhani',monospace;color:#6f747d;letter-spacing:.04em}
+.pg>summary .cv{color:#565c66;font-size:11px;margin-left:6px}
+.pg[open]{border-color:#f6a01a55}
+.pg[open]>summary{background:linear-gradient(90deg,#1e1a12,#141118);border-bottom:1px solid #2a2a20}
+.pg[open]>summary .lb{color:#f6a01a}
+.pg .body{padding:11px 13px 13px}
+
+/* stat grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cell{background:#14171d;border:1px solid #23262d;border-radius:7px;padding:7px 10px}
+.cell.full{grid-column:1/-1}
+.cell .k{font:700 8px 'Rajdhani',monospace;letter-spacing:.16em;color:#7a808a;text-transform:uppercase;margin-bottom:2px}
+.cell .v{font:600 13px 'Rajdhani';color:#e8eaee}
+.cell .v.big{font:700 16px 'Oswald';color:#f6a01a}
+.cell .v small{color:#9aa0a8;font-size:11px}
+
+/* bars */
+.bar{margin:9px 0}
+.bar .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.bar .row b{font:700 10px 'Rajdhani',monospace;letter-spacing:.12em;text-transform:uppercase}
+.bar .row span{font:600 11px 'Rajdhani',monospace;color:#aeb4bc}
+.bar .track{height:9px;background:#1c212b;border-radius:5px;overflow:hidden;border:1px solid #23262d}
+.bar .fill{height:100%;border-radius:5px}
+
+/* chips / lists */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font:600 11px 'Rajdhani';padding:4px 10px;border-radius:20px;border:1px solid #2c313b;background:#14171d;color:#c6cbd3;display:flex;align-items:center;gap:5px}
+.chip.on{border-color:#f6a01a;color:#ffcf6b;background:#1e1810}
+.chip.hurt{border-color:#c1443a;color:#ff9b8f;background:#1e1210}
+.chip.lock{opacity:.5}
+.tech{display:flex;align-items:center;gap:9px;padding:7px 4px;border-bottom:1px solid #1c2028}
+.tech:last-child{border-bottom:0}
+.tech .ti{width:24px;height:24px;border-radius:6px;background:#1c212b;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.tech .tn{font:700 12.5px 'Rajdhani';color:#e2e5ea}
+.tech .td{font:500 10.5px 'Rajdhani';color:#8a909a}
+.tech .cost{margin-left:auto;font:700 10px 'Rajdhani',monospace;color:#7fb0ff;letter-spacing:.05em}
+.note2{font-size:12px;color:#6f747d;font-style:italic;margin:16px 0 0;line-height:1.5}
+</style></head><body>
+<div class="intro">
+<h1><b>Dragon Ball</b> — Fighter Status HUD</h1>
+<p><b>Tap the pages</b> (Profile / Vitality / Skills / Inventory) to switch between them — opening one closes the others, like tabs. <b>Tap the top bar</b> to collapse the whole HUD to a single line. This uses the native <code>&lt;details&gt;</code> element so it works inside SillyTavern with no JavaScript. Data below is placeholder — every field is filled live by the AI.</p>
+</div>
+
+<details class="hud" open>
+  <summary>
+    <img class="ava" src="../../Sillytavern/Dragon Ball/Images/goku_early/03_base_form_early_z.jpg" alt="">
+    <span><span class="nm">Kaen</span><span class="rl">Saiyan Fighter · Earth</span></span>
+    <span class="pw"><b>PWR 1,200,000</b><i>Battle Power</i></span>
+    <span class="chev">&#9660;</span>
+  </summary>
+
+  <div class="tabs">
+
+    <!-- PROFILE -->
+    <details class="pg" name="dbstat" open>
+      <summary><span class="ic">&#128100;</span><span class="lb">Profile</span><span class="hint">Saiyan · Lv.24</span><span class="cv">&#9654;</span></summary>
+      <div class="body">
+        <div class="grid">
+          <div class="cell"><div class="k">Name</div><div class="v">Kaen</div></div>
+          <div class="cell"><div class="k">Age</div><div class="v">24</div></div>
+          <div class="cell"><div class="k">Gender</div><div class="v">Male</div></div>
+          <div class="cell"><div class="k">Race</div><div class="v">Saiyan</div></div>
+          <div class="cell"><div class="k">Power Level</div><div class="v big">1,200,000</div></div>
+          <div class="cell"><div class="k">Alignment</div><div class="v">Chaotic Good</div></div>
+          <div class="cell full"><div class="k">Race Ability / Benefit</div><div class="v"><b style="color:#ffcf6b">Zenkai Boost</b> <small>— surges in power after recovering from near-death.</small> <b style="color:#ffcf6b">Oozaru</b> <small>— transforms into a Great Ape under a full moon (needs tail).</small></div></div>
+          <div class="cell full"><div class="k">Origin</div><div class="v"><small>Sent to Earth as an infant; raised in the wild, now a wandering martial artist chasing stronger opponents.</small></div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- VITALITY -->
+    <details class="pg" name="dbstat">
+      <summary><span class="ic">&#10084;</span><span class="lb">Vitality</span><span class="hint">HP 68% · injured</span><span class="cv">&#9654;</span></summary>
+      <div class="body">
+        <div class="bar"><div class="row"><b style="color:#ff6b6b">Health</b><span>6,800 / 10,000</span></div><div class="track"><div class="fill" style="width:68%;background:linear-gradient(90deg,#e0453a,#ff7a6b)"></div></div></div>
+        <div class="bar"><div class="row"><b style="color:#5ad18a">Stamina</b><span>4,100 / 9,000</span></div><div class="track"><div class="fill" style="width:46%;background:linear-gradient(90deg,#2f9e5c,#5ad18a)"></div></div></div>
+        <div class="bar"><div class="row"><b style="color:#f6a01a">Ki</b><span>7,500 / 8,000</span></div><div class="track"><div class="fill" style="width:94%;background:linear-gradient(90deg,#e08a0c,#ffcf6b)"></div></div></div>
+        <div class="k" style="font:700 8px 'Rajdhani',monospace;letter-spacing:.16em;color:#7a808a;text-transform:uppercase;margin:12px 0 5px">Injuries</div>
+        <div class="chips">
+          <span class="chip hurt">&#129688; Fractured left arm — moderate</span>
+          <span class="chip hurt">&#128168; Ki exhaustion — mild</span>
+        </div>
+        <div class="k" style="font:700 8px 'Rajdhani',monospace;letter-spacing:.16em;color:#7a808a;text-transform:uppercase;margin:12px 0 5px">Status</div>
+        <div class="chips"><span class="chip on">&#9889; Zenkai primed</span><span class="chip">&#128170; Adrenaline</span></div>
+      </div>
+    </details>
+
+    <!-- SKILLS -->
+    <details class="pg" name="dbstat">
+      <summary><span class="ic">&#9889;</span><span class="lb">Skills</span><span class="hint">2 forms · 4 techniques</span><span class="cv">&#9654;</span></summary>
+      <div class="body">
+        <div class="k" style="font:700 8px 'Rajdhani',monospace;letter-spacing:.16em;color:#7a808a;text-transform:uppercase;margin-bottom:5px">Transformations</div>
+        <div class="chips">
+          <span class="chip">Base</span>
+          <span class="chip on">&#9733; Super Saiyan</span>
+          <span class="chip lock">&#128274; Super Saiyan 2</span>
+          <span class="chip lock">&#128274; Oozaru</span>
+        </div>
+        <div class="k" style="font:700 8px 'Rajdhani',monospace;letter-spacing:.16em;color:#7a808a;text-transform:uppercase;margin:13px 0 3px">Techniques</div>
+        <div class="tech"><span class="ti">&#128165;</span><span><div class="tn">Kamehameha</div><div class="td">Signature ki wave — high burst damage</div></span><span class="cost">1,500 Ki</span></div>
+        <div class="tech"><span class="ti">&#127786;</span><span><div class="tn">Solar Flare</div><div class="td">Blinds all nearby foes for a moment</div></span><span class="cost">300 Ki</span></div>
+        <div class="tech"><span class="ti">&#9889;</span><span><div class="tn">Instant Transmission</div><div class="td">Teleport to any ki signature you sense</div></span><span class="cost">800 Ki</span></div>
+        <div class="tech"><span class="ti">&#128293;</span><span><div class="tn">Spirit Fist</div><div class="td">Ki-charged melee combo</div></span><span class="cost">200 Ki</span></div>
+        <div class="k" style="font:700 8px 'Rajdhani',monospace;letter-spacing:.16em;color:#7a808a;text-transform:uppercase;margin:13px 0 5px">Passives</div>
+        <div class="chips"><span class="chip">Saiyan Pride</span><span class="chip">Combat Genius</span><span class="chip">Endless Appetite</span></div>
+      </div>
+    </details>
+
+    <!-- INVENTORY -->
+    <details class="pg" name="dbstat">
+      <summary><span class="ic">&#127890;</span><span class="lb">Inventory</span><span class="hint">Zeni 45,000</span><span class="cv">&#9654;</span></summary>
+      <div class="body">
+        <div class="chips">
+          <span class="chip on">&#127793; Senzu Bean &times;2</span>
+          <span class="chip">&#128663; Capsule: Hovercar</span>
+          <span class="chip">&#128246; Scouter</span>
+          <span class="chip">&#129517; Capsule: Med-Kit</span>
+        </div>
+        <div class="cell full" style="margin-top:10px"><div class="k">Zeni</div><div class="v big">45,000</div></div>
+      </div>
+    </details>
+
+  </div>
+</details>
+
+<p class="note2">This is the layout &amp; interaction model. Tell me: (1) does the tap-to-switch + collapse feel right? (2) which pages do you want — I have <b>Profile · Vitality · Skills · Inventory</b>; add/remove any (e.g. Bonds/Relationships, Ki Control, Quests, Techniques-as-own-page). (3) keep this dark+orange look or want a scouter-green or card variant? Then I build the regex (a single tag like <code>[DBUSER|…]</code> the AI fills, or a JSON block — your call).</p>
+</body></html>
