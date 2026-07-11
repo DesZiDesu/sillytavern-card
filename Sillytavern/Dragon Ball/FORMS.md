@@ -1,10 +1,10 @@
 # Dragon Ball — Image / Form Index
 
-Characters with **multiple images are transformation galleries**: images run in order from **Base form → higher forms**. Each entry lists that order, matching the `Images/<slug>/` folders (files numbered `01_...`, `02_...`). Labels marked *Potential / Non-Canon / Head Canon* are non-canon forms kept for roleplay flexibility.
+Characters with **multiple images are transformation galleries**: images run in order from **Base form → higher forms**, matching the `Images/<slug>/` folders (files numbered `01_...`, `02_...`). Labels marked *Potential / Non-Canon / Head Canon* are non-canon forms kept for roleplay flexibility.
 
-✅ **All 252 images stored in `Images/` (updated 2026-07-11).** New galleries: GOKU [EARLY], GOKU [DAIMA], GOHAN [EARLY], GOHAN [TEEN], OOZARU (shared). Updated images: Goku Super base + SSB Kaioken, Xicor SS5, Granola (base + Both Eyes), Yamcha ×2, Merus.
+✅ **All 307 images stored in `Images/` across 120 characters (updated 2026-07-11, batch 2: +35 characters incl. Bulma, Mr. Satan, Dende, androids, Ginyu Force leads, Frost, Top, Gammas, Janemba, Shenron/Porunga, King Vegeta, Paragus, Vegeta Daima, Majin Vegeta).**
 
-> Single-portrait characters (one image, no transformations) are listed at the bottom.
+> Single-portrait characters are listed at the bottom.
 
 
 ## Transformation galleries (Base → forms)
@@ -50,6 +50,18 @@ Characters with **multiple images are transformation galleries**: images run in 
 5. Legendary Super Saiyan - Berserk  
 6. Super Saiyan 4 - Head Canon / Potential  
 
+**BULMA** — 6 forms  
+1. Early Dragon Ball  
+2. Bunny Suit - Early DB  
+3. Z Timeline  
+4. Super Timeline  
+5. Super - Broly Movie  
+6. Super Hero Arc (DBSH)  
+
+**CAPTAIN GINYU** — 2 forms  
+1. Base Form  
+2. Body Change - Goku's Body  
+
 **CAULIFLA** — 5 forms  
 1. Base Form  
 2. Super Saiyan  
@@ -82,6 +94,10 @@ Characters with **multiple images are transformation galleries**: images run in 
 4. Golden Fifth Form  
 5. Meta-Cooler  
 
+**DENDE** — 2 forms  
+1. Z Timeline - Guardian of Earth  
+2. Super Hero Arc (DBSH)  
+
 **FASHA** — 2 forms  
 1. Base Form  
 2. Super Saiyan - Potential / Non-Canon  
@@ -93,6 +109,11 @@ Characters with **multiple images are transformation galleries**: images run in 
 4. Final Form - 100%  
 5. Golden Frieza  
 6. Black Frieza  
+
+**FROST** — 3 forms  
+1. First Form  
+2. Second Form  
+3. Final Form  
 
 **GINE** — 5 forms  
 1. Base Form  
@@ -179,6 +200,10 @@ Characters with **multiple images are transformation galleries**: images run in 
 2. Right Eye Activation  
 3. Both Eyes Activation  
 
+**JANEMBA** — 2 forms  
+1. Base Janemba  
+2. Super Janemba  
+
 **JIREN** — 3 forms  
 1. Base Form - Suppressed  
 2. 50% Power / ปล่อยพลังบางส่วน  
@@ -212,6 +237,14 @@ Characters with **multiple images are transformation galleries**: images run in 
 1. Base Oozaru (Great Ape)  
 2. Golden Oozaru  
 
+**PAN** — 2 forms  
+1. Kid - Super Hero Arc  
+2. GT Timeline  
+
+**PARAGUS** — 2 forms  
+1. Z Timeline (Broly Z)  
+2. DBS - Broly Movie  
+
 **PICCOLO** — 2 forms  
 1. Base Form  
 2. Orange Piccolo  
@@ -223,6 +256,10 @@ Characters with **multiple images are transformation galleries**: images run in 
 **ROSHI** — 2 forms  
 1. Base Form - Early Dragon Ball / Z / Super  
 2. Max Power Form  
+
+**SHENRON** — 2 forms  
+1. Shenron (Earth)  
+2. Shenron - Daima  
 
 **SON GOHAN (DBSH)** — 4 forms  
 1. Base Form  
@@ -244,6 +281,10 @@ Characters with **multiple images are transformation galleries**: images run in 
 **TIEN SHINHAN** — 2 forms  
 1. Base Form - Early Dragon Ball / Z  
 2. Base Form - Super Timeline  
+
+**TOP (TOPPO)** — 2 forms  
+1. Base Form - Pride Trooper  
+2. God of Destruction Mode  
 
 **TRUNK [Present Timeline]** — 3 forms  
 1. Kid Base Form  
@@ -269,6 +310,17 @@ Characters with **multiple images are transformation galleries**: images run in 
 2. Fruit-Enhanced  
 3. Oozaru  
 
+**UUB** — 2 forms  
+1. Kid Base Form (End of Z)  
+2. Majuub (GT)  
+
+**VEGETA [DAIMA]** — 5 forms  
+1. Kid Base Form  
+2. Kid Super Saiyan  
+3. Kid Super Saiyan 3  
+4. Super Saiyan 3  
+5. Super Saiyan 4  
+
 **VEGETA [Early - Z]** — 3 forms  
 1. Base Form - Suppressed  
 2. Full Power - Base Form  
@@ -291,11 +343,12 @@ Characters with **multiple images are transformation galleries**: images run in 
 5. Super Saiyan Blue Evolved  
 6. Ultra Ego  
 
-**VEGITO [SUPER]** — 4 forms  
+**VEGITO [SUPER]** — 5 forms  
 1. Base Vegito  
 2. Super Saiyan  
 3. Super Saiyan God  
 4. Super Saiyan Blue  
+5. Super Saiyan 4  
 
 **VIDEL** — 2 forms  
 1. Z Timeline  
@@ -344,4 +397,4 @@ Characters with **multiple images are transformation galleries**: images run in 
 
 ## Single-portrait characters
 
-ANDROID 17 [SUPER], ANDROID 18, ANDROID 18 [SUPER], BEERUS, BOJACK, CELL MAX, CHAMPA, CHEELAI, DABURA, ERASA, HIT [ASSASSIN], KAI'O-SHIN [U7], KIBITO [U7], KING COLD, KING KAI, KRILLIN, MARON, MERUS, OLD KAI [U7], SAIBAMAN, TOWA, VADOS, WHIS, ZANGYA, มหาเทวดา, เซ็นโอ, ไอเท็ม: Space Pod, ไอเท็ม: ตุ้มหูโปตาร่า, ไอเท็ม: ถั่วเซียน, ไอเท็ม: สเคาเตอร์
+ANDROID 13, ANDROID 16, ANDROID 17 [SUPER], ANDROID 18, ANDROID 18 [SUPER], ANDROID 19, BABIDI, BEERUS, BOJACK, CELL MAX, CHAMPA, CHEELAI, CHIAOTZU, DABURA, DODORIA, DR. GERO (ANDROID 20), DR. HEDO, ERASA, GAMMA 1, GAMMA 2, GAS, HIT [ASSASSIN], JACO, KAI'O-SHIN [U7], KAMI, KIBITO [U7], KING COLD, KING KAI, KING PICCOLO (PICCOLO DAIMAO), KING VEGETA, KORIN, KRILLIN, MAJIN VEGETA [Z], MARON, MERUS, MR. POPO, MR. SATAN (HERCULE), NEVA [DAIMA], OLD KAI [U7], OMEGA SHENRON [GT], PORUNGA, SAIBAMAN, TOWA, VADOS, WHIS, YAJIROBE, ZANGYA, ZARBON, มหาเทวดา, เซ็นโอ, ไอเท็ม: Space Pod, ไอเท็ม: ตุ้มหูโปตาร่า, ไอเท็ม: ถั่วเซียน, ไอเท็ม: สเคาเตอร์

@@ -1,6 +1,6 @@
 {
  "generated": "2026-07-10T17:19:33.611Z",
- "loaded": 252,
+ "loaded": 307,
  "failed": 0,
  "note": "Multi-image characters are Base->form galleries; forms[] is in transformation order. Updated 2026-07-11 with user-supplied images (Goku Early/Daima, Gohan Early/Teen, Oozaru shared, plus replacements).",
  "broken": {},
@@ -99,9 +99,9 @@
    "slug": "misc_7",
    "forms": [
     {
-     "form": "Grand Priest",
+     "form": "Grand Priest (Daishinkan)",
      "file": "Images/misc_7/01_grand_priest.jpg",
-     "source": "https://files.catbox.moe/wmm0rq.jpeg"
+     "source": "user upload 2026-07-11 (batch 2)"
     }
    ]
   },
@@ -417,6 +417,11 @@
      "form": "Super Saiyan Blue",
      "file": "Images/vegito_super/04_super_saiyan_blue.jpg",
      "source": "https://files.catbox.moe/tv1dii.jpeg"
+    },
+    {
+     "form": "Super Saiyan 4",
+     "file": "Images/vegito_super/05_super_saiyan_4.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
     }
    ]
   },
@@ -591,7 +596,7 @@
     {
      "form": "Fruit-Enhanced",
      "file": "Images/turles/02_fruit_enhanced.jpg",
-     "source": "https://files.catbox.moe/tfx13a.jpeg"
+     "source": "user upload 2026-07-11 (batch 2)"
     },
     {
      "form": "Oozaru",
@@ -1221,12 +1226,12 @@
     {
      "form": "Base Form - Early Dragon Ball / Z",
      "file": "Images/tien_shinhan/01_base_form_early_dragon_ball_z.jpg",
-     "source": "https://files.catbox.moe/3w4dvb.png"
+     "source": "user upload 2026-07-11 (batch 2)"
     },
     {
      "form": "Base Form - Super Timeline",
      "file": "Images/tien_shinhan/02_base_form_super_timeline.jpg",
-     "source": "https://files.catbox.moe/3w4dvb.png"
+     "source": "user upload 2026-07-11 (batch 2)"
     }
    ]
   },
@@ -1687,6 +1692,451 @@
      "form": "Golden Oozaru",
      "file": "Images/oozaru/02_golden_oozaru.jpg",
      "source": "user upload 2026-07-11"
+    }
+   ]
+  },
+  "BULMA": {
+   "slug": "bulma",
+   "forms": [
+    {
+     "form": "Early Dragon Ball",
+     "file": "Images/bulma/01_early_dragon_ball.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Bunny Suit - Early DB",
+     "file": "Images/bulma/02_bunny_suit_early_db.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Z Timeline",
+     "file": "Images/bulma/03_z_timeline.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Super Timeline",
+     "file": "Images/bulma/04_super_timeline.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Super - Broly Movie",
+     "file": "Images/bulma/05_super_broly_movie.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Super Hero Arc (DBSH)",
+     "file": "Images/bulma/06_super_hero_arc.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "MR. SATAN (HERCULE)": {
+   "slug": "mr_satan",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/mr_satan/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "DENDE": {
+   "slug": "dende",
+   "forms": [
+    {
+     "form": "Z Timeline - Guardian of Earth",
+     "file": "Images/dende/01_z_timeline_guardian.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Super Hero Arc (DBSH)",
+     "file": "Images/dende/02_super_hero_arc.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "NEVA [DAIMA]": {
+   "slug": "neva",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/neva/01_base_form_daima.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "ANDROID 16": {
+   "slug": "android_16",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/android_16/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "DR. GERO (ANDROID 20)": {
+   "slug": "dr_gero",
+   "forms": [
+    {
+     "form": "Android 20",
+     "file": "Images/dr_gero/01_android_20.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "ANDROID 19": {
+   "slug": "android_19",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/android_19/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "ANDROID 13": {
+   "slug": "android_13",
+   "forms": [
+    {
+     "form": "Super Android 13 (Fusion)",
+     "file": "Images/android_13/01_super_android_13.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "BABIDI": {
+   "slug": "babidi",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/babidi/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "CAPTAIN GINYU": {
+   "slug": "captain_ginyu",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/captain_ginyu/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Body Change - Goku's Body",
+     "file": "Images/captain_ginyu/02_body_change_goku.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "ZARBON": {
+   "slug": "zarbon",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/zarbon/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "DODORIA": {
+   "slug": "dodoria",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/dodoria/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "KING PICCOLO (PICCOLO DAIMAO)": {
+   "slug": "king_piccolo",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/king_piccolo/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "KAMI": {
+   "slug": "kami",
+   "forms": [
+    {
+     "form": "Guardian of Earth",
+     "file": "Images/kami/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "CHIAOTZU": {
+   "slug": "chiaotzu",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/chiaotzu/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "YAJIROBE": {
+   "slug": "yajirobe",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/yajirobe/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "KORIN": {
+   "slug": "korin",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/korin/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "MR. POPO": {
+   "slug": "mr_popo",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/mr_popo/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "UUB": {
+   "slug": "uub",
+   "forms": [
+    {
+     "form": "Kid Base Form (End of Z)",
+     "file": "Images/uub/01_kid_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Majuub (GT)",
+     "file": "Images/uub/02_majuub_gt.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "PAN": {
+   "slug": "pan",
+   "forms": [
+    {
+     "form": "Kid - Super Hero Arc",
+     "file": "Images/pan/01_kid_super_hero_arc.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "GT Timeline",
+     "file": "Images/pan/02_gt_timeline.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "FROST": {
+   "slug": "frost",
+   "forms": [
+    {
+     "form": "First Form",
+     "file": "Images/frost/01_first_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Second Form",
+     "file": "Images/frost/02_second_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Final Form",
+     "file": "Images/frost/03_final_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "TOP (TOPPO)": {
+   "slug": "top",
+   "forms": [
+    {
+     "form": "Base Form - Pride Trooper",
+     "file": "Images/top/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "God of Destruction Mode",
+     "file": "Images/top/02_god_of_destruction_mode.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "JACO": {
+   "slug": "jaco",
+   "forms": [
+    {
+     "form": "Galactic Patrolman",
+     "file": "Images/jaco/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "GAS": {
+   "slug": "gas",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/gas/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "GAMMA 1": {
+   "slug": "gamma_1",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/gamma_1/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "GAMMA 2": {
+   "slug": "gamma_2",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/gamma_2/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "DR. HEDO": {
+   "slug": "dr_hedo",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/dr_hedo/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "OMEGA SHENRON [GT]": {
+   "slug": "omega_shenron",
+   "forms": [
+    {
+     "form": "Omega Shenron (Syn Shenron - Full Power)",
+     "file": "Images/omega_shenron/01_omega_shenron.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "JANEMBA": {
+   "slug": "janemba",
+   "forms": [
+    {
+     "form": "Base Janemba",
+     "file": "Images/janemba/01_base_janemba.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Super Janemba",
+     "file": "Images/janemba/02_super_janemba.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "SHENRON": {
+   "slug": "shenron",
+   "forms": [
+    {
+     "form": "Shenron (Earth)",
+     "file": "Images/shenron/01_shenron_earth.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Shenron - Daima",
+     "file": "Images/shenron/02_shenron_daima.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "PORUNGA": {
+   "slug": "porunga",
+   "forms": [
+    {
+     "form": "Porunga (Namek)",
+     "file": "Images/porunga/01_porunga.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "KING VEGETA": {
+   "slug": "king_vegeta",
+   "forms": [
+    {
+     "form": "Base Form",
+     "file": "Images/king_vegeta/01_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "PARAGUS": {
+   "slug": "paragus",
+   "forms": [
+    {
+     "form": "Z Timeline (Broly Z)",
+     "file": "Images/paragus/01_z_timeline.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "DBS - Broly Movie",
+     "file": "Images/paragus/02_dbs_broly_movie.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "VEGETA [DAIMA]": {
+   "slug": "vegeta_daima",
+   "forms": [
+    {
+     "form": "Kid Base Form",
+     "file": "Images/vegeta_daima/01_kid_base_form.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Kid Super Saiyan",
+     "file": "Images/vegeta_daima/02_kid_super_saiyan.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Kid Super Saiyan 3",
+     "file": "Images/vegeta_daima/03_kid_super_saiyan_3.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Super Saiyan 3",
+     "file": "Images/vegeta_daima/04_super_saiyan_3.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    },
+    {
+     "form": "Super Saiyan 4",
+     "file": "Images/vegeta_daima/05_super_saiyan_4.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
+    }
+   ]
+  },
+  "MAJIN VEGETA [Z]": {
+   "slug": "majin_vegeta",
+   "forms": [
+    {
+     "form": "Majin Vegeta (Buu Saga)",
+     "file": "Images/majin_vegeta/01_majin_vegeta_buu_saga.jpg",
+     "source": "user upload 2026-07-11 (batch 2)"
     }
    ]
   }
