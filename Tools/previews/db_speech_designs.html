@@ -83,31 +83,30 @@ clip-path:polygon(0 0,100% 0,100% 74%,97% 100%,0 100%);box-shadow:0 3px 10px rgb
 clip-path:polygon(0 8%,4% 0,97% 4%,100% 12%,99% 90%,95% 100%,3% 96%,0 88%);box-shadow:4px 4px 0 rgba(246,160,26,.55)}
 .dlgC b.imp{color:#d13b1a}
 
-/* ==== CHARACTER MONOLOGUE A — KI THOUGHT (fixed blue energy) ==== */
-.monA{position:relative;max-width:90%;margin:9px 0 4px;padding:10px 16px;font-style:italic;font-size:13px;color:#dfe6ea;line-height:1.5;
-background:radial-gradient(120% 120% at 0% 0%,rgba(120,180,255,.14),rgba(14,18,24,.5));border:1px solid #2f4a6a;border-radius:14px}
-.monA::before{content:'';position:absolute;left:11px;top:-6px;width:12px;height:12px;border-radius:50%;background:rgba(120,180,255,.3);box-shadow:-9px -5px 0 -3px rgba(120,180,255,.25)}
-.monA .who{font-style:normal;font:700 9px 'Rajdhani',monospace;letter-spacing:.18em;color:#7fb0ff;text-transform:uppercase;display:block;margin-bottom:3px}
+/* ======= monologue designs share the DIALOGUE visual languages ======= */
+/* --- MANGA family (pairs with Dialogue A - cream + black ink) --- */
+/* Char Monologue A — Manga Thought Bubble */
+.monA{position:relative;max-width:84%;margin:8px 0 16px;background:#f4f1e8;color:#1a1a1d;border:2.5px solid #1a1a1d;border-radius:22px;padding:9px 16px;font-style:italic;font-weight:600;font-size:13px;line-height:1.5}
+.monA .who{font-style:normal;font:700 9px 'Rajdhani',monospace;letter-spacing:.14em;color:#7a3c00;text-transform:uppercase;display:block;margin-bottom:2px}
+.monA::before{content:'';position:absolute;left:26px;bottom:-11px;width:11px;height:11px;border-radius:50%;background:#f4f1e8;border:2.5px solid #1a1a1d}
+.monA::after{content:'';position:absolute;left:16px;bottom:-19px;width:6px;height:6px;border-radius:50%;background:#f4f1e8;border:2.5px solid #1a1a1d}
+/* Narrator A — Manga Caption Box (rectangular, ink) */
+.narA{max-width:100%;margin:8px 0 4px;background:#f4f1e8;color:#1a1a1d;border:2.5px solid #1a1a1d;border-radius:4px;padding:8px 15px;font-style:italic;font-weight:600;font-size:12.5px;line-height:1.5;text-align:center}
+.narA .lbl{font-style:normal;font:700 8px 'Rajdhani',monospace;letter-spacing:.22em;color:#7a3c00;text-transform:uppercase;display:block;margin-bottom:2px}
 
-/* ==== CHARACTER MONOLOGUE B — HEX AURA ASIDE (character's own color) ==== */
-.monC{position:relative;max-width:92%;margin:9px 0 4px;padding:9px 16px;font-style:italic;font-size:13px;color:#e4e6ea;line-height:1.55;
-background:linear-gradient(90deg,rgba(255,255,255,.045),rgba(14,18,24,.35));border-left:3px solid var(--hx,#f6a01a);border-radius:0 11px 11px 0;box-shadow:inset 16px 0 26px -18px var(--hx,#f6a01a)}
-.monC .who{font-style:normal;font:700 9px 'Rajdhani',monospace;letter-spacing:.18em;color:var(--hx,#f6a01a);text-transform:uppercase;display:block;margin-bottom:3px}
-
-/* ==== NARRATOR — parchment caption (scene narration, no character) ==== */
-.monB{max-width:100%;margin:9px 0 4px;padding:9px 15px;font-size:12.5px;color:#e9dcc2;line-height:1.5;font-style:italic;
-background:linear-gradient(180deg,#241c10,#1a140c);border:1px solid #6b4e22;border-top:2px solid #b3862f;border-radius:3px;text-align:center}
-.monB .lbl{font-style:normal;font:700 8.5px 'Rajdhani',monospace;letter-spacing:.24em;color:#b3862f;text-transform:uppercase;display:block;margin-bottom:3px}
-/* ==== NARRATOR B — cinematic letterbox band ==== */
-.narB{max-width:100%;margin:9px 0 4px;padding:12px 16px;font-size:12.5px;color:#d7dbe0;line-height:1.55;font-style:italic;text-align:center;
-background:#08090c;border-top:1px solid #2a2f38;border-bottom:1px solid #2a2f38;position:relative}
-.narB::before,.narB::after{content:'';position:absolute;left:0;right:0;height:10px;background:#000}
-.narB::before{top:0}.narB::after{bottom:0}
-.narB span{position:relative}
+/* --- BATTLE family (pairs with Dialogue B - dark band + hex) --- */
+/* Char Monologue B — Battle Thought Band (dashed accent = thinking) */
+.monC{max-width:100%;margin:7px 0 4px;background:linear-gradient(90deg,rgba(14,16,20,.96),rgba(20,24,30,.9));border-left:4px dashed var(--hx,#f6a01a);border-radius:4px;padding:8px 14px 9px}
+.monC .who{font:700 9.5px 'Rajdhani',monospace;letter-spacing:.2em;color:var(--hx,#f6a01a);text-transform:uppercase;margin-bottom:2px}
+.monC .tx{font-style:italic;font-size:13px;color:#cbd0d7;line-height:1.45}
+/* Narrator B — Battle Caption Band (centered, hairline rules) */
+.narB{max-width:100%;margin:7px 0 4px;background:linear-gradient(90deg,rgba(14,16,20,.96),rgba(20,24,30,.9));border-top:1px solid #333a45;border-bottom:1px solid #333a45;padding:9px 16px;text-align:center}
+.narB .lbl{font:700 8px 'Rajdhani',monospace;letter-spacing:.24em;color:#7a828e;text-transform:uppercase;display:block;margin-bottom:2px}
+.narB .tx{font-style:italic;font-size:12.5px;color:#cbd0d7;line-height:1.5}
 </style></head><body>
 <div class="top">
 <h1><b>Dragon Ball</b> — Speech System Designs <span style="color:#48e07a;font-size:12px">v2</span></h1>
-<p><b>Updated v4:</b> Header B's line now runs to the end · added a 2nd character-monologue design · <b>split Narrator out from character monologue</b> (separate tags &amp; designs) · locked the ordering law: monologue above the header, dialogue below. Pick a header, a dialogue, a character-monologue, and a narrator style — or say "all".</p>
+<p><b>Updated v5:</b> monologue &amp; narrator are now redrawn in the <b>same two visual languages as the dialogue</b> — <b style="color:#f6a01a">Manga</b> (cream + black ink) and <b style="color:#f6a01a">Battle</b> (dark band + hex) — so they read as one system. Pick per row (they'll match if you keep the same family). Ordering law: monologue above the header, dialogue below.</p>
 </div>
 
 <h2>Headers <small>power level now on all four · Header C hex-accented</small></h2>
@@ -140,24 +139,24 @@ background:#08090c;border-top:1px solid #2a2f38;border-bottom:1px solid #2a2f38;
 <div class="note">C — Impact Bubble · jagged shout bubble (for big moments)</div>
 <div class="dlgC">You think you can beat me?! <b class="imp">KA…ME…HA…ME…</b></div>
 
-<h2>Character Monologue <small>a character's own inner thoughts · tag <code>[DBTHINK]</code> · renders ABOVE the header</small></h2>
+<h2>Character Monologue <small>a character's inner thoughts · <code>[DBTHINK]</code> · renders ABOVE the header</small></h2>
 
-<div class="note">A — Ki Thought · soft blue energy glow, thought-bubble dots</div>
+<div class="note">A — Manga Thought Bubble · same cream + black ink as Dialogue A, with a trailing thought-dot</div>
 <div class="monA"><span class="who">Goku — thinking</span>His ki just spiked… if I don't go all-out now, I won't get another chance.</div>
 
-<div class="note">B — Hex Aura Aside · left ki-bar + inner glow in the character's own color</div>
-<div class="monC" style="--hx:#6a7bff"><span class="who">Vegeta — thinking</span>Kakarot always finds a way to surpass me… not this time. I refuse to be second.</div>
+<div class="note">B — Battle Thought Band · same dark band as Dialogue B, dashed hex accent = thinking</div>
+<div class="monC" style="--hx:#6a7bff"><div class="who">◆ Vegeta — thinking</div><div class="tx">Kakarot always finds a way to surpass me… not this time. I refuse to be second.</div></div>
 
-<h2>Narrator <small>scene narration, no character speaking · separate tag <code>[DBNARR]</code></small></h2>
+<h2>Narrator <small>scene narration, nobody speaking · <code>[DBNARR]</code></small></h2>
 
-<div class="note">Narrator A — Parchment caption (classic DB anime narrator)</div>
-<div class="monB"><span class="lbl">Narrator</span>And so, with the fate of the Earth hanging in the balance, Goku raised his hands to the sky…</div>
+<div class="note">A — Manga Caption Box · rectangular ink box (matches Dialogue A)</div>
+<div class="narA"><span class="lbl">Narrator</span>And so, with the fate of the Earth hanging in the balance, Goku raised his hands to the sky…</div>
 
-<div class="note">Narrator B — Cinematic letterbox band</div>
-<div class="narB"><span>Meanwhile, far across the galaxy, a new threat stirred from its thousand-year slumber…</span></div>
+<div class="note">B — Battle Caption Band · centered dark band (matches Dialogue B)</div>
+<div class="narB"><span class="lbl">Narrator</span><div class="tx">Meanwhile, far across the galaxy, a new threat stirred from its thousand-year slumber…</div></div>
 
-<h2>In context <small>the ordering law — monologue ABOVE, dialogue BELOW the header</small></h2>
-<div class="monC" style="--hx:#6a7bff"><span class="who">Vegeta — thinking</span>So he wants to test me. Fine. I'll show him the pride of a Saiyan elite.</div>
+<h2>In context <small>the ordering law — monologue ABOVE, dialogue BELOW · one cohesive family (Manga)</small></h2>
+<div class="monA"><span class="who">Vegeta — thinking</span>So he wants to test me. Fine. I'll show him the pride of a Saiyan elite.</div>
 <div class="hC" style="--hx:#6a7bff"><span class="fr"><img src="../../Sillytavern/Dragon Ball/Images/vegeta_super/04_super_saiyan_blue.jpg"></span><span class="m"><div class="topln"><svg class="db" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#ff8c1a" stroke="#7a3c00" stroke-width="1.5"/><g fill="var(--hx,#c62828)"><path d="M12 6l1.3 2.6 2.9.4-2.1 2 .5 2.9L12 15l-2.6 1.4.5-2.9-2.1-2 2.9-.4z"/></g><ellipse cx="8.5" cy="8.5" rx="3" ry="2" fill="#fff" opacity=".45"/><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="8s" repeatCount="indefinite"/></svg><span class="rg"><b>Super Saiyan Blue</b> · Saiyan</span></div><div class="nm">Vegeta</div><div class="pwr"><span class="lbl">PWR</span>2.5 Billion</div></span></div>
 <div class="demoSay">Don't get cocky, Kakarot. This fight is far from over.</div>
 
