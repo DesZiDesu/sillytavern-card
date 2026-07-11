@@ -1,0 +1,18 @@
+{
+    "id": "2dd9e20d-72dd-4736-bbd3-51d70d4cccea",
+    "scriptName": "DB Header B — Ki Nameplate",
+    "findRegex": "/\\[DBCHAR\\|([^|\\]]+)\\|([^|\\]]+)\\|(#[0-9a-fA-F]{3,6})\\|([^|\\]]*)\\|([^\\]]*)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"position:relative;display:flex;align-items:center;gap:clamp(11px,3vw,14px);max-width:520px;width:100%;margin:12px auto 6px;padding:8px 6px 10px;font-family:'Oswald','Rajdhani',system-ui,sans-serif\"><span style=\"position:relative;width:clamp(50px,14vw,58px);height:clamp(50px,14vw,58px);flex-shrink:0;display:block\"><svg viewBox=\"0 0 100 100\" style=\"position:absolute;left:-14%;top:-14%;width:128%;height:128%\"><circle cx=\"50\" cy=\"50\" r=\"34\" fill=\"$3\" opacity=\"0.5\"><animate attributeName=\"r\" values=\"30;42;30\" dur=\"1.8s\" repeatCount=\"indefinite\"/><animate attributeName=\"opacity\" values=\"0.5;0.2;0.5\" dur=\"1.8s\" repeatCount=\"indefinite\"/></circle></svg><img src=\"https://rawcdn.githack.com/DesZiDesu/sillytavern-card/main/Sillytavern/Dragon%20Ball/Images/$1.jpg\" alt=\"$2\" style=\"position:relative;width:100%;height:100%;object-fit:cover;object-position:top;display:block;position:relative;border-radius:50%;border:2.5px solid $3\" onerror=\"this.style.display='none'\"></span><span style=\"flex:1;min-width:0\"><span style=\"display:block;font:700 clamp(18px,5.5vw,22px) 'Oswald',sans-serif;font-style:italic;letter-spacing:.02em;text-transform:uppercase;line-height:1;background:linear-gradient(180deg,#fff 40%,$3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:$3\">$2</span><span style=\"display:flex;align-items:center;gap:9px;margin-top:3px;flex-wrap:wrap\"><span style=\"font:600 clamp(8.5px,2.5vw,9.5px) 'Rajdhani',monospace;letter-spacing:.2em;color:#9aa0a8;text-transform:uppercase\">$4</span><span style=\"font:700 clamp(10px,3vw,11px) 'Rajdhani',monospace;color:$3\">$5</span></span><span style=\"display:block;height:3px;margin-top:6px;background:linear-gradient(90deg,$3 0%,$3 82%,transparent 100%);border-radius:2px\"></span></span></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

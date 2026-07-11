@@ -1,0 +1,18 @@
+{
+    "id": "2c6cd196-f619-4f95-b91b-16469867d67b",
+    "scriptName": "DB Narrator A — Manga Caption Box",
+    "findRegex": "/\\[DBNARR\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:520px;width:100%;margin:8px auto 4px;background:#f4f1e8;color:#1a1a1d;border:2.5px solid #1a1a1d;border-radius:4px;padding:8px 15px;font:600 italic clamp(12px,3.4vw,12.5px)/1.5 'Noto Sans Thai','Rajdhani',system-ui,sans-serif;text-align:center\"><span style=\"display:block;font:700 8px 'Rajdhani',monospace;letter-spacing:.22em;color:#7a3c00;text-transform:uppercase;margin-bottom:2px;font-style:normal\">Narrator</span>$1</div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

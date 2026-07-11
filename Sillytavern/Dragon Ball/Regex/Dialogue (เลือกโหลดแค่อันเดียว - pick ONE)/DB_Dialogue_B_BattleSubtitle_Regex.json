@@ -1,0 +1,18 @@
+{
+    "id": "666d497a-7631-4603-922c-801b7c1a2f20",
+    "scriptName": "DB Dialogue B — Battle Subtitle",
+    "findRegex": "/\\[DBSAY\\|([^|\\]]*)\\|(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:520px;width:100%;margin:6px auto 4px;background:linear-gradient(90deg,rgba(14,16,20,.96),rgba(20,24,30,.9));border-left:4px solid $2;border-radius:4px;padding:8px 14px 9px;font-family:'Rajdhani','Noto Sans Thai',system-ui,sans-serif\"><span style=\"display:block;font:700 clamp(8.5px,2.6vw,9.5px) 'Rajdhani',monospace;letter-spacing:.2em;color:$2;text-transform:uppercase;margin-bottom:2px\">&#9670; $1</span><span style=\"display:block;font-size:clamp(13px,3.6vw,13.5px);color:#eef0f2;font-weight:600;line-height:1.4\">$3</span></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
