@@ -1,6 +1,21 @@
-# Dragon Ball — Speech System (Regex)
+# Dragon Ball — Regex Systems
 
-Per-message header / dialogue / monologue styling for SillyTavern, like the ZZZ and Wuthering Waves systems. Tags are **Dragon-Ball-specific** (`[DBCHAR] [DBSAY] [DBTHINK] [DBNARR]`) so they never collide with the Global / ZZZ / WuWa regex.
+Per-message styling + a player status HUD for SillyTavern, like the ZZZ / Wuthering Waves / Wistoria systems. All tags are **Dragon-Ball-specific** so they never collide with the Global / ZZZ / WuWa regex.
+
+## Files
+
+| File | What it does | Tag |
+|---|---|---|
+| `Header / Dialogue / Monologue / Narrator` folders | Per-message speech styling (install ONE per folder) | `[DBCHAR] [DBSAY] [DBTHINK] [DBNARR]` |
+| `DB_Status_Regex.json` | Collapsible Xenoverse-style **player status HUD** (Profile · Vitality · Skills · Items · Missions) | `<DB_STATUS>{json}</DB_STATUS>` |
+
+The status HUD is documented in **`DB_Status_SCHEMA.md`** (full JSON schema). It always installs on its own — it doesn't conflict with the speech regex.
+
+---
+
+## Speech System
+
+Per-message header / dialogue / monologue styling. Tags are **Dragon-Ball-specific** (`[DBCHAR] [DBSAY] [DBTHINK] [DBNARR]`).
 
 ## ⚠️ Install ONE file per folder — one at a time
 
