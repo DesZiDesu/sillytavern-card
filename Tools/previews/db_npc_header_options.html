@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@600;700&family=Teko:wght@600;700&family=Share+Tech+Mono&family=Bangers&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0b0e;padding:20px 14px 60px;font-family:'Rajdhani',system-ui,sans-serif;max-width:600px;margin:0 auto;color:#e8eaee}
+.hd h1{font:700 19px 'Oswald';letter-spacing:.03em}.hd h1 b{color:#f6a01a}
+.hd p{color:#9aa1ad;font-size:13px;line-height:1.5;margin:6px 0 8px}
+.hd code{background:#15171c;border:1px solid #23262d;border-radius:4px;padding:1px 6px;font-size:12px;color:#f6a01a}
+.lab{font:700 12px 'Oswald';letter-spacing:.2em;color:#f6a01a;text-transform:uppercase;margin:34px 0 10px;border-top:1px solid #23262d;padding-top:16px}
+.lab small{display:block;color:#7a808a;font-weight:500;letter-spacing:.04em;text-transform:none;margin-top:2px;font-size:11px}
+.stack{display:flex;flex-direction:column;gap:9px}
+
+/* ============================================ A — KI MONOGRAM */
+.A{display:flex;align-items:center;gap:12px;background:linear-gradient(160deg,#14161d,#0d0f14);border:1px solid #262a35;border-radius:12px;padding:9px 13px 9px 9px;box-shadow:0 8px 22px rgba(0,0,0,.5)}
+.A .mono{position:relative;width:46px;height:46px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:12px;font:700 21px 'Oswald';color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.45);overflow:hidden}
+.A .mono::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 30% 20%,rgba(255,255,255,.28),transparent 55%)}
+.A .mono::after{content:'';position:absolute;inset:-8px;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 65%);mix-blend-mode:overlay}
+.A .bd{flex:1;min-width:0}
+.A .nm{font:700 15.5px 'Oswald';letter-spacing:.05em;color:#f2f4f8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.A .rg{font-size:11px;font-weight:600;color:#8b93a3;letter-spacing:.06em;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.A .pw{flex-shrink:0;text-align:right;border-radius:9px;padding:5px 11px;background:rgba(255,255,255,.04);border:1px solid #262a35}
+.A .pw b{display:block;font:700 15px 'Teko';letter-spacing:.05em;line-height:1;font-variant-numeric:tabular-nums}
+.A .pw i{font-style:normal;font-size:7px;letter-spacing:.2em;color:#6d7482;text-transform:uppercase}
+
+/* ============================================ B — SCOUTER NO-VISUAL */
+.B{display:flex;align-items:stretch;background:linear-gradient(180deg,#05170c,#03100a);border:1px solid #14532d;overflow:hidden;font-family:'Share Tech Mono',monospace;color:#a9f5c6;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));box-shadow:0 8px 22px rgba(0,0,0,.5),0 0 18px -8px rgba(61,252,142,.4);position:relative}
+.B::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(61,252,142,.05) 0 1px,transparent 1px 3px);pointer-events:none}
+.B .sil{width:52px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-right:1px solid #14532d;background:rgba(61,252,142,.06);padding:7px 0}
+.B .sil svg{width:24px;height:24px;fill:none;stroke-width:1.6}
+.B .sil i{font-style:normal;font-size:6.5px;letter-spacing:.14em}
+.B .bd{flex:1;min-width:0;padding:8px 12px;display:flex;flex-direction:column;justify-content:center}
+.B .k{font-size:8px;letter-spacing:.24em;color:#3f8a5e;margin-bottom:2px}
+.B .nm{font-size:15px;color:#eafff2;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.B .rg{font-size:10px;color:#6fbe93;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.B .pw{flex-shrink:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding:8px 13px;border-left:1px solid #14532d}
+.B .pw b{font-size:15px;color:#3dfc8e;text-shadow:0 0 8px rgba(61,252,142,.5)}
+.B .pw i{font-style:normal;font-size:7px;letter-spacing:.2em;color:#3f8a5e}
+
+/* ============================================ C — DRAGON BALL PLATE */
+.C{display:flex;align-items:center;gap:12px;background:#f6eedb;border:3px solid #241f18;border-radius:4px;padding:8px 12px 8px 9px;color:#241f18;box-shadow:4px 4px 0 rgba(0,0,0,.5);position:relative;overflow:hidden}
+.C::before{content:'';position:absolute;right:-18px;top:-18px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,#241f18 1.1px,transparent 1.3px);background-size:7px 7px;opacity:.12;pointer-events:none}
+.C .ball{position:relative;width:44px;height:44px;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 32% 26%,#ffd680,#f6a01a 55%,#d97b06);border:2.5px solid #241f18;display:flex;align-items:center;justify-content:center;box-shadow:inset -3px -4px 8px rgba(160,80,0,.5),2px 2px 0 rgba(0,0,0,.3)}
+.C .ball b{font:400 19px 'Bangers';color:#b3400c;text-shadow:0 1px 0 rgba(255,255,255,.35)}
+.C .ball::after{content:'';position:absolute;left:7px;top:6px;width:12px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);transform:rotate(-25deg)}
+.C .bd{flex:1;min-width:0}
+.C .nm{font:400 18px 'Bangers';letter-spacing:.05em;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.C .rg{font-size:10.5px;font-weight:700;color:#8a5a2a;letter-spacing:.08em;text-transform:uppercase;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.C .pw{flex-shrink:0;text-align:center;background:#fff;border:2px solid #241f18;border-radius:3px;padding:4px 9px;transform:rotate(2deg);box-shadow:1.5px 1.5px 0 rgba(0,0,0,.3)}
+.C .pw b{display:block;font:400 14px 'Bangers';line-height:1}
+.C .pw i{font-style:normal;font:700 6.5px 'Rajdhani';letter-spacing:.18em;color:#8a5a2a;text-transform:uppercase}
+
+/* ============================================ D — BATTLE CARD CUT */
+.D{position:relative;display:flex;align-items:stretch;background:linear-gradient(105deg,#191d28 60%,#12151d);border:1px solid #2b3142;overflow:hidden;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 22px rgba(0,0,0,.55)}
+.D::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 26px,rgba(255,255,255,.025) 26px 30px);pointer-events:none}
+.D .slab{width:54px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font:700 24px 'Oswald';color:#0c0e13;position:relative;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.D .slab::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.3),transparent 45%)}
+.D .slab span{position:relative}
+.D .bd{flex:1;min-width:0;padding:8px 6px 8px 12px;display:flex;flex-direction:column;justify-content:center}
+.D .nm{font:700 15.5px 'Oswald';letter-spacing:.07em;text-transform:uppercase;color:#f2f4f8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.D .rg{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;color:#8b93a3;letter-spacing:.06em;margin-top:2px;min-width:0}
+.D .rg em{font-style:normal;flex-shrink:0;width:14px;height:2px}
+.D .pw{flex-shrink:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding:8px 16px 8px 12px;background:rgba(0,0,0,.28)}
+.D .pw b{font:700 17px 'Teko';letter-spacing:.05em;line-height:1;font-variant-numeric:tabular-nums}
+.D .pw i{font-style:normal;font-size:7px;letter-spacing:.2em;color:#6d7482;text-transform:uppercase}
+</style></head><body>
+
+<div class="hd">
+<h1>Dragon Ball — <b>Imageless NPC Header</b> · 4 directions</h1>
+<p>Fallback nameplate for characters with <b>no portrait in the gallery</b> (Cabba, Launch, Monaka, one-scene NPCs...). The AI uses <code>[DBNPC|Name|#hex|region|power]</code> instead of [DBCHAR] — the tile is built from the name's initial + signature color, no image needed. Same 3 sample NPCs per design. Pick <b>one</b> and I'll build <code>DB_NPCHeader_Regex.json</code>.</p>
+</div>
+
+<!-- ================================================== A -->
+<div class="lab">A — Ki Monogram<small>Dark nameplate, glowing hex-colored initial tile with aura sheen. Neutral — pairs with any header family.</small></div>
+<div class="stack">
+ <div class="A"><span class="mono" style="background:linear-gradient(180deg,#7fb8e8,#2d6fb8)">C</span>
+  <div class="bd"><div class="nm">CABBA</div><div class="rg">Saiyan of Sadala · Universe 6</div></div>
+  <div class="pw"><b style="color:#7fb8e8">98,000,000</b><i>Power</i></div></div>
+ <div class="A"><span class="mono" style="background:linear-gradient(180deg,#8fd46a,#4a9e2d)">L</span>
+  <div class="bd"><div class="nm">LAUNCH</div><div class="rg">Two souls, one sneeze · Kame House</div></div>
+  <div class="pw"><b style="color:#8fd46a">12</b><i>Power</i></div></div>
+ <div class="A"><span class="mono" style="background:linear-gradient(180deg,#e8a05f,#c96a2d)">M</span>
+  <div class="bd"><div class="nm">MONAKA</div><div class="rg">"Strongest in Universe 7" · Deliveryman</div></div>
+  <div class="pw"><b style="color:#e8a05f">???</b><i>Power</i></div></div>
+</div>
+
+<!-- ================================================== B -->
+<div class="lab">B — Scouter No-Visual<small>Green telemetry bar with a silhouette icon and NO VISUAL readout — pairs with the Scouter family & tracker A vibes.</small></div>
+<div class="stack">
+ <div class="B"><div class="sil" style="color:#7fb8e8"><svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c1-4.4 3.6-6 7-6s6 1.6 7 6"/></svg><i>NO VISUAL</i></div>
+  <div class="bd"><div class="k">TARGET ID</div><div class="nm">CABBA</div><div class="rg">Saiyan of Sadala · Universe 6</div></div>
+  <div class="pw"><b>98,000,000</b><i>PWR</i></div></div>
+ <div class="B"><div class="sil" style="color:#8fd46a"><svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c1-4.4 3.6-6 7-6s6 1.6 7 6"/></svg><i>NO VISUAL</i></div>
+  <div class="bd"><div class="k">TARGET ID</div><div class="nm">LAUNCH</div><div class="rg">Two souls, one sneeze · Kame House</div></div>
+  <div class="pw"><b>12</b><i>PWR</i></div></div>
+ <div class="B"><div class="sil" style="color:#e8a05f"><svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c1-4.4 3.6-6 7-6s6 1.6 7 6"/></svg><i>NO VISUAL</i></div>
+  <div class="bd"><div class="k">TARGET ID</div><div class="nm">MONAKA</div><div class="rg">"Strongest in Universe 7" · Deliveryman</div></div>
+  <div class="pw"><b>???</b><i>PWR</i></div></div>
+</div>
+
+<!-- ================================================== C -->
+<div class="lab">C — Dragon Ball Plate<small>Manga paper plate with a glossy dragon ball bearing the initial — pairs with the Manga speech family & Adventure Log.</small></div>
+<div class="stack">
+ <div class="C"><span class="ball"><b>C</b></span>
+  <div class="bd"><div class="nm">CABBA</div><div class="rg">Saiyan of Sadala · Universe 6</div></div>
+  <div class="pw"><b style="color:#2d6fb8">98,000,000</b><i>Power</i></div></div>
+ <div class="C"><span class="ball"><b>L</b></span>
+  <div class="bd"><div class="nm">LAUNCH</div><div class="rg">Two souls, one sneeze · Kame House</div></div>
+  <div class="pw"><b style="color:#4a9e2d">12</b><i>Power</i></div></div>
+ <div class="C"><span class="ball"><b>M</b></span>
+  <div class="bd"><div class="nm">MONAKA</div><div class="rg">"Strongest in Universe 7" · Deliveryman</div></div>
+  <div class="pw"><b style="color:#c96a2d">???</b><i>Power</i></div></div>
+</div>
+
+<!-- ================================================== D -->
+<div class="lab">D — Battle Card Cut<small>Angular VS-screen card: hex-colored initial slab, diagonal cuts, power block — pairs with the Battle Card header & Quest Toast notify.</small></div>
+<div class="stack">
+ <div class="D"><span class="slab" style="background:linear-gradient(180deg,#7fb8e8,#2d6fb8)"><span>C</span></span>
+  <div class="bd"><div class="nm">Cabba</div><div class="rg"><em style="background:#7fb8e8"></em>Saiyan of Sadala · Universe 6</div></div>
+  <div class="pw"><b style="color:#7fb8e8">98,000,000</b><i>Power</i></div></div>
+ <div class="D"><span class="slab" style="background:linear-gradient(180deg,#8fd46a,#4a9e2d)"><span>L</span></span>
+  <div class="bd"><div class="nm">Launch</div><div class="rg"><em style="background:#8fd46a"></em>Two souls, one sneeze · Kame House</div></div>
+  <div class="pw"><b style="color:#8fd46a">12</b><i>Power</i></div></div>
+ <div class="D"><span class="slab" style="background:linear-gradient(180deg,#e8a05f,#c96a2d)"><span>M</span></span>
+  <div class="bd"><div class="nm">Monaka</div><div class="rg"><em style="background:#e8a05f"></em>"Strongest in Universe 7" · Deliveryman</div></div>
+  <div class="pw"><b style="color:#e8a05f">???</b><i>Power</i></div></div>
+</div>
+
+</body></html>
