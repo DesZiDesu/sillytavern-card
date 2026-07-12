@@ -1,0 +1,184 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600;700&family=Saira+Condensed:wght@500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#07080b;padding:18px 14px;font-family:'Rajdhani',system-ui,sans-serif;max-width:600px;margin:0 auto;color:#e8eaee}
+.hint{color:#7a808a;font-size:12px;margin:0 0 12px;font-style:italic}
+.H{background:linear-gradient(160deg,#0b1826,#070e17);border:1px solid #17384f;border-radius:4px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.55),0 0 0 1px rgba(41,211,255,.06)}
+.panel{display:none}.panel.on{display:block;animation:fx .18s ease}@keyframes fx{from{opacity:0}to{opacity:1}}
+.H .tabs,.H .bodies{display:none}.H.exp .tabs{display:block}.H.exp .bodies{display:block}
+.head{cursor:pointer;user-select:none}.tab{cursor:pointer;user-select:none}
+.chev{transition:transform .2s}.exp .chev{transform:rotate(180deg)}
+/* header (thin) */
+.H .head{position:relative;display:flex;align-items:center;gap:10px;padding:7px 12px;background:linear-gradient(90deg,#0e2233,#0a1826)}
+.H .hx{width:19px;height:21px;flex-shrink:0;color:#29d3ff;filter:drop-shadow(0 0 4px rgba(41,211,255,.5))}
+.H .nm{font:700 15px 'Saira Condensed','Oswald';letter-spacing:.05em;color:#dff2ff;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.H .mini{display:flex;flex-direction:column;gap:3px;flex:1;min-width:74px;max-width:200px;margin:0 4px}
+.H .mrow{display:flex;align-items:center;gap:6px}
+.H .mlbl{font:700 8px 'Rajdhani',monospace;letter-spacing:.06em;width:14px;color:#4f7188;flex-shrink:0}
+.H .mtrk{flex:1;height:6px;background:#061019;border:1px solid #143047;overflow:hidden;transform:skewX(-22deg)}.H .mfil{height:100%}
+.H .mki{flex:1;display:flex;gap:2px;transform:skewX(-22deg)}.H .mki .b{flex:1;height:6px;background:#061019;border:1px solid #143047;overflow:hidden}.H .mki .b i{display:block;height:100%;background:linear-gradient(90deg,#1a8fc4,#3fdcff);box-shadow:0 0 4px #2aa8ff}
+.H .pw{text-align:right;flex-shrink:0}.H .pw b{display:block;font:600 16px 'Teko';color:#ff8a1e;line-height:.9;text-shadow:0 0 8px rgba(255,138,30,.35)}.H .pw i{font:700 7px 'Rajdhani';letter-spacing:.12em;color:#7a5a2a;font-style:normal;text-transform:uppercase}
+.H .chev{color:#4f7188;flex-shrink:0}
+/* tabs */
+.H .tabs{padding:9px 10px 0;white-space:nowrap;overflow-x:auto}
+.H .tab{display:inline-block;font:700 10px 'Oswald';letter-spacing:.05em;color:#4f7188;padding:7px 14px;background:#0c1e2e;border:1px solid #143047;text-transform:uppercase;clip-path:polygon(9% 0,100% 0,91% 100%,0 100%);margin-right:2px}
+.H .tab .cnt{color:#ff8a1e;margin-left:4px}
+.H .tab.on{color:#04121c;background:linear-gradient(180deg,#3fdcff,#1a8fc4);border-color:#3fdcff;box-shadow:0 0 12px rgba(41,211,255,.3)}
+.H .tab.on .cnt{color:#04121c}
+.H .bodies{border-top:1px solid #143047;margin-top:9px}
+.H .panel{padding:11px 12px 13px}
+/* profile grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.c{background:#0b1c2b;border:1px solid #143047;padding:7px 11px;clip-path:polygon(0 0,100% 0,100% 74%,93% 100%,0 100%)}.c.full{grid-column:1/-1;clip-path:polygon(0 0,100% 0,100% 84%,97% 100%,0 100%)}
+.k{font:700 8px 'Rajdhani',monospace;letter-spacing:.14em;color:#4f7188;text-transform:uppercase}
+.v{font:600 14px 'Rajdhani';color:#dff2ff;margin-top:1px}.v.o{color:#ff8a1e;font:600 19px 'Teko'}.v small{color:#8fb0c4;font-size:12px}.v b{color:#29d3ff}
+.sh{font:700 9px 'Oswald';letter-spacing:.16em;color:#29d3ff;text-transform:uppercase;margin:13px 0 7px;display:flex;align-items:center;gap:8px}.sh:first-child{margin-top:0}.sh::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(41,211,255,.35),transparent)}
+/* HP / stamina bars */
+.bar{margin:9px 0}.bar .r{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}.bar .r b{font:700 9px 'Oswald';letter-spacing:.08em;text-transform:uppercase}.bar .r span{color:#8fb0c4;font-family:'Teko';font-size:14px}
+.t{height:8px;background:#061019;border:1px solid #143047;overflow:hidden;transform:skewX(-22deg)}.t i{display:block;height:100%}
+/* KI GAUGE — stock blocks */
+.kigauge{display:flex;gap:3px;transform:skewX(-20deg)}
+.kigauge .kb{flex:1;height:14px;background:#04121c;border:1px solid #14415c;overflow:hidden;position:relative}
+.kigauge .kb i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#1a8fc4,#3fdcff);box-shadow:0 0 8px rgba(41,211,255,.7);border-right:1px solid #bff2ff}
+.kigauge .kb.full i{border-right:0}
+/* transformations — angular progression */
+.forms{display:flex;gap:5px;overflow-x:auto;padding-bottom:3px}
+.form{flex:0 0 auto;min-width:88px;background:#0b1c2b;border:1px solid #143047;padding:7px 11px 8px;position:relative;clip-path:polygon(0 12%,10% 0,100% 0,100% 88%,90% 100%,0 100%)}
+.form .ft{font:700 8px 'Rajdhani',monospace;letter-spacing:.08em;color:#4f7188}
+.form .fn{font:700 13px 'Saira Condensed';letter-spacing:.02em;color:#a7c3d4;text-transform:uppercase;line-height:1.1;margin-top:1px}
+.form .fs{font:700 7.5px 'Rajdhani';letter-spacing:.12em;text-transform:uppercase;margin-top:3px;color:#4f7188}
+.form.active{border-color:#ff8a1e;background:linear-gradient(160deg,rgba(255,138,30,.16),rgba(255,138,30,.04));box-shadow:0 0 14px rgba(255,138,30,.22)}
+.form.active .fn{color:#ffb84d}.form.active .fs{color:#ff8a1e}.form.active .ft{color:#c99a52}
+.form.unlocked{border-color:#1c5a7a}.form.unlocked .fn{color:#dff2ff}.form.unlocked .fs{color:#29d3ff}
+.form.locked{border-style:dashed;opacity:.5}.form.locked .fs{color:#3a556a}
+/* techniques */
+.tq{display:flex;align-items:center;gap:9px;padding:7px 2px;border-bottom:1px solid #102638}.tq:last-child{border-bottom:0}.tq .tn{font:700 13px 'Saira Condensed';letter-spacing:.02em;color:#dff2ff}.tq .td{font-size:11px;color:#6f8ea2}.tq .tc{margin-left:auto;font:600 15px 'Teko';color:#ff8a1e;white-space:nowrap}
+/* passives / injuries chips */
+.chip{display:inline-block;font:600 11px 'Rajdhani';letter-spacing:.03em;padding:4px 12px;background:#0b1c2b;border:1px solid #143047;color:#a7c3d4;margin:0 5px 5px 0;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)}
+.chip.on{border-color:#29d3ff;color:#3fdcff;background:rgba(41,211,255,.1)}.chip.hurt{border-color:#e05a4a;color:#ff9b8f;background:rgba(224,90,74,.12)}
+/* inventory slots */
+.inv{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.slot{display:flex;align-items:center;gap:9px;background:#0b1c2b;border:1px solid #143047;padding:7px 8px 7px 11px;clip-path:polygon(0 0,100% 0,100% 72%,93% 100%,0 100%)}
+.slot .sn{font:600 12.5px 'Rajdhani';color:#dff2ff;line-height:1.1;min-width:0}
+.slot .sq{margin-left:auto;flex-shrink:0;font:600 13px 'Teko';color:#29d3ff;background:#04121c;border:1px solid #14415c;padding:0 7px;min-width:26px;text-align:center}
+.zeni{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,rgba(255,138,30,.14),rgba(255,138,30,.03));border:1px solid #5a3f1a;padding:7px 12px;clip-path:polygon(0 0,100% 0,100% 78%,97% 100%,0 100%)}
+.zeni .zl{font:700 9px 'Oswald';letter-spacing:.14em;color:#c99a52;text-transform:uppercase}.zeni .zv{font:600 20px 'Teko';color:#ffb84d}
+/* missions */
+.mission{background:#0b1c2b;border:1px solid #143047;border-left:3px solid #ff8a1e;padding:10px 12px;margin-bottom:9px;clip-path:polygon(0 0,100% 0,100% 93%,97.5% 100%,0 100%)}
+.mission:last-child{margin-bottom:0}
+.mh{display:flex;align-items:center;gap:8px}
+.mn{font:700 14px 'Saira Condensed';letter-spacing:.02em;color:#dff2ff;text-transform:uppercase;line-height:1.1}
+.mr{flex-shrink:0;font:700 9px 'Rajdhani',monospace;letter-spacing:.05em;color:#04121c;background:linear-gradient(180deg,#ffb84d,#ff8a1e);padding:1px 8px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
+.md{font-size:11.5px;color:#8fb0c4;line-height:1.4;margin:5px 0 8px}
+.obj{display:flex;align-items:center;gap:8px;padding:3px 0;font-size:12.5px}
+.obj .box{width:14px;height:14px;flex-shrink:0;border:1.5px solid #2f6b8a;background:#04121c;display:flex;align-items:center;justify-content:center}
+.obj.done .box{background:#29d3ff;border-color:#29d3ff}.obj .box svg{width:10px;height:10px;display:none}.obj.done .box svg{display:block}
+.obj .ot{color:#c3d6e2}.obj.done .ot{color:#5f7d90;text-decoration:line-through}
+.obj .op{margin-left:auto;font:600 12px 'Teko';color:#29d3ff}
+.rew{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;border-top:1px dashed #143047;padding-top:8px}
+.rew .rl{font:700 8px 'Rajdhani',monospace;letter-spacing:.16em;color:#4f7188;width:100%;text-transform:uppercase;margin-bottom:1px}
+.rew .rc{font:600 11px 'Rajdhani';color:#ffb84d;border:1px solid #5a3f1a;background:rgba(255,138,30,.09);padding:3px 10px;clip-path:polygon(7% 0,100% 0,93% 100%,0 100%)}
+.empty{color:#4f7188;font-size:12px;font-style:italic;padding:4px 0}
+</style></head><body>
+<div class="hint">Xenoverse HUD · starts collapsed (thin bar) — tap it to expand. The Missions tab only appears when missions are active.</div>
+<div class="H" id="H">
+ <div class="head" id="head"></div>
+ <div class="tabs" id="tabs"></div>
+ <div class="bodies" id="bodies"></div>
+</div>
+<div class="hint" style="margin-top:14px">Redesigned: ▸ Ki as a stock-block energy gauge ▸ transformations as angular progression nodes ▸ inventory as item slots ▸ new conditional Missions tab (name · description · objective checklist · rewards).</div>
+
+<textarea id="raw" style="display:none">{
+ "name":"Kaen","title":"Saiyan Fighter · Earth","power":"1,200,000","level":24,
+ "race":"Saiyan","age":24,"gender":"Male","alignment":"Chaotic Good",
+ "race_ability":"<b>Zenkai Boost</b> — surges in power after recovering from near-death. <b>Oozaru</b> — Great Ape under a full moon (needs tail).",
+ "origin":"Sent to Earth as an infant; raised in the wild, chasing stronger opponents.",
+ "hp":[6800,10000],"stamina":[4100,9000],"ki":[7500,8000],"ki_stocks":6,
+ "injuries":["Fractured left arm — moderate","Ki exhaustion — mild"],
+ "status":["Zenkai primed"],
+ "forms":[
+  {"n":"Base","tier":"×1","state":"unlocked"},
+  {"n":"Super Saiyan","tier":"×50","state":"active"},
+  {"n":"Super Saiyan 2","tier":"×100","state":"locked"},
+  {"n":"Oozaru","tier":"×10","state":"locked"}
+ ],
+ "techniques":[
+  {"n":"Kamehameha","d":"Signature ki wave — high burst","c":"1,500 Ki"},
+  {"n":"Solar Flare","d":"Blinds nearby foes","c":"300 Ki"},
+  {"n":"Instant Transmission","d":"Teleport to a ki signature","c":"800 Ki"}
+ ],
+ "passives":["Saiyan Pride","Combat Genius","Endless Appetite"],
+ "items":[{"n":"Senzu Bean","q":2},{"n":"Capsule: Hovercar","q":1},{"n":"Scouter","q":1},{"n":"Capsule: Med-Kit","q":1}],
+ "zeni":"45,000",
+ "missions":[
+  {"name":"The Saiyan Threat","rank":"A","desc":"Raditz has landed on Earth hunting for his brother. Stop him before he finds the others.","objectives":[{"t":"Locate Raditz's pod","done":true},{"t":"Confront Raditz","done":true},{"t":"Defeat Raditz","done":false,"prog":"0/1"},{"t":"Keep Gohan safe","done":false}],"rewards":["8,000 Zeni","Senzu Bean ×1","+50,000 Power"]},
+  {"name":"Training Under Kami","rank":"B","desc":"Report to the Lookout and complete Kami's gravity training.","objectives":[{"t":"Reach the Lookout","done":false},{"t":"Clear 100x gravity","done":false,"prog":"0/3"}],"rewards":["Technique: Kaioken","3,000 Zeni"]}
+ ]
+}</textarea>
+<script>
+(function(){
+ var g=function(i){return document.getElementById(i)};
+ var raw=(g('raw').value||'').replace(/<\/?DB_STATUS>/gi,'').trim();var D={};try{if(raw&&raw.charAt(0)==='{')D=JSON.parse(raw)}catch(e){}
+ var esc=function(s){return String(s==null?'':s).replace(/&(?!(amp|lt|gt|#\d+);)/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')};
+ var rich=function(s){return esc(s).replace(/&lt;(\/?b)&gt;/g,function(m,p){return '<'+p+'>'})};
+ var arr=function(v){if(v==null)return[];if(Array.isArray(v))return v.filter(function(x){return x!=null&&String(x).trim()!==''});return String(v).split(/[,;]+/).map(function(x){return x.trim()}).filter(Boolean)};
+ var has=function(v){return v!=null&&String(v).trim()!==''};
+ var pct=function(a){if(!Array.isArray(a)||!a[1])return 0;return Math.max(2,Math.min(100,Math.round(a[0]/a[1]*100)))};
+ var CHK='<svg viewBox="0 0 24 24" fill="none" stroke="#04121c" stroke-width="3.5"><path d="M4 12l6 6 10-12"/></svg>';
+
+ // ---- collapsed header ----
+ function miniKi(){var st=D.ki_stocks||6;var ratio=Array.isArray(D.ki)&&D.ki[1]?D.ki[0]/D.ki[1]:0;var fill=ratio*st;var o='';
+  for(var i=0;i<st;i++){var f=Math.max(0,Math.min(1,fill-i));o+='<span class="b"><i style="width:'+(f*100)+'%"></i></span>'}return o}
+ g('head').innerHTML=
+  '<span class="hx"><svg viewBox="0 0 20 22" fill="currentColor"><path d="M10 0l9 5v12l-9 5-9-5V5z" opacity=".18"/><path d="M10 0l9 5v12l-9 5-9-5V5z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M10 5l4.5 2.6v5.2L10 15.4 5.5 12.8V7.6z" fill="currentColor"/></svg></span>'+
+  '<span class="nm">'+esc(D.name||'Fighter')+'</span>'+
+  '<span class="mini"><span class="mrow"><span class="mlbl">HP</span><span class="mtrk"><span class="mfil" style="width:'+pct(D.hp)+'%;background:linear-gradient(90deg,#7dd83f,#c8e04a)"></span></span></span>'+
+  '<span class="mrow"><span class="mlbl">KI</span><span class="mki">'+miniKi()+'</span></span></span>'+
+  '<span class="pw"><b>'+esc(D.power||'—')+'</b><i>Power</i></span>'+
+  '<span class="chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>';
+
+ // ---- panels ----
+ function cell(k,v,full,cls){if(!has(v))return'';return '<div class="c'+(full?' full':'')+'"><div class="k">'+k+'</div><div class="v'+(cls?' '+cls:'')+'">'+v+'</div></div>'}
+ function profile(){var h='<div class="grid">'+cell('Race',esc(D.race))+cell('Age',esc(D.age))+cell('Gender',esc(D.gender))+cell('Alignment',esc(D.alignment))+cell('Power Level',esc(D.power),false,'o')+cell('Level',esc(D.level))+'</div>';
+  if(has(D.race_ability))h+='<div class="sh">Race Ability</div><div class="c full"><div class="v">'+rich(D.race_ability)+'</div></div>';
+  if(has(D.origin))h+='<div class="sh">Origin</div><div class="c full"><div class="v"><small>'+esc(D.origin)+'</small></div></div>';return h}
+ function kiGauge(){var st=D.ki_stocks||6;var ratio=Array.isArray(D.ki)&&D.ki[1]?D.ki[0]/D.ki[1]:0;var fill=ratio*st;var o='<div class="kigauge">';
+  for(var i=0;i<st;i++){var f=Math.max(0,Math.min(1,fill-i));o+='<div class="kb'+(f>=1?' full':'')+'"><i style="width:'+(f*100)+'%"></i></div>'}return o+'</div>'}
+ function vitality(){var h='';
+  if(D.hp)h+='<div class="bar"><div class="r"><b style="color:#7dd83f">Health</b><span>'+D.hp[0]+' / '+D.hp[1]+'</span></div><div class="t"><i style="width:'+pct(D.hp)+'%;background:linear-gradient(90deg,#5aa82f,#a8e04a)"></i></div></div>';
+  if(D.ki){var st=D.ki_stocks||6;var fl=Array.isArray(D.ki)&&D.ki[1]?(D.ki[0]/D.ki[1]*st):0;h+='<div class="bar"><div class="r"><b style="color:#29d3ff">Ki</b><span>'+(Math.round(fl*10)/10)+' / '+st+' stocks</span></div>'+kiGauge()+'</div>'}
+  if(D.stamina)h+='<div class="bar"><div class="r"><b style="color:#ffb648">Stamina</b><span>'+D.stamina[0]+' / '+D.stamina[1]+'</span></div><div class="t"><i style="width:'+pct(D.stamina)+'%;background:linear-gradient(90deg,#c47d10,#ffb648)"></i></div></div>';
+  var inj=arr(D.injuries);h+='<div class="sh">Injuries</div>'+(inj.length?inj.map(function(x){return '<span class="chip hurt">'+esc(x)+'</span>'}).join(''):'<div class="empty">Unharmed.</div>');
+  var stt=arr(D.status);if(stt.length)h+='<div class="sh">Status</div>'+stt.map(function(x){return '<span class="chip on">'+esc(x)+'</span>'}).join('');return h}
+ function skills(){var h='';var forms=Array.isArray(D.forms)?D.forms:[];
+  if(forms.length){h+='<div class="sh">Transformations</div><div class="forms">';forms.forEach(function(f){var s=f.state||'unlocked';var lbl=s==='active'?'Active':(s==='locked'?'Locked':'Ready');
+   h+='<div class="form '+s+'"><div class="ft">'+esc(f.tier||'')+'</div><div class="fn">'+esc(f.n)+'</div><div class="fs">'+lbl+'</div></div>'});h+='</div>'}
+  var tq=Array.isArray(D.techniques)?D.techniques:[];if(tq.length){h+='<div class="sh">Techniques</div>';tq.forEach(function(t){h+='<div class="tq"><div><div class="tn">'+esc(t.n)+'</div>'+(has(t.d)?'<div class="td">'+esc(t.d)+'</div>':'')+'</div>'+(has(t.c)?'<span class="tc">'+esc(t.c)+'</span>':'')+'</div>'})}
+  var pv=arr(D.passives);if(pv.length)h+='<div class="sh">Passives</div>'+pv.map(function(x){return '<span class="chip">'+esc(x)+'</span>'}).join('');return h||'<div class="empty">No skills.</div>'}
+ function items(){var it=Array.isArray(D.items)?D.items:arr(D.items).map(function(x){return {n:x,q:1}});var h='<div class="sh">Inventory</div>';
+  h+= it.length? '<div class="inv">'+it.map(function(o){var n=typeof o==='string'?o:o.n;var q=typeof o==='string'?1:(o.q||1);return '<div class="slot"><span class="sn">'+esc(n)+'</span><span class="sq">×'+q+'</span></div>'}).join('')+'</div>':'<div class="empty">Empty.</div>';
+  if(has(D.zeni))h+='<div class="sh">Currency</div><div class="zeni"><span class="zl">Zeni</span><span class="zv">'+esc(D.zeni)+'</span></div>';return h}
+ function missions(){var ms=Array.isArray(D.missions)?D.missions:[];if(!ms.length)return '<div class="empty">No active missions.</div>';var h='';
+  ms.forEach(function(m){h+='<div class="mission"><div class="mh"><span class="mn">'+esc(m.name)+'</span>'+(has(m.rank)?'<span class="mr">'+esc(m.rank)+'</span>':'')+'</div>';
+   if(has(m.desc))h+='<div class="md">'+esc(m.desc)+'</div>';
+   var obs=Array.isArray(m.objectives)?m.objectives:[];obs.forEach(function(o){h+='<div class="obj'+(o.done?' done':'')+'"><span class="box">'+CHK+'</span><span class="ot">'+esc(o.t)+'</span>'+(has(o.prog)?'<span class="op">'+esc(o.prog)+'</span>':'')+'</div>'});
+   var rw=arr(m.rewards);if(rw.length)h+='<div class="rew"><span class="rl">Rewards</span>'+rw.map(function(x){return '<span class="rc">'+esc(x)+'</span>'}).join('')+'</div>';
+   h+='</div>'});return h}
+
+ var DEF=[['Profile',profile],['Vitality',vitality],['Skills',skills],['Items',items]];
+ var mc=Array.isArray(D.missions)?D.missions.length:0;
+ if(mc)DEF.push(['Missions',missions,mc]);
+ var tabsH='',bodH='';
+ DEF.forEach(function(d,i){tabsH+='<span class="tab'+(i===0?' on':'')+'" data-t="'+i+'">'+d[0]+(d[2]?'<span class="cnt">'+d[2]+'</span>':'')+'</span>';
+  bodH+='<div class="panel'+(i===0?' on':'')+'" data-t="'+i+'">'+d[1]()+'</div>'});
+ g('tabs').innerHTML=tabsH;g('bodies').innerHTML=bodH;
+ var H=g('H'),tabs=g('tabs').querySelectorAll('.tab'),panels=g('bodies').querySelectorAll('.panel');
+ tabs.forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();var i=t.getAttribute('data-t');
+  tabs.forEach(function(x){x.classList.toggle('on',x.getAttribute('data-t')===i)});
+  panels.forEach(function(x){x.classList.toggle('on',x.getAttribute('data-t')===i)})})});
+ g('head').addEventListener('click',function(){H.classList.toggle('exp')});
+})();
+</script>
+</body></html>

@@ -1,0 +1,18 @@
+{
+    "id": "369e4854-fe47-428d-ac00-4640352f4ae6",
+    "scriptName": "DB Header C — Dragon Ball Plate",
+    "findRegex": "/\\[DBCHAR\\|([^|\\]]+)\\|([^|\\]]+)\\|(#[0-9a-fA-F]{3,6})\\|([^|\\]]*)\\|([^\\]]*)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"position:relative;display:flex;align-items:stretch;max-width:520px;width:100%;margin:12px auto 6px;background:linear-gradient(90deg,#f6a01a,#e07d0c);clip-path:polygon(0 0,100% 0,100% 74%,97% 100%,0 100%);box-shadow:0 3px 10px rgba(0,0,0,.4);font-family:'Oswald','Rajdhani',system-ui,sans-serif\"><span style=\"width:clamp(58px,16vw,68px);flex-shrink:0;overflow:hidden;border-right:2px solid rgba(0,0,0,.18);display:block\"><img src=\"https://rawcdn.githack.com/DesZiDesu/sillytavern-card/main/Sillytavern/Dragon%20Ball/Images/$1.jpg\" alt=\"$2\" style=\"width:100%;height:100%;object-fit:cover;object-position:top;display:block\" onerror=\"this.style.display='none'\"></span><span style=\"flex:1;min-width:0;padding:clamp(7px,2vw,9px) clamp(12px,3vw,15px);display:flex;flex-direction:column;justify-content:center\"><span style=\"display:flex;align-items:center;gap:7px\"><svg viewBox=\"0 0 24 24\" style=\"width:16px;height:16px;flex-shrink:0\"><g><circle cx=\"12\" cy=\"12\" r=\"11\" fill=\"#ff8c1a\" stroke=\"#7a3c00\" stroke-width=\"1.5\"/><path d=\"M12 6l1.3 2.6 2.9.4-2.1 2 .5 2.9L12 15l-2.6 1.4.5-2.9-2.1-2 2.9-.4z\" fill=\"$3\"/><ellipse cx=\"8.5\" cy=\"8.5\" rx=\"3\" ry=\"2\" fill=\"#fff\" opacity=\".45\"/><animateTransform attributeName=\"transform\" type=\"rotate\" from=\"0 12 12\" to=\"360 12 12\" dur=\"8s\" repeatCount=\"indefinite\"/></g></svg><span style=\"font:700 clamp(7.5px,2.3vw,8.5px) 'Rajdhani',monospace;letter-spacing:.2em;color:#5a2e00;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis\">$4</span></span><span style=\"font:700 clamp(15px,4.5vw,18px) 'Oswald',sans-serif;letter-spacing:.04em;color:#1a1a1d;text-transform:uppercase;line-height:1.05;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-bottom:2.5px solid $3;padding-bottom:1px;display:inline-block;max-width:100%;width:fit-content\">$2</span><span style=\"display:block;font:700 clamp(9px,2.6vw,11px) 'Rajdhani',monospace;letter-spacing:.06em;color:#3a1c00;margin-top:3px\">PWR $5</span></span></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

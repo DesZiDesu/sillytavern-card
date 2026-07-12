@@ -1,0 +1,18 @@
+{
+    "id": "4f2867c3-1524-4077-a348-f7c8806536ac",
+    "scriptName": "DB Monologue B — Battle Thought Band",
+    "findRegex": "/\\[DBTHINK\\|([^|\\]]*)\\|(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:520px;width:100%;margin:7px auto 4px;background:linear-gradient(90deg,rgba(14,16,20,.96),rgba(20,24,30,.9));border-left:4px dashed $2;border-radius:4px;padding:8px 14px 9px;font-family:'Rajdhani','Noto Sans Thai',system-ui,sans-serif\"><span style=\"display:block;font:700 clamp(8.5px,2.6vw,9.5px) 'Rajdhani',monospace;letter-spacing:.2em;color:$2;text-transform:uppercase;margin-bottom:2px\">&#9670; $1 &mdash; thinking</span><span style=\"display:block;font-style:italic;font-size:clamp(12.5px,3.5vw,13px);color:#cbd0d7;line-height:1.45\">$3</span></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
