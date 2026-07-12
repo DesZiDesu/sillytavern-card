@@ -8,8 +8,42 @@ Per-message styling + a player status HUD for SillyTavern, like the ZZZ / Wuther
 |---|---|---|
 | `Header / Dialogue / Monologue / Narrator` folders | Per-message speech styling (install ONE per folder) | `[DBCHAR] [DBSAY] [DBTHINK] [DBNARR]` |
 | `DB_Status_Regex.json` | Collapsible Xenoverse-style **player status HUD** (Profile · Vitality · Skills · Items · Missions) | `<DB_STATUS>{json}</DB_STATUS>` |
+| `DB_Tracker_Regex.json` | **Dragon Radar scene tracker** (time · date · month · year · location · position · weather · condition · planet · universe) | `[DBTRACK\|…]` |
 
 The status HUD is documented in **`DB_Status_SCHEMA.md`** (full JSON schema). It always installs on its own — it doesn't conflict with the speech regex.
+
+---
+
+## Scene Tracker — `DB_Tracker_Regex.json`
+
+A Capsule Corp **Dragon Radar** panel (design B from `Tools/previews/db_tracker_options.html`) that renders whenever the AI posts the tag. Installs on its own — no conflict with the speech regex or status HUD.
+
+```
+[DBTRACK|time|date|month|year|location|position|weather|condition|planet|universe]
+```
+
+| # | Field | Example |
+|---|---|---|
+| 1 | time | `09:15` |
+| 2 | date | `3` (day of month) |
+| 3 | month | `May` |
+| 4 | year | `Age 749` |
+| 5 | location | `Kame House — small island, southern sea` |
+| 6 | position | `On the porch, facing the water` |
+| 7 | weather | `Sunny` |
+| 8 | condition | `26°C · clear skies · light sea breeze` |
+| 9 | planet | `Earth` / `Namek` / `Planet Vegeta` |
+| 10 | universe | `Universe 7` |
+
+Example:
+
+```
+[DBTRACK|09:15|3|May|Age 749|Kame House — small island, southern sea|On the porch, facing the water|Sunny|26°C · clear skies · light sea breeze|Earth|Universe 7]
+```
+
+**Card / Author's Note instruction** — paste this so the AI emits the tag:
+
+> At the top of every reply, post one line: `[DBTRACK|time|date|month|year|location|position|weather|condition|planet|universe]` — 24h time, day-of-month number, month name, DB calendar year (`Age NNN`), the named place, the player's exact position/stance there, a one-word weather, a short weather detail (temp · sky · wind), the planet, and the universe (e.g. `Universe 7`). Keep every field filled; never use `|` inside a field.
 
 ---
 
