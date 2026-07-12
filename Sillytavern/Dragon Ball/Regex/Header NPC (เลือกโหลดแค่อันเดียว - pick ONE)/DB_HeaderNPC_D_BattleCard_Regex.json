@@ -1,0 +1,18 @@
+{
+ "id": "8fcbd306-ff87-476e-8605-270b7de3aa73",
+ "scriptName": "DB Header-NPC D — Battle Card (imageless)",
+ "findRegex": "/\\[DBNPC\\|([^|\\]]+)\\|(#[0-9a-fA-F]{3,6})\\|([^|\\]]*)\\|([^\\]]*)\\]/g",
+ "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"display:flex;align-items:center;gap:clamp(10px,3vw,12px);max-width:520px;width:100%;margin:12px auto 6px;padding:10px 12px;background:#14171c;border:1px solid #262b33;border-radius:9px;border-left:4px solid $2;font-family:'Oswald','Rajdhani',system-ui,sans-serif\"><span style=\"flex:1;min-width:0\"><span style=\"display:block;font:700 clamp(15px,4.4vw,17px) 'Oswald',sans-serif;letter-spacing:.03em;color:#f2f3f5;text-transform:uppercase;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis\">$1</span><span style=\"display:flex;align-items:center;gap:7px;margin-top:3px;flex-wrap:wrap\"><span style=\"font:700 clamp(7.5px,2.2vw,8.5px) 'Rajdhani',monospace;letter-spacing:.16em;color:#0d0f13;background:$2;padding:2px 7px;border-radius:3px;text-transform:uppercase\">$3</span><span style=\"color:$2;font-size:10px;letter-spacing:1px\">&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;</span></span><span style=\"display:flex;align-items:center;gap:6px;margin-top:4px\"><span style=\"font:700 clamp(9px,2.6vw,10px) 'Rajdhani',monospace;color:$2\">$4</span><span style=\"flex:1;height:4px;background:#22262e;border-radius:2px;overflow:hidden;max-width:130px;display:block\"><span style=\"display:block;height:100%;width:82%;background:linear-gradient(90deg,$2,#fff);border-radius:2px\"></span></span></span></span></div>",
+ "trimStrings": [],
+ "placement": [
+  1,
+  2
+ ],
+ "disabled": false,
+ "markdownOnly": true,
+ "promptOnly": false,
+ "runOnEdit": true,
+ "substituteRegex": 0,
+ "minDepth": null,
+ "maxDepth": null
+}

@@ -61,6 +61,7 @@ There are 4 folders. Import **exactly one** `.json` from each (4 files total). E
 | Folder | Pick one | Tag |
 |---|---|---|
 | Header | A Scouter · B Ki Nameplate · C Dragon Ball Plate · D Battle Card | `[DBCHAR]` |
+| Header NPC (imageless) | Same 4 designs, portrait removed — match your Header choice | `[DBNPC]` |
 | Dialogue | A Manga Bubble · B Battle Subtitle · C Impact Bubble | `[DBSAY]` |
 | Character Monologue | A Manga Thought · B Battle Thought | `[DBTHINK]` |
 | Narrator | A Manga Caption · B Battle Caption | `[DBNARR]` |
