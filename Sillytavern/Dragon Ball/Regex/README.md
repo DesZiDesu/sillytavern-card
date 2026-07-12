@@ -9,8 +9,9 @@ Per-message styling + a player status HUD for SillyTavern, like the ZZZ / Wuther
 | `Header / Dialogue / Monologue / Narrator` folders | Per-message speech styling (install ONE per folder) | `[DBCHAR] [DBSAY] [DBTHINK] [DBNARR]` |
 | `DB_Status_Regex.json` | Collapsible Xenoverse-style **player status HUD** (Profile · Vitality · Skills · Items · Missions) | `<DB_STATUS>{json}</DB_STATUS>` |
 | `DB_Tracker_Regex.json` | **Dragon Radar scene tracker** (time · date · month · year · location · position · weather · condition · planet · universe) | `[DBTRACK\|…]` |
+| `DB_Notify_Regex.json` | **Quest-toast notifications** — item obtained (→ stored), form unlocked / technique learned with mastery % meters | `<DB_NOTIFY>[json]</DB_NOTIFY>` |
 
-The status HUD is documented in **`DB_Status_SCHEMA.md`** (full JSON schema). It always installs on its own — it doesn't conflict with the speech regex.
+The status HUD is documented in **`DB_Status_SCHEMA.md`** and the notify pop-ups in **`DB_Notify_SCHEMA.md`** (full JSON schemas). Both always install on their own — they don't conflict with the speech regex.
 
 ---
 
