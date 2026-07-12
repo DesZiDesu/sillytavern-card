@@ -13,6 +13,8 @@ Per-message styling + a player status HUD for SillyTavern, like the ZZZ / Wuther
 
 The status HUD is documented in **`DB_Status_SCHEMA.md`** and the notify pop-ups in **`DB_Notify_SCHEMA.md`** (full JSON schemas). Both always install on their own — they don't conflict with the speech regex.
 
+**Lorebook:** `../Lorebook/Dragon Ball [LB].json` carries the full franchise lore **plus constant system entries** that teach the AI every tag above (speech ordering law, tracker, status, notify, image-gallery paths + portrait directory) — import it and the instructions travel with the world info.
+
 ---
 
 ## Scene Tracker — `DB_Tracker_Regex.json`
