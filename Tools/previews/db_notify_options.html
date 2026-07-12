@@ -1,0 +1,184 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@600;700&family=Teko:wght@600;700&family=Sora:wght@500;600;700&family=Share+Tech+Mono&family=Bangers&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0b0e;padding:20px 14px 60px;font-family:'Rajdhani',system-ui,sans-serif;max-width:600px;margin:0 auto;color:#e8eaee}
+.hd h1{font:700 19px 'Oswald';letter-spacing:.03em}.hd h1 b{color:#f6a01a}
+.hd p{color:#9aa1ad;font-size:13px;line-height:1.5;margin:6px 0 8px}
+.hd code{background:#15171c;border:1px solid #23262d;border-radius:4px;padding:1px 6px;font-size:12px;color:#f6a01a}
+.hd pre{background:#101318;border:1px solid #23262d;border-radius:8px;padding:10px 12px;font-size:11px;line-height:1.55;color:#b9c2cf;overflow-x:auto;margin:8px 0}
+.hd pre b{color:#f6a01a;font-weight:600}
+.lab{font:700 12px 'Oswald';letter-spacing:.2em;color:#f6a01a;text-transform:uppercase;margin:34px 0 10px;border-top:1px solid #23262d;padding-top:16px}
+.lab small{display:block;color:#7a808a;font-weight:500;letter-spacing:.04em;text-transform:none;margin-top:2px;font-size:11px}
+.stack{display:flex;flex-direction:column;gap:9px}
+
+/* ============================================ A — CAPSULE DELIVERY (matches Dragon Radar tracker) */
+.A{display:flex;gap:11px;align-items:stretch;background:linear-gradient(180deg,#f4f6f3,#e2e6e1);border-radius:14px;padding:10px 12px;color:#20261f;
+ box-shadow:0 10px 26px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.85),inset 0 -2px 6px rgba(0,0,0,.14)}
+.A .ic{width:40px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;
+ box-shadow:0 2px 5px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.45)}
+.A .ic.it{background:linear-gradient(180deg,#ffb347,#f6820a)}
+.A .ic.fm{background:linear-gradient(180deg,#ffd257,#f0a90c)}
+.A .ic.tq{background:linear-gradient(180deg,#5fc4ff,#1a7fd4)}
+.A .ic svg{width:21px;height:21px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.A .bd{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:3px}
+.A .k{display:flex;align-items:center;gap:7px;font-size:8px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#8a927f}
+.A .k .st{margin-left:auto;flex-shrink:0;letter-spacing:.14em;border-radius:20px;padding:2px 9px;font-size:7.5px}
+.A .k .st.ok{background:#e5f5e7;border:1px solid #a9d9b0;color:#2e7d3b}
+.A .k .st.tr{background:#fff3e0;border:1px solid #f0ce96;color:#b07922}
+.A .nm{font-size:15px;font-weight:700;color:#20261f;line-height:1.15}
+.A .nm small{font-weight:600;font-size:11px;color:#7c8478}
+.A .nm .qty{color:#e0740a}
+.A .nt{font-size:11px;font-weight:600;color:#66705f;line-height:1.35}
+.A .mt{display:flex;align-items:center;gap:8px;margin-top:3px}
+.A .mt .tr{flex:1;height:7px;background:#cdd3cb;border-radius:6px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.22)}
+.A .mt .tr i{display:block;height:100%;border-radius:6px}
+.A .mt b{flex-shrink:0;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ============================================ B — QUEST TOAST (Kakarot game UI) */
+.B{position:relative;background:linear-gradient(160deg,#131a2b,#0c101c);border:1px solid #2a3550;border-radius:11px;overflow:hidden;color:#e8ecf5;
+ box-shadow:0 12px 30px rgba(0,0,0,.6)}
+.B::after{content:'';position:absolute;top:0;left:-40%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06) 45%,transparent 60%);pointer-events:none}
+.B .bn{display:flex;align-items:center;gap:9px;padding:7px 12px;font:700 11.5px 'Oswald';letter-spacing:.22em;color:#1a1405;text-transform:uppercase;
+ background:linear-gradient(180deg,#ffd873,#f0a90c);text-shadow:0 1px 0 rgba(255,255,255,.35)}
+.B .bn.tq2{background:linear-gradient(180deg,#7fd4ff,#2492e8);color:#08192b}
+.B .bn .zz{margin-left:auto;font-size:13px;letter-spacing:0}
+.B .in{padding:10px 13px 12px}
+.B .row{display:flex;align-items:baseline;gap:9px}
+.B .nm{font:700 17px 'Oswald';letter-spacing:.04em;color:#fff}
+.B .nm small{font:700 12px 'Rajdhani';color:#f6c343}
+.B .tag{margin-left:auto;flex-shrink:0;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border-radius:4px;padding:3px 8px}
+.B .tag.ok{background:rgba(80,220,120,.14);border:1px solid rgba(80,220,120,.45);color:#7ce9a3}
+.B .tag.gold{background:rgba(246,195,67,.14);border:1px solid rgba(246,195,67,.5);color:#ffd873}
+.B .nt{font-size:11.5px;font-weight:600;color:#93a0b8;margin-top:3px;line-height:1.4}
+.B .mt{display:flex;align-items:center;gap:9px;margin-top:8px}
+.B .mt i{font-style:normal;flex-shrink:0;font-size:8px;letter-spacing:.18em;color:#6d7a94;text-transform:uppercase;font-weight:700}
+.B .tr{flex:1;height:9px;border-radius:2px;background:#0a0e18;border:1px solid #27324c;overflow:hidden;position:relative}
+.B .tr em{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),rgba(10,14,24,.9) calc(10% - 1px) 10%);z-index:2}
+.B .tr b{display:block;height:100%;background:linear-gradient(180deg,#7fd4ff,#2492e8);box-shadow:0 0 8px rgba(60,160,255,.6)}
+.B .tr b.gold{background:linear-gradient(180deg,#ffd873,#f0a90c);box-shadow:0 0 8px rgba(246,195,67,.6)}
+.B .pc{flex-shrink:0;font:700 14px 'Teko';letter-spacing:.04em;color:#7fd4ff;font-variant-numeric:tabular-nums}
+.B .pc.gold{color:#ffd873}
+
+/* ============================================ C — SCOUTER REGISTER */
+.C{background:linear-gradient(180deg,#05170c,#03100a);border:1px solid #14532d;color:#a9f5c6;font-family:'Share Tech Mono',monospace;overflow:hidden;
+ clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));box-shadow:0 10px 26px rgba(0,0,0,.55),0 0 22px -10px rgba(61,252,142,.4);position:relative}
+.C::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(61,252,142,.05) 0 1px,transparent 1px 3px);pointer-events:none}
+.C .k{display:flex;align-items:center;gap:8px;padding:7px 13px;border-bottom:1px solid #14532d;background:rgba(61,252,142,.07);font-size:9px;letter-spacing:.24em;color:#3dfc8e}
+.C .k .dot{width:7px;height:7px;border-radius:50%;background:#3dfc8e;box-shadow:0 0 8px #3dfc8e;flex-shrink:0}
+.C .k .st{margin-left:auto;font-size:8.5px;letter-spacing:.16em;color:#8fe6b4;border:1px solid #1f7a44;padding:2px 8px;clip-path:polygon(5px 0,100% 0,100% 100%,0 100%,0 5px)}
+.C .in{padding:9px 13px 11px}
+.C .nm{font-size:14.5px;color:#eafff2;letter-spacing:.04em}
+.C .nm small{font-size:10.5px;color:#3f8a5e}
+.C .nt{font-size:10.5px;color:#6fbe93;margin-top:2px;line-height:1.45}
+.C .mt{display:flex;align-items:center;gap:9px;margin-top:7px}
+.C .mt i{font-style:normal;font-size:8px;letter-spacing:.2em;color:#3f8a5e;flex-shrink:0}
+.C .segs{display:flex;gap:3px;flex:1}
+.C .segs span{flex:1;height:9px;background:rgba(61,252,142,.12);border:1px solid rgba(31,122,68,.7)}
+.C .segs span.on{background:#3dfc8e;box-shadow:0 0 7px rgba(61,252,142,.7);border-color:#3dfc8e}
+.C .mt b{flex-shrink:0;font-size:12px;color:#eafff2;font-weight:400}
+
+/* ============================================ D — MANGA BURST */
+.D{position:relative;background:#f6eedb;border:3px solid #241f18;border-radius:4px;color:#241f18;box-shadow:5px 5px 0 rgba(0,0,0,.5);overflow:hidden}
+.D::before{content:'';position:absolute;right:-24px;top:-24px;width:110px;height:110px;border-radius:50%;
+ background:radial-gradient(circle,#241f18 1.2px,transparent 1.4px);background-size:8px 8px;opacity:.13;pointer-events:none}
+.D .in{display:flex;gap:12px;align-items:center;padding:11px 13px}
+.D .burst{position:relative;width:52px;height:52px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.D .burst svg{position:absolute;inset:0;width:52px;height:52px}
+.D .burst b{position:relative;font:400 9.5px 'Bangers';color:#fff;text-shadow:1.2px 1.2px 0 #7a2c00;transform:rotate(-6deg);letter-spacing:.02em;text-align:center;line-height:.95;max-width:38px;overflow-wrap:break-word}
+.D .bd{flex:1;min-width:0}
+.D .k{font-size:8px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#8a5a2a;display:flex;align-items:center;gap:7px}
+.D .k .st{margin-left:auto;flex-shrink:0;border:2px solid #241f18;border-radius:3px;padding:1px 7px;font-size:8px;letter-spacing:.12em;background:#fff;transform:rotate(2deg);box-shadow:1.5px 1.5px 0 rgba(0,0,0,.3)}
+.D .k .st.red{color:#c62828;border-color:#c62828;transform:rotate(-3deg)}
+.D .nm{font:400 19px 'Bangers';letter-spacing:.05em;line-height:1.05;margin-top:2px}
+.D .nm small{font:700 11px 'Rajdhani';color:#8a5a2a;letter-spacing:.02em}
+.D .nm .qty{color:#e0740a}
+.D .nt{font-size:11px;font-weight:700;color:#5c5344;line-height:1.35;margin-top:1px}
+.D .mt{display:flex;align-items:center;gap:8px;margin-top:6px}
+.D .tr{flex:1;height:11px;border:2px solid #241f18;border-radius:3px;background:#fff;overflow:hidden}
+.D .tr i{display:block;height:100%;background:repeating-linear-gradient(-45deg,#f6820a 0 6px,#ffb347 6px 12px)}
+.D .tr i.red{background:repeating-linear-gradient(-45deg,#c62828 0 6px,#e05a4e 6px 12px)}
+.D .mt b{flex-shrink:0;font:400 15px 'Bangers';color:#241f18}
+</style></head><body>
+
+<div class="hd">
+<h1>Dragon Ball — <b>Notify UI</b> · 4 directions</h1>
+<p>Pop-up notifications for <b>item obtained</b> (plain: obtained → stored), <b>form unlocked</b> and <b>technique learned</b> (with a mastery meter — % until fully mastered). JSON-driven like the status HUD. Same 3 sample notifications in every design — pick <b>one</b> and I'll build <code>DB_Notify_Regex.json</code>.</p>
+<pre><b>&lt;DB_NOTIFY&gt;</b>[
+ { "type": "item",      "name": "Senzu Bean", "qty": 2, "note": "Restores full HP &amp; Ki", "to": "Item Pouch" },
+ { "type": "form",      "name": "Super Saiyan", "tier": "×50", "mastery": 62, "note": "Ki drain drops as mastery rises" },
+ { "type": "technique", "name": "Kamehameha", "cost": "1,500 Ki", "mastery": 100, "from": "Master Roshi" }
+]<b>&lt;/DB_NOTIFY&gt;</b></pre>
+</div>
+
+<!-- ================================================== A -->
+<div class="lab">A — Capsule Delivery<small>Capsule Corp toasts — matches your Dragon Radar tracker. Clean white casing, pill meters, STORED / IN TRAINING / MASTERED chips.</small></div>
+<div class="stack">
+ <div class="A"><div class="ic it"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="8" rx="4"/><path d="M12 8v8"/></svg></div>
+  <div class="bd"><div class="k">Item obtained<span class="st ok">Stored · Item Pouch</span></div>
+  <div class="nm">Senzu Bean <span class="qty">×2</span></div>
+  <div class="nt">Restores full HP &amp; Ki.</div></div></div>
+ <div class="A"><div class="ic fm"><svg viewBox="0 0 24 24"><path d="M12 2c1 4-3 5-3 9a3 3 0 0 0 6 0c0-2-1-3-1-5 3 2 5 4 5 8a7 7 0 0 1-14 0c0-6 6-7 7-12z"/></svg></div>
+  <div class="bd"><div class="k">New form unlocked<span class="st tr">In training</span></div>
+  <div class="nm">Super Saiyan <small>· ×50</small></div>
+  <div class="mt"><span class="tr"><i style="width:62%;background:linear-gradient(180deg,#ffb347,#f6820a)"></i></span><b style="color:#b07922">62%</b></div>
+  <div class="nt">Ki drain drops as mastery rises.</div></div></div>
+ <div class="A"><div class="ic tq"><svg viewBox="0 0 24 24"><circle cx="7" cy="12" r="3.5"/><path d="M10.5 10.5 21 6M10.5 13.5 21 18M11 12h10"/></svg></div>
+  <div class="bd"><div class="k">Technique learned<span class="st ok">Mastered</span></div>
+  <div class="nm">Kamehameha <small>· 1,500 Ki · from Master Roshi</small></div>
+  <div class="mt"><span class="tr"><i style="width:100%;background:linear-gradient(180deg,#5dd97e,#2e9e4f)"></i></span><b style="color:#2e7d3b">100%</b></div></div></div>
+</div>
+
+<!-- ================================================== B -->
+<div class="lab">B — Quest Toast<small>Kakarot-style game pop-up: gold "OBTAINED!" banner, XP bar with segment notches, glossy shine sweep.</small></div>
+<div class="stack">
+ <div class="B"><div class="bn">Item obtained!<span class="zz">✦</span></div>
+  <div class="in"><div class="row"><span class="nm">Senzu Bean <small>×2</small></span><span class="tag ok">Stored → Item Pouch</span></div>
+  <div class="nt">Restores full HP &amp; Ki.</div></div></div>
+ <div class="B"><div class="bn">Form unlocked!<span class="zz">✦</span></div>
+  <div class="in"><div class="row"><span class="nm">SUPER SAIYAN <small>×50</small></span><span class="tag gold">In training</span></div>
+  <div class="nt">Ki drain drops as mastery rises.</div>
+  <div class="mt"><i>Mastery</i><span class="tr"><em></em><b class="gold" style="width:62%"></b></span><span class="pc gold">62%</span></div></div></div>
+ <div class="B"><div class="bn tq2">Technique learned!<span class="zz">✦</span></div>
+  <div class="in"><div class="row"><span class="nm">KAMEHAMEHA <small>1,500 Ki</small></span><span class="tag ok">Mastered</span></div>
+  <div class="nt">Taught by Master Roshi.</div>
+  <div class="mt"><i>Mastery</i><span class="tr"><em></em><b style="width:100%"></b></span><span class="pc">100%</span></div></div></div>
+</div>
+
+<!-- ================================================== C -->
+<div class="lab">C — Scouter Register<small>Green phosphor data log — matches the Scouter family. Segmented block meters, clipped corners, terminal type.</small></div>
+<div class="stack">
+ <div class="C"><div class="k"><span class="dot"></span>REGISTER :: ITEM<span class="st">STORED · ITEM POUCH</span></div>
+  <div class="in"><div class="nm">SENZU BEAN ×2</div><div class="nt">&gt; Restores full HP &amp; Ki.</div></div></div>
+ <div class="C"><div class="k"><span class="dot"></span>REGISTER :: FORM<span class="st">IN TRAINING</span></div>
+  <div class="in"><div class="nm">SUPER SAIYAN <small>· ×50</small></div>
+  <div class="mt"><i>MASTERY</i><span class="segs"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span></span><b>62%</b></div>
+  <div class="nt">&gt; Ki drain drops as mastery rises.</div></div></div>
+ <div class="C"><div class="k"><span class="dot"></span>REGISTER :: TECHNIQUE<span class="st">MASTERED ✓</span></div>
+  <div class="in"><div class="nm">KAMEHAMEHA <small>· 1,500 KI · SRC: MASTER ROSHI</small></div>
+  <div class="mt"><i>MASTERY</i><span class="segs"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span><b>100%</b></div></div></div>
+</div>
+
+<!-- ================================================== D -->
+<div class="lab">D — Manga Burst<small>Toriyama page: "GET!!" starburst, Bangers type, striped ink meters, rotated rubber stamps. Matches the Adventure Log / Manga family.</small></div>
+<div class="stack">
+ <div class="D"><div class="in">
+  <div class="burst"><svg viewBox="0 0 52 52"><polygon points="26,1 31,9 40,4 39,14 49,13 43,21 51,26 43,31 49,39 39,38 40,48 31,43 26,51 21,43 12,48 13,38 3,39 9,31 1,26 9,21 3,13 13,14 12,4 21,9" fill="#f6820a" stroke="#241f18" stroke-width="2"/></svg><b>GET!!</b></div>
+  <div class="bd"><div class="k">Item obtained<span class="st">STORED · ITEM POUCH</span></div>
+  <div class="nm">SENZU BEAN <span class="qty">×2</span></div>
+  <div class="nt">Restores full HP &amp; Ki.</div></div></div></div>
+ <div class="D"><div class="in">
+  <div class="burst"><svg viewBox="0 0 52 52"><polygon points="26,1 31,9 40,4 39,14 49,13 43,21 51,26 43,31 49,39 39,38 40,48 31,43 26,51 21,43 12,48 13,38 3,39 9,31 1,26 9,21 3,13 13,14 12,4 21,9" fill="#f0a90c" stroke="#241f18" stroke-width="2"/></svg><b>NEW FORM!</b></div>
+  <div class="bd"><div class="k">Form unlocked<span class="st">IN TRAINING</span></div>
+  <div class="nm">SUPER SAIYAN <small>· ×50</small></div>
+  <div class="mt"><span class="tr"><i style="width:62%"></i></span><b>62%</b></div>
+  <div class="nt">Ki drain drops as mastery rises.</div></div></div></div>
+ <div class="D"><div class="in">
+  <div class="burst"><svg viewBox="0 0 52 52"><polygon points="26,1 31,9 40,4 39,14 49,13 43,21 51,26 43,31 49,39 39,38 40,48 31,43 26,51 21,43 12,48 13,38 3,39 9,31 1,26 9,21 3,13 13,14 12,4 21,9" fill="#2f6fb8" stroke="#241f18" stroke-width="2"/></svg><b>LEARNED!</b></div>
+  <div class="bd"><div class="k">Technique learned<span class="st red">MASTERED</span></div>
+  <div class="nm">KAMEHAMEHA <small>· 1,500 Ki · from Master Roshi</small></div>
+  <div class="mt"><span class="tr"><i class="red" style="width:100%"></i></span><b>100%</b></div></div></div></div>
+</div>
+
+</body></html>
