@@ -1,0 +1,254 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@600;700&family=Sora:wght@500;600;700&family=Share+Tech+Mono&family=Bangers&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0b0e;padding:20px 14px 60px;font-family:'Rajdhani',system-ui,sans-serif;max-width:600px;margin:0 auto;color:#e8eaee}
+.hd h1{font:700 19px 'Oswald';letter-spacing:.03em}.hd h1 b{color:#f6a01a}
+.hd p{color:#9aa1ad;font-size:13px;line-height:1.5;margin:6px 0 8px}
+.hd code{background:#15171c;border:1px solid #23262d;border-radius:4px;padding:1px 6px;font-size:12px;color:#f6a01a}
+.lab{font:700 12px 'Oswald';letter-spacing:.2em;color:#f6a01a;text-transform:uppercase;margin:34px 0 10px;border-top:1px solid #23262d;padding-top:16px}
+.lab small{display:block;color:#7a808a;font-weight:500;letter-spacing:.04em;text-transform:none;margin-top:2px;font-size:11px}
+
+/* ============================================ A — SCOUTER SCAN */
+.A{position:relative;background:linear-gradient(180deg,#05170c,#03100a);border:1px solid #14532d;overflow:hidden;color:#a9f5c6;font-family:'Share Tech Mono',monospace;
+ clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));box-shadow:0 14px 36px rgba(0,0,0,.6),0 0 30px -10px rgba(61,252,142,.45)}
+.A::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(61,252,142,.05) 0 1px,transparent 1px 3px);pointer-events:none}
+.A .hdr{display:flex;align-items:center;gap:10px;padding:11px 15px;border-bottom:1px solid #14532d;background:linear-gradient(180deg,rgba(61,252,142,.1),transparent)}
+.A .rec{width:9px;height:9px;border-radius:50%;background:#3dfc8e;box-shadow:0 0 10px #3dfc8e;animation:Ablink 1.2s steps(2) infinite}
+@keyframes Ablink{50%{opacity:.25}}
+.A .ttl{font-size:12px;letter-spacing:.3em;color:#3dfc8e}
+.A .ttl small{display:block;font-size:8px;letter-spacing:.22em;color:#3f8a5e;margin-top:2px}
+.A .sig{margin-left:auto;font-size:9px;letter-spacing:.14em;color:#3f8a5e;text-align:right}
+.A .clock{display:flex;align-items:stretch;border-bottom:1px solid #14532d}
+.A .clock .t{padding:12px 15px;border-right:1px solid #14532d;flex-shrink:0}
+.A .clock .t b{display:block;font-size:26px;color:#eafff2;text-shadow:0 0 12px rgba(61,252,142,.6);letter-spacing:.06em}
+.A .clock .t i{font-style:normal;font-size:8px;letter-spacing:.22em;color:#3f8a5e}
+.A .clock .d{flex:1;display:grid;grid-template-columns:1fr 1fr 1.4fr;min-width:0}
+.A .clock .d div{padding:9px 10px;border-right:1px solid rgba(20,83,45,.6);min-width:0}
+.A .clock .d div:last-child{border-right:0}
+.A .clock .d i{display:block;font-style:normal;font-size:7.5px;letter-spacing:.2em;color:#3f8a5e;margin-bottom:3px}
+.A .clock .d b{font-size:13.5px;color:#c9ffdf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.A .rows{padding:11px 15px 13px;position:relative}
+.A .r{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px dashed rgba(20,83,45,.7);font-size:12.5px}
+.A .r:last-child{border-bottom:0}
+.A .r i{font-style:normal;flex-shrink:0;width:86px;font-size:8.5px;letter-spacing:.18em;color:#3f8a5e;text-transform:uppercase}
+.A .r b{color:#d9ffe8;font-weight:400;min-width:0}
+.A .r b em{font-style:normal;color:#3dfc8e}
+.A .ftr{display:flex;gap:8px;padding:9px 15px;border-top:1px solid #14532d;background:rgba(61,252,142,.05)}
+.A .tag{font-size:9.5px;letter-spacing:.14em;border:1px solid #1f7a44;padding:4px 10px;color:#8fe6b4;clip-path:polygon(6px 0,100% 0,100% 100%,0 100%,0 6px)}
+.A .tag b{color:#eafff2;font-weight:400}
+
+/* ============================================ B — DRAGON RADAR */
+.B{background:linear-gradient(180deg,#f4f6f3,#dfe4de);border-radius:20px;padding:13px;color:#20261f;font-family:'Rajdhani',sans-serif;
+ box-shadow:0 16px 38px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.85),inset 0 -3px 8px rgba(0,0,0,.18)}
+.B .top{display:flex;align-items:center;gap:9px;margin:0 3px 11px}
+.B .cc{width:30px;height:30px;flex-shrink:0;border-radius:9px;background:linear-gradient(180deg,#ffb347,#f6820a);display:flex;align-items:center;justify-content:center;
+ font:700 13px 'Oswald';color:#fff;box-shadow:0 2px 5px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.5)}
+.B .bt{min-width:0;flex:1}
+.B .bt b{display:block;font:700 14px 'Oswald';letter-spacing:.12em;color:#2a2f28}
+.B .bt i{font-style:normal;font-size:9px;letter-spacing:.18em;color:#7c8478;text-transform:uppercase}
+.B .btime{flex-shrink:0;text-align:right;background:#20261f;border-radius:9px;padding:5px 11px;box-shadow:inset 0 2px 5px rgba(0,0,0,.6)}
+.B .btime b{display:block;font:700 19px 'Teko';color:#8affab;line-height:1;letter-spacing:.06em;text-shadow:0 0 8px rgba(80,255,150,.5)}
+.B .btime i{font-style:normal;font-size:7.5px;letter-spacing:.2em;color:#5c9a6d;text-transform:uppercase}
+.B .scope{position:relative;display:flex;gap:12px;background:radial-gradient(130% 110% at 50% 0%,#17452a,#0a2415 70%);border-radius:14px;padding:12px;
+ box-shadow:inset 0 3px 12px rgba(0,0,0,.7),inset 0 0 0 1px rgba(120,255,170,.15)}
+.B .disc{position:relative;width:104px;height:104px;flex-shrink:0;border-radius:50%;overflow:hidden;background:
+ repeating-linear-gradient(0deg,rgba(120,255,170,.14) 0 1px,transparent 1px 13px),
+ repeating-linear-gradient(90deg,rgba(120,255,170,.14) 0 1px,transparent 1px 13px),
+ radial-gradient(circle at 50% 50%,#1d5c36,#0c2c19 72%);border:2px solid rgba(120,255,170,.35);box-shadow:inset 0 0 18px rgba(0,0,0,.55)}
+.B .disc::before,.B .disc::after{content:'';position:absolute;background:rgba(120,255,170,.4)}
+.B .disc::before{left:50%;top:0;bottom:0;width:1px}
+.B .disc::after{top:50%;left:0;right:0;height:1px}
+.B .ring{position:absolute;inset:16px;border:1px solid rgba(120,255,170,.3);border-radius:50%}
+.B .ring.r2{inset:34px}
+.B .blip{position:absolute;width:9px;height:9px;border-radius:50%;background:#ffb020;box-shadow:0 0 9px 2px rgba(255,176,32,.75);animation:Bping 1.6s ease infinite}
+.B .blip.me{width:7px;height:7px;background:#8affab;box-shadow:0 0 8px 2px rgba(138,255,171,.7);left:49px;top:49px;animation:none}
+@keyframes Bping{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
+.B .bd{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:5px}
+.B .bd .l{display:flex;gap:7px;align-items:baseline;font-size:12px;min-width:0}
+.B .bd .l i{font-style:normal;flex-shrink:0;width:58px;font-size:8px;letter-spacing:.16em;color:#66b981;text-transform:uppercase;font-weight:600}
+.B .bd .l b{color:#dcffe8;font-weight:600;font-size:12.5px;min-width:0;line-height:1.3}
+.B .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:11px}
+.B .cell{background:#fff;border-radius:10px;padding:7px 10px;box-shadow:0 1px 3px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.9);min-width:0}
+.B .cell.w{grid-column:span 3}
+.B .cell.h{grid-column:span 3;background:linear-gradient(180deg,#fff7ea,#ffedd1);border:1px solid #f0ce96}
+.B .cell i{display:block;font-style:normal;font-size:7.5px;letter-spacing:.16em;color:#98a094;text-transform:uppercase;font-weight:700;margin-bottom:2px}
+.B .cell.h i{color:#b07922}
+.B .cell b{font-size:13px;font-weight:700;color:#2a2f28;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.B .cell.h b{white-space:normal;line-height:1.35}
+.B .cell b em{font-style:normal;color:#e0740a}
+
+/* ============================================ C — ADVENTURE LOG (manga) */
+.C{position:relative;background:#f6eedb;border:3px solid #241f18;border-radius:4px;color:#241f18;font-family:'Rajdhani',sans-serif;overflow:hidden;
+ box-shadow:6px 6px 0 rgba(0,0,0,.55)}
+.C::before{content:'';position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;
+ background:radial-gradient(circle,#241f18 1.2px,transparent 1.4px);background-size:8px 8px;opacity:.14;pointer-events:none}
+.C .hdr{display:flex;align-items:center;gap:11px;padding:11px 14px 9px;border-bottom:3px solid #241f18;background:linear-gradient(180deg,#ff9b2e,#f6820a);position:relative}
+.C .star{width:34px;height:34px;flex-shrink:0;border-radius:50%;background:#f6eedb;border:3px solid #241f18;display:flex;align-items:center;justify-content:center;
+ font:400 17px 'Bangers';color:#e05a00;box-shadow:2px 2px 0 rgba(0,0,0,.35)}
+.C .hdr h3{font:400 20px 'Bangers';letter-spacing:.06em;color:#fff;text-shadow:2px 2px 0 #b34d00;line-height:1}
+.C .hdr h3 small{display:block;font:600 8.5px 'Rajdhani';letter-spacing:.28em;color:#5c2b00;text-transform:uppercase;text-shadow:none;margin-top:3px}
+.C .stamp{margin-left:auto;flex-shrink:0;background:#f6eedb;border:2px solid #241f18;border-radius:3px;padding:4px 9px;text-align:center;transform:rotate(3deg);box-shadow:2px 2px 0 rgba(0,0,0,.35)}
+.C .stamp b{display:block;font:400 16px 'Bangers';color:#c62828;line-height:1}
+.C .stamp i{font-style:normal;font:700 7px 'Rajdhani';letter-spacing:.2em;color:#8a5a2a;text-transform:uppercase}
+.C .strip{display:flex;border-bottom:2px solid #241f18;background:#fff8e8}
+.C .strip div{flex:1;padding:8px 12px;border-right:2px solid #241f18;min-width:0}
+.C .strip div:last-child{border-right:0}
+.C .strip i{display:block;font-style:normal;font-size:7.5px;letter-spacing:.2em;color:#8a7a5c;text-transform:uppercase;font-weight:700;margin-bottom:1px}
+.C .strip b{font:400 17px 'Bangers';letter-spacing:.04em;color:#241f18;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.C .strip .tm b{color:#e0740a}
+.C .body{padding:11px 14px 13px;position:relative}
+.C .r{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1.5px dashed #cbb894;font-size:13.5px}
+.C .r:last-child{border-bottom:0}
+.C .r i{font-style:normal;flex-shrink:0;width:82px;font-size:8.5px;letter-spacing:.16em;color:#8a5a2a;text-transform:uppercase;font-weight:700}
+.C .r b{font-weight:700;color:#241f18;min-width:0;line-height:1.4}
+.C .r b em{font-style:normal;color:#e0740a}
+.C .wx{margin-top:10px;display:flex;gap:0;border:2px solid #241f18;border-radius:4px;overflow:hidden;background:#fff}
+.C .wx .a{flex-shrink:0;background:#2f6fb8;color:#fff;padding:8px 13px;display:flex;flex-direction:column;justify-content:center;border-right:2px solid #241f18}
+.C .wx .a i{font-style:normal;font-size:7px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#bcd9f5}
+.C .wx .a b{font:400 16px 'Bangers';letter-spacing:.05em}
+.C .wx .b2{padding:8px 12px;font-size:12.5px;font-weight:600;color:#3a332a;line-height:1.4;display:flex;align-items:center}
+
+/* ============================================ D — TIME PATROL ARCHIVE */
+.D{position:relative;background:radial-gradient(130% 90% at 85% -12%,rgba(124,47,247,.2),transparent 55%),linear-gradient(180deg,#151024,#0b0814);
+ border:1px solid #322553;border-radius:14px;overflow:hidden;color:#e9e4f5;font-family:'Sora',sans-serif;
+ box-shadow:0 14px 40px rgba(0,0,0,.7),0 0 26px -8px rgba(124,47,247,.5)}
+.D::before{content:'';position:absolute;left:-52px;bottom:-52px;width:170px;height:170px;border-radius:50%;border:1px solid rgba(64,224,208,.2);
+ box-shadow:0 0 0 16px rgba(64,224,208,.05),0 0 0 36px rgba(124,47,247,.05);pointer-events:none}
+.D .hdr{display:flex;align-items:center;gap:11px;padding:13px 15px;border-bottom:1px solid #2a2145;background:linear-gradient(180deg,rgba(124,47,247,.16),transparent)}
+.D .glass{width:32px;height:32px;flex-shrink:0;border-radius:9px;background:linear-gradient(180deg,#40e0d0,#7c2ff7);display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px -2px rgba(64,224,208,.7)}
+.D .glass svg{width:18px;height:18px;stroke:#0b0814;stroke-width:2;fill:none}
+.D .ht{min-width:0;flex:1}
+.D .ht b{display:block;font-size:12px;font-weight:700;letter-spacing:.24em;color:#f2ecff}
+.D .ht i{font-style:normal;font-size:8px;letter-spacing:.22em;color:#8b7fa8;text-transform:uppercase}
+.D .age{flex-shrink:0;text-align:right;background:rgba(64,224,208,.09);border:1px solid rgba(64,224,208,.35);border-radius:10px;padding:5px 12px}
+.D .age b{display:block;font:700 17px 'Sora';color:#6ff5e6;line-height:1.1}
+.D .age i{font-style:normal;font-size:7px;letter-spacing:.2em;color:#4da89e;text-transform:uppercase}
+.D .band{display:flex;align-items:stretch;border-bottom:1px solid #221a3a}
+.D .band div{padding:9px 14px;border-right:1px solid #221a3a;min-width:0;flex:1}
+.D .band div:last-child{border-right:0;flex:0 0 auto;text-align:right}
+.D .band i{display:block;font-style:normal;font-size:7.5px;letter-spacing:.2em;color:#6f6490;text-transform:uppercase;margin-bottom:3px}
+.D .band b{font-size:13px;font-weight:600;color:#e9e4f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.D .band .tm b{font-size:16px;font-weight:700;color:#c9a9ff;font-variant-numeric:tabular-nums;letter-spacing:.05em}
+.D .cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 14px 6px}
+.D .k{background:#171129;border:1px solid #262048;border-radius:9px;padding:8px 11px;min-width:0}
+.D .k.w{grid-column:1/-1}
+.D .k i{display:block;font-style:normal;font-size:7.5px;letter-spacing:.18em;color:#6f6490;text-transform:uppercase;margin-bottom:2px}
+.D .k b{font-size:12.5px;font-weight:600;color:#ded5f0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4}
+.D .k.w b{white-space:normal}
+.D .k b em{font-style:normal;color:#6ff5e6}
+.D .cosmo{display:flex;gap:8px;padding:6px 14px 14px}
+.D .orb{flex:1;display:flex;align-items:center;gap:9px;background:linear-gradient(180deg,rgba(124,47,247,.14),rgba(124,47,247,.04));border:1px solid rgba(124,47,247,.4);border-radius:10px;padding:8px 11px;min-width:0}
+.D .orb.u{background:linear-gradient(180deg,rgba(64,224,208,.12),rgba(64,224,208,.03));border-color:rgba(64,224,208,.4)}
+.D .dot{width:10px;height:10px;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d9c2ff,#7c2ff7);box-shadow:0 0 9px rgba(124,47,247,.8)}
+.D .orb.u .dot{background:radial-gradient(circle at 35% 30%,#c8fff7,#1fb9a8);box-shadow:0 0 9px rgba(64,224,208,.8)}
+.D .orb i{display:block;font-style:normal;font-size:7px;letter-spacing:.2em;color:#8b7fa8;text-transform:uppercase}
+.D .orb.u i{color:#4da89e}
+.D .orb b{font-size:12.5px;font-weight:700;color:#f2ecff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;min-width:0}
+</style></head><body>
+
+<div class="hd">
+<h1>Dragon Ball — <b>Tracker UI</b> · 4 directions</h1>
+<p>A scene tracker panel (like the JJK / Re:Zero trackers) showing <b>time · date · month · year · location · position · weather · weather condition · planet · universe</b>. Pick <b>one</b> design and I'll build it into <code>DB_Tracker_Regex.json</code>. Each mock below uses different sample data — every design carries all 10 fields.</p>
+</div>
+
+<!-- ================================================== A -->
+<div class="lab">A — Scouter Scan<small>Frieza-force scouter readout: green phosphor, scanlines, clipped corners, blinking REC. Fits the Scouter header family.</small></div>
+<div class="A">
+ <div class="hdr"><span class="rec"></span><div class="ttl">FIELD SCAN — ENV<small>SCOUTER MK-IV · TELEMETRY</small></div><div class="sig">SIGNAL ▮▮▮▮▯<br/>LINK OK</div></div>
+ <div class="clock">
+  <div class="t"><i>LOCAL TIME</i><b>14:07</b></div>
+  <div class="d">
+   <div><i>DATE</i><b>24</b></div>
+   <div><i>MONTH</i><b>December</b></div>
+   <div><i>YEAR</i><b>Age 762</b></div>
+  </div>
+ </div>
+ <div class="rows">
+  <div class="r"><i>Location</i><b>Namek — plains near the Grand Elder's spire</b></div>
+  <div class="r"><i>Position</i><b>Hovering <em>300m</em> above the battlefield, facing north</b></div>
+  <div class="r"><i>Weather</i><b><em>Storm building</em></b></div>
+  <div class="r"><i>Condition</i><b>Static charge in the air · gusts 40 km/h · dark green sky</b></div>
+ </div>
+ <div class="ftr">
+  <span class="tag">PLANET · <b>NAMEK</b></span>
+  <span class="tag">UNIVERSE · <b>7</b></span>
+ </div>
+</div>
+
+<!-- ================================================== B -->
+<div class="lab">B — Dragon Radar<small>Capsule Corp gadget: white casing, live radar disc with blips, LCD clock. Warm, toy-like, classic Dragon Ball.</small></div>
+<div class="B">
+ <div class="top">
+  <span class="cc">CC</span>
+  <div class="bt"><b>DRAGON RADAR</b><i>Capsule Corp · Field Tracker</i></div>
+  <div class="btime"><b>09:15</b><i>Time</i></div>
+ </div>
+ <div class="scope">
+  <div class="disc"><span class="ring"></span><span class="ring r2"></span><span class="blip me"></span><span class="blip" style="left:70px;top:26px"></span><span class="blip" style="left:24px;top:66px"></span></div>
+  <div class="bd">
+   <div class="l"><i>Location</i><b>Kame House — small island, southern sea</b></div>
+   <div class="l"><i>Position</i><b>On the porch, facing the water</b></div>
+  </div>
+ </div>
+ <div class="grid">
+  <div class="cell"><i>Date</i><b>3</b></div>
+  <div class="cell"><i>Month</i><b>May</b></div>
+  <div class="cell"><i>Year</i><b>Age 749</b></div>
+  <div class="cell w"><i>Weather</i><b><em>Sunny</em> — 26°C · clear skies · light sea breeze</b></div>
+  <div class="cell h"><i>Planet · Universe</i><b><em>Earth</em> · Universe 7</b></div>
+ </div>
+</div>
+
+<!-- ================================================== C -->
+<div class="lab">C — Adventure Log<small>Toriyama manga page: paper, thick ink borders, halftone dots, Bangers type, red chapter stamp. Fits the Manga speech family.</small></div>
+<div class="C">
+ <div class="hdr">
+  <span class="star">★</span>
+  <h3>ADVENTURE LOG<small>Where in the world…?</small></h3>
+  <div class="stamp"><b>AGE 750</b><i>Year</i></div>
+ </div>
+ <div class="strip">
+  <div class="tm"><i>Time</i><b>07:30</b></div>
+  <div><i>Date</i><b>18</b></div>
+  <div><i>Month</i><b>September</b></div>
+ </div>
+ <div class="body">
+  <div class="r"><i>Location</i><b>Mount Paozu — Goku's house, deep in the wilds</b></div>
+  <div class="r"><i>Position</i><b>Out front by the <em>Kinto'un</em>, ready to fly</b></div>
+  <div class="r"><i>Planet</i><b>Earth</b></div>
+  <div class="r"><i>Universe</i><b>Universe 7</b></div>
+ </div>
+ <div class="wx" style="margin:0 14px 13px">
+  <div class="a"><i>Weather</i><b>RAIN</b></div>
+  <div class="b2">Steady mountain rain · 17°C · mist rolling off the peaks</div>
+ </div>
+</div>
+
+<!-- ================================================== D -->
+<div class="lab">D — Time Patrol Archive<small>Xenoverse Time Nest record: violet/teal chrono glass, prominent Age + Universe. Matches the DB_Status Xenoverse HUD.</small></div>
+<div class="D">
+ <div class="hdr">
+  <span class="glass"><svg viewBox="0 0 24 24"><path d="M6 3h12M6 21h12M7 3c0 5 4 6 5 8-1 2-5 3-5 8M17 3c0 5-4 6-5 8 1 2 5 3 5 8"/></svg></span>
+  <div class="ht"><b>SCROLL RECORD</b><i>Time Nest · Chronicle of Ages</i></div>
+  <div class="age"><b>Age 850</b><i>Year</i></div>
+ </div>
+ <div class="band">
+  <div><i>Date</i><b>7</b></div>
+  <div><i>Month</i><b>April</b></div>
+  <div class="tm"><i>Time</i><b>21:48</b></div>
+ </div>
+ <div class="cards">
+  <div class="k w"><i>Location</i><b>Conton City — plaza before the Time Nest gates</b></div>
+  <div class="k w"><i>Position</i><b>Standing at the warp pad, scroll in hand</b></div>
+  <div class="k"><i>Weather</i><b><em>Clear night</em></b></div>
+  <div class="k"><i>Condition</i><b>Cool · twin moons out · still air</b></div>
+ </div>
+ <div class="cosmo">
+  <div class="orb"><span class="dot"></span><div style="min-width:0"><i>Planet</i><b>Toki Toki / Conton</b></div></div>
+  <div class="orb u"><span class="dot"></span><div style="min-width:0"><i>Universe</i><b>Universe 7</b></div></div>
+ </div>
+</div>
+
+</body></html>
