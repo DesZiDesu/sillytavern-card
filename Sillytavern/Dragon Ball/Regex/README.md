@@ -118,3 +118,5 @@ When the user confirms the form, it sends this tag from the user side:
 ```
 
 `DB_Confirm_Regex.json` renders that confirmed character as the final dossier.
+
+Both use a transparent (backgroundless) scouter-HUD style so they blend into the chat. The creator has seven steps — **Identity · Appearance · Origin · Race · Power · Loadout · Confirm** — and the Identity fields start empty (no example values). The **Appearance** step captures height, build, hair, eyes, skin, distinguishing features, and attire, which flow into the confirmed JSON (`appearance` object) and the dossier.
