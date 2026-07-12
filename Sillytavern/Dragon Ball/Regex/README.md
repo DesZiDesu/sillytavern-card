@@ -8,8 +8,45 @@ Per-message styling + a player status HUD for SillyTavern, like the ZZZ / Wuther
 |---|---|---|
 | `Header / Dialogue / Monologue / Narrator` folders | Per-message speech styling (install ONE per folder) | `[DBCHAR] [DBSAY] [DBTHINK] [DBNARR]` |
 | `DB_Status_Regex.json` | Collapsible Xenoverse-style **player status HUD** (Profile · Vitality · Skills · Items · Missions) | `<DB_STATUS>{json}</DB_STATUS>` |
+| `DB_Tracker_Regex.json` | **Dragon Radar scene tracker** (time · date · month · year · location · position · weather · condition · planet · universe) | `[DBTRACK\|…]` |
+| `DB_Notify_Regex.json` | **Quest-toast notifications** — item obtained (→ stored), form unlocked / technique learned with mastery % meters | `<DB_NOTIFY>[json]</DB_NOTIFY>` |
 
-The status HUD is documented in **`DB_Status_SCHEMA.md`** (full JSON schema). It always installs on its own — it doesn't conflict with the speech regex.
+The status HUD is documented in **`DB_Status_SCHEMA.md`** and the notify pop-ups in **`DB_Notify_SCHEMA.md`** (full JSON schemas). Both always install on their own — they don't conflict with the speech regex.
+
+**Lorebook:** `../Lorebook/Dragon Ball [LB].json` carries the full franchise lore **plus constant system entries** that teach the AI every tag above (speech ordering law, tracker, status, notify, image-gallery paths + portrait directory) — import it and the instructions travel with the world info.
+
+---
+
+## Scene Tracker — `DB_Tracker_Regex.json`
+
+A Capsule Corp **Dragon Radar** panel (design B from `Tools/previews/db_tracker_options.html`) that renders whenever the AI posts the tag. Installs on its own — no conflict with the speech regex or status HUD.
+
+```
+[DBTRACK|time|date|month|year|location|position|weather|condition|planet|universe]
+```
+
+| # | Field | Example |
+|---|---|---|
+| 1 | time | `09:15` |
+| 2 | date | `3` (day of month) |
+| 3 | month | `May` |
+| 4 | year | `Age 749` |
+| 5 | location | `Kame House — small island, southern sea` |
+| 6 | position | `On the porch, facing the water` |
+| 7 | weather | `Sunny` |
+| 8 | condition | `26°C · clear skies · light sea breeze` |
+| 9 | planet | `Earth` / `Namek` / `Planet Vegeta` |
+| 10 | universe | `Universe 7` |
+
+Example:
+
+```
+[DBTRACK|09:15|3|May|Age 749|Kame House — small island, southern sea|On the porch, facing the water|Sunny|26°C · clear skies · light sea breeze|Earth|Universe 7]
+```
+
+**Card / Author's Note instruction** — paste this so the AI emits the tag:
+
+> At the top of every reply, post one line: `[DBTRACK|time|date|month|year|location|position|weather|condition|planet|universe]` — 24h time, day-of-month number, month name, DB calendar year (`Age NNN`), the named place, the player's exact position/stance there, a one-word weather, a short weather detail (temp · sky · wind), the planet, and the universe (e.g. `Universe 7`). Keep every field filled; never use `|` inside a field.
 
 ---
 
@@ -24,6 +61,7 @@ There are 4 folders. Import **exactly one** `.json` from each (4 files total). E
 | Folder | Pick one | Tag |
 |---|---|---|
 | Header | A Scouter · B Ki Nameplate · C Dragon Ball Plate · D Battle Card | `[DBCHAR]` |
+| Header NPC (imageless) | Same 4 designs, portrait removed — match your Header choice | `[DBNPC]` |
 | Dialogue | A Manga Bubble · B Battle Subtitle · C Impact Bubble | `[DBSAY]` |
 | Character Monologue | A Manga Thought · B Battle Thought | `[DBTHINK]` |
 | Narrator | A Manga Caption · B Battle Caption | `[DBNARR]` |

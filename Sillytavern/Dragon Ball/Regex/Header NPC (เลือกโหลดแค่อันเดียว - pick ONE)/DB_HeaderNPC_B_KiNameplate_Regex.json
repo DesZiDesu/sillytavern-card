@@ -1,0 +1,18 @@
+{
+ "id": "0d06ef81-acac-4f35-8862-cff5e9bc7e0a",
+ "scriptName": "DB Header-NPC B — Ki Nameplate (imageless)",
+ "findRegex": "/\\[DBNPC\\|([^|\\]]+)\\|(#[0-9a-fA-F]{3,6})\\|([^|\\]]*)\\|([^\\]]*)\\]/g",
+ "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap\" rel=\"stylesheet\"/><div style=\"position:relative;display:flex;align-items:center;gap:clamp(11px,3vw,14px);max-width:520px;width:100%;margin:12px auto 6px;padding:8px 6px 10px;font-family:'Oswald','Rajdhani',system-ui,sans-serif\"><span style=\"flex:1;min-width:0\"><span style=\"display:block;font:700 clamp(18px,5.5vw,22px) 'Oswald',sans-serif;font-style:italic;letter-spacing:.02em;text-transform:uppercase;line-height:1;background:linear-gradient(180deg,#fff 40%,$2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:$2\">$1</span><span style=\"display:flex;align-items:center;gap:9px;margin-top:3px;flex-wrap:wrap\"><span style=\"font:600 clamp(8.5px,2.5vw,9.5px) 'Rajdhani',monospace;letter-spacing:.2em;color:#9aa0a8;text-transform:uppercase\">$3</span><span style=\"font:700 clamp(10px,3vw,11px) 'Rajdhani',monospace;color:$2\">$4</span></span><span style=\"display:block;height:3px;margin-top:6px;background:linear-gradient(90deg,$2 0%,$2 82%,transparent 100%);border-radius:2px\"></span></span></div>",
+ "trimStrings": [],
+ "placement": [
+  1,
+  2
+ ],
+ "disabled": false,
+ "markdownOnly": true,
+ "promptOnly": false,
+ "runOnEdit": true,
+ "substituteRegex": 0,
+ "minDepth": null,
+ "maxDepth": null
+}
