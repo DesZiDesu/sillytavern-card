@@ -1,0 +1,252 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@600;700&family=Teko:wght@600;700&family=Sora:wght@500;600;700&family=Share+Tech+Mono&family=Bangers&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0b0e;padding:20px 14px 60px;font-family:'Rajdhani',system-ui,sans-serif;max-width:600px;margin:0 auto;color:#e8eaee}
+.hd h1{font:700 19px 'Oswald';letter-spacing:.03em}.hd h1 b{color:#f6a01a}
+.hd p{color:#9aa1ad;font-size:13px;line-height:1.5;margin:6px 0 8px}
+.hd code{background:#15171c;border:1px solid #23262d;border-radius:4px;padding:1px 6px;font-size:12px;color:#f6a01a}
+.lab{font:700 12px 'Oswald';letter-spacing:.2em;color:#f6a01a;text-transform:uppercase;margin:34px 0 4px;border-top:1px solid #23262d;padding-top:16px}
+.lab small{display:block;color:#7a808a;font-weight:500;letter-spacing:.04em;text-transform:none;margin-top:2px;font-size:11px}
+.ref{font:600 9px 'Oswald';letter-spacing:.22em;color:#5c626e;text-transform:uppercase;margin:12px 0 8px}
+
+/* ============ shared form bits */
+.fl{display:block;font-size:8px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+
+/* ============================================ A — CAPSULE REGISTRATION */
+.Aw{background:linear-gradient(180deg,#f4f6f3,#dfe4de);border-radius:18px;padding:12px;color:#20261f;box-shadow:0 14px 34px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.85),inset 0 -3px 8px rgba(0,0,0,.18)}
+.Aw .top{display:flex;align-items:center;gap:9px;margin:0 2px 10px}
+.Aw .cc{width:28px;height:28px;flex-shrink:0;border-radius:8px;background:linear-gradient(180deg,#ffb347,#f6820a);display:flex;align-items:center;justify-content:center;font:700 12px 'Oswald';color:#fff;box-shadow:0 2px 5px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.5)}
+.Aw .tt b{display:block;font:700 13px 'Oswald';letter-spacing:.1em;color:#2a2f28}
+.Aw .tt i{font-style:normal;font-size:8.5px;letter-spacing:.18em;color:#7c8478;text-transform:uppercase}
+.Aw .lang{margin-left:auto;display:flex;gap:3px;background:#20261f;border-radius:8px;padding:3px}
+.Aw .lang span{font:700 9px 'Oswald';letter-spacing:.08em;padding:3px 9px;border-radius:6px;color:#7c8478}
+.Aw .lang span.on{background:linear-gradient(180deg,#ffb347,#f6820a);color:#fff}
+.Aw .tabs{display:flex;gap:4px;margin-bottom:9px;overflow:hidden}
+.Aw .tab{flex:1;text-align:center;font:700 9px 'Oswald';letter-spacing:.06em;text-transform:uppercase;padding:6px 2px;background:#fff;border-radius:8px;color:#98a094;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.Aw .tab.on{background:linear-gradient(180deg,#ffb347,#f6820a);color:#fff}
+.Aw .card{background:#fff;border-radius:12px;padding:10px 12px;box-shadow:0 1px 3px rgba(0,0,0,.15);margin-bottom:8px}
+.Aw .fl{color:#98a094}
+.Aw .inp{width:100%;background:#eef1ed;border:1px solid #d5dad3;border-radius:8px;padding:7px 10px;font:600 13px 'Rajdhani';color:#20261f}
+.Aw .chips .c{font:700 11px 'Rajdhani';padding:5px 11px;border-radius:16px;background:#eef1ed;border:1px solid #d5dad3;color:#5c665a}
+.Aw .chips .c.on{background:linear-gradient(180deg,#ffb347,#f6820a);border-color:#e07d0c;color:#fff}
+.Aw .go{display:block;text-align:center;font:700 13px 'Oswald';letter-spacing:.14em;text-transform:uppercase;color:#fff;background:linear-gradient(180deg,#ffb347,#f6820a);border-radius:10px;padding:10px;box-shadow:0 3px 8px rgba(224,116,10,.4),inset 0 1px 0 rgba(255,255,255,.4)}
+/* A confirm */
+.Ac{background:linear-gradient(180deg,#f4f6f3,#e6eae4);border-radius:16px;padding:12px;color:#20261f;box-shadow:0 12px 30px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.85)}
+.Ac .head{display:flex;align-items:center;gap:9px;border-bottom:2px dashed #c8cec6;padding-bottom:8px;margin-bottom:9px}
+.Ac .stamp{margin-left:auto;font:700 9px 'Oswald';letter-spacing:.14em;color:#2e7d3b;border:2px solid #2e7d3b;border-radius:6px;padding:3px 8px;transform:rotate(3deg);background:rgba(46,125,59,.06)}
+.Ac .nm{font:700 18px 'Oswald';letter-spacing:.04em}
+.Ac .sub{font-size:10.5px;font-weight:700;color:#7c8478;letter-spacing:.1em;text-transform:uppercase}
+.Ac .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.Ac .cell{background:#fff;border-radius:9px;padding:6px 9px;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.Ac .cell.w{grid-column:1/-1}
+.Ac .cell i{display:block;font-style:normal;font-size:7px;letter-spacing:.16em;color:#98a094;text-transform:uppercase;font-weight:700}
+.Ac .cell b{font-size:12px;font-weight:700;color:#20261f}
+.Ac .cell b em{font-style:normal;color:#e0740a}
+
+/* ============================================ B — XENOVERSE PATROLLER */
+.Bw{position:relative;background:radial-gradient(130% 90% at 85% -12%,rgba(124,47,247,.22),transparent 55%),linear-gradient(180deg,#151024,#0b0814);border:1px solid #322553;border-radius:13px;padding:12px;color:#e9e4f5;font-family:'Sora',sans-serif;box-shadow:0 14px 36px rgba(0,0,0,.7),0 0 24px -8px rgba(124,47,247,.5)}
+.Bw .top{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.Bw .gl{width:28px;height:28px;flex-shrink:0;border-radius:8px;background:linear-gradient(180deg,#40e0d0,#7c2ff7);display:flex;align-items:center;justify-content:center;font:700 13px 'Sora';color:#0b0814;box-shadow:0 0 12px -2px rgba(64,224,208,.7)}
+.Bw .tt b{display:block;font-size:11.5px;font-weight:700;letter-spacing:.2em;color:#f2ecff}
+.Bw .tt i{font-style:normal;font-size:7.5px;letter-spacing:.2em;color:#8b7fa8;text-transform:uppercase}
+.Bw .lang{margin-left:auto;display:flex;gap:3px;background:#0d0918;border:1px solid #2a2145;border-radius:8px;padding:3px}
+.Bw .lang span{font:700 9px 'Sora';padding:3px 9px;border-radius:6px;color:#6f6490}
+.Bw .lang span.on{background:linear-gradient(180deg,#40e0d0,#1fb9a8);color:#0b0814}
+.Bw .tabs{display:flex;gap:10px;border-bottom:1px solid #2a2145;margin-bottom:10px}
+.Bw .tab{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6f6490;padding:0 2px 6px;border-bottom:2px solid transparent}
+.Bw .tab.on{color:#6ff5e6;border-bottom-color:#40e0d0}
+.Bw .fl{color:#6f6490}
+.Bw .inp{width:100%;background:#171129;border:1px solid #2a2145;border-radius:8px;padding:7px 10px;font:600 12.5px 'Rajdhani';color:#e9e4f5;margin-bottom:8px}
+.Bw .chips .c{font:600 10.5px 'Sora';padding:5px 11px;border-radius:7px;background:#171129;border:1px solid #2a2145;color:#8b7fa8}
+.Bw .chips .c.on{background:rgba(124,47,247,.2);border-color:#7c2ff7;color:#d9c2ff;box-shadow:0 0 10px -3px #7c2ff7}
+.Bw .go{display:block;text-align:center;font:700 11px 'Sora';letter-spacing:.22em;text-transform:uppercase;color:#0b0814;background:linear-gradient(180deg,#5ff0e0,#1fb9a8);border-radius:9px;padding:10px;margin-top:9px;box-shadow:0 0 18px -4px rgba(64,224,208,.7)}
+/* B confirm */
+.Bc{position:relative;background:linear-gradient(160deg,#171129,#0d0918);border:1px solid #322553;border-radius:13px;overflow:hidden;color:#e9e4f5;font-family:'Sora',sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.65)}
+.Bc .band{display:flex;align-items:center;gap:9px;padding:9px 13px;background:linear-gradient(90deg,rgba(64,224,208,.16),rgba(124,47,247,.16));border-bottom:1px solid #2a2145}
+.Bc .band b{font-size:10.5px;letter-spacing:.24em;color:#6ff5e6;font-weight:700}
+.Bc .band .ok{margin-left:auto;font-size:8px;letter-spacing:.16em;border:1px solid rgba(64,224,208,.5);color:#6ff5e6;border-radius:5px;padding:2px 8px;background:rgba(64,224,208,.08)}
+.Bc .in{padding:11px 13px}
+.Bc .nm{font:700 17px 'Sora';color:#f2ecff}
+.Bc .sub{font-size:9px;letter-spacing:.16em;color:#8b7fa8;text-transform:uppercase;margin-top:1px}
+.Bc .rows{margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.Bc .k{background:#0d0918;border:1px solid #221a3a;border-radius:8px;padding:6px 9px}
+.Bc .k.w{grid-column:1/-1}
+.Bc .k i{display:block;font-style:normal;font-size:7px;letter-spacing:.18em;color:#6f6490;text-transform:uppercase}
+.Bc .k b{font-size:11.5px;font-weight:600;color:#ded5f0}
+.Bc .k b em{font-style:normal;color:#6ff5e6}
+
+/* ============================================ C — KAKAROT QUEST */
+.Cw{background:linear-gradient(160deg,#131a2b,#0c101c);border:1px solid #2a3550;border-radius:12px;overflow:hidden;color:#e8ecf5;box-shadow:0 12px 30px rgba(0,0,0,.6)}
+.Cw .bn{display:flex;align-items:center;gap:9px;padding:8px 13px;font:700 12px 'Oswald';letter-spacing:.2em;color:#1a1405;text-transform:uppercase;background:linear-gradient(180deg,#ffd873,#f0a90c)}
+.Cw .bn .lang{margin-left:auto;display:flex;gap:3px}
+.Cw .bn .lang span{font:700 9px 'Oswald';letter-spacing:.06em;padding:2px 8px;border-radius:5px;background:rgba(0,0,0,.18);color:#5c4a10}
+.Cw .bn .lang span.on{background:#1a1405;color:#ffd873}
+.Cw .in{padding:11px 13px}
+.Cw .tabs{display:flex;gap:5px;margin-bottom:10px}
+.Cw .tab{flex:1;text-align:center;font:700 9px 'Oswald';letter-spacing:.08em;text-transform:uppercase;padding:6px 2px;background:#0a0e18;border:1px solid #27324c;border-radius:6px;color:#6d7a94}
+.Cw .tab.on{background:linear-gradient(180deg,#ffd873,#f0a90c);border-color:#f0a90c;color:#1a1405}
+.Cw .fl{color:#6d7a94}
+.Cw .inp{width:100%;background:#0a0e18;border:1px solid #27324c;border-radius:7px;padding:7px 10px;font:600 13px 'Rajdhani';color:#e8ecf5;margin-bottom:8px}
+.Cw .chips .c{font:700 11px 'Rajdhani';padding:5px 11px;border-radius:6px;background:#0a0e18;border:1px solid #27324c;color:#93a0b8}
+.Cw .chips .c.on{background:rgba(246,195,67,.14);border-color:rgba(246,195,67,.6);color:#ffd873}
+.Cw .go{display:block;text-align:center;font:700 12.5px 'Oswald';letter-spacing:.18em;text-transform:uppercase;color:#1a1405;background:linear-gradient(180deg,#ffd873,#f0a90c);border-radius:8px;padding:10px;margin-top:9px;box-shadow:0 0 16px -4px rgba(246,195,67,.6)}
+/* C confirm */
+.Cc{position:relative;background:linear-gradient(160deg,#131a2b,#0c101c);border:1px solid #2a3550;border-radius:12px;overflow:hidden;color:#e8ecf5;box-shadow:0 12px 30px rgba(0,0,0,.6)}
+.Cc::after{content:'';position:absolute;top:0;left:-40%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06) 45%,transparent 60%);pointer-events:none}
+.Cc .bn{display:flex;align-items:center;gap:9px;padding:8px 13px;font:700 12px 'Oswald';letter-spacing:.2em;color:#08192b;text-transform:uppercase;background:linear-gradient(180deg,#7fd4ff,#2492e8)}
+.Cc .bn .zz{margin-left:auto;font-size:13px}
+.Cc .in{padding:11px 13px}
+.Cc .nm{font:700 19px 'Oswald';letter-spacing:.05em;color:#fff;text-transform:uppercase}
+.Cc .nm small{font:700 11px 'Rajdhani';color:#7fd4ff}
+.Cc .rows{margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.Cc .k{background:#0a0e18;border:1px solid #27324c;border-radius:7px;padding:6px 9px}
+.Cc .k.w{grid-column:1/-1}
+.Cc .k i{display:block;font-style:normal;font-size:7px;letter-spacing:.18em;color:#6d7a94;text-transform:uppercase;font-weight:700}
+.Cc .k b{font-size:11.5px;font-weight:700;color:#e8ecf5}
+.Cc .k b em{font-style:normal;color:#ffd873}
+.Cc .tag{margin-top:9px;display:inline-block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border-radius:4px;padding:3px 9px;background:rgba(80,220,120,.14);border:1px solid rgba(80,220,120,.45);color:#7ce9a3}
+
+/* ============================================ D — MANGA SHEET */
+.Dw{position:relative;background:#f6eedb;border:3px solid #241f18;border-radius:4px;color:#241f18;box-shadow:5px 5px 0 rgba(0,0,0,.5);overflow:hidden}
+.Dw::before{content:'';position:absolute;right:-26px;top:-26px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#241f18 1.2px,transparent 1.4px);background-size:8px 8px;opacity:.12;pointer-events:none}
+.Dw .bn{display:flex;align-items:center;gap:10px;padding:9px 13px;background:linear-gradient(180deg,#ff9b2e,#f6820a);border-bottom:3px solid #241f18}
+.Dw .bn h3{font:400 17px 'Bangers';letter-spacing:.06em;color:#fff;text-shadow:2px 2px 0 #b34d00}
+.Dw .bn .lang{margin-left:auto;display:flex;gap:3px}
+.Dw .bn .lang span{font:700 9px 'Rajdhani';padding:2px 8px;border:2px solid #241f18;border-radius:4px;background:#f6eedb;color:#8a5a2a}
+.Dw .bn .lang span.on{background:#241f18;color:#ffd873}
+.Dw .in{padding:11px 13px;position:relative}
+.Dw .tabs{display:flex;gap:5px;margin-bottom:10px}
+.Dw .tab{flex:1;text-align:center;font:400 11px 'Bangers';letter-spacing:.06em;padding:5px 2px;background:#fff;border:2px solid #241f18;border-radius:4px;color:#8a7a5c;box-shadow:1.5px 1.5px 0 rgba(0,0,0,.25)}
+.Dw .tab.on{background:#f6820a;color:#fff}
+.Dw .fl{color:#8a5a2a}
+.Dw .inp{width:100%;background:#fff;border:2px solid #241f18;border-radius:4px;padding:6px 10px;font:700 13px 'Rajdhani';color:#241f18;margin-bottom:8px;box-shadow:1.5px 1.5px 0 rgba(0,0,0,.2)}
+.Dw .chips .c{font:400 11px 'Bangers';letter-spacing:.05em;padding:4px 11px;border:2px solid #241f18;border-radius:4px;background:#fff;color:#8a7a5c;box-shadow:1.5px 1.5px 0 rgba(0,0,0,.2)}
+.Dw .chips .c.on{background:#f6820a;color:#fff}
+.Dw .go{display:block;text-align:center;font:400 15px 'Bangers';letter-spacing:.1em;color:#fff;background:#c62828;border:2.5px solid #241f18;border-radius:5px;padding:8px;margin-top:9px;box-shadow:2.5px 2.5px 0 rgba(0,0,0,.35);text-shadow:1.5px 1.5px 0 #7a1010}
+/* D confirm */
+.Dc{position:relative;background:#f6eedb;border:3px solid #241f18;border-radius:4px;color:#241f18;box-shadow:5px 5px 0 rgba(0,0,0,.5);overflow:hidden}
+.Dc::before{content:'';position:absolute;left:-20px;bottom:-20px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,#241f18 1.2px,transparent 1.4px);background-size:8px 8px;opacity:.12;pointer-events:none}
+.Dc .bn{display:flex;align-items:center;gap:10px;padding:8px 13px;background:#241f18}
+.Dc .bn h3{font:400 15px 'Bangers';letter-spacing:.08em;color:#ffd873}
+.Dc .bn .st{margin-left:auto;font:400 12px 'Bangers';color:#fff;background:#c62828;border-radius:3px;padding:2px 9px;transform:rotate(2deg)}
+.Dc .in{padding:11px 13px;position:relative}
+.Dc .nm{font:400 22px 'Bangers';letter-spacing:.05em;line-height:1}
+.Dc .sub{font:700 10px 'Rajdhani';letter-spacing:.12em;color:#8a5a2a;text-transform:uppercase;margin-top:2px}
+.Dc .rows{margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.Dc .k{background:#fff;border:2px solid #241f18;border-radius:4px;padding:5px 9px;box-shadow:1.5px 1.5px 0 rgba(0,0,0,.2)}
+.Dc .k.w{grid-column:1/-1}
+.Dc .k i{display:block;font-style:normal;font-size:7px;letter-spacing:.16em;color:#8a5a2a;text-transform:uppercase;font-weight:700}
+.Dc .k b{font-size:12px;font-weight:700}
+.Dc .k b em{font-style:normal;color:#e0740a}
+</style></head><body>
+
+<div class="hd">
+<h1>Dragon Ball — <b>Character Creation + Confirmation</b> · 4 directions</h1>
+<p>Like the Shinobi World system: the AI posts <code>&lt;DB_CREATE&gt;</code> → an interactive bilingual (EN/TH) wizard renders in chat — race, era, universe, master, forms, techniques, stats, gear, story. Submitting auto-sends <code>&lt;DB_CONFIRM&gt;{json}&lt;/DB_CONFIRM&gt;</code>, which renders the read-only sheet below it. Each direction shows the WIZARD then its CONFIRMATION card. Pick <b>one</b>.</p>
+</div>
+
+<!-- ============================== A -->
+<div class="lab">A — Capsule Registration<small>Capsule Corp "fighter registration" gadget — matches your Dragon Radar tracker. White casing, orange pills, printed capsule-card confirmation.</small></div>
+<div class="ref">Creation wizard</div>
+<div class="Aw">
+ <div class="top"><span class="cc">CC</span><div class="tt"><b>FIGHTER REGISTRATION</b><i>Capsule Corp · New Character</i></div><div class="lang"><span class="on">EN</span><span>ไทย</span></div></div>
+ <div class="tabs"><span class="tab on">Identity</span><span class="tab">Race</span><span class="tab">Power</span><span class="tab">Story</span></div>
+ <div class="card"><span class="fl">Name</span><div class="inp">Kaen</div></div>
+ <div class="card"><span class="fl">Race</span><div class="chips"><span class="c on">Saiyan</span><span class="c">Half-Saiyan</span><span class="c">Human</span><span class="c">Namekian</span><span class="c">Frieza Clan</span><span class="c">Android</span><span class="c">Majin</span></div></div>
+ <div class="card"><span class="fl">Era</span><div class="chips"><span class="c">Original DB</span><span class="c on">Z — Saiyan Saga</span><span class="c">Namek</span><span class="c">Cell</span><span class="c">Buu</span><span class="c">Super</span><span class="c">GT</span></div></div>
+ <span class="go">Register Fighter ➜</span>
+</div>
+<div class="ref">Confirmation card</div>
+<div class="Ac">
+ <div class="head"><div><div class="nm">KAEN</div><div class="sub">Saiyan · Universe 7 · Age 761</div></div><span class="stamp">✔ REGISTERED</span></div>
+ <div class="grid">
+  <div class="cell"><i>Race</i><b>Saiyan</b></div><div class="cell"><i>Alignment</i><b>Chaotic Good</b></div>
+  <div class="cell"><i>Master</i><b>Master Roshi</b></div><div class="cell"><i>Power</i><b><em>8,500</em></b></div>
+  <div class="cell w"><i>Forms · Techniques</i><b>Base <em>· SSJ (locked)</em> — Kamehameha · Solar Flare</b></div>
+  <div class="cell w"><i>Opening</i><b>East District 439 — the morning Raditz's pod enters the sky.</b></div>
+ </div>
+</div>
+
+<!-- ============================== B -->
+<div class="lab">B — Time Patrol Enrollment<small>Xenoverse Time Nest — matches your DB_STATUS HUD. Violet/teal chrono glass, PATROLLER LICENSE confirmation.</small></div>
+<div class="ref">Creation wizard</div>
+<div class="Bw">
+ <div class="top"><span class="gl">⧗</span><div class="tt"><b>PATROLLER ENROLLMENT</b><i>Time Nest · Conton City</i></div><div class="lang"><span class="on">EN</span><span>ไทย</span></div></div>
+ <div class="tabs"><span class="tab on">Identity</span><span class="tab">Race</span><span class="tab">Power</span><span class="tab">History</span></div>
+ <span class="fl">Name</span><div class="inp">Kaen</div>
+ <span class="fl">Race</span><div class="chips" style="margin-bottom:8px"><span class="c on">Saiyan</span><span class="c">Human</span><span class="c">Namekian</span><span class="c">Frieza Clan</span><span class="c">Majin</span></div>
+ <span class="fl">Home Era (scroll)</span><div class="chips"><span class="c">Original DB</span><span class="c on">Z — Saiyan Saga</span><span class="c">Super</span><span class="c">GT</span></div>
+ <span class="go">Bind to the Scroll ⧗</span>
+</div>
+<div class="ref">Confirmation card</div>
+<div class="Bc">
+ <div class="band"><b>PATROLLER LICENSE</b><span class="ok">SCROLL BOUND ✓</span></div>
+ <div class="in">
+  <div class="nm">Kaen</div><div class="sub">Saiyan · Universe 7 · Era: Z — Saiyan Saga</div>
+  <div class="rows">
+   <div class="k"><i>Master</i><b>Master Roshi</b></div><div class="k"><i>Power</i><b><em>8,500</em></b></div>
+   <div class="k w"><i>Forms · Techniques</i><b>Base <em>· SSJ (locked)</em> — Kamehameha · Solar Flare</b></div>
+   <div class="k w"><i>Opening</i><b>East District 439 — the morning Raditz's pod enters the sky.</b></div>
+  </div>
+ </div>
+</div>
+
+<!-- ============================== C -->
+<div class="lab">C — Kakarot Quest Menu<small>Game-menu style — matches your Quest Toast notify. Gold banner wizard, blue "QUEST START" confirmation with green READY chip.</small></div>
+<div class="ref">Creation wizard</div>
+<div class="Cw">
+ <div class="bn">NEW GAME — CREATE FIGHTER<div class="lang"><span class="on">EN</span><span>ไทย</span></div></div>
+ <div class="in">
+  <div class="tabs"><span class="tab on">Identity</span><span class="tab">Race</span><span class="tab">Power</span><span class="tab">Story</span></div>
+  <span class="fl">Name</span><div class="inp">Kaen</div>
+  <span class="fl">Race</span><div class="chips" style="margin-bottom:8px"><span class="c on">Saiyan</span><span class="c">Half-Saiyan</span><span class="c">Human</span><span class="c">Namekian</span><span class="c">Android</span></div>
+  <span class="fl">Starting Era</span><div class="chips"><span class="c">Original DB</span><span class="c on">Z — Saiyan Saga</span><span class="c">Super</span></div>
+  <span class="go">Start Adventure ✦</span>
+ </div>
+</div>
+<div class="ref">Confirmation card</div>
+<div class="Cc">
+ <div class="bn">QUEST START — FIGHTER CONFIRMED<span class="zz">✦</span></div>
+ <div class="in">
+  <div class="nm">Kaen <small>· Saiyan · U7</small></div>
+  <div class="rows">
+   <div class="k"><i>Era</i><b>Z — Saiyan Saga (Age 761)</b></div><div class="k"><i>Power</i><b><em>8,500</em></b></div>
+   <div class="k"><i>Master</i><b>Master Roshi</b></div><div class="k"><i>Alignment</i><b>Chaotic Good</b></div>
+   <div class="k w"><i>Forms · Techniques</i><b>Base <em>· SSJ (locked)</em> — Kamehameha · Solar Flare</b></div>
+   <div class="k w"><i>Opening</i><b>East District 439 — the morning Raditz's pod enters the sky.</b></div>
+  </div>
+  <span class="tag">Ready — first scene begins</span>
+ </div>
+</div>
+
+<!-- ============================== D -->
+<div class="lab">D — Manga Character Sheet<small>Toriyama paper — matches the Adventure Log family. Ink borders, Bangers type, red HERE WE GO!! stamp confirmation.</small></div>
+<div class="ref">Creation wizard</div>
+<div class="Dw">
+ <div class="bn"><h3>NEW HERO!!</h3><div class="lang"><span class="on">EN</span><span>ไทย</span></div></div>
+ <div class="in">
+  <div class="tabs"><span class="tab on">WHO?</span><span class="tab">RACE</span><span class="tab">POWER</span><span class="tab">STORY</span></div>
+  <span class="fl">Name</span><div class="inp">Kaen</div>
+  <span class="fl">Race</span><div class="chips" style="margin-bottom:8px"><span class="c on">SAIYAN</span><span class="c">HUMAN</span><span class="c">NAMEKIAN</span><span class="c">ANDROID</span><span class="c">MAJIN</span></div>
+  <span class="fl">Era</span><div class="chips"><span class="c">ORIGINAL DB</span><span class="c on">Z — SAIYAN SAGA</span><span class="c">SUPER</span></div>
+  <span class="go">HERE WE GO!!</span>
+ </div>
+</div>
+<div class="ref">Confirmation card</div>
+<div class="Dc">
+ <div class="bn"><h3>CHARACTER SHEET</h3><span class="st">OK!!</span></div>
+ <div class="in">
+  <div class="nm">KAEN</div><div class="sub">Saiyan · Universe 7 · Age 761</div>
+  <div class="rows">
+   <div class="k"><i>Master</i><b>Master Roshi</b></div><div class="k"><i>Power</i><b><em>8,500</em></b></div>
+   <div class="k"><i>Alignment</i><b>Chaotic Good</b></div><div class="k"><i>Zeni</i><b>2,000</b></div>
+   <div class="k w"><i>Forms · Techniques</i><b>Base <em>· SSJ (locked)</em> — Kamehameha · Solar Flare</b></div>
+   <div class="k w"><i>Opening</i><b>East District 439 — the morning Raditz's pod enters the sky.</b></div>
+  </div>
+ </div>
+</div>
+
+</body></html>
