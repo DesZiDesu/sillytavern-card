@@ -96,3 +96,21 @@ A full turn reads top-to-bottom:
 ```
 
 Images are served from the repo's `main` branch via githack, so any committed portrait resolves automatically.
+
+## Character Creation
+
+Import `DB_Creation_Regex.json` and `DB_Confirm_Regex.json` together.
+
+Use this tag to open the Dragon Ball character creator:
+
+```
+<DB_CREATE></DB_CREATE>
+```
+
+When the user confirms the form, it sends this tag from the user side:
+
+```
+<DB_CONFIRM>{json}</DB_CONFIRM>
+```
+
+`DB_Confirm_Regex.json` renders that confirmed character as the final dossier.
