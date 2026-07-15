@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Dragon Ball Gallery — Recommended Additions</title>
+<style>
+:root{
+  --ground:#070d14; --grid:rgba(41,211,255,.045);
+  --panel:rgba(11,28,43,.66); --panel-2:rgba(7,15,24,.6);
+  --line:#183a4f; --line-soft:#122c3d;
+  --ink:#eaf4f8; --ink-dim:#a6c0cd; --muted:#5f7d90;
+  --cyan:#3fdcff; --cyan-deep:#1a8fc4;
+  --gold:#ff9a2e; --gold-soft:#ffc06a;
+  --green:#46da7c; --violet:#b98cff;
+  --a:var(--gold); --b:var(--cyan); --c:var(--muted);
+  --shadow:0 18px 40px rgba(0,0,0,.5);
+  --card-bg:linear-gradient(158deg,rgba(11,28,43,.78),rgba(7,14,23,.62));
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --ground:#e9eef1; --grid:rgba(20,90,130,.05);
+    --panel:#ffffff; --panel-2:#f3f7f9;
+    --line:#cdd9e0; --line-soft:#dde6ea;
+    --ink:#0f2028; --ink-dim:#3b5765; --muted:#6c8593;
+    --cyan:#0d7ba9; --cyan-deep:#0a5f84;
+    --gold:#d1690a; --gold-soft:#b1560a;
+    --green:#1f9d55; --violet:#6b4bc0;
+    --shadow:0 14px 34px rgba(20,50,70,.16);
+    --card-bg:linear-gradient(158deg,#ffffff,#f2f7f9);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#070d14; --grid:rgba(41,211,255,.045);
+  --panel:rgba(11,28,43,.66); --panel-2:rgba(7,15,24,.6);
+  --line:#183a4f; --line-soft:#122c3d;
+  --ink:#eaf4f8; --ink-dim:#a6c0cd; --muted:#5f7d90;
+  --cyan:#3fdcff; --cyan-deep:#1a8fc4; --gold:#ff9a2e; --gold-soft:#ffc06a;
+  --green:#46da7c; --violet:#b98cff; --shadow:0 18px 40px rgba(0,0,0,.5);
+  --card-bg:linear-gradient(158deg,rgba(11,28,43,.78),rgba(7,14,23,.62));
+}
+:root[data-theme="light"]{
+  --ground:#e9eef1; --grid:rgba(20,90,130,.05);
+  --panel:#ffffff; --panel-2:#f3f7f9;
+  --line:#cdd9e0; --line-soft:#dde6ea;
+  --ink:#0f2028; --ink-dim:#3b5765; --muted:#6c8593;
+  --cyan:#0d7ba9; --cyan-deep:#0a5f84; --gold:#d1690a; --gold-soft:#b1560a;
+  --green:#1f9d55; --violet:#6b4bc0; --shadow:0 14px 34px rgba(20,50,70,.16);
+  --card-bg:linear-gradient(158deg,#ffffff,#f2f7f9);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:
+    radial-gradient(120% 80% at 50% -10%, color-mix(in srgb, var(--cyan) 7%, transparent), transparent 60%),
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/34px 34px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/34px 34px,
+    var(--ground);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.5; padding:22px 16px 64px; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto}
+.mono{font-family:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace}
+.disp{font-family:"Arial Narrow","Roboto Condensed","Helvetica Neue",system-ui,sans-serif;font-stretch:condensed}
+
+/* ---- header ---- */
+.hero{
+  position:relative; background:var(--card-bg); border:1px solid var(--line);
+  box-shadow:var(--shadow); padding:20px 22px; overflow:hidden;
+  clip-path:polygon(0 0,100% 0,100% 82%,98% 100%,0 100%);
+}
+.hero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--cyan),var(--cyan-deep))}
+.eyebrow{font:700 10.5px/1 var(--_,inherit);letter-spacing:.34em;text-transform:uppercase;color:var(--cyan);margin:0 0 10px}
+h1{font-family:"Arial Narrow","Roboto Condensed","Helvetica Neue",system-ui,sans-serif;font-weight:800;
+  font-size:clamp(27px,6vw,44px);line-height:.98;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance;margin:0;color:var(--ink)}
+h1 b{color:var(--gold);font-weight:800}
+.lede{color:var(--ink-dim);font-size:14.5px;max-width:62ch;margin:12px 0 0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.stat{flex:1 1 150px;min-width:140px;background:var(--panel-2);border:1px solid var(--line-soft);padding:10px 13px;
+  clip-path:polygon(0 0,100% 0,100% 76%,94% 100%,0 100%)}
+.stat .n{font-family:"Arial Narrow","Roboto Condensed",system-ui,sans-serif;font-weight:800;font-size:26px;line-height:1;
+  color:var(--ink);font-variant-numeric:tabular-nums}
+.stat .n.g{color:var(--gold)} .stat .n.c{color:var(--cyan)} .stat .n.v{color:var(--violet)}
+.stat .l{font:700 9px/1.3 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* ---- tiers ---- */
+.tier{margin-top:34px}
+.tier-h{display:flex;align-items:baseline;gap:12px;margin:0 0 4px}
+.tier-tag{font:800 11px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;color:#06131b;
+  clip-path:polygon(8% 0,100% 0,92% 100%,0 100%);white-space:nowrap}
+.tier.a .tier-tag{background:linear-gradient(180deg,var(--gold-soft),var(--gold))}
+.tier.b .tier-tag{background:linear-gradient(180deg,var(--cyan),var(--cyan-deep))}
+.tier.c .tier-tag{background:linear-gradient(180deg,#8fa8b6,#5f7d90)}
+.tier-name{font-family:"Arial Narrow","Roboto Condensed",system-ui,sans-serif;font-weight:800;font-size:19px;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--ink)}
+.tier-sub{color:var(--muted);font-size:12.5px;margin:2px 0 15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:12px}
+
+/* ---- card ---- */
+.card{position:relative;background:var(--card-bg);border:1px solid var(--line);padding:13px 14px 14px;
+  clip-path:polygon(0 0,100% 0,100% 93%,96% 100%,0 100%);transition:transform .16s ease,border-color .16s ease}
+.card:hover{transform:translateY(-3px);border-color:var(--edge,var(--cyan))}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--edge,var(--cyan))}
+.tier.a .card{--edge:var(--gold)} .tier.b .card{--edge:var(--cyan)} .tier.c .card{--edge:var(--muted)}
+.crow{display:flex;align-items:flex-start;gap:8px;justify-content:space-between}
+.cname{font-family:"Arial Narrow","Roboto Condensed",system-ui,sans-serif;font-weight:800;font-size:19px;line-height:1.02;
+  letter-spacing:.01em;text-transform:uppercase;color:var(--ink)}
+.pill{flex:0 0 auto;font:700 8.5px/1 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 8px;border:1px solid var(--edge,var(--cyan));color:var(--edge,var(--cyan));border-radius:2px;white-space:nowrap}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;margin:8px 0 0;font:600 11px/1.2 ui-monospace,monospace;color:var(--muted);letter-spacing:.02em}
+.meta .saga{color:var(--ink-dim)}
+.forms{display:flex;flex-wrap:wrap;gap:4px;margin:10px 0 0}
+.fchip{font:700 10px/1 system-ui,sans-serif;letter-spacing:.01em;padding:4px 8px;background:var(--panel-2);
+  border:1px solid var(--line-soft);color:var(--ink-dim);clip-path:polygon(9% 0,100% 0,91% 100%,0 100%)}
+.fcount{font:700 10px/1 ui-monospace,monospace;letter-spacing:.06em;color:var(--edge,var(--cyan));padding:4px 0 4px}
+.why{color:var(--ink-dim);font-size:12.5px;line-height:1.42;margin:11px 0 0}
+.npc{display:inline-block;margin-top:9px;font:700 8.5px/1 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--violet);border:1px dashed color-mix(in srgb,var(--violet) 55%,transparent);padding:4px 7px;border-radius:2px}
+
+/* ---- footer ---- */
+.foot{margin-top:38px;background:var(--panel-2);border:1px solid var(--line);padding:16px 18px;
+  clip-path:polygon(0 0,100% 0,100% 88%,98% 100%,0 100%)}
+.foot h3{font-family:"Arial Narrow","Roboto Condensed",system-ui,sans-serif;font-weight:800;font-size:15px;letter-spacing:.03em;
+  text-transform:uppercase;color:var(--cyan);margin:0 0 8px}
+.foot p{color:var(--ink-dim);font-size:13px;margin:0 0 8px;max-width:74ch}
+.foot code{font-family:ui-monospace,monospace;font-size:12px;background:color-mix(in srgb,var(--cyan) 12%,transparent);
+  color:var(--ink);padding:1px 6px;border-radius:3px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font:600 11px/1 ui-monospace,monospace;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;clip-path:polygon(9% 0,100% 0,91% 100%,0 100%)}
+.dot.a{background:var(--gold)} .dot.b{background:var(--cyan)} .dot.c{background:var(--muted)}
+.dot.n{background:var(--violet)}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Capsule Corp · Portrait Database Audit</p>
+    <h1>Gallery Gap Report — <b>Recommended Recruits</b></h1>
+    <p class="lede">Cross-checked your <strong>122 live folders</strong> against the full Dragon Ball roster (Z · Super · GT · Daima · Heroes · movies · classic DB). These are the notable characters with <em>no portrait yet</em>, ranked by how much they'd add — with a suggested form breakdown for each.</p>
+    <div class="stats" id="stats"></div>
+  </header>
+  <main id="tiers"></main>
+  <footer class="foot">
+    <h3>How any of these get added</h3>
+    <p>Same pipeline we used for Goku&nbsp;Z: drop the numbered images into <code>Images/&lt;slug&gt;/</code>, then register the paths in the <strong>Portrait Directory</strong>, the character's lorebook entry, the era note, and <code>FORMS.md</code>. Point me at any name (or a batch of images) and I'll wire it up end-to-end.</p>
+    <div class="legend">
+      <span><i class="dot a"></i> Priority Alpha</span>
+      <span><i class="dot b"></i> Priority Bravo</span>
+      <span><i class="dot c"></i> Deep cuts</span>
+      <span><i class="dot n"></i> Currently an imageless NPC in the lorebook</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+const STATS=[
+  {n:"122",l:"Folders live now",c:""},
+  {n:"28",l:"Recommended entries",c:"g"},
+  {n:"5",l:"Priority Alpha gaps",c:"c"},
+  {n:"3",l:"Imageless NPCs to promote",c:"v"},
+];
+const DATA=[
+ {tier:"a",name:"Ginyu Force",saga:"Namek Saga",role:"Frieza's elite squad",
+  forms:["Recoome","Burter","Jeice","Guldo"],
+  why:"Captain Ginyu is already in — his four squadmates aren't. Iconic poses, endlessly memeable, and a natural mini-boss set."},
+ {tier:"a",name:"Cabba",saga:"Universe 6 · ToP",role:"Saiyan · Vegeta's protégé",
+  forms:["Base","Super Saiyan","Super Saiyan 2"],npc:true,
+  why:"A full Saiyan transformation arc currently handled as a faceless NPC. Prime candidate for a real gallery."},
+ {tier:"a",name:"Nail",saga:"Namek Saga",role:"Namekian warrior",
+  forms:["Base"],
+  why:"The strongest Namekian before fusing with Piccolo — a glaring hole in the Namek cast."},
+ {tier:"a",name:"Pikkon",saga:"Other World Saga",role:"Goku's afterlife rival",
+  forms:["Weighted","Weights Off"],
+  why:"Fan-favorite tournament rival who trades blows with SSJ-era Goku. Still absent."},
+ {tier:"a",name:"Pilaf Gang",saga:"Classic DB · Super",role:"Recurring schemers",
+  forms:["Emperor Pilaf","Mai","Shu","Future Mai"],
+  why:"The comic trio spans the whole franchise, and Future Mai is a real player in the Trunks arc."},
+
+ {tier:"b",name:"Launch",saga:"Classic DB",role:"Split-personality markswoman",
+  forms:["Blue-haired","Blonde"],npc:true,
+  why:"Her sneeze-swap is a perfect two-form gallery — and she's currently imageless."},
+ {tier:"b",name:"Tarble",saga:"Movie · Super",role:"Vegeta's younger brother",
+  forms:["Base"],
+  why:"Deep-cut Saiyan royalty; low effort, high delight for lore fans."},
+ {tier:"b",name:"Grand Elder Guru",saga:"Namek Saga",role:"Namekian patriarch",
+  forms:["Base"],
+  why:"Origin of Namek's Dragon Balls and the potential-unlock ritual."},
+ {tier:"b",name:"Android 8",saga:"Red Ribbon · DB",role:"Gentle 'Eighter'",
+  forms:["Base"],
+  why:"Classic-DB heart, and thematically ties into the whole Android line you already have."},
+ {tier:"b",name:"Lord Slug",saga:"Movie",role:"Super Namekian tyrant",
+  forms:["Base","Giant Form"],
+  why:"A Namekian movie villain with a size transformation — easy high-tier antagonist."},
+ {tier:"b",name:"Garlic Jr.",saga:"Dead Zone · Garlic Saga",role:"Immortal Makyo demon",
+  forms:["Base","Super Garlic Jr."],
+  why:"Filler-saga icon with a proper transformation and a wish-immortality hook."},
+ {tier:"b",name:"Dyspo",saga:"Super · U11",role:"Pride Trooper speedster",
+  forms:["Base"],
+  why:"A Tournament of Power standout who pushed the good guys hard."},
+ {tier:"b",name:"Seven-Three",saga:"Super · Moro Arc",role:"OG73-I copy android",
+  forms:["Base"],
+  why:"Copy-ability wildcard — a fun mechanic to have on the board as an NPC."},
+ {tier:"b",name:"Bulla",saga:"Super · GT",role:"Vegeta & Bulma's daughter",
+  forms:["Base"],
+  why:"Completes the Brief–Vegeta family line alongside Trunks and Bulma."},
+ {tier:"b",name:"Fortuneteller Baba",saga:"Classic DB",role:"Roshi's sister · seer",
+  forms:["Base"],
+  why:"Recurring mystic and natural quest-giver for afterlife or vision beats."},
+ {tier:"b",name:"Ox-King",saga:"DB · Z",role:"Chi-Chi's father",
+  forms:["Base"],
+  why:"Rounds out the family cast around Goku and Chi-Chi."},
+ {tier:"b",name:"King Yemma",saga:"Other World",role:"Judge of the dead",
+  forms:["Base"],
+  why:"Gatekeeper of every afterlife arc — Snake Way, Other World, wish logistics."},
+
+ {tier:"c",name:"Cumber",saga:"Heroes",role:"Evil primordial Saiyan",
+  forms:["Base","Super Saiyan","Golden Great Ape"],
+  why:"Heroes' breakout villain — a natural fit next to your non-canon Xicor / potential forms."},
+ {tier:"c",name:"Fu",saga:"Heroes · Xenoverse",role:"Mad Demon-Realm scientist",
+  forms:["Base","Transcended"],
+  why:"Recurring game-canon antagonist tied to Towa (already in your gallery)."},
+ {tier:"c",name:"Mira",saga:"Xenoverse",role:"Artificial demon",
+  forms:["Base","Final Form"],
+  why:"Towa's partner-in-crime; pairs with her existing gallery."},
+ {tier:"c",name:"Hearts",saga:"Heroes · Universe Mission",role:"Godslayer",
+  forms:["Base","Ultimate Godslayer"],
+  why:"Lead villain of the anti-god arc, with a clean two-form escalation."},
+ {tier:"c",name:"Demigra",saga:"Xenoverse",role:"Time-demon wizard",
+  forms:["Base","Final Form"],
+  why:"Xenoverse's main villain — good if you lean into Time Patrol stories."},
+ {tier:"c",name:"Cyborg Tao",saga:"Classic DB",role:"Mercenary assassin",
+  forms:["Human Tao","Cyborg Tao"],
+  why:"Classic recurring hitman with a mechanical rebuild — tidy two-form set."},
+ {tier:"c",name:"Red Ribbon Officers",saga:"Classic DB",role:"Army command",
+  forms:["General Blue","Colonel Silver","Staff Officer Black","Ninja Murasaki"],
+  why:"Fleshes out the Red Ribbon arc behind Gero and the Androids."},
+ {tier:"c",name:"Daima Villains",saga:"Daima",role:"Demon Realm rulers",
+  forms:["Gomah","Degesu","Duu"],
+  why:"Neva and Chronoa are in — these three complete the Daima antagonist cast."},
+ {tier:"c",name:"U6 Fighters",saga:"Super",role:"Universe 6 team",
+  forms:["Magetta","Botamo","Auta Magetta"],
+  why:"Rounds out the U6 tournament roster beside Hit, Frost, Caulifla and Kale."},
+ {tier:"c",name:"The Heeters",saga:"Super",role:"Galactic profiteers",
+  forms:["Elec","Macki","Oil"],
+  why:"Gas already has a gallery — his scheming family doesn't."},
+ {tier:"c",name:"Monaka",saga:"Super",role:"The 'legendary' delivery man",
+  forms:["Base"],npc:true,
+  why:"A running gag with real payoff — currently an imageless NPC."},
+];
+
+const st=document.getElementById('stats');
+st.innerHTML=STATS.map(s=>`<div class="stat"><div class="n ${s.c}">${s.n}</div><div class="l">${s.l}</div></div>`).join('');
+
+const TIERS=[
+ {k:"a",tag:"Alpha",name:"Scouter Blind Spots",sub:"Iconic characters whose absence is genuinely surprising — add these first."},
+ {k:"b",tag:"Bravo",name:"Worth Recruiting",sub:"Strong secondary picks that fill out families, sagas and fan-favorites."},
+ {k:"c",tag:"Charlie",name:"Deep Cuts & Non-Canon",sub:"For completionists — Heroes / Xenoverse, classic DB, and roster-rounding sets."},
+];
+function card(c){
+  const fc = c.forms.length>1
+    ? `<span class="fcount">${c.forms.length} forms</span>` + c.forms.map(f=>`<span class="fchip">${f}</span>`).join('')
+    : `<span class="fcount">1 portrait</span>`;
+  const pill = c.forms.length>1 ? `${c.forms.length}×` : "SOLO";
+  return `<article class="card" tabindex="0">
+    <div class="crow"><div class="cname">${c.name}</div><div class="pill">${pill}</div></div>
+    <div class="meta"><span class="saga">${c.saga}</span><span>${c.role}</span></div>
+    <div class="forms">${fc}</div>
+    <p class="why">${c.why}</p>
+    ${c.npc?`<span class="npc">imageless NPC now</span>`:""}
+  </article>`;
+}
+document.getElementById('tiers').innerHTML = TIERS.map(t=>{
+  const cards = DATA.filter(d=>d.tier===t.k).map(card).join('');
+  return `<section class="tier ${t.k}">
+    <div class="tier-h"><span class="tier-tag">Priority ${t.tag}</span><span class="tier-name">${t.name}</span></div>
+    <p class="tier-sub">${t.sub}</p>
+    <div class="grid">${cards}</div>
+  </section>`;
+}).join('');
+</script>
+</body>
+</html>
