@@ -2,7 +2,7 @@
 
 Characters with **multiple images are transformation galleries**: images run in order from **Base form → higher forms**, matching the `Images/<slug>/` folders (files numbered `01_...`, `02_...`). Labels marked *Potential / Non-Canon / Head Canon* are non-canon forms kept for roleplay flexibility.
 
-✅ **All 309 images stored in `Images/` across 120 characters (updated 2026-07-11).**
+✅ **All 319 images stored in `Images/` across 122 characters (updated 2026-07-15).**
 
 > Single-portrait characters are listed at the bottom.
 
@@ -136,27 +136,34 @@ Characters with **multiple images are transformation galleries**: images run in 
 6. Super Saiyan God - Potential  
 7. Super Saiyan Blue  
 
-**GOHAN [BLACK]** — 2 forms  
+**GOHAN [BLACK]** — 3 forms  
 1. Base Form - Godly Ki Infusion  
-2. Ultimate Gohan Black / Mystic Gohan Black  
+2. Super Saiyan Rosé  
+3. Ultimate Gohan Black / Mystic Gohan Black  
 
 **GOHAN [EARLY]** — 3 forms  
 1. Kid Gohan - Hat (Saiyan Saga)  
 2. Kid Gohan - Early Z  
 3. Kid Gohan - Training Headband  
 
-**GOHAN [FUTURE]** — 6 forms  
+**GOHAN [FUTURE]** — 7 forms  
 1. Base Form  
 2. Super Saiyan  
 3. Super Saiyan 2 - Potential  
 4. Super Saiyan 3 - Potential  
 5. Super Saiyan God - Potential  
 6. Super Saiyan Blue - Potential  
+7. Beast - Potential  
 
 **GOHAN [TEEN]** — 3 forms  
 1. Base Form  
 2. Super Saiyan  
 3. Super Saiyan 2  
+
+**GOHAN Z** — 3 forms  
+1. Base Form - Buu Saga  
+2. Super Saiyan  
+3. Ultimate Gohan  
 
 **GOKU BLACK** — 4 forms  
 1. Base Form  
@@ -186,6 +193,13 @@ Characters with **multiple images are transformation galleries**: images run in 
 5. Adult Super Saiyan 1 & 2 - Temporarily  
 6. Adult Super Saiyan 3 - Temporarily  
 7. Super Saiyan 4 - Full Power  
+
+**GOKU Z** — 5 forms  
+1. Base Form  
+2. Super Saiyan  
+3. Super Saiyan Full Power  
+4. Super Saiyan 2  
+5. Super Saiyan 3  
 
 **GOTEN** — 3 forms  
 1. Kid Base Form  

@@ -8,7 +8,7 @@ Per-message styling + a player status HUD for SillyTavern, like the ZZZ / Wuther
 |---|---|---|
 | `Header / Dialogue / Monologue / Narrator` folders | Per-message speech styling (install ONE per folder) | `[DBCHAR] [DBSAY] [DBTHINK] [DBNARR]` |
 | `DB_Status_Regex.json` | Collapsible Xenoverse-style **player status HUD** (Profile · Vitality · Skills · Items · Missions) | `<DB_STATUS>{json}</DB_STATUS>` |
-| `DB_Tracker_Regex.json` | **Dragon Radar scene tracker** (time · date · month · year · location · position · weather · condition · planet · universe) | `[DBTRACK\|…]` |
+| `DB_Tracker_Regex.json` | **Dragon Radar scene tracker** (time · date · month · year · location · position · weather · condition · planet · universe · current form · power / max power · output %) | `[DBTRACK\|…]` |
 | `DB_Notify_Regex.json` | **Quest-toast notifications** — item obtained (→ stored), form unlocked / technique learned with mastery % meters | `<DB_NOTIFY>[json]</DB_NOTIFY>` |
 
 The status HUD is documented in **`DB_Status_SCHEMA.md`** and the notify pop-ups in **`DB_Notify_SCHEMA.md`** (full JSON schemas). Both always install on their own — they don't conflict with the speech regex.
@@ -22,7 +22,7 @@ The status HUD is documented in **`DB_Status_SCHEMA.md`** and the notify pop-ups
 A Capsule Corp **Dragon Radar** panel (design B from `Tools/previews/db_tracker_options.html`) that renders whenever the AI posts the tag. Installs on its own — no conflict with the speech regex or status HUD.
 
 ```
-[DBTRACK|time|date|month|year|location|position|weather|condition|planet|universe]
+[DBTRACK|time|date|month|year|location|position|weather|condition|planet|universe|form|power|max_power|output]
 ```
 
 | # | Field | Example |
@@ -37,16 +37,20 @@ A Capsule Corp **Dragon Radar** panel (design B from `Tools/previews/db_tracker_
 | 8 | condition | `26°C · clear skies · light sea breeze` |
 | 9 | planet | `Earth` / `Namek` / `Planet Vegeta` |
 | 10 | universe | `Universe 7` |
+| 11 | form | `Super Saiyan` — the transformation {{user}} is holding **right now** (matches the `active` form in `<DB_STATUS>`) |
+| 12 | power | `420,000` — **current** combat power this moment; drops when suppressed / holding back, rises when powering up |
+| 13 | max_power | `1,200,000` — full power ceiling in that form (all-out output) |
+| 14 | output | `35` — plain number 0–100 = `round(power ÷ max_power × 100)`; drives the suppression bar (100 = full power) |
 
 Example:
 
 ```
-[DBTRACK|09:15|3|May|Age 749|Kame House — small island, southern sea|On the porch, facing the water|Sunny|26°C · clear skies · light sea breeze|Earth|Universe 7]
+[DBTRACK|09:15|3|May|Age 749|Kame House — small island, southern sea|On the porch, facing the water|Sunny|26°C · clear skies · light sea breeze|Earth|Universe 7|Super Saiyan|420,000|1,200,000|35]
 ```
 
 **Card / Author's Note instruction** — paste this so the AI emits the tag:
 
-> At the top of every reply, post one line: `[DBTRACK|time|date|month|year|location|position|weather|condition|planet|universe]` — 24h time, day-of-month number, month name, DB calendar year (`Age NNN`), the named place, the player's exact position/stance there, a one-word weather, a short weather detail (temp · sky · wind), the planet, and the universe (e.g. `Universe 7`). Keep every field filled; never use `|` inside a field.
+> At the top of every reply, post one line: `[DBTRACK|time|date|month|year|location|position|weather|condition|planet|universe|form|power|max_power|output]` — 24h time, day-of-month number, month name, DB calendar year (`Age NNN`), the named place, the player's exact position/stance there, a one-word weather, a short weather detail (temp · sky · wind), the planet, the universe (e.g. `Universe 7`), the current form, the current combat power, the max power, and the output % (`round(power ÷ max_power × 100)`, `100` = full power / lower = suppressed). Keep every field filled; never use `|` inside a field.
 
 ---
 
@@ -114,3 +118,5 @@ When the user confirms the form, it sends this tag from the user side:
 ```
 
 `DB_Confirm_Regex.json` renders that confirmed character as the final dossier.
+
+Both use a transparent (backgroundless) scouter-HUD style so they blend into the chat. The creator has seven steps — **Identity · Appearance · Origin · Race · Power · Loadout · Confirm** — and the Identity fields start empty (no example values). The **Appearance** step captures height, build, hair, eyes, skin, distinguishing features, and attire, which flow into the confirmed JSON (`appearance` object) and the dossier.
