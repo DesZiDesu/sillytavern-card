@@ -1,0 +1,646 @@
+[
+  {
+    "index": 1,
+    "name": "March 7th (Ice)",
+    "element": "Ice",
+    "rarity": 4,
+    "file": "icons/001_March_7th_Ice.png"
+  },
+  {
+    "index": 2,
+    "name": "Dan Heng",
+    "element": "Wind",
+    "rarity": 4,
+    "file": "icons/002_Dan_Heng.png"
+  },
+  {
+    "index": 3,
+    "name": "Himeko",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/003_Himeko.png"
+  },
+  {
+    "index": 4,
+    "name": "Welt",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/004_Welt.png"
+  },
+  {
+    "index": 5,
+    "name": "Kafka",
+    "element": "Lightning",
+    "rarity": 5,
+    "file": "icons/005_Kafka.png"
+  },
+  {
+    "index": 6,
+    "name": "Silver Wolf",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/006_Silver_Wolf.png"
+  },
+  {
+    "index": 7,
+    "name": "Arlan",
+    "element": "Lightning",
+    "rarity": 4,
+    "file": "icons/007_Arlan.png"
+  },
+  {
+    "index": 8,
+    "name": "Asta",
+    "element": "Fire",
+    "rarity": 4,
+    "file": "icons/008_Asta.png"
+  },
+  {
+    "index": 9,
+    "name": "Herta",
+    "element": "Ice",
+    "rarity": 4,
+    "file": "icons/009_Herta.png"
+  },
+  {
+    "index": 10,
+    "name": "Saber",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/010_Saber.png"
+  },
+  {
+    "index": 11,
+    "name": "Archer",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/011_Archer.png"
+  },
+  {
+    "index": 12,
+    "name": "Bronya",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/012_Bronya.png"
+  },
+  {
+    "index": 13,
+    "name": "Seele",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/013_Seele.png"
+  },
+  {
+    "index": 14,
+    "name": "Serval",
+    "element": "Lightning",
+    "rarity": 4,
+    "file": "icons/014_Serval.png"
+  },
+  {
+    "index": 15,
+    "name": "Gepard",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/015_Gepard.png"
+  },
+  {
+    "index": 16,
+    "name": "Natasha",
+    "element": "Physical",
+    "rarity": 4,
+    "file": "icons/016_Natasha.png"
+  },
+  {
+    "index": 17,
+    "name": "Pela",
+    "element": "Ice",
+    "rarity": 4,
+    "file": "icons/017_Pela.png"
+  },
+  {
+    "index": 18,
+    "name": "Clara",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/018_Clara.png"
+  },
+  {
+    "index": 19,
+    "name": "Sampo",
+    "element": "Wind",
+    "rarity": 4,
+    "file": "icons/019_Sampo.png"
+  },
+  {
+    "index": 20,
+    "name": "Hook",
+    "element": "Fire",
+    "rarity": 4,
+    "file": "icons/020_Hook.png"
+  },
+  {
+    "index": 21,
+    "name": "Lynx",
+    "element": "Quantum",
+    "rarity": 4,
+    "file": "icons/021_Lynx.png"
+  },
+  {
+    "index": 22,
+    "name": "Luka",
+    "element": "Physical",
+    "rarity": 4,
+    "file": "icons/022_Luka.png"
+  },
+  {
+    "index": 23,
+    "name": "Topaz & Numby",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/023_Topaz_and_Numby.png"
+  },
+  {
+    "index": 24,
+    "name": "Qingque",
+    "element": "Quantum",
+    "rarity": 4,
+    "file": "icons/024_Qingque.png"
+  },
+  {
+    "index": 25,
+    "name": "Tingyun",
+    "element": "Lightning",
+    "rarity": 4,
+    "file": "icons/025_Tingyun.png"
+  },
+  {
+    "index": 26,
+    "name": "Luocha",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/026_Luocha.png"
+  },
+  {
+    "index": 27,
+    "name": "Jing Yuan",
+    "element": "Lightning",
+    "rarity": 5,
+    "file": "icons/027_Jing_Yuan.png"
+  },
+  {
+    "index": 28,
+    "name": "Blade",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/028_Blade.png"
+  },
+  {
+    "index": 29,
+    "name": "Sushang",
+    "element": "Physical",
+    "rarity": 4,
+    "file": "icons/029_Sushang.png"
+  },
+  {
+    "index": 30,
+    "name": "Yukong",
+    "element": "Imaginary",
+    "rarity": 4,
+    "file": "icons/030_Yukong.png"
+  },
+  {
+    "index": 31,
+    "name": "Fu Xuan",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/031_Fu_Xuan.png"
+  },
+  {
+    "index": 32,
+    "name": "Yanqing",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/032_Yanqing.png"
+  },
+  {
+    "index": 33,
+    "name": "Guinaifen",
+    "element": "Fire",
+    "rarity": 4,
+    "file": "icons/033_Guinaifen.png"
+  },
+  {
+    "index": 34,
+    "name": "Bailu",
+    "element": "Lightning",
+    "rarity": 5,
+    "file": "icons/034_Bailu.png"
+  },
+  {
+    "index": 35,
+    "name": "Jingliu",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/035_Jingliu.png"
+  },
+  {
+    "index": 36,
+    "name": "Dan Heng • Imbibitor Lunae",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/036_Dan_Heng_Imbibitor_Lunae.png"
+  },
+  {
+    "index": 37,
+    "name": "Xueyi",
+    "element": "Quantum",
+    "rarity": 4,
+    "file": "icons/037_Xueyi.png"
+  },
+  {
+    "index": 38,
+    "name": "Hanya",
+    "element": "Physical",
+    "rarity": 4,
+    "file": "icons/038_Hanya.png"
+  },
+  {
+    "index": 39,
+    "name": "Huohuo",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/039_Huohuo.png"
+  },
+  {
+    "index": 40,
+    "name": "Jiaoqiu",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/040_Jiaoqiu.png"
+  },
+  {
+    "index": 41,
+    "name": "Feixiao",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/041_Feixiao.png"
+  },
+  {
+    "index": 42,
+    "name": "Yunli",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/042_Yunli.png"
+  },
+  {
+    "index": 43,
+    "name": "Lingsha",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/043_Lingsha.png"
+  },
+  {
+    "index": 44,
+    "name": "Moze",
+    "element": "Lightning",
+    "rarity": 4,
+    "file": "icons/044_Moze.png"
+  },
+  {
+    "index": 45,
+    "name": "March 7th (Imaginary)",
+    "element": "Imaginary",
+    "rarity": 4,
+    "file": "icons/045_March_7th_Imaginary.png"
+  },
+  {
+    "index": 46,
+    "name": "Fugue",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/046_Fugue.png"
+  },
+  {
+    "index": 47,
+    "name": "Gallagher",
+    "element": "Fire",
+    "rarity": 4,
+    "file": "icons/047_Gallagher.png"
+  },
+  {
+    "index": 48,
+    "name": "Argenti",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/048_Argenti.png"
+  },
+  {
+    "index": 49,
+    "name": "Ruan Mei",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/049_Ruan_Mei.png"
+  },
+  {
+    "index": 50,
+    "name": "Aventurine",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/050_Aventurine.png"
+  },
+  {
+    "index": 51,
+    "name": "Dr. Ratio",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/051_Dr_Ratio.png"
+  },
+  {
+    "index": 52,
+    "name": "Sparkle",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/052_Sparkle.png"
+  },
+  {
+    "index": 53,
+    "name": "Black Swan",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/053_Black_Swan.png"
+  },
+  {
+    "index": 54,
+    "name": "Acheron",
+    "element": "Lightning",
+    "rarity": 5,
+    "file": "icons/054_Acheron.png"
+  },
+  {
+    "index": 55,
+    "name": "Robin",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/055_Robin.png"
+  },
+  {
+    "index": 56,
+    "name": "Firefly",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/056_Firefly.png"
+  },
+  {
+    "index": 57,
+    "name": "Misha",
+    "element": "Ice",
+    "rarity": 4,
+    "file": "icons/057_Misha.png"
+  },
+  {
+    "index": 58,
+    "name": "Sunday",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/058_Sunday.png"
+  },
+  {
+    "index": 59,
+    "name": "Jade",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/059_Jade.png"
+  },
+  {
+    "index": 60,
+    "name": "Boothill",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/060_Boothill.png"
+  },
+  {
+    "index": 61,
+    "name": "Rappa",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/061_Rappa.png"
+  },
+  {
+    "index": 62,
+    "name": "The Dahlia",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/062_The_Dahlia.png"
+  },
+  {
+    "index": 63,
+    "name": "The Herta",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/063_The_Herta.png"
+  },
+  {
+    "index": 64,
+    "name": "Aglaea",
+    "element": "Lightning",
+    "rarity": 5,
+    "file": "icons/064_Aglaea.png"
+  },
+  {
+    "index": 65,
+    "name": "Tribbie",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/065_Tribbie.png"
+  },
+  {
+    "index": 66,
+    "name": "Mydei",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/066_Mydei.png"
+  },
+  {
+    "index": 67,
+    "name": "Anaxa",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/067_Anaxa.png"
+  },
+  {
+    "index": 68,
+    "name": "Cipher",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/068_Cipher.png"
+  },
+  {
+    "index": 69,
+    "name": "Castorice",
+    "element": "Quantum",
+    "rarity": 5,
+    "file": "icons/069_Castorice.png"
+  },
+  {
+    "index": 70,
+    "name": "Phainon",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/070_Phainon.png"
+  },
+  {
+    "index": 71,
+    "name": "Hyacine",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/071_Hyacine.png"
+  },
+  {
+    "index": 72,
+    "name": "Hysilens",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/072_Hysilens.png"
+  },
+  {
+    "index": 73,
+    "name": "Cerydra",
+    "element": "Wind",
+    "rarity": 5,
+    "file": "icons/073_Cerydra.png"
+  },
+  {
+    "index": 74,
+    "name": "Evernight",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/074_Evernight.png"
+  },
+  {
+    "index": 75,
+    "name": "Dan Heng • Permansor Terrae",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/075_Dan_Heng_Permansor_Terrae.png"
+  },
+  {
+    "index": 76,
+    "name": "Cyrene",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/076_Cyrene.png"
+  },
+  {
+    "index": 77,
+    "name": "Sparxie",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/077_Sparxie.png"
+  },
+  {
+    "index": 78,
+    "name": "Yao Guang",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/078_Yao_Guang.png"
+  },
+  {
+    "index": 79,
+    "name": "Ashveil",
+    "element": "Lightning",
+    "rarity": 5,
+    "file": "icons/079_Ashveil.png"
+  },
+  {
+    "index": 80,
+    "name": "Evanescia",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/080_Evanescia.png"
+  },
+  {
+    "index": 81,
+    "name": "Silver Wolf LV.999",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/081_Silver_Wolf_LV999.png"
+  },
+  {
+    "index": 82,
+    "name": "Mortenax Blade",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/082_Mortenax_Blade.png"
+  },
+  {
+    "index": 83,
+    "name": "Trailblazer (Physical) M",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/083_Trailblazer_Physical_M.png"
+  },
+  {
+    "index": 84,
+    "name": "Trailblazer (Physical) F",
+    "element": "Physical",
+    "rarity": 5,
+    "file": "icons/084_Trailblazer_Physical_F.png"
+  },
+  {
+    "index": 85,
+    "name": "Trailblazer (Fire) M",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/085_Trailblazer_Fire_M.png"
+  },
+  {
+    "index": 86,
+    "name": "Trailblazer (Fire) F",
+    "element": "Fire",
+    "rarity": 5,
+    "file": "icons/086_Trailblazer_Fire_F.png"
+  },
+  {
+    "index": 87,
+    "name": "Trailblazer (Imaginary) M",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/087_Trailblazer_Imaginary_M.png"
+  },
+  {
+    "index": 88,
+    "name": "Trailblazer (Imaginary) F",
+    "element": "Imaginary",
+    "rarity": 5,
+    "file": "icons/088_Trailblazer_Imaginary_F.png"
+  },
+  {
+    "index": 89,
+    "name": "Trailblazer (Ice) M",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/089_Trailblazer_Ice_M.png"
+  },
+  {
+    "index": 90,
+    "name": "Trailblazer (Ice) F",
+    "element": "Ice",
+    "rarity": 5,
+    "file": "icons/090_Trailblazer_Ice_F.png"
+  },
+  {
+    "index": 91,
+    "name": "Trailblazer (Lightning) M",
+    "element": "Lightning",
+    "rarity": 5,
+    "file": "icons/091_Trailblazer_Lightning_M.png"
+  },
+  {
+    "index": 92,
+    "name": "Trailblazer (Lightning) F",
+    "element": "Lightning",
+    "rarity": 5,
+    "file": "icons/092_Trailblazer_Lightning_F.png"
+  }
+]
