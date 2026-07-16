@@ -1,0 +1,324 @@
+{
+ "generated": "2026-07-16T17:12:52.839Z",
+ "loaded": 35,
+ "failed": 0,
+ "note": "Mushoku Tensei portraits. Multi-form characters filed in life-stage order.",
+ "broken": {},
+ "manifest": {
+  "[I] Rudeus Greyrat": {
+   "slug": "rudeus_greyrat",
+   "forms": [
+    {
+     "form": "child",
+     "file": "Images/rudeus_greyrat/01_child.jpg",
+     "source": "https://files.catbox.moe/g4wnvs.jpg"
+    },
+    {
+     "form": "teen",
+     "file": "Images/rudeus_greyrat/02_teen.jpg",
+     "source": "https://files.catbox.moe/aoi25p.jpg"
+    },
+    {
+     "form": "adult",
+     "file": "Images/rudeus_greyrat/03_adult.jpg",
+     "source": "https://files.catbox.moe/mkxzul.jpg"
+    }
+   ]
+  },
+  "[I] Roxy Migurdia": {
+   "slug": "roxy_migurdia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/roxy_migurdia/01_base.jpg",
+     "source": "https://files.catbox.moe/l68dsz.jpg"
+    }
+   ]
+  },
+  "[I] Sylphiette": {
+   "slug": "sylphiette",
+   "forms": [
+    {
+     "form": "child",
+     "file": "Images/sylphiette/01_child.jpg",
+     "source": "https://files.catbox.moe/ofqnnp.jpg"
+    },
+    {
+     "form": "fitz_teen",
+     "file": "Images/sylphiette/02_fitz_teen.jpg",
+     "source": "https://files.catbox.moe/fnpi6d.jpg"
+    },
+    {
+     "form": "adult",
+     "file": "Images/sylphiette/03_adult.jpg",
+     "source": "https://files.catbox.moe/8l0zdd.jpg"
+    }
+   ]
+  },
+  "[I] Eris Greyrat": {
+   "slug": "eris_greyrat",
+   "forms": [
+    {
+     "form": "child",
+     "file": "Images/eris_greyrat/01_child.jpg",
+     "source": "https://files.catbox.moe/g76umh.jpg"
+    },
+    {
+     "form": "adult",
+     "file": "Images/eris_greyrat/02_adult.jpg",
+     "source": "https://files.catbox.moe/2ad7m5.jpg"
+    }
+   ]
+  },
+  "[I] Paul Greyrat": {
+   "slug": "paul_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/paul_greyrat/01_base.jpg",
+     "source": "https://files.catbox.moe/qzcj83.jpg"
+    }
+   ]
+  },
+  "[I] Zenith Greyrat": {
+   "slug": "zenith_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/zenith_greyrat/01_base.jpg",
+     "source": "https://files.catbox.moe/9mjvpp.jpg"
+    }
+   ]
+  },
+  "[I] Lilia Greyrat": {
+   "slug": "lilia_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/lilia_greyrat/01_base.jpg",
+     "source": "https://files.catbox.moe/y0kgx5.jpg"
+    }
+   ]
+  },
+  "[I] Ghislaine Dedoldia": {
+   "slug": "ghislaine_dedoldia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/ghislaine_dedoldia/01_base.jpg",
+     "source": "https://files.catbox.moe/ejg24y.jpg"
+    }
+   ]
+  },
+  "[II] Ruijerd Superdia": {
+   "slug": "ruijerd_superdia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/ruijerd_superdia/01_base.jpg",
+     "source": "https://files.catbox.moe/4hc1k9.jpg"
+    }
+   ]
+  },
+  "[II] Kishirika Kishirisu": {
+   "slug": "kishirika_kishirisu",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/kishirika_kishirisu/01_base.jpg",
+     "source": "https://files.catbox.moe/dxf3j5.jpg"
+    }
+   ]
+  },
+  "[II] Badigadi": {
+   "slug": "badigadi",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/badigadi/01_base.jpg",
+     "source": "https://files.catbox.moe/uxe35p.jpg"
+    }
+   ]
+  },
+  "[II] Atoferatofe Raibaku": {
+   "slug": "atoferatofe_raibaku",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/atoferatofe_raibaku/01_base.jpg",
+     "source": "https://files.catbox.moe/bi74ze.jpg"
+    }
+   ]
+  },
+  "[II] Elinalise Dragonroad": {
+   "slug": "elinalise_dragonroad",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/elinalise_dragonroad/01_base.jpg",
+     "source": "https://files.catbox.moe/d6ku01.jpg"
+    }
+   ]
+  },
+  "[III] Cliff Grimoire": {
+   "slug": "cliff_grimoire",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/cliff_grimoire/01_base.jpg",
+     "source": "https://files.catbox.moe/p245lh.jpg"
+    }
+   ]
+  },
+  "[III] Zanoba Shirone": {
+   "slug": "zanoba_shirone",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/zanoba_shirone/01_base.jpg",
+     "source": "https://files.catbox.moe/32400u.jpg"
+    }
+   ]
+  },
+  "[III] Nanahoshi Shizuka": {
+   "slug": "nanahoshi_shizuka",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/nanahoshi_shizuka/01_base.jpg",
+     "source": "https://files.catbox.moe/fmggl3.jpg"
+    }
+   ]
+  },
+  "[III] Linia Dedoldia": {
+   "slug": "linia_dedoldia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/linia_dedoldia/01_base.jpg",
+     "source": "https://files.catbox.moe/ezuv8c.jpg"
+    }
+   ]
+  },
+  "[III] Pursena Adoldia": {
+   "slug": "pursena_adoldia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/pursena_adoldia/01_base.jpg",
+     "source": "https://files.catbox.moe/0j3k4r.jpg"
+    }
+   ]
+  },
+  "[IV] Orsted": {
+   "slug": "orsted",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/orsted/01_base.jpg",
+     "source": "https://files.catbox.moe/0h5elj.jpg"
+    }
+   ]
+  },
+  "[IV] Hitogami": {
+   "slug": "hitogami",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/hitogami/01_base.jpg",
+     "source": "https://files.catbox.moe/47786o.jpg"
+    }
+   ]
+  },
+  "[IV] Perugius Dola": {
+   "slug": "perugius_dola",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/perugius_dola/01_base.jpg",
+     "source": "https://files.catbox.moe/njepns.jpg"
+    }
+   ]
+  },
+  "[V/I] Aisha Greyrat": {
+   "slug": "aisha_greyrat",
+   "forms": [
+    {
+     "form": "child",
+     "file": "Images/aisha_greyrat/01_child.jpg",
+     "source": "https://files.catbox.moe/vxt2fc.jpg"
+    },
+    {
+     "form": "teen",
+     "file": "Images/aisha_greyrat/02_teen.jpg",
+     "source": "https://files.catbox.moe/22eoak.jpg"
+    }
+   ]
+  },
+  "[V/III] Norn Greyrat": {
+   "slug": "norn_greyrat",
+   "forms": [
+    {
+     "form": "child",
+     "file": "Images/norn_greyrat/01_child.jpg",
+     "source": "https://files.catbox.moe/yk52at.jpg"
+    },
+    {
+     "form": "teen",
+     "file": "Images/norn_greyrat/02_teen.jpg",
+     "source": "https://files.catbox.moe/b0v4d2.jpg"
+    }
+   ]
+  },
+  "[VI] Lucie Greyrat": {
+   "slug": "lucie_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/lucie_greyrat/01_base.jpg",
+     "source": "https://files.catbox.moe/c0vsxz.jpg"
+    }
+   ]
+  },
+  "[VI] Lara Greyrat": {
+   "slug": "lara_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/lara_greyrat/01_base.jpg",
+     "source": "https://files.catbox.moe/6dx9q7.jpg"
+    }
+   ]
+  },
+  "[VI] Ars Greyrat": {
+   "slug": "ars_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/ars_greyrat/01_base.jpg",
+     "source": "https://files.catbox.moe/89kcvo.jpg"
+    }
+   ]
+  },
+  "[VI] Lily Greyrat": {
+   "slug": "lily_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/lily_greyrat/01_base.jpg",
+     "source": "https://files.catbox.moe/gfzy2g.jpg"
+    }
+   ]
+  },
+  "[VI] Leo": {
+   "slug": "leo",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/leo/01_base.jpg",
+     "source": "https://files.catbox.moe/7jsy4r.jpg"
+    }
+   ]
+  }
+ }
+}
