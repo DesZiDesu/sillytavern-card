@@ -259,3 +259,43 @@ palette; painterly semi-realistic anime, fluffy fur detail, expressive, wholesom
 
 **ปรับได้ตามใจ:** เพศ/สีผม/ชนิดสัตว์ (Kemonomimi เปลี่ยน fox → wolf / cat / rabbit ฯลฯ ได้)
 **ให้เข้าชุดกัน:** เจนในแชทเดียวกันต่อเนื่อง แล้วต่อท้ายว่า *"same art style, framing, lighting and gold accents as before"*
+
+---
+
+# 🛡 เผ่าพันธุ์หลักทั้งสี่ · Flat Emblem Prompts (สัญลักษณ์ล้วน)
+### ตราสัญลักษณ์ Flat Color 1:1 สไตล์เดียวกับ 7 สายเลือด — สัญลักษณ์อย่างเดียว ไม่มีคน
+
+## มนุษย์ · Human
+```
+Flat color cartoon vector emblem, 1:1 square icon, symbol only (no people, no characters).
+A regal five-pointed crown with small round gems on the points and a jeweled band.
+Bold clean flat shapes, flat gold and amber (#d9b04a) with darker gold accents,
+dark charcoal background, minimal centered badge, sticker style, no text, no gradient.
+```
+
+## เอลฟ์ · Elf
+```
+Flat color cartoon vector emblem, 1:1 square icon, symbol only (no people, no characters).
+A stylized tree of life with a full rounded canopy, a slender trunk, and curved roots,
+enclosed in a subtle thin circle. Bold clean flat shapes, flat leaf-green (#8fce9e) with
+gold accents, dark background, minimal centered badge, sticker style, no text, no gradient.
+```
+
+## ดาร์กเอลฟ์ · Dark Elf
+```
+Flat color cartoon vector emblem, 1:1 square icon, symbol only (no people, no characters).
+A crescent moon paired with a downward-pointing dagger crossing in front of it.
+Bold clean flat shapes, flat violet (#9a83d6) with gold accents, dark background,
+minimal centered badge, sticker style, no text, no gradient.
+```
+
+## เผ่าหูสัตว์ · Kemonomimi
+```
+Flat color cartoon vector emblem, 1:1 square icon, symbol only (no people, no characters).
+A single animal paw print (one large central pad and four toe beans) with two small
+pointed beast ears above it. Bold clean flat shapes, flat warm amber (#d99a55) with gold
+accents, dark background, minimal centered badge, sticker style, no text, no gradient.
+```
+
+**ถ้าออกมาเป็นคน/มีตัวอักษร:** เติมท้าย `emblem icon only, no humans, no letters` แล้วเจนใหม่
+**ให้เข้าชุดกับ 7 อันเดิม:** เจนต่อในแชทเดียวกันแล้วบอก *"same flat emblem style and framing as before, change only the symbol and color"*
