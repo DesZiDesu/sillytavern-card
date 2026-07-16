@@ -1,0 +1,554 @@
+[
+  {
+    "index": 1,
+    "name": "March 7th (Ice)",
+    "slug": "march-7th-ice",
+    "element": "Ice"
+  },
+  {
+    "index": 2,
+    "name": "Dan Heng",
+    "slug": "dan-heng",
+    "element": "Wind"
+  },
+  {
+    "index": 3,
+    "name": "Himeko",
+    "slug": "himeko",
+    "element": "Fire"
+  },
+  {
+    "index": 4,
+    "name": "Welt",
+    "slug": "welt",
+    "element": "Imaginary"
+  },
+  {
+    "index": 5,
+    "name": "Kafka",
+    "slug": "kafka",
+    "element": "Thunder"
+  },
+  {
+    "index": 6,
+    "name": "Silver Wolf",
+    "slug": "silver-wolf",
+    "element": "Quantum"
+  },
+  {
+    "index": 7,
+    "name": "Arlan",
+    "slug": "arlan",
+    "element": "Thunder"
+  },
+  {
+    "index": 8,
+    "name": "Asta",
+    "slug": "asta",
+    "element": "Fire"
+  },
+  {
+    "index": 9,
+    "name": "Herta",
+    "slug": "herta",
+    "element": "Ice"
+  },
+  {
+    "index": 10,
+    "name": "Saber",
+    "slug": "saber",
+    "element": "Wind"
+  },
+  {
+    "index": 11,
+    "name": "Archer",
+    "slug": "archer",
+    "element": "Quantum"
+  },
+  {
+    "index": 12,
+    "name": "Bronya",
+    "slug": "bronya",
+    "element": "Wind"
+  },
+  {
+    "index": 13,
+    "name": "Seele",
+    "slug": "seele",
+    "element": "Quantum"
+  },
+  {
+    "index": 14,
+    "name": "Serval",
+    "slug": "serval",
+    "element": "Thunder"
+  },
+  {
+    "index": 15,
+    "name": "Gepard",
+    "slug": "gepard",
+    "element": "Ice"
+  },
+  {
+    "index": 16,
+    "name": "Natasha",
+    "slug": "natasha",
+    "element": "Physical"
+  },
+  {
+    "index": 17,
+    "name": "Pela",
+    "slug": "pela",
+    "element": "Ice"
+  },
+  {
+    "index": 18,
+    "name": "Clara",
+    "slug": "clara",
+    "element": "Physical"
+  },
+  {
+    "index": 19,
+    "name": "Sampo",
+    "slug": "sampo",
+    "element": "Wind"
+  },
+  {
+    "index": 20,
+    "name": "Hook",
+    "slug": "hook",
+    "element": "Fire"
+  },
+  {
+    "index": 21,
+    "name": "Lynx",
+    "slug": "lynx",
+    "element": "Quantum"
+  },
+  {
+    "index": 22,
+    "name": "Luka",
+    "slug": "luka",
+    "element": "Physical"
+  },
+  {
+    "index": 23,
+    "name": "Topaz & Numby",
+    "slug": "topaz-and-numby",
+    "element": "Fire"
+  },
+  {
+    "index": 24,
+    "name": "Qingque",
+    "slug": "qingque",
+    "element": "Quantum"
+  },
+  {
+    "index": 25,
+    "name": "Tingyun",
+    "slug": "tingyun",
+    "element": "Thunder"
+  },
+  {
+    "index": 26,
+    "name": "Luocha",
+    "slug": "luocha",
+    "element": "Imaginary"
+  },
+  {
+    "index": 27,
+    "name": "Jing Yuan",
+    "slug": "jing-yuan",
+    "element": "Thunder"
+  },
+  {
+    "index": 28,
+    "name": "Blade",
+    "slug": "blade",
+    "element": "Wind"
+  },
+  {
+    "index": 29,
+    "name": "Sushang",
+    "slug": "sushang",
+    "element": "Physical"
+  },
+  {
+    "index": 30,
+    "name": "Yukong",
+    "slug": "yukong",
+    "element": "Imaginary"
+  },
+  {
+    "index": 31,
+    "name": "Fu Xuan",
+    "slug": "fu-xuan",
+    "element": "Quantum"
+  },
+  {
+    "index": 32,
+    "name": "Yanqing",
+    "slug": "yanqing",
+    "element": "Ice"
+  },
+  {
+    "index": 33,
+    "name": "Guinaifen",
+    "slug": "guinaifen",
+    "element": "Fire"
+  },
+  {
+    "index": 34,
+    "name": "Bailu",
+    "slug": "bailu",
+    "element": "Thunder"
+  },
+  {
+    "index": 35,
+    "name": "Jingliu",
+    "slug": "jingliu",
+    "element": "Ice"
+  },
+  {
+    "index": 36,
+    "name": "Dan Heng • Imbibitor Lunae",
+    "slug": "dan-heng-imbibitor-lunae",
+    "element": "Imaginary"
+  },
+  {
+    "index": 37,
+    "name": "Xueyi",
+    "slug": "xueyi",
+    "element": "Quantum"
+  },
+  {
+    "index": 38,
+    "name": "Hanya",
+    "slug": "hanya",
+    "element": "Physical"
+  },
+  {
+    "index": 39,
+    "name": "Huohuo",
+    "slug": "huohuo",
+    "element": "Wind"
+  },
+  {
+    "index": 40,
+    "name": "Jiaoqiu",
+    "slug": "jiaoqiu",
+    "element": "Fire"
+  },
+  {
+    "index": 41,
+    "name": "Feixiao",
+    "slug": "feixiao",
+    "element": "Wind"
+  },
+  {
+    "index": 42,
+    "name": "Yunli",
+    "slug": "yunli",
+    "element": "Physical"
+  },
+  {
+    "index": 43,
+    "name": "Lingsha",
+    "slug": "lingsha",
+    "element": "Fire"
+  },
+  {
+    "index": 44,
+    "name": "Moze",
+    "slug": "moze",
+    "element": "Thunder"
+  },
+  {
+    "index": 45,
+    "name": "March 7th (Imaginary)",
+    "slug": "march-7th-imaginary",
+    "element": "Imaginary"
+  },
+  {
+    "index": 46,
+    "name": "Fugue",
+    "slug": "fugue",
+    "element": "Fire"
+  },
+  {
+    "index": 47,
+    "name": "Gallagher",
+    "slug": "gallagher",
+    "element": "Fire"
+  },
+  {
+    "index": 48,
+    "name": "Argenti",
+    "slug": "argenti",
+    "element": "Physical"
+  },
+  {
+    "index": 49,
+    "name": "Ruan Mei",
+    "slug": "ruan-mei",
+    "element": "Ice"
+  },
+  {
+    "index": 50,
+    "name": "Aventurine",
+    "slug": "aventurine",
+    "element": "Imaginary"
+  },
+  {
+    "index": 51,
+    "name": "Dr. Ratio",
+    "slug": "dr-ratio",
+    "element": "Imaginary"
+  },
+  {
+    "index": 52,
+    "name": "Sparkle",
+    "slug": "sparkle",
+    "element": "Quantum"
+  },
+  {
+    "index": 53,
+    "name": "Black Swan",
+    "slug": "black-swan",
+    "element": "Wind"
+  },
+  {
+    "index": 54,
+    "name": "Acheron",
+    "slug": "acheron",
+    "element": "Thunder"
+  },
+  {
+    "index": 55,
+    "name": "Robin",
+    "slug": "robin",
+    "element": "Physical"
+  },
+  {
+    "index": 56,
+    "name": "Firefly",
+    "slug": "firefly",
+    "element": "Fire"
+  },
+  {
+    "index": 57,
+    "name": "Misha",
+    "slug": "misha",
+    "element": "Ice"
+  },
+  {
+    "index": 58,
+    "name": "Sunday",
+    "slug": "sunday",
+    "element": "Imaginary"
+  },
+  {
+    "index": 59,
+    "name": "Jade",
+    "slug": "jade",
+    "element": "Quantum"
+  },
+  {
+    "index": 60,
+    "name": "Boothill",
+    "slug": "boothill",
+    "element": "Physical"
+  },
+  {
+    "index": 61,
+    "name": "Rappa",
+    "slug": "rappa",
+    "element": "Imaginary"
+  },
+  {
+    "index": 62,
+    "name": "The Dahlia",
+    "slug": "the-dahlia",
+    "element": "Fire"
+  },
+  {
+    "index": 63,
+    "name": "The Herta",
+    "slug": "the-herta",
+    "element": "Ice"
+  },
+  {
+    "index": 64,
+    "name": "Aglaea",
+    "slug": "aglaea",
+    "element": "Thunder"
+  },
+  {
+    "index": 65,
+    "name": "Tribbie",
+    "slug": "tribbie",
+    "element": "Quantum"
+  },
+  {
+    "index": 66,
+    "name": "Mydei",
+    "slug": "mydei",
+    "element": "Imaginary"
+  },
+  {
+    "index": 67,
+    "name": "Anaxa",
+    "slug": "anaxa",
+    "element": "Wind"
+  },
+  {
+    "index": 68,
+    "name": "Cipher",
+    "slug": "cipher",
+    "element": "Quantum"
+  },
+  {
+    "index": 69,
+    "name": "Castorice",
+    "slug": "castorice",
+    "element": "Quantum"
+  },
+  {
+    "index": 70,
+    "name": "Phainon",
+    "slug": "phainon",
+    "element": "Physical"
+  },
+  {
+    "index": 71,
+    "name": "Hyacine",
+    "slug": "hyacine",
+    "element": "Wind"
+  },
+  {
+    "index": 72,
+    "name": "Hysilens",
+    "slug": "hysilens",
+    "element": "Physical"
+  },
+  {
+    "index": 73,
+    "name": "Cerydra",
+    "slug": "cerydra",
+    "element": "Wind"
+  },
+  {
+    "index": 74,
+    "name": "Evernight",
+    "slug": "evernight",
+    "element": "Ice"
+  },
+  {
+    "index": 75,
+    "name": "Dan Heng • Permansor Terrae",
+    "slug": "dan-heng-permansor-terrae",
+    "element": "Physical"
+  },
+  {
+    "index": 76,
+    "name": "Cyrene",
+    "slug": "cyrene",
+    "element": "Ice"
+  },
+  {
+    "index": 77,
+    "name": "Sparxie",
+    "slug": "sparxie",
+    "element": "Fire"
+  },
+  {
+    "index": 78,
+    "name": "Yao Guang",
+    "slug": "yao-guang",
+    "element": "Physical"
+  },
+  {
+    "index": 79,
+    "name": "Ashveil",
+    "slug": "ashveil",
+    "element": "Thunder"
+  },
+  {
+    "index": 80,
+    "name": "Evanescia",
+    "slug": "evanescia",
+    "element": "Physical"
+  },
+  {
+    "index": 81,
+    "name": "Silver Wolf LV.999",
+    "slug": "silver-wolf-lv999",
+    "element": "Imaginary"
+  },
+  {
+    "index": 82,
+    "name": "Mortenax Blade",
+    "slug": "mortenax-blade",
+    "element": "Fire"
+  },
+  {
+    "index": 83,
+    "name": "Trailblazer (Physical) M",
+    "slug": "trailblazer-physical-m",
+    "element": "Physical"
+  },
+  {
+    "index": 84,
+    "name": "Trailblazer (Physical) F",
+    "slug": "trailblazer-physical-f",
+    "element": "Physical"
+  },
+  {
+    "index": 85,
+    "name": "Trailblazer (Fire) M",
+    "slug": "trailblazer-fire-m",
+    "element": "Fire"
+  },
+  {
+    "index": 86,
+    "name": "Trailblazer (Fire) F",
+    "slug": "trailblazer-fire-f",
+    "element": "Fire"
+  },
+  {
+    "index": 87,
+    "name": "Trailblazer (Imaginary) M",
+    "slug": "trailblazer-imaginary-m",
+    "element": "Imaginary"
+  },
+  {
+    "index": 88,
+    "name": "Trailblazer (Imaginary) F",
+    "slug": "trailblazer-imaginary-f",
+    "element": "Imaginary"
+  },
+  {
+    "index": 89,
+    "name": "Trailblazer (Ice) M",
+    "slug": "trailblazer-ice-m",
+    "element": "Ice"
+  },
+  {
+    "index": 90,
+    "name": "Trailblazer (Ice) F",
+    "slug": "trailblazer-ice-f",
+    "element": "Ice"
+  },
+  {
+    "index": 91,
+    "name": "Trailblazer (Lightning) M",
+    "slug": "trailblazer-lightning-m",
+    "element": "Thunder"
+  },
+  {
+    "index": 92,
+    "name": "Trailblazer (Lightning) F",
+    "slug": "trailblazer-lightning-f",
+    "element": "Thunder"
+  }
+]
