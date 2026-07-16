@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ปกรณัมแห่งเวลมีรา · Codex Velmyra — เจ็ดสายโลหิตแห่งเผ่าอสูร</title>
-<meta name="description" content="บันทึกเจ็ดสายโลหิตแห่งเผ่าอสูรในโลกเวลมีรา — ตำนาน ลักษณะ และพลังประจำเผ่า">
+<title>ปกรณัมแห่งเวลมีรา · Velmyra — เจ็ดสายโลหิตแห่งสี่ต้นกำเนิด</title>
+<meta name="description" content="บันทึกเจ็ดสายโลหิตแห่งโลกเวลมีรา แยกตามเผ่าต้นกำเนิด — มนุษย์ เอลฟ์ ดาร์กเอลฟ์ และเผ่าหูสัตว์">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chonburi&family=Cinzel:wght@500;600&family=EB+Garamond:ital@0;1&family=Taviraj:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -21,19 +21,18 @@
   --gold-dk:#7d6419;
   --line:#332c1f;
   --line-soft:#241f16;
-  --panel:#141110;
   --thai-disp:'Chonburi','Taviraj',serif;
   --thai:'Taviraj',serif;
   --lat:'Cinzel',serif;
   --serif:'EB Garamond',Georgia,serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   background:
     radial-gradient(1200px 720px at 50% -10%,rgba(201,162,39,.09),transparent 60%),
-    radial-gradient(820px 820px at 8% 26%,rgba(120,40,64,.075),transparent 58%),
-    radial-gradient(820px 820px at 92% 78%,rgba(58,80,140,.075),transparent 58%),
+    radial-gradient(820px 820px at 8% 24%,rgba(120,40,64,.07),transparent 58%),
+    radial-gradient(820px 820px at 92% 80%,rgba(58,80,140,.07),transparent 58%),
     linear-gradient(180deg,var(--bg) 0%,var(--bg2) 55%,var(--bg) 100%);
   background-attachment:fixed;
   color:var(--ink);
@@ -43,132 +42,133 @@ body{
   font-size:17px;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  word-break:break-word;
 }
 body::before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 a{color:inherit;text-decoration:none}
-.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 24px}
-.lat{font-family:var(--lat);letter-spacing:.14em}
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 22px}
 .en{font-family:var(--lat);letter-spacing:.16em;text-transform:uppercase}
+
+/* ---------- HIDE ability blocks (kept in markup, hidden for now) ---------- */
+.ability{display:none !important}
 
 /* ---------- top bar ---------- */
 .topbar{
   position:sticky;top:0;z-index:40;
   backdrop-filter:blur(9px);
-  background:linear-gradient(180deg,rgba(9,7,6,.94),rgba(9,7,6,.62));
+  background:linear-gradient(180deg,rgba(9,7,6,.94),rgba(9,7,6,.6));
   border-bottom:1px solid var(--line-soft);
 }
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;max-width:1080px}
-.brand{font-family:var(--lat);letter-spacing:.28em;font-size:12px;color:var(--gold-lt);text-transform:uppercase}
-.nav{display:flex;gap:24px;font-family:var(--thai);font-weight:400;font-size:15px;color:var(--ink-soft)}
-.nav a{position:relative;transition:color .25s}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;max-width:1040px}
+.brand{font-family:var(--lat);letter-spacing:.3em;font-size:13px;color:var(--gold-lt);text-transform:uppercase}
+.nav{display:flex;gap:22px;font-family:var(--thai);font-weight:400;font-size:15px;color:var(--ink-soft)}
+.nav a{position:relative;transition:color .25s;white-space:nowrap}
 .nav a:hover{color:var(--gold-lt)}
 .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-3px;height:1px;background:var(--gold);transition:right .3s}
 .nav a:hover::after{right:0}
-@media(max-width:900px){.nav{display:none}}
+@media(max-width:720px){.nav{display:none}}
 
 /* ---------- hero ---------- */
-.hero{text-align:center;padding:110px 0 54px}
-.crest{width:104px;height:104px;margin:0 auto 30px;display:block;filter:drop-shadow(0 4px 20px rgba(201,162,39,.24))}
-.hero .eyebrow{font-family:var(--lat);letter-spacing:.44em;font-size:11px;color:var(--gold);text-transform:uppercase;margin-bottom:26px}
+.hero{text-align:center;padding:96px 0 46px}
+.crest{width:96px;height:96px;margin:0 auto 26px;display:block;filter:drop-shadow(0 4px 20px rgba(201,162,39,.24))}
+.hero .eyebrow{font-family:var(--lat);letter-spacing:.4em;font-size:11px;color:var(--gold);text-transform:uppercase;margin-bottom:24px}
 .hero h1{
   font-family:var(--thai-disp);
-  font-size:clamp(46px,8.4vw,88px);
-  line-height:1.08;
+  font-size:clamp(42px,10vw,86px);
+  line-height:1.1;
   font-weight:400;
-  background:linear-gradient(180deg,#f8efcf 0%,var(--gold-lt) 46%,var(--gold-dk) 108%);
+  background:linear-gradient(180deg,#f8efcf 0%,var(--gold-lt) 46%,var(--gold-dk) 110%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold-lt);
   padding-bottom:.08em;
 }
-.hero .th-sub{font-family:var(--thai);font-weight:500;font-size:clamp(19px,3vw,26px);color:var(--ink);margin-top:6px;letter-spacing:.01em}
-.hero .en-sub{font-family:var(--lat);font-size:12px;letter-spacing:.34em;color:var(--ink-soft);text-transform:uppercase;margin-top:16px}
-.hero .quote{color:var(--ink-dim);font-family:var(--thai);font-weight:300;font-style:normal;max-width:600px;margin:28px auto 0;font-size:18px;position:relative}
-.hero .quote::before,.hero .quote::after{content:"”";font-family:var(--serif);color:var(--gold-dk);font-size:26px;vertical-align:-.35em}
-.hero .quote::before{content:"“"}
+.hero .th-sub{font-family:var(--thai);font-weight:500;font-size:clamp(18px,4.4vw,25px);color:var(--ink);margin-top:6px;letter-spacing:.01em}
+.hero .en-sub{font-family:var(--lat);font-size:11px;letter-spacing:.3em;color:var(--ink-soft);text-transform:uppercase;margin-top:16px}
+.hero .quote{color:var(--ink-dim);font-family:var(--thai);font-weight:300;max-width:560px;margin:26px auto 0;font-size:clamp(16px,4.4vw,18px);padding:0 6px}
+.hero .quote::before,.hero .quote::after{font-family:var(--serif);color:var(--gold-dk);font-size:24px;vertical-align:-.35em}
+.hero .quote::before{content:"“"}.hero .quote::after{content:"”"}
 
 /* ---------- ornaments ---------- */
-.rule{display:flex;align-items:center;justify-content:center;gap:18px;margin:52px auto;color:var(--gold);max-width:440px}
+.rule{display:flex;align-items:center;justify-content:center;gap:16px;margin:46px auto;color:var(--gold);max-width:420px}
 .rule::before,.rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold-dk),transparent)}
 .rule .dia{font-size:10px;letter-spacing:.5em;opacity:.85}
 
 /* ---------- preface ---------- */
-.preface{max-width:640px;margin:0 auto;text-align:center}
-.preface p{color:var(--ink-dim);font-size:19px;font-weight:300;line-height:1.95}
+.preface{max-width:620px;margin:0 auto;text-align:center}
+.preface p{color:var(--ink-dim);font-size:clamp(16px,4.6vw,19px);font-weight:300;line-height:1.95}
 
-/* ---------- section heading ---------- */
-.section-head{text-align:center;margin:96px 0 6px}
-.section-head .en{font-size:11px;letter-spacing:.4em;color:var(--gold)}
-.section-head h2{font-family:var(--thai-disp);font-weight:400;font-size:clamp(30px,5vw,46px);color:var(--ink);margin-top:14px}
+/* ---------- category zone ---------- */
+.category{--zone:#c9a227;margin-top:34px}
+.zone-head{
+  text-align:center;padding:66px 0 8px;position:relative;
+}
+.zone-head .en{font-size:11px;letter-spacing:.34em;color:var(--zone)}
+.zone-head h2{
+  font-family:var(--thai-disp);font-weight:400;font-size:clamp(30px,7vw,48px);
+  color:var(--ink);margin-top:12px;line-height:1.1;
+}
+.zone-head h2 .orb{color:var(--zone)}
+.zone-head .desc{color:var(--ink-soft);font-weight:300;max-width:520px;margin:14px auto 0;font-size:clamp(14.5px,4vw,16.5px)}
+.zone-head .count{display:inline-block;margin-top:16px;font-family:var(--lat);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--zone);border:1px solid color-mix(in srgb,var(--zone) 45%,transparent);border-radius:30px;padding:4px 14px}
 
 /* ---------- race entry ---------- */
 .race{
   --accent:#c9a227;
-  display:grid;grid-template-columns:150px 1fr;gap:44px;align-items:start;
-  padding:56px 0;
+  display:grid;grid-template-columns:118px 1fr;gap:34px;align-items:start;
+  padding:42px 0;
   border-top:1px solid var(--line-soft);
-  opacity:0;transform:translateY(24px);
-  transition:opacity .9s ease,transform .9s ease;
+  opacity:0;transform:translateY(22px);
+  transition:opacity .85s ease,transform .85s ease;
 }
 .race.in{opacity:1;transform:none}
-.race:first-of-type{border-top:none}
-.race:nth-child(even){grid-template-columns:1fr 150px}
-.race:nth-child(even) .emblem-col{order:2}
-.race:nth-child(even) .body-col{order:1;text-align:right}
-.race:nth-child(even) .epithet,
-.race:nth-child(even) .tags{justify-content:flex-end}
-.race:nth-child(even) .ability{border-left:none;border-right:2px solid var(--accent);padding-left:0;padding-right:20px}
-@media(max-width:760px){
-  .race,.race:nth-child(even){grid-template-columns:1fr;gap:24px;padding:44px 0}
-  .race:nth-child(even) .body-col{order:0;text-align:left}
-  .race:nth-child(even) .epithet,.race:nth-child(even) .tags{justify-content:flex-start}
-  .race:nth-child(even) .ability{border-right:none;border-left:2px solid var(--accent);padding-right:0;padding-left:20px}
-}
+.zone-head + .race{border-top:none}
 
-/* emblem */
-.emblem-col{text-align:center}
-.roundel{width:132px;height:132px;margin:0 auto;position:relative}
-.roundel svg{width:100%;height:100%;display:block;filter:drop-shadow(0 3px 14px color-mix(in srgb,var(--accent) 28%,transparent))}
-.numeral{font-family:var(--lat);font-size:12px;letter-spacing:.36em;color:var(--accent);margin-top:16px}
+.emblem-col{text-align:center;padding-top:4px}
+.roundel{width:112px;height:112px;margin:0 auto;position:relative}
+.roundel svg{width:100%;height:100%;display:block;filter:drop-shadow(0 3px 12px color-mix(in srgb,var(--accent) 26%,transparent))}
+.numeral{font-family:var(--lat);font-size:11px;letter-spacing:.34em;color:var(--accent);margin-top:14px}
 
-/* body */
 .body-col{min-width:0}
-.ksuper{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.race:nth-child(even) .ksuper{justify-content:flex-end}
-.race h3{font-family:var(--thai-disp);font-weight:400;font-size:clamp(30px,4.4vw,42px);color:var(--accent);line-height:1.14}
-.race .romaji{font-family:var(--lat);font-size:14px;letter-spacing:.24em;color:var(--ink-soft);text-transform:uppercase}
+.ksuper{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.race h3{font-family:var(--thai-disp);font-weight:400;font-size:clamp(28px,6.6vw,40px);color:var(--accent);line-height:1.16}
+.race .romaji{font-family:var(--lat);font-size:13px;letter-spacing:.22em;color:var(--ink-soft);text-transform:uppercase}
 .gim{
-  font-family:var(--lat);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  font-family:var(--lat);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);
-  border-radius:30px;padding:3px 11px;line-height:1;white-space:nowrap;
+  border-radius:30px;padding:3px 10px;line-height:1;white-space:nowrap;
 }
-.epithet{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:12px;color:var(--ink-dim);font-size:17px}
-.epithet .en{font-size:11px;color:var(--ink-soft)}
-.lore{color:var(--ink-dim);font-weight:300;margin-top:16px;font-size:17px;max-width:60ch}
-.race:nth-child(even) .lore{margin-left:auto}
+.epithet{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:11px;color:var(--ink-dim);font-size:clamp(15px,4.2vw,17px)}
+.epithet .en{font-size:10.5px;color:var(--ink-soft)}
+.lore{color:var(--ink-dim);font-weight:300;margin-top:15px;font-size:clamp(15.5px,4.3vw,17px);line-height:1.85}
 
-/* tags */
-.tags{display:flex;gap:28px;flex-wrap:wrap;margin-top:20px}
+.tags{display:flex;gap:14px 30px;flex-wrap:wrap;margin-top:18px}
 .tag{display:flex;flex-direction:column;gap:1px}
-.tag .k{font-family:var(--lat);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.9}
-.tag .v{color:var(--ink);font-size:15.5px;font-weight:400}
+.tag .k{font-family:var(--lat);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);opacity:.92}
+.tag .v{color:var(--ink);font-size:15px;font-weight:400}
 
-/* ability */
-.ability{margin-top:24px;border-left:2px solid var(--accent);padding-left:20px;max-width:62ch}
-.race:nth-child(even) .ability{margin-left:auto}
-.ability .lbl{font-family:var(--lat);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
-.ability .aname{font-family:var(--thai);font-weight:600;font-size:19px;color:var(--ink);margin:4px 0 6px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.race:nth-child(even) .aname{justify-content:flex-end}
-.ability .aname .romaji{font-size:12px}
-.ability p{color:var(--ink-dim);font-weight:300;font-size:16px;line-height:1.75}
+/* ---------- mobile ---------- */
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .race{
+    grid-template-columns:1fr;gap:16px;padding:34px 0;
+    justify-items:center;text-align:center;
+  }
+  .roundel{width:88px;height:88px}
+  .numeral{margin-top:10px}
+  .ksuper,.epithet,.tags{justify-content:center}
+  .tags{gap:12px 26px}
+  .body-col{width:100%}
+  .lore{text-align:center}
+}
 
-/* footer */
-footer{text-align:center;padding:80px 0 96px;color:var(--ink-faint)}
-footer .sig{font-family:var(--thai-disp);color:var(--gold-lt);font-size:26px}
-footer .en{font-size:10px;letter-spacing:.34em;color:var(--gold-dk);margin-top:8px}
-footer p{font-size:15px;margin-top:14px;font-weight:300;color:var(--ink-soft)}
-footer .fine{font-size:12px;color:#5a5241;margin-top:22px;font-weight:300}
+/* ---------- footer ---------- */
+footer{text-align:center;padding:74px 0 90px;color:var(--ink-faint)}
+footer .sig{font-family:var(--thai-disp);color:var(--gold-lt);font-size:clamp(22px,7vw,26px)}
+footer .en{font-size:10px;letter-spacing:.3em;color:var(--gold-dk);margin-top:8px}
+footer p{font-size:14px;margin-top:14px;font-weight:300;color:var(--ink-soft)}
+footer .fine{font-size:12px;color:#5a5241;margin-top:20px;font-weight:300}
 </style>
 </head>
 <body>
@@ -176,15 +176,12 @@ footer .fine{font-size:12px;color:#5a5241;margin-top:22px;font-weight:300}
 <!-- ===== TOP BAR ===== -->
 <header class="topbar">
   <div class="wrap">
-    <div class="brand">Codex · Velmyra</div>
+    <div class="brand">Velmyra</div>
     <nav class="nav">
-      <a href="#ilvaris">อิลวาริส</a>
-      <a href="#vokthar">โวคธาร์</a>
-      <a href="#sylenne">ไซเลนน์</a>
-      <a href="#lilthys">ลิลธีส</a>
-      <a href="#malvorn">มัลวอร์น</a>
-      <a href="#vitress">วิเทรสส์</a>
-      <a href="#resvyn">เรสวิน</a>
+      <a href="#human">มนุษย์</a>
+      <a href="#elf">เอลฟ์</a>
+      <a href="#darkelf">ดาร์กเอลฟ์</a>
+      <a href="#kemono">หูสัตว์</a>
     </nav>
   </div>
 </header>
@@ -206,243 +203,294 @@ footer .fine{font-size:12px;color:#5a5241;margin-top:22px;font-weight:300}
 
   <div class="eyebrow">Bestiarum · Liber Primus</div>
   <h1>ปกรณัมแห่งเวลมีรา</h1>
-  <div class="th-sub">เจ็ดสายโลหิตแห่งเผ่าอสูร</div>
-  <div class="en-sub">The Seven Bloodlines of the Vael</div>
-  <p class="quote">อสูรมิใช่ชนหนึ่งเดียว หากคือสายเลือดนับไม่ถ้วนที่หลั่งไหลจากราตรีเดียวกัน</p>
+  <div class="th-sub">เจ็ดสายโลหิตแห่งสี่ต้นกำเนิด</div>
+  <div class="en-sub">Seven Bloodlines · Four Origins</div>
+  <p class="quote">ทุกสายเลือดล้วนหยั่งรากจากเผ่าต้นกำเนิดเดียวกัน ก่อนจะแตกหน่อเป็นสิ่งที่โลกไม่เคยเห็น</p>
 </section>
 
 <div class="rule"><span class="dia">✦ ◆ ✦</span></div>
 
 <!-- ===== PREFACE ===== -->
 <section class="preface wrap">
-  <p>ในโลกเวลมีรา มนุษย์เรียกผู้ที่มิใช่พวกตนว่า “อสูร” ราวเป็นชนเผ่าเดียว ทว่าพวกเขาคือสายเลือดนับไม่ถ้วน แต่ละสายมีตำนาน และแต่ละสายพกพาพรอันเป็นคำสาปมาแต่กำเนิด — นี่คือเจ็ดสายที่ถูกจดจาร</p>
+  <p>ในโลกเวลมีรามีเผ่าพันธุ์ต้นกำเนิดสี่เผ่า — มนุษย์ เอลฟ์ ดาร์กเอลฟ์ และเผ่าหูสัตว์ จากสายเลือดของแต่ละเผ่า ได้ถือกำเนิดสายโลหิตพิเศษที่แปรเปลี่ยนไปด้วยพลังโบราณ รวมเจ็ดสาย นี่คือบันทึกของพวกเขา แยกตามรากเหง้าที่จากมา</p>
 </section>
 
-<section class="section-head wrap">
-  <div class="en">The Seven Bloodlines</div>
-  <h2>เจ็ดสายโลหิต</h2>
-</section>
+<main>
 
-<main class="wrap">
+  <!-- ============================================================= -->
+  <!-- ZONE · HUMAN -->
+  <!-- ============================================================= -->
+  <section class="category" id="human" style="--zone:#e0c060">
+    <div class="wrap">
+      <div class="zone-head">
+        <div class="en">Origin · Human</div>
+        <h2>เผ่า<span class="orb">มนุษย์</span></h2>
+        <p class="desc">เผ่าที่แพร่หลายและปรับตัวเก่งที่สุด ใฝ่หาพลังและความรู้ จากสายเลือดมนุษย์จึงแตกหน่อสายโลหิตพิเศษไว้มากที่สุด</p>
+        <div class="count">Three Bloodlines</div>
+      </div>
 
-  <!-- ============ 1 · ILVARIS ============ -->
-  <article class="race" id="ilvaris" style="--accent:#93c58b">
-    <div class="emblem-col">
-      <div class="roundel">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="55" fill="#0e120c" stroke="#332c1f" stroke-width="1.3"/>
-          <circle cx="60" cy="60" r="48" fill="none" stroke="#93c58b" stroke-width="1" opacity=".45"/>
-          <path d="M60 30 C46 34 40 50 44 70 C48 84 60 90 60 90 C60 90 72 84 76 70 C80 50 74 34 60 30 Z" fill="none" stroke="#93c58b" stroke-width="2"/>
-          <path d="M60 40 L60 84" stroke="#93c58b" stroke-width="1.2" opacity=".75"/>
-          <path d="M60 52 L50 46 M60 60 L48 55 M60 52 L70 46 M60 60 L72 55" stroke="#93c58b" stroke-width="1" opacity=".65"/>
-          <circle cx="60" cy="34" r="2.8" fill="#93c58b"/>
-        </svg>
-      </div>
-      <div class="numeral">I</div>
-    </div>
-    <div class="body-col">
-      <div class="ksuper"><h3>อิลวาริส</h3><span class="romaji">Ilvaris</span></div>
-      <div class="epithet">ผู้เดินสองโลก<span class="en">Walkers of Two Worlds</span></div>
-      <p class="lore">สายเลือดที่ใกล้เคียงมนุษย์ที่สุด มีเพียงปลายหูแหลม—สั้นกว่าเอลฟ์—ที่เผยธาตุแท้ พวกเขาจึงใช้ชีวิตปะปนในนครมนุษย์มาช้านาน ในฐานะทูต พ่อค้า นักปราชญ์ และสายลับผู้เชื่อมสองโลก</p>
-      <div class="tags">
-        <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">นครมนุษย์ · เมืองชายแดน</span></div>
-        <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ปลายหูแหลมสั้น</span></div>
-      </div>
-      <div class="ability">
-        <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
-        <div class="aname">เสียงกระซิบสายเลือด<span class="romaji">Bloodwhisper</span></div>
-        <p>สัมผัสอารมณ์และคำโกหกในใจผู้อื่นได้ พร้อมน้ำเสียงที่โน้มน้าวและปลอบประโลม — น้อยคนจะโกหกอิลวาริสได้ หรือคงความโกรธไว้เมื่ออยู่ใกล้พวกเขา</p>
-      </div>
-    </div>
-  </article>
+      <!-- Sylenne -->
+      <article class="race" id="sylenne" style="--accent:#8fcadd">
+        <div class="emblem-col">
+          <div class="roundel">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="55" fill="#0a1013" stroke="#332c1f" stroke-width="1.3"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#8fcadd" stroke-width="1" opacity=".45"/>
+              <path d="M42 84 C40 66 44 54 50 50 M50 50 L50 36 M58 50 L58 32 M66 50 L66 34 M74 52 L74 40 M50 50 C50 50 74 50 78 56 C82 62 80 74 78 84" fill="none" stroke="#8fcadd" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="60" cy="66" r="9.5" fill="none" stroke="#8fcadd" stroke-width="2.1"/>
+              <circle cx="60" cy="66" r="3.6" fill="#8fcadd"/>
+              <path d="M60 56 L60 51 M60 81 L60 76 M50 66 L45 66 M75 66 L70 66" stroke="#8fcadd" stroke-width="1.1" opacity=".65"/>
+            </svg>
+          </div>
+          <div class="numeral">I</div>
+        </div>
+        <div class="body-col">
+          <div class="ksuper"><h3>ไซเลนน์</h3><span class="romaji">Sylenne</span></div>
+          <div class="epithet">หัตถ์กลืนเวทมนตร์<span class="en">The Hollow Palms</span></div>
+          <p class="lore">ลูกหลานมนุษย์ผู้เกิดใต้จันทร์มืด ผิวจึงซีดขาวดั่งหินอ่อน ใต้ฝ่ามือทั้งสองฝัง “มณีมายา” ผลึกมีชีวิตที่ดูดซับพลังเวทจากทุกสรรพสิ่ง พวกเขาคืออาร์คเมจและผู้ทลายมนตราแห่งราชสำนัก—ทว่าหากกลืนมากเกิน เนื้อหนังจะกลายเป็นผลึกใสในที่สุด</p>
+          <div class="tags">
+            <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">หอคอยสายพลัง · ถ้ำผลึก</span></div>
+            <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ผิวซีดขาว · มณีใต้ฝ่ามือ</span></div>
+          </div>
+          <div class="ability">
+            <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
+            <div class="aname">หัตถ์ดูดกลืน · Manavore</div>
+            <p>ดึงมานาจากอากาศ สายพลัง หรือคาถาของศัตรู—เพียงสัมผัสก็ลบล้างเวทให้สลาย แล้วปลดปล่อยเป็นลำพลังดิบได้ในพริบตา</p>
+          </div>
+        </div>
+      </article>
 
-  <!-- ============ 2 · VOKTHAR ============ -->
-  <article class="race" id="vokthar" style="--accent:#d95d5d">
-    <div class="emblem-col">
-      <div class="roundel">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="55" fill="#120b0b" stroke="#332c1f" stroke-width="1.3"/>
-          <circle cx="60" cy="60" r="48" fill="none" stroke="#d95d5d" stroke-width="1" opacity=".45"/>
-          <path d="M60 66 C50 60 44 48 46 36 C54 44 58 52 60 60" fill="none" stroke="#d95d5d" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M60 66 C70 60 76 48 74 36 C66 44 62 52 60 60" fill="none" stroke="#d95d5d" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M60 66 C58 54 60 42 60 30" fill="none" stroke="#d95d5d" stroke-width="1.8" stroke-linecap="round" opacity=".8"/>
-          <circle cx="60" cy="78" r="11" fill="#090505" stroke="#d95d5d" stroke-width="2.1"/>
-          <circle cx="60" cy="78" r="4" fill="#d95d5d"/>
-        </svg>
-      </div>
-      <div class="numeral">II</div>
-    </div>
-    <div class="body-col">
-      <div class="ksuper"><h3>โวคธาร์</h3><span class="romaji">Vokthar</span></div>
-      <div class="epithet">ผู้ไม่ยอมล้ม<span class="en">The Unfalling</span></div>
-      <p class="lore">นักรบผิวคล้ำดั่งราตรี ดวงตาไร้ตาขาว—ดำสนิทดั่งบ่อน้ำมืด เขางอกได้จากทุกส่วนของกะโหลก ตำแหน่งของมันบอกสายตระกูลและวีรกรรมในศึก ตำนานว่าจอมทัพเก่าไม่อาจถูกสังหาร ทุกบาดแผลมีแต่ทำให้แข็งแกร่งขึ้น</p>
-      <div class="tags">
-        <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">ที่ราบสูงเหนือ</span></div>
-        <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ผิวคล้ำ · เขาทุกทิศ · ตาดำสนิท</span></div>
-      </div>
-      <div class="ability">
-        <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
-        <div class="aname">เนื้อรัตติกาล<span class="romaji">Nightflesh</span></div>
-        <p>บาดแผลสมานตัวรวดเร็ว และทุกแผลสาหัสจะทำให้เนื้อหนังแข็งแกร่งขึ้นกว่าเดิม ยิ่งรบยืดเยื้อยิ่งทนทาน เสริมด้วยพละกำลังเหนือมนุษย์และดวงตาที่มองทะลุความมืด</p>
-      </div>
-    </div>
-  </article>
+      <!-- Lilthys -->
+      <article class="race" id="lilthys" style="--accent:#db8bb2">
+        <div class="emblem-col">
+          <div class="roundel">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="55" fill="#130b10" stroke="#332c1f" stroke-width="1.3"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#db8bb2" stroke-width="1" opacity=".45"/>
+              <path d="M74 36 A26 26 0 1 0 74 84 A20 20 0 1 1 74 36 Z" fill="none" stroke="#db8bb2" stroke-width="2.1"/>
+              <path d="M60 62 C54 55 45 58 47 66 C49 73 60 80 60 80 C60 80 71 73 73 66 C75 58 66 55 60 62 Z" fill="none" stroke="#db8bb2" stroke-width="1.7"/>
+              <path d="M40 44 C31 46 27 54 31 58" stroke="#db8bb2" stroke-width="1.2" fill="none" opacity=".65"/>
+            </svg>
+          </div>
+          <div class="numeral">II</div>
+        </div>
+        <div class="body-col">
+          <div class="ksuper"><h3>ลิลธีส</h3><span class="romaji">Lilthys · Succubus</span></div>
+          <div class="epithet">นางแห่งราตรีนิทรา<span class="en">Ladies of the Dream</span></div>
+          <p class="lore">สายเลือดมนุษย์ที่ต้องมนตร์แห่งราตรี มิได้กินเลือดเนื้อ หากหล่อเลี้ยงชีวิตด้วยอารมณ์และไออุ่นแห่งความฝัน พวกนางเดินท่องในนิทราของผู้อื่นได้—ทว่าพันธนาการโบราณผูกไว้ว่าจะพรากได้เพียงสิ่งที่ถูกมอบให้ด้วยใจ</p>
+          <div class="tags">
+            <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">วังราตรี</span></div>
+            <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">งามดั่งสนธยา · ตาเรืองไฟ</span></div>
+          </div>
+          <div class="ability">
+            <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
+            <div class="aname">บ่วงนิทรา · Dreamsnare</div>
+            <p>ก้าวเข้าและปั้นแต่งความฝันของผู้อื่น ดูดกลืนอารมณ์เป็นอาหาร และร่ายมนตร์เสน่หาเปิดหัวใจ</p>
+          </div>
+        </div>
+      </article>
 
-  <!-- ============ 3 · SYLENNE ============ -->
-  <article class="race" id="sylenne" style="--accent:#8fcadd">
-    <div class="emblem-col">
-      <div class="roundel">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="55" fill="#0a1013" stroke="#332c1f" stroke-width="1.3"/>
-          <circle cx="60" cy="60" r="48" fill="none" stroke="#8fcadd" stroke-width="1" opacity=".45"/>
-          <path d="M42 84 C40 66 44 54 50 50 M50 50 L50 36 M58 50 L58 32 M66 50 L66 34 M74 52 L74 40 M50 50 C50 50 74 50 78 56 C82 62 80 74 78 84" fill="none" stroke="#8fcadd" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="60" cy="66" r="9.5" fill="none" stroke="#8fcadd" stroke-width="2.1"/>
-          <circle cx="60" cy="66" r="3.6" fill="#8fcadd"/>
-          <path d="M60 56 L60 51 M60 81 L60 76 M50 66 L45 66 M75 66 L70 66" stroke="#8fcadd" stroke-width="1.1" opacity=".65"/>
-        </svg>
-      </div>
-      <div class="numeral">III</div>
+      <!-- Malvorn -->
+      <article class="race" id="malvorn" style="--accent:#a793d8">
+        <div class="emblem-col">
+          <div class="roundel">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="55" fill="#0e0b14" stroke="#332c1f" stroke-width="1.3"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#a793d8" stroke-width="1" opacity=".45"/>
+              <path d="M40 40 C36 62 44 82 60 82 C60 60 60 40 60 34 C50 34 42 34 40 40 Z" fill="none" stroke="#a793d8" stroke-width="2"/>
+              <path d="M80 40 C84 62 76 82 60 82 C60 60 60 40 60 34 C70 34 78 34 80 40 Z" fill="none" stroke="#a793d8" stroke-width="2" opacity=".5"/>
+              <circle cx="50" cy="52" r="2.4" fill="#a793d8"/><circle cx="70" cy="52" r="2.4" fill="#a793d8" opacity=".5"/>
+              <path d="M60 22 L60 32 M53 27 L60 22 L67 27" stroke="#a793d8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="numeral">III</div>
+        </div>
+        <div class="body-col">
+          <div class="ksuper"><h3>มัลวอร์น</h3><span class="romaji">Malvorn · Incubus</span></div>
+          <div class="epithet">ผู้ทอถักปรารถนา<span class="en">Weavers of Longing</span></div>
+          <p class="lore">สายเลือดคู่แฝดของลิลธีส สืบจากมนุษย์เช่นกัน หล่อเลี้ยงผ่านพันธสัญญาและมายา ปรมาจารย์ผู้เปลี่ยนใบหน้าเป็นผู้ใดก็ได้ที่ผู้มองปรารถนา ทว่าถูกผูกด้วยกฎเดียวกัน—ทุกสิ่งต้องได้มาด้วยความยินยอม</p>
+          <div class="tags">
+            <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">วังราตรี</span></div>
+            <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">สูงสง่า · เปลี่ยนใบหน้าได้</span></div>
+          </div>
+          <div class="ability">
+            <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
+            <div class="aname">ม่านปรารถนา · Veil of Longing</div>
+            <p>ทอถักภาพลวงและมายา—เปลี่ยนรูปโฉม บดบังประสาทสัมผัส และผ่านพันธสัญญาที่ยินยอม จะดูดพลังชีวิตแลกกับการเติมเต็มปรารถนา</p>
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="body-col">
-      <div class="ksuper"><h3>ไซเลนน์</h3><span class="romaji">Sylenne</span></div>
-      <div class="epithet">หัตถ์กลืนเวทมนตร์<span class="en">The Hollow Palms</span></div>
-      <p class="lore">ผิวซีดขาวดั่งหินอ่อนต้องแสงจันทร์ ใต้ฝ่ามือทั้งสองฝัง “มณีมายา” ผลึกมีชีวิตที่ดูดซับพลังเวทจากทุกสรรพสิ่ง พวกเขาคืออาร์คเมจและผู้ทลายมนตราแห่งราชสำนัก—ทว่าหากกลืนมากเกิน เนื้อหนังจะกลายเป็นผลึกใสในที่สุด</p>
-      <div class="tags">
-        <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">หอคอยสายพลัง · ถ้ำผลึก</span></div>
-        <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ผิวซีดขาว · มณีใต้ฝ่ามือ</span></div>
-      </div>
-      <div class="ability">
-        <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
-        <div class="aname">หัตถ์ดูดกลืน<span class="romaji">Manavore</span></div>
-        <p>ดึงมานาจากอากาศ สายพลัง หรือคาถาของศัตรู—เพียงสัมผัสก็ลบล้างเวทให้สลาย กักเก็บไว้ในมณีมายา แล้วปลดปล่อยเป็นลำพลังดิบมหาศาลได้ในพริบตา</p>
-      </div>
-    </div>
-  </article>
+  </section>
 
-  <!-- ============ 4 · LILTHYS ============ -->
-  <article class="race" id="lilthys" style="--accent:#db8bb2">
-    <div class="emblem-col">
-      <div class="roundel">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="55" fill="#130b10" stroke="#332c1f" stroke-width="1.3"/>
-          <circle cx="60" cy="60" r="48" fill="none" stroke="#db8bb2" stroke-width="1" opacity=".45"/>
-          <path d="M74 36 A26 26 0 1 0 74 84 A20 20 0 1 1 74 36 Z" fill="none" stroke="#db8bb2" stroke-width="2.1"/>
-          <path d="M60 62 C54 55 45 58 47 66 C49 73 60 80 60 80 C60 80 71 73 73 66 C75 58 66 55 60 62 Z" fill="none" stroke="#db8bb2" stroke-width="1.7"/>
-          <path d="M40 44 C31 46 27 54 31 58" stroke="#db8bb2" stroke-width="1.2" fill="none" opacity=".65"/>
-        </svg>
+  <!-- ============================================================= -->
+  <!-- ZONE · ELF -->
+  <!-- ============================================================= -->
+  <section class="category" id="elf" style="--zone:#93c58b">
+    <div class="wrap">
+      <div class="zone-head">
+        <div class="en">Origin · Elf</div>
+        <h2>เผ่า<span class="orb">เอลฟ์</span></h2>
+        <p class="desc">ชนเผ่าอายุยืนแห่งพงไพรและสายน้ำ ผูกพันกับเวทมนตร์และความงามอันเงียบสงบ สายเลือดของพวกเขามักงดงามและลึกลับ</p>
+        <div class="count">Two Bloodlines</div>
       </div>
-      <div class="numeral">IV</div>
-    </div>
-    <div class="body-col">
-      <div class="ksuper"><h3>ลิลธีส</h3><span class="romaji">Lilthys · Succubus</span></div>
-      <div class="epithet">นางแห่งราตรีนิทรา<span class="en">Ladies of the Dream</span></div>
-      <p class="lore">สายเลือดที่มิได้กินเลือดเนื้อ หากหล่อเลี้ยงชีวิตด้วยอารมณ์และไออุ่นแห่งความฝัน พวกนางเดินท่องในนิทราของผู้อื่นได้—ทว่าพันธนาการโบราณผูกไว้ว่าจะพรากได้เพียงสิ่งที่ถูกมอบให้ด้วยใจ</p>
-      <div class="tags">
-        <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">วังราตรี</span></div>
-        <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">งามดั่งสนธยา · ตาเรืองไฟ</span></div>
-      </div>
-      <div class="ability">
-        <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
-        <div class="aname">บ่วงนิทรา<span class="romaji">Dreamsnare</span></div>
-        <p>ก้าวเข้าและปั้นแต่งความฝันของผู้อื่น ดูดกลืนอารมณ์เป็นอาหาร และร่ายมนตร์เสน่หาเปิดหัวใจ—หล่อเลี้ยงอย่างอ่อนโยนคือการเยียวยา แต่ความละโมบจะพรากชีวิตทีละน้อย</p>
-      </div>
-    </div>
-  </article>
 
-  <!-- ============ 5 · MALVORN ============ -->
-  <article class="race" id="malvorn" style="--accent:#a793d8">
-    <div class="emblem-col">
-      <div class="roundel">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="55" fill="#0e0b14" stroke="#332c1f" stroke-width="1.3"/>
-          <circle cx="60" cy="60" r="48" fill="none" stroke="#a793d8" stroke-width="1" opacity=".45"/>
-          <path d="M40 40 C36 62 44 82 60 82 C60 60 60 40 60 34 C50 34 42 34 40 40 Z" fill="none" stroke="#a793d8" stroke-width="2"/>
-          <path d="M80 40 C84 62 76 82 60 82 C60 60 60 40 60 34 C70 34 78 34 80 40 Z" fill="none" stroke="#a793d8" stroke-width="2" opacity=".5"/>
-          <circle cx="50" cy="52" r="2.4" fill="#a793d8"/><circle cx="70" cy="52" r="2.4" fill="#a793d8" opacity=".5"/>
-          <path d="M60 22 L60 32 M53 27 L60 22 L67 27" stroke="#a793d8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="numeral">V</div>
-    </div>
-    <div class="body-col">
-      <div class="ksuper"><h3>มัลวอร์น</h3><span class="romaji">Malvorn · Incubus</span></div>
-      <div class="epithet">ผู้ทอถักปรารถนา<span class="en">Weavers of Longing</span></div>
-      <p class="lore">สายเลือดคู่แฝดของลิลธีส—หากลิลธีสหล่อเลี้ยงผ่านความฝัน มัลวอร์นก็หล่อเลี้ยงผ่านพันธสัญญาและมายา ปรมาจารย์ผู้เปลี่ยนใบหน้าเป็นผู้ใดก็ได้ที่ผู้มองปรารถนาจะเห็น ทว่าถูกผูกด้วยกฎเดียวกัน—ทุกสิ่งต้องได้มาด้วยความยินยอม</p>
-      <div class="tags">
-        <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">วังราตรี</span></div>
-        <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">สูงสง่า · เปลี่ยนใบหน้าได้</span></div>
-      </div>
-      <div class="ability">
-        <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
-        <div class="aname">ม่านปรารถนา<span class="romaji">Veil of Longing</span></div>
-        <p>ทอถักภาพลวงและมายา—เปลี่ยนรูปโฉม บดบังประสาทสัมผัส และผ่านพันธสัญญาที่ยินยอม จะดูดพลังชีวิตแลกกับการเติมเต็มปรารถนาให้ผู้ทำสัญญา</p>
-      </div>
-    </div>
-  </article>
+      <!-- Ilvaris -->
+      <article class="race" id="ilvaris" style="--accent:#93c58b">
+        <div class="emblem-col">
+          <div class="roundel">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="55" fill="#0e120c" stroke="#332c1f" stroke-width="1.3"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#93c58b" stroke-width="1" opacity=".45"/>
+              <path d="M60 30 C46 34 40 50 44 70 C48 84 60 90 60 90 C60 90 72 84 76 70 C80 50 74 34 60 30 Z" fill="none" stroke="#93c58b" stroke-width="2"/>
+              <path d="M60 40 L60 84" stroke="#93c58b" stroke-width="1.2" opacity=".75"/>
+              <path d="M60 52 L50 46 M60 60 L48 55 M60 52 L70 46 M60 60 L72 55" stroke="#93c58b" stroke-width="1" opacity=".65"/>
+              <circle cx="60" cy="34" r="2.8" fill="#93c58b"/>
+            </svg>
+          </div>
+          <div class="numeral">IV</div>
+        </div>
+        <div class="body-col">
+          <div class="ksuper"><h3>อิลวาริส</h3><span class="romaji">Ilvaris</span></div>
+          <div class="epithet">ผู้เดินสองโลก<span class="en">Walkers of Two Worlds</span></div>
+          <p class="lore">ลูกหลานเอลฟ์ที่ใกล้เคียงมนุษย์ที่สุด มีเพียงปลายหูแหลม—สั้นกว่าเอลฟ์แท้—ที่เผยสายเลือด พวกเขาจึงใช้ชีวิตปะปนในนครมนุษย์มาช้านาน ในฐานะทูต พ่อค้า นักปราชญ์ และสายลับผู้เชื่อมสองโลก</p>
+          <div class="tags">
+            <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">นครมนุษย์ · เมืองชายแดน</span></div>
+            <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ปลายหูแหลมสั้น</span></div>
+          </div>
+          <div class="ability">
+            <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
+            <div class="aname">เสียงกระซิบสายเลือด · Bloodwhisper</div>
+            <p>สัมผัสอารมณ์และคำโกหกในใจผู้อื่นได้ พร้อมน้ำเสียงที่โน้มน้าวและปลอบประโลม</p>
+          </div>
+        </div>
+      </article>
 
-  <!-- ============ 6 · VITRESS ============ -->
-  <article class="race" id="vitress" style="--accent:#7fd6d0">
-    <div class="emblem-col">
-      <div class="roundel">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="55" fill="#0a1211" stroke="#332c1f" stroke-width="1.3"/>
-          <circle cx="60" cy="60" r="48" fill="none" stroke="#7fd6d0" stroke-width="1" opacity=".45"/>
-          <path d="M60 28 L84 60 L60 92 L36 60 Z" fill="none" stroke="#7fd6d0" stroke-width="2.1"/>
-          <path d="M60 28 L60 92" stroke="#7fd6d0" stroke-width="1.1" opacity=".5"/>
-          <path d="M44 48 L60 60 M76 48 L60 60" stroke="#7fd6d0" stroke-width="1.3" opacity=".9"/>
-          <path d="M44 72 L60 60 M76 72 L60 60" stroke="#7fd6d0" stroke-width="1.3" opacity=".3"/>
-          <circle cx="60" cy="60" r="3.2" fill="#7fd6d0"/>
-        </svg>
-      </div>
-      <div class="numeral">VI</div>
+      <!-- Vitress -->
+      <article class="race" id="vitress" style="--accent:#7fd6d0">
+        <div class="emblem-col">
+          <div class="roundel">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="55" fill="#0a1211" stroke="#332c1f" stroke-width="1.3"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#7fd6d0" stroke-width="1" opacity=".45"/>
+              <path d="M60 28 L84 60 L60 92 L36 60 Z" fill="none" stroke="#7fd6d0" stroke-width="2.1"/>
+              <path d="M60 28 L60 92" stroke="#7fd6d0" stroke-width="1.1" opacity=".5"/>
+              <path d="M44 48 L60 60 M76 48 L60 60" stroke="#7fd6d0" stroke-width="1.3" opacity=".9"/>
+              <path d="M44 72 L60 60 M76 72 L60 60" stroke="#7fd6d0" stroke-width="1.3" opacity=".3"/>
+              <circle cx="60" cy="60" r="3.2" fill="#7fd6d0"/>
+            </svg>
+          </div>
+          <div class="numeral">V</div>
+        </div>
+        <div class="body-col">
+          <div class="ksuper"><h3>วิเทรสส์</h3><span class="romaji">Vitress</span><span class="gim">Gimmick · Glass</span></div>
+          <div class="epithet">ผู้อาศัยในกระจกเงา<span class="en">Those Within the Mirror</span></div>
+          <p class="lore">ตำนานว่าสืบสายจากเอลฟ์โบราณริมทะเลสาบกระจก ทว่าเนื้อกายกลับใสดั่งแก้วออบซิเดียนที่หักเหแสงจนล่องหนในอากาศนิ่ง พวกเขาก้าวเข้า-ออกระหว่างพื้นผิวสะท้อนใดก็ได้ แม้แต่ประกายชื้นในดวงตาของผู้อื่น—ผู้ส่งสารและนักลอบสังหารที่ไม่มีกำแพงใดกักขังได้</p>
+          <div class="tags">
+            <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">ทะเลสาบกระจก · ถ้ำแก้ว</span></div>
+            <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ผิวใส · หักเหแสง</span></div>
+          </div>
+          <div class="ability">
+            <div class="lbl">พลังประจำเผ่า · Gimmick</div>
+            <div class="aname">ก้าวสะท้อน · Refraction-Step</div>
+            <p>ล่องหนในอากาศนิ่ง · วาร์ปข้ามพื้นผิวสะท้อนสองจุดที่มองเห็น · แยกร่างลวงจากแสงหักเห — จุดอ่อนเดียว: ทุบกระจกเพื่อขังพวกเขาไว้</p>
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="body-col">
-      <div class="ksuper"><h3>วิเทรสส์</h3><span class="romaji">Vitress</span><span class="gim">Gimmick · Glass</span></div>
-      <div class="epithet">ผู้อาศัยในกระจกเงา<span class="en">Those Within the Mirror</span></div>
-      <p class="lore">ตำนานว่าถือกำเนิดจาก “เงาสะท้อน” ของอสูรรุ่นแรก ผิวใสดั่งแก้วออบซิเดียนที่หักเหแสงจนล่องหนในอากาศนิ่ง พวกเขาก้าวเข้า-ออกระหว่างพื้นผิวสะท้อนใดก็ได้ แม้แต่ประกายชื้นในดวงตาของผู้อื่น—ผู้ส่งสารและนักลอบสังหารที่ไม่มีกำแพงใดกักขังได้</p>
-      <div class="tags">
-        <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">ทะเลสาบกระจก · ถ้ำแก้ว</span></div>
-        <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ผิวใส · หักเหแสง</span></div>
-      </div>
-      <div class="ability">
-        <div class="lbl">พลังประจำเผ่า · Gimmick</div>
-        <div class="aname">ก้าวสะท้อน<span class="romaji">Refraction-Step</span></div>
-        <p>ล่องหนในอากาศนิ่ง · วาร์ปข้ามพื้นผิวสะท้อนสองจุดที่มองเห็น · แยกร่างลวงจากแสงหักเห — จุดอ่อนเดียว: ทุบกระจกที่พวกเขากำลังก้าวผ่าน แล้วขังไว้ในเสี้ยวเงาสะท้อนนั้นตลอดกาล</p>
-      </div>
-    </div>
-  </article>
+  </section>
 
-  <!-- ============ 7 · RESVYN ============ -->
-  <article class="race" id="resvyn" style="--accent:#4bbfae">
-    <div class="emblem-col">
-      <div class="roundel">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="55" fill="#0a1210" stroke="#332c1f" stroke-width="1.3"/>
-          <circle cx="60" cy="60" r="48" fill="none" stroke="#4bbfae" stroke-width="1" opacity=".45"/>
-          <path d="M52 44 L52 66 M68 44 L68 66 M52 66 C52 76 68 76 68 66 M60 76 L60 88" fill="none" stroke="#4bbfae" stroke-width="2.3" stroke-linecap="round"/>
-          <path d="M40 40 C34 48 34 60 40 68" fill="none" stroke="#4bbfae" stroke-width="1.4" opacity=".8"/>
-          <path d="M32 34 C22 46 22 66 32 78" fill="none" stroke="#4bbfae" stroke-width="1.2" opacity=".45"/>
-          <path d="M80 40 C86 48 86 60 80 68" fill="none" stroke="#4bbfae" stroke-width="1.4" opacity=".8"/>
-          <path d="M88 34 C98 46 98 66 88 78" fill="none" stroke="#4bbfae" stroke-width="1.2" opacity=".45"/>
-        </svg>
+  <!-- ============================================================= -->
+  <!-- ZONE · DARK ELF -->
+  <!-- ============================================================= -->
+  <section class="category" id="darkelf" style="--zone:#d95d5d">
+    <div class="wrap">
+      <div class="zone-head">
+        <div class="en">Origin · Dark Elf</div>
+        <h2>เผ่า<span class="orb">ดาร์กเอลฟ์</span></h2>
+        <p class="desc">เอลฟ์แห่งรัตติกาล ผิวคล้ำ อาศัยใต้พิภพและดินแดนมืด แข็งแกร่งและองอาจในศึกยิ่งกว่าเผ่าใด</p>
+        <div class="count">One Bloodline</div>
       </div>
-      <div class="numeral">VII</div>
+
+      <!-- Vokthar -->
+      <article class="race" id="vokthar" style="--accent:#d95d5d">
+        <div class="emblem-col">
+          <div class="roundel">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="55" fill="#120b0b" stroke="#332c1f" stroke-width="1.3"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#d95d5d" stroke-width="1" opacity=".45"/>
+              <path d="M60 66 C50 60 44 48 46 36 C54 44 58 52 60 60" fill="none" stroke="#d95d5d" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M60 66 C70 60 76 48 74 36 C66 44 62 52 60 60" fill="none" stroke="#d95d5d" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M60 66 C58 54 60 42 60 30" fill="none" stroke="#d95d5d" stroke-width="1.8" stroke-linecap="round" opacity=".8"/>
+              <circle cx="60" cy="78" r="11" fill="#090505" stroke="#d95d5d" stroke-width="2.1"/>
+              <circle cx="60" cy="78" r="4" fill="#d95d5d"/>
+            </svg>
+          </div>
+          <div class="numeral">VI</div>
+        </div>
+        <div class="body-col">
+          <div class="ksuper"><h3>โวคธาร์</h3><span class="romaji">Vokthar</span></div>
+          <div class="epithet">ผู้ไม่ยอมล้ม<span class="en">The Unfalling</span></div>
+          <p class="lore">สายเลือดนักรบแห่งดาร์กเอลฟ์เหนือสุด ผิวคล้ำดั่งราตรี ดวงตาไร้ตาขาว—ดำสนิทดั่งบ่อน้ำมืด เขางอกได้จากทุกส่วนของกะโหลก ตำแหน่งของมันบอกสายตระกูลและวีรกรรมในศึก ตำนานว่าจอมทัพเก่าไม่อาจถูกสังหาร ทุกบาดแผลมีแต่ทำให้แข็งแกร่งขึ้น</p>
+          <div class="tags">
+            <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">ที่ราบสูงเหนือ</span></div>
+            <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ผิวคล้ำ · เขาทุกทิศ · ตาดำสนิท</span></div>
+          </div>
+          <div class="ability">
+            <div class="lbl">พลังประจำเผ่า · Racial Ability</div>
+            <div class="aname">เนื้อรัตติกาล · Nightflesh</div>
+            <p>บาดแผลสมานตัวรวดเร็ว และทุกแผลสาหัสจะทำให้เนื้อหนังแข็งแกร่งขึ้นกว่าเดิม ยิ่งรบยืดเยื้อยิ่งทนทาน</p>
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="body-col">
-      <div class="ksuper"><h3>เรสวิน</h3><span class="romaji">Resvyn</span><span class="gim">Gimmick · Sound</span></div>
-      <div class="epithet">คณะขับขานแห่งศิลา<span class="en">The Stone Choir</span></div>
-      <p class="lore">เส้นผมและเส้นเลือดใต้ผิวคือผลึกก้องกังวานที่สั่นสะเทือนแผ่วเบา ทุกเสียงที่ได้ยินถูกบันทึกไว้ในตัวชั่วนิรันดร์—น้ำเสียงของคนรัก เสียงศึก เพลงกล่อมของผู้ล่วงลับ พวกเขาคือความทรงจำที่มีชีวิต และในยามรบ เสียงกังวานนั้นทลายหินและกระดูก</p>
-      <div class="tags">
-        <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">ถ้ำขับขาน · หุบเขาเสียงสะท้อน</span></div>
-        <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ผลึกเรืองแสงใต้ผิว</span></div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- ZONE · KEMONOMIMI -->
+  <!-- ============================================================= -->
+  <section class="category" id="kemono" style="--zone:#d8a24b">
+    <div class="wrap">
+      <div class="zone-head">
+        <div class="en">Origin · Kemonomimi</div>
+        <h2>เผ่า<span class="orb">หูสัตว์</span></h2>
+        <p class="desc">ชนเผ่าที่มีหูและหางสัตว์ ประสาทสัมผัสเฉียบคมเหนือเผ่าใด ใกล้ชิดธรรมชาติและสัญชาตญาณอันดิบเถื่อน</p>
+        <div class="count">One Bloodline</div>
       </div>
-      <div class="ability">
-        <div class="lbl">พลังประจำเผ่า · Gimmick</div>
-        <div class="aname">ประสานเสียงกังวาน<span class="romaji">Resonant Choir</span></div>
-        <p>บันทึกและเล่นซ้ำทุกเสียงอย่างสมบูรณ์ (เลียนเสียงผู้ใดก็ได้) · เปล่งคลื่นเสียงทำลายล้าง · รับรู้โลกผ่านแรงสั่นสะเทือน · และ “ปรับคลื่น” เชื่อมจิตกับพวกพ้องข้ามระยะไกล</p>
-      </div>
+
+      <!-- Resvyn -->
+      <article class="race" id="resvyn" style="--accent:#4bbfae">
+        <div class="emblem-col">
+          <div class="roundel">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="55" fill="#0a1210" stroke="#332c1f" stroke-width="1.3"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#4bbfae" stroke-width="1" opacity=".45"/>
+              <path d="M52 44 L52 66 M68 44 L68 66 M52 66 C52 76 68 76 68 66 M60 76 L60 88" fill="none" stroke="#4bbfae" stroke-width="2.3" stroke-linecap="round"/>
+              <path d="M40 40 C34 48 34 60 40 68" fill="none" stroke="#4bbfae" stroke-width="1.4" opacity=".8"/>
+              <path d="M32 34 C22 46 22 66 32 78" fill="none" stroke="#4bbfae" stroke-width="1.2" opacity=".45"/>
+              <path d="M80 40 C86 48 86 60 80 68" fill="none" stroke="#4bbfae" stroke-width="1.4" opacity=".8"/>
+              <path d="M88 34 C98 46 98 66 88 78" fill="none" stroke="#4bbfae" stroke-width="1.2" opacity=".45"/>
+            </svg>
+          </div>
+          <div class="numeral">VII</div>
+        </div>
+        <div class="body-col">
+          <div class="ksuper"><h3>เรสวิน</h3><span class="romaji">Resvyn</span><span class="gim">Gimmick · Sound</span></div>
+          <div class="epithet">คณะขับขานแห่งศิลา<span class="en">The Stone Choir</span></div>
+          <p class="lore">สืบสายจากเผ่าหูสัตว์ผู้มีโสตประสาทเฉียบไว ทว่าสัมผัสนั้นแปรเป็นผลึกกังวาน—เส้นผมและเส้นเลือดใต้ผิวคือเส้นใยผลึกเรืองแสงที่สั่นระริก ทุกเสียงที่ได้ยินถูกบันทึกไว้ชั่วนิรันดร์ และในยามรบ เสียงกังวานนั้นทลายหินและกระดูก</p>
+          <div class="tags">
+            <div class="tag"><span class="k">ถิ่นอาศัย</span><span class="v">ถ้ำขับขาน · หุบเขาเสียงสะท้อน</span></div>
+            <div class="tag"><span class="k">ลักษณะเด่น</span><span class="v">ผลึกเรืองแสงใต้ผิว</span></div>
+          </div>
+          <div class="ability">
+            <div class="lbl">พลังประจำเผ่า · Gimmick</div>
+            <div class="aname">ประสานเสียงกังวาน · Resonant Choir</div>
+            <p>บันทึกและเล่นซ้ำทุกเสียงอย่างสมบูรณ์ · เปล่งคลื่นเสียงทำลายล้าง · รับรู้โลกผ่านแรงสั่นสะเทือน · และเชื่อมจิตกับพวกพ้องข้ามระยะไกล</p>
+          </div>
+        </div>
+      </article>
     </div>
-  </article>
+  </section>
 
 </main>
 
@@ -452,7 +500,7 @@ footer .fine{font-size:12px;color:#5a5241;margin-top:22px;font-weight:300}
   <div class="sig">อวสานบรรพแรก</div>
   <div class="en">Finis · Liber Primus</div>
   <p>ยังมีสายเลือดอีกมากที่รอการจดจาร</p>
-  <div class="fine">Codex Velmyra · โลกและเผ่าพันธุ์ทั้งหมดเป็นงานสร้างสรรค์ต้นฉบับ</div>
+  <div class="fine">Velmyra · โลกและเผ่าพันธุ์ทั้งหมดเป็นงานสร้างสรรค์ต้นฉบับ</div>
 </footer>
 
 <script>
@@ -460,7 +508,7 @@ footer .fine{font-size:12px;color:#5a5241;margin-top:22px;font-weight:300}
   if('IntersectionObserver' in window){
     const io=new IntersectionObserver((es)=>{
       es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-    },{threshold:.14});
+    },{threshold:.12});
     cards.forEach(c=>io.observe(c));
   }else{cards.forEach(c=>c.classList.add('in'));}
 </script>
