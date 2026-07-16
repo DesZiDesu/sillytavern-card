@@ -1,0 +1,18 @@
+{
+  "id": "12733462-5c81-4a70-bfd7-0155e71617b5",
+  "scriptName": "HSR Narrator — Trailblaze Log",
+  "findRegex": "/\\[HSRNARR\\|([\\s\\S]*?)\\]/g",
+  "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Marcellus&family=Chakra+Petch:wght@500;600;700&family=Bai+Jamjuree:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Share+Tech+Mono&display=swap\" rel=\"stylesheet\"/><style>.hsr-narr{max-width:min(500px,96%);margin:18px auto;text-align:center;position:relative;padding:14px 22px;font-family:'Chakra Petch','Bai Jamjuree',sans-serif}.hsr-narr-rule{display:flex;align-items:center;justify-content:center;gap:10px;color:#e8c58a}.hsr-narr-rule::before,.hsr-narr-rule::after{content:'';height:1px;width:min(120px,26vw);background:linear-gradient(90deg,transparent,rgba(232,197,138,.6))}.hsr-narr-rule::after{background:linear-gradient(90deg,rgba(232,197,138,.6),transparent)}.hsr-narr-rule span{font:600 8.5px/1 'Chakra Petch';letter-spacing:.3em;text-transform:uppercase;color:#c9a86a}.hsr-narr-body{margin:9px 0;font:500 italic 13.5px/1.7 'Bai Jamjuree','Marcellus',serif;color:#c3c8da}.hsr-narr-star{color:#e8c58a;font-size:11px;opacity:.85;letter-spacing:.4em}</style><div class=\"hsr-narr\"><div class=\"hsr-narr-rule\"><span>Trailblaze Log</span></div><div class=\"hsr-narr-body\">$1</div><div class=\"hsr-narr-star\">✦ ✦ ✦</div></div>",
+  "trimStrings": [],
+  "placement": [
+    1,
+    2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+}
