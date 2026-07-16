@@ -210,7 +210,7 @@ modern clothing, plastic skin, oversaturated, blurry, jpeg artifacts
 
 ## มนุษย์ · Human
 ```
-A highly detailed dark-fantasy character portrait of a human of the realm of Velmyra,
+A highly detailed dark-fantasy character portrait of a human of a medieval realm,
 mid-20s, sharp determined eyes, a faint scar, windswept hair, sun-weathered skin;
 layered medieval attire — worn leather jerkin, fine linen shirt, a fitted steel
 breastplate piece, and a heavy travel cloak clasped with a gold brooch; a longsword at
@@ -223,7 +223,7 @@ intricate fabric and metal detail, cinematic rim light, 3/4 half-body, sharp foc
 
 ## เอลฟ์ · Elf
 ```
-A highly detailed dark-fantasy character portrait of an elf of Velmyra, ageless and
+A highly detailed dark-fantasy character portrait of an elf, ageless and
 graceful, very long pointed ears, luminous jade eyes, flowing silver-green hair braided
 with tiny leaves, smooth radiant skin; elegant attire woven from living vine, leaf-plated
 pauldrons, flowing green-and-gold robes with delicate embroidery; holding an ornately
@@ -235,7 +235,7 @@ soft volumetric light, 3/4 half-body, 8k, artstation --ar 2:3
 
 ## ดาร์กเอลฟ์ · Dark Elf
 ```
-A highly detailed dark-fantasy character portrait of a dark elf of Velmyra, striking
+A highly detailed dark-fantasy character portrait of a dark elf, striking
 ash-grey to obsidian skin, long pointed ears, glowing pale-violet eyes, long silver-white
 hair; proud fierce expression; ornate dark armor of etched blackened steel with violet
 filigree and a shadowed cloak; faint wisps of shadow magic curling from one hand;
@@ -247,7 +247,7 @@ gold palette; painterly semi-realistic anime, intricate armor detail, cinematic,
 
 ## เผ่าหูสัตว์ · Kemonomimi
 ```
-A highly detailed dark-fantasy character portrait of a kemonomimi (beast-kin) of Velmyra
+A highly detailed dark-fantasy character portrait of a kemonomimi (beast-kin)
 — a humanoid with fluffy fox-like animal ears atop the head and a large matching bushy
 tail, keen amber eyes, a small fang, tousled warm-brown hair; light agile hunter's garb
 of soft leather with fur trim, tribal beadwork and a fur mantle; alert energetic poised
