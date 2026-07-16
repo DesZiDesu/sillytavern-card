@@ -196,3 +196,66 @@ sacred luminous mood, teal and gold palette, dark high fantasy, painterly anime 
 2. **รูปตัวละครทั้ง 7** — ล็อกมุมกล้อง/แสง/พื้นหลังให้คล้ายกัน (candlelit, dark background, ครึ่งตัว) เจนที่ `--ar 2:3` จะเรียงบนเว็บสวย
 3. **สีประจำเผ่า** — คุมให้เด่นในแต่ละภาพ แต่มีทองอ่อนๆ ร่วมทุกภาพ = เอกภาพของโลก
 4. ส่งภาพกลับมา ผมจะทำ **ช่องใส่ภาพ (image slot)** บนเว็บให้ — เอาตราเผ่าไปแทนโลโก้ SVG และเพิ่มรูปตัวละครข้างข้อมูลแต่ละเผ่าได้เลย
+
+---
+
+# 🧝 เผ่าพันธุ์หลักทั้งสี่ · Character Portraits (Highly Detailed)
+### prompt ภาพตัวละครของ Human / Elf / Dark Elf / Kemonomimi — เจนที่ `--ar 2:3`
+
+**Negative prompt (ใช้ร่วมทุกภาพ):**
+```
+lowres, bad anatomy, extra fingers, fused limbs, watermark, text, signature,
+modern clothing, plastic skin, oversaturated, blurry, jpeg artifacts
+```
+
+## มนุษย์ · Human
+```
+A highly detailed dark-fantasy character portrait of a human of the realm of Velmyra,
+mid-20s, sharp determined eyes, a faint scar, windswept hair, sun-weathered skin;
+layered medieval attire — worn leather jerkin, fine linen shirt, a fitted steel
+breastplate piece, and a heavy travel cloak clasped with a gold brooch; a longsword at
+the hip and a leather-bound tome under one arm; standing tall in a bustling stone kingdom
+courtyard at golden hour, banners and spires behind; warm volumetric sunlight, drifting
+dust motes; muted rich palette with aged-gold accents; painterly semi-realistic anime,
+intricate fabric and metal detail, cinematic rim light, 3/4 half-body, sharp focus,
+8k, artstation --ar 2:3
+```
+
+## เอลฟ์ · Elf
+```
+A highly detailed dark-fantasy character portrait of an elf of Velmyra, ageless and
+graceful, very long pointed ears, luminous jade eyes, flowing silver-green hair braided
+with tiny leaves, smooth radiant skin; elegant attire woven from living vine, leaf-plated
+pauldrons, flowing green-and-gold robes with delicate embroidery; holding an ornately
+carved longbow; standing in an ancient sunlit forest of colossal trees, drifting pollen
+and god-rays through the canopy, a clear stream nearby; serene ethereal expression;
+green and gold palette; painterly semi-realistic anime, intricate natural detail,
+soft volumetric light, 3/4 half-body, 8k, artstation --ar 2:3
+```
+
+## ดาร์กเอลฟ์ · Dark Elf
+```
+A highly detailed dark-fantasy character portrait of a dark elf of Velmyra, striking
+ash-grey to obsidian skin, long pointed ears, glowing pale-violet eyes, long silver-white
+hair; proud fierce expression; ornate dark armor of etched blackened steel with violet
+filigree and a shadowed cloak; faint wisps of shadow magic curling from one hand;
+standing in a vast underground cavern city lit by violet bioluminescent crystals and
+forge-glow; dramatic low light with the glowing eyes as key light; violet, obsidian and
+gold palette; painterly semi-realistic anime, intricate armor detail, cinematic,
+3/4 half-body, 8k, artstation --ar 2:3
+```
+
+## เผ่าหูสัตว์ · Kemonomimi
+```
+A highly detailed dark-fantasy character portrait of a kemonomimi (beast-kin) of Velmyra
+— a humanoid with fluffy fox-like animal ears atop the head and a large matching bushy
+tail, keen amber eyes, a small fang, tousled warm-brown hair; light agile hunter's garb
+of soft leather with fur trim, tribal beadwork and a fur mantle; alert energetic poised
+stance, half-crouch ready to move; standing in a sunlit grassland at the forest's edge
+with distant foothills, tall grass swaying; warm golden-hour light; warm amber and gold
+palette; painterly semi-realistic anime, fluffy fur detail, expressive, wholesome,
+3/4 half-body, 8k, artstation --ar 2:3
+```
+
+**ปรับได้ตามใจ:** เพศ/สีผม/ชนิดสัตว์ (Kemonomimi เปลี่ยน fox → wolf / cat / rabbit ฯลฯ ได้)
+**ให้เข้าชุดกัน:** เจนในแชทเดียวกันต่อเนื่อง แล้วต่อท้ายว่า *"same art style, framing, lighting and gold accents as before"*
