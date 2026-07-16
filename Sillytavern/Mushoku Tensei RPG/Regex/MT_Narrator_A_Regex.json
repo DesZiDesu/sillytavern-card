@@ -1,0 +1,18 @@
+{
+    "id": "9f5e2e72-a9dd-44a9-9a72-80a9985fbad1",
+    "scriptName": "MT Narrator A — Chronicle",
+    "findRegex": "/\\[NARR\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital@0;1&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:500px;margin:16px auto;font-family:'Spectral','Georgia',serif;\"><div style=\"display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:8px;\"><span style=\"height:1px;width:60px;background:linear-gradient(90deg,transparent,#b8934a);\"></span><span style=\"font-family:'Cinzel',serif;font-size:9.5px;font-weight:600;letter-spacing:3px;color:#b8934a;text-transform:uppercase;\">Narration</span><span style=\"height:1px;width:60px;background:linear-gradient(90deg,#b8934a,transparent);\"></span></div><div style=\"background:#f4efe0;color:#2c2418;border:1px solid #ceba90;border-radius:4px;padding:14px 22px;font-style:italic;font-size:13.5px;line-height:1.75;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.45);\">$1</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

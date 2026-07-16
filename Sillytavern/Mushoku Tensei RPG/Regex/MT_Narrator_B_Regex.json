@@ -1,0 +1,18 @@
+{
+    "id": "a570d5fa-9a0f-49c0-a558-ed7408bcd453",
+    "scriptName": "MT Narrator B — Scene Caption",
+    "findRegex": "/\\[NARR\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital@0;1&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:480px;margin:18px auto;text-align:center;font-family:'Spectral','Georgia',serif;\"><div style=\"font-family:'Cinzel',serif;font-size:9px;font-weight:600;letter-spacing:4px;color:#c9a14a;text-transform:uppercase;margin-bottom:9px;\">&#10086;&nbsp;&nbsp;Narration&nbsp;&nbsp;&#10086;</div><div style=\"font-style:italic;font-size:14px;line-height:1.8;color:#d9d3c5;padding:0 8px;\">$1</div><div style=\"height:1px;width:130px;margin:12px auto 0;background:linear-gradient(90deg,transparent,#c9a14a,transparent);\"></div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": true,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}

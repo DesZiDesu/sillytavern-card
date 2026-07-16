@@ -217,6 +217,42 @@
                     "maxDepth": null
                 },
                 {
+                    "id": "f7c497d4-9788-4a98-b17a-d676de141b76",
+                    "scriptName": "MT Narrator A — Chronicle",
+                    "findRegex": "/\\[NARR\\|([\\s\\S]*?)\\]/g",
+                    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital@0;1&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:500px;margin:16px auto;font-family:'Spectral','Georgia',serif;\"><div style=\"display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:8px;\"><span style=\"height:1px;width:60px;background:linear-gradient(90deg,transparent,#b8934a);\"></span><span style=\"font-family:'Cinzel',serif;font-size:9.5px;font-weight:600;letter-spacing:3px;color:#b8934a;text-transform:uppercase;\">Narration</span><span style=\"height:1px;width:60px;background:linear-gradient(90deg,#b8934a,transparent);\"></span></div><div style=\"background:#f4efe0;color:#2c2418;border:1px solid #ceba90;border-radius:4px;padding:14px 22px;font-style:italic;font-size:13.5px;line-height:1.75;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.45);\">$1</div></div>",
+                    "trimStrings": [],
+                    "placement": [
+                        1,
+                        2
+                    ],
+                    "disabled": false,
+                    "markdownOnly": true,
+                    "promptOnly": false,
+                    "runOnEdit": true,
+                    "substituteRegex": 0,
+                    "minDepth": null,
+                    "maxDepth": null
+                },
+                {
+                    "id": "a80806eb-bfe4-475b-8c97-99521b3346f1",
+                    "scriptName": "MT Narrator B — Scene Caption",
+                    "findRegex": "/\\[NARR\\|([\\s\\S]*?)\\]/g",
+                    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital@0;1&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:480px;margin:18px auto;text-align:center;font-family:'Spectral','Georgia',serif;\"><div style=\"font-family:'Cinzel',serif;font-size:9px;font-weight:600;letter-spacing:4px;color:#c9a14a;text-transform:uppercase;margin-bottom:9px;\">&#10086;&nbsp;&nbsp;Narration&nbsp;&nbsp;&#10086;</div><div style=\"font-style:italic;font-size:14px;line-height:1.8;color:#d9d3c5;padding:0 8px;\">$1</div><div style=\"height:1px;width:130px;margin:12px auto 0;background:linear-gradient(90deg,transparent,#c9a14a,transparent);\"></div></div>",
+                    "trimStrings": [],
+                    "placement": [
+                        1,
+                        2
+                    ],
+                    "disabled": true,
+                    "markdownOnly": true,
+                    "promptOnly": false,
+                    "runOnEdit": true,
+                    "substituteRegex": 0,
+                    "minDepth": null,
+                    "maxDepth": null
+                },
+                {
                     "id": "bb829d94-da19-407b-909b-c35c7d019cc6",
                     "scriptName": "MT Skill Header",
                     "findRegex": "/\\[SKILL\\|(?!https?:\\/\\/)(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\]/g",
