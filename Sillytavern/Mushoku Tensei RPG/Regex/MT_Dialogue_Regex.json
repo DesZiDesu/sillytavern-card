@@ -1,0 +1,18 @@
+{
+    "id": "720aec5a-458d-4cc0-8577-6a8e576f2f98",
+    "scriptName": "MT Dialogue (Tinted Bubble)",
+    "findRegex": "/\\[SAY\\|([^|\\]]*)\\|(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<div style=\"max-width:512px;margin:4px auto 15px;font-family:'Spectral','Georgia',serif;\"><div style=\"position:relative;background:#17110a;border:1px solid color-mix(in srgb,$2 38%,#241a10);border-left:3px solid $2;padding:11px 18px 12px;color:#ece2cd;font-size:14.5px;line-height:1.62;\"><span style=\"position:absolute;left:-1px;top:-1px;width:0;height:0;border-top:10px solid $2;border-right:10px solid transparent;\"></span><span style=\"display:block;font-family:'Cinzel',serif;font-size:9.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:color-mix(in srgb,$2 66%,#e8dcc0);margin-bottom:6px;\">$1</span>$3</div></div>",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+}
