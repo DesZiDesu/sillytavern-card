@@ -1,6 +1,6 @@
 {
  "generated": "2026-07-16T17:12:52.839Z",
- "loaded": 35,
+ "loaded": 59,
  "failed": 0,
  "note": "Mushoku Tensei portraits. Multi-form characters filed in life-stage order.",
  "broken": {},
@@ -317,6 +317,246 @@
      "form": "base",
      "file": "Images/leo/01_base.jpg",
      "source": "https://files.catbox.moe/7jsy4r.jpg"
+    }
+   ]
+  },
+  "Rudeus Greyrat (Old)": {
+   "slug": "oldeus",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/oldeus/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Sauros Boreas Greyrat": {
+   "slug": "sauros_boreas_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/sauros_boreas_greyrat/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Philip Boreas Greyrat": {
+   "slug": "philip_boreas_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/philip_boreas_greyrat/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Hilda Boreas Greyrat": {
+   "slug": "hilda_boreas_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/hilda_boreas_greyrat/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Gal Farion": {
+   "slug": "gal_farion",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/gal_farion/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Geese": {
+   "slug": "geese",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/geese/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Talhand": {
+   "slug": "talhand",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/talhand/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Claire Latreia": {
+   "slug": "claire_latreia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/claire_latreia/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Gyes Dedoldia": {
+   "slug": "gyes_dedoldia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/gyes_dedoldia/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Minitona Dedoldia": {
+   "slug": "minitona_dedoldia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/minitona_dedoldia/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Terusena Dedoldia": {
+   "slug": "terusena_dedoldia",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/terusena_dedoldia/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Ariel Anemoi Asura": {
+   "slug": "ariel_anemoi_asura",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/ariel_anemoi_asura/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Luke Notos Greyrat": {
+   "slug": "luke_notos_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/luke_notos_greyrat/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Julie": {
+   "slug": "julie",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/julie/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Ginger York": {
+   "slug": "ginger_york",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/ginger_york/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Sara": {
+   "slug": "sara",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/sara/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Arumanfi the Light": {
+   "slug": "arumanfi",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/arumanfi/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Auber Corvette": {
+   "slug": "auber_corvette",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/auber_corvette/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Darius Silva Ganius": {
+   "slug": "darius_silva_ganius",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/darius_silva_ganius/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Nina Farion": {
+   "slug": "nina_farion",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/nina_farion/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Isolde": {
+   "slug": "isolde",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/isolde/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Randolph Marianne": {
+   "slug": "randolph_marianne",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/randolph_marianne/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Sieghart Greyrat": {
+   "slug": "sieghart_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/sieghart_greyrat/01_base.jpg",
+     "source": "user upload (face-focus batch)"
+    }
+   ]
+  },
+  "Christina Greyrat": {
+   "slug": "christina_greyrat",
+   "forms": [
+    {
+     "form": "base",
+     "file": "Images/christina_greyrat/01_base.jpg",
+     "source": "user upload (face-focus batch)"
     }
    ]
   }
