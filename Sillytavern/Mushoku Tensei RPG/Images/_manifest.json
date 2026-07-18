@@ -1,564 +1,783 @@
 {
  "generated": "2026-07-16T17:12:52.839Z",
- "loaded": 59,
+ "loaded": 165,
  "failed": 0,
- "note": "Mushoku Tensei portraits. Multi-form characters filed in life-stage order.",
+ "note": "MT portraits. Characters may have multiple portraits (base forms + expression/scene variants) the AI selects situationally.",
  "broken": {},
  "manifest": {
-  "[I] Rudeus Greyrat": {
-   "slug": "rudeus_greyrat",
-   "forms": [
-    {
-     "form": "child",
-     "file": "Images/rudeus_greyrat/01_child.jpg",
-     "source": "https://files.catbox.moe/g4wnvs.jpg"
-    },
-    {
-     "form": "teen",
-     "file": "Images/rudeus_greyrat/02_teen.jpg",
-     "source": "https://files.catbox.moe/aoi25p.jpg"
-    },
-    {
-     "form": "adult",
-     "file": "Images/rudeus_greyrat/03_adult.jpg",
-     "source": "https://files.catbox.moe/mkxzul.jpg"
-    }
-   ]
-  },
-  "[I] Roxy Migurdia": {
-   "slug": "roxy_migurdia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/roxy_migurdia/01_base.jpg",
-     "source": "https://files.catbox.moe/l68dsz.jpg"
-    }
-   ]
-  },
-  "[I] Sylphiette": {
-   "slug": "sylphiette",
-   "forms": [
-    {
-     "form": "child",
-     "file": "Images/sylphiette/01_child.jpg",
-     "source": "https://files.catbox.moe/ofqnnp.jpg"
-    },
-    {
-     "form": "fitz_teen",
-     "file": "Images/sylphiette/02_fitz_teen.jpg",
-     "source": "https://files.catbox.moe/fnpi6d.jpg"
-    },
-    {
-     "form": "adult",
-     "file": "Images/sylphiette/03_adult.jpg",
-     "source": "https://files.catbox.moe/8l0zdd.jpg"
-    }
-   ]
-  },
-  "[I] Eris Greyrat": {
-   "slug": "eris_greyrat",
-   "forms": [
-    {
-     "form": "child",
-     "file": "Images/eris_greyrat/01_child.jpg",
-     "source": "https://files.catbox.moe/g76umh.jpg"
-    },
-    {
-     "form": "adult",
-     "file": "Images/eris_greyrat/02_adult.jpg",
-     "source": "https://files.catbox.moe/2ad7m5.jpg"
-    }
-   ]
-  },
-  "[I] Paul Greyrat": {
-   "slug": "paul_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/paul_greyrat/01_base.jpg",
-     "source": "https://files.catbox.moe/qzcj83.jpg"
-    }
-   ]
-  },
-  "[I] Zenith Greyrat": {
-   "slug": "zenith_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/zenith_greyrat/01_base.jpg",
-     "source": "https://files.catbox.moe/9mjvpp.jpg"
-    }
-   ]
-  },
-  "[I] Lilia Greyrat": {
-   "slug": "lilia_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/lilia_greyrat/01_base.jpg",
-     "source": "https://files.catbox.moe/y0kgx5.jpg"
-    }
-   ]
-  },
-  "[I] Ghislaine Dedoldia": {
-   "slug": "ghislaine_dedoldia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/ghislaine_dedoldia/01_base.jpg",
-     "source": "https://files.catbox.moe/ejg24y.jpg"
-    }
-   ]
-  },
-  "[II] Ruijerd Superdia": {
-   "slug": "ruijerd_superdia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/ruijerd_superdia/01_base.jpg",
-     "source": "https://files.catbox.moe/4hc1k9.jpg"
-    }
-   ]
-  },
-  "[II] Kishirika Kishirisu": {
-   "slug": "kishirika_kishirisu",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/kishirika_kishirisu/01_base.jpg",
-     "source": "https://files.catbox.moe/dxf3j5.jpg"
-    }
-   ]
-  },
-  "[II] Badigadi": {
-   "slug": "badigadi",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/badigadi/01_base.jpg",
-     "source": "https://files.catbox.moe/uxe35p.jpg"
-    }
-   ]
-  },
-  "[II] Atoferatofe Raibaku": {
-   "slug": "atoferatofe_raibaku",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/atoferatofe_raibaku/01_base.jpg",
-     "source": "https://files.catbox.moe/bi74ze.jpg"
-    }
-   ]
-  },
-  "[II] Elinalise Dragonroad": {
-   "slug": "elinalise_dragonroad",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/elinalise_dragonroad/01_base.jpg",
-     "source": "https://files.catbox.moe/d6ku01.jpg"
-    }
-   ]
-  },
-  "[III] Cliff Grimoire": {
-   "slug": "cliff_grimoire",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/cliff_grimoire/01_base.jpg",
-     "source": "https://files.catbox.moe/p245lh.jpg"
-    }
-   ]
-  },
-  "[III] Zanoba Shirone": {
-   "slug": "zanoba_shirone",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/zanoba_shirone/01_base.jpg",
-     "source": "https://files.catbox.moe/32400u.jpg"
-    }
-   ]
-  },
-  "[III] Nanahoshi Shizuka": {
-   "slug": "nanahoshi_shizuka",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/nanahoshi_shizuka/01_base.jpg",
-     "source": "https://files.catbox.moe/fmggl3.jpg"
-    }
-   ]
-  },
-  "[III] Linia Dedoldia": {
-   "slug": "linia_dedoldia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/linia_dedoldia/01_base.jpg",
-     "source": "https://files.catbox.moe/ezuv8c.jpg"
-    }
-   ]
-  },
-  "[III] Pursena Adoldia": {
-   "slug": "pursena_adoldia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/pursena_adoldia/01_base.jpg",
-     "source": "https://files.catbox.moe/0j3k4r.jpg"
-    }
-   ]
-  },
-  "[IV] Orsted": {
-   "slug": "orsted",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/orsted/01_base.jpg",
-     "source": "https://files.catbox.moe/0h5elj.jpg"
-    }
-   ]
-  },
-  "[IV] Hitogami": {
-   "slug": "hitogami",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/hitogami/01_base.jpg",
-     "source": "https://files.catbox.moe/47786o.jpg"
-    }
-   ]
-  },
-  "[IV] Perugius Dola": {
-   "slug": "perugius_dola",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/perugius_dola/01_base.jpg",
-     "source": "https://files.catbox.moe/njepns.jpg"
-    }
-   ]
-  },
-  "[V/I] Aisha Greyrat": {
-   "slug": "aisha_greyrat",
-   "forms": [
-    {
-     "form": "child",
-     "file": "Images/aisha_greyrat/01_child.jpg",
-     "source": "https://files.catbox.moe/vxt2fc.jpg"
-    },
-    {
-     "form": "teen",
-     "file": "Images/aisha_greyrat/02_teen.jpg",
-     "source": "https://files.catbox.moe/22eoak.jpg"
-    }
-   ]
-  },
-  "[V/III] Norn Greyrat": {
-   "slug": "norn_greyrat",
-   "forms": [
-    {
-     "form": "child",
-     "file": "Images/norn_greyrat/01_child.jpg",
-     "source": "https://files.catbox.moe/yk52at.jpg"
-    },
-    {
-     "form": "teen",
-     "file": "Images/norn_greyrat/02_teen.jpg",
-     "source": "https://files.catbox.moe/b0v4d2.jpg"
-    }
-   ]
-  },
-  "[VI] Lucie Greyrat": {
-   "slug": "lucie_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/lucie_greyrat/01_base.jpg",
-     "source": "https://files.catbox.moe/c0vsxz.jpg"
-    }
-   ]
-  },
-  "[VI] Lara Greyrat": {
-   "slug": "lara_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/lara_greyrat/01_base.jpg",
-     "source": "https://files.catbox.moe/6dx9q7.jpg"
-    }
-   ]
-  },
-  "[VI] Ars Greyrat": {
-   "slug": "ars_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/ars_greyrat/01_base.jpg",
-     "source": "https://files.catbox.moe/89kcvo.jpg"
-    }
-   ]
-  },
-  "[VI] Lily Greyrat": {
-   "slug": "lily_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/lily_greyrat/01_base.jpg",
-     "source": "https://files.catbox.moe/gfzy2g.jpg"
-    }
-   ]
-  },
-  "[VI] Leo": {
-   "slug": "leo",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/leo/01_base.jpg",
-     "source": "https://files.catbox.moe/7jsy4r.jpg"
-    }
-   ]
-  },
-  "Rudeus Greyrat (Old)": {
-   "slug": "oldeus",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/oldeus/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Sauros Boreas Greyrat": {
-   "slug": "sauros_boreas_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/sauros_boreas_greyrat/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Philip Boreas Greyrat": {
-   "slug": "philip_boreas_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/philip_boreas_greyrat/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Hilda Boreas Greyrat": {
-   "slug": "hilda_boreas_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/hilda_boreas_greyrat/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Gal Farion": {
-   "slug": "gal_farion",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/gal_farion/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Geese": {
-   "slug": "geese",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/geese/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Talhand": {
-   "slug": "talhand",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/talhand/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Claire Latreia": {
-   "slug": "claire_latreia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/claire_latreia/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Gyes Dedoldia": {
-   "slug": "gyes_dedoldia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/gyes_dedoldia/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Minitona Dedoldia": {
-   "slug": "minitona_dedoldia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/minitona_dedoldia/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Terusena Dedoldia": {
-   "slug": "terusena_dedoldia",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/terusena_dedoldia/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Ariel Anemoi Asura": {
-   "slug": "ariel_anemoi_asura",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/ariel_anemoi_asura/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Luke Notos Greyrat": {
-   "slug": "luke_notos_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/luke_notos_greyrat/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Julie": {
-   "slug": "julie",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/julie/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Ginger York": {
-   "slug": "ginger_york",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/ginger_york/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Sara": {
-   "slug": "sara",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/sara/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Arumanfi the Light": {
-   "slug": "arumanfi",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/arumanfi/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Auber Corvette": {
-   "slug": "auber_corvette",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/auber_corvette/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Darius Silva Ganius": {
-   "slug": "darius_silva_ganius",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/darius_silva_ganius/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Nina Farion": {
-   "slug": "nina_farion",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/nina_farion/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Isolde": {
-   "slug": "isolde",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/isolde/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Randolph Marianne": {
-   "slug": "randolph_marianne",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/randolph_marianne/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Sieghart Greyrat": {
-   "slug": "sieghart_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/sieghart_greyrat/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  },
-  "Christina Greyrat": {
-   "slug": "christina_greyrat",
-   "forms": [
-    {
-     "form": "base",
-     "file": "Images/christina_greyrat/01_base.jpg",
-     "source": "user upload (face-focus batch)"
-    }
-   ]
-  }
+  "aisha_greyrat": [
+   {
+    "form": "child",
+    "file": "Images/aisha_greyrat/01_child.jpg"
+   },
+   {
+    "form": "teen",
+    "file": "Images/aisha_greyrat/02_teen.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/aisha_greyrat/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/aisha_greyrat/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/aisha_greyrat/05_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/aisha_greyrat/06_alt.jpg"
+   }
+  ],
+  "alexander_rijokku": [
+   {
+    "form": "alt",
+    "file": "Images/alexander_rijokku/01_alt.jpg"
+   }
+  ],
+  "ariel_anemoi_asura": [
+   {
+    "form": "base",
+    "file": "Images/ariel_anemoi_asura/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ariel_anemoi_asura/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ariel_anemoi_asura/03_alt.jpg"
+   }
+  ],
+  "ars_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/ars_greyrat/01_base.jpg"
+   }
+  ],
+  "arumanfi": [
+   {
+    "form": "base",
+    "file": "Images/arumanfi/01_base.jpg"
+   }
+  ],
+  "atoferatofe_raibaku": [
+   {
+    "form": "base",
+    "file": "Images/atoferatofe_raibaku/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/atoferatofe_raibaku/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/atoferatofe_raibaku/03_alt.jpg"
+   }
+  ],
+  "auber_corvette": [
+   {
+    "form": "base",
+    "file": "Images/auber_corvette/01_base.jpg"
+   }
+  ],
+  "badigadi": [
+   {
+    "form": "base",
+    "file": "Images/badigadi/01_base.jpg"
+   }
+  ],
+  "christina_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/christina_greyrat/01_base.jpg"
+   }
+  ],
+  "claire_latreia": [
+   {
+    "form": "base",
+    "file": "Images/claire_latreia/01_base.jpg"
+   }
+  ],
+  "cliff_grimoire": [
+   {
+    "form": "base",
+    "file": "Images/cliff_grimoire/01_base.jpg"
+   }
+  ],
+  "darius_silva_ganius": [
+   {
+    "form": "base",
+    "file": "Images/darius_silva_ganius/01_base.jpg"
+   }
+  ],
+  "elinalise_dragonroad": [
+   {
+    "form": "base",
+    "file": "Images/elinalise_dragonroad/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/elinalise_dragonroad/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/elinalise_dragonroad/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/elinalise_dragonroad/04_alt.jpg"
+   }
+  ],
+  "eris_greyrat": [
+   {
+    "form": "child",
+    "file": "Images/eris_greyrat/01_child.jpg"
+   },
+   {
+    "form": "adult",
+    "file": "Images/eris_greyrat/02_adult.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/05_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/06_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/07_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/08_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/09_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/10_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/11_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/12_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/13_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/14_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/eris_greyrat/15_alt.jpg"
+   }
+  ],
+  "gal_farion": [
+   {
+    "form": "base",
+    "file": "Images/gal_farion/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/gal_farion/02_alt.jpg"
+   }
+  ],
+  "geese": [
+   {
+    "form": "base",
+    "file": "Images/geese/01_base.jpg"
+   }
+  ],
+  "ghislaine_dedoldia": [
+   {
+    "form": "base",
+    "file": "Images/ghislaine_dedoldia/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ghislaine_dedoldia/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ghislaine_dedoldia/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ghislaine_dedoldia/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ghislaine_dedoldia/05_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ghislaine_dedoldia/06_alt.jpg"
+   }
+  ],
+  "ginger_york": [
+   {
+    "form": "base",
+    "file": "Images/ginger_york/01_base.jpg"
+   }
+  ],
+  "gyes_dedoldia": [
+   {
+    "form": "base",
+    "file": "Images/gyes_dedoldia/01_base.jpg"
+   }
+  ],
+  "hilda_boreas_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/hilda_boreas_greyrat/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/hilda_boreas_greyrat/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/hilda_boreas_greyrat/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/hilda_boreas_greyrat/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/hilda_boreas_greyrat/05_alt.jpg"
+   }
+  ],
+  "hitogami": [
+   {
+    "form": "base",
+    "file": "Images/hitogami/01_base.jpg"
+   }
+  ],
+  "isolde": [
+   {
+    "form": "base",
+    "file": "Images/isolde/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/isolde/02_alt.jpg"
+   }
+  ],
+  "julie": [
+   {
+    "form": "base",
+    "file": "Images/julie/01_base.jpg"
+   }
+  ],
+  "kishirika_kishirisu": [
+   {
+    "form": "base",
+    "file": "Images/kishirika_kishirisu/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/kishirika_kishirisu/02_alt.jpg"
+   }
+  ],
+  "lara_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/lara_greyrat/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/lara_greyrat/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/lara_greyrat/03_alt.jpg"
+   }
+  ],
+  "leo": [
+   {
+    "form": "base",
+    "file": "Images/leo/01_base.jpg"
+   }
+  ],
+  "lilia_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/lilia_greyrat/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/lilia_greyrat/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/lilia_greyrat/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/lilia_greyrat/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/lilia_greyrat/05_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/lilia_greyrat/06_alt.jpg"
+   }
+  ],
+  "lily_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/lily_greyrat/01_base.jpg"
+   }
+  ],
+  "linia_dedoldia": [
+   {
+    "form": "base",
+    "file": "Images/linia_dedoldia/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/linia_dedoldia/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/linia_dedoldia/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/linia_dedoldia/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/linia_dedoldia/05_alt.jpg"
+   }
+  ],
+  "lucie_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/lucie_greyrat/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/lucie_greyrat/02_alt.jpg"
+   }
+  ],
+  "luicelia_superdia": [
+   {
+    "form": "alt",
+    "file": "Images/luicelia_superdia/01_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/luicelia_superdia/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/luicelia_superdia/03_alt.jpg"
+   }
+  ],
+  "luke_notos_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/luke_notos_greyrat/01_base.jpg"
+   }
+  ],
+  "minitona_dedoldia": [
+   {
+    "form": "base",
+    "file": "Images/minitona_dedoldia/01_base.jpg"
+   }
+  ],
+  "nanahoshi_shizuka": [
+   {
+    "form": "base",
+    "file": "Images/nanahoshi_shizuka/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/nanahoshi_shizuka/02_alt.jpg"
+   }
+  ],
+  "nina_farion": [
+   {
+    "form": "base",
+    "file": "Images/nina_farion/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/nina_farion/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/nina_farion/03_alt.jpg"
+   }
+  ],
+  "norn_greyrat": [
+   {
+    "form": "child",
+    "file": "Images/norn_greyrat/01_child.jpg"
+   },
+   {
+    "form": "teen",
+    "file": "Images/norn_greyrat/02_teen.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/norn_greyrat/03_alt.jpg"
+   }
+  ],
+  "oldeus": [
+   {
+    "form": "base",
+    "file": "Images/oldeus/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/oldeus/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/oldeus/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/oldeus/04_alt.jpg"
+   }
+  ],
+  "orsted": [
+   {
+    "form": "base",
+    "file": "Images/orsted/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/orsted/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/orsted/03_alt.jpg"
+   }
+  ],
+  "paul_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/paul_greyrat/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/paul_greyrat/02_alt.jpg"
+   }
+  ],
+  "perugius_dola": [
+   {
+    "form": "base",
+    "file": "Images/perugius_dola/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/perugius_dola/02_alt.jpg"
+   }
+  ],
+  "philip_boreas_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/philip_boreas_greyrat/01_base.jpg"
+   }
+  ],
+  "pursena_adoldia": [
+   {
+    "form": "base",
+    "file": "Images/pursena_adoldia/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/pursena_adoldia/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/pursena_adoldia/03_alt.jpg"
+   }
+  ],
+  "randolph_marianne": [
+   {
+    "form": "base",
+    "file": "Images/randolph_marianne/01_base.jpg"
+   }
+  ],
+  "reida": [
+   {
+    "form": "alt",
+    "file": "Images/reida/01_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/reida/02_alt.jpg"
+   }
+  ],
+  "roxy_migurdia": [
+   {
+    "form": "base",
+    "file": "Images/roxy_migurdia/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/03_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/05_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/06_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/07_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/08_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/09_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/roxy_migurdia/10_alt.jpg"
+   }
+  ],
+  "rudeus_greyrat": [
+   {
+    "form": "child",
+    "file": "Images/rudeus_greyrat/01_child.jpg"
+   },
+   {
+    "form": "teen",
+    "file": "Images/rudeus_greyrat/02_teen.jpg"
+   },
+   {
+    "form": "adult",
+    "file": "Images/rudeus_greyrat/03_adult.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/rudeus_greyrat/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/rudeus_greyrat/05_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/rudeus_greyrat/06_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/rudeus_greyrat/07_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/rudeus_greyrat/08_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/rudeus_greyrat/09_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/rudeus_greyrat/10_alt.jpg"
+   }
+  ],
+  "ruijerd_superdia": [
+   {
+    "form": "base",
+    "file": "Images/ruijerd_superdia/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ruijerd_superdia/02_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/ruijerd_superdia/03_alt.jpg"
+   }
+  ],
+  "sara": [
+   {
+    "form": "base",
+    "file": "Images/sara/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sara/02_alt.jpg"
+   }
+  ],
+  "sauros_boreas_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/sauros_boreas_greyrat/01_base.jpg"
+   }
+  ],
+  "sieghart_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/sieghart_greyrat/01_base.jpg"
+   }
+  ],
+  "sylphiette": [
+   {
+    "form": "child",
+    "file": "Images/sylphiette/01_child.jpg"
+   },
+   {
+    "form": "fitz_teen",
+    "file": "Images/sylphiette/02_fitz_teen.jpg"
+   },
+   {
+    "form": "adult",
+    "file": "Images/sylphiette/03_adult.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/04_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/05_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/06_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/07_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/08_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/09_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/10_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/11_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/12_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/13_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/14_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/15_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/16_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/17_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/sylphiette/18_alt.jpg"
+   }
+  ],
+  "talhand": [
+   {
+    "form": "base",
+    "file": "Images/talhand/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/talhand/02_alt.jpg"
+   }
+  ],
+  "terusena_dedoldia": [
+   {
+    "form": "base",
+    "file": "Images/terusena_dedoldia/01_base.jpg"
+   }
+  ],
+  "tristina": [
+   {
+    "form": "alt",
+    "file": "Images/tristina/01_alt.jpg"
+   }
+  ],
+  "vierra": [
+   {
+    "form": "alt",
+    "file": "Images/vierra/01_alt.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/vierra/02_alt.jpg"
+   }
+  ],
+  "zanoba_shirone": [
+   {
+    "form": "base",
+    "file": "Images/zanoba_shirone/01_base.jpg"
+   }
+  ],
+  "zenith_greyrat": [
+   {
+    "form": "base",
+    "file": "Images/zenith_greyrat/01_base.jpg"
+   },
+   {
+    "form": "alt",
+    "file": "Images/zenith_greyrat/02_alt.jpg"
+   }
+  ]
  }
 }
