@@ -53,7 +53,7 @@
         "extensions": {
             "talkativeness": "0.9",
             "fav": false,
-            "world": "",
+            "world": "Quincy [LB]",
             "depth_prompt": {
                 "prompt": "",
                 "depth": 4,

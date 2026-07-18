@@ -31,12 +31,36 @@ The card ships with four openings (default + three alternates):
 - `Images/Quincy_reference.jpeg` is the visual reference used to build her
   appearance; replace or add a cropped avatar as you like.
 
+## Gallery & lorebook
+
+`Gallery/` holds four portraits, and `Lorebook/Quincy [LB].json` is a World Info
+book (auto-linked to the card via `extensions.world`) with:
+
+- **Quincy • Appearance & Portrait Directory (NPC)** — a constant entry: her
+  signature colour (`#c86dd7`), `[NPC]`/`[CHAR]` header usage, canonical
+  appearance, the "never shows her eyes in 18+ art" face rule, and the portrait
+  list.
+- **Quincy • Skin Tone (fetish-triggered)** — a keyed entry: her **default skin
+  tone is pale/white**, and she only **tans / darkens** when a tanning / dark-skin
+  / gyaru fetish is explicitly in play (then she returns to pale afterwards).
+
+Portraits (two skin tones × face-visible / ID-card-censored):
+
+| File | Skin | Face |
+|------|------|------|
+| `Gallery/Quincy_pale_face.jpeg` | pale (default) | visible |
+| `Gallery/Quincy_pale_censored.jpeg` | pale (default) | hidden behind her "Quincy" ID card |
+| `Gallery/Quincy_tanned_face.jpeg` | tanned | visible |
+| `Gallery/Quincy_tanned_censored.jpeg` | tanned | hidden behind the ID card |
+
 ## Files
 
 ```
 Standalone Card/
 └── Quincy/
-    ├── Card/Quincy.json      # the character card (chara_card_v3)
-    ├── Images/               # reference art / avatar
+    ├── Card/Quincy.json          # the character card (chara_card_v3)
+    ├── Lorebook/Quincy [LB].json # World Info: portrait directory + skin-tone rule
+    ├── Gallery/                  # 4 portraits (pale/tanned × face/censored)
+    ├── Images/                   # original reference art
     └── README.md
 ```
