@@ -2,6 +2,24 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-18 — Global speech placement law reworked; Quincy standalone card + phone user-side UI
+
+- **Global speech UI — new placement law** (`Global Lorebook/Global System [LB].json`, entries
+  Monologue / Character Header / Dialogue / NPC Header): a header now **owns everything beneath it
+  until the next header**. Order per speaker beat is **[THINK] monologue on top → [CHAR]/[NPC]
+  header in the middle → [SAY] dialogue + narrative below**, and the dialogue/narrative may
+  alternate freely (SAY → narrative → SAY …) under one header. A new header is printed **only when
+  the speaker changes** — no more repeating the header for every line. Only a monologue may sit
+  above a header; narration/dialogue above a header is forbidden. **`[CHAR]` (image) and `[NPC]`
+  (no-image) headers behave identically** and are cross-referenced.
+- **New standalone card** `Standalone Card/Quincy/` — "Secretly Dancer Girlfriend." Default greeting
+  renders in the **Universal Smartphone UI** (`<PHONE>` state — a two-sided best-friend text thread);
+  the three alternates (Club / Cafe / Late-night) use the Global speech tags and follow the new law.
+- **Universal Smartphone user-side UI** (`Sillytavern/Universal Smartphone/Regex/`): new
+  `Universal_Smartphone_v2_UserSide.json` renders your own phone actions (chat / social / shop /
+  bank / contacts) inside the **same phone frame** as the main regex, using in-world (roleplay)
+  time instead of the real-world clock. Main regex lightly patched so pre-send previews match.
+
 ## 2026-07-10 — WuWa speech system (header + dialogue + monologue), short-name links
 
 - New **WuWa speech system** (`Wuthering Waves/Regex/`), WuWa-specific tags that don't collide
