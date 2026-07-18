@@ -13,7 +13,7 @@ instead of the real-world clock.
 | File | Affects | What it does |
 |------|---------|--------------|
 | `Regex/Universal_Smartphone_v2.json` | AI Output + User Input | The phone itself (renders the `<PHONE>` state). Lightly patched — see *Time fix* below. |
-| `Regex/Universal_Smartphone_v2_UserSide.json` | **User Input** | **NEW.** Renders the messages/actions the phone sends *as you* into a phone-style "Sent" card. |
+| `Regex/Universal_Smartphone_v2_UserSide.json` | **User Input** | **NEW.** Renders the messages/actions the phone sends *as you* inside the **same phone UI** as the main regex. |
 
 Import both in **SillyTavern → Extensions → Regex** (they're independent — the
 new one does not replace the old one). Keep them both enabled.
@@ -37,21 +37,25 @@ The phone works like this:
 
 Previously that block showed on **your** side as raw plain text. The AI still
 needs to read that text (so it isn't changed in the prompt), but now it is
-**displayed** as a matching phone UI card on your side.
+**displayed inside the very same phone** — same frame, notch, status bar,
+wallpaper, bubbles and list rows as the main regex. It looks like your phone
+showing the screen you just acted on, auto-sized to the content.
 
 ### What the User-Side regex renders
 
-Every phone feature that sends a message as you is covered:
+It reuses the main phone's own CSS and components, so every feature matches:
 
-- **Chat** → blue outgoing message bubbles (per message), with the in-world time.
-- **Social** → a row per action: ❤️ like · 💬 comment · ↩️ reply · ✍️ new post · 🔁 share.
-- **Shop** → an itemised order receipt with the total.
-- **Bank** → transfer cards (recipient · note · amount) with the total sent.
-- **Contacts** → an "added to contacts" card.
+- **Chat** → the chat thread with your blue outgoing bubbles (per message), each
+  stamped with the in-world time, under the contact's nav bar.
+- **Social** → the feed: a new post renders as a real post card; likes / comments
+  / replies / shares render as list rows with an icon.
+- **Shop** → the "Order Placed" screen with cart-item rows and the total.
+- **Bank** → the "Transfer Sent" screen with debit transaction rows (red) + total.
+- **Contacts** → the contact list with the newly added contact.
 
 It is **display-only** (`markdownOnly`), so the AI still receives the original
-text and understands exactly what you did — you just see a nice card instead of
-raw text.
+text and understands exactly what you did — you just see the phone screen instead
+of raw text.
 
 ## Time fix — roleplay time, not real-world time
 
