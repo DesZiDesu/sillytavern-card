@@ -14,9 +14,11 @@ instead of the real-world clock.
 |------|---------|--------------|
 | `Regex/Universal_Smartphone_v2.json` | AI Output + User Input | The phone itself (renders the `<PHONE>` state). Lightly patched — see *Time fix* below. |
 | `Regex/Universal_Smartphone_v2_UserSide.json` | **User Input** | **NEW.** Renders the messages/actions the phone sends *as you* inside the **same phone UI** as the main regex. |
+| `Lorebook/Universal Smartphone v2 [LB].json` | World Info | The AI-side protocol: the `<PHONE>` JSON schema, screens, and send-formats — keyed on phone triggers ("open phone", "check phone", …). Includes the **in-world time** rules. |
 
-Import both in **SillyTavern → Extensions → Regex** (they're independent — the
-new one does not replace the old one). Keep them both enabled.
+Import the two regexes in **SillyTavern → Extensions → Regex** (they're
+independent — keep both enabled), and the lorebook as a **World Info / Lorebook**
+so the AI knows how to emit the `<PHONE>` state.
 
 ## The problem this solves
 

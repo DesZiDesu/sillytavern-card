@@ -2,6 +2,16 @@
 
 All notable additions to this repository's cards, lorebooks, and regex are listed here.
 
+## 2026-07-18 — Universal Smartphone lorebook (with in-world time rules)
+
+- **New** `Sillytavern/Universal Smartphone/Lorebook/Universal Smartphone v2 [LB].json` — the
+  AI-side protocol for the phone (the `<PHONE>` JSON schema, screen values, field reference and
+  send-formats), keyed on phone triggers so it loads only when the phone is used. Completes the
+  Universal Smartphone folder (previously regex-only).
+- **In-world time rules**: the lorebook now states that `time`/`date` are the story clock (never the
+  real world) and that each `ts` may be a plain in-world `"HH:MM"` (or an ISO 8601 timestamp with an
+  in-world date) — matching the roleplay-time regex patch, so phone times stay on story time.
+
 ## 2026-07-18 — Global speech placement law reworked; Quincy standalone card + phone user-side UI
 
 - **Global speech UI — new placement law** (`Global Lorebook/Global System [LB].json`, entries
