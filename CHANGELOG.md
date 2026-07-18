@@ -4,9 +4,10 @@ All notable additions to this repository's cards, lorebooks, and regex are liste
 
 ## 2026-07-18 — Universal Smartphone lorebook (with in-world time rules)
 
-- **New** `Sillytavern/Universal Smartphone/Lorebook/Universal Smartphone v2 [LB].json` — the
-  AI-side protocol for the phone (the `<PHONE>` JSON schema, screen values, field reference and
-  send-formats), keyed on phone triggers so it loads only when the phone is used. Completes the
+- **New** `Sillytavern/Universal Smartphone/Lorebook/Phone [LB].json` — the AI-side phone lorebook:
+  the unified `<PHONE>` smartphone protocol (schema, screen values, field reference, send-formats)
+  plus its companion device systems (Banking, NEXUS social board, modern & Nokia chat messengers,
+  phone-call kernel, codex/book reader), each keyed so it loads only when used. Completes the
   Universal Smartphone folder (previously regex-only).
 - **In-world time rules**: the lorebook now states that `time`/`date` are the story clock (never the
   real world) and that each `ts` may be a plain in-world `"HH:MM"` (or an ISO 8601 timestamp with an
