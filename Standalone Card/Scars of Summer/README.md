@@ -45,13 +45,48 @@ Built for the repo's **Global Regex + Global Lorebook** set:
 
 ## Lorebook entries
 
-- **Ryoka • Appearance & Portrait Directory** *(constant)* — signature colour,
-  canonical appearance, and the `[CHAR]` image-header URLs (served from this repo
-  under `@main`).
+- **Ryoka • Appearance, Portrait Directory & Image Usage Law** *(constant)* —
+  signature colour, canonical appearance, how to emit an image
+  (`[CHAR|url|Ryoka|#2f6fb0]` or inline `![Ryoka](url)`), and the **image-gating
+  law** (match art to the current situation; at most one per reply; NTR art is
+  hard-forbidden outside an NTR route).
 - **Scars of Summer • Town & Season** *(keyed)* — the rural summer setting and
   the "scar" theme (the childhood promise).
 - **Ryoka • Outfits & the swimsuit habit** *(keyed)* — uniform / café / yukata /
   home, and the competitive swimsuit she hides under her blouse.
+- **Ryoka • Pool / swim / wet images** *(keyed: pool, swim, wet…)* — poolside
+  swimsuit art, default-route safe.
+- **Ryoka • Intimate / climax images** *(keyed: creampie, climax…)* — explicit
+  {{user}} afterglow art, for explicit {{user}} scenes only.
+- **Ryoka • NTR / corruption images** *(keyed: ntr, cheat, corruption…)* —
+  third-party art matching the source game's darker routes, **hard-gated** and
+  forbidden in the default sweet romance.
+
+## Reference-image gallery (situationally gated)
+
+The lorebook doubles as an **image directory** the AI can pull from mid-chat, so
+Ryoka's art surfaces only when the scene matches. `Full-body reference` and
+`café` are always safe; everything else is keyed to a context:
+
+| File | Situation | Gate |
+|------|-----------|------|
+| `Ryoka_cafe.jpeg` | default / café / uniform | any route |
+| `Ryoka_dakimakura.jpeg` | full-body reference | any route |
+| `Ryoka_pool_wet_blouse.jpg` | wet blouse over swimsuit, poolside | pool/swim |
+| `Ryoka_pool_swimsuit_peel.jpg` | peeling her swimsuit down (solo) | pool/swim |
+| `Ryoka_climax_creampie_1.jpg` | explicit afterglow (POV) | explicit {{user}} climax |
+| `Ryoka_climax_creampie_2.jpg` | explicit afterglow, variant | explicit {{user}} climax |
+| `Ryoka_ntr_photo_blackmail.jpg` | photographed / exposed | **NTR route only** |
+| `Ryoka_ntr_public_grope.jpg` | groped in public by an older man | **NTR route only** |
+| `Ryoka_ntr_interracial_1.jpg` | interracial NTR, before | **NTR route only** |
+| `Ryoka_ntr_interracial_2_cum.jpg` | interracial NTR, after | **NTR route only** |
+| `Ryoka_ntr_bound_group.jpg` | bound group / gangbang | **NTR route only** |
+| `Ryoka_ntr_bikini_mating.jpg` | bikini mating-press | **NTR route only** |
+| `Ryoka_ntr_futon.jpg` | affair on a futon | **NTR route only** |
+
+The gating law is the constant portrait entry; the model shows **at most one
+image per reply** and only when the scene truly matches. NTR images depict Ryoka
+with third parties and **never** appear in the default childhood-friend romance.
 
 ## Files
 
@@ -60,16 +95,24 @@ Standalone Card/
 └── Scars of Summer/
     ├── Card/Scars of Summer.json     # the character card (chara_card_v3)
     ├── Lorebook/Scars of Summer [LB].json  # standalone copy of the embedded World Info
-    ├── Gallery/                      # portraits served for the [CHAR] header
-    │   ├── Ryoka_cafe.jpeg
-    │   └── Ryoka_dakimakura.jpeg
+    ├── Gallery/                      # 13 reference images, served via @main raw URLs
+    │   ├── Ryoka_cafe.jpeg           # default portrait ([CHAR] header)
+    │   ├── Ryoka_dakimakura.jpeg     # full-body reference
+    │   ├── Ryoka_pool_*.jpg          # pool/swim (2)
+    │   ├── Ryoka_climax_*.jpg        # explicit {{user}} climax (2)
+    │   └── Ryoka_ntr_*.jpg           # gated NTR/corruption (7)
     ├── Images/Ryoka_reference.jpeg   # visual reference used to build her
     └── README.md
 ```
 
 ## Notes
 
-- Adult content; **all characters are 18+**. Ryoka is a legal adult (18).
-- {{user}} is the sole love interest — the branching is across *starting moments*
-  of the same {{user}}×Ryoka summer, not toward other partners.
+- Adult content; **all characters are 18+**. Ryoka (Enomoto Ryouka) is a legal
+  adult (18).
+- In the **default** routes {{user}} is the sole love interest — the four
+  starting greetings branch across *moments* of the same {{user}}×Ryoka summer.
+  The NTR/corruption art is provided (the source game is an NTR title) but is
+  **gated** to explicit NTR/corruption play and never bleeds into the sweet route.
+- Large source files were downscaled (long edge ≤ 1920 px) for chat-friendly
+  loading; originals were up to 22 MB.
 - Art reference: Shinachiku-castella (source-game illustrations).
