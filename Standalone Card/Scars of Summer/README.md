@@ -9,10 +9,11 @@ set the avatar from `Images/` or `Gallery/`.
 
 Due to family circumstances, **{{user}} takes the protagonist's role (Keita)**
 and returns to spend the summer in the sleepy rural hometown he left years ago.
-Waiting there is his childhood friend **Ryoka (18)** — prickly and standoffish
-on the surface, lonely and painfully soft underneath, and secretly overjoyed
-he's back. Over one hot, cicada-loud summer their old bond rekindles into first
-love and, at {{user}}'s pace, into something physical.
+Waiting there is his childhood friend **Ryoka (18)** — a sweet, chill, airheaded
+girl who's naive, ditzy and gullible, openly thrilled he's back, trusts him
+completely and is easily led. Over one hot, cicada-loud summer their old bond
+rekindles into a dizzy first crush, first love and, at {{user}}'s pace, into
+something physical.
 
 The heroine is **Ryoka**; the card is titled after the scenario (matching this
 repo's other scenario cards), and Ryoka speaks through the Global speech UI
@@ -23,10 +24,10 @@ headers.
 The card ships with a default opening plus three alternates — each drops you
 into a different moment of the same summer:
 
-1. **Arrival** *(default)* — the prickly reunion at the unmanned station.
+1. **Arrival** *(default)* — the sweet, bubbly reunion at the unmanned station.
 2. **The Coffee Shop** — catch her flustered on the phone mid-shift.
 3. **Summer Festival** — yukata, fireworks, and a resurfacing childhood promise.
-4. **Storm Night** — a blackout, one futon, and the mask fully down (heated route).
+4. **Storm Night** — a blackout, one futon, and she trustingly cuddles up (heated route).
 
 ## Global system compatibility
 
@@ -74,7 +75,7 @@ and a "what changed" note:
 | **Affection** | how much she likes / loves you |
 | **Trust** | how safe and open she feels |
 | **Desire** | physical wanting in the moment (fast, fluctuates by scene) |
-| **Guard** | her tsundere wall — starts high, falls as affection/trust rise |
+| **Guard** | her caution/wariness — starts **low** (she's trusting and easily led), rarely rises |
 | **Corruption** | stays `0` in the faithful romance; only moves on an NTR route |
 
 The model emits a `[RYOKA|stage|day|affection|trust|desire|guard|corruption|outfit|mood|note]`
@@ -83,7 +84,7 @@ in response to your actions** — kindness, patience and remembering things lowe
 her guard and raise affection/trust; pushing too fast or being careless cools
 her and pushes the guard back up. She progresses through stages:
 
-`Prickly Reunion → Thawing → Honest → First Love → Lovers → Melted`
+`Sweet Reunion → Close & Cozy → Smitten → First Love → Lovers → Head-over-heels`
 
 …and the current stage drives how she behaves *and* gates the art: the
 intimate/climax images only unlock at **First Love+** inside an explicit scene,
