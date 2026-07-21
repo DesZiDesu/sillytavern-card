@@ -62,6 +62,38 @@ Built for the repo's **Global Regex + Global Lorebook** set:
   third-party art matching the source game's darker routes, **hard-gated** and
   forbidden in the default sweet romance.
 
+## Progression tracker (visible state system)
+
+Ryoka **changes over the summer**, and you can watch it happen. A status panel
+renders at the top of every reply — driven by the embedded **`SoS • Ryoka
+Tracker`** regex — showing five meters plus her current stage, day, outfit, mood,
+and a "what changed" note:
+
+| Meter | Meaning |
+|-------|---------|
+| **Affection** | how much she likes / loves you |
+| **Trust** | how safe and open she feels |
+| **Desire** | physical wanting in the moment (fast, fluctuates by scene) |
+| **Guard** | her tsundere wall — starts high, falls as affection/trust rise |
+| **Corruption** | stays `0` in the faithful romance; only moves on an NTR route |
+
+The model emits a `[RYOKA|stage|day|affection|trust|desire|guard|corruption|outfit|mood|note]`
+line and the regex turns it into the meter card. **Values move slowly and only
+in response to your actions** — kindness, patience and remembering things lower
+her guard and raise affection/trust; pushing too fast or being careless cools
+her and pushes the guard back up. She progresses through stages:
+
+`Prickly Reunion → Thawing → Honest → First Love → Lovers → Melted`
+
+…and the current stage drives how she behaves *and* gates the art: the
+intimate/climax images only unlock at **First Love+** inside an explicit scene,
+and the NTR imagery only in an NTR route where corruption is rising. The rules
+live in the constant **Ryoka • Progression Tracker** lorebook entry.
+
+The regex is **embedded in the card** (so it just works on import) and also
+shipped as `Regex/SoS_RyokaTracker_Regex.json`. If the panel ever shows as raw
+`[RYOKA|…]` text, import that regex file (or enable character-scoped regex).
+
 ## Reference-image gallery (situationally gated)
 
 The lorebook doubles as an **image directory** the AI can pull from mid-chat, so
@@ -95,6 +127,7 @@ Standalone Card/
 └── Scars of Summer/
     ├── Card/Scars of Summer.json     # the character card (chara_card_v3)
     ├── Lorebook/Scars of Summer [LB].json  # standalone copy of the embedded World Info
+    ├── Regex/SoS_RyokaTracker_Regex.json   # progression-tracker renderer (also embedded)
     ├── Gallery/                      # 13 reference images, served via @main raw URLs
     │   ├── Ryoka_cafe.jpeg           # default portrait ([CHAR] header)
     │   ├── Ryoka_dakimakura.jpeg     # full-body reference
