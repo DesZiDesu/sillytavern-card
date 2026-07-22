@@ -41,9 +41,12 @@ everything between) — keeping **all memories** across every life. Import
 
 - Greetings use the Global speech-UI tags (`[NPC]`/`[SAY]`/`[THINK]`) with Nana's
   signature colour **`#a06cd5`**, and follow the global placement law.
-- Each life opens with a plain-text **Life Record** panel (world · genre · her
-  body · `{{user}}`'s body · her whim · danger). A regex to render it into a
-  styled panel — and a fuller life/progression tracker — can be added later.
+- Every reply ends with a **collapsible Life Record panel pinned to the bottom**,
+  rendered by the embedded **`HMT • Life Record`** regex (also in `Regex/`): a
+  header (`LIFE №n · world · genre`) over her current-life name, body, your body,
+  whim and death count, plus **Danger / Courage / Bond** meters — so you can watch
+  her change life to life. Emitted as a `[LIFE|…]` pipe line; collapse works with
+  pure HTML (no JS).
 - The lorebook is **embedded** in the card (`data.character_book`) and also shipped
   standalone in `Lorebook/`, linked by name via `extensions.world`.
 
@@ -57,8 +60,9 @@ per-life fetish/whim, `{{user}}`'s role, and Nana's persistent growth arc.
 
 ```
 How Many Times Have We Reincarnated RPG/
-├── Card/…RPG.json          # chara_card_v3 (lorebook embedded)
+├── Card/…RPG.json          # chara_card_v3 (lorebook + Life Record regex embedded)
 ├── Lorebook/…[LB].json     # standalone World Info copy
+├── Regex/HMT_LifeRecord_Regex.json  # collapsible Life Record panel (also embedded)
 ├── Images/                 # base look (glasses, expressions) + 2 example bodies
 └── README.md
 ```
@@ -66,6 +70,7 @@ How Many Times Have We Reincarnated RPG/
 ## Notes
 
 - Adult content; **all characters are 21+**.
+- She goes by a **different name each life** (the world hands her a new identity);
+  her true/base name is **Nana**, and the Life Record shows the current-life name.
 - Image URLs in the lorebook point at `@main` raw paths, so the reference art
   resolves once this is merged to `main`.
-- Not yet built: a Regex/tracker suite (this is the "card + lorebook first" pass).
