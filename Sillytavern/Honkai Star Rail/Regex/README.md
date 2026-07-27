@@ -151,4 +151,5 @@ portrait simply hides (the rest of the header still renders).
 | 90 | Trailblazer (Ice) F | `trailblazer-ice-f` | Ice |
 | 91 | Trailblazer (Lightning) M | `trailblazer-lightning-m` | Thunder |
 | 92 | Trailblazer (Lightning) F | `trailblazer-lightning-f` | Thunder |
-
+| 93 | Rin Tohsaka | `rin-tohsaka` | Quantum |
+| 94 | Gilgamesh | `gilgamesh` | Thunder |
