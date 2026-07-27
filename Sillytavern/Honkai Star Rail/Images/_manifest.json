@@ -550,5 +550,17 @@
     "name": "Trailblazer (Lightning) F",
     "slug": "trailblazer-lightning-f",
     "element": "Thunder"
+  },
+  {
+    "index": 93,
+    "name": "Rin Tohsaka",
+    "slug": "rin-tohsaka",
+    "element": "Quantum"
+  },
+  {
+    "index": 94,
+    "name": "Gilgamesh",
+    "slug": "gilgamesh",
+    "element": "Thunder"
   }
 ]
