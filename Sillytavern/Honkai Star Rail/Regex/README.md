@@ -1,10 +1,10 @@
 # Honkai: Star Rail — Regex Interface Kit
 
 A SillyTavern regex kit that renders game-authentic HSR UI in chat: character
-headers (with portrait), NPC headers (imageless), monologue, dialogue, narrator
-and a status panel. Colour, element gem, Path icon and Path/element labels are
-all driven automatically by the **element** and **path** keywords you type — no
-hex codes needed.
+headers (with portrait), NPC headers (imageless), monologue, dialogue, narrator,
+an always-visible scene tracker and a collapsible character status tracker.
+Colour, element image, Path image and labels are driven automatically by the
+**element** and **path** keywords — no hex codes needed.
 
 Fonts (Marcellus · Chakra Petch · Bai Jamjuree · Share Tech Mono) load from
 Google Fonts; portraits load from this repo's `Images/` folder via githack.
@@ -19,11 +19,13 @@ For each **(pick ONE)** folder, import only a single style.
 - **Monologue** — Inner Voice
 - **Dialogue** — Transmission
 - **Narrator** — Trailblaze Log
-- **Status** — Trailblaze HUD (`HSR_Status_Regex.json`, top level)
+- **Scene Tracker** — Astral HUD (`HSR_Scene_Regex.json`, top level)
+- **Status Tracker** — Collapsible Astral HUD (`HSR_Status_Regex.json`, top level)
 
 ## Tokens
 
-Type these in a message; the regex replaces them with styled HTML.
+Header, dialogue and narrator components use compact tokens. Trackers use
+tagged JSON objects so punctuation inside display text does not break fields.
 
 | Component | Token |
 |---|---|
@@ -32,7 +34,8 @@ Type these in a message; the regex replaces them with styled HTML.
 | Monologue | `[HSRTHINK\|Name\|element\|text]` |
 | Dialogue | `[HSRSAY\|Name\|element\|text]` |
 | Narrator | `[HSRNARR\|text]` |
-| Status | `[HSRSTATUS\|element\|Title\|Location\|HP\|Mood]` |
+| Scene Tracker | `<hsr_scene>{...}</hsr_scene>` |
+| Status Tracker | `<hsr_status>{...}</hsr_status>` |
 
 Examples:
 ```
@@ -41,8 +44,61 @@ Examples:
 [HSRTHINK|Trailblazer|imaginary|A Stellaron sleeps inside me, yet my heart beats steady.]
 [HSRSAY|March 7th|ice|ยิ้มหน่อยสิ! ...เดี๋ยว อย่าเพิ่งหนีสิ!]
 [HSRNARR|The Astral Express glides through a veil of blue stars.]
-[HSRSTATUS|imaginary|Trailblazer · Status|Penacony · Golden Hour|2,940 / 3,580|มุ่งมั่น แต่ระแวงเล็กน้อย]
 ```
+
+## Tracker JSON contracts
+
+The field order below is intentional. Keep it unchanged so the SillyTavern
+regex can render the JSON without running custom JavaScript.
+
+Place the Scene Tracker at the absolute start of every assistant message:
+
+```json
+<hsr_scene>
+{
+  "schema": "hsr_scene.v1",
+  "time": "21:35",
+  "period": "night",
+  "weather": "หิมะโปรย",
+  "temperature_c": -8,
+  "location": "เขตบริหาร · Belobog",
+  "zone": "ทางเดินตะวันตก",
+  "situation": "กำลังหลบการลาดตระเวนของ Silvermane Guards"
+}
+</hsr_scene>
+```
+
+Place the Status Tracker at the absolute end of every assistant message:
+
+```json
+<hsr_status>
+{
+  "schema": "hsr_status.v1",
+  "character": "Reinhardt",
+  "hp": {
+    "current": 760,
+    "max": 1000
+  },
+  "element": "fire",
+  "path": "destruction",
+  "bond": {
+    "current": 64,
+    "max": 100
+  },
+  "items": [
+    "ยาฟื้นฟู",
+    "กุญแจเก่า",
+    null,
+    null
+  ]
+}
+</hsr_status>
+```
+
+The scene is always visible. Character status uses a native HTML `<details>`
+panel with no `open` attribute, so it starts fully closed and only expands when
+the user taps it. The `schema` fields are matched internally but never displayed.
+Empty inventory slots may be `null` or `""`; the UI renders either as `EMPTY`.
 
 ## Elements (drive colour + gem)
 Use the lowercase keyword: `physical` · `fire` · `ice` · `lightning` · `wind` · `quantum` · `imaginary`

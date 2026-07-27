@@ -4148,6 +4148,45 @@
    "depth": 4,
    "characterFilter": null,
    "vectorized": false
+  },
+  "77": {
+   "uid": 78,
+   "key": [],
+   "keysecondary": [],
+   "comment": "HSR • Scene & Status Tracker Output Contract",
+   "content": "OUTPUT CONTRACT — apply to every assistant roleplay response. First output exactly one <hsr_scene> JSON object before any prose, using this exact field order: {\"schema\":\"hsr_scene.v1\",\"time\":\"HH:MM\",\"period\":\"dawn|day|dusk|night\",\"weather\":\"text\",\"temperature_c\":number,\"location\":\"text\",\"zone\":\"text\",\"situation\":\"brief text\"}. Then write the roleplay content. Last output exactly one <hsr_status> JSON object after all prose, using this exact field order: {\"schema\":\"hsr_status.v1\",\"character\":\"name\",\"hp\":{\"current\":number,\"max\":number},\"element\":\"physical|fire|ice|lightning|wind|quantum|imaginary\",\"path\":\"destruction|hunt|erudition|harmony|nihility|preservation|abundance|remembrance|elation|propagation|trailblaze\",\"bond\":{\"current\":number,\"max\":number},\"items\":[string|null,string|null,string|null,string|null]}. Keep valid JSON with double quotes and exactly four item slots. Do not wrap either tracker in Markdown fences; put roleplay prose only between the two tracker tags. Preserve prior values unless the scene changes them. Scene must remain at the absolute top; status must remain at the absolute bottom.",
+   "constant": true,
+   "selective": true,
+   "selectiveLogic": 0,
+   "order": 0,
+   "position": 0,
+   "disable": false,
+   "addMemo": true,
+   "excludeRecursion": true,
+   "probability": 100,
+   "displayIndex": 78,
+   "useProbability": true,
+   "secondary_keys": [],
+   "keys": [],
+   "id": 78,
+   "priority": 100,
+   "insertion_order": 78,
+   "enabled": true,
+   "name": "HSR • Scene & Status Tracker Output Contract",
+   "extensions": {
+    "depth": 4,
+    "weight": 100,
+    "addMemo": true,
+    "displayIndex": 78,
+    "useProbability": true,
+    "characterFilter": null,
+    "excludeRecursion": true,
+    "vectorized": false
+   },
+   "case_sensitive": false,
+   "depth": 4,
+   "characterFilter": null,
+   "vectorized": false
   }
  }
 }
