@@ -1,5 +1,15 @@
-# HSR Dialogue — Transmission
+# HSR Dialogue — install ONE
 
-Speech panel with an angled element name-tab.
+All three files use:
 
-Token: `[HSRSAY|Name|element|text]` — see ../README.md.
+`[HSRSAY|Name|element|text]`
+
+Import exactly one:
+
+| File | Design |
+|---|---|
+| `HSR_Dialogue_Transmission_Regex.json` | A — Astral Ticket: dark cinematic record with gold/element rail |
+| `HSR_Dialogue_B_WarpRecord_Regex.json` | B — Warp Record: navy transmission band with element/cyan signal line |
+| `HSR_Dialogue_C_DataBank_Regex.json` | C — Data Bank: pale database dialogue panel |
+
+Dialogue designs contain no portrait images.
