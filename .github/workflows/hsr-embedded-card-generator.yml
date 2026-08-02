@@ -30,22 +30,31 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate and validate cards
-        run: python Tools/maintenance/generate_hsr_embedded_cards.py
+      - name: Generate cards and capture diagnostics
+        shell: bash
+        run: |
+          set +e
+          python Tools/maintenance/generate_hsr_embedded_cards.py > hsr-generator.log 2>&1
+          status=$?
+          echo "$status" > hsr-generator.exit
+          cat hsr-generator.log
+          exit 0
 
-      - name: Commit generated files to feature branch
+      - name: Commit generated files or diagnostics
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "Sillytavern/Honkai Star Rail"
+          git add "Sillytavern/Honkai Star Rail" hsr-generator.log hsr-generator.exit
           if git diff --cached --quiet; then
-            echo "Generated files are already current."
+            echo "Generated files and diagnostics are already current."
           else
-            git commit -m "Fix HSR embedded lorebook and UI card variants"
+            git commit -m "Run HSR embedded-card generator"
             git push origin HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}
           fi
 
-      - name: Package corrected files
+      - name: Package corrected files when available
+        if: ${{ hashFiles('Sillytavern/Honkai Star Rail/Bot/Variants/*.json') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: hsr-fixed-cards-and-lorebook
@@ -55,3 +64,5 @@ jobs:
             Sillytavern/Honkai Star Rail/Bot/Variants/*.json
             Sillytavern/Honkai Star Rail/Bot/README.md
             Sillytavern/Honkai Star Rail/Lorebook/Honkai Star Rail [LB].json
+            hsr-generator.log
+            hsr-generator.exit
