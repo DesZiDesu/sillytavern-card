@@ -1,31 +1,77 @@
 name: Build HSR full embedded pack
 
 on:
+  push:
+    branches:
+      - fix/hsr-embedded-cards
+    paths:
+      - "Sillytavern/Honkai Star Rail/**"
+      - "Tools/maintenance/build_hsr_full_embedded_pack.py"
+      - ".github/workflows/build-hsr-full-embedded-pack.yml"
   pull_request:
-    branches: [main]
+    branches:
+      - main
     paths:
       - "Sillytavern/Honkai Star Rail/**"
       - "Tools/maintenance/build_hsr_full_embedded_pack.py"
       - ".github/workflows/build-hsr-full-embedded-pack.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out branch
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+
+      - name: Fetch main
+        run: git fetch origin main:refs/remotes/origin/main --force
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Build and validate full-content files
-        run: python Tools/maintenance/build_hsr_full_embedded_pack.py
-      - name: Upload corrected pack
+
+      - name: Build and capture diagnostics
+        shell: bash
+        run: |
+          set +e
+          python Tools/maintenance/build_hsr_full_embedded_pack.py > build-hsr.log 2>&1
+          status=$?
+          echo "$status" > build-hsr.exit
+          cat build-hsr.log
+          exit 0
+
+      - name: Upload diagnostics and generated pack
         uses: actions/upload-artifact@v4
         with:
           name: hsr-full-embedded-pack
-          if-no-files-found: error
-          path: generated-hsr-pack/*
+          if-no-files-found: warn
+          path: |
+            generated-hsr-pack/*
+            build-hsr.log
+            build-hsr.exit
+
+      - name: Commit diagnostics on push
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add build-hsr.log build-hsr.exit
+          if git diff --cached --quiet; then
+            echo "No diagnostic changes."
+          else
+            git commit -m "Capture HSR full-pack build diagnostics [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+
+      - name: Fail when builder failed
+        shell: bash
+        run: |
+          test "$(cat build-hsr.exit)" = "0"
