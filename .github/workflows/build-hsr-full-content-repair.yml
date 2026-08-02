@@ -4,17 +4,9 @@ on:
   push:
     branches:
       - fix/hsr-full-content-repair
-    paths:
-      - "Sillytavern/Honkai Star Rail/**"
-      - "Tools/maintenance/build_hsr_full_embedded_pack.py"
-      - ".github/workflows/build-hsr-full-content-repair.yml"
   pull_request:
     branches:
       - main
-    paths:
-      - "Sillytavern/Honkai Star Rail/**"
-      - "Tools/maintenance/build_hsr_full_embedded_pack.py"
-      - ".github/workflows/build-hsr-full-content-repair.yml"
 
 permissions:
   contents: write
@@ -26,8 +18,8 @@ jobs:
       - name: Check out repair branch
         uses: actions/checkout@v4
         with:
+          ref: fix/hsr-full-content-repair
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -78,7 +70,7 @@ jobs:
             echo "No generated changes."
           else
             git commit -m "$message"
-            git push origin HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}
+            git push origin HEAD:fix/hsr-full-content-repair
           fi
 
       - name: Fail when builder failed
