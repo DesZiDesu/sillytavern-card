@@ -34,30 +34,53 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Build and validate full HSR files
-        run: python Tools/maintenance/build_hsr_full_embedded_pack.py
-
-      - name: Publish permanent ZIP in repository
+      - name: Build and capture diagnostics
+        shell: bash
         run: |
-          mkdir -p "Sillytavern/Honkai Star Rail/Downloads"
-          cp generated-hsr-pack/HSR_Self_Contained_Full_Pack.zip "Sillytavern/Honkai Star Rail/Downloads/HSR_Self_Contained_Full_Pack.zip"
+          set +e
+          python Tools/maintenance/build_hsr_full_embedded_pack.py > build-hsr.log 2>&1
+          status=$?
+          echo "$status" > build-hsr.exit
+          cat build-hsr.log
+          exit 0
 
-      - name: Upload downloadable artifact
+      - name: Publish permanent ZIP when build succeeded
+        shell: bash
+        run: |
+          if [ "$(cat build-hsr.exit)" = "0" ]; then
+            mkdir -p "Sillytavern/Honkai Star Rail/Downloads"
+            cp generated-hsr-pack/HSR_Self_Contained_Full_Pack.zip "Sillytavern/Honkai Star Rail/Downloads/HSR_Self_Contained_Full_Pack.zip"
+          fi
+
+      - name: Upload pack and diagnostics
         uses: actions/upload-artifact@v4
         with:
           name: HSR-Self-Contained-Full-Pack
-          if-no-files-found: error
-          path: generated-hsr-pack/*
+          if-no-files-found: warn
+          path: |
+            generated-hsr-pack/*
+            build-hsr.log
+            build-hsr.exit
 
-      - name: Commit generated repair files
+      - name: Commit repair files or diagnostics
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "Sillytavern/Honkai Star Rail"
-          if git diff --cached --quiet; then
-            echo "HSR files are already current."
+          if [ "$(cat build-hsr.exit)" = "0" ]; then
+            git add "Sillytavern/Honkai Star Rail"
+            message="Restore full HSR lorebook and embedded card content [skip ci]"
           else
-            git commit -m "Restore full HSR lorebook and embedded card content [skip ci]"
+            git add build-hsr.log build-hsr.exit
+            message="Capture HSR repair build diagnostics [skip ci]"
+          fi
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+          else
+            git commit -m "$message"
             git push origin HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}
           fi
+
+      - name: Fail when builder failed
+        shell: bash
+        run: test "$(cat build-hsr.exit)" = "0"
