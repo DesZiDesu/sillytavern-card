@@ -20,6 +20,29 @@ colour automatically.
 The Tracker Systems lorebook has high-priority contracts and overrides the older
 `hsr_status.v1` instruction contained in the original lorebook.
 
+
+## Selectable speech UI designs
+
+Headers, dialogue, and monologue are stored in separate **pick ONE** folders.
+Import exactly one file from each folder. All options use the same compact tokens,
+so changing the visual design does not require changing lorebook output.
+
+Preview:
+
+`Tools/previews/hsr_speech_ui_hsr_style_preview.html`
+
+### Matching sets
+
+| Set | Header | Dialogue | Monologue |
+|---|---|---|---|
+| A — Astral Ticket | `HSR_Header_A_AstralTicket_Regex.json` | `HSR_Dialogue_Transmission_Regex.json` | `HSR_Monologue_InnerVoice_Regex.json` |
+| B — Warp Record | `HSR_Header_B_WarpNameplate_Regex.json` | `HSR_Dialogue_B_WarpRecord_Regex.json` | `HSR_Monologue_B_WarpRecord_Regex.json` |
+| C — Data Bank | `HSR_Header_C_Constellation_Regex.json` | `HSR_Dialogue_C_DataBank_Regex.json` | `HSR_Monologue_C_DataBank_Regex.json` |
+
+The header is deliberately thin and places the gallery portrait on the right.
+Dialogue and monologue do not contain character images. Sets may be mixed, but
+using matching letters produces the most coherent visual system.
+
 ## Regex depth
 
 Both Scene and Status tracker regexes use `maxDepth: 2`.
