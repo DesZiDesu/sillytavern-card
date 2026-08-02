@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HSR Selectable Speech UI Preview</title>
 <style>
-*{box-sizing:border-box}body{margin:0;padding:24px 10px 48px;background:radial-gradient(circle at 50% 0,#20283a55,transparent 32%),#090b10;color:#eef1f6;font-family:Arial,sans-serif}.page{width:min(1050px,100%);margin:auto}h1{margin:0;font:600 clamp(27px,5vw,44px)/1.05 Georgia,serif}p{color:#9da6b5;line-height:1.6}.set{margin-top:24px;padding:12px;border:1px solid #ffffff16;background:#ffffff05}.set h2{margin:0 0 4px;font:600 21px Georgia,serif}.set>p{margin:0 0 14px;font-size:11px}.samples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.sample{min-width:0;padding:8px;background:#0003;border:1px solid #ffffff0d}.sample-title{margin:0 0 7px;color:#d6bf87;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}.render{min-width:0}.loading{padding:15px;color:#8791a2;text-align:center}.error{padding:10px;color:#ff9f9f;background:#3a1414}.links{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.links a{padding:7px 10px;border:1px solid #d6bf8740;color:#d6bf87;text-decoration:none;font-size:9px;letter-spacing:.1em;text-transform:uppercase}@media(max-width:820px){.samples{grid-template-columns:1fr}} 
+*{box-sizing:border-box}body{margin:0;padding:24px 10px 48px;background:radial-gradient(circle at 50% 0,#20283a55,transparent 32%),#090b10;color:#eef1f6;font-family:Arial,sans-serif}.page{width:min(1050px,100%);margin:auto}h1{margin:0;font:600 clamp(27px,5vw,44px)/1.05 Georgia,serif}p{color:#9da6b5;line-height:1.6}.set{margin-top:24px;padding:12px;border:1px solid #ffffff16;background:#ffffff05}.set h2{margin:0 0 4px;font:600 21px Georgia,serif}.set>p{margin:0 0 14px;font-size:11px}.samples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.sample{min-width:0;padding:8px;background:#0003;border:1px solid #ffffff0d}.sample-title{margin:0 0 7px;color:#d6bf87;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}.render{min-width:0}.loading{padding:15px;color:#8791a2;text-align:center}.error{padding:10px;color:#ff9f9f;background:#3a1414}.links{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.links a{padding:7px 10px;border:1px solid #d6bf8740;color:#d6bf87;text-decoration:none;font-size:9px;letter-spacing:.1em;text-transform:uppercase}@media(max-width:820px){.samples{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="page">
 <h1>Honkai: Star Rail — Selectable Speech UI</h1>
-<p>This page renders the actual regex files from the repository. Install one Header, one Dialogue, and one Monologue. Matching A/B/C letters form a complete visual set; mixing is also supported.</p>
+<p>This page renders the actual production regex files from the repository. Install one Header, one Dialogue, and one Monologue. Matching A/B/C letters form a complete visual set; mixing is also supported.</p>
 <div class="links">
 <a href="../../Sillytavern/Honkai%20Star%20Rail/Regex/">Regex folder</a>
 <a href="../../Sillytavern/Honkai%20Star%20Rail/Regex/README.md">Installation guide</a>
@@ -23,14 +23,14 @@ const root='../../Sillytavern/Honkai Star Rail/Regex/';
 const sets=[
  {id:'A',name:'Astral Ticket',desc:'Ivory HSR menu header with a right-side portrait; dark cinematic speech record.',
   h:'Header (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Header_A_AstralTicket_Regex.json',
-  d:'Dialogue (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Dialogue_Transmission_Regex.json',
-  m:'Monologue (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Monologue_InnerVoice_Regex.json'},
+  d:'Dialogue (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Dialogue_A_AstralTicket_Regex.json',
+  m:'Monologue (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Monologue_A_AstralTicket_Regex.json'},
  {id:'B',name:'Warp Record',desc:'Dark navy warp-result header with five-star detail and transmission styling.',
-  h:'Header (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Header_B_WarpNameplate_Regex.json',
+  h:'Header (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Header_B_WarpRecord_Regex.json',
   d:'Dialogue (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Dialogue_B_WarpRecord_Regex.json',
   m:'Monologue (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Monologue_B_WarpRecord_Regex.json'},
  {id:'C',name:'Data Bank',desc:'Pale silver database header with restrained record panels.',
-  h:'Header (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Header_C_Constellation_Regex.json',
+  h:'Header (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Header_C_DataBank_Regex.json',
   d:'Dialogue (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Dialogue_C_DataBank_Regex.json',
   m:'Monologue (เลือกโหลดแค่อันเดียว - pick ONE)/HSR_Monologue_C_DataBank_Regex.json'}
 ];
