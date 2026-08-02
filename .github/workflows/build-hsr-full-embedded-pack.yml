@@ -1,0 +1,31 @@
+name: Build HSR full embedded pack
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "Sillytavern/Honkai Star Rail/**"
+      - "Tools/maintenance/build_hsr_full_embedded_pack.py"
+      - ".github/workflows/build-hsr-full-embedded-pack.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build and validate full-content files
+        run: python Tools/maintenance/build_hsr_full_embedded_pack.py
+      - name: Upload corrected pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: hsr-full-embedded-pack
+          if-no-files-found: error
+          path: generated-hsr-pack/*
