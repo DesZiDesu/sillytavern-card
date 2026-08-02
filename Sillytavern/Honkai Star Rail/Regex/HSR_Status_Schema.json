@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hsr_status.v2",
+  "title": "Honkai: Star Rail Status Tracker",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema", "character", "vitality", "paths", "equipments", "quests", "party"],
+  "properties": {
+    "schema": { "const": "hsr_status.v2" },
+    "lang": { "enum": ["en", "th"] },
+    "theme": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "character": { "type": "string" },
+    "level": { "type": "number", "minimum": 0 },
+    "vitality": {
+      "type": "object",
+      "required": ["hp", "energy", "bond", "conditions"],
+      "properties": {
+        "hp": { "$ref": "#/$defs/meter" },
+        "energy": { "$ref": "#/$defs/meter" },
+        "bond": { "$ref": "#/$defs/meter" },
+        "conditions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "paths": {
+      "type": "object",
+      "required": ["current", "element", "traces"],
+      "properties": {
+        "current": { "$ref": "#/$defs/path" },
+        "element": { "$ref": "#/$defs/element" },
+        "traces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "level": { "type": "number", "minimum": 0 },
+              "desc": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "equipments": {
+      "type": "object",
+      "required": ["relics", "consumables"],
+      "properties": {
+        "light_cone": {
+          "type": ["object", "null"],
+          "properties": {
+            "name": { "type": "string" },
+            "level": { "type": "number", "minimum": 0 },
+            "superimposition": { "type": "number", "minimum": 0 },
+            "desc": { "type": "string" }
+          }
+        },
+        "relics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "slot": { "type": "string" },
+              "set": { "type": "string" },
+              "level": { "type": "number", "minimum": 0 },
+              "desc": { "type": "string" }
+            }
+          }
+        },
+        "consumables": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "qty": { "type": "number", "minimum": 0 },
+              "desc": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "quests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "objective"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "enum": ["ongoing", "success", "failed", "paused"] },
+          "objective": { "type": "string" },
+          "progress": { "type": "number", "minimum": 0, "maximum": 100 },
+          "info": { "type": "string" }
+        }
+      }
+    },
+    "party": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "element": { "$ref": "#/$defs/element" },
+          "path": { "$ref": "#/$defs/path" },
+          "hp": { "$ref": "#/$defs/meter" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "meter": {
+      "type": "object",
+      "required": ["current", "max"],
+      "properties": {
+        "current": { "type": "number", "minimum": 0 },
+        "max": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "element": {
+      "enum": ["physical", "fire", "ice", "lightning", "wind", "quantum", "imaginary"]
+    },
+    "path": {
+      "enum": ["destruction", "hunt", "erudition", "harmony", "nihility", "preservation", "abundance", "remembrance", "elation", "propagation", "trailblaze"]
+    }
+  }
+}
