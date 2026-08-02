@@ -3,7 +3,7 @@
 A SillyTavern UI kit for Honkai: Star Rail roleplay. It includes character and
 NPC headers, dialogue, monologue, narrator styling, the always-visible
 **Desolation Chronicle Scene Tracker**, and the collapsible five-tab
-**Astral Archive Status Tracker**.
+**Obsidian Gold Status Registry**.
 
 The trackers support English and Thai. Element keywords drive the Status accent
 colour automatically.
@@ -77,11 +77,12 @@ The rendered UI is a native HTML `<details>` panel with no `open` attribute:
 
 - It starts collapsed.
 - Tap the summary bar to expand or collapse it.
-- Inside the expanded panel, the tabs are:
+- Desktop and tablet layouts show all five categories together in one responsive dashboard:
   `Vitality / Paths / Equipments / Quests / Party`.
-- Long names and descriptions wrap inside the panel and are not intentionally
+- Mobile layouts show the same five categories as tabs, one category at a time.
+- Long names and descriptions wrap inside their panels and are not intentionally
   truncated.
-- On narrow screens, content grids become one column.
+- The layout never requires horizontal swiping to reach tracker content.
 
 ```json
 <hsr_status>
