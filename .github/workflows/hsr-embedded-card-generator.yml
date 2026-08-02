@@ -1,0 +1,57 @@
+name: Generate HSR embedded cards
+
+on:
+  push:
+    branches:
+      - fix/hsr-embedded-cards
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "Sillytavern/Honkai Star Rail/**"
+      - "Tools/maintenance/generate_hsr_embedded_cards.py"
+      - ".github/workflows/hsr-embedded-card-generator.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate and validate cards
+        run: python Tools/maintenance/generate_hsr_embedded_cards.py
+
+      - name: Commit generated files to feature branch
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Sillytavern/Honkai Star Rail"
+          if git diff --cached --quiet; then
+            echo "Generated files are already current."
+          else
+            git commit -m "Fix HSR embedded lorebook and UI card variants"
+            git push
+          fi
+
+      - name: Package corrected files
+        uses: actions/upload-artifact@v4
+        with:
+          name: hsr-fixed-cards-and-lorebook
+          if-no-files-found: error
+          path: |
+            Sillytavern/Honkai Star Rail/Bot/Honkai Star Rail RPG.json
+            Sillytavern/Honkai Star Rail/Bot/Variants/*.json
+            Sillytavern/Honkai Star Rail/Bot/README.md
+            Sillytavern/Honkai Star Rail/Lorebook/Honkai Star Rail [LB].json
