@@ -12,7 +12,7 @@ colour automatically.
 
 1. In SillyTavern, open **Extensions → Regex → Import Regex**.
 2. Import `HSR_Scene_Regex.json` and `HSR_Status_Regex.json`.
-3. Import any header/dialogue/narrator styles you use.
+3. Import exactly one Header, one Dialogue, and one Monologue design. Import any NPC Header and Narrator styles you use.
 4. Import both lorebooks:
    - `Lorebook/Honkai Star Rail [LB].json`
    - `Lorebook/Honkai Star Rail Tracker Systems [LB].json`
@@ -20,12 +20,11 @@ colour automatically.
 The Tracker Systems lorebook has high-priority contracts and overrides the older
 `hsr_status.v1` instruction contained in the original lorebook.
 
-
 ## Selectable speech UI designs
 
-Headers, dialogue, and monologue are stored in separate **pick ONE** folders.
-Import exactly one file from each folder. All options use the same compact tokens,
-so changing the visual design does not require changing lorebook output.
+Headers, Dialogue, and Monologue are stored in separate **pick ONE** folders.
+Import exactly one file from each folder. Every option uses the same compact
+tokens, so changing the visual design does not require changing lorebook output.
 
 Preview:
 
@@ -35,13 +34,13 @@ Preview:
 
 | Set | Header | Dialogue | Monologue |
 |---|---|---|---|
-| A — Astral Ticket | `HSR_Header_A_AstralTicket_Regex.json` | `HSR_Dialogue_Transmission_Regex.json` | `HSR_Monologue_InnerVoice_Regex.json` |
-| B — Warp Record | `HSR_Header_B_WarpNameplate_Regex.json` | `HSR_Dialogue_B_WarpRecord_Regex.json` | `HSR_Monologue_B_WarpRecord_Regex.json` |
-| C — Data Bank | `HSR_Header_C_Constellation_Regex.json` | `HSR_Dialogue_C_DataBank_Regex.json` | `HSR_Monologue_C_DataBank_Regex.json` |
+| A — Astral Ticket | `HSR_Header_A_AstralTicket_Regex.json` | `HSR_Dialogue_A_AstralTicket_Regex.json` | `HSR_Monologue_A_AstralTicket_Regex.json` |
+| B — Warp Record | `HSR_Header_B_WarpRecord_Regex.json` | `HSR_Dialogue_B_WarpRecord_Regex.json` | `HSR_Monologue_B_WarpRecord_Regex.json` |
+| C — Data Bank | `HSR_Header_C_DataBank_Regex.json` | `HSR_Dialogue_C_DataBank_Regex.json` | `HSR_Monologue_C_DataBank_Regex.json` |
 
-The header is deliberately thin and places the gallery portrait on the right.
-Dialogue and monologue do not contain character images. Sets may be mixed, but
-using matching letters produces the most coherent visual system.
+The character Header is deliberately thin and places the gallery portrait on
+the right. Dialogue and Monologue contain no character images. Sets may be
+mixed, but matching letters produce the most coherent visual system.
 
 ## Regex depth
 
