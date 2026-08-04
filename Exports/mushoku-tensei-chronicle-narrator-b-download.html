@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mushoku Tensei RPG — Chronicle Set + Narrator B</title>
+<style>
+:root{color-scheme:dark;--bg:#0c0906;--panel:#171109;--gold:#cda64e;--cream:#f0e8d5;--muted:#aa9d84;--line:#4d412d;--ok:#8bd09b;--bad:#ec8e86}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,rgba(205,166,78,.14),transparent 34rem),var(--bg);color:var(--cream);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:max(24px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom))}
+main{max-width:680px;margin:auto}.mark{width:58px;height:58px;margin:2px auto 16px;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold);font:24px Georgia,serif;position:relative}.mark:after{content:"";position:absolute;inset:5px;border:1px solid #302719}
+h1{margin:0;text-align:center;font:700 clamp(24px,6vw,34px) Georgia,serif}.sub{text-align:center;color:var(--muted);line-height:1.55;margin:9px 0 22px}.card{background:var(--panel);border:1px solid #332819;padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.42)}#status{font-weight:750;margin-bottom:13px}.loading{color:var(--gold)}.ok{color:var(--ok)}.error{color:var(--bad)}.checks{display:grid;gap:8px;margin:0 0 18px}.row{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid #2a2116;padding-bottom:8px;font-size:14px}.row span:last-child{text-align:right;color:var(--muted)}button{width:100%;padding:15px 14px;border-radius:3px;font-size:16px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#171008;border:1px solid #e0bb61}.secondary{margin-top:10px;background:transparent;color:var(--cream);border:1px solid var(--line)}button:disabled{opacity:.38;cursor:not-allowed}.note{font-size:13px;line-height:1.55;color:var(--muted);margin:15px 0 0}code{color:#ddd0b2;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main>
+<div class="mark">MT</div>
+<h1>Mushoku Tensei RPG</h1>
+<p class="sub">Self-contained character card · Full embedded lorebook and regex collection<br>Final Chronicle Header / Monologue / Dialogue · Narrator B</p>
+<section class="card">
+<div id="status" class="loading">Preparing the character-card JSON…</div>
+<div id="checks" class="checks"></div>
+<button id="download" class="primary" disabled>Download character card JSON</button>
+<button id="open" class="secondary" disabled>Open JSON in a new tab</button>
+<p class="note">On iPhone or iPad, tap <b>Download character card JSON</b>. If Safari opens the file instead, use Share → Save to Files. Import the resulting <code>.json</code> directly into SillyTavern.</p>
+</section>
+</main>
+<script>
+(() => {
+  const SOURCE = 'https://raw.githack.com/DesZiDesu/sillytavern-card/main/Sillytavern/Mushoku%20Tensei%20RPG/Card/Mushoku%20Tensei%20RPG.json';
+  const FILE = 'Mushoku Tensei RPG - Chronicle Set - Narrator B.json';
+  const status = document.getElementById('status');
+  const checks = document.getElementById('checks');
+  const download = document.getElementById('download');
+  const open = document.getElementById('open');
+  let blobUrl = '';
+
+  function addCheck(label, value, pass=true){
+    const row=document.createElement('div'); row.className='row';
+    const a=document.createElement('span'); a.textContent=label;
+    const b=document.createElement('span'); b.textContent=value; b.style.color=pass?'var(--ok)':'var(--bad)';
+    row.append(a,b); checks.appendChild(row);
+  }
+
+  function collect(root){
+    const arrays=[]; const seen=new Set();
+    function walk(v){
+      if(!v || typeof v!=='object' || seen.has(v)) return;
+      seen.add(v);
+      if(Array.isArray(v.regex_scripts)) arrays.push(v.regex_scripts);
+      if(Array.isArray(v)){ for(const x of v) walk(x); }
+      else { for(const x of Object.values(v)) walk(x); }
+    }
+    walk(root); return arrays.flat().filter(x=>x&&typeof x==='object');
+  }
+
+  function hasLorebook(root){
+    const seen=new Set(); let found=false;
+    function walk(v){
+      if(found || !v || typeof v!=='object' || seen.has(v)) return;
+      seen.add(v);
+      if((v.name||v.comment||'').toString().toLowerCase().includes('mushoku') && (Array.isArray(v.entries) || (v.entries&&typeof v.entries==='object'))) found=true;
+      if(v.character_book && typeof v.character_book==='object') found=true;
+      if(Array.isArray(v)){ for(const x of v) walk(x); }
+      else { for(const x of Object.values(v)) walk(x); }
+    }
+    walk(root); return found;
+  }
+
+  async function prepare(){
+    try{
+      const r=await fetch(SOURCE,{cache:'no-store'});
+      if(!r.ok) throw new Error('Source returned HTTP '+r.status);
+      const card=JSON.parse(await r.text());
+      const scripts=collect(card);
+      const mt=scripts.filter(s=>typeof s.scriptName==='string'&&s.scriptName.startsWith('MT '));
+      const a=scripts.filter(s=>s.scriptName==='MT Narrator A — Chronicle');
+      const b=scripts.filter(s=>s.scriptName==='MT Narrator B — Scene Caption');
+      if(!a.length||!b.length) throw new Error('Narrator A/B scripts were not found.');
+      a.forEach(s=>s.disabled=true);
+      b.forEach(s=>s.disabled=false);
+
+      const header=scripts.find(s=>s.scriptName==='MT Character Header');
+      const mono=scripts.find(s=>s.scriptName==='MT Monologue');
+      const dialogue=scripts.find(s=>s.scriptName==='MT Dialogue (Tinted Bubble)');
+      const headerFinal=/max-width:512px/.test(header?.replaceString||'')&&/Cinzel/.test(header?.replaceString||'');
+      const monoFinal=/background:#efe7d3/.test(mono?.replaceString||'')&&/border-bottom:1px solid #d8c9a8/.test(mono?.replaceString||'');
+      const dialogueFinal=/background:#17110a/.test(dialogue?.replaceString||'');
+      const lore=hasLorebook(card);
+      if(mt.length<22||!headerFinal||!monoFinal||!dialogueFinal||!lore) throw new Error('Card integrity verification failed.');
+
+      const json=JSON.stringify(card,null,4)+'\n';
+      blobUrl=URL.createObjectURL(new Blob([json],{type:'application/json;charset=utf-8'}));
+      checks.innerHTML='';
+      addCheck('Embedded MT regex scripts',mt.length+' included',mt.length>=22);
+      addCheck('Embedded lorebook','Included',lore);
+      addCheck('Character header','Final Chronicle Set',headerFinal);
+      addCheck('Monologue','Final Chronicle Set',monoFinal);
+      addCheck('Dialogue','Final Chronicle Set',dialogueFinal);
+      addCheck('Narrator A','Disabled',a.every(s=>s.disabled===true));
+      addCheck('Narrator B','Enabled',b.every(s=>s.disabled===false));
+      status.textContent='Character card ready.'; status.className='ok';
+      download.disabled=false; open.disabled=false;
+    }catch(e){
+      status.textContent='Unable to prepare card: '+e.message; status.className='error';
+      checks.innerHTML=''; addCheck('Connection','Reload the page once and try again',false);
+    }
+  }
+
+  download.addEventListener('click',()=>{
+    const a=document.createElement('a'); a.href=blobUrl; a.download=FILE; document.body.appendChild(a); a.click(); a.remove();
+  });
+  open.addEventListener('click',()=>window.open(blobUrl,'_blank','noopener'));
+  window.addEventListener('beforeunload',()=>{if(blobUrl)URL.revokeObjectURL(blobUrl)});
+  prepare();
+})();
+</script>
+</body>
+</html>
