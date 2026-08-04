@@ -1,0 +1,82 @@
+name: Build Mushoku Narrator B export
+
+on:
+  push:
+    branches:
+      - export/mushoku-chronicle-narrator-b
+
+permissions:
+  contents: write
+
+jobs:
+  build-export:
+    if: github.event.head_commit.message != 'Generate Mushoku Chronicle Narrator B card [skip ci]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: export/mushoku-chronicle-narrator-b
+
+      - name: Generate self-contained character card
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          source = Path('Sillytavern/Mushoku Tensei RPG/Card/Mushoku Tensei RPG.json')
+          output = Path('Exports/Mushoku Tensei RPG - Chronicle Set - Narrator B.json')
+          card = json.loads(source.read_text(encoding='utf-8'))
+
+          arrays = []
+          seen = set()
+          def walk(value):
+              if not isinstance(value, (dict, list)) or id(value) in seen:
+                  return
+              seen.add(id(value))
+              if isinstance(value, dict):
+                  scripts = value.get('regex_scripts')
+                  if isinstance(scripts, list):
+                      arrays.append(scripts)
+                  for child in value.values():
+                      walk(child)
+              else:
+                  for child in value:
+                      walk(child)
+          walk(card)
+
+          scripts = [script for group in arrays for script in group if isinstance(script, dict)]
+          narrator_a = [s for s in scripts if s.get('scriptName') == 'MT Narrator A — Chronicle']
+          narrator_b = [s for s in scripts if s.get('scriptName') == 'MT Narrator B — Scene Caption']
+          if not narrator_a or not narrator_b:
+              raise RuntimeError('Narrator A/B scripts were not found')
+          for script in narrator_a:
+              script['disabled'] = True
+          for script in narrator_b:
+              script['disabled'] = False
+
+          names = [s.get('scriptName') for s in scripts]
+          required = ['MT Character Header', 'MT Monologue', 'MT Dialogue (Tinted Bubble)']
+          missing = [name for name in required if name not in names]
+          if missing:
+              raise RuntimeError(f'Missing required Chronicle scripts: {missing}')
+
+          mt_count = sum(isinstance(name, str) and name.startswith('MT ') for name in names)
+          if mt_count < 22:
+              raise RuntimeError(f'Expected at least 22 MT scripts, found {mt_count}')
+
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text(json.dumps(card, ensure_ascii=False, indent=4) + '\n', encoding='utf-8')
+          print(f'Generated {output} with {mt_count} MT scripts')
+
+      - name: Commit generated JSON
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'Exports/Mushoku Tensei RPG - Chronicle Set - Narrator B.json'
+          if git diff --cached --quiet; then
+            echo 'Export is already current.'
+          else
+            git commit -m 'Generate Mushoku Chronicle Narrator B card [skip ci]'
+            git push origin HEAD:export/mushoku-chronicle-narrator-b
+          fi
