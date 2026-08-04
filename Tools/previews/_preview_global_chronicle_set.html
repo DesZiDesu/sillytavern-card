@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Global Regex — Chronicle Set Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0b0805;--panel:#130e09;--line:#34291b;--gold:#cda64e;--text:#efe5d0;--muted:#a69a82}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,rgba(205,166,78,.12),transparent 36rem),var(--bg);color:var(--text);font-family:'Spectral',Georgia,serif;padding:26px 14px 48px}
+main{max-width:760px;margin:auto}h1{font-family:'Cinzel',serif;font-size:clamp(25px,6vw,38px);letter-spacing:1.5px;text-align:center;margin:4px 0 7px}.lead{max-width:650px;margin:0 auto 25px;text-align:center;color:var(--muted);line-height:1.55}
+.card{background:rgba(19,14,9,.82);border:1px solid var(--line);padding:18px;margin-bottom:15px;box-shadow:0 14px 38px rgba(0,0,0,.28)}h2{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:0 0 13px}
+.render{min-height:40px;padding:3px 0}code{display:block;margin-top:12px;padding:10px 12px;border:1px solid #281f14;background:#090704;color:#cfc2a8;overflow-wrap:anywhere;font-size:12px;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:9px}.dl{display:block;text-decoration:none;color:var(--text);border:1px solid #4a3b25;background:#181008;padding:11px 12px;font:13px system-ui,sans-serif}.dl.all{background:var(--gold);border-color:#e1bd65;color:#171008;font-weight:800}.status{text-align:center;color:var(--gold);margin:0 0 15px;font:700 13px system-ui,sans-serif}.note{color:var(--muted);font-size:13px;line-height:1.55;margin:13px 0 0}.error{color:#ef8c84}
+</style>
+</head>
+<body><main>
+<h1>Global Chronicle Set</h1>
+<p class="lead">Live preview rendered from the replacement JSON files in the Global Regex folder. Includes the image header, URL header, NPC plate, parchment monologue, and Chronicle dialogue record.</p>
+<div id="status" class="status">Loading the regex files…</div>
+
+<section class="card"><h2>Character Header — Image / URL</h2><div id="header" class="render"></div><code>[CHAR|catbox-file.png|Eris Greyrat (Adult)|#B5302A]<br>[CHAR|https://example.com/portrait.jpg|Eris Greyrat (Adult)|#B5302A]</code></section>
+<section class="card"><h2>NPC Header — No Image</h2><div id="npc" class="render"></div><code>[NPC|Garrick Vale|#5F8FB8|Guild Archivist]</code></section>
+<section class="card"><h2>Monologue — Parchment Leaf</h2><div id="think" class="render"></div><code>[THINK|Eris Greyrat (Adult)|#B5302A|I refuse to let hesitation decide this battle for me.]</code></section>
+<section class="card"><h2>Dialogue — Named Chronicle Record</h2><div id="say" class="render"></div><code>[SAY|Eris Greyrat (Adult)|#B5302A|Stay behind me. I will open the path.]</code></section>
+<section class="card"><h2>Dialogue — Legacy Compatibility</h2><div id="legacy" class="render"></div><code>[SAY|#5F8FB8|The old Global format still renders.]</code></section>
+
+<section class="card"><h2>Download Replacement Files</h2><div id="downloads" class="grid"></div><p class="note">Disable or delete the older five Global scripts before importing. Import both header files so Catbox filenames and full image URLs are supported.</p></section>
+
+<script>
+const BRANCH='feature/global-chronicle-regex-set';
+const BASE=`https://raw.githack.com/DesZiDesu/sillytavern-card/${BRANCH}/Sillytavern/Global%20Regex`;
+const files=['Global_Header.json','Global_Header_URL.json','Global_NPC_Header.json','Global_Monologue.json','Global_Dialogue.json'];
+const sampleImage='https://rawcdn.githack.com/DesZiDesu/sillytavern-card/main/Sillytavern/Mushoku%20Tensei%20RPG/Images/2ad7m5.jpg';
+function rx(s){const i=s.lastIndexOf('/');return new RegExp(s.slice(1,i),s.slice(i+1))}
+async function get(name){const r=await fetch(`${BASE}/${name}`,{cache:'no-store'});if(!r.ok)throw new Error(`${name}: HTTP ${r.status}`);return r.json()}
+function show(id,source,obj){document.getElementById(id).innerHTML=source.replace(rx(obj.findRegex),obj.replaceString)}
+(async()=>{
+  try{
+    const [head,headUrl,npc,think,say]=await Promise.all(files.map(get));
+    show('header',`[CHAR|${sampleImage}|Eris Greyrat (Adult)|#B5302A]`,headUrl);
+    show('npc','[NPC|Garrick Vale|#5F8FB8|Guild Archivist]',npc);
+    show('think','[THINK|Eris Greyrat (Adult)|#B5302A|I refuse to let hesitation decide this battle for me.]',think);
+    show('say','[SAY|Eris Greyrat (Adult)|#B5302A|Stay behind me. I will open the path.]',say);
+    show('legacy','[SAY|#5F8FB8|The old Global format still renders.]',say);
+    document.getElementById('status').textContent='All five replacement regex files loaded successfully.';
+  }catch(e){
+    const s=document.getElementById('status');s.className='status error';s.textContent=`Preview load failed: ${e.message}`;
+  }
+})();
+const dl=document.getElementById('downloads');
+[...files,'Global_Chronicle_Set_All.json'].forEach(name=>{
+  const a=document.createElement('a');a.className='dl'+(name.includes('_All')?' all':'');a.href=`${BASE}/${name}`;a.textContent=name;a.setAttribute('download',name);dl.appendChild(a);
+});
+</script>
+</main></body></html>
