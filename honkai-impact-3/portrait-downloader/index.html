@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Honkai Impact 3 — Portrait Downloader</title>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <style>
+    :root{--bg:#07131d;--panel:#0c1c29;--panel2:#112738;--line:#24465d;--text:#edf8ff;--muted:#9bb7c8;--cyan:#41d8e8;--pink:#ff77b7;--gold:#ffd37a;--danger:#ff808f;--shadow:0 18px 50px #0008}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 10% -10%,#143b51 0,transparent 34%),radial-gradient(circle at 90% 0,#451c45 0,transparent 30%),linear-gradient(180deg,#07131d,#050b11 65%);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button,input,select{font:inherit}button{cursor:pointer}.shell{width:min(1440px,calc(100% - 28px));margin:0 auto;padding:34px 0 70px}.hero{position:relative;overflow:hidden;padding:28px;border:1px solid #31576c;background:linear-gradient(135deg,#0d2434e8,#16182ce8);box-shadow:var(--shadow);border-radius:24px}.hero:after{content:"";position:absolute;right:-90px;top:-100px;width:300px;height:300px;border-radius:50%;border:38px solid #41d8e814;box-shadow:0 0 0 38px #ff77b70b}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.hero h1{position:relative;margin:8px 0 7px;font-size:clamp(28px,5vw,54px);line-height:1.02;letter-spacing:-.04em}.hero p{position:relative;max-width:780px;margin:0;color:var(--muted);font-size:16px}.hero strong{color:var(--text)}
+    .toolbar{position:sticky;top:8px;z-index:10;margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:#091721e8;backdrop-filter:blur(16px);box-shadow:0 12px 36px #0006}.controls{display:grid;grid-template-columns:minmax(220px,1.25fr) minmax(220px,1fr) auto;gap:10px}.field{display:flex;gap:8px;align-items:center;min-height:44px;padding:0 13px;border:1px solid #31536a;border-radius:12px;background:#07131d;color:var(--text)}.field label{white-space:nowrap;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.field select,.field input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--text)}.field option{background:#0d1d29}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{min-height:44px;padding:0 15px;border:1px solid #376078;border-radius:12px;background:#102536;color:var(--text);font-weight:800}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{border-color:#62e4f1;background:linear-gradient(135deg,#1db5c7,#277cf1);color:#fff}.btn.pink{border-color:#ff9cca;background:linear-gradient(135deg,#dc428d,#8b52e8)}.btn:disabled{cursor:not-allowed;opacity:.45;transform:none}.subbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid #203b4d}.status{color:var(--muted)}.status b{color:var(--text)}.mini-actions{display:flex;gap:8px;flex-wrap:wrap}.mini{padding:6px 10px;border:1px solid #2f5369;border-radius:9px;background:#0b1b27;color:#cfe6f3;font-size:12px;font-weight:700}
+    .progress-wrap{display:none;margin-top:12px}.progress-wrap.active{display:block}.progress-track{height:9px;overflow:hidden;border:1px solid #31536a;border-radius:999px;background:#061019}.progress{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--pink));transition:width .15s}.progress-label{margin-top:5px;color:var(--muted);font-size:12px}
+    .notice{display:flex;gap:12px;margin:18px 0;padding:14px 16px;border:1px solid #5d526c;border-radius:14px;background:#21172a9c;color:#d9cae3}.notice span{color:var(--gold);font-weight:900}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}.card{position:relative;overflow:hidden;border:1px solid #234359;border-radius:17px;background:linear-gradient(180deg,#102535,#0a1721);box-shadow:0 9px 26px #0004;transition:.18s}.card:hover{transform:translateY(-3px);border-color:#4a819e}.card.selected{border-color:var(--cyan);box-shadow:0 0 0 2px #41d8e82b,0 10px 28px #0006}.thumb{position:relative;display:grid;place-items:center;aspect-ratio:1/1;overflow:hidden;background:radial-gradient(circle at 50% 35%,#28506a,#07131d 72%)}.thumb img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 12px #0008)}.thumb.vertical img{width:auto;max-width:100%;height:100%}.check{position:absolute;top:10px;left:10px;width:24px;height:24px;accent-color:#2cd9e8}.badge{position:absolute;right:9px;top:9px;padding:4px 8px;border:1px solid #ffffff30;border-radius:999px;background:#07131dd9;color:#dceefa;font-size:11px;font-weight:800}.card-body{padding:12px}.name{min-height:44px;font-weight:850;line-height:1.28}.meta{display:flex;justify-content:space-between;gap:8px;margin-top:7px;color:var(--muted);font-size:11px}.card-actions{display:grid;grid-template-columns:1fr auto;gap:7px;margin-top:10px}.card-btn{min-height:34px;border:1px solid #31536a;border-radius:9px;background:#0d2130;color:#dff6ff;font-size:12px;font-weight:800}.source-link{display:grid;place-items:center;width:35px;border:1px solid #31536a;border-radius:9px;color:#dff6ff;text-decoration:none}.empty{grid-column:1/-1;padding:70px 20px;text-align:center;border:1px dashed #31536a;border-radius:18px;color:var(--muted)}.footer{margin-top:28px;text-align:center;color:#7895a7;font-size:12px}.error{color:var(--danger)}
+    @media(max-width:930px){.controls{grid-template-columns:1fr 1fr}.actions{grid-column:1/-1}.actions .btn{flex:1}.toolbar{position:relative;top:auto}}@media(max-width:620px){.shell{width:min(100% - 18px,1440px);padding-top:14px}.hero{padding:21px;border-radius:18px}.controls{grid-template-columns:1fr}.actions{grid-column:auto}.actions .btn{flex:1 1 100%}.subbar{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{border-radius:13px}.card-body{padding:9px}.name{font-size:13px}.meta{display:block}.meta span{display:block}.notice{font-size:13px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">SillyTavern asset collector</div>
+      <h1>Honkai Impact 3<br>Portrait Downloader</h1>
+      <p>Collect current <strong>in-game battlesuit artwork</strong> into one ZIP, including a reproducible source manifest. Square thumbnails are the closest match to the existing HSR face-focused gallery.</p>
+    </section>
+
+    <section class="toolbar" aria-label="Downloader controls">
+      <div class="controls">
+        <div class="field"><label for="collection">Collection</label><select id="collection">
+          <option value="Battlesuit Thumbnails" data-label="Square thumbnails">Square thumbnails · 400×400</option>
+          <option value="Battlesuit Portraits" data-label="Vertical portraits">Vertical portraits · ~148×260</option>
+          <option value="Battlesuit Icons" data-label="Battlesuit icons">Battlesuit icons · ~208×184</option>
+          <option value="Battlesuit Avatars" data-label="Profile avatars">Profile avatars · ~172×148</option>
+        </select></div>
+        <div class="field"><label for="search">Search</label><input id="search" type="search" placeholder="Kiana, Herrscher, Bronya…" autocomplete="off"></div>
+        <div class="actions">
+          <button class="btn primary" id="downloadAll" disabled>Download all as ZIP</button>
+          <button class="btn pink" id="downloadSelected" disabled>Download selected</button>
+          <button class="btn" id="manifest" disabled>Manifest only</button>
+        </div>
+      </div>
+      <div class="subbar">
+        <div class="status" id="status">Loading asset index…</div>
+        <div class="mini-actions">
+          <button class="mini" id="selectVisible" disabled>Select visible</button>
+          <button class="mini" id="clearSelection" disabled>Clear selection</button>
+          <button class="mini" id="reload">Reload</button>
+        </div>
+      </div>
+      <div class="progress-wrap" id="progressWrap"><div class="progress-track"><div class="progress" id="progress"></div></div><div class="progress-label" id="progressLabel"></div></div>
+    </section>
+
+    <div class="notice"><span>Source</span><div>The file index is retrieved live from the Official Honkai Impact 3 Wiki. Artwork and trademarks remain the property of HoYoverse. This utility is intended for personal/reference collection and keeps source URLs in the exported manifest.</div></div>
+
+    <section class="grid" id="grid"><div class="empty">Loading portraits…</div></section>
+    <div class="footer">No images are stored by this page. Your browser downloads them directly from the source index.</div>
+  </main>
+
+<script>
+(() => {
+  'use strict';
+  const API = 'https://honkaiimpact3.fandom.com/api.php';
+  const els = Object.fromEntries(['collection','search','downloadAll','downloadSelected','manifest','status','selectVisible','clearSelection','reload','progressWrap','progress','progressLabel','grid'].map(id => [id, document.getElementById(id)]));
+  const state = { items: [], selected: new Set(), loading: false, downloading: false };
+
+  const categoryMeta = {
+    'Battlesuit Thumbnails': { key:'thumbnails', label:'Square thumbnails', suffix:' (Thumbnail)', vertical:false },
+    'Battlesuit Portraits': { key:'portraits', label:'Vertical portraits', suffix:' (Portrait)', vertical:true },
+    'Battlesuit Icons': { key:'icons', label:'Battlesuit icons', suffix:' (Icon)', vertical:false },
+    'Battlesuit Avatars': { key:'avatars', label:'Profile avatars', suffix:' (Avatar)', vertical:false }
+  };
+
+  function cleanName(title, suffix) {
+    return title.replace(/^File:/i,'').replace(/\.[^.]+$/,'').replace(suffix,'').trim();
+  }
+  function safeFileName(value) {
+    return value.normalize('NFKD').replace(/[\\/:*?"<>|]/g,'').replace(/[’‘]/g,"'").replace(/\s+/g,' ').trim();
+  }
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+  }
+  function setStatus(html, isError=false) {
+    els.status.innerHTML = isError ? `<span class="error">${html}</span>` : html;
+  }
+  function setBusy(isBusy) {
+    state.downloading = isBusy;
+    for (const el of [els.collection,els.downloadAll,els.downloadSelected,els.manifest,els.selectVisible,els.clearSelection,els.reload]) el.disabled = isBusy || state.loading || (!state.items.length && el !== els.reload);
+    els.search.disabled = isBusy || state.loading;
+  }
+  function updateButtons() {
+    const count = state.selected.size;
+    els.downloadSelected.textContent = count ? `Download selected (${count})` : 'Download selected';
+    els.downloadSelected.disabled = state.loading || state.downloading || !count;
+    els.downloadAll.disabled = state.loading || state.downloading || !state.items.length;
+    els.manifest.disabled = state.loading || state.downloading || !state.items.length;
+    els.selectVisible.disabled = state.loading || state.downloading || !state.items.length;
+    els.clearSelection.disabled = state.loading || state.downloading || !count;
+  }
+  function visibleItems() {
+    const query = els.search.value.trim().toLowerCase();
+    return state.items.filter(item => !query || item.name.toLowerCase().includes(query));
+  }
+  function render() {
+    const meta = categoryMeta[els.collection.value];
+    const items = visibleItems();
+    if (!items.length) {
+      els.grid.innerHTML = `<div class="empty">${state.items.length ? 'No portraits match this search.' : 'No images were returned by the source index.'}</div>`;
+    } else {
+      els.grid.innerHTML = items.map(item => {
+        const checked = state.selected.has(item.id);
+        return `<article class="card${checked?' selected':''}" data-id="${escapeHtml(item.id)}">
+          <div class="thumb${meta.vertical?' vertical':''}">
+            <img src="${escapeHtml(item.url)}" alt="${escapeHtml(item.name)}" loading="lazy" decoding="async">
+            <input class="check" type="checkbox" aria-label="Select ${escapeHtml(item.name)}" ${checked?'checked':''}>
+            <span class="badge">${item.width}×${item.height}</span>
+          </div>
+          <div class="card-body">
+            <div class="name">${escapeHtml(item.name)}</div>
+            <div class="meta"><span>${escapeHtml(meta.label)}</span><span>${escapeHtml(item.mime.replace('image/','').toUpperCase())}</span></div>
+            <div class="card-actions"><button class="card-btn single-download">Download image</button><a class="source-link" href="${escapeHtml(item.sourcePage)}" target="_blank" rel="noopener" title="Open source page">↗</a></div>
+          </div>
+        </article>`;
+      }).join('');
+    }
+    setStatus(`<b>${state.items.length}</b> assets · <b>${items.length}</b> visible · <b>${state.selected.size}</b> selected`);
+    updateButtons();
+  }
+
+  async function fetchCategory(category) {
+    const all = [];
+    let continuation = {};
+    do {
+      const params = new URLSearchParams({
+        action:'query', format:'json', formatversion:'2', origin:'*',
+        generator:'categorymembers', gcmtitle:`Category:${category}`, gcmtype:'file', gcmlimit:'500',
+        prop:'imageinfo', iiprop:'url|size|mime|sha1'
+      });
+      for (const [key,value] of Object.entries(continuation)) params.set(key,value);
+      const response = await fetch(`${API}?${params}`);
+      if (!response.ok) throw new Error(`Source API returned HTTP ${response.status}`);
+      const data = await response.json();
+      if (data.error) throw new Error(data.error.info || data.error.code || 'Source API error');
+      all.push(...(data.query?.pages || []));
+      continuation = data.continue || null;
+    } while (continuation);
+    return all;
+  }
+
+  async function loadCollection() {
+    state.loading = true; state.items = []; state.selected.clear();
+    setBusy(true); els.grid.innerHTML = '<div class="empty">Loading the current battlesuit image index…</div>'; setStatus('Contacting source index…');
+    try {
+      const category = els.collection.value;
+      const meta = categoryMeta[category];
+      const pages = await fetchCategory(category);
+      state.items = pages.map((page,index) => {
+        const info = page.imageinfo?.[0];
+        if (!info?.url) return null;
+        const original = page.title.replace(/^File:/i,'');
+        const ext = (original.match(/\.([^.]+)$/)?.[1] || 'png').toLowerCase();
+        const name = cleanName(page.title, meta.suffix);
+        return {
+          id:String(page.pageid || `${index}-${original}`), index:index+1, name, original,
+          outputFile:`${String(index+1).padStart(3,'0')}_${safeFileName(name)}.${ext}`,
+          category, collection:meta.key, url:info.url, sourcePage:info.descriptionurl || `https://honkaiimpact3.fandom.com/wiki/File:${encodeURIComponent(original.replace(/ /g,'_'))}`,
+          width:info.width || 0, height:info.height || 0, size:info.size || 0, mime:info.mime || `image/${ext}`, sha1:info.sha1 || null
+        };
+      }).filter(Boolean).sort((a,b) => a.name.localeCompare(b.name,undefined,{numeric:true}));
+      state.items.forEach((item,index) => { item.index=index+1; item.outputFile=`${String(index+1).padStart(3,'0')}_${safeFileName(item.name)}.${item.original.split('.').pop().toLowerCase()}`; });
+      render();
+    } catch (error) {
+      console.error(error);
+      state.items = [];
+      els.grid.innerHTML = `<div class="empty"><div class="error"><b>Could not load the source index.</b><br>${escapeHtml(error.message)}</div><br>Reload the page or try again later. A browser privacy blocker may also be blocking the wiki API.</div>`;
+      setStatus(`Load failed: ${escapeHtml(error.message)}`, true);
+    } finally {
+      state.loading = false; setBusy(false); updateButtons();
+    }
+  }
+
+  function manifestFor(items, localPaths=false) {
+    return items.map((item,index) => ({
+      index:index+1,
+      name:item.name,
+      collection:item.collection,
+      category:item.category,
+      file:localPaths ? `images/${item.outputFile}` : item.outputFile,
+      source_file:item.original,
+      source_page:item.sourcePage,
+      source_url:item.url,
+      width:item.width,
+      height:item.height,
+      mime:item.mime,
+      sha1:item.sha1
+    }));
+  }
+  function downloadBlob(blob, filename) {
+    const link=document.createElement('a'); link.href=URL.createObjectURL(blob); link.download=filename; document.body.append(link); link.click(); link.remove(); setTimeout(()=>URL.revokeObjectURL(link.href),1500);
+  }
+  function dateStamp() { return new Date().toISOString().slice(0,10); }
+  function setProgress(done,total,label='') {
+    els.progressWrap.classList.add('active'); els.progress.style.width=`${total ? (done/total)*100 : 0}%`; els.progressLabel.textContent=label || `${done} / ${total}`;
+  }
+  function hideProgress() { setTimeout(()=>els.progressWrap.classList.remove('active'),900); }
+
+  async function fetchImage(item) {
+    const response = await fetch(item.url, {mode:'cors', credentials:'omit'});
+    if (!response.ok) throw new Error(`${item.name}: HTTP ${response.status}`);
+    return response.blob();
+  }
+  async function downloadSingle(item) {
+    setBusy(true); setProgress(0,1,`Downloading ${item.name}…`);
+    try { const blob=await fetchImage(item); downloadBlob(blob,item.outputFile); setProgress(1,1,`Downloaded ${item.name}`); }
+    catch(error){ alert(`Download failed.\n\n${error.message}\n\nOpen the source page and save the image manually if the host blocks cross-origin downloads.`); }
+    finally { setBusy(false); updateButtons(); hideProgress(); }
+  }
+
+  async function buildZip(items) {
+    if (!window.JSZip) throw new Error('JSZip did not load. Check whether your content blocker is blocking jsDelivr.');
+    const zip = new JSZip(); const images = zip.folder('images'); const failures=[]; let cursor=0, done=0;
+    setBusy(true); setProgress(0,items.length,'Preparing download…');
+    const worker = async () => {
+      while (true) {
+        const current=cursor++; if (current>=items.length) return; const item=items[current];
+        try { images.file(item.outputFile, await fetchImage(item), {binary:true,compression:'STORE'}); }
+        catch(error){ failures.push({name:item.name,url:item.url,error:error.message}); }
+        done++; setProgress(done,items.length,`Fetching ${done} of ${items.length} · ${failures.length} failed`);
+      }
+    };
+    try {
+      await Promise.all(Array.from({length:Math.min(5,items.length)},worker));
+      zip.file('manifest.json',JSON.stringify(manifestFor(items.filter(x=>!failures.some(f=>f.name===x.name)),true),null,2));
+      zip.file('README.txt',[
+        'Honkai Impact 3 — Battlesuit artwork collection','',
+        `Collection: ${categoryMeta[els.collection.value].label}`,
+        `Generated: ${new Date().toISOString()}`,
+        `Requested files: ${items.length}`,
+        `Downloaded files: ${items.length-failures.length}`,
+        `Failed files: ${failures.length}`,'',
+        'Source index: Official Honkai Impact 3 Wiki (MediaWiki API)',
+        'Artwork and trademarks are the property of HoYoverse.',
+        'Collected for personal/reference use. Keep manifest.json for source attribution.','',
+        failures.length ? 'Failed downloads:\n'+failures.map(f=>`- ${f.name}: ${f.url} (${f.error})`).join('\n') : 'All requested files downloaded successfully.'
+      ].join('\n'));
+      if (failures.length) zip.file('failed-downloads.json',JSON.stringify(failures,null,2));
+      setProgress(items.length,items.length,'Building ZIP…');
+      const blob=await zip.generateAsync({type:'blob',compression:'STORE'},meta=>setProgress(meta.percent,100,`Building ZIP · ${Math.round(meta.percent)}%`));
+      const key=categoryMeta[els.collection.value].key;
+      downloadBlob(blob,`honkai-impact-3-${key}-${dateStamp()}.zip`);
+      setProgress(1,1,failures.length?`ZIP ready · ${failures.length} files could not be fetched`:'ZIP ready');
+      if (failures.length) alert(`${failures.length} image(s) could not be fetched. Their URLs are included in failed-downloads.json inside the ZIP.`);
+    } finally { setBusy(false); updateButtons(); hideProgress(); }
+  }
+
+  els.collection.addEventListener('change',loadCollection);
+  els.search.addEventListener('input',render);
+  els.reload.addEventListener('click',loadCollection);
+  els.selectVisible.addEventListener('click',()=>{ visibleItems().forEach(item=>state.selected.add(item.id)); render(); });
+  els.clearSelection.addEventListener('click',()=>{ state.selected.clear(); render(); });
+  els.manifest.addEventListener('click',()=>downloadBlob(new Blob([JSON.stringify(manifestFor(state.items),null,2)],{type:'application/json'}),`honkai-impact-3-${categoryMeta[els.collection.value].key}-manifest.json`));
+  els.downloadAll.addEventListener('click',()=>buildZip(state.items));
+  els.downloadSelected.addEventListener('click',()=>buildZip(state.items.filter(item=>state.selected.has(item.id))));
+  els.grid.addEventListener('click',event=>{
+    const card=event.target.closest('.card'); if(!card)return; const item=state.items.find(x=>x.id===card.dataset.id); if(!item)return;
+    if(event.target.closest('.single-download')){ downloadSingle(item); return; }
+    if(event.target.closest('.source-link'))return;
+    const checkbox=card.querySelector('.check'); const willSelect=event.target===checkbox ? checkbox.checked : !state.selected.has(item.id);
+    if(willSelect)state.selected.add(item.id);else state.selected.delete(item.id); render();
+  });
+
+  loadCollection();
+})();
+</script>
+</body>
+</html>
