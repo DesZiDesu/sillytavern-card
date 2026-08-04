@@ -13,16 +13,17 @@ permissions:
 
 jobs:
   build-export:
-    if: github.event_name == 'pull_request' || github.event.head_commit.message != 'Generate Mushoku Chronicle Narrator B card [skip ci]'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out export branch
+        uses: actions/checkout@v4
         with:
           ref: export/mushoku-chronicle-narrator-b
 
       - name: Generate self-contained character card
-        shell: python
+        shell: bash
         run: |
+          python - <<'PY'
           import json
           from pathlib import Path
 
@@ -32,6 +33,7 @@ jobs:
 
           arrays = []
           seen = set()
+
           def walk(value):
               if not isinstance(value, (dict, list)) or id(value) in seen:
                   return
@@ -45,13 +47,15 @@ jobs:
               else:
                   for child in value:
                       walk(child)
-          walk(card)
 
+          walk(card)
           scripts = [script for group in arrays for script in group if isinstance(script, dict)]
+
           narrator_a = [s for s in scripts if s.get('scriptName') == 'MT Narrator A — Chronicle']
           narrator_b = [s for s in scripts if s.get('scriptName') == 'MT Narrator B — Scene Caption']
           if not narrator_a or not narrator_b:
               raise RuntimeError('Narrator A/B scripts were not found')
+
           for script in narrator_a:
               script['disabled'] = True
           for script in narrator_b:
@@ -70,6 +74,9 @@ jobs:
           output.parent.mkdir(parents=True, exist_ok=True)
           output.write_text(json.dumps(card, ensure_ascii=False, indent=4) + '\n', encoding='utf-8')
           print(f'Generated {output} with {mt_count} MT scripts')
+          print(f'Narrator A copies disabled: {len(narrator_a)}')
+          print(f'Narrator B copies enabled: {len(narrator_b)}')
+          PY
 
       - name: Commit generated JSON
         shell: bash
