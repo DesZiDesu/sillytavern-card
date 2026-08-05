@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HI3 Valkyrie Command UI — PC Preview</title>
+<style>
+:root{color-scheme:dark;--cyan:#50d9f4;--pink:#f14ab8}*{box-sizing:border-box}body{margin:0;color:#eaf7fb;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 50% -10%,rgba(80,217,244,.16),transparent 33rem),radial-gradient(circle at 90% 18%,rgba(241,74,184,.1),transparent 24rem),linear-gradient(150deg,#02070d,#061421 62%,#030911)}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 0 48%,rgba(255,255,255,.018) 48% 49%,transparent 49%),repeating-linear-gradient(90deg,transparent 0 79px,rgba(80,217,244,.025) 80px)}main{width:min(1180px,calc(100% - 28px));margin:auto;padding:30px 0 60px}.hero{position:relative;overflow:hidden;padding:clamp(24px,5vw,52px);border:1px solid rgba(104,191,217,.43);background:linear-gradient(118deg,rgba(7,26,41,.94),rgba(8,20,34,.88));clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));box-shadow:0 20px 55px rgba(0,0,0,.32)}.hero:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--cyan),var(--pink),transparent 72%)}.eyebrow{color:#72e8ff;font-size:10px;font-weight:700;letter-spacing:.23em;text-transform:uppercase}.hero h1{margin:10px 0 12px;font-size:clamp(32px,6vw,66px);line-height:.92;letter-spacing:-.035em}.hero p{max-width:880px;margin:0;color:#a8c2cf;line-height:1.7}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.chips span{padding:6px 9px;border:1px solid rgba(83,178,206,.36);background:rgba(7,28,43,.72);color:#bceef8;font-size:9px;letter-spacing:.1em}.section{margin-top:28px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:10px;padding-bottom:9px;border-bottom:1px solid rgba(88,155,178,.3)}.section h2{margin:0;font-size:23px}.section p{margin:0;color:#7596a5;font-size:12px}.showcase{display:grid;grid-template-columns:1fr 1fr;gap:14px}.stage{position:relative;padding:16px;border:1px solid rgba(64,127,151,.34);background:linear-gradient(145deg,rgba(7,22,35,.78),rgba(4,12,21,.82));box-shadow:0 15px 34px rgba(0,0,0,.22)}.stage-label{margin-bottom:8px;color:#6d96a8;font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}.render{min-height:72px}.loading{padding:18px;color:#73a9ba;border:1px dashed #31586a}.scene{display:grid;gap:9px;padding:17px;border:1px solid rgba(77,151,176,.34);background:linear-gradient(145deg,rgba(5,18,30,.92),rgba(3,10,18,.94))}.footer{margin-top:18px;padding:13px;border:1px solid rgba(76,145,170,.28);color:#7898a6;text-align:center;font-size:11px}.error{color:#ff9bad;border-color:#98465a}@media(max-width:760px){.showcase{grid-template-columns:1fr}.section-head{display:block}.section p{margin-top:4px}}@media(max-width:560px){main{width:calc(100% - 12px);padding:8px 0 30px}.hero{padding:22px 16px}.hero h1{font-size:32px}.stage{padding:8px}.section{margin-top:20px}.section h2{font-size:19px}.scene{padding:9px}}
+</style>
+</head>
+<body><main>
+<section class="hero"><div class="eyebrow">SillyTavern · Honkai Impact 3rd</div><h1>Valkyrie Command UI</h1><p>Preview นี้เรนเดอร์จากไฟล์ Regex ที่ใช้งานจริงโดยตรง เพื่อให้ Character Header, NPC Header, Dialogue และ Monologue ตรงกับไฟล์นำเข้า SillyTavern เสมอ</p><div class="chips"><span>CHARACTER HEADER</span><span>NPC HEADER</span><span>DIALOGUE</span><span>MONOLOGUE</span><span>RESPONSIVE</span></div></section>
+<section class="section"><div class="section-head"><div><h2>Character Header · Portrait</h2><p>Valkyrie Data plate พร้อม Battlesuit, faction และ type prism</p></div></div><div class="showcase"><div class="stage"><div class="stage-label">PSY · Herrscher of Flamescion</div><div class="render" id="char-kiana"><div class="loading">Loading regex…</div></div></div><div class="stage"><div class="stage-label">IMG · Herrscher of Truth</div><div class="render" id="char-bronya"><div class="loading">Loading regex…</div></div></div></div></section>
+<section class="section"><div class="section-head"><div><h2>Character Header · NPC</h2><p>Auxiliary Contact สำหรับตัวละครที่ไม่มี portrait</p></div></div><div class="showcase"><div class="stage"><div class="stage-label">Neutral Contact</div><div class="render" id="npc-control"><div class="loading">Loading regex…</div></div></div><div class="stage"><div class="stage-label">MECH Contact</div><div class="render" id="npc-engineer"><div class="loading">Loading regex…</div></div></div></div></section>
+<section class="section"><div class="section-head"><div><h2>Dialogue & Monologue</h2><p>Voice Link สำหรับคำพูด และ Cognitive Trace สำหรับความคิดภายใน</p></div></div><div class="showcase"><div class="stage"><div class="stage-label">Dialogue · PSY</div><div class="render" id="dialogue"><div class="loading">Loading regex…</div></div></div><div class="stage"><div class="stage-label">Monologue · IMG</div><div class="render" id="monologue"><div class="loading">Loading regex…</div></div></div></div></section>
+<section class="section"><div class="section-head"><div><h2>Conversation Sequence</h2><p>ตัวอย่างองค์ประกอบเรียงต่อกันในข้อความเดียว</p></div></div><div class="scene"><div id="seq-header" class="render"></div><div id="seq-think" class="render"></div><div id="seq-say" class="render"></div></div></section>
+<div class="footer">Valkyrie Command UI V2 · Rendered from repository regex files</div>
+</main>
+<script>
+const files={
+ char:'../regex/Character%20Header/HI3%20Character%20Header%20%E2%80%94%20Hyperion%20Link.json',
+ npc:'../regex/Character%20Header%20NPC/HI3%20Character%20Header%20NPC%20%E2%80%94%20Field%20Contact.json',
+ say:'../regex/Dialogue/HI3%20Dialogue%20%E2%80%94%20Combat%20Channel.json',
+ think:'../regex/Monologue/HI3%20Monologue%20%E2%80%94%20Inner%20Channel.json'
+};
+const cache={};
+async function load(kind){if(!cache[kind])cache[kind]=fetch(files[kind],{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()});return cache[kind]}
+function makeRegex(text){const m=text.match(/^\/([\s\S]*)\/([a-z]*)$/i);if(!m)throw Error('Invalid regex string');return new RegExp(m[1],m[2])}
+async function render(id,kind,token){const el=document.getElementById(id);try{const data=await load(kind);el.innerHTML=token.replace(makeRegex(data.findRegex),data.replaceString)}catch(e){el.innerHTML='<div class="loading error">Could not render '+kind+': '+e.message+'</div>'}}
+const jobs=[
+ ['char-kiana','char','[HI3CHAR|herrscher-of-flamescion|Kiana Kaslana|psy|Herrscher of Flamescion|Schicksal · Hyperion]'],
+ ['char-bronya','char','[HI3CHAR|herrscher-of-truth|Bronya Zaychik|img|Herrscher of Truth|Anti-Entropy · Hyperion]'],
+ ['npc-control','npc','[HI3NPC|Schicksal Mission Control Operator|neutral|เจ้าหน้าที่ควบคุมภารกิจ · ช่องสัญญาณ 04|Schicksal]'],
+ ['npc-engineer','npc','[HI3NPC|ME Corp Emergency Response Engineer|mech|วิศวกรกู้ระบบสนามรบ · หน่วยซ่อมฉุกเฉิน|Anti-Entropy]'],
+ ['dialogue','say','[HI3SAY|Kiana Kaslana|psy|เป้าหมายเคลื่อนเข้าเขตเมืองแล้ว ฉันจะดึงมันออกจากแนวพลเรือน—ฝากเส้นทางถอนกำลังด้วย!]'],
+ ['monologue','think','[HI3THINK|Bronya Zaychik|img|ข้อมูลการเคลื่อนที่ผิดปกติเกินไป มันไม่ได้หลบการโจมตี…แต่มันกำลังบังคับให้พวกเราเข้าใกล้แกนกลางของพื้นที่]'],
+ ['seq-header','char','[HI3CHAR|herrscher-of-truth|Bronya Zaychik|img|Herrscher of Truth|Anti-Entropy · Hyperion]'],
+ ['seq-think','think','[HI3THINK|Bronya Zaychik|img|รูปแบบการเคลื่อนที่ของศัตรูเปลี่ยนทันทีหลังตรวจพบเรา…การตอบสนองนี้เป็นเพียงสัญชาตญาณหรือมีผู้ควบคุมอยู่เบื้องหลัง]'],
+ ['seq-say','say','[HI3SAY|Bronya Zaychik|img|ฉันจะเปิดเส้นทางด้านตะวันออกให้ คอยรักษาระยะจากแกนพลังงานและรอสัญญาณก่อนเคลื่อนที่ต่อ]']
+];
+Promise.all(jobs.map(j=>render(...j)));
+</script></body></html>
