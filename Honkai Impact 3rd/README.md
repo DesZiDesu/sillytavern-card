@@ -2,34 +2,38 @@
 
 This is the main workspace for building the **Honkai Impact 3rd SillyTavern bot**.
 
-The portrait gallery is only one resource used by the bot; it is not the bot project itself.
-
 ## Project structure
 
-- `characters/` — SillyTavern character-card JSON/PNG exports and character-specific source files
+- `characters/` — SillyTavern character cards and source data
 - `lorebooks/` — world-info and lorebook JSON files
-- `prompts/` — system prompts, scenario prompts, author notes, and reusable prompt fragments
+- `prompts/` — reusable prompts and author notes
 - `regex/` — importable SillyTavern message UI regex scripts
-- `previews/` — browser previews used to review UI components before card integration
-- `assets/` — bot-facing media references, including UI portraits and the HI3 character galleries
-- `references/` — research notes and source material used while authoring the bot
+- `previews/` — PC, mobile, and responsive UI previews
+- `assets/` — UI portraits and shared bot-facing media
+- `references/` — canon and terminology research
 - `project.json` — machine-readable project registry
 
 ## Portrait resources
 
-The existing portrait utilities remain in [`../hi3-portraits/`](../hi3-portraits/). The bot workspace links to those resources through `assets/galleries/`.
+The portrait gallery remains in [`../hi3-portraits/`](../hi3-portraits/) and is linked through `assets/galleries/`.
 
-## Message UI
+## Message UI — Valkyrie Command V2
 
-The first **Hyperion Tactical Interface** set is available under `regex/` and includes:
+The current UI set uses a HI3-inspired light Valkyrie data language with cyan crystal structure and magenta rails:
 
 - Character Header with portrait
 - NPC Header without portrait
-- Dialogue
-- Monologue
+- Dialogue — Voice Link
+- Monologue — Cognitive Trace
 
-Review the complete responsive layout in [`previews/hi3_message_ui_preview.html`](previews/hi3_message_ui_preview.html). Narrator and Status UI are intentionally not included yet.
+Previews:
+
+- [Responsive review board](previews/hi3_message_ui_preview.html)
+- [PC preview](previews/hi3_message_ui_preview_pc.html)
+- [Mobile preview](previews/hi3_message_ui_preview_mobile.html)
+
+Token contracts remain unchanged. Narrator and Status UI are still pending.
 
 ## Status
 
-The RPG card has a description draft and the initial message UI kit. First Message, Personality, Scenario, Lorebooks, Narrator, and Status UI remain pending.
+The RPG card has a description draft and message UI V2. First Message, Personality, Scenario, Lorebooks, Narrator, and Status UI remain pending.
