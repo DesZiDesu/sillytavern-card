@@ -2,17 +2,25 @@
   "schema": "sillytavern_bot_workspace.v1",
   "project": "Honkai Impact 3rd",
   "purpose": "SillyTavern bot development workspace",
-  "status": "scaffolded",
+  "status": "description-draft",
   "paths": {
     "characters": "characters/",
     "lorebooks": "lorebooks/",
     "prompts": "prompts/",
     "assets": "assets/",
     "references": "references/",
-    "portrait_gallery": "../hi3-portraits/gallery.html"
+    "portrait_gallery": "../hi3-portraits/gallery.html",
+    "portrait_pack_registry": "../hi3-portraits/packs/registry.json",
+    "rpg_card": "characters/honkai-impact-3rd-rpg/card.json"
   },
   "portrait_collections": [
     "Battlesuit Avatars",
     "Male Characters — Option A"
-  ]
+  ],
+  "card_state": {
+    "description": true,
+    "first_message": false,
+    "personality": false,
+    "scenario": false
+  }
 }

@@ -1,0 +1,33 @@
+{
+  "schema": "hi3_gallery_source_packs.v1",
+  "game": "Honkai Impact 3rd",
+  "registered_at": "2026-08-05T23:54:00+07:00",
+  "materialization": "manifest-backed-remote-source",
+  "note": "The gallery renders the same portrait collections from their recorded official source URLs. Binary ZIP bytes are not embedded by this connector-backed commit.",
+  "packs": [
+    {
+      "id": "battlesuit-avatars",
+      "uploaded_name": "honkai-impact-3-battlesuit-avatars(1).zip",
+      "canonical_name": "honkai-impact-3-battlesuit-avatars.zip",
+      "sha256": "710a7a2652c2ed36716cfccd8a6c618d8633b4bfb19d185daa46aa106ac8e066",
+      "archive_bytes": 1915968,
+      "image_count": 124,
+      "file_count": 126,
+      "archive_root": "hi3-battlesuit-avatars/",
+      "manifest_in_archive": "hi3-battlesuit-avatars/_manifest.json",
+      "gallery_collection": "Battlesuit Avatars"
+    },
+    {
+      "id": "male-avatars-option-a",
+      "uploaded_name": "honkai-impact-3-male-avatars-option-a(1).zip",
+      "canonical_name": "honkai-impact-3-male-avatars-option-a.zip",
+      "sha256": "6b13ef581e59b3fb68d1d2088ef0373914b07acf35b2a1f5e61534dfdf3e704f",
+      "archive_bytes": 2685417,
+      "image_count": 26,
+      "file_count": 28,
+      "archive_root": "hi3-male-avatars/",
+      "manifest_in_archive": "hi3-male-avatars/_manifest.json",
+      "gallery_collection": "Male Characters — Option A"
+    }
+  ]
+}
