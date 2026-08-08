@@ -1,0 +1,155 @@
+name: Materialize Shinobi Chronicle and HI3 Gallery
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  materialize:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Generate optional regex packs and extract committed ZIPs
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/materialize.py <<'PYGEN'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import json, shutil
+          
+          gallery_base = "https://raw.githubusercontent.com/DesZiDesu/sillytavern-card/main/Sillytavern/Shinobi%20World/Gallery/"
+          font = '<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap" rel="stylesheet"/>'
+          
+          def regex_obj(id, name, find, repl, max_depth=None):
+              return {"id":id,"scriptName":name,"findRegex":find,"replaceString":font+repl,"trimStrings":[],"placement":[1,2],"disabled":False,"markdownOnly":True,"promptOnly":False,"runOnEdit":True,"substituteRegex":0,"minDepth":None,"maxDepth":max_depth}
+          
+          def common_header(style, accent_extra="", right_extra="", meta_extra=""):
+              return f"""<div style=\"max-width:512px;margin:14px auto 16px;display:flex;align-items:center;gap:15px;padding-bottom:12px;border-bottom:1px solid {style['rule']};font-family:'Spectral','Noto Serif Thai','Georgia',serif;position:relative;{style.get('header_bg','')}\"><div style=\"position:relative;width:54px;height:54px;flex-shrink:0;\"><span style=\"position:absolute;inset:0;border:1px solid {style['frame']};\"></span><span style=\"position:absolute;inset:4px;background:{style['portrait_bg']};overflow:hidden;display:block;\"><span style=\"position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel','Noto Serif JP',serif;font-size:19px;color:color-mix(in srgb,$3 62%,{style['fallback']});\">忍</span><img src=\"{gallery_base}$1\" alt=\"$2\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;background:{style['portrait_bg']};\"/></span><span style=\"position:absolute;left:-2px;bottom:-2px;width:11px;height:11px;background:$3;{accent_extra}\"></span></div><div style=\"min-width:0;flex:1;position:relative;\"><span style=\"display:block;height:2px;width:32px;background:$3;margin-bottom:8px;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:15px;font-weight:600;letter-spacing:1.25px;color:{style['ink']};line-height:1.18;\">$2</span><span style=\"display:block;margin-top:4px;font-family:'Spectral','Noto Serif Thai',serif;font-size:10.5px;letter-spacing:.55px;color:{style['muted']};line-height:1.3;\">$4 · $5</span>{meta_extra}</div>{right_extra}</div>"""
+          
+          def common_npc(style, option):
+              extra=""; plate_shape=""
+              if option=="B":
+                  plate_shape="border-radius:50%;"; extra='<span style="position:absolute;inset:7px;border:1px solid color-mix(in srgb,$3 22%,transparent);border-radius:50%;"></span>'
+              elif option=="D":
+                  extra='<span style="position:absolute;right:-8px;top:-10px;font-family:\'Noto Serif JP\',serif;font-size:27px;color:#2a2118;opacity:.55;">記</span>'
+              elif option=="C":
+                  plate_shape="box-shadow:inset 0 0 0 1px #090806;"
+              return f"""<div style=\"max-width:512px;margin:14px auto 16px;display:flex;align-items:center;gap:15px;padding-bottom:12px;border-bottom:1px solid {style['rule']};font-family:'Spectral','Noto Serif Thai','Georgia',serif;position:relative;{style.get('header_bg','')}\"><div style=\"position:relative;width:54px;height:54px;flex-shrink:0;\"><span style=\"position:absolute;inset:0;border:1px solid {style['frame']};{plate_shape}\"></span><span style=\"position:absolute;inset:4px;background:{style['portrait_bg']};display:flex;align-items:center;justify-content:center;{plate_shape}\"><span style=\"font-family:'Cinzel','Noto Serif JP',serif;font-size:19px;color:color-mix(in srgb,$3 62%,{style['fallback']});\">$2</span>{extra}</span><span style=\"position:absolute;left:-2px;bottom:-2px;width:11px;height:11px;background:$3;\"></span></div><div style=\"min-width:0;flex:1;\"><span style=\"display:block;height:2px;width:32px;background:$3;margin-bottom:8px;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:15px;font-weight:600;letter-spacing:1.25px;color:{style['ink']};line-height:1.18;\">$1</span><span style=\"display:block;margin-top:4px;font-family:'Spectral','Noto Serif Thai',serif;font-size:10.5px;letter-spacing:.45px;color:{style['muted']};line-height:1.3;\">$4</span></div></div>"""
+          
+          styles={
+          "A":{"name":"Chronicle Classic","rule":"#241f14","frame":"#4c4333","portrait_bg":"#161009","fallback":"#e8dcc0","ink":"#f2ecdd","muted":"#a99c82","dialogue_bg":"#17110a","dialogue_border":"#241a10","paper":"#efe7d3","paper_border":"#cdbb92","paper_ink":"#33291a","paper_muted":"#5c4a2e"},
+          "B":{"name":"Illuminated Shinobi","rule":"#2b2118","frame":"#5b4938","portrait_bg":"#17100b","fallback":"#eadfc8","ink":"#f1eadc","muted":"#a38f76","dialogue_bg":"#18100c","dialogue_border":"#322019","paper":"#eee3ca","paper_border":"#c7b58d","paper_ink":"#35291c","paper_muted":"#66523e"},
+          "C":{"name":"Dark Archive","rule":"#22201a","frame":"#48443a","portrait_bg":"#11100e","fallback":"#ded5c4","ink":"#ece5d5","muted":"#8f8572","dialogue_bg":"#10100e","dialogue_border":"#24221d","paper":"#d9cfb9","paper_border":"#a9997a","paper_ink":"#2f281e","paper_muted":"#554d40","header_bg":"background:linear-gradient(90deg,rgba(255,255,255,.015),transparent 70%);"},
+          "D":{"name":"Scroll Chronicle","rule":"#292117","frame":"#514634","portrait_bg":"#17110a","fallback":"#eadfc9","ink":"#f1eadb","muted":"#9b8c73","dialogue_bg":"#17110a","dialogue_border":"#2d2419","paper":"#eee5d1","paper_border":"#c4b38d","paper_ink":"#31291f","paper_muted":"#62543e"}}
+          
+          base=Path("Sillytavern/Shinobi World/Regex/Optional/Chronicle Set")
+          gallery_dir=Path("Sillytavern/Shinobi World/Gallery")
+          base.mkdir(parents=True,exist_ok=True); gallery_dir.mkdir(parents=True,exist_ok=True)
+          (gallery_dir/"README.md").write_text("""# Shinobi World Gallery
+          
+          Repository-backed portrait directory for the optional Shinobi Chronicle UI packs.
+          
+          Use a bare filename in the existing `[CHAR]` image slot, for example:
+          
+          `[CHAR|sasuke.png|Sasuke Uchiha|#6f71a8|Jōnin|Konohagakure]`
+          
+          The Chronicle header resolves that filename from `Sillytavern/Shinobi World/Gallery/<filename>`.
+          
+          Do not put a full URL in the Chronicle `[CHAR]` tag. Add the actual image file to this folder first. The existing default Shinobi World header regexes are unchanged.
+          """,encoding="utf-8")
+          (gallery_dir/"manifest.json").write_text(json.dumps({"schema":"shinobi_world_gallery.v1","base_path":"Sillytavern/Shinobi World/Gallery/","usage":"[CHAR|filename.png|Name|#color|Rank|Village]","files":[],"note":"Gallery initialized for Chronicle UI. Add portrait files such as sasuke.png later."},indent=2,ensure_ascii=False),encoding="utf-8")
+          (base/"README.md").write_text("""# Shinobi World — Chronicle Set (Optional)
+          
+          Four independent alternatives inspired closely by the Mushoku Tensei Chronicle Set.
+          
+          - A — Chronicle Classic: closest to the Mushoku Tensei Chronicle grammar.
+          - B — Illuminated Shinobi: Chronicle structure with restrained seal/village details.
+          - C — Dark Archive: darker field-record treatment.
+          - D — Scroll Chronicle: Chronicle structure with Japanese manuscript cues.
+          
+          These files do not replace the existing Shinobi World regex files. Import one option only, preferably its `*_All.json` file.
+          
+          For Chronicle portraits, `[CHAR]` uses a GitHub Gallery filename, not a URL:
+          `[CHAR|sasuke.png|Sasuke Uchiha|#6f71a8|Jōnin|Konohagakure]`
+          
+          Compatible tags:
+          - `[CHAR|filename.png|Name|color|rank|village]`
+          - `[NPC|Name|color|role]`
+          - `[SAY|color|text]`
+          - `[THINK|Name|color|text]`
+          
+          Disable the default Shinobi Header/NPC/Dialogue/Monologue regexes only in chats where a Chronicle option is enabled.
+          """,encoding="utf-8")
+          
+          for opt,s in styles.items():
+              folder=base/f"Option {opt} - {s['name']}"; folder.mkdir(parents=True,exist_ok=True)
+              accent_extra=""; right_extra=""; meta_extra=""
+              if opt=="B":
+                  right_extra='<span style="position:absolute;right:3px;top:4px;width:30px;height:30px;border:1px solid color-mix(in srgb,$3 20%,transparent);border-radius:50%;opacity:.45;"></span>'
+                  meta_extra='<span style="position:absolute;right:8px;bottom:-2px;font-family:\'Noto Serif JP\',serif;font-size:11px;color:color-mix(in srgb,$3 55%,#8c765f);opacity:.55;">葉</span>'
+              elif opt=="C": accent_extra="box-shadow:0 0 0 1px #090806;"
+              elif opt=="D": right_extra='<span style="position:absolute;right:1px;top:-8px;font-family:\'Noto Serif JP\',serif;font-size:31px;color:#2b2118;opacity:.48;">忍録</span>'
+              header=regex_obj(f"swc-{opt.lower()}-header-gallery",f"SW Chronicle {opt} • Character Header — GitHub Gallery",r"/\[CHAR\|((?!https?:\/\/)[^|\]]+\.(?:png|jpe?g|webp|gif))\|(.*?)\|(.*?)\|(.*?)\|(.*?)\]/gi",common_header(s,accent_extra,right_extra,meta_extra),2)
+              npc=regex_obj(f"swc-{opt.lower()}-npc",f"SW Chronicle {opt} • NPC Header",r"/\[NPC\|\s*((\S)[\s\S]*?)\|(.*?)\|(.*?)\]/g",common_npc(s,opt),2)
+              label={"A":"DIALOGUE RECORD","B":"VOICE RECORD · 言","C":"FIELD RECORD","D":"記録 · DIALOGUE"}[opt]
+              dia_extra=""
+              if opt=="B": dia_extra='<span style="position:absolute;right:12px;top:10px;font-family:\'Noto Serif JP\',serif;font-size:18px;color:color-mix(in srgb,$1 32%,transparent);opacity:.45;">言</span>'
+              elif opt=="C": dia_extra='<span style="position:absolute;right:12px;top:11px;font-family:\'Cinzel\',serif;font-size:7px;letter-spacing:1.5px;color:#645c4d;">ARCHIVE</span>'
+              elif opt=="D": dia_extra='<span style="position:absolute;right:11px;top:8px;font-family:\'Noto Serif JP\',serif;font-size:21px;color:#31261a;opacity:.6;">語</span>'
+              dialogue_repl=f"""<div style=\"max-width:512px;margin:4px auto 15px;font-family:'Spectral','Noto Serif Thai','Georgia',serif;\"><div style=\"position:relative;background:{s['dialogue_bg']};border:1px solid color-mix(in srgb,$1 35%,{s['dialogue_border']});border-left:3px solid $1;padding:11px 18px 12px;color:#ece2cd;font-size:14px;line-height:1.62;\"><span style=\"position:absolute;left:-1px;top:-1px;width:0;height:0;border-top:10px solid $1;border-right:10px solid transparent;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP',serif;font-size:8.5px;font-weight:700;letter-spacing:1.55px;text-transform:uppercase;color:color-mix(in srgb,$1 66%,#e8dcc0);margin-bottom:6px;line-height:1.2;\">{label}</span>{dia_extra}$2</div></div>"""
+              dialogue=regex_obj(f"swc-{opt.lower()}-dialogue",f"SW Chronicle {opt} • Dialogue",r"/\[SAY\|(.*?)\|([\s\S]*?)\]/g",dialogue_repl)
+              mono_extra=""; body_pad="11px 17px 12px"
+              if opt=="B": mono_extra='<span style="position:absolute;right:13px;bottom:8px;font-family:\'Noto Serif JP\',serif;font-size:38px;color:#d8c9a8;opacity:.52;">心</span>'
+              elif opt=="C": mono_extra='<span style="position:absolute;left:0;top:0;bottom:0;width:6px;background:#726854;"></span>'; body_pad="11px 17px 12px 21px"
+              elif opt=="D": mono_extra='<span style="position:absolute;left:25px;top:9px;bottom:9px;width:1px;background:#c8b993;"></span><span style="position:absolute;right:12px;bottom:8px;font-family:\'Noto Serif JP\',serif;font-size:36px;color:#d9ccb1;opacity:.48;">心</span>'; body_pad="11px 17px 12px 39px"
+              monologue_repl=f"""<div style=\"max-width:470px;margin:12px auto 14px 4px;background:{s['paper']};border:1px solid {s['paper_border']};padding:{body_pad};font-family:'Spectral','Noto Serif Thai','Georgia',serif;box-shadow:0 3px 12px rgba(0,0,0,.35);position:relative;\"><div style=\"display:flex;align-items:center;gap:8px;padding-bottom:7px;border-bottom:1px solid #d8c9a8;margin-bottom:8px;position:relative;z-index:1;\"><span style=\"width:7px;height:7px;background:$2;flex-shrink:0;\"></span><span style=\"font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:9px;font-weight:700;letter-spacing:1.4px;color:{s['paper_muted']};text-transform:uppercase;\">$1</span><span style=\"flex:1;height:1px;background:linear-gradient(90deg,#d8c9a8,transparent);\"></span></div><div style=\"font-style:italic;font-size:13px;line-height:1.62;color:{s['paper_ink']};position:relative;z-index:1;\">$3</div>{mono_extra}</div>"""
+              monologue=regex_obj(f"swc-{opt.lower()}-monologue",f"SW Chronicle {opt} • Monologue",r"/\[THINK\|(.*?)\|(.*?)\|([\s\S]*?)\]/g",monologue_repl)
+              objs=[header,npc,dialogue,monologue]
+              for fname,obj in [("Header_GitHub_Gallery.json",header),("NPC_Header.json",npc),("Dialogue.json",dialogue),("Monologue.json",monologue)]: (folder/fname).write_text(json.dumps(obj,indent=2,ensure_ascii=False),encoding="utf-8")
+              (folder/f"SW_Chronicle_{opt}_All.json").write_text(json.dumps(objs,indent=2,ensure_ascii=False),encoding="utf-8")
+              (folder/"README.md").write_text(f"# Option {opt} — {s['name']}\n\nImport `SW_Chronicle_{opt}_All.json` for the complete option, or import the component JSON files individually.\n\nPortrait example: `[CHAR|sasuke.png|Sasuke Uchiha|#6f71a8|Jōnin|Konohagakure]`. The first field resolves from `Sillytavern/Shinobi World/Gallery/`.\n\nDo not enable another Chronicle option or the default Shinobi message UI at the same time.\n",encoding="utf-8")
+          
+          instruction={"entries":{"0":{"uid":0,"key":[],"keysecondary":[],"comment":"Shinobi Chronicle UI — GitHub Gallery filename contract","content":"When the optional Shinobi Chronicle UI is active, use the existing speech tags but the [CHAR] image slot MUST be a bare filename that exists in the repository Gallery, never a direct URL or Catbox code. Format: [CHAR|filename.png|Name|#color|rank|village]. Example only if that file exists: [CHAR|sasuke.png|Sasuke Uchiha|#6f71a8|Jōnin|Konohagakure]. NPC remains [NPC|Name|#color|role]. Dialogue remains [SAY|#color|text]. Monologue remains [THINK|Name|#color|text]. Never invent a Gallery filename that has not been registered.","constant":True,"vectorized":False,"selective":True,"order":9999998,"position":1,"disable":False,"probability":100,"useProbability":True,"depth":4,"group":"Regex Systems","groupOverride":False,"groupWeight":100,"role":0}}}
+          (base/"Shinobi_Chronicle_Gallery_Instructions.json").write_text(json.dumps(instruction,indent=2,ensure_ascii=False),encoding="utf-8")
+          
+          hi3_dest=Path("Honkai Impact 3rd/Gallery"); hi3_dest.mkdir(parents=True,exist_ok=True)
+          archives=[("honkai-impact-3-battlesuit-avatars.zip","Battlesuit Avatars"),("honkai-impact-3-male-avatars-option-a.zip","Male Characters - Option A")]
+          summary=[]
+          for archive_name,sub in archives:
+              target=hi3_dest/sub
+              if target.exists(): shutil.rmtree(target)
+              target.mkdir(parents=True,exist_ok=True)
+              with ZipFile(archive_name) as zf:
+                  members=[m for m in zf.infolist() if not m.is_dir()]
+                  parts=[Path(m.filename).parts for m in members]
+                  common=parts[0][0] if parts and all(p and p[0]==parts[0][0] for p in parts) else None
+                  images=0
+                  for m in members:
+                      rel_parts=list(Path(m.filename).parts)
+                      if common and rel_parts and rel_parts[0]==common: rel_parts=rel_parts[1:]
+                      if not rel_parts: continue
+                      out=target.joinpath(*rel_parts); out.parent.mkdir(parents=True,exist_ok=True); out.write_bytes(zf.read(m))
+                      if out.suffix.lower() in {".png",".jpg",".jpeg",".webp",".gif"}: images+=1
+                  summary.append({"archive":archive_name,"folder":str(target),"files":len(members),"images":images})
+          (hi3_dest/"README.md").write_text("# Honkai Impact 3rd Gallery\n\nMaterialized directly from the two ZIP archives committed at the repository root. Collections are kept in separate subfolders to avoid filename collisions and preserve archive manifests/supporting files.\n",encoding="utf-8")
+          (hi3_dest/"extraction.json").write_text(json.dumps({"schema":"hi3_local_gallery_extraction.v1","collections":summary},indent=2,ensure_ascii=False),encoding="utf-8")
+          project_path=Path("Honkai Impact 3rd/project.json")
+          if project_path.exists():
+              data=json.loads(project_path.read_text(encoding="utf-8")); data.setdefault("paths",{})["local_gallery"]="Gallery/"; data["portrait_collections_local"]=["Gallery/Battlesuit Avatars/","Gallery/Male Characters - Option A/"]; project_path.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          for p in base.rglob("*.json"): json.loads(p.read_text(encoding="utf-8"))
+          json.loads((gallery_dir/"manifest.json").read_text(encoding="utf-8")); json.loads((hi3_dest/"extraction.json").read_text(encoding="utf-8"))
+          print(summary)
+          PYGEN
+          python /tmp/materialize.py
+          rm -f .github/workflows/materialize-shinobi-hi3.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "Add optional Shinobi Chronicle sets and extract HI3 gallery"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
