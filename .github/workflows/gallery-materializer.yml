@@ -10,5 +10,14 @@ jobs:
   materialize:
     runs-on: ubuntu-latest
     steps:
-      - name: Diagnostic
-        run: echo "main branch actions runner works"
+      - uses: actions/checkout@v4
+      - name: Prove runner and push access
+        shell: bash
+        run: |
+          set -e
+          echo "Actions main-branch runner works" > __actions_probe__.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add __actions_probe__.txt
+          git commit -m "Verify gallery materializer runner"
+          git push
