@@ -1,0 +1,24 @@
+{
+  "entries": {
+    "0": {
+      "uid": 0,
+      "key": [],
+      "keysecondary": [],
+      "comment": "Shinobi Chronicle UI — GitHub Gallery filename contract",
+      "content": "When the optional Shinobi Chronicle UI is active, use the existing speech tags but the [CHAR] image slot MUST be a bare filename that exists in the repository Gallery, never a direct URL or Catbox code. Format: [CHAR|filename.png|Name|#color|rank|village]. Example only if that file exists: [CHAR|sasuke.png|Sasuke Uchiha|#6f71a8|Jōnin|Konohagakure]. NPC remains [NPC|Name|#color|role]. Dialogue remains [SAY|#color|text]. Monologue remains [THINK|Name|#color|text]. Never invent a Gallery filename that has not been registered.",
+      "constant": true,
+      "vectorized": false,
+      "selective": true,
+      "order": 9999998,
+      "position": 1,
+      "disable": false,
+      "probability": 100,
+      "useProbability": true,
+      "depth": 4,
+      "group": "Regex Systems",
+      "groupOverride": false,
+      "groupWeight": 100,
+      "role": 0
+    }
+  }
+}
