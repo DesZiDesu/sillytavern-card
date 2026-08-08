@@ -1,8 +1,8 @@
 {
     "id": "Global_Dialogue",
-    "scriptName": "Global • Dialogue",
-    "findRegex": "/\\[SAY\\|(.*?)\\|([\\s\\S]*?)\\]/g",
-    "replaceString": "<div style=\"max-width:480px;margin:16px auto 20px;font-family:'Trebuchet MS','Inter',sans-serif;\"><div style=\"position:relative;background:#ffffff;color:#1a1208;border:2.5px solid $1;border-radius:30px;padding:14px 23px;font-size:14px;font-weight:500;line-height:1.55;box-shadow:0 5px 16px rgba(0,0,0,.45);\"><span style=\"position:absolute;top:-10px;left:36px;width:18px;height:18px;background:#fff;border-left:2.5px solid $1;border-top:2.5px solid $1;border-top-left-radius:8px;transform:rotate(45deg);\"></span>$2</div></div>",
+    "scriptName": "Global • Dialogue — Chronicle Record",
+    "findRegex": "/\\[SAY\\|(?:(?!#)([^|\\]]*)\\|)?(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<div style=\"max-width:512px;margin:4px auto 15px;font-family:'Spectral','Georgia',serif;\"><div style=\"position:relative;background:#17110a;border:1px solid color-mix(in srgb,$2 38%,#241a10);border-left:3px solid $2;padding:11px 18px 12px;color:#ece2cd;font-size:14.5px;line-height:1.62;\"><span style=\"position:absolute;left:-1px;top:-1px;width:0;height:0;border-top:10px solid $2;border-right:10px solid transparent;\"></span><span style=\"display:block;font-family:'Cinzel',serif;font-size:9.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:color-mix(in srgb,$2 66%,#e8dcc0);margin-bottom:6px;line-height:1.2;\">$1</span>$3</div></div>",
     "trimStrings": [],
     "placement": [
         1,
