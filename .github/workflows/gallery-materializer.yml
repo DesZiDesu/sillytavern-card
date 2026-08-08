@@ -1,0 +1,14 @@
+name: Gallery Materializer
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gallery-materializer.yml'
+permissions:
+  contents: write
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diagnostic
+        run: echo "main branch actions runner works"
