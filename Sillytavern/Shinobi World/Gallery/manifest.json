@@ -1,7 +1,7 @@
 {
   "schema": "shinobi_world_gallery.v1",
   "base_path": "Sillytavern/Shinobi World/Gallery/",
-  "usage": "[CHAR|filename.png|Name|#color|Rank|Village]",
+  "usage": "[SWCHAR|filename.jpg|Name|#color|Village|Rank]",
   "files": [],
-  "note": "Gallery initialized for Chronicle UI. Add portrait files such as sasuke.png later."
+  "note": "Portrait files are materialized separately; this manifest records the namespaced Chronicle contract. Use Shinobi World Gallery [LB].json for exact English/Thai form keywords."
 }
