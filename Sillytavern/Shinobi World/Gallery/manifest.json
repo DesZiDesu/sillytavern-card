@@ -1,7 +1,2663 @@
 {
   "schema": "shinobi_world_gallery.v1",
   "base_path": "Sillytavern/Shinobi World/Gallery/",
-  "usage": "[CHAR|filename.png|Name|#color|Rank|Village]",
-  "files": [],
-  "note": "Gallery initialized for Chronicle UI. Add portrait files such as sasuke.png later."
+  "usage": "[SWCHAR|filename.jpg|Name|#color|Village|Rank]",
+  "actual_file_count": 159,
+  "files": [
+    {
+      "name": "Naruto Uzumaki (Academy Student)",
+      "filename": "naruto-uzumaki-academy-student.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-academy-student.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Academy Student)",
+        "naruto-uzumaki-academy-student",
+        "Naruto Uzumaki Academy Student",
+        "นารูโตะ อุซึมากิ (นักเรียนอคาเดมี)",
+        "นารูโตะ อุซึมากิ นักเรียนอคาเดมี"
+      ],
+      "source_url": "https://files.catbox.moe/cr7b8d.jpeg",
+      "sha256": "2b0d08db03e9f61cd80e55eb0d9dcd7393aab15cdf14b8705ec25cc0515224f2",
+      "bytes": 90677,
+      "marker": "[SWCHAR|naruto-uzumaki-academy-student.jpg|Naruto Uzumaki (Academy Student)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (One-Tail Cloak)",
+      "filename": "naruto-uzumaki-one-tail-cloak.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-one-tail-cloak.jpg",
+      "aliases": [
+        "Naruto Uzumaki (One-Tail Cloak)",
+        "naruto-uzumaki-one-tail-cloak",
+        "Naruto Uzumaki One Tail Cloak",
+        "Naruto Uzumaki One-Tail Cloak",
+        "นารูโตะ อุซึมากิ (เสื้อคลุมหนึ่งหาง)",
+        "นารูโตะ อุซึมากิ เสื้อคลุมหนึ่งหาง"
+      ],
+      "source_url": "https://files.catbox.moe/xj5mpb.jpeg",
+      "sha256": "05e01bd5d7446de4f158a9d6efe992b011daa28b7845ed65f3d0bc5a7531e289",
+      "bytes": 116202,
+      "marker": "[SWCHAR|naruto-uzumaki-one-tail-cloak.jpg|Naruto Uzumaki (One-Tail Cloak)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Shippuden)",
+      "filename": "naruto-uzumaki-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-shippuden.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Shippuden)",
+        "naruto-uzumaki-shippuden",
+        "Naruto Uzumaki Shippuden",
+        "นารูโตะ อุซึมากิ (ชิปปูเด็น)",
+        "นารูโตะ อุซึมากิ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/yxqwmu.jpeg",
+      "sha256": "0fe311b1254fca7421ee908a9d8ad398691ba3a3b44c43bc54da7e1d0426cd57",
+      "bytes": 104780,
+      "marker": "[SWCHAR|naruto-uzumaki-shippuden.jpg|Naruto Uzumaki (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Genin)",
+      "filename": "naruto-uzumaki-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-genin.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Genin)",
+        "naruto-uzumaki-genin",
+        "Naruto Uzumaki Genin",
+        "นารูโตะ อุซึมากิ (เกนิน)",
+        "นารูโตะ อุซึมากิ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/ghig55.jpeg",
+      "sha256": "7077b31604113701b609c7d3c3f75a092cd788f242fe04dd3990744ff8b95c3f",
+      "bytes": 271216,
+      "marker": "[SWCHAR|naruto-uzumaki-genin.jpg|Naruto Uzumaki (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Four-Tails Form)",
+      "filename": "naruto-uzumaki-four-tails-form.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-four-tails-form.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Four-Tails Form)",
+        "naruto-uzumaki-four-tails-form",
+        "Naruto Uzumaki Four Tails Form",
+        "Naruto Uzumaki Four-Tails Form",
+        "นารูโตะ อุซึมากิ (ร่างสี่หาง)",
+        "นารูโตะ อุซึมากิ ร่างสี่หาง"
+      ],
+      "source_url": "https://files.catbox.moe/y86ed0.jpeg",
+      "sha256": "1c93695fe0131156e4e95b61aa7f42bf2b44cffe5e37b5a8bb26944797e22aba",
+      "bytes": 37610,
+      "marker": "[SWCHAR|naruto-uzumaki-four-tails-form.jpg|Naruto Uzumaki (Four-Tails Form)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Six-Tails Form)",
+      "filename": "naruto-uzumaki-six-tails-form.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-six-tails-form.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Six-Tails Form)",
+        "naruto-uzumaki-six-tails-form",
+        "Naruto Uzumaki Six Tails Form",
+        "Naruto Uzumaki Six-Tails Form",
+        "นารูโตะ อุซึมากิ (ร่างหกหาง)",
+        "นารูโตะ อุซึมากิ ร่างหกหาง"
+      ],
+      "source_url": "https://files.catbox.moe/qwhcqm.jpeg",
+      "sha256": "e5739c731b4edb5104b0abc2ff94b60363cd69751a987f2dbbe831a3df8225c5",
+      "bytes": 137920,
+      "marker": "[SWCHAR|naruto-uzumaki-six-tails-form.jpg|Naruto Uzumaki (Six-Tails Form)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Eight-Tails Form)",
+      "filename": "naruto-uzumaki-eight-tails-form.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-eight-tails-form.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Eight-Tails Form)",
+        "naruto-uzumaki-eight-tails-form",
+        "Naruto Uzumaki Eight Tails Form",
+        "Naruto Uzumaki Eight-Tails Form",
+        "นารูโตะ อุซึมากิ (ร่างแปดหาง)",
+        "นารูโตะ อุซึมากิ ร่างแปดหาง"
+      ],
+      "source_url": "https://files.catbox.moe/iz59og.jpeg",
+      "sha256": "a8b7284b970b936d5bbf54626a6054111ec69af6b8703587edd3127f803a1b19",
+      "bytes": 185195,
+      "marker": "[SWCHAR|naruto-uzumaki-eight-tails-form.jpg|Naruto Uzumaki (Eight-Tails Form)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Sage Mode)",
+      "filename": "naruto-uzumaki-sage-mode.png",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-sage-mode.png",
+      "aliases": [
+        "Naruto Uzumaki (Sage Mode)",
+        "naruto-uzumaki-sage-mode",
+        "Naruto Uzumaki Sage Mode",
+        "นารูโตะ อุซึมากิ (โหมดเซียน)",
+        "นารูโตะ อุซึมากิ โหมดเซียน"
+      ],
+      "source_url": "https://files.catbox.moe/3flfsg.png",
+      "sha256": "ae36e6c18ffcdbd9e17cba7a60ddf2f801b0b857bbecb34deb841e1fa583e3a0",
+      "bytes": 2197951,
+      "marker": "[SWCHAR|naruto-uzumaki-sage-mode.png|Naruto Uzumaki (Sage Mode)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (KCM — Kurama Chakra Mode)",
+      "filename": "naruto-uzumaki-kcm-kurama-chakra-mode.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-kcm-kurama-chakra-mode.jpg",
+      "aliases": [
+        "Naruto Uzumaki (KCM — Kurama Chakra Mode)",
+        "naruto-uzumaki-kcm-kurama-chakra-mode",
+        "Naruto Uzumaki KCM Kurama Chakra Mode",
+        "Naruto Uzumaki (KCM - Kurama Chakra Mode)",
+        "Naruto Uzumaki KCM - Kurama Chakra Mode",
+        "นารูโตะ อุซึมากิ (KCM — โหมดจักระคุรามะ)",
+        "นารูโตะ อุซึมากิ KCM - โหมดจักระคุรามะ"
+      ],
+      "source_url": "https://files.catbox.moe/p8s3cg.jpeg",
+      "sha256": "1557a20c56a398482abb0dd1e659ec5960fc39b9cccc00e90055b6433b87f6ba",
+      "bytes": 233158,
+      "marker": "[SWCHAR|naruto-uzumaki-kcm-kurama-chakra-mode.jpg|Naruto Uzumaki (KCM — Kurama Chakra Mode)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (KCM2 — Full Kurama)",
+      "filename": "naruto-uzumaki-kcm2-full-kurama.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-kcm2-full-kurama.jpg",
+      "aliases": [
+        "Naruto Uzumaki (KCM2 — Full Kurama)",
+        "naruto-uzumaki-kcm2-full-kurama",
+        "Naruto Uzumaki KCM2 Full Kurama",
+        "Naruto Uzumaki (KCM2 - Full Kurama)",
+        "Naruto Uzumaki KCM2 - Full Kurama",
+        "นารูโตะ อุซึมากิ (KCM2 — คุรามะเต็มรูปแบบ)",
+        "นารูโตะ อุซึมากิ KCM2 - คุรามะเต็มรูปแบบ"
+      ],
+      "source_url": "https://files.catbox.moe/jn0v04.jpeg",
+      "sha256": "6c14173749cd66c4a3d184a69f4f8c7f291e7e5f6761c91e8bdc8833186afd70",
+      "bytes": 165545,
+      "marker": "[SWCHAR|naruto-uzumaki-kcm2-full-kurama.jpg|Naruto Uzumaki (KCM2 — Full Kurama)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Six Paths Sage Mode)",
+      "filename": "naruto-uzumaki-six-paths-sage-mode.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-six-paths-sage-mode.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Six Paths Sage Mode)",
+        "naruto-uzumaki-six-paths-sage-mode",
+        "Naruto Uzumaki Six Paths Sage Mode",
+        "นารูโตะ อุซึมากิ (โหมดเซียนหกวิถี)",
+        "นารูโตะ อุซึมากิ โหมดเซียนหกวิถี"
+      ],
+      "source_url": "https://files.catbox.moe/01asxs.jpeg",
+      "sha256": "8ccbd81116b2a6b2a268cb48adb549588c370bd8ed1853cc1efe3d5f1852cc99",
+      "bytes": 217575,
+      "marker": "[SWCHAR|naruto-uzumaki-six-paths-sage-mode.jpg|Naruto Uzumaki (Six Paths Sage Mode)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (The Last)",
+      "filename": "naruto-uzumaki-the-last.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-the-last.jpg",
+      "aliases": [
+        "Naruto Uzumaki (The Last)",
+        "naruto-uzumaki-the-last",
+        "Naruto Uzumaki The Last",
+        "นารูโตะ อุซึมากิ (เดอะลาสต์)",
+        "นารูโตะ อุซึมากิ เดอะลาสต์"
+      ],
+      "source_url": "https://files.catbox.moe/17py3g.jpeg",
+      "sha256": "b475a1f7789617c6158726b7858ffa66b50df693c5a7e122957971e87e0b426d",
+      "bytes": 210313,
+      "marker": "[SWCHAR|naruto-uzumaki-the-last.jpg|Naruto Uzumaki (The Last)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (The Last — KCM)",
+      "filename": "naruto-uzumaki-the-last-kcm.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-the-last-kcm.jpg",
+      "aliases": [
+        "Naruto Uzumaki (The Last — KCM)",
+        "naruto-uzumaki-the-last-kcm",
+        "Naruto Uzumaki The Last KCM",
+        "Naruto Uzumaki (The Last - KCM)",
+        "Naruto Uzumaki The Last - KCM",
+        "นารูโตะ อุซึมากิ (เดอะลาสต์ — KCM)",
+        "นารูโตะ อุซึมากิ เดอะลาสต์ - KCM"
+      ],
+      "source_url": "https://files.catbox.moe/jl5f67.jpeg",
+      "sha256": "4b785d75375a139e3f60cca57bbe8a5d4a7e51e00e8f3584ffa10fbf8da2b044",
+      "bytes": 32779,
+      "marker": "[SWCHAR|naruto-uzumaki-the-last-kcm.jpg|Naruto Uzumaki (The Last — KCM)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Seventh Hokage)",
+      "filename": "naruto-uzumaki-seventh-hokage.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-seventh-hokage.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Seventh Hokage)",
+        "naruto-uzumaki-seventh-hokage",
+        "Naruto Uzumaki Seventh Hokage",
+        "นารูโตะ อุซึมากิ (โฮคาเงะรุ่นที่เจ็ด)",
+        "นารูโตะ อุซึมากิ โฮคาเงะรุ่นที่เจ็ด"
+      ],
+      "source_url": "https://files.catbox.moe/y83ajm.jpeg",
+      "sha256": "cd6f18d69181c72c68353317cffe0894a00beccee45c6eb6b0e2a0e9f53a88c7",
+      "bytes": 206136,
+      "marker": "[SWCHAR|naruto-uzumaki-seventh-hokage.jpg|Naruto Uzumaki (Seventh Hokage)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Seventh Hokage — Sage Mode)",
+      "filename": "naruto-uzumaki-seventh-hokage-sage-mode.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-seventh-hokage-sage-mode.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Seventh Hokage — Sage Mode)",
+        "naruto-uzumaki-seventh-hokage-sage-mode",
+        "Naruto Uzumaki Seventh Hokage Sage Mode",
+        "Naruto Uzumaki (Seventh Hokage - Sage Mode)",
+        "Naruto Uzumaki Seventh Hokage - Sage Mode",
+        "นารูโตะ อุซึมากิ (โฮคาเงะรุ่นที่เจ็ด — โหมดเซียน)",
+        "นารูโตะ อุซึมากิ โฮคาเงะรุ่นที่เจ็ด - โหมดเซียน"
+      ],
+      "source_url": "https://files.catbox.moe/5gll22.jpeg",
+      "sha256": "d18c99da568124a6a9d129be91b233ff486a36d02c32f8ef8ae9dadd39d29b97",
+      "bytes": 61978,
+      "marker": "[SWCHAR|naruto-uzumaki-seventh-hokage-sage-mode.jpg|Naruto Uzumaki (Seventh Hokage — Sage Mode)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Seventh Hokage — KCM Mode)",
+      "filename": "naruto-uzumaki-seventh-hokage-kcm-mode.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-seventh-hokage-kcm-mode.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Seventh Hokage — KCM Mode)",
+        "naruto-uzumaki-seventh-hokage-kcm-mode",
+        "Naruto Uzumaki Seventh Hokage KCM Mode",
+        "Naruto Uzumaki (Seventh Hokage - KCM Mode)",
+        "Naruto Uzumaki Seventh Hokage - KCM Mode",
+        "นารูโตะ อุซึมากิ (โฮคาเงะรุ่นที่เจ็ด — โหมด KCM)",
+        "นารูโตะ อุซึมากิ โฮคาเงะรุ่นที่เจ็ด - โหมด KCM"
+      ],
+      "source_url": "https://files.catbox.moe/fwpwzw.jpeg",
+      "sha256": "f11b34b3e544cc54eabb0aa589b05452c424cbdd82b28791c26cfa03c3840666",
+      "bytes": 202982,
+      "marker": "[SWCHAR|naruto-uzumaki-seventh-hokage-kcm-mode.jpg|Naruto Uzumaki (Seventh Hokage — KCM Mode)|#d6a84f]"
+    },
+    {
+      "name": "Naruto Uzumaki (Baryon Mode)",
+      "filename": "naruto-uzumaki-baryon-mode.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/naruto-uzumaki-baryon-mode.jpg",
+      "aliases": [
+        "Naruto Uzumaki (Baryon Mode)",
+        "naruto-uzumaki-baryon-mode",
+        "Naruto Uzumaki Baryon Mode",
+        "นารูโตะ อุซึมากิ (โหมดบาริออน)",
+        "นารูโตะ อุซึมากิ โหมดบาริออน"
+      ],
+      "source_url": "https://files.catbox.moe/g1lkj6.jpeg",
+      "sha256": "c4f22f1ef2fc809514aec3a6edfa65ecb323702292725185c8de558430311c1e",
+      "bytes": 127457,
+      "marker": "[SWCHAR|naruto-uzumaki-baryon-mode.jpg|Naruto Uzumaki (Baryon Mode)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Academy Student)",
+      "filename": "sasuke-uchiha-academy-student.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-academy-student.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Academy Student)",
+        "sasuke-uchiha-academy-student",
+        "Sasuke Uchiha Academy Student",
+        "ซาสึเกะ อุจิวะ (นักเรียนอคาเดมี)",
+        "ซาสึเกะ อุจิวะ นักเรียนอคาเดมี"
+      ],
+      "source_url": "https://files.catbox.moe/1xwlzb.jpeg",
+      "sha256": "a4e64275530225429506945a6c74cf720a880be2f4ad476d1f87c13370a2a874",
+      "bytes": 115051,
+      "marker": "[SWCHAR|sasuke-uchiha-academy-student.jpg|Sasuke Uchiha (Academy Student)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Genin)",
+      "filename": "sasuke-uchiha-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-genin.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Genin)",
+        "sasuke-uchiha-genin",
+        "Sasuke Uchiha Genin",
+        "ซาสึเกะ อุจิวะ (เกนิน)",
+        "ซาสึเกะ อุจิวะ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/pcx56t.jpeg",
+      "sha256": "ce3ec4984faaab53331b882b6c145859e2eb95f40be9dfcc969c6ed8ef333e24",
+      "bytes": 134418,
+      "marker": "[SWCHAR|sasuke-uchiha-genin.jpg|Sasuke Uchiha (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Curse Mark Stage 1)",
+      "filename": "sasuke-uchiha-curse-mark-stage-1.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-curse-mark-stage-1.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Curse Mark Stage 1)",
+        "sasuke-uchiha-curse-mark-stage-1",
+        "Sasuke Uchiha Curse Mark Stage 1",
+        "ซาสึเกะ อุจิวะ (เครื่องหมายคำสาประยะที่ 1)",
+        "ซาสึเกะ อุจิวะ เครื่องหมายคำสาประยะที่ 1"
+      ],
+      "source_url": "https://files.catbox.moe/sdat8v.jpeg",
+      "sha256": "eb8d7e4f248628fdf1419ec44dd23c6a018afebbc20d723d8d6c22f5549a22e9",
+      "bytes": 162492,
+      "marker": "[SWCHAR|sasuke-uchiha-curse-mark-stage-1.jpg|Sasuke Uchiha (Curse Mark Stage 1)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Curse Mark Stage 2)",
+      "filename": "sasuke-uchiha-curse-mark-stage-2.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-curse-mark-stage-2.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Curse Mark Stage 2)",
+        "sasuke-uchiha-curse-mark-stage-2",
+        "Sasuke Uchiha Curse Mark Stage 2",
+        "ซาสึเกะ อุจิวะ (เครื่องหมายคำสาประยะที่ 2)",
+        "ซาสึเกะ อุจิวะ เครื่องหมายคำสาประยะที่ 2"
+      ],
+      "source_url": "https://files.catbox.moe/6cdfkn.jpeg",
+      "sha256": "df7b38c48656c2e140e8de14799a58156079e8053ff8c762b475b30a2227df2b",
+      "bytes": 108500,
+      "marker": "[SWCHAR|sasuke-uchiha-curse-mark-stage-2.jpg|Sasuke Uchiha (Curse Mark Stage 2)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Hebi — Snake)",
+      "filename": "sasuke-uchiha-hebi-snake.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-hebi-snake.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Hebi — Snake)",
+        "sasuke-uchiha-hebi-snake",
+        "Sasuke Uchiha Hebi Snake",
+        "Sasuke Uchiha (Hebi - Snake)",
+        "Sasuke Uchiha Hebi - Snake",
+        "ซาสึเกะ อุจิวะ (เหบิ — งู)",
+        "ซาสึเกะ อุจิวะ เหบิ - งู"
+      ],
+      "source_url": "https://files.catbox.moe/h43j6k.jpeg",
+      "sha256": "81ede344899cc7a078755f0b6d9af50a38c74b3aee8c8e33f9777e166d38daae",
+      "bytes": 81959,
+      "marker": "[SWCHAR|sasuke-uchiha-hebi-snake.jpg|Sasuke Uchiha (Hebi — Snake)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Hebi — Curse Mark Form)",
+      "filename": "sasuke-uchiha-hebi-curse-mark-form.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-hebi-curse-mark-form.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Hebi — Curse Mark Form)",
+        "sasuke-uchiha-hebi-curse-mark-form",
+        "Sasuke Uchiha Hebi Curse Mark Form",
+        "Sasuke Uchiha (Hebi - Curse Mark Form)",
+        "Sasuke Uchiha Hebi - Curse Mark Form",
+        "ซาสึเกะ อุจิวะ (เหบิ — ร่างเครื่องหมายคำสาป)",
+        "ซาสึเกะ อุจิวะ เหบิ - ร่างเครื่องหมายคำสาป"
+      ],
+      "source_url": "https://files.catbox.moe/nm1qdr.jpeg",
+      "sha256": "a00ad7d25af544143768a1c206432feb7ed3f5eee650e4b5a6be52a651b711cc",
+      "bytes": 125334,
+      "marker": "[SWCHAR|sasuke-uchiha-hebi-curse-mark-form.jpg|Sasuke Uchiha (Hebi — Curse Mark Form)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Taka)",
+      "filename": "sasuke-uchiha-taka.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-taka.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Taka)",
+        "sasuke-uchiha-taka",
+        "Sasuke Uchiha Taka",
+        "ซาสึเกะ อุจิวะ (ทากะ)",
+        "ซาสึเกะ อุจิวะ ทากะ"
+      ],
+      "source_url": "https://files.catbox.moe/k62r2v.jpeg",
+      "sha256": "851a7f6d512d989f44132610146d4b58455f0de182eaa2b15ecbfbdc63545e39",
+      "bytes": 120704,
+      "marker": "[SWCHAR|sasuke-uchiha-taka.jpg|Sasuke Uchiha (Taka)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Taka — 3 Tomoe Sharingan)",
+      "filename": "sasuke-uchiha-taka-3-tomoe-sharingan.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-taka-3-tomoe-sharingan.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Taka — 3 Tomoe Sharingan)",
+        "sasuke-uchiha-taka-3-tomoe-sharingan",
+        "Sasuke Uchiha Taka 3 Tomoe Sharingan",
+        "Sasuke Uchiha (Taka - 3 Tomoe Sharingan)",
+        "Sasuke Uchiha Taka - 3 Tomoe Sharingan",
+        "ซาสึเกะ อุจิวะ (ทากะ — เนตรวงแหวนสามโทโมเอะ)",
+        "ซาสึเกะ อุจิวะ ทากะ - เนตรวงแหวนสามโทโมเอะ"
+      ],
+      "source_url": "https://files.catbox.moe/6zzcnc.jpeg",
+      "sha256": "3039b98c0e1ab77bce7c86933fe83fbf57d548e9f3998b4263f0063e8a64e38c",
+      "bytes": 77888,
+      "marker": "[SWCHAR|sasuke-uchiha-taka-3-tomoe-sharingan.jpg|Sasuke Uchiha (Taka — 3 Tomoe Sharingan)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Mangekyō Sharingan)",
+      "filename": "sasuke-uchiha-mangekyo-sharingan.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-mangekyo-sharingan.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Mangekyō Sharingan)",
+        "sasuke-uchiha-mangekyo-sharingan",
+        "Sasuke Uchiha Mangekyo Sharingan",
+        "Sasuke Uchiha Mangekyō Sharingan",
+        "ซาสึเกะ อุจิวะ (เนตรวงแหวนมังเงเคียว)",
+        "ซาสึเกะ อุจิวะ เนตรวงแหวนมังเงเคียว"
+      ],
+      "source_url": "https://files.catbox.moe/qrcjsl.jpeg",
+      "sha256": "af7ca38522b3ed06711e8acf5bf038cdb1222b2f3241298a37e600bd0aa2eca9",
+      "bytes": 113467,
+      "marker": "[SWCHAR|sasuke-uchiha-mangekyo-sharingan.jpg|Sasuke Uchiha (Mangekyō Sharingan)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Eternal Mangekyō Sharingan)",
+      "filename": "sasuke-uchiha-eternal-mangekyo-sharingan.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-eternal-mangekyo-sharingan.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Eternal Mangekyō Sharingan)",
+        "sasuke-uchiha-eternal-mangekyo-sharingan",
+        "Sasuke Uchiha Eternal Mangekyo Sharingan",
+        "Sasuke Uchiha Eternal Mangekyō Sharingan",
+        "ซาสึเกะ อุจิวะ (เนตรวงแหวนมังเงเคียวนิรันดร์)",
+        "ซาสึเกะ อุจิวะ เนตรวงแหวนมังเงเคียวนิรันดร์"
+      ],
+      "source_url": "https://files.catbox.moe/mugrzk.jpeg",
+      "sha256": "caa52ebce7fe75b5f09271576891753155d6f1a808d207b3ee5534c5cf9070b7",
+      "bytes": 99805,
+      "marker": "[SWCHAR|sasuke-uchiha-eternal-mangekyo-sharingan.jpg|Sasuke Uchiha (Eternal Mangekyō Sharingan)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Rinnegan)",
+      "filename": "sasuke-uchiha-rinnegan.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-rinnegan.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Rinnegan)",
+        "sasuke-uchiha-rinnegan",
+        "Sasuke Uchiha Rinnegan",
+        "ซาสึเกะ อุจิวะ (เนตรสังสาระ)",
+        "ซาสึเกะ อุจิวะ เนตรสังสาระ"
+      ],
+      "source_url": "https://files.catbox.moe/cyhzu7.jpeg",
+      "sha256": "b6c6ba9b8a68d3c71e0fc9bab2415cc73bf5625905888e44a32f1f559349901b",
+      "bytes": 298851,
+      "marker": "[SWCHAR|sasuke-uchiha-rinnegan.jpg|Sasuke Uchiha (Rinnegan)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (The Last)",
+      "filename": "sasuke-uchiha-the-last.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-the-last.jpg",
+      "aliases": [
+        "Sasuke Uchiha (The Last)",
+        "sasuke-uchiha-the-last",
+        "Sasuke Uchiha The Last",
+        "ซาสึเกะ อุจิวะ (เดอะลาสต์)",
+        "ซาสึเกะ อุจิวะ เดอะลาสต์"
+      ],
+      "source_url": "https://files.catbox.moe/pmid66.jpeg",
+      "sha256": "d2c324aea8e47f47690fb1a7a33fdcf546c19aef59b9b8e6dc0b113fe7347746",
+      "bytes": 150164,
+      "marker": "[SWCHAR|sasuke-uchiha-the-last.jpg|Sasuke Uchiha (The Last)|#d6a84f]"
+    },
+    {
+      "name": "Sasuke Uchiha (Adult — Supporting Kage)",
+      "filename": "sasuke-uchiha-adult-supporting-kage.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasuke-uchiha-adult-supporting-kage.jpg",
+      "aliases": [
+        "Sasuke Uchiha (Adult — Supporting Kage)",
+        "sasuke-uchiha-adult-supporting-kage",
+        "Sasuke Uchiha Adult Supporting Kage",
+        "Sasuke Uchiha (Adult - Supporting Kage)",
+        "Sasuke Uchiha Adult - Supporting Kage",
+        "ซาสึเกะ อุจิวะ (วัยผู้ใหญ่ — คาเงะฝ่ายสนับสนุน)",
+        "ซาสึเกะ อุจิวะ วัยผู้ใหญ่ - คาเงะฝ่ายสนับสนุน"
+      ],
+      "source_url": "https://files.catbox.moe/oqsfs7.jpeg",
+      "sha256": "cf4b656bb7c164d6d8b85c6551305b44afec9527e251162290e312f02a401659",
+      "bytes": 115372,
+      "marker": "[SWCHAR|sasuke-uchiha-adult-supporting-kage.jpg|Sasuke Uchiha (Adult — Supporting Kage)|#d6a84f]"
+    },
+    {
+      "name": "Sakura Haruno (Genin)",
+      "filename": "sakura-haruno-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sakura-haruno-genin.jpg",
+      "aliases": [
+        "Sakura Haruno (Genin)",
+        "sakura-haruno-genin",
+        "Sakura Haruno Genin",
+        "ซากุระ ฮารุโนะ (เกนิน)",
+        "ซากุระ ฮารุโนะ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/6r3gno.jpeg",
+      "sha256": "92470430ffa4e0779f305b3d9f07a1a065cb360b0e0d469b516bd5795d7a495e",
+      "bytes": 162366,
+      "marker": "[SWCHAR|sakura-haruno-genin.jpg|Sakura Haruno (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Sakura Haruno (Shippuden)",
+      "filename": "sakura-haruno-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sakura-haruno-shippuden.jpg",
+      "aliases": [
+        "Sakura Haruno (Shippuden)",
+        "sakura-haruno-shippuden",
+        "Sakura Haruno Shippuden",
+        "ซากุระ ฮารุโนะ (ชิปปูเด็น)",
+        "ซากุระ ฮารุโนะ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/e5hl9t.jpeg",
+      "sha256": "675cc5d9126359716b5b734a689153fd063c61e6e6bb49b60fdd3056bc5bdbec",
+      "bytes": 198383,
+      "marker": "[SWCHAR|sakura-haruno-shippuden.jpg|Sakura Haruno (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Sakura Haruno (Byakugō Seal)",
+      "filename": "sakura-haruno-byakugo-seal.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sakura-haruno-byakugo-seal.jpg",
+      "aliases": [
+        "Sakura Haruno (Byakugō Seal)",
+        "sakura-haruno-byakugo-seal",
+        "Sakura Haruno Byakugo Seal",
+        "Sakura Haruno Byakugō Seal",
+        "ซากุระ ฮารุโนะ (ผนึกเบียคุโก)",
+        "ซากุระ ฮารุโนะ ผนึกเบียคุโก"
+      ],
+      "source_url": "https://files.catbox.moe/bucv4z.jpeg",
+      "sha256": "39f155b9399d449864ac9220b46612a62e61a8d28dc4c8b6d839c180432575fd",
+      "bytes": 185464,
+      "marker": "[SWCHAR|sakura-haruno-byakugo-seal.jpg|Sakura Haruno (Byakugō Seal)|#d6a84f]"
+    },
+    {
+      "name": "Sakura Haruno (Adult)",
+      "filename": "sakura-haruno-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sakura-haruno-adult.jpg",
+      "aliases": [
+        "Sakura Haruno (Adult)",
+        "sakura-haruno-adult",
+        "Sakura Haruno Adult",
+        "ซากุระ ฮารุโนะ (วัยผู้ใหญ่)",
+        "ซากุระ ฮารุโนะ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/wggqpl.jpeg",
+      "sha256": "0ca3fdc5a4b9853e92fff0dae9e5e5cef66049da35a6db7d544be4526e5f7dce",
+      "bytes": 215605,
+      "marker": "[SWCHAR|sakura-haruno-adult.jpg|Sakura Haruno (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Kakashi Hatake (Young — Third War)",
+      "filename": "kakashi-hatake-young-third-war.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kakashi-hatake-young-third-war.jpg",
+      "aliases": [
+        "Kakashi Hatake (Young — Third War)",
+        "kakashi-hatake-young-third-war",
+        "Kakashi Hatake Young Third War",
+        "Kakashi Hatake (Young - Third War)",
+        "Kakashi Hatake Young - Third War",
+        "คาคาชิ ฮาตาเกะ (วัยหนุ่ม — สงครามนินจาครั้งที่สาม)",
+        "คาคาชิ ฮาตาเกะ วัยหนุ่ม - สงครามนินจาครั้งที่สาม"
+      ],
+      "source_url": "https://files.catbox.moe/uh828c.jpeg",
+      "sha256": "b9e587b89e2ae303739daece2e6d8c8145c82aa9b2bb1bc17919ca2fdce1d88e",
+      "bytes": 179376,
+      "marker": "[SWCHAR|kakashi-hatake-young-third-war.jpg|Kakashi Hatake (Young — Third War)|#d6a84f]"
+    },
+    {
+      "name": "Kakashi Hatake (ANBU)",
+      "filename": "kakashi-hatake-anbu.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kakashi-hatake-anbu.jpg",
+      "aliases": [
+        "Kakashi Hatake (ANBU)",
+        "kakashi-hatake-anbu",
+        "Kakashi Hatake ANBU",
+        "คาคาชิ ฮาตาเกะ (อันบุ)",
+        "คาคาชิ ฮาตาเกะ อันบุ"
+      ],
+      "source_url": "https://files.catbox.moe/43qxsy.jpeg",
+      "sha256": "537c6dad933e26baa25a612b170beebf8c7e10499ba61fd5357cf94ebe0e8450",
+      "bytes": 82782,
+      "marker": "[SWCHAR|kakashi-hatake-anbu.jpg|Kakashi Hatake (ANBU)|#d6a84f]"
+    },
+    {
+      "name": "Kakashi Hatake (Jōnin Sensei)",
+      "filename": "kakashi-hatake-jonin-sensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kakashi-hatake-jonin-sensei.jpg",
+      "aliases": [
+        "Kakashi Hatake (Jōnin Sensei)",
+        "kakashi-hatake-jonin-sensei",
+        "Kakashi Hatake Jonin Sensei",
+        "Kakashi Hatake Jōnin Sensei",
+        "คาคาชิ ฮาตาเกะ (อาจารย์โจนิน)",
+        "คาคาชิ ฮาตาเกะ อาจารย์โจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/sfqd4i.jpeg",
+      "sha256": "62cb3bec8f65fcd3e175da4ab938e5f4f4bb5e55aae76ce819f5613629943df9",
+      "bytes": 204173,
+      "marker": "[SWCHAR|kakashi-hatake-jonin-sensei.jpg|Kakashi Hatake (Jōnin Sensei)|#d6a84f]"
+    },
+    {
+      "name": "Kakashi Hatake (Shippuden)",
+      "filename": "kakashi-hatake-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kakashi-hatake-shippuden.jpg",
+      "aliases": [
+        "Kakashi Hatake (Shippuden)",
+        "kakashi-hatake-shippuden",
+        "Kakashi Hatake Shippuden",
+        "คาคาชิ ฮาตาเกะ (ชิปปูเด็น)",
+        "คาคาชิ ฮาตาเกะ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/4xierh.jpeg",
+      "sha256": "1262b23b5dcd647eb394960061f3e49b6d8160f45b81c0180dd6ec8e51a8909f",
+      "bytes": 186065,
+      "marker": "[SWCHAR|kakashi-hatake-shippuden.jpg|Kakashi Hatake (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Kakashi Hatake (Kamui User)",
+      "filename": "kakashi-hatake-kamui-user.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kakashi-hatake-kamui-user.jpg",
+      "aliases": [
+        "Kakashi Hatake (Kamui User)",
+        "kakashi-hatake-kamui-user",
+        "Kakashi Hatake Kamui User",
+        "คาคาชิ ฮาตาเกะ (ผู้ใช้คามุย)",
+        "คาคาชิ ฮาตาเกะ ผู้ใช้คามุย"
+      ],
+      "source_url": "https://files.catbox.moe/2ilysx.jpeg",
+      "sha256": "82fa8bae073e8591fb637ccfc0776a553be5a49282a28c76607fccfbb4c7e99d",
+      "bytes": 175652,
+      "marker": "[SWCHAR|kakashi-hatake-kamui-user.jpg|Kakashi Hatake (Kamui User)|#d6a84f]"
+    },
+    {
+      "name": "Kakashi Hatake (Double Mangekyō — Susanoo)",
+      "filename": "kakashi-hatake-double-mangekyo-susanoo.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kakashi-hatake-double-mangekyo-susanoo.jpg",
+      "aliases": [
+        "Kakashi Hatake (Double Mangekyō — Susanoo)",
+        "kakashi-hatake-double-mangekyo-susanoo",
+        "Kakashi Hatake Double Mangekyo Susanoo",
+        "Kakashi Hatake (Double Mangekyō - Susanoo)",
+        "Kakashi Hatake Double Mangekyō - Susanoo",
+        "คาคาชิ ฮาตาเกะ (มังเงเคียวคู่ — ซูซาโนะโอะ)",
+        "คาคาชิ ฮาตาเกะ มังเงเคียวคู่ - ซูซาโนะโอะ"
+      ],
+      "source_url": "https://files.catbox.moe/jb0gj7.jpeg",
+      "sha256": "10bc57692acadc003265638ef62ab2e953e819ebae199360f940a60315692135",
+      "bytes": 90318,
+      "marker": "[SWCHAR|kakashi-hatake-double-mangekyo-susanoo.jpg|Kakashi Hatake (Double Mangekyō — Susanoo)|#d6a84f]"
+    },
+    {
+      "name": "Kakashi Hatake (Sixth Hokage)",
+      "filename": "kakashi-hatake-sixth-hokage.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kakashi-hatake-sixth-hokage.jpg",
+      "aliases": [
+        "Kakashi Hatake (Sixth Hokage)",
+        "kakashi-hatake-sixth-hokage",
+        "Kakashi Hatake Sixth Hokage",
+        "คาคาชิ ฮาตาเกะ (โฮคาเงะรุ่นที่หก)",
+        "คาคาชิ ฮาตาเกะ โฮคาเงะรุ่นที่หก"
+      ],
+      "source_url": "https://files.catbox.moe/wjda2x.jpeg",
+      "sha256": "5e44a094de32361b3b9ea5e16d0380d81d06454f15b1a86baf8fd70e3888c4e9",
+      "bytes": 77812,
+      "marker": "[SWCHAR|kakashi-hatake-sixth-hokage.jpg|Kakashi Hatake (Sixth Hokage)|#d6a84f]"
+    },
+    {
+      "name": "Sai (Root Agent)",
+      "filename": "sai-root-agent.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sai-root-agent.jpg",
+      "aliases": [
+        "Sai (Root Agent)",
+        "sai-root-agent",
+        "Sai Root Agent",
+        "ไซ (เจ้าหน้าที่ราก)",
+        "ไซ เจ้าหน้าที่ราก"
+      ],
+      "source_url": "https://files.catbox.moe/soh38u.jpeg",
+      "sha256": "e705cd21a27fe0e5a577661ebaff324cf04cb410a0cb6a6c7dff7b07bae078d4",
+      "bytes": 144808,
+      "marker": "[SWCHAR|sai-root-agent.jpg|Sai (Root Agent)|#d6a84f]"
+    },
+    {
+      "name": "Sai (Allied Shinobi)",
+      "filename": "sai-allied-shinobi.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sai-allied-shinobi.jpg",
+      "aliases": [
+        "Sai (Allied Shinobi)",
+        "sai-allied-shinobi",
+        "Sai Allied Shinobi",
+        "ไซ (ชิโนบิฝ่ายพันธมิตร)",
+        "ไซ ชิโนบิฝ่ายพันธมิตร"
+      ],
+      "source_url": "https://files.catbox.moe/ws1ixw.jpeg",
+      "sha256": "cca0102d5782823720edc75b592c8c9563bf1fe0a345d042ba5284d4426823eb",
+      "bytes": 137322,
+      "marker": "[SWCHAR|sai-allied-shinobi.jpg|Sai (Allied Shinobi)|#d6a84f]"
+    },
+    {
+      "name": "Sai (Adult — Yamanaka Sai)",
+      "filename": "sai-adult-yamanaka-sai.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sai-adult-yamanaka-sai.jpg",
+      "aliases": [
+        "Sai (Adult — Yamanaka Sai)",
+        "sai-adult-yamanaka-sai",
+        "Sai Adult Yamanaka Sai",
+        "Sai (Adult - Yamanaka Sai)",
+        "Sai Adult - Yamanaka Sai",
+        "ไซ (วัยผู้ใหญ่ — ไซ ยามานากะ)",
+        "ไซ วัยผู้ใหญ่ - ไซ ยามานากะ"
+      ],
+      "source_url": "https://files.catbox.moe/ixoh7o.jpeg",
+      "sha256": "8ea44667348e64bc4a43d99571c051efb4a0171d8a29b94553dd3b0579a8c26c",
+      "bytes": 53124,
+      "marker": "[SWCHAR|sai-adult-yamanaka-sai.jpg|Sai (Adult — Yamanaka Sai)|#d6a84f]"
+    },
+    {
+      "name": "Yamato (ANBU Tenzō)",
+      "filename": "yamato-anbu-tenzo.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/yamato-anbu-tenzo.jpg",
+      "aliases": [
+        "Yamato (ANBU Tenzō)",
+        "yamato-anbu-tenzo",
+        "Yamato ANBU Tenzo",
+        "Yamato ANBU Tenzō",
+        "ยามาโตะ (อันบุ เท็นโซ)",
+        "ยามาโตะ อันบุ เท็นโซ"
+      ],
+      "source_url": "https://files.catbox.moe/sp3rn9.jpeg",
+      "sha256": "fe7a3c1df575923c5f1b9000e2e9eedd84121f94c3d190b7bcf699353aa48696",
+      "bytes": 94056,
+      "marker": "[SWCHAR|yamato-anbu-tenzo.jpg|Yamato (ANBU Tenzō)|#d6a84f]"
+    },
+    {
+      "name": "Yamato (Adult)",
+      "filename": "yamato-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/yamato-adult.jpg",
+      "aliases": [
+        "Yamato (Adult)",
+        "yamato-adult",
+        "Yamato Adult",
+        "ยามาโตะ (วัยผู้ใหญ่)",
+        "ยามาโตะ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/zg2yci.jpeg",
+      "sha256": "e627c0115e6dbc501291e4e3b978e995cbf2df176dbe28bb9ce3c2055db9de95",
+      "bytes": 185000,
+      "marker": "[SWCHAR|yamato-adult.jpg|Yamato (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Hinata Hyūga (Genin)",
+      "filename": "hinata-hyuga-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hinata-hyuga-genin.jpg",
+      "aliases": [
+        "Hinata Hyūga (Genin)",
+        "hinata-hyuga-genin",
+        "Hinata Hyuga Genin",
+        "Hinata Hyūga Genin",
+        "ฮินาตะ ฮิวงะ (เกนิน)",
+        "ฮินาตะ ฮิวงะ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/jj4trg.jpeg",
+      "sha256": "c61136fa33f4c7b7320f283a13897ccc0238043b013bc81f791dbac4c6c8039a",
+      "bytes": 117630,
+      "marker": "[SWCHAR|hinata-hyuga-genin.jpg|Hinata Hyūga (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Hinata Hyūga (Shippuden)",
+      "filename": "hinata-hyuga-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hinata-hyuga-shippuden.jpg",
+      "aliases": [
+        "Hinata Hyūga (Shippuden)",
+        "hinata-hyuga-shippuden",
+        "Hinata Hyuga Shippuden",
+        "Hinata Hyūga Shippuden",
+        "ฮินาตะ ฮิวงะ (ชิปปูเด็น)",
+        "ฮินาตะ ฮิวงะ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/oxh6rn.jpeg",
+      "sha256": "144335862f962fc1638fd4267184d41710d3329d428cfe77ee09dc09fb271379",
+      "bytes": 149791,
+      "marker": "[SWCHAR|hinata-hyuga-shippuden.jpg|Hinata Hyūga (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Hinata Hyūga (The Last)",
+      "filename": "hinata-hyuga-the-last.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hinata-hyuga-the-last.jpg",
+      "aliases": [
+        "Hinata Hyūga (The Last)",
+        "hinata-hyuga-the-last",
+        "Hinata Hyuga The Last",
+        "Hinata Hyūga The Last",
+        "ฮินาตะ ฮิวงะ (เดอะลาสต์)",
+        "ฮินาตะ ฮิวงะ เดอะลาสต์"
+      ],
+      "source_url": "https://files.catbox.moe/045mqt.jpeg",
+      "sha256": "63c6b30fce82e42fed7e9c9f20fbd557be4c5cdcf659ca178fdfd0c7c6496fe5",
+      "bytes": 166706,
+      "marker": "[SWCHAR|hinata-hyuga-the-last.jpg|Hinata Hyūga (The Last)|#d6a84f]"
+    },
+    {
+      "name": "Hinata Hyūga (Adult — Uzumaki Hinata)",
+      "filename": "hinata-hyuga-adult-uzumaki-hinata.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hinata-hyuga-adult-uzumaki-hinata.jpg",
+      "aliases": [
+        "Hinata Hyūga (Adult — Uzumaki Hinata)",
+        "hinata-hyuga-adult-uzumaki-hinata",
+        "Hinata Hyuga Adult Uzumaki Hinata",
+        "Hinata Hyūga (Adult - Uzumaki Hinata)",
+        "Hinata Hyūga Adult - Uzumaki Hinata",
+        "ฮินาตะ ฮิวงะ (ร่าง Adult — Uzumaki Hinata)",
+        "ฮินาตะ ฮิวงะ ร่าง Adult - Uzumaki Hinata"
+      ],
+      "source_url": "https://files.catbox.moe/h6wkc2.jpeg",
+      "sha256": "6be8b3494e4781e996c9f1782697ad5c915ab71479806f20e1c660cad36ec9e0",
+      "bytes": 134127,
+      "marker": "[SWCHAR|hinata-hyuga-adult-uzumaki-hinata.jpg|Hinata Hyūga (Adult — Uzumaki Hinata)|#d6a84f]"
+    },
+    {
+      "name": "Kiba Inuzuka (Genin)",
+      "filename": "kiba-inuzuka-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kiba-inuzuka-genin.jpg",
+      "aliases": [
+        "Kiba Inuzuka (Genin)",
+        "kiba-inuzuka-genin",
+        "Kiba Inuzuka Genin",
+        "คิบะ อินุซึกะ (เกนิน)",
+        "คิบะ อินุซึกะ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/srpje4.jpeg",
+      "sha256": "4f018737f81c42849bbec86acbde2c846383faeb34ae22ae8c74a827ebaadc35",
+      "bytes": 126332,
+      "marker": "[SWCHAR|kiba-inuzuka-genin.jpg|Kiba Inuzuka (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Kiba Inuzuka (Shippuden)",
+      "filename": "kiba-inuzuka-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kiba-inuzuka-shippuden.jpg",
+      "aliases": [
+        "Kiba Inuzuka (Shippuden)",
+        "kiba-inuzuka-shippuden",
+        "Kiba Inuzuka Shippuden",
+        "คิบะ อินุซึกะ (ชิปปูเด็น)",
+        "คิบะ อินุซึกะ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/janhxx.jpeg",
+      "sha256": "b560e9d1a1cc7f4e9d856f11fe8170915cebb68fba071f42776e74e90e08751c",
+      "bytes": 210761,
+      "marker": "[SWCHAR|kiba-inuzuka-shippuden.jpg|Kiba Inuzuka (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Kiba Inuzuka (Adult)",
+      "filename": "kiba-inuzuka-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kiba-inuzuka-adult.jpg",
+      "aliases": [
+        "Kiba Inuzuka (Adult)",
+        "kiba-inuzuka-adult",
+        "Kiba Inuzuka Adult",
+        "คิบะ อินุซึกะ (วัยผู้ใหญ่)",
+        "คิบะ อินุซึกะ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/aj4ljr.jpeg",
+      "sha256": "dc0d3a9d259d9774c1761c17393a0128538bccb94ea7487d2c32b3ac556aa21c",
+      "bytes": 148392,
+      "marker": "[SWCHAR|kiba-inuzuka-adult.jpg|Kiba Inuzuka (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Shino Aburame (Genin)",
+      "filename": "shino-aburame-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shino-aburame-genin.jpg",
+      "aliases": [
+        "Shino Aburame (Genin)",
+        "shino-aburame-genin",
+        "Shino Aburame Genin",
+        "ชิโนะ อาบุราเมะ (เกนิน)",
+        "ชิโนะ อาบุราเมะ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/gmi277.jpeg",
+      "sha256": "bbb8b82680955fafc0e6fe652348bb70891a7083dc599160ec35f0ca1fba5d12",
+      "bytes": 223583,
+      "marker": "[SWCHAR|shino-aburame-genin.jpg|Shino Aburame (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Shino Aburame (Shippuden)",
+      "filename": "shino-aburame-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shino-aburame-shippuden.jpg",
+      "aliases": [
+        "Shino Aburame (Shippuden)",
+        "shino-aburame-shippuden",
+        "Shino Aburame Shippuden",
+        "ชิโนะ อาบุราเมะ (ชิปปูเด็น)",
+        "ชิโนะ อาบุราเมะ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/emt95x.jpeg",
+      "sha256": "164c32a3823e6f56f1c7bcec03e4a36172493249559b68806074dbe402085021",
+      "bytes": 154029,
+      "marker": "[SWCHAR|shino-aburame-shippuden.jpg|Shino Aburame (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Shino Aburame (Adult — Academy Teacher)",
+      "filename": "shino-aburame-adult-academy-teacher.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shino-aburame-adult-academy-teacher.jpg",
+      "aliases": [
+        "Shino Aburame (Adult — Academy Teacher)",
+        "shino-aburame-adult-academy-teacher",
+        "Shino Aburame Adult Academy Teacher",
+        "Shino Aburame (Adult - Academy Teacher)",
+        "Shino Aburame Adult - Academy Teacher",
+        "ชิโนะ อาบุราเมะ (วัยผู้ใหญ่ — ครูอคาเดมี)",
+        "ชิโนะ อาบุราเมะ วัยผู้ใหญ่ - ครูอคาเดมี"
+      ],
+      "source_url": "https://files.catbox.moe/etsprc.jpeg",
+      "sha256": "0949ffc5687c3ed0ce5e653f134f100029ce1fb9e0461a8675fb583146316683",
+      "bytes": 62648,
+      "marker": "[SWCHAR|shino-aburame-adult-academy-teacher.jpg|Shino Aburame (Adult — Academy Teacher)|#d6a84f]"
+    },
+    {
+      "name": "Kurenai Yūhi (Jōnin Sensei)",
+      "filename": "kurenai-yuhi-jonin-sensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kurenai-yuhi-jonin-sensei.jpg",
+      "aliases": [
+        "Kurenai Yūhi (Jōnin Sensei)",
+        "kurenai-yuhi-jonin-sensei",
+        "Kurenai Yuhi Jonin Sensei",
+        "Kurenai Yūhi Jōnin Sensei",
+        "คุเรไน ยูฮิ (อาจารย์โจนิน)",
+        "คุเรไน ยูฮิ อาจารย์โจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/es5tgu.jpeg",
+      "sha256": "fafa807a2ce701b7f71507eeac120f8da1533cd3859467073afb2d1b00b84bb5",
+      "bytes": 259803,
+      "marker": "[SWCHAR|kurenai-yuhi-jonin-sensei.jpg|Kurenai Yūhi (Jōnin Sensei)|#d6a84f]"
+    },
+    {
+      "name": "Akamaru (Puppy)",
+      "filename": "akamaru-puppy.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/akamaru-puppy.jpg",
+      "aliases": [
+        "Akamaru (Puppy)",
+        "akamaru-puppy",
+        "Akamaru Puppy",
+        "อากามารุ (ลูกสุนัข)",
+        "อากามารุ ลูกสุนัข"
+      ],
+      "source_url": "https://files.catbox.moe/gghngj.jpeg",
+      "sha256": "1ca72eb442b9720a49b2a85af5187d608149376a3c7823698ea922d80c143054",
+      "bytes": 135292,
+      "marker": "[SWCHAR|akamaru-puppy.jpg|Akamaru (Puppy)|#d6a84f]"
+    },
+    {
+      "name": "Akamaru (Adult)",
+      "filename": "akamaru-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/akamaru-adult.jpg",
+      "aliases": [
+        "Akamaru (Adult)",
+        "akamaru-adult",
+        "Akamaru Adult",
+        "อากามารุ (วัยผู้ใหญ่)",
+        "อากามารุ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/nf6aaq.jpeg",
+      "sha256": "5b9c1851e5aebaa49abe868ff314e8887ab1a6c36ccd902fdd0b1c55187ec304",
+      "bytes": 96727,
+      "marker": "[SWCHAR|akamaru-adult.jpg|Akamaru (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Shikamaru Nara (Genin)",
+      "filename": "shikamaru-nara-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shikamaru-nara-genin.jpg",
+      "aliases": [
+        "Shikamaru Nara (Genin)",
+        "shikamaru-nara-genin",
+        "Shikamaru Nara Genin",
+        "ชิกามารุ นารา (เกนิน)",
+        "ชิกามารุ นารา เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/ni4xvl.jpeg",
+      "sha256": "b0c4cae02dd9603a736d4ce5a7fe4855f5e6af0d2c501c0224f28af5244d8cdd",
+      "bytes": 112719,
+      "marker": "[SWCHAR|shikamaru-nara-genin.jpg|Shikamaru Nara (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Shikamaru Nara (Chūnin)",
+      "filename": "shikamaru-nara-chunin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shikamaru-nara-chunin.jpg",
+      "aliases": [
+        "Shikamaru Nara (Chūnin)",
+        "shikamaru-nara-chunin",
+        "Shikamaru Nara Chunin",
+        "Shikamaru Nara Chūnin",
+        "ชิกามารุ นารา (จูนิน)",
+        "ชิกามารุ นารา จูนิน"
+      ],
+      "source_url": "https://files.catbox.moe/g6yu2z.jpeg",
+      "sha256": "77add5cf814067772dd4629caf4bd644b6ebfa9176329c8a92571e3e71a28cfe",
+      "bytes": 182250,
+      "marker": "[SWCHAR|shikamaru-nara-chunin.jpg|Shikamaru Nara (Chūnin)|#d6a84f]"
+    },
+    {
+      "name": "Shikamaru Nara (Shippuden)",
+      "filename": "shikamaru-nara-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shikamaru-nara-shippuden.jpg",
+      "aliases": [
+        "Shikamaru Nara (Shippuden)",
+        "shikamaru-nara-shippuden",
+        "Shikamaru Nara Shippuden",
+        "ชิกามารุ นารา (ชิปปูเด็น)",
+        "ชิกามารุ นารา ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/7pc3p5.jpeg",
+      "sha256": "308aeda67f07068f91e91d9dbee695fd95b609a92e3a14f2abee2f7474835bad",
+      "bytes": 156227,
+      "marker": "[SWCHAR|shikamaru-nara-shippuden.jpg|Shikamaru Nara (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Shikamaru Nara (Adult — Hokage Advisor)",
+      "filename": "shikamaru-nara-adult-hokage-advisor.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shikamaru-nara-adult-hokage-advisor.jpg",
+      "aliases": [
+        "Shikamaru Nara (Adult — Hokage Advisor)",
+        "shikamaru-nara-adult-hokage-advisor",
+        "Shikamaru Nara Adult Hokage Advisor",
+        "Shikamaru Nara (Adult - Hokage Advisor)",
+        "Shikamaru Nara Adult - Hokage Advisor",
+        "ชิกามารุ นารา (วัยผู้ใหญ่ — ที่ปรึกษาโฮคาเงะ)",
+        "ชิกามารุ นารา วัยผู้ใหญ่ - ที่ปรึกษาโฮคาเงะ"
+      ],
+      "source_url": "https://files.catbox.moe/9htfxe.jpeg",
+      "sha256": "4c9f2f7dca0df441c2d4e15d1aedd2e7599f9594e4f2e2574f05c1c0f60a52c6",
+      "bytes": 222635,
+      "marker": "[SWCHAR|shikamaru-nara-adult-hokage-advisor.jpg|Shikamaru Nara (Adult — Hokage Advisor)|#d6a84f]"
+    },
+    {
+      "name": "Ino Yamanaka (Genin)",
+      "filename": "ino-yamanaka-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/ino-yamanaka-genin.jpg",
+      "aliases": [
+        "Ino Yamanaka (Genin)",
+        "ino-yamanaka-genin",
+        "Ino Yamanaka Genin",
+        "อิโนะ ยามานากะ (เกนิน)",
+        "อิโนะ ยามานากะ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/houra1.jpeg",
+      "sha256": "09740e3d11fc52a4e4b39b83b9345e4e206d4fe5543c021939b2d16070859040",
+      "bytes": 167689,
+      "marker": "[SWCHAR|ino-yamanaka-genin.jpg|Ino Yamanaka (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Ino Yamanaka (Shippuden)",
+      "filename": "ino-yamanaka-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/ino-yamanaka-shippuden.jpg",
+      "aliases": [
+        "Ino Yamanaka (Shippuden)",
+        "ino-yamanaka-shippuden",
+        "Ino Yamanaka Shippuden",
+        "อิโนะ ยามานากะ (ชิปปูเด็น)",
+        "อิโนะ ยามานากะ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/vkmb3i.jpeg",
+      "sha256": "c52c3402009b3a45442886a4cd9a96b685e4905f1b979097b7ec871e25ad8703",
+      "bytes": 68909,
+      "marker": "[SWCHAR|ino-yamanaka-shippuden.jpg|Ino Yamanaka (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Ino Yamanaka (Adult — Yamanaka Ino)",
+      "filename": "ino-yamanaka-adult-yamanaka-ino.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/ino-yamanaka-adult-yamanaka-ino.jpg",
+      "aliases": [
+        "Ino Yamanaka (Adult — Yamanaka Ino)",
+        "ino-yamanaka-adult-yamanaka-ino",
+        "Ino Yamanaka Adult Yamanaka Ino",
+        "Ino Yamanaka (Adult - Yamanaka Ino)",
+        "Ino Yamanaka Adult - Yamanaka Ino",
+        "อิโนะ ยามานากะ (วัยผู้ใหญ่ — อิโนะ ยามานากะ)",
+        "อิโนะ ยามานากะ วัยผู้ใหญ่ - อิโนะ ยามานากะ"
+      ],
+      "source_url": "https://files.catbox.moe/c3r9ud.jpeg",
+      "sha256": "07c023719fdf45730c27795f1f05dcb03bf83e1bd09d61e65828cf8569de434f",
+      "bytes": 132855,
+      "marker": "[SWCHAR|ino-yamanaka-adult-yamanaka-ino.jpg|Ino Yamanaka (Adult — Yamanaka Ino)|#d6a84f]"
+    },
+    {
+      "name": "Chōji Akimichi (Genin)",
+      "filename": "choji-akimichi-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/choji-akimichi-genin.jpg",
+      "aliases": [
+        "Chōji Akimichi (Genin)",
+        "choji-akimichi-genin",
+        "Choji Akimichi Genin",
+        "Chōji Akimichi Genin",
+        "โจจิ อากิมิจิ (เกนิน)",
+        "โจจิ อากิมิจิ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/waxav9.jpeg",
+      "sha256": "ed92e434914bf77d9d21b1db73aad82cb664240d7145849074252224d59be400",
+      "bytes": 177145,
+      "marker": "[SWCHAR|choji-akimichi-genin.jpg|Chōji Akimichi (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Chōji Akimichi (Shippuden)",
+      "filename": "choji-akimichi-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/choji-akimichi-shippuden.jpg",
+      "aliases": [
+        "Chōji Akimichi (Shippuden)",
+        "choji-akimichi-shippuden",
+        "Choji Akimichi Shippuden",
+        "Chōji Akimichi Shippuden",
+        "โจจิ อากิมิจิ (ชิปปูเด็น)",
+        "โจจิ อากิมิจิ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/krdmoz.jpeg",
+      "sha256": "02e804a90a5f6ae1ff63a8e49b41b923910b3c71e4450afba51c451ad83c91a5",
+      "bytes": 92863,
+      "marker": "[SWCHAR|choji-akimichi-shippuden.jpg|Chōji Akimichi (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Chōji Akimichi (Adult)",
+      "filename": "choji-akimichi-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/choji-akimichi-adult.jpg",
+      "aliases": [
+        "Chōji Akimichi (Adult)",
+        "choji-akimichi-adult",
+        "Choji Akimichi Adult",
+        "Chōji Akimichi Adult",
+        "โจจิ อากิมิจิ (วัยผู้ใหญ่)",
+        "โจจิ อากิมิจิ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/0k4479.jpeg",
+      "sha256": "fb933d6439bf9d988481b35191b2abd5b1ebaf5e0b2820139f72fbc175084978",
+      "bytes": 166023,
+      "marker": "[SWCHAR|choji-akimichi-adult.jpg|Chōji Akimichi (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Asuma Sarutobi (Jōnin Sensei)",
+      "filename": "asuma-sarutobi-jonin-sensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/asuma-sarutobi-jonin-sensei.jpg",
+      "aliases": [
+        "Asuma Sarutobi (Jōnin Sensei)",
+        "asuma-sarutobi-jonin-sensei",
+        "Asuma Sarutobi Jonin Sensei",
+        "Asuma Sarutobi Jōnin Sensei",
+        "อาซึมะ ซารุโทบิ (อาจารย์โจนิน)",
+        "อาซึมะ ซารุโทบิ อาจารย์โจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/v1nugq.jpeg",
+      "sha256": "3d1c93404c9d477f65aa5be9f9f77d5cb12f6bf42ae34e779fbca88023861b0e",
+      "bytes": 170986,
+      "marker": "[SWCHAR|asuma-sarutobi-jonin-sensei.jpg|Asuma Sarutobi (Jōnin Sensei)|#d6a84f]"
+    },
+    {
+      "name": "Might Guy (Jōnin)",
+      "filename": "might-guy-jonin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/might-guy-jonin.jpg",
+      "aliases": [
+        "Might Guy (Jōnin)",
+        "might-guy-jonin",
+        "Might Guy Jonin",
+        "Might Guy Jōnin",
+        "ไมท์ ไก (โจนิน)",
+        "ไมท์ ไก โจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/1240zk.jpeg",
+      "sha256": "e79bb9e2e0cb7f38a291aa48cebae408c1afb43abc072254fac271a564debf13",
+      "bytes": 165371,
+      "marker": "[SWCHAR|might-guy-jonin.jpg|Might Guy (Jōnin)|#d6a84f]"
+    },
+    {
+      "name": "Might Guy (Eighth Gate — Night Guy)",
+      "filename": "might-guy-eighth-gate-night-guy.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/might-guy-eighth-gate-night-guy.jpg",
+      "aliases": [
+        "Might Guy (Eighth Gate — Night Guy)",
+        "might-guy-eighth-gate-night-guy",
+        "Might Guy Eighth Gate Night Guy",
+        "Might Guy (Eighth Gate - Night Guy)",
+        "Might Guy Eighth Gate - Night Guy",
+        "ไมท์ ไก (ด่านที่แปด — ไนท์ไก)",
+        "ไมท์ ไก ด่านที่แปด - ไนท์ไก"
+      ],
+      "source_url": "https://files.catbox.moe/19yeo6.jpeg",
+      "sha256": "ba58660c4d25531d1696501d7a5207cb4111f4618ad314a602640fb178f6e9ad",
+      "bytes": 83828,
+      "marker": "[SWCHAR|might-guy-eighth-gate-night-guy.jpg|Might Guy (Eighth Gate — Night Guy)|#d6a84f]"
+    },
+    {
+      "name": "Might Guy (Wheelchair)",
+      "filename": "might-guy-wheelchair.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/might-guy-wheelchair.jpg",
+      "aliases": [
+        "Might Guy (Wheelchair)",
+        "might-guy-wheelchair",
+        "Might Guy Wheelchair",
+        "ไมท์ ไก (รถเข็น)",
+        "ไมท์ ไก รถเข็น"
+      ],
+      "source_url": "https://files.catbox.moe/iemda7.jpeg",
+      "sha256": "5de68b384ce96a968df7794ad297ad164ed558bbed7be55c82936099bad52ace",
+      "bytes": 126991,
+      "marker": "[SWCHAR|might-guy-wheelchair.jpg|Might Guy (Wheelchair)|#d6a84f]"
+    },
+    {
+      "name": "Rock Lee (Genin)",
+      "filename": "rock-lee-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/rock-lee-genin.jpg",
+      "aliases": [
+        "Rock Lee (Genin)",
+        "rock-lee-genin",
+        "Rock Lee Genin",
+        "ร็อค ลี (เกนิน)",
+        "ร็อค ลี เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/xg1faw.jpeg",
+      "sha256": "712d889a5b09012e3c0c785a359972b415672903a38c54555843a4c671bf5dde",
+      "bytes": 60198,
+      "marker": "[SWCHAR|rock-lee-genin.jpg|Rock Lee (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Rock Lee (Fifth Gate)",
+      "filename": "rock-lee-fifth-gate.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/rock-lee-fifth-gate.jpg",
+      "aliases": [
+        "Rock Lee (Fifth Gate)",
+        "rock-lee-fifth-gate",
+        "Rock Lee Fifth Gate",
+        "ร็อค ลี (ด่านที่ห้า)",
+        "ร็อค ลี ด่านที่ห้า"
+      ],
+      "source_url": "https://files.catbox.moe/9iyncz.jpeg",
+      "sha256": "bbaa29abd37f6db18f585e1cea45e84f786585027d5a9e48886788e46de952a8",
+      "bytes": 238798,
+      "marker": "[SWCHAR|rock-lee-fifth-gate.jpg|Rock Lee (Fifth Gate)|#d6a84f]"
+    },
+    {
+      "name": "Rock Lee (Shippuden)",
+      "filename": "rock-lee-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/rock-lee-shippuden.jpg",
+      "aliases": [
+        "Rock Lee (Shippuden)",
+        "rock-lee-shippuden",
+        "Rock Lee Shippuden",
+        "ร็อค ลี (ชิปปูเด็น)",
+        "ร็อค ลี ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/68bwrf.jpeg",
+      "sha256": "d8fb5111113d05717581f715238b61477b5cff68e04e352fffd37e8f7c4e931e",
+      "bytes": 200153,
+      "marker": "[SWCHAR|rock-lee-shippuden.jpg|Rock Lee (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Rock Lee (Adult)",
+      "filename": "rock-lee-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/rock-lee-adult.jpg",
+      "aliases": [
+        "Rock Lee (Adult)",
+        "rock-lee-adult",
+        "Rock Lee Adult",
+        "ร็อค ลี (วัยผู้ใหญ่)",
+        "ร็อค ลี วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/amptnp.jpeg",
+      "sha256": "e57cdfe1612df8310d0b4140b5c462f9d296e7c941936a21e83790f6beab8b43",
+      "bytes": 236785,
+      "marker": "[SWCHAR|rock-lee-adult.jpg|Rock Lee (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Neji Hyūga (Genin)",
+      "filename": "neji-hyuga-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/neji-hyuga-genin.jpg",
+      "aliases": [
+        "Neji Hyūga (Genin)",
+        "neji-hyuga-genin",
+        "Neji Hyuga Genin",
+        "Neji Hyūga Genin",
+        "เนจิ ฮิวงะ (เกนิน)",
+        "เนจิ ฮิวงะ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/k5kiea.jpeg",
+      "sha256": "c80203d780ed1484091a1090f9eafba23ecb4813351b478e5ff53ee9f8d247df",
+      "bytes": 227703,
+      "marker": "[SWCHAR|neji-hyuga-genin.jpg|Neji Hyūga (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Neji Hyūga (Shippuden)",
+      "filename": "neji-hyuga-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/neji-hyuga-shippuden.jpg",
+      "aliases": [
+        "Neji Hyūga (Shippuden)",
+        "neji-hyuga-shippuden",
+        "Neji Hyuga Shippuden",
+        "Neji Hyūga Shippuden",
+        "เนจิ ฮิวงะ (ชิปปูเด็น)",
+        "เนจิ ฮิวงะ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/2p57dl.jpeg",
+      "sha256": "c0e5021b8447e7c18c018b90fcae7d2177584094b4a3b7a916d4e4cf1cedf714",
+      "bytes": 70425,
+      "marker": "[SWCHAR|neji-hyuga-shippuden.jpg|Neji Hyūga (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Neji Hyūga (Fourth Great War)",
+      "filename": "neji-hyuga-fourth-great-war.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/neji-hyuga-fourth-great-war.jpg",
+      "aliases": [
+        "Neji Hyūga (Fourth Great War)",
+        "neji-hyuga-fourth-great-war",
+        "Neji Hyuga Fourth Great War",
+        "Neji Hyūga Fourth Great War",
+        "เนจิ ฮิวงะ (สงครามนินจาครั้งที่สี่)",
+        "เนจิ ฮิวงะ สงครามนินจาครั้งที่สี่"
+      ],
+      "source_url": "https://files.catbox.moe/sjin40.jpeg",
+      "sha256": "2ff9b67b22653bfa304e6e1fd565c5b12a62be7f7a22943b18906b2b9e182768",
+      "bytes": 112030,
+      "marker": "[SWCHAR|neji-hyuga-fourth-great-war.jpg|Neji Hyūga (Fourth Great War)|#d6a84f]"
+    },
+    {
+      "name": "Tenten (Genin)",
+      "filename": "tenten-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tenten-genin.jpg",
+      "aliases": [
+        "Tenten (Genin)",
+        "tenten-genin",
+        "Tenten Genin",
+        "เท็นเท็น (เกนิน)",
+        "เท็นเท็น เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/yyji8x.jpeg",
+      "sha256": "7a85889f3af2c7b336ac2370ab4a37c4de2e5f0cc8560e8a03f98b5d993ccf2c",
+      "bytes": 64654,
+      "marker": "[SWCHAR|tenten-genin.jpg|Tenten (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Tenten (Shippuden)",
+      "filename": "tenten-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tenten-shippuden.jpg",
+      "aliases": [
+        "Tenten (Shippuden)",
+        "tenten-shippuden",
+        "Tenten Shippuden",
+        "เท็นเท็น (ชิปปูเด็น)",
+        "เท็นเท็น ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/2ljosv.jpeg",
+      "sha256": "8b7da27c27b00597a8ad5434bc24d40ccb1d4f81aa6054494e343587acce5cfa",
+      "bytes": 162395,
+      "marker": "[SWCHAR|tenten-shippuden.jpg|Tenten (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Tenten (Adult)",
+      "filename": "tenten-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tenten-adult.jpg",
+      "aliases": [
+        "Tenten (Adult)",
+        "tenten-adult",
+        "Tenten Adult",
+        "เท็นเท็น (วัยผู้ใหญ่)",
+        "เท็นเท็น วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/7gw9yv.jpeg",
+      "sha256": "00acf0e5e5e5fa43aaacc3ba335e80e064065af90010685c664ca58bf1a7592d",
+      "bytes": 132131,
+      "marker": "[SWCHAR|tenten-adult.jpg|Tenten (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Hashirama Senju (First Hokage — Prime)",
+      "filename": "hashirama-senju-first-hokage-prime.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hashirama-senju-first-hokage-prime.jpg",
+      "aliases": [
+        "Hashirama Senju (First Hokage — Prime)",
+        "hashirama-senju-first-hokage-prime",
+        "Hashirama Senju First Hokage Prime",
+        "Hashirama Senju (First Hokage - Prime)",
+        "Hashirama Senju First Hokage - Prime",
+        "ฮาชิรามะ เซ็นจู (โฮคาเงะรุ่นที่หนึ่ง — ช่วงพีค)",
+        "ฮาชิรามะ เซ็นจู โฮคาเงะรุ่นที่หนึ่ง - ช่วงพีค"
+      ],
+      "source_url": "https://files.catbox.moe/hgrmex.jpeg",
+      "sha256": "0e1485d1c0bb6399fa35cfade674be4894c71962122d3d0daf6d3389961846c3",
+      "bytes": 100345,
+      "marker": "[SWCHAR|hashirama-senju-first-hokage-prime.jpg|Hashirama Senju (First Hokage — Prime)|#d6a84f]"
+    },
+    {
+      "name": "Hashirama Senju (Edo Tensei)",
+      "filename": "hashirama-senju-edo-tensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hashirama-senju-edo-tensei.jpg",
+      "aliases": [
+        "Hashirama Senju (Edo Tensei)",
+        "hashirama-senju-edo-tensei",
+        "Hashirama Senju Edo Tensei",
+        "ฮาชิรามะ เซ็นจู (เอโดะเท็นเซย์)",
+        "ฮาชิรามะ เซ็นจู เอโดะเท็นเซย์"
+      ],
+      "source_url": "https://files.catbox.moe/gqw3w1.jpeg",
+      "sha256": "8f8b7a07cce88e69075825511a2fce952a9a633a9b77ca1f206b48c03c4189e6",
+      "bytes": 77380,
+      "marker": "[SWCHAR|hashirama-senju-edo-tensei.jpg|Hashirama Senju (Edo Tensei)|#d6a84f]"
+    },
+    {
+      "name": "Tobirama Senju (Second Hokage — Prime)",
+      "filename": "tobirama-senju-second-hokage-prime.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tobirama-senju-second-hokage-prime.jpg",
+      "aliases": [
+        "Tobirama Senju (Second Hokage — Prime)",
+        "tobirama-senju-second-hokage-prime",
+        "Tobirama Senju Second Hokage Prime",
+        "Tobirama Senju (Second Hokage - Prime)",
+        "Tobirama Senju Second Hokage - Prime",
+        "โทบิรามะ เซ็นจู (โฮคาเงะรุ่นที่สอง — ช่วงพีค)",
+        "โทบิรามะ เซ็นจู โฮคาเงะรุ่นที่สอง - ช่วงพีค"
+      ],
+      "source_url": "https://files.catbox.moe/mhnchc.jpeg",
+      "sha256": "dc7cc98307ab5ca38aa3cc43993cc976931fac941cee6361abf5ede7f19a83fe",
+      "bytes": 112008,
+      "marker": "[SWCHAR|tobirama-senju-second-hokage-prime.jpg|Tobirama Senju (Second Hokage — Prime)|#d6a84f]"
+    },
+    {
+      "name": "Tobirama Senju (Edo Tensei)",
+      "filename": "tobirama-senju-edo-tensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tobirama-senju-edo-tensei.jpg",
+      "aliases": [
+        "Tobirama Senju (Edo Tensei)",
+        "tobirama-senju-edo-tensei",
+        "Tobirama Senju Edo Tensei",
+        "โทบิรามะ เซ็นจู (เอโดะเท็นเซย์)",
+        "โทบิรามะ เซ็นจู เอโดะเท็นเซย์"
+      ],
+      "source_url": "https://files.catbox.moe/nly2my.jpeg",
+      "sha256": "5d9b22ac4497da662b849aca0cd8aa70d8e0926edd182b2f343e409db3b3c794",
+      "bytes": 156567,
+      "marker": "[SWCHAR|tobirama-senju-edo-tensei.jpg|Tobirama Senju (Edo Tensei)|#d6a84f]"
+    },
+    {
+      "name": "Hiruzen Sarutobi (Third Hokage — Prime)",
+      "filename": "hiruzen-sarutobi-third-hokage-prime.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hiruzen-sarutobi-third-hokage-prime.jpg",
+      "aliases": [
+        "Hiruzen Sarutobi (Third Hokage — Prime)",
+        "hiruzen-sarutobi-third-hokage-prime",
+        "Hiruzen Sarutobi Third Hokage Prime",
+        "Hiruzen Sarutobi (Third Hokage - Prime)",
+        "Hiruzen Sarutobi Third Hokage - Prime",
+        "ฮิรุเซ็น ซารุโทบิ (โฮคาเงะรุ่นที่สาม — ช่วงพีค)",
+        "ฮิรุเซ็น ซารุโทบิ โฮคาเงะรุ่นที่สาม - ช่วงพีค"
+      ],
+      "source_url": "https://files.catbox.moe/9rohi2.jpeg",
+      "sha256": "9537dc1bb3c5c096f4d0500bf9786eeb2b4b2b11bb77124108bcbe46bd8bbb06",
+      "bytes": 227837,
+      "marker": "[SWCHAR|hiruzen-sarutobi-third-hokage-prime.jpg|Hiruzen Sarutobi (Third Hokage — Prime)|#d6a84f]"
+    },
+    {
+      "name": "Hiruzen Sarutobi (Third Hokage — Elder)",
+      "filename": "hiruzen-sarutobi-third-hokage-elder.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hiruzen-sarutobi-third-hokage-elder.jpg",
+      "aliases": [
+        "Hiruzen Sarutobi (Third Hokage — Elder)",
+        "hiruzen-sarutobi-third-hokage-elder",
+        "Hiruzen Sarutobi Third Hokage Elder",
+        "Hiruzen Sarutobi (Third Hokage - Elder)",
+        "Hiruzen Sarutobi Third Hokage - Elder",
+        "ฮิรุเซ็น ซารุโทบิ (โฮคาเงะรุ่นที่สาม — ผู้อาวุโส)",
+        "ฮิรุเซ็น ซารุโทบิ โฮคาเงะรุ่นที่สาม - ผู้อาวุโส"
+      ],
+      "source_url": "https://files.catbox.moe/3584l7.jpeg",
+      "sha256": "d38cbc0e66d36430ccbe3c50de218bfb7dfe0f956c3ce5d3696faba537134a8b",
+      "bytes": 260835,
+      "marker": "[SWCHAR|hiruzen-sarutobi-third-hokage-elder.jpg|Hiruzen Sarutobi (Third Hokage — Elder)|#d6a84f]"
+    },
+    {
+      "name": "Hiruzen Sarutobi (Edo Tensei)",
+      "filename": "hiruzen-sarutobi-edo-tensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hiruzen-sarutobi-edo-tensei.jpg",
+      "aliases": [
+        "Hiruzen Sarutobi (Edo Tensei)",
+        "hiruzen-sarutobi-edo-tensei",
+        "Hiruzen Sarutobi Edo Tensei",
+        "ฮิรุเซ็น ซารุโทบิ (เอโดะเท็นเซย์)",
+        "ฮิรุเซ็น ซารุโทบิ เอโดะเท็นเซย์"
+      ],
+      "source_url": "https://files.catbox.moe/pvrp6j.jpeg",
+      "sha256": "e69bb6af86d9ecd3525bdc7a7397fb52a87575fa7d2f52df87b9fa0eef033521",
+      "bytes": 116788,
+      "marker": "[SWCHAR|hiruzen-sarutobi-edo-tensei.jpg|Hiruzen Sarutobi (Edo Tensei)|#d6a84f]"
+    },
+    {
+      "name": "Minato Namikaze (Young — Third War)",
+      "filename": "minato-namikaze-young-third-war.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/minato-namikaze-young-third-war.jpg",
+      "aliases": [
+        "Minato Namikaze (Young — Third War)",
+        "minato-namikaze-young-third-war",
+        "Minato Namikaze Young Third War",
+        "Minato Namikaze (Young - Third War)",
+        "Minato Namikaze Young - Third War",
+        "มินาโตะ นามิคาเสะ (วัยหนุ่ม — สงครามนินจาครั้งที่สาม)",
+        "มินาโตะ นามิคาเสะ วัยหนุ่ม - สงครามนินจาครั้งที่สาม"
+      ],
+      "source_url": "https://files.catbox.moe/ru97ij.jpeg",
+      "sha256": "c9937907d075f243569cf1c78004ebbd736f9501760571bf7a05409a9c6358c0",
+      "bytes": 161759,
+      "marker": "[SWCHAR|minato-namikaze-young-third-war.jpg|Minato Namikaze (Young — Third War)|#d6a84f]"
+    },
+    {
+      "name": "Minato Namikaze (Fourth Hokage)",
+      "filename": "minato-namikaze-fourth-hokage.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/minato-namikaze-fourth-hokage.jpg",
+      "aliases": [
+        "Minato Namikaze (Fourth Hokage)",
+        "minato-namikaze-fourth-hokage",
+        "Minato Namikaze Fourth Hokage",
+        "มินาโตะ นามิคาเสะ (โฮคาเงะรุ่นที่สี่)",
+        "มินาโตะ นามิคาเสะ โฮคาเงะรุ่นที่สี่"
+      ],
+      "source_url": "https://files.catbox.moe/vtl66b.jpeg",
+      "sha256": "2a0d5bafd510691c57701fc78eba6f5d26c744108b99620db4aea1955e0b1a7f",
+      "bytes": 190456,
+      "marker": "[SWCHAR|minato-namikaze-fourth-hokage.jpg|Minato Namikaze (Fourth Hokage)|#d6a84f]"
+    },
+    {
+      "name": "Minato Namikaze (Edo Tensei)",
+      "filename": "minato-namikaze-edo-tensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/minato-namikaze-edo-tensei.jpg",
+      "aliases": [
+        "Minato Namikaze (Edo Tensei)",
+        "minato-namikaze-edo-tensei",
+        "Minato Namikaze Edo Tensei",
+        "มินาโตะ นามิคาเสะ (เอโดะเท็นเซย์)",
+        "มินาโตะ นามิคาเสะ เอโดะเท็นเซย์"
+      ],
+      "source_url": "https://files.catbox.moe/syzhpr.jpeg",
+      "sha256": "8712cd22e7391c139514a61fea1ed2111718cb995c389e75617267bb19eda18b",
+      "bytes": 215068,
+      "marker": "[SWCHAR|minato-namikaze-edo-tensei.jpg|Minato Namikaze (Edo Tensei)|#d6a84f]"
+    },
+    {
+      "name": "Minato Namikaze (Edo Tensei — KCM)",
+      "filename": "minato-namikaze-edo-tensei-kcm.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/minato-namikaze-edo-tensei-kcm.jpg",
+      "aliases": [
+        "Minato Namikaze (Edo Tensei — KCM)",
+        "minato-namikaze-edo-tensei-kcm",
+        "Minato Namikaze Edo Tensei KCM",
+        "Minato Namikaze (Edo Tensei - KCM)",
+        "Minato Namikaze Edo Tensei - KCM",
+        "มินาโตะ นามิคาเสะ (เอโดะเท็นเซย์ — KCM)",
+        "มินาโตะ นามิคาเสะ เอโดะเท็นเซย์ - KCM"
+      ],
+      "source_url": "https://files.catbox.moe/5hmdla.jpeg",
+      "sha256": "16e01c30056562e033986fc2dabe4b3dc713c30aaa7cb296d5c2481c9054120f",
+      "bytes": 93645,
+      "marker": "[SWCHAR|minato-namikaze-edo-tensei-kcm.jpg|Minato Namikaze (Edo Tensei — KCM)|#d6a84f]"
+    },
+    {
+      "name": "Tsunade (Young — Second War)",
+      "filename": "tsunade-young-second-war.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tsunade-young-second-war.jpg",
+      "aliases": [
+        "Tsunade (Young — Second War)",
+        "tsunade-young-second-war",
+        "Tsunade Young Second War",
+        "Tsunade (Young - Second War)",
+        "Tsunade Young - Second War",
+        "ซึนาเดะ (วัยหนุ่ม — สงครามนินจาครั้งที่สอง)",
+        "ซึนาเดะ วัยหนุ่ม - สงครามนินจาครั้งที่สอง"
+      ],
+      "source_url": "https://files.catbox.moe/kdiuu9.jpeg",
+      "sha256": "dcc3957f675d7455177b875cbf4911d9e3794b5c212d534b2acf05c124c9a6a0",
+      "bytes": 142317,
+      "marker": "[SWCHAR|tsunade-young-second-war.jpg|Tsunade (Young — Second War)|#d6a84f]"
+    },
+    {
+      "name": "Tsunade (Fifth Hokage)",
+      "filename": "tsunade-fifth-hokage.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tsunade-fifth-hokage.jpg",
+      "aliases": [
+        "Tsunade (Fifth Hokage)",
+        "tsunade-fifth-hokage",
+        "Tsunade Fifth Hokage",
+        "ซึนาเดะ (โฮคาเงะรุ่นที่ห้า)",
+        "ซึนาเดะ โฮคาเงะรุ่นที่ห้า"
+      ],
+      "source_url": "https://files.catbox.moe/kamnux.jpeg",
+      "sha256": "126bb18c6a2b12b4fe52a48b56e48f687d066ec56af6f70638a20c38eb238d59",
+      "bytes": 108085,
+      "marker": "[SWCHAR|tsunade-fifth-hokage.jpg|Tsunade (Fifth Hokage)|#d6a84f]"
+    },
+    {
+      "name": "Tsunade (Byakugō Released)",
+      "filename": "tsunade-byakugo-released.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tsunade-byakugo-released.jpg",
+      "aliases": [
+        "Tsunade (Byakugō Released)",
+        "tsunade-byakugo-released",
+        "Tsunade Byakugo Released",
+        "Tsunade Byakugō Released",
+        "ซึนาเดะ (ปลดผนึกเบียคุโก)",
+        "ซึนาเดะ ปลดผนึกเบียคุโก"
+      ],
+      "source_url": "https://files.catbox.moe/oyfxuu.jpeg",
+      "sha256": "5bab573a85c722a808465b079ba86e90893688da633c5db68816f3b53a22c197",
+      "bytes": 77486,
+      "marker": "[SWCHAR|tsunade-byakugo-released.jpg|Tsunade (Byakugō Released)|#d6a84f]"
+    },
+    {
+      "name": "Tsunade (Retired)",
+      "filename": "tsunade-retired.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/tsunade-retired.jpg",
+      "aliases": [
+        "Tsunade (Retired)",
+        "tsunade-retired",
+        "Tsunade Retired",
+        "ซึนาเดะ (เกษียณ)",
+        "ซึนาเดะ เกษียณ"
+      ],
+      "source_url": "https://files.catbox.moe/r0acgf.jpeg",
+      "sha256": "1cb3d3ee232c96119303856b2ce005f04dee7b98dd200abc39ea3c265ffb922b",
+      "bytes": 171967,
+      "marker": "[SWCHAR|tsunade-retired.jpg|Tsunade (Retired)|#d6a84f]"
+    },
+    {
+      "name": "Danzō Shimura (Elder / Root Leader)",
+      "filename": "danzo-shimura-elder-root-leader.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/danzo-shimura-elder-root-leader.jpg",
+      "aliases": [
+        "Danzō Shimura (Elder / Root Leader)",
+        "danzo-shimura-elder-root-leader",
+        "Danzo Shimura Elder Root Leader",
+        "Danzō Shimura Elder / Root Leader",
+        "ดันโซ ชิมูระ (ผู้อาวุโส / หัวหน้าราก)",
+        "ดันโซ ชิมูระ ผู้อาวุโส / หัวหน้าราก"
+      ],
+      "source_url": "https://files.catbox.moe/1477a1.jpeg",
+      "sha256": "1cdd77c45d297719a822718b4313334fee7f67af5b4da871167536832ef1c7a6",
+      "bytes": 172000,
+      "marker": "[SWCHAR|danzo-shimura-elder-root-leader.jpg|Danzō Shimura (Elder / Root Leader)|#d6a84f]"
+    },
+    {
+      "name": "Danzō Shimura (Izanagi User)",
+      "filename": "danzo-shimura-izanagi-user.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/danzo-shimura-izanagi-user.jpg",
+      "aliases": [
+        "Danzō Shimura (Izanagi User)",
+        "danzo-shimura-izanagi-user",
+        "Danzo Shimura Izanagi User",
+        "Danzō Shimura Izanagi User",
+        "ดันโซ ชิมูระ (ผู้ใช้อิซานางิ)",
+        "ดันโซ ชิมูระ ผู้ใช้อิซานางิ"
+      ],
+      "source_url": "https://files.catbox.moe/9kncie.jpeg",
+      "sha256": "0f7fb7ee2c21646bc3af639b78826332ad30cfaad6712ab8d254b5121d7c8ace",
+      "bytes": 188630,
+      "marker": "[SWCHAR|danzo-shimura-izanagi-user.jpg|Danzō Shimura (Izanagi User)|#d6a84f]"
+    },
+    {
+      "name": "Jiraiya (Young — Second War)",
+      "filename": "jiraiya-young-second-war.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/jiraiya-young-second-war.jpg",
+      "aliases": [
+        "Jiraiya (Young — Second War)",
+        "jiraiya-young-second-war",
+        "Jiraiya Young Second War",
+        "Jiraiya (Young - Second War)",
+        "Jiraiya Young - Second War",
+        "จิไรยะ (วัยหนุ่ม — สงครามนินจาครั้งที่สอง)",
+        "จิไรยะ วัยหนุ่ม - สงครามนินจาครั้งที่สอง"
+      ],
+      "source_url": "https://files.catbox.moe/idkab4.jpeg",
+      "sha256": "4b395c7efd3f03cb8ce91f8345bad2750869918806ca2549c18a8e6990357f83",
+      "bytes": 311377,
+      "marker": "[SWCHAR|jiraiya-young-second-war.jpg|Jiraiya (Young — Second War)|#d6a84f]"
+    },
+    {
+      "name": "Jiraiya (Sannin — Sensei)",
+      "filename": "jiraiya-sannin-sensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/jiraiya-sannin-sensei.jpg",
+      "aliases": [
+        "Jiraiya (Sannin — Sensei)",
+        "jiraiya-sannin-sensei",
+        "Jiraiya Sannin Sensei",
+        "Jiraiya (Sannin - Sensei)",
+        "Jiraiya Sannin - Sensei",
+        "จิไรยะ (ซันนิน — อาจารย์)",
+        "จิไรยะ ซันนิน - อาจารย์"
+      ],
+      "source_url": "https://files.catbox.moe/0e4ey3.jpeg",
+      "sha256": "e2db96f44cb965d3fbf3c66f97addb1476b24a4cf522933022650f3aaa8cf26b",
+      "bytes": 171180,
+      "marker": "[SWCHAR|jiraiya-sannin-sensei.jpg|Jiraiya (Sannin — Sensei)|#d6a84f]"
+    },
+    {
+      "name": "Jiraiya (Sage Mode)",
+      "filename": "jiraiya-sage-mode.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/jiraiya-sage-mode.jpg",
+      "aliases": [
+        "Jiraiya (Sage Mode)",
+        "jiraiya-sage-mode",
+        "Jiraiya Sage Mode",
+        "จิไรยะ (โหมดเซียน)",
+        "จิไรยะ โหมดเซียน"
+      ],
+      "source_url": "https://files.catbox.moe/smjw2l.jpeg",
+      "sha256": "3667425419a4f6ee1bd0bb0349b56f7623e182fe0bc98f76deb2afeed0bff156",
+      "bytes": 145511,
+      "marker": "[SWCHAR|jiraiya-sage-mode.jpg|Jiraiya (Sage Mode)|#d6a84f]"
+    },
+    {
+      "name": "Orochimaru (Young — Second War)",
+      "filename": "orochimaru-young-second-war.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/orochimaru-young-second-war.jpg",
+      "aliases": [
+        "Orochimaru (Young — Second War)",
+        "orochimaru-young-second-war",
+        "Orochimaru Young Second War",
+        "Orochimaru (Young - Second War)",
+        "Orochimaru Young - Second War",
+        "โอโรจิมารุ (วัยหนุ่ม — สงครามนินจาครั้งที่สอง)",
+        "โอโรจิมารุ วัยหนุ่ม - สงครามนินจาครั้งที่สอง"
+      ],
+      "source_url": "https://files.catbox.moe/0zffn7.jpeg",
+      "sha256": "23aebcae9d0c5358e682e84a7fb5439851256db31f1f2ad95912e52cfb93ed7b",
+      "bytes": 163714,
+      "marker": "[SWCHAR|orochimaru-young-second-war.jpg|Orochimaru (Young — Second War)|#d6a84f]"
+    },
+    {
+      "name": "Orochimaru (Defector)",
+      "filename": "orochimaru-defector.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/orochimaru-defector.jpg",
+      "aliases": [
+        "Orochimaru (Defector)",
+        "orochimaru-defector",
+        "Orochimaru Defector",
+        "โอโรจิมารุ (ผู้แปรพักตร์)",
+        "โอโรจิมารุ ผู้แปรพักตร์"
+      ],
+      "source_url": "https://files.catbox.moe/dhzd7c.jpeg",
+      "sha256": "c74128338b2fc7458710c6fa66c189df5de859030ebc03b9484f8585c6fde7c2",
+      "bytes": 16037,
+      "marker": "[SWCHAR|orochimaru-defector.jpg|Orochimaru (Defector)|#d6a84f]"
+    },
+    {
+      "name": "Orochimaru (White Snake)",
+      "filename": "orochimaru-white-snake.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/orochimaru-white-snake.jpg",
+      "aliases": [
+        "Orochimaru (White Snake)",
+        "orochimaru-white-snake",
+        "Orochimaru White Snake",
+        "โอโรจิมารุ (งูขาว)",
+        "โอโรจิมารุ งูขาว"
+      ],
+      "source_url": "https://files.catbox.moe/pchut3.jpeg",
+      "sha256": "1efcdd54cadf4efa04524fa0d143bae12efd5a924738ce320dae6f91ead5a5f5",
+      "bytes": 184576,
+      "marker": "[SWCHAR|orochimaru-white-snake.jpg|Orochimaru (White Snake)|#d6a84f]"
+    },
+    {
+      "name": "Orochimaru (Revived)",
+      "filename": "orochimaru-revived.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/orochimaru-revived.jpg",
+      "aliases": [
+        "Orochimaru (Revived)",
+        "orochimaru-revived",
+        "Orochimaru Revived",
+        "โอโรจิมารุ (ฟื้นคืนชีพ)",
+        "โอโรจิมารุ ฟื้นคืนชีพ"
+      ],
+      "source_url": "https://files.catbox.moe/get731.jpeg",
+      "sha256": "bafab52b216603bb64019cfbd680ae86c3a867c07aaae2108ddcf2dea9b349e2",
+      "bytes": 143146,
+      "marker": "[SWCHAR|orochimaru-revived.jpg|Orochimaru (Revived)|#d6a84f]"
+    },
+    {
+      "name": "Orochimaru (Reformed)",
+      "filename": "orochimaru-reformed.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/orochimaru-reformed.jpg",
+      "aliases": [
+        "Orochimaru (Reformed)",
+        "orochimaru-reformed",
+        "Orochimaru Reformed",
+        "โอโรจิมารุ (กลับใจ)",
+        "โอโรจิมารุ กลับใจ"
+      ],
+      "source_url": "https://files.catbox.moe/bt3hhf.jpeg",
+      "sha256": "599bee5bd7ae763e20f7b7e0431e313ec4f46dc882f0be8699bfc1080c6c03ac",
+      "bytes": 184655,
+      "marker": "[SWCHAR|orochimaru-reformed.jpg|Orochimaru (Reformed)|#d6a84f]"
+    },
+    {
+      "name": "Iruka Umino (Academy Instructor)",
+      "filename": "iruka-umino-academy-instructor.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/iruka-umino-academy-instructor.jpg",
+      "aliases": [
+        "Iruka Umino (Academy Instructor)",
+        "iruka-umino-academy-instructor",
+        "Iruka Umino Academy Instructor",
+        "อิรุกะ อุมิโนะ (ครูฝึกอคาเดมี)",
+        "อิรุกะ อุมิโนะ ครูฝึกอคาเดมี"
+      ],
+      "source_url": "https://files.catbox.moe/faowa1.jpeg",
+      "sha256": "77b9471a6cfafc1b3149129384e332de0446a4b359c54fb2e6cbc4f3f51c7d01",
+      "bytes": 202300,
+      "marker": "[SWCHAR|iruka-umino-academy-instructor.jpg|Iruka Umino (Academy Instructor)|#d6a84f]"
+    },
+    {
+      "name": "Anko Mitarashi (Tokubetsu Jōnin)",
+      "filename": "anko-mitarashi-tokubetsu-jonin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/anko-mitarashi-tokubetsu-jonin.jpg",
+      "aliases": [
+        "Anko Mitarashi (Tokubetsu Jōnin)",
+        "anko-mitarashi-tokubetsu-jonin",
+        "Anko Mitarashi Tokubetsu Jonin",
+        "Anko Mitarashi Tokubetsu Jōnin",
+        "อังโกะ มิทาราชิ (โทคุเบ็ตสึโจนิน)",
+        "อังโกะ มิทาราชิ โทคุเบ็ตสึโจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/fq9s1d.jpeg",
+      "sha256": "fcfd626460c9b1cd29b85008ee48a81988e1a0c97149e50dec80a50a71e31f62",
+      "bytes": 177219,
+      "marker": "[SWCHAR|anko-mitarashi-tokubetsu-jonin.jpg|Anko Mitarashi (Tokubetsu Jōnin)|#d6a84f]"
+    },
+    {
+      "name": "Anko Mitarashi (Adult)",
+      "filename": "anko-mitarashi-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/anko-mitarashi-adult.jpg",
+      "aliases": [
+        "Anko Mitarashi (Adult)",
+        "anko-mitarashi-adult",
+        "Anko Mitarashi Adult",
+        "อังโกะ มิทาราชิ (วัยผู้ใหญ่)",
+        "อังโกะ มิทาราชิ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/cc3a1q.jpeg",
+      "sha256": "26e8e7bc6b52317423142d76a7f42fef8a07e87c483ebd3a984aec6ab942017a",
+      "bytes": 254737,
+      "marker": "[SWCHAR|anko-mitarashi-adult.jpg|Anko Mitarashi (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Might Duy (Eternal Genin)",
+      "filename": "might-duy-eternal-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/might-duy-eternal-genin.jpg",
+      "aliases": [
+        "Might Duy (Eternal Genin)",
+        "might-duy-eternal-genin",
+        "Might Duy Eternal Genin",
+        "ไมท์ ได (เกนินนิรันดร์)",
+        "ไมท์ ได เกนินนิรันดร์"
+      ],
+      "source_url": "https://files.catbox.moe/ulwtey.jpeg",
+      "sha256": "d485f1fc346ff9ff0aed6b1985abc8d33274aed3fbe4ca00901c543e10b0a390",
+      "bytes": 104338,
+      "marker": "[SWCHAR|might-duy-eternal-genin.jpg|Might Duy (Eternal Genin)|#d6a84f]"
+    },
+    {
+      "name": "Genma Shiranui (Tokubetsu Jōnin)",
+      "filename": "genma-shiranui-tokubetsu-jonin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/genma-shiranui-tokubetsu-jonin.jpg",
+      "aliases": [
+        "Genma Shiranui (Tokubetsu Jōnin)",
+        "genma-shiranui-tokubetsu-jonin",
+        "Genma Shiranui Tokubetsu Jonin",
+        "Genma Shiranui Tokubetsu Jōnin",
+        "เก็นมะ ชิรานุอิ (โทคุเบ็ตสึโจนิน)",
+        "เก็นมะ ชิรานุอิ โทคุเบ็ตสึโจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/iwuxso.jpeg",
+      "sha256": "0dc797c54744bf0af253ebcb8d1d07123608de6965769317ff9fe743552de47a",
+      "bytes": 136960,
+      "marker": "[SWCHAR|genma-shiranui-tokubetsu-jonin.jpg|Genma Shiranui (Tokubetsu Jōnin)|#d6a84f]"
+    },
+    {
+      "name": "Hayate Gekkō (Tokubetsu Jōnin)",
+      "filename": "hayate-gekko-tokubetsu-jonin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hayate-gekko-tokubetsu-jonin.jpg",
+      "aliases": [
+        "Hayate Gekkō (Tokubetsu Jōnin)",
+        "hayate-gekko-tokubetsu-jonin",
+        "Hayate Gekko Tokubetsu Jonin",
+        "Hayate Gekkō Tokubetsu Jōnin",
+        "ฮายาเตะ เก็กโค (โทคุเบ็ตสึโจนิน)",
+        "ฮายาเตะ เก็กโค โทคุเบ็ตสึโจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/1w2cj6.jpeg",
+      "sha256": "66e2c17b1f042af138a30471f839250088635f2f5ef391ed182a21facfe15343",
+      "bytes": 151683,
+      "marker": "[SWCHAR|hayate-gekko-tokubetsu-jonin.jpg|Hayate Gekkō (Tokubetsu Jōnin)|#d6a84f]"
+    },
+    {
+      "name": "Ibiki Morino (Head of T&I)",
+      "filename": "ibiki-morino-head-of-t-and-i.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/ibiki-morino-head-of-t-and-i.jpg",
+      "aliases": [
+        "Ibiki Morino (Head of T&I)",
+        "ibiki-morino-head-of-t-and-i",
+        "Ibiki Morino Head of T I",
+        "Ibiki Morino Head of T&I",
+        "อิบิกิ โมริโนะ (หัวหน้าหน่วยสอบสวนและทรมาน)",
+        "อิบิกิ โมริโนะ หัวหน้าหน่วยสอบสวนและทรมาน"
+      ],
+      "source_url": "https://files.catbox.moe/dgi07k.jpeg",
+      "sha256": "64d7bf34a01519758dac1573cc94582df20645c66bee1b940b524ab4dbe69507",
+      "bytes": 125685,
+      "marker": "[SWCHAR|ibiki-morino-head-of-t-and-i.jpg|Ibiki Morino (Head of T&I)|#d6a84f]"
+    },
+    {
+      "name": "Shizune (Tsunade's Assistant)",
+      "filename": "shizune-tsunades-assistant.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shizune-tsunades-assistant.jpg",
+      "aliases": [
+        "Shizune (Tsunade's Assistant)",
+        "shizune-tsunades-assistant",
+        "Shizune Tsunade s Assistant",
+        "Shizune Tsunade's Assistant",
+        "ชิซึเนะ (ผู้ช่วยของซึนาเดะ)",
+        "ชิซึเนะ ผู้ช่วยของซึนาเดะ"
+      ],
+      "source_url": "https://files.catbox.moe/mbpqfd.jpeg",
+      "sha256": "0645472ef0f4c12718a13c93e6cbc35f5e1fee0c3a516b95734e1aa4e64601db",
+      "bytes": 119764,
+      "marker": "[SWCHAR|shizune-tsunades-assistant.jpg|Shizune (Tsunade's Assistant)|#d6a84f]"
+    },
+    {
+      "name": "Konohamaru Sarutobi (Academy Student)",
+      "filename": "konohamaru-sarutobi-academy-student.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/konohamaru-sarutobi-academy-student.jpg",
+      "aliases": [
+        "Konohamaru Sarutobi (Academy Student)",
+        "konohamaru-sarutobi-academy-student",
+        "Konohamaru Sarutobi Academy Student",
+        "โคโนฮะมารุ ซารุโทบิ (นักเรียนอคาเดมี)",
+        "โคโนฮะมารุ ซารุโทบิ นักเรียนอคาเดมี"
+      ],
+      "source_url": "https://files.catbox.moe/z59w1y.jpeg",
+      "sha256": "a4227dd1917762b9b2b1655d64baf90611529d3cb074d1f74daa34a4ddc9d98c",
+      "bytes": 141947,
+      "marker": "[SWCHAR|konohamaru-sarutobi-academy-student.jpg|Konohamaru Sarutobi (Academy Student)|#d6a84f]"
+    },
+    {
+      "name": "Konohamaru Sarutobi (Genin)",
+      "filename": "konohamaru-sarutobi-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/konohamaru-sarutobi-genin.jpg",
+      "aliases": [
+        "Konohamaru Sarutobi (Genin)",
+        "konohamaru-sarutobi-genin",
+        "Konohamaru Sarutobi Genin",
+        "โคโนฮะมารุ ซารุโทบิ (เกนิน)",
+        "โคโนฮะมารุ ซารุโทบิ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/1hnq6o.jpeg",
+      "sha256": "ae344f4aeb58f23be52c115b6a4c1a495bfb05fcc9b27eb51d80552a46060351",
+      "bytes": 68799,
+      "marker": "[SWCHAR|konohamaru-sarutobi-genin.jpg|Konohamaru Sarutobi (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Konohamaru Sarutobi (Jōnin Sensei)",
+      "filename": "konohamaru-sarutobi-jonin-sensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/konohamaru-sarutobi-jonin-sensei.jpg",
+      "aliases": [
+        "Konohamaru Sarutobi (Jōnin Sensei)",
+        "konohamaru-sarutobi-jonin-sensei",
+        "Konohamaru Sarutobi Jonin Sensei",
+        "Konohamaru Sarutobi Jōnin Sensei",
+        "โคโนฮะมารุ ซารุโทบิ (อาจารย์โจนิน)",
+        "โคโนฮะมารุ ซารุโทบิ อาจารย์โจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/leis5w.jpeg",
+      "sha256": "5dcb1779ee356152b48dc1f6e4d9a599700f576d84e4055780ed7876947dbcd8",
+      "bytes": 166002,
+      "marker": "[SWCHAR|konohamaru-sarutobi-jonin-sensei.jpg|Konohamaru Sarutobi (Jōnin Sensei)|#d6a84f]"
+    },
+    {
+      "name": "Ebisu (Tokubetsu Jōnin)",
+      "filename": "ebisu-tokubetsu-jonin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/ebisu-tokubetsu-jonin.jpg",
+      "aliases": [
+        "Ebisu (Tokubetsu Jōnin)",
+        "ebisu-tokubetsu-jonin",
+        "Ebisu Tokubetsu Jonin",
+        "Ebisu Tokubetsu Jōnin",
+        "เอบิสุ (โทคุเบ็ตสึโจนิน)",
+        "เอบิสุ โทคุเบ็ตสึโจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/npf4ys.jpeg",
+      "sha256": "15d0dac339d1a4ca4249674290ce2a032a381dceb4a3c105a3cad352eaede5e5",
+      "bytes": 68536,
+      "marker": "[SWCHAR|ebisu-tokubetsu-jonin.jpg|Ebisu (Tokubetsu Jōnin)|#d6a84f]"
+    },
+    {
+      "name": "Hiashi Hyūga (Clan Head)",
+      "filename": "hiashi-hyuga-clan-head.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hiashi-hyuga-clan-head.jpg",
+      "aliases": [
+        "Hiashi Hyūga (Clan Head)",
+        "hiashi-hyuga-clan-head",
+        "Hiashi Hyuga Clan Head",
+        "Hiashi Hyūga Clan Head",
+        "ฮิอาชิ ฮิวงะ (หัวหน้าตระกูล)",
+        "ฮิอาชิ ฮิวงะ หัวหน้าตระกูล"
+      ],
+      "source_url": "https://files.catbox.moe/f088lf.jpeg",
+      "sha256": "1b2986863f2c381a34e0c436931604c7639d708394f9afce987d898f9dc457c4",
+      "bytes": 35926,
+      "marker": "[SWCHAR|hiashi-hyuga-clan-head.jpg|Hiashi Hyūga (Clan Head)|#d6a84f]"
+    },
+    {
+      "name": "Hizashi Hyūga (Branch House)",
+      "filename": "hizashi-hyuga-branch-house.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hizashi-hyuga-branch-house.jpg",
+      "aliases": [
+        "Hizashi Hyūga (Branch House)",
+        "hizashi-hyuga-branch-house",
+        "Hizashi Hyuga Branch House",
+        "Hizashi Hyūga Branch House",
+        "ฮิซาชิ ฮิวงะ (ตระกูลสาขา)",
+        "ฮิซาชิ ฮิวงะ ตระกูลสาขา"
+      ],
+      "source_url": "https://files.catbox.moe/qnp8xy.jpeg",
+      "sha256": "48d593631f7f678a1997b519b45553542184835fc6b4467551316792888fd023",
+      "bytes": 104840,
+      "marker": "[SWCHAR|hizashi-hyuga-branch-house.jpg|Hizashi Hyūga (Branch House)|#d6a84f]"
+    },
+    {
+      "name": "Hanabi Hyūga (Genin)",
+      "filename": "hanabi-hyuga-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hanabi-hyuga-genin.jpg",
+      "aliases": [
+        "Hanabi Hyūga (Genin)",
+        "hanabi-hyuga-genin",
+        "Hanabi Hyuga Genin",
+        "Hanabi Hyūga Genin",
+        "ฮานาบิ ฮิวงะ (เกนิน)",
+        "ฮานาบิ ฮิวงะ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/yfwukq.jpeg",
+      "sha256": "a9682355b4fa0fc56c4d7f1d757a9137e997ee429e9e3e6a56295b43351340bc",
+      "bytes": 164544,
+      "marker": "[SWCHAR|hanabi-hyuga-genin.jpg|Hanabi Hyūga (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Hanabi Hyūga (Adult)",
+      "filename": "hanabi-hyuga-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/hanabi-hyuga-adult.jpg",
+      "aliases": [
+        "Hanabi Hyūga (Adult)",
+        "hanabi-hyuga-adult",
+        "Hanabi Hyuga Adult",
+        "Hanabi Hyūga Adult",
+        "ฮานาบิ ฮิวงะ (วัยผู้ใหญ่)",
+        "ฮานาบิ ฮิวงะ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/u7sa9w.jpeg",
+      "sha256": "c17090b32bdfc27982967216043c7e76406af77f3577c80ec3fc903648a24ac2",
+      "bytes": 66803,
+      "marker": "[SWCHAR|hanabi-hyuga-adult.jpg|Hanabi Hyūga (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Fugaku Uchiha (Clan Head)",
+      "filename": "fugaku-uchiha-clan-head.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/fugaku-uchiha-clan-head.jpg",
+      "aliases": [
+        "Fugaku Uchiha (Clan Head)",
+        "fugaku-uchiha-clan-head",
+        "Fugaku Uchiha Clan Head",
+        "ฟุงาคุ อุจิวะ (หัวหน้าตระกูล)",
+        "ฟุงาคุ อุจิวะ หัวหน้าตระกูล"
+      ],
+      "source_url": "https://files.catbox.moe/4d78pt.jpeg",
+      "sha256": "7cf70efa69cf2fee656e4df2f409279db0b813a295f18d52a4edcf333a14fe0b",
+      "bytes": 127639,
+      "marker": "[SWCHAR|fugaku-uchiha-clan-head.jpg|Fugaku Uchiha (Clan Head)|#d6a84f]"
+    },
+    {
+      "name": "Mikoto Uchiha (Clan Mother)",
+      "filename": "mikoto-uchiha-clan-mother.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/mikoto-uchiha-clan-mother.jpg",
+      "aliases": [
+        "Mikoto Uchiha (Clan Mother)",
+        "mikoto-uchiha-clan-mother",
+        "Mikoto Uchiha Clan Mother",
+        "มิโคโตะ อุจิวะ (มารดาตระกูล)",
+        "มิโคโตะ อุจิวะ มารดาตระกูล"
+      ],
+      "source_url": "https://files.catbox.moe/1hr57u.jpeg",
+      "sha256": "47eb5bed81219a41fdbd1a1a1aa1e6b9dfa59e74bb69fdf602414a358eb14ab9",
+      "bytes": 114707,
+      "marker": "[SWCHAR|mikoto-uchiha-clan-mother.jpg|Mikoto Uchiha (Clan Mother)|#d6a84f]"
+    },
+    {
+      "name": "Itachi Uchiha (Young ANBU)",
+      "filename": "itachi-uchiha-young-anbu.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/itachi-uchiha-young-anbu.jpg",
+      "aliases": [
+        "Itachi Uchiha (Young ANBU)",
+        "itachi-uchiha-young-anbu",
+        "Itachi Uchiha Young ANBU",
+        "อิทาจิ อุจิวะ (อันบุวัยเยาว์)",
+        "อิทาจิ อุจิวะ อันบุวัยเยาว์"
+      ],
+      "source_url": "https://files.catbox.moe/0lwnr8.jpeg",
+      "sha256": "a1df5a9823c3600febf1021ce91bac4172509a7055132645304acdc1f3507c0e",
+      "bytes": 111353,
+      "marker": "[SWCHAR|itachi-uchiha-young-anbu.jpg|Itachi Uchiha (Young ANBU)|#d6a84f]"
+    },
+    {
+      "name": "Itachi Uchiha (Akatsuki)",
+      "filename": "itachi-uchiha-akatsuki.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/itachi-uchiha-akatsuki.jpg",
+      "aliases": [
+        "Itachi Uchiha (Akatsuki)",
+        "itachi-uchiha-akatsuki",
+        "Itachi Uchiha Akatsuki",
+        "อิทาจิ อุจิวะ (แสงอุษา)",
+        "อิทาจิ อุจิวะ แสงอุษา"
+      ],
+      "source_url": "https://files.catbox.moe/6l6lvf.jpeg",
+      "sha256": "aa98ae33ae8d5018e667d9513d02bdb7157aa5be332ad2ecbc01bfeb87bb2d09",
+      "bytes": 85508,
+      "marker": "[SWCHAR|itachi-uchiha-akatsuki.jpg|Itachi Uchiha (Akatsuki)|#d6a84f]"
+    },
+    {
+      "name": "Itachi Uchiha (Edo Tensei)",
+      "filename": "itachi-uchiha-edo-tensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/itachi-uchiha-edo-tensei.jpg",
+      "aliases": [
+        "Itachi Uchiha (Edo Tensei)",
+        "itachi-uchiha-edo-tensei",
+        "Itachi Uchiha Edo Tensei",
+        "อิทาจิ อุจิวะ (เอโดะเท็นเซย์)",
+        "อิทาจิ อุจิวะ เอโดะเท็นเซย์"
+      ],
+      "source_url": "https://files.catbox.moe/xic51x.jpeg",
+      "sha256": "1b86b97983d22fd93827df5e58f0c2cb1157c49d687d699879444b27b9c6a7df",
+      "bytes": 78074,
+      "marker": "[SWCHAR|itachi-uchiha-edo-tensei.jpg|Itachi Uchiha (Edo Tensei)|#d6a84f]"
+    },
+    {
+      "name": "Shisui Uchiha (Body Flicker)",
+      "filename": "shisui-uchiha-body-flicker.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shisui-uchiha-body-flicker.jpg",
+      "aliases": [
+        "Shisui Uchiha (Body Flicker)",
+        "shisui-uchiha-body-flicker",
+        "Shisui Uchiha Body Flicker",
+        "ชิซุย อุจิวะ (กายพริบตา)",
+        "ชิซุย อุจิวะ กายพริบตา"
+      ],
+      "source_url": "https://files.catbox.moe/an9ojf.jpeg",
+      "sha256": "98783cebe458502f1eb0a857c8a4342f0c4d4a93fab81a50ef297ba61db1a4f3",
+      "bytes": 308807,
+      "marker": "[SWCHAR|shisui-uchiha-body-flicker.jpg|Shisui Uchiha (Body Flicker)|#d6a84f]"
+    },
+    {
+      "name": "Kushina Uzumaki (Young)",
+      "filename": "kushina-uzumaki-young.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kushina-uzumaki-young.jpg",
+      "aliases": [
+        "Kushina Uzumaki (Young)",
+        "kushina-uzumaki-young",
+        "Kushina Uzumaki Young",
+        "คุชินะ อุซึมากิ (วัยเยาว์)",
+        "คุชินะ อุซึมากิ วัยเยาว์"
+      ],
+      "source_url": "https://files.catbox.moe/zh6b6q.jpeg",
+      "sha256": "c79b3c2b74647d69ab7fa9b92f6f15cfb1497924130f9d2ba1dee2685e58b213",
+      "bytes": 133435,
+      "marker": "[SWCHAR|kushina-uzumaki-young.jpg|Kushina Uzumaki (Young)|#d6a84f]"
+    },
+    {
+      "name": "Kushina Uzumaki (Nine-Tails Attack)",
+      "filename": "kushina-uzumaki-nine-tails-attack.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kushina-uzumaki-nine-tails-attack.jpg",
+      "aliases": [
+        "Kushina Uzumaki (Nine-Tails Attack)",
+        "kushina-uzumaki-nine-tails-attack",
+        "Kushina Uzumaki Nine Tails Attack",
+        "Kushina Uzumaki Nine-Tails Attack",
+        "คุชินะ อุซึมากิ (การโจมตีของเก้าหาง)",
+        "คุชินะ อุซึมากิ การโจมตีของเก้าหาง"
+      ],
+      "source_url": "https://files.catbox.moe/5ykzfi.jpeg",
+      "sha256": "523e40558aef59cf5dec4b5d6dadf77a68f99c26bf611f0688b463a39dbaef0b",
+      "bytes": 269053,
+      "marker": "[SWCHAR|kushina-uzumaki-nine-tails-attack.jpg|Kushina Uzumaki (Nine-Tails Attack)|#d6a84f]"
+    },
+    {
+      "name": "Kakashi Hatake (ANBU — Hound)",
+      "filename": "kakashi-hatake-anbu-hound.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kakashi-hatake-anbu-hound.jpg",
+      "aliases": [
+        "Kakashi Hatake (ANBU — Hound)",
+        "kakashi-hatake-anbu-hound",
+        "Kakashi Hatake ANBU Hound",
+        "Kakashi Hatake (ANBU - Hound)",
+        "Kakashi Hatake ANBU - Hound",
+        "คาคาชิ ฮาตาเกะ (อันบุ — สุนัขล่า)",
+        "คาคาชิ ฮาตาเกะ อันบุ - สุนัขล่า"
+      ],
+      "source_url": "https://files.catbox.moe/xcvr1x.jpeg",
+      "sha256": "5b87d93f1a57548d002d3b85a0f2375d8c55dd9f3c6b1a5cc69c018980896abc",
+      "bytes": 122996,
+      "marker": "[SWCHAR|kakashi-hatake-anbu-hound.jpg|Kakashi Hatake (ANBU — Hound)|#d6a84f]"
+    },
+    {
+      "name": "Itachi Uchiha (ANBU — Weasel)",
+      "filename": "itachi-uchiha-anbu-weasel.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/itachi-uchiha-anbu-weasel.jpg",
+      "aliases": [
+        "Itachi Uchiha (ANBU — Weasel)",
+        "itachi-uchiha-anbu-weasel",
+        "Itachi Uchiha ANBU Weasel",
+        "Itachi Uchiha (ANBU - Weasel)",
+        "Itachi Uchiha ANBU - Weasel",
+        "อิทาจิ อุจิวะ (อันบุ — พังพอน)",
+        "อิทาจิ อุจิวะ อันบุ - พังพอน"
+      ],
+      "source_url": "https://files.catbox.moe/osv64j.jpeg",
+      "sha256": "7529863aaa0417caac7b5d7fb9f8c21701a9656ba877b1fdc6e42cde45b93628",
+      "bytes": 146037,
+      "marker": "[SWCHAR|itachi-uchiha-anbu-weasel.jpg|Itachi Uchiha (ANBU — Weasel)|#d6a84f]"
+    },
+    {
+      "name": "Yūgao Uzuki (ANBU — Cat)",
+      "filename": "yugao-uzuki-anbu-cat.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/yugao-uzuki-anbu-cat.jpg",
+      "aliases": [
+        "Yūgao Uzuki (ANBU — Cat)",
+        "yugao-uzuki-anbu-cat",
+        "Yugao Uzuki ANBU Cat",
+        "Yūgao Uzuki (ANBU - Cat)",
+        "Yūgao Uzuki ANBU - Cat",
+        "ยูงาโอะ อุซึกิ (อันบุ — แมว)",
+        "ยูงาโอะ อุซึกิ อันบุ - แมว"
+      ],
+      "source_url": "https://files.catbox.moe/t6ea4n.jpeg",
+      "sha256": "ed81447479e17de92ef88b0b4e47601166ece1ba03f63c9c4e53f492a0c007e1",
+      "bytes": 85058,
+      "marker": "[SWCHAR|yugao-uzuki-anbu-cat.jpg|Yūgao Uzuki (ANBU — Cat)|#d6a84f]"
+    },
+    {
+      "name": "Torune Aburame (Root Agent)",
+      "filename": "torune-aburame-root-agent.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/torune-aburame-root-agent.jpg",
+      "aliases": [
+        "Torune Aburame (Root Agent)",
+        "torune-aburame-root-agent",
+        "Torune Aburame Root Agent",
+        "โทโอรุเนะ อาบุราเมะ (เจ้าหน้าที่ราก)",
+        "โทโอรุเนะ อาบุราเมะ เจ้าหน้าที่ราก"
+      ],
+      "source_url": "https://files.catbox.moe/0papwk.jpeg",
+      "sha256": "2897ba7186e02af50fd7f104e39bcc172c998c93faa351cd1e2150cc1495e0db",
+      "bytes": 63030,
+      "marker": "[SWCHAR|torune-aburame-root-agent.jpg|Torune Aburame (Root Agent)|#d6a84f]"
+    },
+    {
+      "name": "Fū Yamanaka (Root Agent)",
+      "filename": "fu-yamanaka-root-agent.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/fu-yamanaka-root-agent.jpg",
+      "aliases": [
+        "Fū Yamanaka (Root Agent)",
+        "fu-yamanaka-root-agent",
+        "Fu Yamanaka Root Agent",
+        "Fū Yamanaka Root Agent",
+        "ฟู ยามานากะ (เจ้าหน้าที่ราก)",
+        "ฟู ยามานากะ เจ้าหน้าที่ราก"
+      ],
+      "source_url": "https://files.catbox.moe/zz7q2g.jpeg",
+      "sha256": "67c1ff1cc3055af39a8bb92f7ac45a5a7c225afe4dd2c2d24e6d70e2825639b2",
+      "bytes": 45761,
+      "marker": "[SWCHAR|fu-yamanaka-root-agent.jpg|Fū Yamanaka (Root Agent)|#d6a84f]"
+    },
+    {
+      "name": "Shin (Sai's Brother — Root)",
+      "filename": "shin-sais-brother-root.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shin-sais-brother-root.jpg",
+      "aliases": [
+        "Shin (Sai's Brother — Root)",
+        "shin-sais-brother-root",
+        "Shin Sai s Brother Root",
+        "Shin (Sai's Brother - Root)",
+        "Shin Sai's Brother - Root",
+        "ชิน (พี่ชายของไซ — ราก)",
+        "ชิน พี่ชายของไซ - ราก"
+      ],
+      "source_url": "https://files.catbox.moe/p2h5zt.jpeg",
+      "sha256": "06caf8c8ddfb995ebbe1e6f8761fd3faa92b2face562045aa4e2e7bf7c22259e",
+      "bytes": 112467,
+      "marker": "[SWCHAR|shin-sais-brother-root.jpg|Shin (Sai's Brother — Root)|#d6a84f]"
+    },
+    {
+      "name": "Gaara (Genin — One-Tail Jinchūriki)",
+      "filename": "gaara-genin-one-tail-jinchuriki.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/gaara-genin-one-tail-jinchuriki.jpg",
+      "aliases": [
+        "Gaara (Genin — One-Tail Jinchūriki)",
+        "gaara-genin-one-tail-jinchuriki",
+        "Gaara Genin One Tail Jinchuriki",
+        "Gaara (Genin - One-Tail Jinchūriki)",
+        "Gaara Genin - One-Tail Jinchūriki",
+        "กาอาระ (เกนิน — จินชูริกิหนึ่งหาง)",
+        "กาอาระ เกนิน - จินชูริกิหนึ่งหาง"
+      ],
+      "source_url": "https://files.catbox.moe/ilrxhc.jpeg",
+      "sha256": "d08ba1e5843387bc8fe0986dc2fb7e74f251f291121baaaf74ff722060cded44",
+      "bytes": 175317,
+      "marker": "[SWCHAR|gaara-genin-one-tail-jinchuriki.jpg|Gaara (Genin — One-Tail Jinchūriki)|#d6a84f]"
+    },
+    {
+      "name": "Gaara (Partial Shukaku Form)",
+      "filename": "gaara-partial-shukaku-form.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/gaara-partial-shukaku-form.jpg",
+      "aliases": [
+        "Gaara (Partial Shukaku Form)",
+        "gaara-partial-shukaku-form",
+        "Gaara Partial Shukaku Form",
+        "กาอาระ (ร่างชูคาคุบางส่วน)",
+        "กาอาระ ร่างชูคาคุบางส่วน"
+      ],
+      "source_url": "https://files.catbox.moe/abxclr.jpeg",
+      "sha256": "8954b2d11c60466e4bf126eb07f370c566b7d575b9fb7b6d66ae99db10a1d97c",
+      "bytes": 88476,
+      "marker": "[SWCHAR|gaara-partial-shukaku-form.jpg|Gaara (Partial Shukaku Form)|#d6a84f]"
+    },
+    {
+      "name": "Gaara (Kazekage)",
+      "filename": "gaara-kazekage.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/gaara-kazekage.jpg",
+      "aliases": [
+        "Gaara (Kazekage)",
+        "gaara-kazekage",
+        "Gaara Kazekage",
+        "กาอาระ (คาเสะคาเงะ)",
+        "กาอาระ คาเสะคาเงะ"
+      ],
+      "source_url": "https://files.catbox.moe/yp847x.jpeg",
+      "sha256": "1b516aad8fbfc69751d043b0680839b8a469da11a0a2e5f3354ab6361eccd352",
+      "bytes": 172769,
+      "marker": "[SWCHAR|gaara-kazekage.jpg|Gaara (Kazekage)|#d6a84f]"
+    },
+    {
+      "name": "Gaara (Allied Commander)",
+      "filename": "gaara-allied-commander.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/gaara-allied-commander.jpg",
+      "aliases": [
+        "Gaara (Allied Commander)",
+        "gaara-allied-commander",
+        "Gaara Allied Commander",
+        "กาอาระ (ผู้บัญชาการฝ่ายพันธมิตร)",
+        "กาอาระ ผู้บัญชาการฝ่ายพันธมิตร"
+      ],
+      "source_url": "https://files.catbox.moe/wge8xv.jpeg",
+      "sha256": "6bf82027799b938459be2c88cea8cb0e2769c4909393c65278f18e05ae239777",
+      "bytes": 141665,
+      "marker": "[SWCHAR|gaara-allied-commander.jpg|Gaara (Allied Commander)|#d6a84f]"
+    },
+    {
+      "name": "Gaara (Adult)",
+      "filename": "gaara-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/gaara-adult.jpg",
+      "aliases": [
+        "Gaara (Adult)",
+        "gaara-adult",
+        "Gaara Adult",
+        "กาอาระ (วัยผู้ใหญ่)",
+        "กาอาระ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/wz36fu.jpeg",
+      "sha256": "9c88ea76eba76bb147216e747b462c470e09dafd16838ef199995ed4d58708d8",
+      "bytes": 125765,
+      "marker": "[SWCHAR|gaara-adult.jpg|Gaara (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Temari (Genin)",
+      "filename": "temari-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/temari-genin.jpg",
+      "aliases": [
+        "Temari (Genin)",
+        "temari-genin",
+        "Temari Genin",
+        "เทมาริ (เกนิน)",
+        "เทมาริ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/b5ucbb.jpeg",
+      "sha256": "f6a34aed89c770f3847ae3363df2fe4ee21a7c7063f07a71d85b5c7f981710c0",
+      "bytes": 111330,
+      "marker": "[SWCHAR|temari-genin.jpg|Temari (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Temari (Shippuden)",
+      "filename": "temari-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/temari-shippuden.jpg",
+      "aliases": [
+        "Temari (Shippuden)",
+        "temari-shippuden",
+        "Temari Shippuden",
+        "เทมาริ (ชิปปูเด็น)",
+        "เทมาริ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/sde6jp.jpeg",
+      "sha256": "12533d3bce5d58cbb36d0dd1aa107c96ff69d7f3e8e37889dc3e0dadec841fb0",
+      "bytes": 186840,
+      "marker": "[SWCHAR|temari-shippuden.jpg|Temari (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Temari (Adult — Nara Temari)",
+      "filename": "temari-adult-nara-temari.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/temari-adult-nara-temari.jpg",
+      "aliases": [
+        "Temari (Adult — Nara Temari)",
+        "temari-adult-nara-temari",
+        "Temari Adult Nara Temari",
+        "Temari (Adult - Nara Temari)",
+        "Temari Adult - Nara Temari",
+        "เทมาริ (วัยผู้ใหญ่ — เทมาริ นารา)",
+        "เทมาริ วัยผู้ใหญ่ - เทมาริ นารา"
+      ],
+      "source_url": "https://files.catbox.moe/uk9hr4.jpeg",
+      "sha256": "85bcadd57be7262d168f9c6633ce089585fb9928c1724cfa1fd8fcf1cb15424f",
+      "bytes": 153176,
+      "marker": "[SWCHAR|temari-adult-nara-temari.jpg|Temari (Adult — Nara Temari)|#d6a84f]"
+    },
+    {
+      "name": "Kankurō (Genin)",
+      "filename": "kankuro-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kankuro-genin.jpg",
+      "aliases": [
+        "Kankurō (Genin)",
+        "kankuro-genin",
+        "Kankuro Genin",
+        "Kankurō Genin",
+        "คันคุโร่ (เกนิน)",
+        "คันคุโร่ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/c442zk.jpeg",
+      "sha256": "207d0a7f6b9233422cc26c496a9c514730a9594a764aad5c9f3ce7a27e601a4a",
+      "bytes": 139922,
+      "marker": "[SWCHAR|kankuro-genin.jpg|Kankurō (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Kankurō (Shippuden)",
+      "filename": "kankuro-shippuden.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kankuro-shippuden.jpg",
+      "aliases": [
+        "Kankurō (Shippuden)",
+        "kankuro-shippuden",
+        "Kankuro Shippuden",
+        "Kankurō Shippuden",
+        "คันคุโร่ (ชิปปูเด็น)",
+        "คันคุโร่ ชิปปูเด็น"
+      ],
+      "source_url": "https://files.catbox.moe/4few6c.jpeg",
+      "sha256": "2882adf4a8dac237f40c291ad9fc125dd2764e9ef676bcd97ce3462ebb60800c",
+      "bytes": 53412,
+      "marker": "[SWCHAR|kankuro-shippuden.jpg|Kankurō (Shippuden)|#d6a84f]"
+    },
+    {
+      "name": "Kankurō (Adult)",
+      "filename": "kankuro-adult.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/kankuro-adult.jpg",
+      "aliases": [
+        "Kankurō (Adult)",
+        "kankuro-adult",
+        "Kankuro Adult",
+        "Kankurō Adult",
+        "คันคุโร่ (วัยผู้ใหญ่)",
+        "คันคุโร่ วัยผู้ใหญ่"
+      ],
+      "source_url": "https://files.catbox.moe/xbs2jh.jpeg",
+      "sha256": "f2df617214436ea9e2437aa06a3743f221e0a62912095b446fa1ce3177065e59",
+      "bytes": 216220,
+      "marker": "[SWCHAR|kankuro-adult.jpg|Kankurō (Adult)|#d6a84f]"
+    },
+    {
+      "name": "Baki (Jōnin Sensei)",
+      "filename": "baki-jonin-sensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/baki-jonin-sensei.jpg",
+      "aliases": [
+        "Baki (Jōnin Sensei)",
+        "baki-jonin-sensei",
+        "Baki Jonin Sensei",
+        "Baki Jōnin Sensei",
+        "บากิ (อาจารย์โจนิน)",
+        "บากิ อาจารย์โจนิน"
+      ],
+      "source_url": "https://files.catbox.moe/k7xgbw.jpeg",
+      "sha256": "65bd9dfe8162be59f27bf62ccbda16edacf510cbfed5aaf5993e66c3176900bc",
+      "bytes": 80595,
+      "marker": "[SWCHAR|baki-jonin-sensei.jpg|Baki (Jōnin Sensei)|#d6a84f]"
+    },
+    {
+      "name": "Chiyo (Elder)",
+      "filename": "chiyo-elder.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/chiyo-elder.jpg",
+      "aliases": [
+        "Chiyo (Elder)",
+        "chiyo-elder",
+        "Chiyo Elder",
+        "จิโยะ (ร่าง Elder)",
+        "จิโยะ ร่าง Elder"
+      ],
+      "source_url": "https://files.catbox.moe/fnh4az.jpeg",
+      "sha256": "eda1d248ed7a7e7766fe4e2fccb2a61340f728bd7938c92780bbf8d780e20ef7",
+      "bytes": 199334,
+      "marker": "[SWCHAR|chiyo-elder.jpg|Chiyo (Elder)|#d6a84f]"
+    },
+    {
+      "name": "Sasori (Child — Red Sand)",
+      "filename": "sasori-child-red-sand.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/sasori-child-red-sand.jpg",
+      "aliases": [
+        "Sasori (Child — Red Sand)",
+        "sasori-child-red-sand",
+        "Sasori Child Red Sand",
+        "Sasori (Child - Red Sand)",
+        "Sasori Child - Red Sand",
+        "ซาโซริ (วัยเด็ก — ทรายแดง)",
+        "ซาโซริ วัยเด็ก - ทรายแดง"
+      ],
+      "source_url": "https://files.catbox.moe/14oih4.jpeg",
+      "sha256": "a5cda1992c6a11a7c6012c5f5140930dc3c39c13c0b903b92e611160848d3642",
+      "bytes": 45098,
+      "marker": "[SWCHAR|sasori-child-red-sand.jpg|Sasori (Child — Red Sand)|#d6a84f]"
+    },
+    {
+      "name": "Rasa (Fourth Kazekage)",
+      "filename": "rasa-fourth-kazekage.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/rasa-fourth-kazekage.jpg",
+      "aliases": [
+        "Rasa (Fourth Kazekage)",
+        "rasa-fourth-kazekage",
+        "Rasa Fourth Kazekage",
+        "ราสะ (คาเสะคาเงะรุ่นที่สี่)",
+        "ราสะ คาเสะคาเงะรุ่นที่สี่"
+      ],
+      "source_url": "https://files.catbox.moe/8z11cw.jpeg",
+      "sha256": "84cf7e7b4a2222ee6defa92a2a83da20dc16689ab8e5a8e9bd3bd7f43d435f74",
+      "bytes": 110621,
+      "marker": "[SWCHAR|rasa-fourth-kazekage.jpg|Rasa (Fourth Kazekage)|#d6a84f]"
+    },
+    {
+      "name": "Third Kazekage (Third Kazekage)",
+      "filename": "third-kazekage-third-kazekage.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/third-kazekage-third-kazekage.jpg",
+      "aliases": [
+        "Third Kazekage (Third Kazekage)",
+        "third-kazekage-third-kazekage",
+        "Third Kazekage Third Kazekage",
+        "คาเสะคาเงะรุ่นที่สาม (คาเสะคาเงะรุ่นที่สาม)",
+        "คาเสะคาเงะรุ่นที่สาม คาเสะคาเงะรุ่นที่สาม"
+      ],
+      "source_url": "https://files.catbox.moe/2i7cka.jpeg",
+      "sha256": "724678b312f12c2860ee0056562d6bd1c3dac0d87dac549decfd4723fb42fc66",
+      "bytes": 74393,
+      "marker": "[SWCHAR|third-kazekage-third-kazekage.jpg|Third Kazekage (Third Kazekage)|#d6a84f]"
+    },
+    {
+      "name": "Shinki (Genin)",
+      "filename": "shinki-genin.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/shinki-genin.jpg",
+      "aliases": [
+        "Shinki (Genin)",
+        "shinki-genin",
+        "Shinki Genin",
+        "ชินกิ (เกนิน)",
+        "ชินกิ เกนิน"
+      ],
+      "source_url": "https://files.catbox.moe/ut2c7x.jpeg",
+      "sha256": "6aff86811b821aa4c0cbd59e9ab3a79facd4ea3d03be36f3b1a821c7b27a98eb",
+      "bytes": 149714,
+      "marker": "[SWCHAR|shinki-genin.jpg|Shinki (Genin)|#d6a84f]"
+    },
+    {
+      "name": "Zabuza Momochi (Demon of the Mist)",
+      "filename": "zabuza-momochi-demon-of-the-mist.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/zabuza-momochi-demon-of-the-mist.jpg",
+      "aliases": [
+        "Zabuza Momochi (Demon of the Mist)",
+        "zabuza-momochi-demon-of-the-mist",
+        "Zabuza Momochi Demon of the Mist",
+        "ซาบุสะ โมโมจิ (ปีศาจแห่งหมอก)",
+        "ซาบุสะ โมโมจิ ปีศาจแห่งหมอก"
+      ],
+      "source_url": "https://files.catbox.moe/0kkhqm.jpeg",
+      "sha256": "f0778f5039c87204667fdac6a057fb24a60de9da85479007df00e016d03f108e",
+      "bytes": 63472,
+      "marker": "[SWCHAR|zabuza-momochi-demon-of-the-mist.jpg|Zabuza Momochi (Demon of the Mist)|#d6a84f]"
+    },
+    {
+      "name": "Zabuza Momochi (Edo Tensei)",
+      "filename": "zabuza-momochi-edo-tensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/zabuza-momochi-edo-tensei.jpg",
+      "aliases": [
+        "Zabuza Momochi (Edo Tensei)",
+        "zabuza-momochi-edo-tensei",
+        "Zabuza Momochi Edo Tensei",
+        "ซาบุสะ โมโมจิ (เอโดะเท็นเซย์)",
+        "ซาบุสะ โมโมจิ เอโดะเท็นเซย์"
+      ],
+      "source_url": "https://files.catbox.moe/hdghss.jpeg",
+      "sha256": "c2896a10eb757f02ba4c7a43c147eec2d34bf841d340bfae9559953f3232c87b",
+      "bytes": 176237,
+      "marker": "[SWCHAR|zabuza-momochi-edo-tensei.jpg|Zabuza Momochi (Edo Tensei)|#d6a84f]"
+    },
+    {
+      "name": "Haku (Ice Mirror User)",
+      "filename": "haku-ice-mirror-user.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/haku-ice-mirror-user.jpg",
+      "aliases": [
+        "Haku (Ice Mirror User)",
+        "haku-ice-mirror-user",
+        "Haku Ice Mirror User",
+        "ฮาคุ (ผู้ใช้กระจกน้ำแข็ง)",
+        "ฮาคุ ผู้ใช้กระจกน้ำแข็ง"
+      ],
+      "source_url": "https://files.catbox.moe/afl592.jpeg",
+      "sha256": "f085938ece4d399faad39308748a740c2810ff2dca7217fca0077e35aa72e1e2",
+      "bytes": 69209,
+      "marker": "[SWCHAR|haku-ice-mirror-user.jpg|Haku (Ice Mirror User)|#d6a84f]"
+    },
+    {
+      "name": "Haku (Edo Tensei)",
+      "filename": "haku-edo-tensei.jpg",
+      "path": "Sillytavern/Shinobi World/Gallery/haku-edo-tensei.jpg",
+      "aliases": [
+        "Haku (Edo Tensei)",
+        "haku-edo-tensei",
+        "Haku Edo Tensei",
+        "ฮาคุ (เอโดะเท็นเซย์)",
+        "ฮาคุ เอโดะเท็นเซย์"
+      ],
+      "source_url": "https://files.catbox.moe/ga9z9h.jpeg",
+      "sha256": "26fd4fdb4e7f813e3bd2c720b21fc187a596a713c9f67794ed6afd9b16f42d48",
+      "bytes": 180019,
+      "marker": "[SWCHAR|haku-edo-tensei.jpg|Haku (Edo Tensei)|#d6a84f]"
+    }
+  ],
+  "note": "The files list is authoritative. Each entry includes English and Thai form-specific keywords from Shinobi World Gallery [LB].json. Use only the exact filename for that named form."
 }

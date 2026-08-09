@@ -1,1 +1,92 @@
-[{"id":"swc-b-header-gallery","scriptName":"SW Chronicle B • Character Header — GitHub Gallery","findRegex":"/\\[CHAR\\|((?!https?:\\/\\/)[^|\\]]+\\.(?:png|jpe?g|webp|gif))\\|(.*?)\\|(.*?)\\|(.*?)\\|(.*?)\\]/gi","replaceString":"<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:512px;margin:14px auto 16px;display:flex;align-items:center;gap:15px;padding-bottom:12px;border-bottom:1px solid #2b2118;font-family:'Spectral','Noto Serif Thai','Georgia',serif;position:relative;\"><div style=\"position:relative;width:54px;height:54px;flex-shrink:0;\"><span style=\"position:absolute;inset:0;border:1px solid #5b4938;\"></span><span style=\"position:absolute;inset:4px;background:#17100b;overflow:hidden;display:block;\"><span style=\"position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel','Noto Serif JP',serif;font-size:19px;color:color-mix(in srgb,$3 62%,#eadfc8);\">忍</span><img src=\"https://raw.githubusercontent.com/DesZiDesu/sillytavern-card/main/Sillytavern/Shinobi%20World/Gallery/$1\" alt=\"$2\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;background:#17100b;\"/></span><span style=\"position:absolute;left:-2px;bottom:-2px;width:11px;height:11px;background:$3;\"></span></div><div style=\"min-width:0;flex:1;position:relative;\"><span style=\"display:block;height:2px;width:32px;background:$3;margin-bottom:8px;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:15px;font-weight:600;letter-spacing:1.25px;color:#f1eadc;line-height:1.18;\">$2</span><span style=\"display:block;margin-top:4px;font-family:'Spectral','Noto Serif Thai',serif;font-size:10.5px;letter-spacing:.55px;color:#a38f76;line-height:1.3;\">$4 · $5</span><span style=\"position:absolute;right:8px;bottom:-2px;font-family:'Noto Serif JP',serif;font-size:11px;color:color-mix(in srgb,$3 55%,#8c765f);opacity:.55;\">葉</span></div><span style=\"position:absolute;right:3px;top:4px;width:30px;height:30px;border:1px solid color-mix(in srgb,$3 20%,transparent);border-radius:50%;opacity:.45;\"></span></div>","trimStrings":[],"placement":[1,2],"disabled":false,"markdownOnly":true,"promptOnly":false,"runOnEdit":true,"substituteRegex":0,"minDepth":null,"maxDepth":2},{"id":"swc-b-npc","scriptName":"SW Chronicle B • NPC Header","findRegex":"/\\[NPC\\|\\s*((\\S)[\\s\\S]*?)\\|(.*?)\\|(.*?)\\]/g","replaceString":"<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:512px;margin:14px auto 16px;display:flex;align-items:center;gap:15px;padding-bottom:12px;border-bottom:1px solid #2b2118;font-family:'Spectral','Noto Serif Thai','Georgia',serif;position:relative;\"><div style=\"position:relative;width:54px;height:54px;flex-shrink:0;\"><span style=\"position:absolute;inset:0;border:1px solid #5b4938;border-radius:50%;\"></span><span style=\"position:absolute;inset:4px;background:#17100b;display:flex;align-items:center;justify-content:center;border-radius:50%;\"><span style=\"font-family:'Cinzel','Noto Serif JP',serif;font-size:19px;color:color-mix(in srgb,$3 62%,#eadfc8);\">$2</span><span style=\"position:absolute;inset:7px;border:1px solid color-mix(in srgb,$3 22%,transparent);border-radius:50%;\"></span></span><span style=\"position:absolute;left:-2px;bottom:-2px;width:11px;height:11px;background:$3;\"></span></div><div style=\"min-width:0;flex:1;\"><span style=\"display:block;height:2px;width:32px;background:$3;margin-bottom:8px;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:15px;font-weight:600;letter-spacing:1.25px;color:#f1eadc;line-height:1.18;\">$1</span><span style=\"display:block;margin-top:4px;font-family:'Spectral','Noto Serif Thai',serif;font-size:10.5px;letter-spacing:.45px;color:#a38f76;line-height:1.3;\">$4</span></div></div>","trimStrings":[],"placement":[1,2],"disabled":false,"markdownOnly":true,"promptOnly":false,"runOnEdit":true,"substituteRegex":0,"minDepth":null,"maxDepth":2},{"id":"swc-b-dialogue","scriptName":"SW Chronicle B • Dialogue","findRegex":"/\\[SAY\\|(.*?)\\|([\\s\\S]*?)\\]/g","replaceString":"<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:512px;margin:4px auto 15px;font-family:'Spectral','Noto Serif Thai','Georgia',serif;\"><div style=\"position:relative;background:#18100c;border:1px solid color-mix(in srgb,$1 35%,#322019);border-left:3px solid $1;padding:11px 18px 12px;color:#ece2cd;font-size:14px;line-height:1.62;\"><span style=\"position:absolute;left:-1px;top:-1px;width:0;height:0;border-top:10px solid $1;border-right:10px solid transparent;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP',serif;font-size:8.5px;font-weight:700;letter-spacing:1.55px;text-transform:uppercase;color:color-mix(in srgb,$1 66%,#e8dcc0);margin-bottom:6px;line-height:1.2;\">VOICE RECORD · 言</span><span style=\"position:absolute;right:12px;top:10px;font-family:'Noto Serif JP',serif;font-size:18px;color:color-mix(in srgb,$1 32%,transparent);opacity:.45;\">言</span>$2</div></div>","trimStrings":[],"placement":[1,2],"disabled":false,"markdownOnly":true,"promptOnly":false,"runOnEdit":true,"substituteRegex":0,"minDepth":null,"maxDepth":null},{"id":"swc-b-monologue","scriptName":"SW Chronicle B • Monologue","findRegex":"/\\[THINK\\|(.*?)\\|(.*?)\\|([\\s\\S]*?)\\]/g","replaceString":"<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:470px;margin:12px auto 14px 4px;background:#eee3ca;border:1px solid #c7b58d;padding:11px 17px 12px;font-family:'Spectral','Noto Serif Thai','Georgia',serif;box-shadow:0 3px 12px rgba(0,0,0,.35);position:relative;\"><div style=\"display:flex;align-items:center;gap:8px;padding-bottom:7px;border-bottom:1px solid #d8c9a8;margin-bottom:8px;position:relative;z-index:1;\"><span style=\"width:7px;height:7px;background:$2;flex-shrink:0;\"></span><span style=\"font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:9px;font-weight:700;letter-spacing:1.4px;color:#66523e;text-transform:uppercase;\">$1</span><span style=\"flex:1;height:1px;background:linear-gradient(90deg,#d8c9a8,transparent);\"></span></div><div style=\"font-style:italic;font-size:13px;line-height:1.62;color:#35291c;position:relative;z-index:1;\">$3</div><span style=\"position:absolute;right:13px;bottom:8px;font-family:'Noto Serif JP',serif;font-size:38px;color:#d8c9a8;opacity:.52;\">心</span></div>","trimStrings":[],"placement":[1,2],"disabled":false,"markdownOnly":true,"promptOnly":false,"runOnEdit":true,"substituteRegex":0,"minDepth":null,"maxDepth":null}]
+[
+  {
+    "id": "swc-b-header-gallery",
+    "scriptName": "SW Chronicle B • Character Header — GitHub Gallery [SWCHAR]",
+    "findRegex": "/\\[SWCHAR\\|((?!https?:\\/\\/)[^|\\]]+\\.(?:png|jpe?g|webp|gif))\\|\\s*((?:\\S)[\\s\\S]*?)\\|(#[0-9a-fA-F]{3,6})\\|([^|\\]]*)\\|([^|\\]]*)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:512px;margin:14px auto 16px;display:flex;align-items:center;gap:15px;padding-bottom:12px;border-bottom:1px solid #2b2118;font-family:'Spectral','Noto Serif Thai','Georgia',serif;position:relative;\"><div style=\"position:relative;width:54px;height:54px;flex-shrink:0;\"><span style=\"position:absolute;inset:0;border:1px solid #5b4938;\"></span><span style=\"position:absolute;inset:4px;background:#17100b;overflow:hidden;display:block;\"><span style=\"position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel','Noto Serif JP',serif;font-size:19px;color:color-mix(in srgb,$3 62%,#eadfc8);\">忍</span><img src=\"https://raw.githubusercontent.com/DesZiDesu/sillytavern-card/main/Sillytavern/Shinobi%20World/Gallery/$1\" alt=\"$2\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;background:#17100b;\"/></span><span style=\"position:absolute;left:-2px;bottom:-2px;width:11px;height:11px;background:$3;\"></span></div><div style=\"min-width:0;flex:1;position:relative;\"><span style=\"display:block;height:2px;width:32px;background:$3;margin-bottom:8px;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:15px;font-weight:600;letter-spacing:1.25px;color:#f1eadc;line-height:1.18;\">$2</span><span style=\"display:block;margin-top:4px;font-family:'Spectral','Noto Serif Thai',serif;font-size:10.5px;letter-spacing:.55px;color:#a38f76;line-height:1.3;\">$4 · $5</span><span style=\"position:absolute;right:8px;bottom:-2px;font-family:'Noto Serif JP',serif;font-size:11px;color:color-mix(in srgb,$3 55%,#8c765f);opacity:.55;\">葉</span></div><span style=\"position:absolute;right:3px;top:4px;width:30px;height:30px;border:1px solid color-mix(in srgb,$3 20%,transparent);border-radius:50%;opacity:.45;\"></span></div>",
+    "trimStrings": [],
+    "placement": [
+      1,
+      2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": 2
+  },
+  {
+    "id": "swc-b-header-gallery-compact",
+    "scriptName": "SW Chronicle B • Character Header — GitHub Gallery (compact)",
+    "findRegex": "/\\[SWCHAR\\|((?!https?:\\/\\/)[^|\\]]+\\.(?:png|jpe?g|webp|gif))\\|\\s*((?:\\S)[\\s\\S]*?)\\|(#[0-9a-fA-F]{3,6})\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:512px;margin:14px auto 16px;display:flex;align-items:center;gap:15px;padding-bottom:12px;border-bottom:1px solid #2b2118;font-family:'Spectral','Noto Serif Thai','Georgia',serif;position:relative;\"><div style=\"position:relative;width:54px;height:54px;flex-shrink:0;\"><span style=\"position:absolute;inset:0;border:1px solid #5b4938;\"></span><span style=\"position:absolute;inset:4px;background:#17100b;overflow:hidden;display:block;\"><span style=\"position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel','Noto Serif JP',serif;font-size:19px;color:color-mix(in srgb,$3 62%,#eadfc8);\">忍</span><img src=\"https://raw.githubusercontent.com/DesZiDesu/sillytavern-card/main/Sillytavern/Shinobi%20World/Gallery/$1\" alt=\"$2\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;background:#17100b;\"/></span><span style=\"position:absolute;left:-2px;bottom:-2px;width:11px;height:11px;background:$3;\"></span></div><div style=\"min-width:0;flex:1;position:relative;\"><span style=\"display:block;height:2px;width:32px;background:$3;margin-bottom:8px;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:15px;font-weight:600;letter-spacing:1.25px;color:#f1eadc;line-height:1.18;\">$2</span><span style=\"position:absolute;right:8px;bottom:-2px;font-family:'Noto Serif JP',serif;font-size:11px;color:color-mix(in srgb,$3 55%,#8c765f);opacity:.55;\">葉</span></div><span style=\"position:absolute;right:3px;top:4px;width:30px;height:30px;border:1px solid color-mix(in srgb,$3 20%,transparent);border-radius:50%;opacity:.45;\"></span></div>",
+    "trimStrings": [],
+    "placement": [
+      1,
+      2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": 2
+  },
+  {
+    "id": "swc-b-npc",
+    "scriptName": "SW Chronicle B • NPC Header [SWNPC]",
+    "findRegex": "/\\[SWNPC\\|\\s*((\\S)[\\s\\S]*?)\\|(#[0-9a-fA-F]{3,6})(?:\\|([\\s\\S]*?))?\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:512px;margin:14px auto 16px;display:flex;align-items:center;gap:15px;padding-bottom:12px;border-bottom:1px solid #2b2118;font-family:'Spectral','Noto Serif Thai','Georgia',serif;position:relative;\"><div style=\"position:relative;width:54px;height:54px;flex-shrink:0;\"><span style=\"position:absolute;inset:0;border:1px solid #5b4938;border-radius:50%;\"></span><span style=\"position:absolute;inset:4px;background:#17100b;display:flex;align-items:center;justify-content:center;border-radius:50%;\"><span style=\"font-family:'Cinzel','Noto Serif JP',serif;font-size:19px;color:color-mix(in srgb,$3 62%,#eadfc8);\">$2</span><span style=\"position:absolute;inset:7px;border:1px solid color-mix(in srgb,$3 22%,transparent);border-radius:50%;\"></span></span><span style=\"position:absolute;left:-2px;bottom:-2px;width:11px;height:11px;background:$3;\"></span></div><div style=\"min-width:0;flex:1;\"><span style=\"display:block;height:2px;width:32px;background:$3;margin-bottom:8px;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:15px;font-weight:600;letter-spacing:1.25px;color:#f1eadc;line-height:1.18;\">$1</span><span style=\"display:block;margin-top:4px;font-family:'Spectral','Noto Serif Thai',serif;font-size:10.5px;letter-spacing:.45px;color:#a38f76;line-height:1.3;\">$4</span></div></div>",
+    "trimStrings": [],
+    "placement": [
+      1,
+      2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": 2
+  },
+  {
+    "id": "swc-b-dialogue",
+    "scriptName": "SW Chronicle B • Dialogue [SWSAY]",
+    "findRegex": "/\\[SWSAY\\|(?:(?!#)([^|\\]]*)\\|)?(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:512px;margin:4px auto 15px;font-family:'Spectral','Noto Serif Thai','Georgia',serif;\"><div style=\"position:relative;background:#18100c;border:1px solid color-mix(in srgb,$2 35%,#322019);border-left:3px solid $2;padding:11px 18px 12px;color:#ece2cd;font-size:14px;line-height:1.62;\"><span style=\"position:absolute;left:-1px;top:-1px;width:0;height:0;border-top:10px solid $2;border-right:10px solid transparent;\"></span><span style=\"display:block;font-family:'Cinzel','Noto Serif JP',serif;font-size:8.5px;font-weight:700;letter-spacing:1.55px;text-transform:uppercase;color:color-mix(in srgb,$2 66%,#e8dcc0);margin-bottom:6px;line-height:1.2;\">VOICE RECORD · 言</span><span style=\"position:absolute;right:12px;top:10px;font-family:'Noto Serif JP',serif;font-size:18px;color:color-mix(in srgb,$2 32%,transparent);opacity:.45;\">言</span>$3</div></div>",
+    "trimStrings": [],
+    "placement": [
+      1,
+      2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+  },
+  {
+    "id": "swc-b-monologue",
+    "scriptName": "SW Chronicle B • Monologue [SWTHINK]",
+    "findRegex": "/\\[SWTHINK\\|(.*?)\\|(#[0-9a-fA-F]{3,6})\\|([\\s\\S]*?)\\]/g",
+    "replaceString": "<link href=\"https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+Thai:wght@500;700&display=swap\" rel=\"stylesheet\"/><div style=\"max-width:470px;margin:12px auto 14px 4px;background:#eee3ca;border:1px solid #c7b58d;padding:11px 17px 12px;font-family:'Spectral','Noto Serif Thai','Georgia',serif;box-shadow:0 3px 12px rgba(0,0,0,.35);position:relative;\"><div style=\"display:flex;align-items:center;gap:8px;padding-bottom:7px;border-bottom:1px solid #d8c9a8;margin-bottom:8px;position:relative;z-index:1;\"><span style=\"width:7px;height:7px;background:$2;flex-shrink:0;\"></span><span style=\"font-family:'Cinzel','Noto Serif JP','Noto Serif Thai',serif;font-size:9px;font-weight:700;letter-spacing:1.4px;color:#66523e;text-transform:uppercase;\">$1</span><span style=\"flex:1;height:1px;background:linear-gradient(90deg,#d8c9a8,transparent);\"></span></div><div style=\"font-style:italic;font-size:13px;line-height:1.62;color:#35291c;position:relative;z-index:1;\">$3</div><span style=\"position:absolute;right:13px;bottom:8px;font-family:'Noto Serif JP',serif;font-size:38px;color:#d8c9a8;opacity:.52;\">心</span></div>",
+    "trimStrings": [],
+    "placement": [
+      1,
+      2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": null,
+    "maxDepth": null
+  }
+]
