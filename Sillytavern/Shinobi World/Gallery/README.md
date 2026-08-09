@@ -2,10 +2,14 @@
 
 Repository-backed portrait directory for the optional Shinobi Chronicle UI packs.
 
-Use a bare filename in the existing `[CHAR]` image slot, for example:
+Use an exact filename from the gallery binding lorebook:
 
-`[CHAR|sasuke.png|Sasuke Uchiha|#6f71a8|Jōnin|Konohagakure]`
+`[SWCHAR|filename.jpg|Name|#HEX]`
 
-The Chronicle header resolves that filename from `Sillytavern/Shinobi World/Gallery/<filename>` on the repository `main` branch.
+or the metadata form:
 
-Do not put a full URL in the Chronicle `[CHAR]` tag. Add the actual image file to this folder first. The existing default Shinobi World header regexes are unchanged.
+`[SWCHAR|filename.jpg|Name|#HEX|Village|Rank]`
+
+The optional Chronicle header resolves the filename from `Sillytavern/Shinobi World/Gallery/<filename>` on the repository `main` branch. The Gallery lorebook contains both English and Thai keywords for every approved character/form and keeps each form-specific filename separate.
+
+Do not put a full URL, Catbox code, or generic `[CHAR]` token in the namespaced `[SWCHAR]` marker. The default Shinobi World header regex remains independent.
