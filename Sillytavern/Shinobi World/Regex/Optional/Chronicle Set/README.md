@@ -1,21 +1,45 @@
-# Shinobi World — Chronicle Set (Optional)
+# Shinobi World — Optional Chronicle Set
 
-Four independent alternatives inspired closely by the Mushoku Tensei Chronicle Set.
+Four selectable Chronicle-style UI options for Shinobi World. Import **one option only**.
 
-- A — Chronicle Classic: closest to the Mushoku Tensei Chronicle grammar.
-- B — Illuminated Shinobi: Chronicle structure with restrained seal/village details.
-- C — Dark Archive: darker field-record treatment.
-- D — Scroll Chronicle: Chronicle structure with Japanese manuscript cues.
+- A — Chronicle Classic
+- B — Illuminated Shinobi
+- C — Dark Archive
+- D — Scroll Chronicle
 
-These files do not replace the existing Shinobi World regex files. Import one option only, preferably its `*_All.json` file.
+These files are isolated from the default Shinobi World Regex. The optional set uses a dedicated `SW` marker namespace, so it does not match the default `[CHAR]`, `[NPC]`, `[SAY]`, or `[THINK]` tags and does not collide with another folder's Global Chronicle scripts.
 
-For Chronicle portraits, `[CHAR]` uses a GitHub Gallery filename, not a URL:
-`[CHAR|sasuke.png|Sasuke Uchiha|#6f71a8|Jōnin|Konohagakure]`
+## Marker contract
 
-Compatible tags:
-- `[CHAR|filename.png|Name|color|rank|village]`
-- `[NPC|Name|color|role]`
-- `[SAY|color|text]`
-- `[THINK|Name|color|text]`
+Gallery portrait, compact form:
+`[SWCHAR|filename.jpg|Name|#HEX]`
 
-Disable the default Shinobi Header/NPC/Dialogue/Monologue regexes only in chats where a Chronicle option is enabled.
+Gallery portrait with metadata:
+`[SWCHAR|filename.jpg|Name|#HEX|Village|Rank]`
+
+NPC without an exact gallery portrait:
+`[SWNPC|Name|#HEX|Role]`
+
+Dialogue:
+`[SWSAY|#HEX|spoken words]` or `[SWSAY|Speaker Name|#HEX|spoken words]`
+
+Inner thought:
+`[SWTHINK|Name|#HEX|inner thought]`
+
+Keep each marker on its own final line after the prose. The marker is for the Regex renderer and must not be narrated.
+
+## Gallery rules
+
+- Use the exact filename from `Sillytavern/Shinobi World/Gallery/` and the separate `Shinobi World Gallery [LB].json` binding file.
+- Each binding has English and Thai form-specific keywords.
+- Match the exact age, era, clothing, village, rank, title, and transformation; do not substitute a generic portrait for another form.
+- Never invent a URL, Catbox ID, base64 image, filename, or path.
+- If there is no exact binding, use `[SWNPC|Name|#HEX|Role]`.
+
+## Install
+
+1. Keep the default Shinobi Regex and main `Shinobi World [LB]` unchanged.
+2. Import one `SW_Chronicle_*_All.json` option.
+3. Import `Shinobi World Gallery [LB].json` for the English/Thai image bindings.
+4. Import `Shinobi_Chronicle_Gallery_Instructions.json` if you want the namespaced output rules as a separate instruction entry.
+5. Do not import Options A–D together.
