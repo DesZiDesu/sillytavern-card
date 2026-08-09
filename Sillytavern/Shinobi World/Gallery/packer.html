@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shinobi World · Catbox ZIP Packer</title>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<style>
+:root{--bg:#0b0906;--panel:#17110a;--line:#463824;--ink:#eee6d7;--muted:#aa9c83;--accent:#c89a57;--ok:#7fc68a;--bad:#df7777}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0,#24170e,transparent 45rem),var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}main{width:min(980px,calc(100% - 24px));margin:auto;padding:28px 0 60px}h1{font:700 clamp(28px,6vw,48px) Georgia,serif;margin:0 0 8px}.sub{color:var(--muted);max-width:760px}.panel{margin-top:20px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}button,a.btn{appearance:none;border:1px solid #6d5638;background:#231a10;color:#fff;padding:11px 14px;border-radius:8px;font-weight:700;cursor:pointer;text-decoration:none}button.primary{background:#704d25;border-color:#a7773e}button:disabled{opacity:.45;cursor:not-allowed}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.stat{padding:10px;background:#100c08;border:1px solid #33291c;border-radius:8px}.stat b{display:block;font-size:20px}.stat span{color:var(--muted);font-size:11px}.bar{height:10px;background:#0d0a07;border:1px solid #34281a;border-radius:999px;overflow:hidden;margin-top:14px}.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8f6431,#d1a35c);transition:width .2s}.status{margin-top:10px;color:var(--muted)}.status.ok{color:var(--ok)}.status.bad{color:var(--bad)}details{margin-top:14px}pre{white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto;background:#0d0a07;border:1px solid #34281a;padding:10px;border-radius:8px;color:#c9bda8}.note{margin-top:14px;padding:11px;border-left:3px solid var(--accent);background:#120e09;color:#c7b79d;font-size:12px}code{color:#dfc290}@media(max-width:650px){.meta{grid-template-columns:1fr 1fr}.row>*{flex:1 1 auto}}
+</style>
+</head>
+<body><main>
+<h1>Shinobi World · Catbox ZIP Packer</h1>
+<p class="sub">Downloads every supplied Catbox portrait listed in <code>sources.tsv</code>, renames each file to the mapped Shinobi character/form filename, and packs them into one ZIP in your browser.</p>
+<section class="panel">
+<div class="row">
+<button id="start" class="primary" disabled>Build renamed ZIP</button>
+<button id="retry" disabled>Retry failed only</button>
+<a id="ziplink" class="btn" hidden>Download ZIP</a>
+</div>
+<div class="meta">
+<div class="stat"><b id="total">0</b><span>Mapped portraits</span></div>
+<div class="stat"><b id="done">0</b><span>Downloaded</span></div>
+<div class="stat"><b id="proxy">0</b><span>Relay fallback</span></div>
+<div class="stat"><b id="failed">0</b><span>Failed</span></div>
+</div>
+<div class="bar"><i id="fill"></i></div>
+<div id="status" class="status">Loading sources.tsv…</div>
+<details><summary>Transfer log</summary><pre id="log"></pre></details>
+<div class="note">Transfer order: direct Catbox first. If the browser blocks Catbox because of CORS, the packer retries through <code>wsrv.nl</code>. The relay preserves the source format when possible, but may re-encode the image. The generated ZIP includes <code>manifest.json</code>, <code>sources.tsv</code>, and <code>PACKER_REPORT.txt</code> so you can see exactly which method was used for every file.</div>
+</section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let rows=[],results=new Map(),failedRows=[],zipUrl=null,running=false;
+function write(s){$('log').textContent+=s+'\n';$('log').scrollTop=$('log').scrollHeight}
+function setStatus(s,cls=''){const e=$('status');e.textContent=s;e.className='status '+cls}
+function update(){const d=[...results.values()].filter(x=>x.ok).length,p=[...results.values()].filter(x=>x.ok&&x.method==='relay').length,f=failedRows.length;$('done').textContent=d;$('proxy').textContent=p;$('failed').textContent=f;$('fill').style.width=(rows.length?((d+f)/rows.length*100):0)+'%'}
+function parseTSV(t){return t.split(/\r?\n/).filter(Boolean).map(line=>{const a=line.split('\t');return {filename:a[0],url:a[1],name:a.slice(2).join('\t')}}).filter(x=>x.filename&&x.url)}
+function relayUrl(r){const ext=(r.filename.split('.').pop()||'').toLowerCase();let output='';if(ext==='jpg'||ext==='jpeg')output='&output=jpg&q=100';else if(ext==='png')output='&output=png';else if(ext==='gif')output='&output=gif&n=-1';else if(ext==='webp')output='&output=webp&q=100';const u=r.url.replace(/^https?:\/\//,'');return 'https://wsrv.nl/?url='+encodeURIComponent(u)+output}
+async function fetchBlob(url,timeout=45000){const c=new AbortController(),t=setTimeout(()=>c.abort(),timeout);try{const r=await fetch(url,{mode:'cors',cache:'no-store',signal:c.signal});if(!r.ok)throw new Error('HTTP '+r.status);const b=await r.blob();if(!b.size)throw new Error('empty response');if(b.type&&!b.type.startsWith('image/'))throw new Error('not image: '+b.type);return b}finally{clearTimeout(t)}}
+async function one(r){try{const b=await fetchBlob(r.url);write('DIRECT  '+r.filename);return {ok:true,blob:b,method:'direct',bytes:b.size}}catch(e1){write('direct failed '+r.filename+' — '+e1.message);try{const b=await fetchBlob(relayUrl(r));write('RELAY   '+r.filename);return {ok:true,blob:b,method:'relay',bytes:b.size}}catch(e2){write('FAILED  '+r.filename+' — '+e2.message);return {ok:false,error:e2.message,method:'failed',bytes:0}}}}
+async function pool(items,limit=4){let i=0;async function worker(){while(i<items.length){const r=items[i++];const out=await one(r);results.set(r.filename,{...r,...out});if(!out.ok)failedRows.push(r);update()}}await Promise.all(Array.from({length:Math.min(limit,items.length)},worker))}
+function cleanOldZip(){if(zipUrl){URL.revokeObjectURL(zipUrl);zipUrl=null}$('ziplink').hidden=true}
+async function buildZip(){if(running)return;running=true;cleanOldZip();results.clear();failedRows=[];$('log').textContent='';update();$('start').disabled=true;$('retry').disabled=true;setStatus('Downloading portraits…');await pool(rows,4);await finalize();running=false}
+async function retryFailed(){if(running||!failedRows.length)return;running=true;cleanOldZip();const retry=[...failedRows];failedRows=[];$('retry').disabled=true;setStatus('Retrying failed portraits…');await pool(retry,3);await finalize();running=false}
+async function finalize(){const ok=[...results.values()].filter(x=>x.ok);const bad=[...results.values()].filter(x=>!x.ok);if(!ok.length){setStatus('Nothing could be downloaded. Check the transfer log.','bad');$('start').disabled=false;$('retry').disabled=!failedRows.length;return}setStatus('Packing '+ok.length+' files into ZIP…');const z=new JSZip(),folder=z.folder('Shinobi-World-Gallery');for(const r of ok)folder.file(r.filename,r.blob,{binary:true});const manifest={schema:'shinobi_world_download_pack.v1',created_at:new Date().toISOString(),requested_count:rows.length,packed_count:ok.length,failed_count:bad.length,files:ok.map(r=>({name:r.name,filename:r.filename,source_url:r.url,transfer_method:r.method,bytes:r.bytes})),failed:bad.map(r=>({name:r.name,filename:r.filename,source_url:r.url,error:r.error}))};folder.file('manifest.json',JSON.stringify(manifest,null,2)+'\n');folder.file('sources.tsv',rows.map(r=>[r.filename,r.url,r.name].join('\t')).join('\n')+'\n');folder.file('PACKER_REPORT.txt',['Shinobi World Catbox Packer','Requested: '+rows.length,'Packed: '+ok.length,'Failed: '+bad.length,'Direct downloads: '+ok.filter(r=>r.method==='direct').length,'Relay fallback: '+ok.filter(r=>r.method==='relay').length,'',...ok.map(r=>`${r.method.toUpperCase()}\t${r.filename}\t${r.url}`),...(bad.length?['','FAILED',...bad.map(r=>`${r.filename}\t${r.url}\t${r.error}`)]:[])].join('\n'));const blob=await z.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}},m=>setStatus('Compressing ZIP… '+m.percent.toFixed(0)+'%'));zipUrl=URL.createObjectURL(blob);const a=$('ziplink');a.href=zipUrl;a.download='shinobi-world-gallery-renamed.zip';a.hidden=false;$('start').disabled=false;$('retry').disabled=!failedRows.length;if(bad.length)setStatus(`ZIP ready with ${ok.length}/${rows.length} portraits. ${bad.length} failed; use Retry failed only.`,'bad');else setStatus(`ZIP ready: all ${ok.length} portraits downloaded and renamed.`,'ok')}
+(async()=>{try{const r=await fetch('./sources.tsv',{cache:'no-store'});if(!r.ok)throw new Error('sources.tsv HTTP '+r.status);rows=parseTSV(await r.text());$('total').textContent=rows.length;if(!rows.length)throw new Error('No mappings found');$('start').disabled=false;setStatus(`Loaded ${rows.length} mapped Catbox portraits. Ready.`,'ok');write('Loaded '+rows.length+' mappings from sources.tsv')}catch(e){setStatus('Could not load sources.tsv: '+e.message,'bad');write(e.stack||e.message)}})();
+$('start').onclick=buildZip;$('retry').onclick=retryFailed;
+</script>
+</body></html>
