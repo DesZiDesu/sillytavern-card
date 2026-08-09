@@ -2,11 +2,19 @@
 
 Store SillyTavern World Info / lorebook files for the Honkai Impact 3rd bot here.
 
-Suggested separation:
+## Importable lorebook
 
-- `world.json` — setting, eras, locations, factions, and terminology
-- `characters.json` — supporting cast information not embedded in individual cards
-- `organizations.json` — Schicksal, Anti-Entropy, World Serpent, and other groups
-- `timeline.json` — event chronology when the bot needs timeline-aware context
+- `Honkai Impact 3rd [LB].json` — the main HI3 lorebook with 116 entries covering cosmology, Honkai systems, Previous Era, Current Era, Part 1, Part 1.5, Part 2 through Chapter XIII, characters, factions, locations, and event-by-event A → B → C → End flows.
 
-Keep authored lorebook exports and any editable source notes together in this folder.
+## Entry contract
+
+- Constant entries intentionally use an empty `key` array and are always available.
+- Non-constant entries are vectorized and include both English and Thai retrieval keywords.
+- The file keeps mainline Earth, Part 1.5, Part 2, APHO, Captainverse, bubble universes, and crossover material separated by continuity rules.
+- The canon cutoff is Part 2 Chapter XIII: `A Rose in a Curtsy`; future chapters must be labelled as speculation or an original continuation.
+
+## Import notes
+
+Import the JSON as a SillyTavern World Info / lorebook. If the companion HI3 regex pack is enabled, use only exact portrait slugs from the repository's HI3 portrait assets. The lorebook documents `[HI3CHAR]`, `[HI3NPC]`, `[HI3SAY]`, and `[HI3THINK]` marker contracts; do not invent image URLs or filenames.
+
+Keep authored lorebook exports and editable source notes together in this folder.
