@@ -4,36 +4,34 @@ This is the main workspace for building the **Honkai Impact 3rd SillyTavern bot*
 
 ## Project structure
 
-- `characters/` — SillyTavern character cards and source data
-- `lorebooks/` — world-info and lorebook JSON files
-- `prompts/` — reusable prompts and author notes
-- `regex/` — importable SillyTavern message UI regex scripts
-- `previews/` — PC, mobile, and responsive UI previews
-- `assets/` — UI portraits and shared bot-facing media
-- `references/` — canon and terminology research
-- `project.json` — machine-readable project registry
+- characters/ — SillyTavern character cards and source data
+- lorebooks/ — world-info and lorebook JSON files
+- prompts/ — reusable prompts and author notes
+- regex/ — importable SillyTavern message UI Regex scripts
+- previews/ — PC, mobile, and responsive UI previews
+- assets/ — UI portraits and shared bot-facing media
+- references/ — canon and terminology research
+- project.json — machine-readable project registry
 
-## Portrait resources
+## Gallery
 
-The portrait gallery remains in [`../hi3-portraits/`](../hi3-portraits/) and is linked through `assets/galleries/`.
+The Character Header uses the real repository gallery in Gallery/. Use an exact gallery filename stem in the HI3CHAR marker, for example:
 
-## Message UI — Valkyrie Command V2
+[HI3CHAR|040_Herrscher_of_Flamescion_(Avatar)|Kiana Kaslana|psy|Herrscher of Flamescion|Schicksal · Hyperion]
 
-The current UI set uses a HI3-inspired light Valkyrie data language with cyan crystal structure and magenta rails:
+The gallery URL is the primary image source. Legacy assets/ui/portraits/ stems remain a fallback for older markers.
 
-- Character Header with portrait
+## Message UI — Valkyrja Operations V3
+
+Install regex/HI3_Message_UI_V3_Package.json once to import the four-entry package:
+
+- Character Header with gallery portrait
 - NPC Header without portrait
 - Dialogue — Voice Link
 - Monologue — Cognitive Trace
 
-Previews:
-
-- [Responsive review board](previews/hi3_message_ui_preview.html)
-- [PC preview](previews/hi3_message_ui_preview_pc.html)
-- [Mobile preview](previews/hi3_message_ui_preview_mobile.html)
-
-Token contracts remain unchanged. Narrator and Status UI are still pending.
+The V3 language uses light command surfaces, clipped data plates, cyan/magenta rails, gold type accents, and a dark cognitive surface for monologue.
 
 ## Status
 
-The RPG card has a description draft and message UI V2. First Message, Personality, Scenario, Lorebooks, Narrator, and Status UI remain pending.
+The message UI package is at V3. First Message, Personality, and Scenario fields remain pending.
