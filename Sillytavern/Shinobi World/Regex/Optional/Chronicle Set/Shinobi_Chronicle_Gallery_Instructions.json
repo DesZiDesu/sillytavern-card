@@ -5,7 +5,7 @@
       "key": [],
       "keysecondary": [],
       "comment": "Shinobi World — Optional Chronicle Namespaced Output",
-      "content": "[Shinobi World optional Chronicle instructions]\nUse only the namespaced SW markers documented here. The existing Shinobi World Regex and lorebook remain separate and are not rewritten.\n\n[SWCHAR|filename.jpg|Exact Display Name|#HEX]\n[SWCHAR|filename.jpg|Exact Display Name|#HEX|Village|Rank]\n[SWNPC|Exact Name|#HEX|Role]\n[SWSAY|#HEX|spoken words]\n[SWSAY|Speaker Name|#HEX|spoken words]\n[SWTHINK|Character Name|#HEX|inner thought]\n\nUse exact gallery filenames and exact form-specific bindings. The optional Gallery lorebook provides both English and Thai keywords for each approved character/form. Never output generic [CHAR], [NPC], [SAY], or [THINK] markers in this optional mode. Keep markers on separate final lines and never narrate them.",
+      "content": "[Shinobi World optional Chronicle instructions]\nUse only the namespaced SW markers documented here. The existing Shinobi World Regex and lorebook remain separate and are not rewritten.\n\n[SWCHAR|filename.jpg|Exact Display Name|#HEX]\n[SWCHAR|filename.jpg|Exact Display Name|#HEX|Village|Rank]\n[SWNPC|Exact Name|#HEX|Role]\n[SWSAY|#HEX|spoken words]\n[SWSAY|Speaker Name|#HEX|spoken words]\n[SWTHINK|Character Name|#HEX|inner thought]\n\nUse exact Gallery filenames and exact form-specific mappings from the always-active 336-entry constant NPC registry. English and Thai aliases are reference names only; do not wait for keywords. Never output generic [CHAR], [NPC], [SAY], or [THINK] markers in this optional mode. Keep markers on separate final lines and never narrate them.",
       "constant": true,
       "vectorized": false,
       "selective": false,

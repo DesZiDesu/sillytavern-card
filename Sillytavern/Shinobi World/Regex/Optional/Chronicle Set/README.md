@@ -7,7 +7,7 @@ Four selectable Chronicle-style UI options for Shinobi World. Import **one optio
 - C — Dark Archive
 - D — Scroll Chronicle
 
-These files are isolated from the default Shinobi World Regex. The optional set uses a dedicated `SW` marker namespace, so it does not match the default `[CHAR]`, `[NPC]`, `[SAY]`, or `[THINK]` tags and does not collide with another folder's Global Chronicle scripts.
+These files are isolated from the default Shinobi World Regex. The optional set uses the dedicated `SW` marker namespace, so it does not match the default `[CHAR]`, `[NPC]`, `[SAY]`, or `[THINK]` tags.
 
 ## Marker contract
 
@@ -30,8 +30,9 @@ Keep each marker on its own final line after the prose. The marker is for the Re
 
 ## Gallery rules
 
-- Use the exact filename from `Sillytavern/Shinobi World/Gallery/` and the separate `Shinobi World Gallery [LB].json` binding file.
-- Each binding has English and Thai form-specific keywords.
+- Use the exact filename from `Sillytavern/Shinobi World/Gallery/` and the separate `Shinobi World Gallery [LB].json` constant NPC registry.
+- The registry contains 336 exact mappings in seven always-active batches; its `key` and `keysecondary` arrays are intentionally empty.
+- English and Thai aliases are reference names, not activation keywords.
 - Match the exact age, era, clothing, village, rank, title, and transformation; do not substitute a generic portrait for another form.
 - Never invent a URL, Catbox ID, base64 image, filename, or path.
 - If there is no exact binding, use `[SWNPC|Name|#HEX|Role]`.
@@ -40,6 +41,6 @@ Keep each marker on its own final line after the prose. The marker is for the Re
 
 1. Keep the default Shinobi Regex and main `Shinobi World [LB]` unchanged.
 2. Import one `SW_Chronicle_*_All.json` option.
-3. Import `Shinobi World Gallery [LB].json` for the English/Thai image bindings.
+3. Import `Shinobi World Gallery [LB].json` for the constant NPC image registry.
 4. Import `Shinobi_Chronicle_Gallery_Instructions.json` if you want the namespaced output rules as a separate instruction entry.
 5. Do not import Options A–D together.
