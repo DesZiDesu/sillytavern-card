@@ -15,6 +15,6 @@ Store SillyTavern World Info / lorebook files for the Honkai Impact 3rd bot here
 
 ## Import notes
 
-Import the JSON as a SillyTavern World Info / lorebook. If the companion HI3 regex pack is enabled, use only exact portrait slugs from the repository's HI3 portrait assets. The lorebook documents `[HI3CHAR]`, `[HI3NPC]`, `[HI3SAY]`, and `[HI3THINK]` marker contracts; do not invent image URLs or filenames.
+Import the JSON as a SillyTavern World Info / lorebook. If the companion HI3 V3 regex package is enabled, use exact gallery filename stems from `Honkai Impact 3rd/Gallery/` for `[HI3CHAR]`; the Regex appends `.png` and loads the repository gallery first. The lorebook documents `[HI3CHAR]`, `[HI3NPC]`, `[HI3SAY]`, and `[HI3THINK]` marker contracts; do not invent image URLs or filenames.
 
 Keep authored lorebook exports and editable source notes together in this folder.
