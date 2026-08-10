@@ -2,7 +2,7 @@
   "schema": "sillytavern_bot_workspace.v1",
   "project": "Honkai Impact 3rd",
   "purpose": "SillyTavern bot development workspace",
-  "status": "message-ui-v2",
+  "status": "message-ui-v3",
   "paths": {
     "characters": "characters/",
     "lorebooks": "lorebooks/",
@@ -16,7 +16,8 @@
     "rpg_card": "characters/honkai-impact-3rd-rpg/card.json",
     "message_ui_preview": "previews/hi3_message_ui_preview.html",
     "message_ui_preview_pc": "previews/hi3_message_ui_preview_pc.html",
-    "message_ui_preview_mobile": "previews/hi3_message_ui_preview_mobile.html"
+    "message_ui_preview_mobile": "previews/hi3_message_ui_preview_mobile.html",
+    "message_ui_package": "regex/HI3_Message_UI_V3_Package.json"
   },
   "portrait_collections": [
     "Battlesuit Avatars",
@@ -29,7 +30,7 @@
     "scenario": false
   },
   "ui_state": {
-    "design": "Valkyrie Command V2",
+    "design": "Honkai Impact UI V3 — Valkyrja Operations",
     "character_header": true,
     "npc_header": true,
     "dialogue": true,
