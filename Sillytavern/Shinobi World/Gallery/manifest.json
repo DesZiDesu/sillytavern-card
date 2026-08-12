@@ -1,7 +1,7 @@
 {
   "schema": "shinobi_world_gallery.v1",
   "base_path": "Sillytavern/Shinobi World/Gallery/",
-  "usage": "[SWCHAR|filename.jpg|Name|#color|Village|Rank]",
+  "usage": "[CHAR|filename.jpg|Name|#color|Village|Rank]",
   "actual_file_count": 336,
   "files": [
     {
@@ -6708,5 +6708,5 @@
       "number": 336
     }
   ],
-  "note": "The files list is authoritative. Every entry is an exact form-to-filename binding. The constant Gallery lorebook mirrors this list in seven batches and includes English and Thai aliases as reference names, not activation keywords."
+  "note": "The files list is authoritative. Every entry is an exact form-to-filename binding. The Mushoku-style Gallery lorebook mirrors this list in one constant NPC LIST [SW] entry with empty key and keysecondary arrays, including English and Thai aliases as reference text rather than activation keywords. The standard SW Header Regex resolves [CHAR|filename.jpg|Name|#color|Village|Rank] from this Gallery path. Optional Chronicle [SWCHAR] markers remain separate."
 }
