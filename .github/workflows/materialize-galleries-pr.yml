@@ -1,0 +1,123 @@
+name: Materialize portrait galleries
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Build actual HI3 and Shinobi gallery files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import hashlib, html, json, shutil
+
+          gallery = Path('Honkai Impact 3rd/Gallery')
+          if gallery.exists():
+              shutil.rmtree(gallery)
+          gallery.mkdir(parents=True)
+
+          packs = [
+              ('honkai-impact-3-battlesuit-avatars.zip', 'Battlesuit Avatars'),
+              ('honkai-impact-3-male-avatars-option-a.zip', 'Male Characters - Option A'),
+          ]
+          rows=[]
+          seen=set()
+          for archive, collection in packs:
+              with ZipFile(archive) as zf:
+                  for info in zf.infolist():
+                      if info.is_dir():
+                          continue
+                      filename=Path(info.filename).name
+                      if Path(filename).suffix.lower() not in {'.png','.jpg','.jpeg','.webp','.gif'}:
+                          continue
+                      if filename in seen:
+                          raise SystemExit(f'HI3 filename collision: {filename}')
+                      seen.add(filename)
+                      data=zf.read(info)
+                      (gallery/filename).write_bytes(data)
+                      rows.append({'filename':filename,'collection':collection,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+          if len(rows) != 150:
+              raise SystemExit(f'Expected 150 HI3 images, got {len(rows)}')
+          rows.sort(key=lambda r:r['filename'].lower())
+          (gallery/'manifest.json').write_text(json.dumps({'schema':'hi3_local_gallery.v2','count':150,'collections':{'Battlesuit Avatars':124,'Male Characters - Option A':26},'files':rows},indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+          cards=''.join(f'<article class="card" data-q="{html.escape(r["filename"].lower())}"><a href="./{html.escape(r["filename"])}"><img loading="lazy" src="./{html.escape(r["filename"])}" alt="{html.escape(r["filename"])}"></a><code>{html.escape(r["filename"])}</code><small>{html.escape(r["collection"])}</small></article>' for r in rows)
+          (gallery/'index.html').write_text(f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HI3 Gallery</title><style>body{{margin:0;background:#07131e;color:#eafaff;font-family:system-ui}}main{{width:min(1400px,calc(100% - 20px));margin:auto;padding:28px 0}}input{{width:100%;padding:12px;background:#0d2232;color:#fff;border:1px solid #28516d;margin:12px 0 18px}}.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}}.card{{border:1px solid #28516d;background:#0d2232;padding:8px}}img{{width:100%;aspect-ratio:1;object-fit:contain;background:#08131d}}code,small{{display:block;font-size:10px;margin-top:6px;overflow-wrap:anywhere}}small{{color:#93b6c9}}</style></head><body><main><h1>Honkai Impact 3rd Gallery</h1><p>150 actual repository image files.</p><input id="q" placeholder="Search filename…"><div class="grid">{cards}</div></main><script>q.oninput=()=>{{let s=q.value.toLowerCase();document.querySelectorAll('.card').forEach(c=>c.style.display=c.dataset.q.includes(s)?'':'none')}}</script></body></html>''',encoding='utf-8')
+          (gallery/'README.md').write_text('# Honkai Impact 3rd Gallery\n\nActual repository image files extracted from the two supplied portrait packs.\n\n- 124 Battlesuit Avatars\n- 26 Male Characters\n- 150 total\n',encoding='utf-8')
+          PY
+
+          G='Sillytavern/Shinobi World/Gallery'
+          mkdir -p "$G"
+          find "$G" -maxdepth 1 -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' -o -iname '*.gif' \) -delete
+
+          expected=$(awk 'NF{n++}END{print n+0}' "$G/sources.tsv")
+          test "$expected" -eq 159
+          failures="$RUNNER_TEMP/shinobi-failures.tsv"
+          : > "$failures"
+
+          while IFS=$'\t' read -r filename url display_name; do
+            test -n "$filename" || continue
+            out="$G/$filename"
+            echo "Downloading $display_name -> $filename"
+            if ! curl --fail --location --silent --show-error \
+              --retry 5 --retry-delay 2 --retry-all-errors \
+              --connect-timeout 20 --max-time 120 \
+              -A 'Mozilla/5.0 GitHubGalleryMaterializer/2.0' \
+              "$url" -o "$out"; then
+              printf '%s\t%s\t%s\n' "$filename" "$url" "$display_name" >> "$failures"
+              rm -f "$out"
+              continue
+            fi
+            mime=$(file --brief --mime-type "$out" || true)
+            case "$mime" in image/*) ;; *) printf '%s\t%s\t%s\n' "$filename" "$url" "$display_name" >> "$failures"; rm -f "$out";; esac
+          done < "$G/sources.tsv"
+
+          if test -s "$failures"; then
+            echo 'Failed Shinobi downloads:' >&2
+            cat "$failures" >&2
+            exit 1
+          fi
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, html, json
+          g=Path('Sillytavern/Shinobi World/Gallery')
+          rows=[]
+          for line in (g/'sources.tsv').read_text(encoding='utf-8').splitlines():
+              if not line.strip(): continue
+              filename,url,name=line.split('\t',2)
+              p=g/filename
+              if not p.is_file() or p.stat().st_size == 0:
+                  raise SystemExit(f'Missing portrait {filename}')
+              rows.append({'name':name,'filename':filename,'source_url':url,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+          if len(rows) != 159: raise SystemExit(f'Expected 159 Shinobi images, got {len(rows)}')
+          (g/'manifest.json').write_text(json.dumps({'schema':'shinobi_world_gallery.v2','base_path':'Sillytavern/Shinobi World/Gallery/','count':159,'files':rows},indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+          cards=''.join(f'<article class="card" data-q="{html.escape((r["name"]+" "+r["filename"]).lower())}"><a href="./{html.escape(r["filename"])}"><img loading="lazy" src="./{html.escape(r["filename"])}" alt="{html.escape(r["name"])}"></a><strong>{html.escape(r["name"])}</strong><code>{html.escape(r["filename"])}</code></article>' for r in rows)
+          (g/'index.html').write_text(f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shinobi World Gallery</title><style>body{{margin:0;background:#0b0906;color:#eee6d7;font-family:system-ui}}main{{width:min(1400px,calc(100% - 20px));margin:auto;padding:28px 0}}input{{width:100%;padding:12px;background:#17110a;color:#fff;border:1px solid #493b28;margin:12px 0 18px}}.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}}.card{{border:1px solid #3e3325;background:#17110a;padding:8px}}img{{width:100%;aspect-ratio:1;object-fit:cover;background:#080604}}strong,code{{display:block;margin-top:7px;font-size:11px}}code{{color:#aa9a80;overflow-wrap:anywhere}}</style></head><body><main><h1>Shinobi World Gallery</h1><p>159 actual repository image files.</p><input id="q" placeholder="Search Naruto, Hinata, Sage Mode…"><div class="grid">{cards}</div></main><script>q.oninput=()=>{{let s=q.value.toLowerCase();document.querySelectorAll('.card').forEach(c=>c.style.display=c.dataset.q.includes(s)?'':'none')}}</script></body></html>''',encoding='utf-8')
+          (g/'README.md').write_text('# Shinobi World Gallery\n\nActual repository-hosted portrait image files: **159**.\n\nUse the exact filename from `manifest.json` in Chronicle character tokens.\n',encoding='utf-8')
+          PY
+
+          rm -f honkai-impact-3-battlesuit-avatars.zip honkai-impact-3-male-avatars-option-a.zip
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git status --short
+          git commit -m 'Materialize actual HI3 and Shinobi gallery images'
+          git push origin HEAD:${{ github.head_ref }}
